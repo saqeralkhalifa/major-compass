@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Major Compass — Find Your University Major | Dr. Saqer AlKhalifa</title>
+<meta name="description" content="A free bilingual (English/Arabic) assessment that helps high-school students in Bahrain and the Gulf discover the top 5 university majors that fit their interests, strengths, and values.">
+<style>
+  :root{
+    --ink:#101418;
+    --ink-2:#4a5158;
+    --ink-3:#8a9199;
+    --paper:#faf9f6;
+    --card:#ffffff;
+    --line:#e6e3dc;
+    --accent:#1c5d99;        /* deep blue accent */
+    --accent-soft:#e8f0f8;
+    --accent-2:#2a78d6;      /* bar/series color */
+    --gold:#b98c2f;
+    --good:#0e7a4d;
+    --radius:14px;
+    --shadow:0 1px 3px rgba(16,20,24,.06), 0 8px 24px rgba(16,20,24,.07);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif;
+    line-height:1.6;
+    min-height:100vh;
+  }
+  [dir="rtl"] body, [dir="rtl"] & {font-family:'Segoe UI', Tahoma, 'Noto Naskh Arabic', 'Geeza Pro', Arial, sans-serif;}
+  .serif{font-family:Georgia, 'Times New Roman', serif;}
+  [dir="rtl"] .serif{font-family:'Noto Naskh Arabic', 'Geeza Pro', 'Traditional Arabic', Georgia, serif;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 20px 80px;}
+
+  /* ---------- header ---------- */
+  header.site{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0 14px; border-bottom:1px solid var(--line); margin-bottom:8px;
+  }
+  .brand{font-size:.95rem; color:var(--ink-2); text-decoration:none; letter-spacing:.02em;}
+  .brand strong{color:var(--ink); font-weight:600;}
+  .lang-toggle{
+    border:1px solid var(--line); background:var(--card); border-radius:999px;
+    padding:7px 16px; font-size:.95rem; cursor:pointer; color:var(--accent);
+    font-weight:600; transition:all .15s;
+  }
+  .lang-toggle:hover{background:var(--accent-soft);}
+
+  /* ---------- screens ---------- */
+  .screen{display:none; animation:fadeIn .35s ease;}
+  .screen.active{display:block;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;}}
+
+  /* ---------- intro ---------- */
+  .hero{text-align:center; padding:44px 0 8px;}
+  .hero .compass{font-size:3rem; line-height:1;}
+  .hero h1{font-size:2.2rem; line-height:1.25; margin:14px 0 6px; font-weight:700;}
+  .hero p.sub{color:var(--ink-2); font-size:1.12rem; max-width:560px; margin:0 auto 10px;}
+  .meta-chips{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:22px 0;}
+  .chip{background:var(--card); border:1px solid var(--line); border-radius:999px; padding:7px 16px; font-size:.9rem; color:var(--ink-2);}
+  .how{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:26px 28px; margin:10px 0 26px; text-align:start;}
+  .how h2{font-size:1.05rem; margin-bottom:12px; color:var(--accent);}
+  .how ol{padding-inline-start:22px; color:var(--ink-2);}
+  .how li{margin-bottom:8px;}
+  .note{font-size:.88rem; color:var(--ink-3); max-width:560px; margin:14px auto 0;}
+  .btn{
+    display:inline-block; border:none; cursor:pointer; text-align:center;
+    background:var(--accent); color:#fff; font-size:1.1rem; font-weight:600;
+    padding:15px 44px; border-radius:999px; transition:transform .12s, box-shadow .12s;
+    box-shadow:0 4px 14px rgba(28,93,153,.3);
+  }
+  .btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(28,93,153,.35);}
+  .btn.secondary{background:var(--card); color:var(--accent); border:1.5px solid var(--accent); box-shadow:none; font-size:.98rem; padding:11px 26px;}
+
+  /* ---------- quiz ---------- */
+  .progress-zone{padding:22px 0 6px;}
+  .progress-meta{display:flex; justify-content:space-between; align-items:center; font-size:.88rem; color:var(--ink-3); margin-bottom:8px;}
+  .section-chip{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-weight:600; font-size:.85rem;}
+  .bar-track{height:8px; background:var(--line); border-radius:999px; overflow:hidden;}
+  .bar-fill{height:100%; width:0%; background:var(--accent); border-radius:999px; transition:width .3s ease;}
+  .qcard{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:30px 30px 26px; margin-top:18px;
+  }
+  .qhint{font-size:.86rem; color:var(--ink-3); margin-bottom:10px;}
+  .qtext{font-size:1.3rem; font-weight:600; line-height:1.45; margin-bottom:20px;}
+  .opts{display:flex; flex-direction:column; gap:10px;}
+  .opt{
+    display:flex; align-items:center; gap:12px; width:100%;
+    background:var(--paper); border:1.5px solid var(--line); border-radius:12px;
+    padding:13px 16px; font-size:1.02rem; cursor:pointer; text-align:start;
+    transition:border-color .12s, background .12s; color:var(--ink); font-family:inherit; line-height:1.45;
+  }
+  .opt:hover{border-color:var(--accent); background:var(--accent-soft);}
+  .opt.selected{border-color:var(--accent); background:var(--accent-soft); font-weight:600;}
+  .opt .emoji{font-size:1.25rem; flex:0 0 auto;}
+  .quiz-nav{display:flex; justify-content:space-between; margin-top:16px;}
+  .navbtn{background:none; border:none; color:var(--ink-3); font-size:.95rem; cursor:pointer; padding:8px 12px; font-family:inherit;}
+  .navbtn:hover{color:var(--accent);}
+  .navbtn:disabled{opacity:0; pointer-events:none;}
+
+  /* ---------- results ---------- */
+  .res-head{text-align:center; padding:36px 0 10px;}
+  .res-head .kicker{color:var(--gold); font-weight:700; letter-spacing:.14em; font-size:.8rem; text-transform:uppercase;}
+  .res-head h1{font-size:2rem; margin:10px 0 6px;}
+  .res-head p{color:var(--ink-2); max-width:540px; margin:0 auto;}
+  .viz-root{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:26px 28px; margin:24px 0;
+    --surface-1:#ffffff; --text-primary:#101418; --text-secondary:#4a5158; --series-1:#2a78d6;
+  }
+  .viz-root h2{font-size:1.05rem; margin-bottom:4px;}
+  .viz-root .viz-sub{font-size:.88rem; color:var(--text-secondary); margin-bottom:18px;}
+  .prow{display:grid; grid-template-columns:minmax(110px,150px) 1fr 44px; align-items:center; gap:12px; margin-bottom:10px;}
+  .prow .plabel{font-size:.94rem; color:var(--text-primary);}
+  .prow .plabel small{display:block; color:var(--text-secondary); font-size:.78rem; line-height:1.2;}
+  .ptrack{height:14px; background:var(--paper); border:1px solid var(--line); border-radius:4px; overflow:hidden; position:relative;}
+  .pfill{height:100%; background:var(--series-1); border-start-start-radius:2px; border-end-start-radius:2px; border-start-end-radius:4px; border-end-end-radius:4px; transition:width .6s ease;}
+  .prow .pval{font-size:.88rem; color:var(--text-secondary); text-align:end; font-variant-numeric:tabular-nums;}
+  .code-line{margin-top:14px; font-size:.95rem; color:var(--ink-2);}
+  .code-line b{color:var(--accent);}
+
+  .majors-title{font-size:1.35rem; margin:30px 0 4px; text-align:center;}
+  .majors-sub{text-align:center; color:var(--ink-2); font-size:.95rem; margin-bottom:18px;}
+  .mcard{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:24px 26px; margin-bottom:16px; position:relative;
+  }
+  .mcard .mtop{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .mrank{
+    flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--accent);
+    color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:1.02rem;
+    align-self:center;
+  }
+  .mname{font-size:1.22rem; font-weight:700;}
+  .mpct{margin-inline-start:auto; font-weight:700; color:var(--accent); font-size:1.05rem; font-variant-numeric:tabular-nums;}
+  .mwhy{color:var(--ink-2); font-size:.98rem; margin:8px 0 10px;}
+  .mcareers{font-size:.92rem; color:var(--ink-2);}
+  .mcareers b{color:var(--ink);}
+  .badge{
+    display:inline-block; background:#eef7f1; color:var(--good); border:1px solid #cde8d8;
+    font-size:.78rem; font-weight:700; border-radius:999px; padding:3px 12px; margin-top:10px;
+  }
+  .res-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:28px 0 10px;}
+  .disclaimer{
+    font-size:.85rem; color:var(--ink-3); text-align:center; max-width:600px; margin:18px auto 0;
+    border-top:1px solid var(--line); padding-top:16px;
+  }
+  footer.site{margin-top:40px; text-align:center; font-size:.85rem; color:var(--ink-3);}
+  footer.site a{color:var(--accent); text-decoration:none;}
+
+  @media (max-width:560px){
+    .hero h1{font-size:1.7rem;}
+    .qtext{font-size:1.15rem;}
+    .qcard{padding:22px 18px;}
+    .prow{grid-template-columns:minmax(88px,110px) 1fr 40px; gap:8px;}
+  }
+  @media print{
+    header.site, .res-actions, .lang-toggle, footer.site{display:none;}
+    body{background:#fff;}
+    .mcard,.viz-root{box-shadow:none; break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="brand" href="https://www.saqeralkhalifa.com" id="brandLink"><strong>Saqer AlKhalifa</strong><span id="brandSep"> · </span><span id="brandSub">saqeralkhalifa.com</span></a>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">عربي</button>
+  </header>
+
+  <!-- INTRO -->
+  <section class="screen active" id="screen-intro">
+    <div class="hero">
+      <div class="compass" aria-hidden="true">🧭</div>
+      <h1 class="serif" id="t-title"></h1>
+      <p class="sub" id="t-sub"></p>
+      <div class="meta-chips">
+        <span class="chip" id="t-chip1"></span>
+        <span class="chip" id="t-chip2"></span>
+        <span class="chip" id="t-chip3"></span>
+      </div>
+    </div>
+    <div class="how">
+      <h2 id="t-how-title"></h2>
+      <ol>
+        <li id="t-how1"></li>
+        <li id="t-how2"></li>
+        <li id="t-how3"></li>
+        <li id="t-how4"></li>
+      </ol>
+    </div>
+    <div style="text-align:center;">
+      <button class="btn" id="startBtn"></button>
+      <p class="note" id="t-note"></p>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="screen" id="screen-quiz">
+    <div class="progress-zone">
+      <div class="progress-meta">
+        <span class="section-chip" id="sectionChip"></span>
+        <span id="qCounter"></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" id="barFill"></div></div>
+    </div>
+    <div class="qcard">
+      <p class="qhint" id="qHint"></p>
+      <p class="qtext" id="qText"></p>
+      <div class="opts" id="optsBox"></div>
+    </div>
+    <div class="quiz-nav">
+      <button class="navbtn" id="backBtn"></button>
+      <span></span>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="screen" id="screen-results">
+    <div class="res-head">
+      <p class="kicker" id="r-kicker"></p>
+      <h1 class="serif" id="r-headline"></h1>
+      <p id="r-desc"></p>
+    </div>
+
+    <div class="viz-root" id="profileViz">
+      <h2 id="r-viz-title"></h2>
+      <p class="viz-sub" id="r-viz-sub"></p>
+      <div id="vizRows"></div>
+      <p class="code-line" id="r-codeline"></p>
+    </div>
+
+    <h2 class="majors-title serif" id="r-majors-title"></h2>
+    <p class="majors-sub" id="r-majors-sub"></p>
+    <div id="majorCards"></div>
+
+    <div class="res-actions">
+      <button class="btn secondary" id="retakeBtn"></button>
+      <button class="btn secondary" id="printBtn"></button>
+      <button class="btn secondary" id="shareBtn"></button>
+    </div>
+    <p class="disclaimer" id="r-disclaimer"></p>
+  </section>
+
+  <footer class="site" id="siteFooter"></footer>
+</div>
+
+<script>
+/* ============================================================
+   Major Compass — bilingual university-major assessment
+   Method: RIASEC interests (O*NET-style public-domain items)
+   + self-rated & tested aptitudes + work values, matched
+   against a Bahrain/GCC-grounded database of 31 majors.
+   ============================================================ */
+"use strict";
+
+/* ---------------- UI strings ---------------- */
+const UI = {
+  en: {
+    title: "Major Compass",
+    sub: "Not sure what to study at university? Answer 34 quick questions and discover the five majors that fit you best.",
+    chip1: "⏱ About 8–10 minutes",
+    chip2: "❓ 34 questions",
+    chip3: "🎓 Top 5 majors for you",
+    howTitle: "How it works",
+    how1: "Your interests — what activities you'd actually enjoy (there are no wrong answers).",
+    how2: "Your school subjects and strengths.",
+    how3: "A few quick mind puzzles — these ones do have right answers, so do your best.",
+    how4: "What matters to you in a future career.",
+    start: "Start the assessment",
+    note: "Tip: answer honestly, not how you think you “should” answer. Ignore money and prestige — imagine all careers pay the same. This is a guidance tool to explore options, not a final verdict.",
+    back: "← Back",
+    qOf: (a,b)=>`Question ${a} of ${b}`,
+    sections: ["Your interests","School & strengths","Mind puzzles","What matters to you"],
+    likertHint: "How would you feel about doing this? (Ignore money or prestige — just whether you'd enjoy it.)",
+    puzzleHint: "Puzzle — this one has a right answer. No calculator needed.",
+    pickHint: "Choose the answer that fits you best.",
+    likert: ["Strongly dislike","Dislike","Not sure","Like","Strongly like"],
+    likertEmoji: ["😖","🙁","😐","🙂","😍"],
+    kicker: "Your results",
+    headline: (arch)=>`You are ${arch}`,
+    resDesc: "Based on your interests, strengths, puzzle performance, and values, here is your personal profile and the university majors that fit it best.",
+    vizTitle: "Your interest profile",
+    vizSub: "The six career-interest dimensions (Holland/RIASEC model) — longer bars mean stronger interest.",
+    codeLine: (code)=>`Your interest code: <b>${code}</b> — your strongest three dimensions, used to match majors.`,
+    majorsTitle: "Your top 5 majors",
+    majorsSub: "Ranked by fit with your profile. Tap any career idea and research it further — then talk it through with people in the field.",
+    whyLabel: "Why it fits you:",
+    careersLabel: "Possible careers:",
+    demandBadge: "⭐ High demand in Bahrain & the GCC",
+    retake: "Retake",
+    print: "Save / Print results",
+    share: "Share this quiz",
+    shareCopied: "Link copied — share it with your friends!",
+    disclaimer: "This assessment is an exploration tool based on established career-interest research (Holland RIASEC model and public-domain O*NET Interest Profiler items, combined with aptitude and work-value measures). It is guidance, not a decision made for you: use your results as a starting point for research, conversations with counselors, family, and professionals — and trust your own judgment.",
+    footer: 'Prepared by <a href="https://www.saqeralkhalifa.com">Dr. Saqer AlKhalifa</a> · Free for all students',
+    matchWord: "match",
+    andWord: " and ",
+    whyInterest: (names)=>`Strong match with your ${names} interests`,
+    whyValue: (names)=>`fits your drive for ${names}`,
+    whyApt: (names)=>`uses your ${names} strengths`,
+  },
+  ar: {
+    title: "بوصلة التخصص",
+    sub: "محتار ماذا تدرس في الجامعة؟ أجب عن ٣٤ سؤالًا سريعًا واكتشف التخصصات الخمسة الأنسب لك.",
+    chip1: "⏱ حوالي ٨–١٠ دقائق",
+    chip2: "❓ ٣٤ سؤالًا",
+    chip3: "🎓 أفضل ٥ تخصصات لك",
+    howTitle: "كيف يعمل الاختبار؟",
+    how1: "اهتماماتك — الأنشطة التي تستمتع بها فعلًا (لا توجد إجابات خاطئة).",
+    how2: "موادك الدراسية ونقاط قوتك.",
+    how3: "ألغاز ذهنية سريعة — هذه لها إجابات صحيحة، فابذل جهدك.",
+    how4: "ما يهمّك في مستقبلك المهني.",
+    start: "ابدأ الاختبار",
+    note: "نصيحة: أجب بصدق، لا كما “يجب” أن تجيب. تجاهل المال والمكانة الاجتماعية — تخيّل أن كل المهن براتب واحد. هذا الاختبار أداة إرشادية لاستكشاف الخيارات، وليس حكمًا نهائيًا.",
+    back: "→ رجوع",
+    qOf: (a,b)=>`السؤال ${a} من ${b}`,
+    sections: ["اهتماماتك","دراستك ونقاط قوتك","ألغاز ذهنية","ما يهمّك"],
+    likertHint: "ما شعورك تجاه هذا النشاط؟ (تجاهل المال والمكانة — المهم هل تستمتع به؟)",
+    puzzleHint: "لغز — لهذا السؤال إجابة صحيحة. لا حاجة إلى آلة حاسبة.",
+    pickHint: "اختر الإجابة الأقرب إليك.",
+    likert: ["أرفضه بشدة","لا يعجبني","لست متأكدًا","يعجبني","أحبه كثيرًا"],
+    likertEmoji: ["😖","🙁","😐","🙂","😍"],
+    kicker: "نتيجتك",
+    headline: (arch)=>`أنت ${arch}`,
+    resDesc: "بناءً على اهتماماتك ونقاط قوتك وأدائك في الألغاز وقيمك، هذا ملفك الشخصي والتخصصات الجامعية الأنسب له.",
+    vizTitle: "ملف اهتماماتك",
+    vizSub: "أبعاد الميول المهنية الستة (نموذج هولاند RIASEC) — كلما طال الشريط زاد اهتمامك.",
+    codeLine: (code)=>`رمز اهتماماتك: <b>${code}</b> — أقوى ثلاثة أبعاد لديك، وتُستخدم لمطابقة التخصصات.`,
+    majorsTitle: "أفضل ٥ تخصصات لك",
+    majorsSub: "مرتبة حسب توافقها مع ملفك الشخصي. ابحث أكثر عن كل تخصص، وناقشه مع مختصين في المجال.",
+    whyLabel: "لماذا يناسبك:",
+    careersLabel: "مهن ممكنة:",
+    demandBadge: "⭐ طلب مرتفع في البحرين والخليج",
+    retake: "إعادة الاختبار",
+    print: "حفظ / طباعة النتيجة",
+    share: "شارك الاختبار",
+    shareCopied: "تم نسخ الرابط — شاركه مع أصدقائك!",
+    disclaimer: "هذا الاختبار أداة استكشافية تستند إلى أبحاث الميول المهنية الراسخة (نموذج هولاند RIASEC وبنود O*NET Interest Profiler المتاحة للعموم، مع مقاييس القدرات والقيم المهنية). هو إرشاد لا قرار نهائي: استخدم نتيجتك نقطة انطلاق للبحث والحوار مع المرشدين وأهلك والمختصين — وثق بحكمك الشخصي.",
+    footer: 'إعداد <a href="https://www.saqeralkhalifa.com">د. صقر آل خليفة</a> · مجاني لجميع الطلبة',
+    matchWord: "توافق",
+    andWord: " و",
+    whyInterest: (names)=>`توافق قوي مع ميولك ${names}`,
+    whyValue: (names)=>`ينسجم مع ميلك إلى ${names}`,
+    whyApt: (names)=>`يستفيد من قوتك في ${names}`,
+  }
+};
+
+/* dimension display names */
+const DIMS = {
+  R:{en:"Hands-on (Realistic)", enShort:"Hands-on", ar:"العملي (الواقعي)", arShort:"العملي", adjEn:"a Hands-on", adjAr:"العملي"},
+  I:{en:"Thinker (Investigative)", enShort:"Thinker", ar:"المفكر (الاستقصائي)", arShort:"المفكر", adjEn:"an Analytical", adjAr:"المفكر"},
+  A:{en:"Creator (Artistic)", enShort:"Creator", ar:"المبدع (الفني)", arShort:"المبدع", adjEn:"a Creative", adjAr:"المبدع"},
+  S:{en:"Helper (Social)", enShort:"Helper", ar:"المساعد (الاجتماعي)", arShort:"المساعد", adjEn:"a People-focused", adjAr:"الاجتماعي"},
+  E:{en:"Leader (Enterprising)", enShort:"Leader", ar:"القيادي (الريادي)", arShort:"القيادي", adjEn:"an Enterprising", adjAr:"القيادي"},
+  C:{en:"Organizer (Conventional)", enShort:"Organizer", ar:"المنظم (التقليدي)", arShort:"المنظم", adjEn:"an Organized", adjAr:"المنظم"}
+};
+const VALS = {
+  helping:{en:"helping people", ar:"مساعدة الناس"},
+  building:{en:"building and making things", ar:"البناء وصنع الأشياء"},
+  analyzing:{en:"analyzing and understanding", ar:"التحليل والفهم"},
+  leading:{en:"leading and business", ar:"القيادة والأعمال"},
+  creating:{en:"creativity and expression", ar:"الإبداع والتعبير"},
+  structure:{en:"order and precision", ar:"التنظيم والدقة"}
+};
+const APTS = {
+  num:{en:"numerical", ar:"الأرقام"},
+  verb:{en:"verbal and language", ar:"اللغة والتعبير"},
+  log:{en:"logical reasoning", ar:"التفكير المنطقي"},
+  spat:{en:"visual-spatial", ar:"التصور البصري والمكاني"}
+};
+
+/* ---------------- Questions ----------------
+   type "likert": O*NET-style activity, 5-point scale, dim gets 0..4
+   type "mc": options carry weight objects {riasec:{}, vals:{}, apts:{}}
+   type "puzzle": options carry correct:true; apt gets +2 for correct
+--------------------------------------------- */
+const QUESTIONS = [
+  /* ===== Section 0: Interests (RIASEC, interleaved R,I,A,S,E,C ×2) ===== */
+  {sec:0, type:"likert", dim:"R", t:{en:"Repair a machine or fix a broken electronic device", ar:"تصليح آلة أو إصلاح جهاز إلكتروني معطّل"}},
+  {sec:0, type:"likert", dim:"I", t:{en:"Carry out experiments in a science lab", ar:"إجراء تجارب في مختبر علمي"}},
+  {sec:0, type:"likert", dim:"A", t:{en:"Design a poster, a logo, or a short video", ar:"تصميم ملصق أو شعار أو فيديو قصير"}},
+  {sec:0, type:"likert", dim:"S", t:{en:"Help a friend work through a personal problem", ar:"مساعدة صديق في تجاوز مشكلة شخصية"}},
+  {sec:0, type:"likert", dim:"E", t:{en:"Start and run your own small business", ar:"تأسيس مشروعك التجاري الصغير وإدارته"}},
+  {sec:0, type:"likert", dim:"C", t:{en:"Organize records and schedules so everything runs smoothly", ar:"تنظيم السجلات والجداول حتى يسير كل شيء بدقة"}},
+  {sec:0, type:"likert", dim:"R", t:{en:"Build or assemble things with your hands (furniture, models, drones)", ar:"بناء أو تركيب أشياء بيديك (أثاث، مجسّمات، طائرات درون)"}},
+  {sec:0, type:"likert", dim:"I", t:{en:"Study data to discover why something happens (for example, how a disease spreads)", ar:"دراسة البيانات لاكتشاف سبب حدوث ظاهرة (مثل كيفية انتشار مرض ما)"}},
+  {sec:0, type:"likert", dim:"A", t:{en:"Write stories, articles, or scripts", ar:"كتابة القصص أو المقالات أو النصوص"}},
+  {sec:0, type:"likert", dim:"S", t:{en:"Teach a new skill to a younger student", ar:"تعليم مهارة جديدة لطالب أصغر منك"}},
+  {sec:0, type:"likert", dim:"E", t:{en:"Convince people to support your idea or project", ar:"إقناع الآخرين بدعم فكرتك أو مشروعك"}},
+  {sec:0, type:"likert", dim:"C", t:{en:"Work with spreadsheets and detailed calculations", ar:"العمل على جداول البيانات والحسابات الدقيقة"}},
+
+  /* ===== Section 1: School & strengths ===== */
+  {sec:1, type:"mc", t:{en:"Which school subject do you most look forward to?", ar:"أي مادة دراسية تنتظر حصتها بشوق؟"}, opts:[
+    {t:{en:"Mathematics", ar:"الرياضيات"}, w:{riasec:{I:2,C:1}, apts:{num:2}}},
+    {t:{en:"Sciences (physics, chemistry, biology)", ar:"العلوم (فيزياء، كيمياء، أحياء)"}, w:{riasec:{I:3}, apts:{log:1}}},
+    {t:{en:"Languages & literature", ar:"اللغات والأدب"}, w:{riasec:{A:2,S:1}, apts:{verb:2}}},
+    {t:{en:"Business & economics", ar:"إدارة الأعمال والاقتصاد"}, w:{riasec:{E:3}, apts:{num:1}}},
+    {t:{en:"Art & design", ar:"الفنون والتصميم"}, w:{riasec:{A:3}, apts:{spat:2}}},
+    {t:{en:"Computing / IT", ar:"الحاسوب وتقنية المعلومات"}, w:{riasec:{I:2,C:1}, apts:{log:2}}},
+    {t:{en:"History & social studies", ar:"التاريخ والدراسات الاجتماعية"}, w:{riasec:{I:1,S:2}, apts:{verb:1}}},
+    {t:{en:"PE & sports", ar:"التربية الرياضية"}, w:{riasec:{R:2,S:1}}}
+  ]},
+  {sec:1, type:"mc", t:{en:"If you could drop one subject tomorrow, which would it be?", ar:"لو استطعت حذف مادة واحدة من جدولك غدًا، فأيّها تختار؟"}, opts:[
+    {t:{en:"Mathematics", ar:"الرياضيات"}, w:{riasec:{I:-1,C:-1}, apts:{num:-2}}},
+    {t:{en:"Sciences", ar:"العلوم"}, w:{riasec:{I:-2}}},
+    {t:{en:"Languages & literature", ar:"اللغات والأدب"}, w:{riasec:{A:-2}, apts:{verb:-1}}},
+    {t:{en:"Business & economics", ar:"إدارة الأعمال والاقتصاد"}, w:{riasec:{E:-2}}},
+    {t:{en:"Art & design", ar:"الفنون والتصميم"}, w:{riasec:{A:-2}, apts:{spat:-1}}},
+    {t:{en:"Computing / IT", ar:"الحاسوب وتقنية المعلومات"}, w:{riasec:{I:-1,C:-1}, apts:{log:-1}}},
+    {t:{en:"History & social studies", ar:"التاريخ والدراسات الاجتماعية"}, w:{riasec:{S:-1}, apts:{verb:-1}}},
+    {t:{en:"PE & sports", ar:"التربية الرياضية"}, w:{riasec:{R:-2}}}
+  ]},
+  {sec:1, type:"mc", t:{en:"Doing which of these makes you lose track of time?", ar:"أثناء أيّ من هذه الأنشطة تنسى الوقت تمامًا؟"}, opts:[
+    {t:{en:"Solving a hard puzzle or problem", ar:"حل مسألة أو لغز صعب"}, w:{riasec:{I:2}, vals:{analyzing:2}}},
+    {t:{en:"Designing or making something new", ar:"تصميم أو صنع شيء جديد"}, w:{riasec:{A:2}, vals:{creating:2}}},
+    {t:{en:"Helping someone with their work or problems", ar:"مساعدة شخص في عمله أو مشكلته"}, w:{riasec:{S:2}, vals:{helping:2}}},
+    {t:{en:"Planning and organizing an event or a trip", ar:"تخطيط وتنظيم فعالية أو رحلة"}, w:{riasec:{C:2}, vals:{structure:2}}},
+    {t:{en:"Leading a team toward a goal", ar:"قيادة فريق نحو هدف"}, w:{riasec:{E:2}, vals:{leading:2}}},
+    {t:{en:"Fixing, building, or working with your hands", ar:"إصلاح أو بناء أو عمل يدوي"}, w:{riasec:{R:2}, vals:{building:2}}}
+  ]},
+  {sec:1, type:"mc", t:{en:"Your favorite teacher would most likely describe you as…", ar:"غالبًا سيصفك معلمك المفضل بأنك…"}, opts:[
+    {t:{en:"Analytical — asks “why” about everything", ar:"محلّل — تسأل «لماذا» عن كل شيء"}, w:{riasec:{I:2}, vals:{analyzing:1}}},
+    {t:{en:"Creative — full of original ideas", ar:"مبدع — مليء بالأفكار الأصيلة"}, w:{riasec:{A:2}, vals:{creating:1}}},
+    {t:{en:"Caring — always supporting classmates", ar:"متعاون — تدعم زملاءك دائمًا"}, w:{riasec:{S:2}, vals:{helping:1}}},
+    {t:{en:"Persuasive — a natural leader", ar:"مقنع — قائد بالفطرة"}, w:{riasec:{E:2}, vals:{leading:1}}},
+    {t:{en:"Organized — precise and reliable", ar:"منظم — دقيق ويُعتمد عليه"}, w:{riasec:{C:2}, vals:{structure:1}}},
+    {t:{en:"Practical — good at getting things done", ar:"عملي — بارع في إنجاز المهام"}, w:{riasec:{R:2}, vals:{building:1}}}
+  ]},
+  {sec:1, type:"mc", t:{en:"How strong are you with numbers and mental math?", ar:"ما مدى قوتك في الأرقام والحساب الذهني؟"}, opts:[
+    {t:{en:"Not really my thing", ar:"ليست نقطة قوتي"}, w:{apts:{num:0}}},
+    {t:{en:"OK — I manage", ar:"مقبول — أتدبر أمري"}, w:{apts:{num:1}}},
+    {t:{en:"Good — better than most classmates", ar:"جيد — أفضل من أغلب زملائي"}, w:{apts:{num:2}}},
+    {t:{en:"One of my strongest skills", ar:"من أقوى مهاراتي"}, w:{apts:{num:3}}}
+  ]},
+  {sec:1, type:"mc", t:{en:"How good are you at explaining ideas in words, spoken or written?", ar:"ما مدى براعتك في شرح الأفكار بالكلام أو الكتابة؟"}, opts:[
+    {t:{en:"Not really my thing", ar:"ليست نقطة قوتي"}, w:{apts:{verb:0}}},
+    {t:{en:"OK — I manage", ar:"مقبول — أتدبر أمري"}, w:{apts:{verb:1}}},
+    {t:{en:"Good — people say I explain things well", ar:"جيد — يقول الناس إني أشرح جيدًا"}, w:{apts:{verb:2}}},
+    {t:{en:"One of my strongest skills", ar:"من أقوى مهاراتي"}, w:{apts:{verb:3}}}
+  ]},
+  {sec:1, type:"mc", t:{en:"How easily can you picture objects in 3D — reading maps, diagrams, or imagining how parts fit together?", ar:"ما مدى سهولة تخيلك للأجسام ثلاثية الأبعاد — قراءة الخرائط والرسوم، أو تخيل كيف تتركب الأجزاء؟"}, opts:[
+    {t:{en:"Not really my thing", ar:"ليست نقطة قوتي"}, w:{apts:{spat:0}}},
+    {t:{en:"OK — I manage", ar:"مقبول — أتدبر أمري"}, w:{apts:{spat:1}}},
+    {t:{en:"Good — I rarely get lost or confused by diagrams", ar:"جيد — نادرًا ما أتوه أو تربكني الرسوم"}, w:{apts:{spat:2}}},
+    {t:{en:"One of my strongest skills", ar:"من أقوى مهاراتي"}, w:{apts:{spat:3}}}
+  ]},
+  {sec:1, type:"mc", t:{en:"When you face a completely new type of problem, how quickly do you usually figure out the trick?", ar:"عندما تواجه نوعًا جديدًا تمامًا من المسائل، ما مدى سرعتك عادة في اكتشاف الفكرة؟"}, opts:[
+    {t:{en:"I usually need someone to show me first", ar:"غالبًا أحتاج من يريني الطريقة أولًا"}, w:{apts:{log:0}}},
+    {t:{en:"I get there with some time", ar:"أصل إلى الحل مع بعض الوقت"}, w:{apts:{log:1}}},
+    {t:{en:"Fairly quickly", ar:"بسرعة معقولة"}, w:{apts:{log:2}}},
+    {t:{en:"Very quickly — I love figuring out new things", ar:"بسرعة كبيرة — أحب اكتشاف الجديد"}, w:{apts:{log:3}}}
+  ]},
+
+  /* ===== Section 2: Mind puzzles (right answers; +2 to aptitude) ===== */
+  {sec:2, type:"puzzle", apt:"num", t:{en:"A jacket costs 20 dinars. In a sale, its price is reduced by 25%. What is the sale price?", ar:"سترة ثمنها ٢٠ دينارًا. في تخفيضات، انخفض سعرها بنسبة ٢٥٪. كم يصبح سعرها؟"}, opts:[
+    {t:{en:"12 dinars", ar:"١٢ دينارًا"}}, {t:{en:"14 dinars", ar:"١٤ دينارًا"}}, {t:{en:"15 dinars", ar:"١٥ دينارًا"}, correct:true}, {t:{en:"16 dinars", ar:"١٦ دينارًا"}}
+  ]},
+  {sec:2, type:"puzzle", apt:"num", t:{en:"A number increased by 20% equals 60. What was the original number?", ar:"عدد زِيد بنسبة ٢٠٪ فأصبح ٦٠. ما العدد الأصلي؟"}, opts:[
+    {t:{en:"40", ar:"٤٠"}}, {t:{en:"48", ar:"٤٨"}}, {t:{en:"50", ar:"٥٠"}, correct:true}, {t:{en:"52", ar:"٥٢"}}
+  ]},
+  {sec:2, type:"puzzle", apt:"log", t:{en:"What comes next in this series? 2, 4, 7, 11, …", ar:"ما العدد التالي في هذه السلسلة؟ ٢، ٤، ٧، ١١، …"}, opts:[
+    {t:{en:"14", ar:"١٤"}}, {t:{en:"15", ar:"١٥"}}, {t:{en:"16", ar:"١٦"}, correct:true}, {t:{en:"18", ar:"١٨"}}
+  ]},
+  {sec:2, type:"puzzle", apt:"log", t:{en:"Some doctors are pilots. All pilots wear uniforms. Which statement MUST be true?", ar:"بعض الأطباء طيارون، وكل الطيارين يرتدون زيًا رسميًا. أي عبارة صحيحة بالضرورة؟"}, opts:[
+    {t:{en:"All doctors wear uniforms", ar:"كل الأطباء يرتدون زيًا رسميًا"}},
+    {t:{en:"Some doctors wear uniforms", ar:"بعض الأطباء يرتدون زيًا رسميًا"}, correct:true},
+    {t:{en:"No doctors wear uniforms", ar:"لا أحد من الأطباء يرتدي زيًا رسميًا"}},
+    {t:{en:"Everyone who wears a uniform is a pilot", ar:"كل من يرتدي زيًا رسميًا طيار"}}
+  ]},
+  {sec:2, type:"puzzle", apt:"verb", t:{en:"Water is to thirst as food is to …", ar:"الماء للعطش كما الطعام لـ…"}, opts:[
+    {t:{en:"Hunger", ar:"الجوع"}, correct:true}, {t:{en:"Kitchen", ar:"المطبخ"}}, {t:{en:"Eating", ar:"الأكل"}}, {t:{en:"Plate", ar:"الصحن"}}
+  ]},
+  {sec:2, type:"puzzle", apt:"verb", t:{en:"Which word does NOT belong with the others?", ar:"أي كلمة لا تنتمي إلى المجموعة؟"}, opts:[
+    {t:{en:"Apple", ar:"تفاح"}}, {t:{en:"Banana", ar:"موز"}}, {t:{en:"Carrot", ar:"جزر"}, correct:true}, {t:{en:"Mango", ar:"مانجو"}}
+  ]},
+  {sec:2, type:"puzzle", apt:"spat", t:{en:"You fold a square sheet of paper in half, then in half again, and punch ONE hole through all the layers. How many holes are there when you unfold it?", ar:"طويت ورقة مربعة من المنتصف، ثم من المنتصف مرة أخرى، وثقبتها ثقبًا واحدًا عبر كل الطبقات. كم ثقبًا تجد عند فتحها بالكامل؟"}, opts:[
+    {t:{en:"2", ar:"٢"}}, {t:{en:"3", ar:"٣"}}, {t:{en:"4", ar:"٤"}, correct:true}, {t:{en:"8", ar:"٨"}}
+  ]},
+  {sec:2, type:"puzzle", apt:"spat", t:{en:"An arrow points up (⬆️). You rotate it 90° clockwise. Which way does it point now?", ar:"سهم يشير إلى الأعلى (⬆️). أدرته ٩٠ درجة باتجاه عقارب الساعة. إلى أين يشير الآن؟"}, opts:[
+    {t:{en:"Up ⬆️", ar:"إلى الأعلى ⬆️"}}, {t:{en:"Down ⬇️", ar:"إلى الأسفل ⬇️"}}, {t:{en:"Left ⬅️", ar:"إلى اليسار ⬅️"}}, {t:{en:"Right ➡️", ar:"إلى اليمين ➡️"}, correct:true}
+  ]},
+
+  /* ===== Section 3: What matters to you ===== */
+  {sec:3, type:"mc", t:{en:"Imagine every job paid exactly the same salary. Which would you choose?", ar:"تخيّل أن كل الوظائف براتب واحد تمامًا. أيّها تختار؟"}, opts:[
+    {t:{en:"Treat and care for patients", ar:"علاج المرضى والاعتناء بهم"}, w:{riasec:{S:1}, vals:{helping:3}}},
+    {t:{en:"Design a building or a bridge", ar:"تصميم مبنى أو جسر"}, w:{riasec:{R:1}, vals:{building:2,creating:1}}},
+    {t:{en:"Analyze data to solve a big problem", ar:"تحليل البيانات لحل مشكلة كبيرة"}, w:{riasec:{I:1}, vals:{analyzing:3}}},
+    {t:{en:"Lead a company and manage a team", ar:"قيادة شركة وإدارة فريق"}, w:{riasec:{E:1}, vals:{leading:3}}},
+    {t:{en:"Create films, designs, or campaigns", ar:"صناعة أفلام أو تصاميم أو حملات إبداعية"}, w:{riasec:{A:1}, vals:{creating:3}}},
+    {t:{en:"Keep a huge project organized and on schedule", ar:"إبقاء مشروع ضخم منظمًا وملتزمًا بالجدول"}, w:{riasec:{C:1}, vals:{structure:3}}}
+  ]},
+  {sec:3, type:"mc", t:{en:"Ten years from now, success for you mainly means…", ar:"بعد عشر سنوات، النجاح بالنسبة لك يعني أساسًا…"}, opts:[
+    {t:{en:"I made people's lives better", ar:"أنني حسّنت حياة الناس"}, w:{riasec:{S:1}, vals:{helping:2}}},
+    {t:{en:"I built things that will last", ar:"أنني بنيت أشياء ستدوم"}, w:{riasec:{R:1}, vals:{building:2}}},
+    {t:{en:"I became a deep expert who truly understands my field", ar:"أنني أصبحت خبيرًا متعمقًا يفهم مجاله حقًا"}, w:{riasec:{I:1}, vals:{analyzing:2}}},
+    {t:{en:"I run my own successful business", ar:"أنني أدير مشروعي التجاري الناجح"}, w:{riasec:{E:1}, vals:{leading:2}}},
+    {t:{en:"I'm known for my creativity", ar:"أنني معروف بإبداعي"}, w:{riasec:{A:1}, vals:{creating:2}}},
+    {t:{en:"I have a stable, respected career", ar:"أن لديّ مسيرة مهنية مستقرة ومحترمة"}, w:{riasec:{C:1}, vals:{structure:2}}}
+  ]},
+  {sec:3, type:"mc", t:{en:"Pick your ideal place to spend a working day:", ar:"اختر المكان المثالي لقضاء يوم عملك:"}, opts:[
+    {t:{en:"A hospital or clinic", ar:"مستشفى أو عيادة"}, w:{riasec:{S:2}, vals:{helping:1}}},
+    {t:{en:"A science or technology lab", ar:"مختبر علمي أو تقني"}, w:{riasec:{I:2}, vals:{analyzing:1}}},
+    {t:{en:"A creative studio", ar:"استوديو إبداعي"}, w:{riasec:{A:2}, vals:{creating:1}}},
+    {t:{en:"The office of my own startup", ar:"مكتب شركتي الناشئة"}, w:{riasec:{E:2}, vals:{leading:1}}},
+    {t:{en:"A workshop, a work site, or outdoors", ar:"ورشة أو موقع عمل أو في الهواء الطلق"}, w:{riasec:{R:2}, vals:{building:1}}},
+    {t:{en:"A well-organized office with clear systems", ar:"مكتب منظم بأنظمة واضحة"}, w:{riasec:{C:2}, vals:{structure:1}}}
+  ]},
+  {sec:3, type:"mc", t:{en:"In a group project, which role do you naturally take?", ar:"في مشروع جماعي، أي دور تتولاه تلقائيًا؟"}, opts:[
+    {t:{en:"I make the plan and the timeline", ar:"أضع الخطة والجدول الزمني"}, w:{riasec:{C:2}, vals:{structure:1}}},
+    {t:{en:"I present our work to the class", ar:"أعرض عملنا أمام الصف"}, w:{riasec:{E:2}, vals:{leading:1}}},
+    {t:{en:"I do the research and dig for information", ar:"أتولى البحث والتنقيب عن المعلومات"}, w:{riasec:{I:2}, vals:{analyzing:1}}},
+    {t:{en:"I design the slides and visuals", ar:"أصمم العرض والمرئيات"}, w:{riasec:{A:2}, vals:{creating:1}}},
+    {t:{en:"I keep the team working happily together", ar:"أحافظ على انسجام الفريق وتعاونه"}, w:{riasec:{S:2}, vals:{helping:1}}},
+    {t:{en:"I handle the practical, hands-on parts", ar:"أتولى الجوانب العملية والتنفيذية"}, w:{riasec:{R:2}, vals:{building:1}}}
+  ]},
+  {sec:3, type:"mc", special:"years", t:{en:"How many years are you willing to study at university?", ar:"كم سنة أنت مستعد للدراسة في الجامعة؟"}, opts:[
+    {t:{en:"As long as it takes — even 6+ years (like medicine)", ar:"ما يلزم من سنوات — حتى ٦ سنوات أو أكثر (مثل الطب)"}, years:"any"},
+    {t:{en:"Up to 5 years is fine", ar:"حتى ٥ سنوات مقبول"}, years:"medium"},
+    {t:{en:"Around 4 years, please", ar:"حوالي ٤ سنوات فقط"}, years:"four"},
+    {t:{en:"The shortest practical route to a good job", ar:"أقصر طريق عملي لوظيفة جيدة"}, years:"short"}
+  ]},
+  {sec:3, type:"mc", special:"avoid", t:{en:"Be honest — which of these would you most want to AVOID in your daily work?", ar:"بصراحة — أيّ من هذه تريد تجنّبه في عملك اليومي أكثر شيء؟"}, opts:[
+    {t:{en:"Blood, hospitals, and sick people", ar:"الدم والمستشفيات والمرضى"}, avoid:"medical"},
+    {t:{en:"Lots of advanced mathematics", ar:"الكثير من الرياضيات المتقدمة"}, avoid:"math"},
+    {t:{en:"Speaking in front of people all the time", ar:"التحدث أمام الناس طوال الوقت"}, avoid:"speaking"},
+    {t:{en:"Sitting at a desk doing routine tasks", ar:"الجلوس المكتبي والمهام الروتينية"}, avoid:"routine"},
+    {t:{en:"Physical or outdoor work", ar:"العمل البدني أو الميداني"}, avoid:"physical"},
+    {t:{en:"None of these bother me", ar:"لا شيء من هذا يزعجني"}, avoid:"none"}
+  ]}
+];
+
+/* ---------------- Majors database (Bahrain/GCC-grounded) ----------------
+   riasec: [primary, secondary, (tertiary)] weighted 3/2/1
+   apts: aptitudes the major leans on; vals: work-values it serves
+   demand: aligned with Bahrain EDB / GCC Vision-2030 priority sectors
+   years: "long" = 6+ year path;  avoidHit: {category: multiplier}
+------------------------------------------------------------------------- */
+const MAJORS = [
+  {id:"med", n:{en:"Medicine", ar:"الطب البشري"}, riasec:["I","S"], apts:["log","num","verb"], vals:["helping","analyzing"], demand:true, years:"long",
+   avoidHit:{medical:.3},
+   d:{en:"For strong science students who want to understand the human body and care for people directly.", ar:"لطلبة العلوم المتفوقين الراغبين في فهم جسم الإنسان ورعاية الناس مباشرة."},
+   c:{en:["Physician","Surgeon","Medical researcher","Public-health specialist"], ar:["طبيب","جرّاح","باحث طبي","أخصائي صحة عامة"]}},
+  {id:"dent", n:{en:"Dentistry", ar:"طب الأسنان"}, riasec:["I","R","S"], apts:["spat","log"], vals:["helping","building"], demand:false, years:"long",
+   avoidHit:{medical:.3},
+   d:{en:"Combines medical science with fine hand skills — you literally build and repair with your hands.", ar:"يجمع العلوم الطبية مع مهارات يدوية دقيقة — عمل بنائي وإصلاحي بيديك حرفيًا."},
+   c:{en:["Dentist","Orthodontist","Oral surgeon","Dental public-health officer"], ar:["طبيب أسنان","أخصائي تقويم","جرّاح فم","مسؤول صحة الفم العامة"]}},
+  {id:"pharm", n:{en:"Pharmacy", ar:"الصيدلة"}, riasec:["I","C","S"], apts:["num","log"], vals:["helping","structure","analyzing"], demand:false, years:"std",
+   avoidHit:{medical:.7},
+   d:{en:"The science of medicines — precise, chemistry-based, and patient-facing without surgery or blood.", ar:"علم الأدوية — دقيق، قائم على الكيمياء، وقريب من المرضى دون جراحة أو دم."},
+   c:{en:["Clinical pharmacist","Community pharmacist","Drug-safety officer","Pharma industry specialist"], ar:["صيدلي سريري","صيدلي مجتمعي","مسؤول سلامة دوائية","أخصائي صناعات دوائية"]}},
+  {id:"nurs", n:{en:"Nursing", ar:"التمريض"}, riasec:["S","I","C"], apts:["verb","log"], vals:["helping","structure"], demand:true, years:"std",
+   avoidHit:{medical:.3},
+   d:{en:"Hands-on patient care with strong job security across Bahrain and the GCC.", ar:"رعاية مباشرة للمرضى مع أمان وظيفي قوي في البحرين والخليج."},
+   c:{en:["Registered nurse","ICU / ER nurse","Midwife","Nurse educator"], ar:["ممرض مسجل","ممرض عناية مركزة وطوارئ","قابلة قانونية","مثقف صحي تمريضي"]}},
+  {id:"biomed", n:{en:"Biomedical & Lab Science", ar:"العلوم الطبية المخبرية"}, riasec:["I","R","C"], apts:["log","num"], vals:["analyzing","helping","structure"], demand:false, years:"std",
+   avoidHit:{medical:.5},
+   d:{en:"The detective work of healthcare — running the lab tests and scans that diagnoses depend on.", ar:"العمل الاستقصائي في الرعاية الصحية — إجراء الفحوصات المخبرية والأشعة التي يُبنى عليها التشخيص."},
+   c:{en:["Medical lab scientist","Radiographer","Biomedical researcher","Hospital lab supervisor"], ar:["أخصائي مختبرات طبية","فني أشعة","باحث طبي حيوي","مشرف مختبر"]}},
+  {id:"physio", n:{en:"Physiotherapy & Sports Science", ar:"العلاج الطبيعي وعلوم الرياضة"}, riasec:["S","R"], apts:["spat","verb"], vals:["helping","building"], demand:false, years:"std",
+   avoidHit:{medical:.6, physical:.6},
+   d:{en:"Helping people move, recover, and perform — healthcare for those who can't sit still at a desk.", ar:"مساعدة الناس على الحركة والتعافي والأداء — رعاية صحية لمن لا يطيق الجلوس المكتبي."},
+   c:{en:["Physiotherapist","Sports-rehab specialist","Performance coach","PE teacher"], ar:["أخصائي علاج طبيعي","أخصائي تأهيل رياضي","مدرب أداء","معلم تربية رياضية"]}},
+  {id:"psych", n:{en:"Psychology", ar:"علم النفس"}, riasec:["I","S"], apts:["verb","log"], vals:["helping","analyzing"], demand:false, years:"std",
+   d:{en:"Understanding how people think, feel, and behave — the science behind helping minds.", ar:"فهم كيف يفكر الناس ويشعرون ويتصرفون — العلم الذي تقوم عليه مساعدة العقول."},
+   c:{en:["Counsellor","Clinical psychologist (postgrad)","HR / organizational psychologist","School counsellor"], ar:["مرشد نفسي","أخصائي نفسي سريري (دراسات عليا)","أخصائي نفسي مؤسسي","مرشد مدرسي"]}},
+  {id:"cs", n:{en:"Computer Science & Software Engineering", ar:"علوم الحاسوب وهندسة البرمجيات"}, riasec:["I","R","C"], apts:["log","num"], vals:["building","analyzing"], demand:true, years:"std",
+   avoidHit:{math:.5},
+   d:{en:"Building the apps, systems, and games the world runs on — logic turned into products.", ar:"بناء التطبيقات والأنظمة والألعاب التي يعمل بها العالم — منطق يتحول إلى منتجات."},
+   c:{en:["Software developer","App / web engineer","Systems architect","Game developer"], ar:["مطور برمجيات","مهندس تطبيقات وويب","مهندس أنظمة","مطور ألعاب"]}},
+  {id:"cyber", n:{en:"Cybersecurity", ar:"الأمن السيبراني"}, riasec:["I","R","C"], apts:["log"], vals:["analyzing","structure"], demand:true, years:"std",
+   d:{en:"Defending banks, governments, and companies from digital attacks — one of the GCC's hottest fields.", ar:"حماية البنوك والحكومات والشركات من الهجمات الرقمية — من أسخن المجالات في الخليج."},
+   c:{en:["Security analyst","Ethical hacker / pen-tester","SOC engineer","Digital-forensics investigator"], ar:["محلل أمن سيبراني","مخترق أخلاقي","مهندس مركز عمليات أمنية","محقق جنائي رقمي"]}},
+  {id:"data", n:{en:"Data Science & Artificial Intelligence", ar:"علوم البيانات والذكاء الاصطناعي"}, riasec:["I","C"], apts:["num","log"], vals:["analyzing"], demand:true, years:"std",
+   avoidHit:{math:.4},
+   d:{en:"Finding the story hidden in data and teaching machines to learn — the defining skill of this decade.", ar:"اكتشاف القصة المخفية في البيانات وتعليم الآلات — مهارة هذا العقد بامتياز."},
+   c:{en:["Data scientist","AI / ML engineer","Data analyst","Business-intelligence specialist"], ar:["عالم بيانات","مهندس ذكاء اصطناعي","محلل بيانات","أخصائي ذكاء أعمال"]}},
+  {id:"netw", n:{en:"Computer & Network Engineering", ar:"هندسة الحاسوب والشبكات"}, riasec:["R","I"], apts:["log","spat"], vals:["building","analyzing"], demand:true, years:"std",
+   avoidHit:{math:.6},
+   d:{en:"The physical side of tech — networks, chips, smart devices, and the cloud infrastructure behind everything.", ar:"الجانب المادي من التقنية — الشبكات والرقائق والأجهزة الذكية والبنية السحابية خلف كل شيء."},
+   c:{en:["Network engineer","IoT / embedded engineer","Telecom engineer","Cloud-infrastructure engineer"], ar:["مهندس شبكات","مهندس إنترنت الأشياء","مهندس اتصالات","مهندس بنية سحابية"]}},
+  {id:"mech", n:{en:"Mechanical Engineering", ar:"الهندسة الميكانيكية"}, riasec:["R","I"], apts:["spat","num"], vals:["building"], demand:false, years:"std",
+   avoidHit:{math:.4, physical:.75},
+   d:{en:"Machines, engines, energy, and everything that moves — the broadest classic engineering path.", ar:"الآلات والمحركات والطاقة وكل ما يتحرك — أوسع مسارات الهندسة الكلاسيكية."},
+   c:{en:["Mechanical engineer","HVAC engineer","Automotive / aerospace engineer","Maintenance manager"], ar:["مهندس ميكانيكي","مهندس تكييف وتبريد","مهندس سيارات وطيران","مدير صيانة"]}},
+  {id:"elec", n:{en:"Electrical & Electronics Engineering", ar:"الهندسة الكهربائية والإلكترونية"}, riasec:["R","I"], apts:["num","log"], vals:["building","analyzing"], demand:false, years:"std",
+   avoidHit:{math:.4},
+   d:{en:"Power grids, electronics, and automation — the engineering behind the region's energy transition.", ar:"شبكات الكهرباء والإلكترونيات والأتمتة — الهندسة التي يقوم عليها تحول الطاقة في المنطقة."},
+   c:{en:["Electrical engineer","Power-grid engineer","Electronics designer","Automation engineer"], ar:["مهندس كهرباء","مهندس شبكات طاقة","مصمم إلكترونيات","مهندس أتمتة وتحكم"]}},
+  {id:"civil", n:{en:"Civil Engineering", ar:"الهندسة المدنية"}, riasec:["R","I","C"], apts:["spat","num"], vals:["building","structure"], demand:false, years:"std",
+   avoidHit:{math:.5, physical:.6},
+   d:{en:"Designing and building the towers, roads, and bridges that shape Gulf cities.", ar:"تصميم وبناء الأبراج والطرق والجسور التي تصنع ملامح مدن الخليج."},
+   c:{en:["Civil / structural engineer","Site engineer","Infrastructure project manager","Transport planner"], ar:["مهندس مدني وإنشائي","مهندس موقع","مدير مشاريع بنية تحتية","مخطط نقل"]}},
+  {id:"chem", n:{en:"Chemical & Process Engineering", ar:"الهندسة الكيميائية وهندسة العمليات"}, riasec:["I","R"], apts:["num","log"], vals:["analyzing","building"], demand:false, years:"std",
+   avoidHit:{math:.4},
+   d:{en:"Running and improving the oil, gas, aluminium, and chemical plants at the heart of Gulf industry.", ar:"تشغيل وتطوير مصانع النفط والغاز والألمنيوم والكيماويات في قلب الصناعة الخليجية."},
+   c:{en:["Process engineer","Petrochemical engineer","Quality & safety engineer","Refinery operations engineer"], ar:["مهندس عمليات","مهندس بتروكيماويات","مهندس جودة وسلامة","مهندس تشغيل مصافٍ"]}},
+  {id:"indus", n:{en:"Industrial Engineering", ar:"الهندسة الصناعية"}, riasec:["E","I","R"], apts:["num","log"], vals:["structure","leading","analyzing"], demand:true, years:"std",
+   avoidHit:{math:.6},
+   d:{en:"Engineering meets management — making factories, hospitals, and airports run better and cheaper.", ar:"التقاء الهندسة بالإدارة — جعل المصانع والمستشفيات والمطارات تعمل بكفاءة أعلى وتكلفة أقل."},
+   c:{en:["Industrial engineer","Operations manager","Quality-systems engineer","Lean consultant"], ar:["مهندس صناعي","مدير عمليات","مهندس أنظمة جودة","مستشار تحسين عمليات"]}},
+  {id:"renew", n:{en:"Renewable Energy & Environmental Engineering", ar:"الطاقة المتجددة وهندسة البيئة"}, riasec:["I","R"], apts:["num","spat"], vals:["building","analyzing","helping"], demand:true, years:"std",
+   avoidHit:{math:.5, physical:.7},
+   d:{en:"Solar, wind, and sustainability — the field every GCC net-zero vision is betting on.", ar:"الطاقة الشمسية والرياح والاستدامة — المجال الذي تراهن عليه رؤى الحياد الصفري الخليجية."},
+   c:{en:["Solar / wind energy engineer","Sustainability consultant","Environmental engineer","Energy auditor"], ar:["مهندس طاقة شمسية ورياح","مستشار استدامة","مهندس بيئي","مدقق طاقة"]}},
+  {id:"arch", n:{en:"Architecture & Interior Design", ar:"العمارة والتصميم الداخلي"}, riasec:["A","R","I"], apts:["spat"], vals:["creating","building"], demand:false, years:"std",
+   d:{en:"Art you can walk through — designing the buildings and spaces people live in.", ar:"فن يمكنك المشي داخله — تصميم المباني والفضاءات التي يعيش فيها الناس."},
+   c:{en:["Architect","Urban designer","Interior architect","BIM specialist"], ar:["مهندس معماري","مصمم حضري","مهندس تصميم داخلي","أخصائي نمذجة معلومات البناء"]}},
+  {id:"acct", n:{en:"Accounting", ar:"المحاسبة"}, riasec:["C","E"], apts:["num"], vals:["structure","leading"], demand:true, years:"std",
+   avoidHit:{routine:.55, math:.7},
+   d:{en:"The language of business — precise, always in demand, with a clear professional ladder (CPA, ACCA).", ar:"لغة الأعمال — دقيقة ومطلوبة دائمًا وبسلّم مهني واضح (CPA، ACCA)."},
+   c:{en:["Accountant","Auditor","Tax / VAT advisor","CFO track"], ar:["محاسب","مدقق حسابات","مستشار ضرائب","مسار مدير مالي"]}},
+  {id:"fin", n:{en:"Banking & Finance (incl. Islamic Finance)", ar:"المصارف والتمويل (ومنه التمويل الإسلامي)"}, riasec:["E","C","I"], apts:["num"], vals:["leading","analyzing","structure"], demand:true, years:"std",
+   avoidHit:{math:.6},
+   d:{en:"Bahrain is the Gulf's Islamic-finance hub — this major leads straight into its banking sector.", ar:"البحرين مركز التمويل الإسلامي في الخليج — وهذا التخصص طريق مباشر إلى قطاعها المصرفي."},
+   c:{en:["Investment analyst","Islamic banker","Risk manager","Wealth advisor"], ar:["محلل استثمار","مصرفي إسلامي","مدير مخاطر","مستشار ثروات"]}},
+  {id:"fintech", n:{en:"Financial Technology (FinTech)", ar:"التقنية المالية (فنتك)"}, riasec:["E","I","C"], apts:["num","log"], vals:["analyzing","leading","building"], demand:true, years:"std",
+   avoidHit:{math:.6},
+   d:{en:"Where banking meets coding — digital payments, blockchain, and Bahrain FinTech Bay careers.", ar:"حيث تلتقي المصارف بالبرمجة — المدفوعات الرقمية والبلوك تشين ووظائف خليج البحرين للتقنية المالية."},
+   c:{en:["FinTech product manager","Payments / blockchain developer","Digital-banking analyst","RegTech specialist"], ar:["مدير منتجات تقنية مالية","مطور مدفوعات وبلوك تشين","محلل مصرفية رقمية","أخصائي تقنية تنظيمية"]}},
+  {id:"math", n:{en:"Mathematics, Statistics & Actuarial Science", ar:"الرياضيات والإحصاء والعلوم الاكتوارية"}, riasec:["I","C"], apts:["num","log"], vals:["analyzing","structure"], demand:false, years:"std",
+   avoidHit:{math:.3},
+   d:{en:"Pure problem-solving power — actuaries and statisticians are among the best-paid analytical careers.", ar:"قوة حل المسائل الخالصة — الاكتواريون والإحصائيون من أعلى المهن التحليلية أجرًا."},
+   c:{en:["Actuary","Statistician","Risk analyst","Math teacher / lecturer"], ar:["خبير اكتواري","إحصائي","محلل مخاطر","معلم أو محاضر رياضيات"]}},
+  {id:"bus", n:{en:"Business Management", ar:"إدارة الأعمال"}, riasec:["E","S","C"], apts:["verb","num"], vals:["leading"], demand:false, years:"std",
+   avoidHit:{speaking:.6},
+   d:{en:"The flexible all-rounder — management, HR, entrepreneurship, and consulting all start here.", ar:"التخصص المرن الشامل — الإدارة والموارد البشرية وريادة الأعمال والاستشارات تبدأ كلها من هنا."},
+   c:{en:["Operations manager","Management consultant","HR manager","Entrepreneur / startup founder"], ar:["مدير عمليات","مستشار إداري","مدير موارد بشرية","رائد أعمال"]}},
+  {id:"mkt", n:{en:"Marketing & Digital Marketing", ar:"التسويق والتسويق الرقمي"}, riasec:["E","A","S"], apts:["verb"], vals:["leading","creating"], demand:false, years:"std",
+   avoidHit:{speaking:.6},
+   d:{en:"Psychology + creativity + business — building brands and campaigns people actually notice.", ar:"علم النفس والإبداع والأعمال معًا — بناء علامات وحملات يلتفت إليها الناس فعلًا."},
+   c:{en:["Digital marketer","Brand manager","Social-media strategist","Market researcher"], ar:["مسوق رقمي","مدير علامة تجارية","استراتيجي وسائل تواصل","باحث سوق"]}},
+  {id:"logi", n:{en:"Logistics & Supply Chain Management", ar:"اللوجستيات وإدارة سلاسل الإمداد"}, riasec:["E","C","R"], apts:["num","log"], vals:["structure","leading"], demand:true, years:"std",
+   avoidHit:{routine:.75},
+   d:{en:"Moving goods across ports, air, and land — a Bahrain EDB priority sector with real openings.", ar:"نقل البضائع عبر الموانئ والجو والبر — قطاع ذو أولوية لدى مجلس التنمية الاقتصادية البحريني وفرصه حقيقية."},
+   c:{en:["Supply-chain analyst","Port / maritime operations manager","Freight & customs specialist","Distribution manager"], ar:["محلل سلاسل إمداد","مدير عمليات موانئ","أخصائي شحن وجمارك","مدير توزيع"]}},
+  {id:"avia", n:{en:"Aviation Management & Piloting", ar:"إدارة الطيران وقيادة الطائرات"}, riasec:["R","E","C"], apts:["spat","num"], vals:["structure","building"], demand:false, years:"std",
+   d:{en:"From the cockpit to airport operations — a natural fit in a region built around its airlines.", ar:"من قمرة القيادة إلى عمليات المطارات — مجال طبيعي في منطقة قامت حول شركات طيرانها."},
+   c:{en:["Commercial pilot","Air-traffic controller","Airport operations manager","Aviation-safety officer"], ar:["طيار تجاري","مراقب جوي","مدير عمليات مطار","مسؤول سلامة طيران"]}},
+  {id:"law", n:{en:"Law", ar:"القانون"}, riasec:["E","I","S"], apts:["verb","log"], vals:["leading","structure","helping"], demand:false, years:"std",
+   avoidHit:{speaking:.6},
+   d:{en:"For sharp readers, writers, and arguers — from courtrooms to corporate deals and compliance.", ar:"لمن يجيد القراءة والكتابة والحِجاج — من قاعات المحاكم إلى صفقات الشركات والامتثال."},
+   c:{en:["Lawyer / advocate","Corporate legal counsel","Judge / prosecutor track","Compliance officer"], ar:["محامٍ","مستشار قانوني للشركات","مسار القضاء والنيابة","مسؤول امتثال"]}},
+  {id:"media", n:{en:"Mass Communication & Media", ar:"الإعلام والاتصال الجماهيري"}, riasec:["A","E","S"], apts:["verb"], vals:["creating","leading"], demand:false, years:"std",
+   avoidHit:{speaking:.5},
+   d:{en:"Telling stories that matter — journalism, broadcasting, PR, and content creation.", ar:"سرد القصص المهمة — صحافة وإذاعة وعلاقات عامة وصناعة محتوى."},
+   c:{en:["Journalist","Broadcaster / presenter","PR & communications officer","Content producer"], ar:["صحفي","مذيع ومقدم برامج","مسؤول علاقات عامة واتصال","منتج محتوى"]}},
+  {id:"design", n:{en:"Graphic & Multimedia Design", ar:"التصميم الجرافيكي والوسائط المتعددة"}, riasec:["A","R","I"], apts:["spat","verb"], vals:["creating"], demand:false, years:"std",
+   d:{en:"Visual creativity as a career — branding, animation, UX/UI, and film in growing creative industries.", ar:"الإبداع البصري مهنةً — هوية بصرية ورسوم متحركة وتصميم تجربة مستخدم وأفلام في صناعات إبداعية متنامية."},
+   c:{en:["Graphic designer","Animator / motion designer","UX/UI designer","Film / video editor"], ar:["مصمم جرافيك","مصمم رسوم متحركة","مصمم تجربة وواجهات","مونتير أفلام"]}},
+  {id:"edu", n:{en:"Education (Teaching)", ar:"التربية والتعليم"}, riasec:["S","A","C"], apts:["verb"], vals:["helping","structure"], demand:false, years:"std",
+   avoidHit:{speaking:.5},
+   d:{en:"Shaping the next generation — a stable, meaningful career at the center of every national vision.", ar:"صناعة الجيل القادم — مهنة مستقرة وذات معنى في قلب كل رؤية وطنية."},
+   c:{en:["School teacher","Special-education teacher","Curriculum designer","Education supervisor"], ar:["معلم","معلم تربية خاصة","مصمم مناهج","مشرف تربوي"]}},
+  {id:"tour", n:{en:"Tourism & Hospitality Management", ar:"إدارة السياحة والضيافة"}, riasec:["E","S","C"], apts:["verb"], vals:["leading","helping"], demand:true, years:"std",
+   avoidHit:{speaking:.7},
+   d:{en:"Hotels, events, and experiences — a priority growth sector as the Gulf opens to the world.", ar:"الفنادق والفعاليات والتجارب — قطاع نمو ذو أولوية مع انفتاح الخليج على العالم."},
+   c:{en:["Hotel manager","Events manager","Tourism development officer","Airline services manager"], ar:["مدير فندق","مدير فعاليات","مسؤول تنمية سياحية","مدير خدمات طيران"]}}
+];
+
+/* ---------------- Scoring engine (pure, DOM-free, testable) ---------------- */
+function computeProfile(answers){
+  // answers: array (same length as QUESTIONS) of selected option indexes (0-based)
+  const riasec = {R:0,I:0,A:0,S:0,E:0,C:0};
+  const vals = {helping:0,building:0,analyzing:0,leading:0,creating:0,structure:0};
+  const aptSelf = {num:0,verb:0,log:0,spat:0};
+  const aptTest = {num:0,verb:0,log:0,spat:0};
+  let years = "any", avoid = "none";
+
+  QUESTIONS.forEach((q,i)=>{
+    const a = answers[i];
+    if(a==null) return;
+    if(q.type==="likert"){
+      riasec[q.dim] += a; // 0..4
+    } else if(q.type==="puzzle"){
+      if(q.opts[a] && q.opts[a].correct) aptTest[q.apt] += 1;
+    } else { // mc
+      const opt = q.opts[a]; if(!opt) return;
+      if(q.special==="years"){ years = opt.years; return; }
+      if(q.special==="avoid"){ avoid = opt.avoid; return; }
+      const w = opt.w || {};
+      if(w.riasec) for(const k in w.riasec) riasec[k] += w.riasec[k];
+      if(w.vals) for(const k in w.vals) vals[k] += w.vals[k];
+      if(w.apts) for(const k in w.apts) aptSelf[k] += w.apts[k];
+    }
+  });
+
+  // clamp negatives, then normalize each family to 0..1 relative to its own max
+  const norm = (obj)=>{
+    const out = {};
+    let max = 0;
+    for(const k in obj){ const v = Math.max(0, obj[k]); out[k]=v; if(v>max) max=v; }
+    for(const k in out) out[k] = max>0 ? out[k]/max : 0.5;
+    return out;
+  };
+  const riasecN = norm(riasec);
+
+  // aptitude = 40% self-rating (0..3+subject bonus) + 60% puzzle performance (0..2)
+  const apt = {};
+  for(const k in aptSelf){
+    const self = Math.max(0, Math.min(aptSelf[k],4)) / 4;
+    const test = aptTest[k] / 2;
+    apt[k] = 0.4*self + 0.6*test;
+  }
+  // relative-normalize aptitudes too (profile, not absolute)
+  let aMax = Math.max(apt.num, apt.verb, apt.log, apt.spat);
+  const aptN = {};
+  for(const k in apt) aptN[k] = aMax>0 ? apt[k]/aMax : 0.5;
+
+  const valsN = norm(vals);
+
+  // Holland code: top-3 letters by raw riasec
+  const code = Object.keys(riasec).sort((x,y)=>riasec[y]-riasec[x]).slice(0,3);
+
+  return {riasec, riasecN, vals: valsN, apt: aptN, aptRaw: apt, code, years, avoid};
+}
+
+function scoreMajor(m, p){
+  // RIASEC congruence: letters weighted 3/2/1
+  const w = [3,2,1];
+  let rSum=0, rMax=0;
+  m.riasec.forEach((L,i)=>{ const ww = w[i]||1; rSum += ww * (p.riasecN[L]||0); rMax += ww; });
+  const rScore = rSum/rMax;
+
+  let vSum=0; m.vals.forEach(v=>vSum += (p.vals[v]||0));
+  const vScore = vSum / m.vals.length;
+
+  let aSum=0; m.apts.forEach(a=>aSum += (p.apt[a]||0));
+  const aScore = aSum / m.apts.length;
+
+  let score = 0.45*rScore + 0.30*vScore + 0.25*aScore;
+
+  // study-length filter
+  if(m.years==="long"){
+    if(p.years==="short") score *= 0.35;
+    else if(p.years==="four") score *= 0.55;
+    else if(p.years==="medium") score *= 0.8;
+  }
+  // dealbreaker
+  if(m.avoidHit && p.avoid!=="none" && m.avoidHit[p.avoid]!=null) score *= m.avoidHit[p.avoid];
+
+  return Math.max(0, Math.min(1, score));
+}
+
+function rankMajors(p){
+  return MAJORS.map(m=>({m, s:scoreMajor(m,p)}))
+    .sort((a,b)=>b.s-a.s)
+    .slice(0,5)
+    .map(x=>({major:x.m, pct: Math.min(98, Math.round(x.s*100))}));
+}
+
+/* why-it-fits sentence, per language */
+function buildWhy(m, p, lang){
+  const U = UI[lang];
+  const parts = [];
+  const topLetters = p.code.slice(0,3);
+  const hitLetters = m.riasec.filter(L=>topLetters.includes(L)).slice(0,2);
+  if(hitLetters.length){
+    const names = hitLetters.map(L=> lang==="en" ? DIMS[L].enShort : DIMS[L].arShort).join(U.andWord);
+    parts.push(U.whyInterest(names));
+  }
+  const topVals = Object.keys(p.vals).sort((a,b)=>p.vals[b]-p.vals[a]).slice(0,2);
+  const hitVals = m.vals.filter(v=>topVals.includes(v)).slice(0,1);
+  if(hitVals.length){
+    parts.push(U.whyValue(VALS[hitVals[0]][lang]));
+  }
+  const topApts = Object.keys(p.apt).sort((a,b)=>p.apt[b]-p.apt[a]).slice(0,2);
+  const hitApts = m.apts.filter(a=>topApts.includes(a)).slice(0,1);
+  if(hitApts.length){
+    parts.push(U.whyApt(APTS[hitApts[0]][lang]));
+  }
+  if(!parts.length) return m.d[lang];
+  let sentence = parts.join(lang==="en" ? ", " : "، ");
+  sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1) + ".";
+  return sentence + " " + m.d[lang];
+}
+
+function archetype(p, lang){
+  const [L1, L2] = p.code;
+  if(lang==="en") return `${DIMS[L1].adjEn} ${DIMS[L2].enShort}`;
+  return `${DIMS[L1].adjAr} ${DIMS[L2].adjAr === DIMS[L1].adjAr ? "" : DIMS[L2].adjAr}`.trim();
+}
+
+/* ---------------- UI wiring ---------------- */
+if (typeof document !== "undefined") (function(){
+  let lang = "en";
+  let current = 0;
+  const answers = new Array(QUESTIONS.length).fill(null);
+  const $ = (id)=>document.getElementById(id);
+
+  function applyChrome(){
+    const U = UI[lang];
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang==="ar" ? "rtl" : "ltr";
+    document.title = lang==="ar" ? "بوصلة التخصص — اكتشف تخصصك الجامعي | د. صقر آل خليفة" : "Major Compass — Find Your University Major | Dr. Saqer AlKhalifa";
+    $("langToggle").textContent = lang==="en" ? "عربي" : "English";
+    $("t-title").textContent = U.title;
+    $("t-sub").textContent = U.sub;
+    $("t-chip1").textContent = U.chip1;
+    $("t-chip2").textContent = U.chip2;
+    $("t-chip3").textContent = U.chip3;
+    $("t-how-title").textContent = U.howTitle;
+    $("t-how1").textContent = U.how1;
+    $("t-how2").textContent = U.how2;
+    $("t-how3").textContent = U.how3;
+    $("t-how4").textContent = U.how4;
+    $("startBtn").textContent = U.start;
+    $("t-note").textContent = U.note;
+    $("backBtn").textContent = U.back;
+    $("retakeBtn").textContent = U.retake;
+    $("printBtn").textContent = U.print;
+    $("shareBtn").textContent = U.share;
+    $("siteFooter").innerHTML = U.footer;
+  }
+
+  function show(screen){
+    document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+    $("screen-"+screen).classList.add("active");
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  function renderQuestion(){
+    const U = UI[lang];
+    const q = QUESTIONS[current];
+    $("sectionChip").textContent = U.sections[q.sec];
+    $("qCounter").textContent = U.qOf(current+1, QUESTIONS.length);
+    $("barFill").style.width = ((current)/QUESTIONS.length*100) + "%";
+    $("qHint").textContent = q.type==="likert" ? U.likertHint : (q.type==="puzzle" ? U.puzzleHint : U.pickHint);
+    $("qText").textContent = q.t[lang];
+    const box = $("optsBox");
+    box.innerHTML = "";
+    const opts = q.type==="likert"
+      ? U.likert.map((label,i)=>({label, emoji:U.likertEmoji[i]}))
+      : q.opts.map(o=>({label:o.t[lang]}));
+    opts.forEach((o,i)=>{
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "opt" + (answers[current]===i ? " selected" : "");
+      b.innerHTML = (o.emoji?`<span class="emoji">${o.emoji}</span>`:"") + `<span>${o.label}</span>`;
+      b.addEventListener("click", ()=>{
+        answers[current] = i;
+        box.querySelectorAll(".opt").forEach(el=>el.classList.remove("selected"));
+        b.classList.add("selected");
+        setTimeout(()=>{
+          if(current < QUESTIONS.length-1){ current++; renderQuestion(); }
+          else finish();
+        }, 220);
+      });
+      box.appendChild(b);
+    });
+    $("backBtn").disabled = current===0;
+  }
+
+  function finish(){
+    const p = computeProfile(answers);
+    renderResults(p);
+    show("results");
+  }
+
+  function renderResults(p){
+    const U = UI[lang];
+    $("r-kicker").textContent = U.kicker;
+    $("r-headline").textContent = U.headline(archetype(p, lang));
+    $("r-desc").textContent = U.resDesc;
+    $("r-viz-title").textContent = U.vizTitle;
+    $("r-viz-sub").textContent = U.vizSub;
+    $("r-codeline").innerHTML = U.codeLine(p.code.join(""));
+    $("r-majors-title").textContent = U.majorsTitle;
+    $("r-majors-sub").textContent = U.majorsSub;
+    $("r-disclaimer").textContent = U.disclaimer;
+
+    // profile bars (single-series magnitude, one hue, text in ink tokens)
+    const rows = $("vizRows");
+    rows.innerHTML = "";
+    const order = ["R","I","A","S","E","C"];
+    const maxRaw = 8 + 3; // theoretical-ish cap for display normalization
+    order.forEach(L=>{
+      const val = p.riasecN[L];
+      const row = document.createElement("div");
+      row.className = "prow";
+      row.innerHTML =
+        `<span class="plabel">${lang==="en"?DIMS[L].enShort:DIMS[L].arShort}<small>${L}</small></span>` +
+        `<div class="ptrack"><div class="pfill" style="width:${Math.round(val*100)}%"></div></div>` +
+        `<span class="pval">${Math.round(val*100)}</span>`;
+      rows.appendChild(row);
+    });
+
+    // major cards
+    const ranked = rankMajors(p);
+    const cards = $("majorCards");
+    cards.innerHTML = "";
+    ranked.forEach((r,idx)=>{
+      const m = r.major;
+      const card = document.createElement("div");
+      card.className = "mcard";
+      card.innerHTML =
+        `<div class="mtop"><span class="mrank">${idx+1}</span>` +
+        `<span class="mname serif">${m.n[lang]}</span>` +
+        `<span class="mpct">${r.pct}% ${U.matchWord}</span></div>` +
+        `<p class="mwhy"><b>${U.whyLabel}</b> ${buildWhy(m, p, lang)}</p>` +
+        `<p class="mcareers"><b>${U.careersLabel}</b> ${m.c[lang].join(lang==="en"?" · ":" · ")}</p>` +
+        (m.demand ? `<span class="badge">${U.demandBadge}</span>` : "");
+      cards.appendChild(card);
+    });
+  }
+
+  /* events */
+  $("langToggle").addEventListener("click", ()=>{
+    lang = lang==="en" ? "ar" : "en";
+    applyChrome();
+    const active = document.querySelector(".screen.active").id;
+    if(active==="screen-quiz") renderQuestion();
+    if(active==="screen-results") renderResults(computeProfile(answers));
+  });
+  $("startBtn").addEventListener("click", ()=>{ show("quiz"); renderQuestion(); });
+  $("backBtn").addEventListener("click", ()=>{ if(current>0){ current--; renderQuestion(); } });
+  $("retakeBtn").addEventListener("click", ()=>{
+    answers.fill(null); current = 0;
+    show("intro");
+  });
+  $("printBtn").addEventListener("click", ()=>window.print());
+  $("shareBtn").addEventListener("click", async ()=>{
+    const url = location.href.split("#")[0];
+    const U = UI[lang];
+    try{
+      if(navigator.share){ await navigator.share({title: U.title, url}); return; }
+      await navigator.clipboard.writeText(url);
+      $("shareBtn").textContent = U.shareCopied;
+      setTimeout(()=>{ $("shareBtn").textContent = U.share; }, 2500);
+    }catch(e){/* user cancelled */}
+  });
+
+  applyChrome();
+})();
+
+/* export for testing in Node */
+if (typeof module !== "undefined" && module.exports){
+  module.exports = {QUESTIONS, MAJORS, computeProfile, rankMajors, buildWhy, archetype};
+}
+
+
+
+</script>
+</body>
+</html>
