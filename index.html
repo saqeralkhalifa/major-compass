@@ -172,6 +172,7 @@
     .mcard,.viz-root{box-shadow:none; break-inside:avoid;}
   }
 </style>
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -760,7 +761,8 @@ function computeProfile(answers){
   // Holland code: top-3 letters by raw riasec
   const code = Object.keys(riasec).sort((x,y)=>riasec[y]-riasec[x]).slice(0,3);
 
-  return {riasec, riasecN, vals: valsN, apt: aptN, aptRaw: apt, code, years, avoid};
+  const puzzles = aptTest.num + aptTest.verb + aptTest.log + aptTest.spat;
+  return {riasec, riasecN, vals: valsN, apt: aptN, aptRaw: apt, code, years, avoid, puzzles};
 }
 
 function scoreMajor(m, p){
@@ -833,8 +835,39 @@ function archetype(p, lang){
 if (typeof document !== "undefined") (function(){
   let lang = "en";
   let current = 0;
+  let startTime = null;
+  let resultsSent = false;
   const answers = new Array(QUESTIONS.length).fill(null);
   const $ = (id)=>document.getElementById(id);
+
+  /* anonymous usage counters and results collection */
+  const NOTRACK = location.search.indexOf("notrack") !== -1;
+  const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfAebWbx8udVD_Ug2kKHvQ8F0SUuNeZ_uIDrkmtlRcEs7Z-IA/formResponse";
+  const FORM_ENTRY = "entry.156577286";
+  function track(path){
+    if(NOTRACK) return;
+    try{
+      if(window.goatcounter && window.goatcounter.count) window.goatcounter.count({path: path, event: true});
+    }catch(e){}
+  }
+  function sendResults(p, ranked){
+    if(NOTRACK || resultsSent) return;
+    resultsSent = true;
+    try{
+      const payload = {
+        lang: lang,
+        code: p.code.join(""),
+        top: ranked.map(r=>({id: r.major.id, pct: r.pct})),
+        puzzles: p.puzzles,
+        years: p.years,
+        avoid: p.avoid,
+        seconds: startTime ? Math.round((Date.now()-startTime)/1000) : null
+      };
+      const body = new URLSearchParams();
+      body.append(FORM_ENTRY, JSON.stringify(payload));
+      fetch(FORM_URL, {method:"POST", mode:"no-cors", body: body}).catch(function(){});
+    }catch(e){}
+  }
 
   function applyChrome(){
     const U = UI[lang];
@@ -873,6 +906,9 @@ if (typeof document !== "undefined") (function(){
     const U = UI[lang];
     const q = QUESTIONS[current];
     $("sectionChip").textContent = U.sections[q.sec];
+    if(current===12) track("reach-school");
+    else if(current===20) track("reach-puzzles");
+    else if(current===28) track("reach-values");
     $("qCounter").textContent = U.qOf(current+1, QUESTIONS.length);
     $("barFill").style.width = ((current)/QUESTIONS.length*100) + "%";
     $("qHint").textContent = q.type==="likert" ? U.likertHint : (q.type==="puzzle" ? U.puzzleHint : U.pickHint);
@@ -910,6 +946,11 @@ if (typeof document !== "undefined") (function(){
 
   function finish(){
     const p = computeProfile(answers);
+    const ranked = rankMajors(p);
+    track("complete");
+    track("lang-" + lang);
+    if(ranked.length) track("top-" + ranked[0].major.id);
+    sendResults(p, ranked);
     renderResults(p);
     show("results");
   }
@@ -970,7 +1011,11 @@ if (typeof document !== "undefined") (function(){
     if(active==="screen-quiz") renderQuestion();
     if(active==="screen-results") renderResults(computeProfile(answers));
   });
-  $("startBtn").addEventListener("click", ()=>{ show("quiz"); renderQuestion(); });
+  $("startBtn").addEventListener("click", ()=>{
+    if(!startTime) startTime = Date.now();
+    track("start");
+    show("quiz"); renderQuestion();
+  });
   $("backBtn").addEventListener("click", ()=>{ if(current>0){ current--; renderQuestion(); } });
   $("nextBtn").addEventListener("click", ()=>{
     if(answers[current]==null) return;
