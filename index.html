@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Major Compass — Find Your University Major | Dr. Saqer AlKhalifa</title>
+<title>Major Compass: Find Your University Major | Dr. Saqer AlKhalifa</title>
 <meta name="description" content="A free bilingual (English/Arabic) assessment that helps high-school students in Bahrain and the Gulf discover the top 5 university majors that fit their interests, strengths, and values.">
 <style>
   :root{
@@ -96,13 +96,19 @@
     padding:13px 16px; font-size:1.02rem; cursor:pointer; text-align:start;
     transition:border-color .12s, background .12s; color:var(--ink); font-family:inherit; line-height:1.45;
   }
-  .opt:hover{border-color:var(--accent); background:var(--accent-soft);}
+  @media (hover:hover) and (pointer:fine){
+    .opt:hover{border-color:var(--accent);}
+  }
   .opt.selected{border-color:var(--accent); background:var(--accent-soft); font-weight:600;}
+  .opt.selected::after{content:"✓"; margin-inline-start:auto; color:var(--accent); font-weight:800; font-size:1.05rem; flex:0 0 auto; padding-inline-start:8px;}
   .opt .emoji{font-size:1.25rem; flex:0 0 auto;}
-  .quiz-nav{display:flex; justify-content:space-between; margin-top:16px;}
-  .navbtn{background:none; border:none; color:var(--ink-3); font-size:.95rem; cursor:pointer; padding:8px 12px; font-family:inherit;}
-  .navbtn:hover{color:var(--accent);}
-  .navbtn:disabled{opacity:0; pointer-events:none;}
+  .qwhy{margin-top:18px; padding-top:12px; border-top:1px dashed var(--line); font-size:.84rem; color:var(--ink-3); line-height:1.5;}
+  .qwhy b{color:var(--ink-2); font-weight:600;}
+  .quiz-nav{display:flex; justify-content:space-between; margin-top:16px; gap:10px;}
+  .navbtn{background:var(--card); border:1.5px solid var(--line); border-radius:999px; color:var(--ink-2); font-size:.95rem; cursor:pointer; padding:9px 22px; font-family:inherit; font-weight:600;}
+  .navbtn:hover{border-color:var(--accent); color:var(--accent);}
+  .navbtn.hidden{visibility:hidden; pointer-events:none;}
+  .refs{font-size:.8rem; color:var(--ink-3); max-width:640px; margin:26px auto 0; line-height:1.6; text-align:center;}
 
   /* ---------- results ---------- */
   .res-head{text-align:center; padding:36px 0 10px;}
@@ -199,6 +205,7 @@
     <div style="text-align:center;">
       <button class="btn" id="startBtn"></button>
       <p class="note" id="t-note"></p>
+      <p class="refs" id="t-refs"></p>
     </div>
   </section>
 
@@ -215,10 +222,11 @@
       <p class="qhint" id="qHint"></p>
       <p class="qtext" id="qText"></p>
       <div class="opts" id="optsBox"></div>
+      <p class="qwhy" id="qWhy"></p>
     </div>
     <div class="quiz-nav">
       <button class="navbtn" id="backBtn"></button>
-      <span></span>
+      <button class="navbtn" id="nextBtn"></button>
     </div>
   </section>
 
@@ -247,6 +255,7 @@
       <button class="btn secondary" id="shareBtn"></button>
     </div>
     <p class="disclaimer" id="r-disclaimer"></p>
+    <p class="refs" id="r-refs"></p>
   </section>
 
   <footer class="site" id="siteFooter"></footer>
@@ -254,7 +263,7 @@
 
 <script>
 /* ============================================================
-   Major Compass — bilingual university-major assessment
+   Major Compass: bilingual university-major assessment
    Method: RIASEC interests (O*NET-style public-domain items)
    + self-rated & tested aptitudes + work values, matched
    against a Bahrain/GCC-grounded database of 31 majors.
@@ -266,21 +275,24 @@ const UI = {
   en: {
     title: "Major Compass",
     sub: "Not sure what to study at university? Answer 34 quick questions and discover the five majors that fit you best.",
-    chip1: "⏱ About 8–10 minutes",
+    chip1: "⏱ About 8-10 minutes",
     chip2: "❓ 34 questions",
     chip3: "🎓 Top 5 majors for you",
     howTitle: "How it works",
-    how1: "Your interests — what activities you'd actually enjoy (there are no wrong answers).",
+    how1: "Your interests: the activities you would actually enjoy (there are no wrong answers).",
     how2: "Your school subjects and strengths.",
-    how3: "A few quick mind puzzles — these ones do have right answers, so do your best.",
+    how3: "A few quick mind puzzles. These ones do have right answers, so do your best.",
     how4: "What matters to you in a future career.",
     start: "Start the assessment",
-    note: "Tip: answer honestly, not how you think you “should” answer. Ignore money and prestige — imagine all careers pay the same. This is a guidance tool to explore options, not a final verdict.",
+    note: "Tip: answer honestly, not how you think you “should” answer. Ignore money and prestige, and imagine all careers pay the same. This is a guidance tool to explore options, not a final verdict.",
+    refs: "Method and sources: interest questions follow the Holland RIASEC framework used in the U.S. Department of Labor's O*NET program (database 30.3, May 2026). Demand indicators draw on the World Economic Forum's Future of Jobs Report 2025 and Bahrain Economic Development Board priority sectors (2024 Annual Report). Puzzles follow standard modern aptitude-test formats (numerical, logical, verbal, spatial).",
     back: "← Back",
+    next: "Next →",
+    whyQ: "Why this question:",
     qOf: (a,b)=>`Question ${a} of ${b}`,
     sections: ["Your interests","School & strengths","Mind puzzles","What matters to you"],
-    likertHint: "How would you feel about doing this? (Ignore money or prestige — just whether you'd enjoy it.)",
-    puzzleHint: "Puzzle — this one has a right answer. No calculator needed.",
+    likertHint: "How would you feel about doing this? (Ignore money or prestige; the only question is whether you would enjoy it.)",
+    puzzleHint: "Puzzle: this one has a right answer. No calculator needed.",
     pickHint: "Choose the answer that fits you best.",
     likert: ["Strongly dislike","Dislike","Not sure","Like","Strongly like"],
     likertEmoji: ["😖","🙁","😐","🙂","😍"],
@@ -288,18 +300,18 @@ const UI = {
     headline: (arch)=>`You are ${arch}`,
     resDesc: "Based on your interests, strengths, puzzle performance, and values, here is your personal profile and the university majors that fit it best.",
     vizTitle: "Your interest profile",
-    vizSub: "The six career-interest dimensions (Holland/RIASEC model) — longer bars mean stronger interest.",
-    codeLine: (code)=>`Your interest code: <b>${code}</b> — your strongest three dimensions, used to match majors.`,
+    vizSub: "The six career-interest dimensions (Holland/RIASEC model). Longer bars mean stronger interest.",
+    codeLine: (code)=>`Your interest code: <b>${code}</b>, your strongest three dimensions, used to match majors.`,
     majorsTitle: "Your top 5 majors",
-    majorsSub: "Ranked by fit with your profile. Tap any career idea and research it further — then talk it through with people in the field.",
+    majorsSub: "Ranked by fit with your profile. Research each one further, then talk it through with people in the field.",
     whyLabel: "Why it fits you:",
     careersLabel: "Possible careers:",
     demandBadge: "⭐ High demand in Bahrain & the GCC",
     retake: "Retake",
     print: "Save / Print results",
     share: "Share this quiz",
-    shareCopied: "Link copied — share it with your friends!",
-    disclaimer: "This assessment is an exploration tool based on established career-interest research (Holland RIASEC model and public-domain O*NET Interest Profiler items, combined with aptitude and work-value measures). It is guidance, not a decision made for you: use your results as a starting point for research, conversations with counselors, family, and professionals — and trust your own judgment.",
+    shareCopied: "Link copied: share it with your friends!",
+    disclaimer: "This assessment is an exploration tool based on established career-interest research (Holland RIASEC model and public-domain O*NET Interest Profiler items, combined with aptitude and work-value measures). It is guidance, not a decision made for you: use your results as a starting point for research and for conversations with counselors, family, and professionals, and trust your own judgment.",
     footer: 'Prepared by <a href="https://www.saqeralkhalifa.com">Dr. Saqer AlKhalifa</a> · Free for all students',
     matchWord: "match",
     andWord: " and ",
@@ -310,21 +322,24 @@ const UI = {
   ar: {
     title: "بوصلة التخصص",
     sub: "محتار ماذا تدرس في الجامعة؟ أجب عن ٣٤ سؤالًا سريعًا واكتشف التخصصات الخمسة الأنسب لك.",
-    chip1: "⏱ حوالي ٨–١٠ دقائق",
+    chip1: "⏱ حوالي ٨-١٠ دقائق",
     chip2: "❓ ٣٤ سؤالًا",
     chip3: "🎓 أفضل ٥ تخصصات لك",
     howTitle: "كيف يعمل الاختبار؟",
-    how1: "اهتماماتك — الأنشطة التي تستمتع بها فعلًا (لا توجد إجابات خاطئة).",
+    how1: "اهتماماتك: الأنشطة التي تستمتع بها فعلًا (لا توجد إجابات خاطئة).",
     how2: "موادك الدراسية ونقاط قوتك.",
-    how3: "ألغاز ذهنية سريعة — هذه لها إجابات صحيحة، فابذل جهدك.",
+    how3: "ألغاز ذهنية سريعة، وهذه لها إجابات صحيحة فابذل جهدك.",
     how4: "ما يهمّك في مستقبلك المهني.",
     start: "ابدأ الاختبار",
-    note: "نصيحة: أجب بصدق، لا كما “يجب” أن تجيب. تجاهل المال والمكانة الاجتماعية — تخيّل أن كل المهن براتب واحد. هذا الاختبار أداة إرشادية لاستكشاف الخيارات، وليس حكمًا نهائيًا.",
+    note: "نصيحة: أجب بصدق، لا كما “يجب” أن تجيب. تجاهل المال والمكانة الاجتماعية، وتخيّل أن كل المهن براتب واحد. هذا الاختبار أداة إرشادية لاستكشاف الخيارات، وليس حكمًا نهائيًا.",
+    refs: "المنهجية والمصادر: أسئلة الميول تتبع إطار هولاند RIASEC المستخدم في برنامج O*NET التابع لوزارة العمل الأمريكية (قاعدة البيانات 30.3، مايو 2026). ومؤشرات الطلب مستندة إلى تقرير مستقبل الوظائف 2025 الصادر عن المنتدى الاقتصادي العالمي، وقطاعات الأولوية لدى مجلس التنمية الاقتصادية في البحرين (التقرير السنوي 2024). والألغاز تتبع الصيغ الحديثة المعتمدة في اختبارات القدرات (عددية، منطقية، لغوية، مكانية).",
     back: "→ رجوع",
+    next: "التالي ←",
+    whyQ: "لماذا هذا السؤال؟",
     qOf: (a,b)=>`السؤال ${a} من ${b}`,
     sections: ["اهتماماتك","دراستك ونقاط قوتك","ألغاز ذهنية","ما يهمّك"],
-    likertHint: "ما شعورك تجاه هذا النشاط؟ (تجاهل المال والمكانة — المهم هل تستمتع به؟)",
-    puzzleHint: "لغز — لهذا السؤال إجابة صحيحة. لا حاجة إلى آلة حاسبة.",
+    likertHint: "ما شعورك تجاه هذا النشاط؟ (تجاهل المال والمكانة؛ المهم هل تستمتع به؟)",
+    puzzleHint: "لغز: لهذا السؤال إجابة صحيحة. لا حاجة إلى آلة حاسبة.",
     pickHint: "اختر الإجابة الأقرب إليك.",
     likert: ["أرفضه بشدة","لا يعجبني","لست متأكدًا","يعجبني","أحبه كثيرًا"],
     likertEmoji: ["😖","🙁","😐","🙂","😍"],
@@ -332,8 +347,8 @@ const UI = {
     headline: (arch)=>`أنت ${arch}`,
     resDesc: "بناءً على اهتماماتك ونقاط قوتك وأدائك في الألغاز وقيمك، هذا ملفك الشخصي والتخصصات الجامعية الأنسب له.",
     vizTitle: "ملف اهتماماتك",
-    vizSub: "أبعاد الميول المهنية الستة (نموذج هولاند RIASEC) — كلما طال الشريط زاد اهتمامك.",
-    codeLine: (code)=>`رمز اهتماماتك: <b>${code}</b> — أقوى ثلاثة أبعاد لديك، وتُستخدم لمطابقة التخصصات.`,
+    vizSub: "أبعاد الميول المهنية الستة (نموذج هولاند RIASEC)، وكلما طال الشريط زاد اهتمامك.",
+    codeLine: (code)=>`رمز اهتماماتك: <b>${code}</b>، وهو أقوى ثلاثة أبعاد لديك، ويُستخدم لمطابقة التخصصات.`,
     majorsTitle: "أفضل ٥ تخصصات لك",
     majorsSub: "مرتبة حسب توافقها مع ملفك الشخصي. ابحث أكثر عن كل تخصص، وناقشه مع مختصين في المجال.",
     whyLabel: "لماذا يناسبك:",
@@ -342,8 +357,8 @@ const UI = {
     retake: "إعادة الاختبار",
     print: "حفظ / طباعة النتيجة",
     share: "شارك الاختبار",
-    shareCopied: "تم نسخ الرابط — شاركه مع أصدقائك!",
-    disclaimer: "هذا الاختبار أداة استكشافية تستند إلى أبحاث الميول المهنية الراسخة (نموذج هولاند RIASEC وبنود O*NET Interest Profiler المتاحة للعموم، مع مقاييس القدرات والقيم المهنية). هو إرشاد لا قرار نهائي: استخدم نتيجتك نقطة انطلاق للبحث والحوار مع المرشدين وأهلك والمختصين — وثق بحكمك الشخصي.",
+    shareCopied: "تم نسخ الرابط؛ شاركه مع أصدقائك!",
+    disclaimer: "هذا الاختبار أداة استكشافية تستند إلى أبحاث الميول المهنية الراسخة (نموذج هولاند RIASEC وبنود O*NET Interest Profiler المتاحة للعموم، مع مقاييس القدرات والقيم المهنية). هو إرشاد لا قرار نهائي: استخدم نتيجتك نقطة انطلاق للبحث والحوار مع المرشدين وأهلك والمختصين، وثق بحكمك الشخصي.",
     footer: 'إعداد <a href="https://www.saqeralkhalifa.com">د. صقر آل خليفة</a> · مجاني لجميع الطلبة',
     matchWord: "توافق",
     andWord: " و",
@@ -377,6 +392,32 @@ const APTS = {
   spat:{en:"visual-spatial", ar:"التصور البصري والمكاني"}
 };
 
+/* "why this question" texts */
+const WHY_DIM = {
+  R:{en:"This measures your hands-on (Realistic) interest, one of six research-based interest types used worldwide to match people with majors and careers.",
+     ar:"يقيس هذا ميولك العملية (النمط الواقعي)، أحد أنماط الميول الستة المعتمدة عالميًا في مطابقة الأشخاص مع التخصصات والمهن."},
+  I:{en:"This measures your analytical (Investigative) interest. Strong scores point toward science, medicine, engineering, and research-heavy majors.",
+     ar:"يقيس هذا ميولك التحليلية (النمط الاستقصائي). النتيجة القوية تشير نحو العلوم والطب والهندسة والتخصصات البحثية."},
+  A:{en:"This measures your creative (Artistic) interest. It helps identify majors where imagination and self-expression matter daily.",
+     ar:"يقيس هذا ميولك الإبداعية (النمط الفني)، ويساعد على تحديد التخصصات التي يُستخدم فيها الخيال والتعبير يوميًا."},
+  S:{en:"This measures your people-focused (Social) interest. Careers in health, education, and counseling depend on it.",
+     ar:"يقيس هذا ميولك الاجتماعية (نمط المساعدة). مهن الصحة والتعليم والإرشاد تعتمد عليها."},
+  E:{en:"This measures your leadership and business (Enterprising) interest, the engine behind majors like management, law, and entrepreneurship.",
+     ar:"يقيس هذا ميولك القيادية والتجارية (النمط الريادي)، وهي أساس تخصصات مثل الإدارة والقانون وريادة الأعمال."},
+  C:{en:"This measures your organizing (Conventional) interest: enjoying structure, data, and precision. It is central to accounting, finance, and operations.",
+     ar:"يقيس هذا ميولك التنظيمية (النمط التقليدي): حب النظام والبيانات والدقة، وهو جوهري في المحاسبة والتمويل والعمليات."}
+};
+const WHY_APT = {
+  num:{en:"A quick check of numerical reasoning. Majors like engineering, finance, data science, and medicine lean on this skill.",
+       ar:"فحص سريع للاستدلال العددي. تخصصات مثل الهندسة والتمويل وعلوم البيانات والطب تعتمد على هذه المهارة."},
+  log:{en:"A quick check of logical pattern reasoning, the core skill behind computing, science, and law.",
+       ar:"فحص سريع للاستدلال المنطقي واكتشاف الأنماط، وهو المهارة الأساسية في الحوسبة والعلوم والقانون."},
+  verb:{en:"A quick check of verbal reasoning, which matters most in law, media, teaching, and business.",
+        ar:"فحص سريع للاستدلال اللغوي، وهو الأهم في القانون والإعلام والتعليم والأعمال."},
+  spat:{en:"A quick check of spatial visualization, a key skill for architecture, engineering, design, and surgery.",
+        ar:"فحص سريع للتصور المكاني، وهو مهارة أساسية في العمارة والهندسة والتصميم والجراحة."}
+};
+
 /* ---------------- Questions ----------------
    type "likert": O*NET-style activity, 5-point scale, dim gets 0..4
    type "mc": options carry weight objects {riasec:{}, vals:{}, apts:{}}
@@ -398,7 +439,7 @@ const QUESTIONS = [
   {sec:0, type:"likert", dim:"C", t:{en:"Work with spreadsheets and detailed calculations", ar:"العمل على جداول البيانات والحسابات الدقيقة"}},
 
   /* ===== Section 1: School & strengths ===== */
-  {sec:1, type:"mc", t:{en:"Which school subject do you most look forward to?", ar:"أي مادة دراسية تنتظر حصتها بشوق؟"}, opts:[
+  {sec:1, type:"mc", why:{en:"The subject you enjoy most is one of the strongest predictors of which major you will actually finish and succeed in.", ar:"المادة التي تستمتع بها أكثر هي من أقوى المؤشرات على التخصص الذي ستكمله وتنجح فيه فعلًا."}, t:{en:"Which school subject do you most look forward to?", ar:"أي مادة دراسية تنتظر حصتها بشوق؟"}, opts:[
     {t:{en:"Mathematics", ar:"الرياضيات"}, w:{riasec:{I:2,C:1}, apts:{num:2}}},
     {t:{en:"Sciences (physics, chemistry, biology)", ar:"العلوم (فيزياء، كيمياء، أحياء)"}, w:{riasec:{I:3}, apts:{log:1}}},
     {t:{en:"Languages & literature", ar:"اللغات والأدب"}, w:{riasec:{A:2,S:1}, apts:{verb:2}}},
@@ -408,7 +449,7 @@ const QUESTIONS = [
     {t:{en:"History & social studies", ar:"التاريخ والدراسات الاجتماعية"}, w:{riasec:{I:1,S:2}, apts:{verb:1}}},
     {t:{en:"PE & sports", ar:"التربية الرياضية"}, w:{riasec:{R:2,S:1}}}
   ]},
-  {sec:1, type:"mc", t:{en:"If you could drop one subject tomorrow, which would it be?", ar:"لو استطعت حذف مادة واحدة من جدولك غدًا، فأيّها تختار؟"}, opts:[
+  {sec:1, type:"mc", why:{en:"Knowing what drains you helps rule out majors that are built on it, which is just as important as knowing what you love.", ar:"معرفة ما يستنزفك تساعد على استبعاد التخصصات المبنية عليه، وهذا لا يقل أهمية عن معرفة ما تحب."}, t:{en:"If you could drop one subject tomorrow, which would it be?", ar:"لو استطعت حذف مادة واحدة من جدولك غدًا، فأيّها تختار؟"}, opts:[
     {t:{en:"Mathematics", ar:"الرياضيات"}, w:{riasec:{I:-1,C:-1}, apts:{num:-2}}},
     {t:{en:"Sciences", ar:"العلوم"}, w:{riasec:{I:-2}}},
     {t:{en:"Languages & literature", ar:"اللغات والأدب"}, w:{riasec:{A:-2}, apts:{verb:-1}}},
@@ -418,7 +459,7 @@ const QUESTIONS = [
     {t:{en:"History & social studies", ar:"التاريخ والدراسات الاجتماعية"}, w:{riasec:{S:-1}, apts:{verb:-1}}},
     {t:{en:"PE & sports", ar:"التربية الرياضية"}, w:{riasec:{R:-2}}}
   ]},
-  {sec:1, type:"mc", t:{en:"Doing which of these makes you lose track of time?", ar:"أثناء أيّ من هذه الأنشطة تنسى الوقت تمامًا؟"}, opts:[
+  {sec:1, type:"mc", why:{en:"Losing track of time (flow) reveals your natural motivation, and motivation predicts persistence at university better than grades alone.", ar:"نسيان الوقت أثناء نشاط ما يكشف دافعك الطبيعي، والدافع يتنبأ بالمثابرة في الجامعة أفضل من الدرجات وحدها."}, t:{en:"Doing which of these makes you lose track of time?", ar:"أثناء أيّ من هذه الأنشطة تنسى الوقت تمامًا؟"}, opts:[
     {t:{en:"Solving a hard puzzle or problem", ar:"حل مسألة أو لغز صعب"}, w:{riasec:{I:2}, vals:{analyzing:2}}},
     {t:{en:"Designing or making something new", ar:"تصميم أو صنع شيء جديد"}, w:{riasec:{A:2}, vals:{creating:2}}},
     {t:{en:"Helping someone with their work or problems", ar:"مساعدة شخص في عمله أو مشكلته"}, w:{riasec:{S:2}, vals:{helping:2}}},
@@ -426,37 +467,37 @@ const QUESTIONS = [
     {t:{en:"Leading a team toward a goal", ar:"قيادة فريق نحو هدف"}, w:{riasec:{E:2}, vals:{leading:2}}},
     {t:{en:"Fixing, building, or working with your hands", ar:"إصلاح أو بناء أو عمل يدوي"}, w:{riasec:{R:2}, vals:{building:2}}}
   ]},
-  {sec:1, type:"mc", t:{en:"Your favorite teacher would most likely describe you as…", ar:"غالبًا سيصفك معلمك المفضل بأنك…"}, opts:[
-    {t:{en:"Analytical — asks “why” about everything", ar:"محلّل — تسأل «لماذا» عن كل شيء"}, w:{riasec:{I:2}, vals:{analyzing:1}}},
-    {t:{en:"Creative — full of original ideas", ar:"مبدع — مليء بالأفكار الأصيلة"}, w:{riasec:{A:2}, vals:{creating:1}}},
-    {t:{en:"Caring — always supporting classmates", ar:"متعاون — تدعم زملاءك دائمًا"}, w:{riasec:{S:2}, vals:{helping:1}}},
-    {t:{en:"Persuasive — a natural leader", ar:"مقنع — قائد بالفطرة"}, w:{riasec:{E:2}, vals:{leading:1}}},
-    {t:{en:"Organized — precise and reliable", ar:"منظم — دقيق ويُعتمد عليه"}, w:{riasec:{C:2}, vals:{structure:1}}},
-    {t:{en:"Practical — good at getting things done", ar:"عملي — بارع في إنجاز المهام"}, w:{riasec:{R:2}, vals:{building:1}}}
+  {sec:1, type:"mc", why:{en:"How others consistently see you often reflects real strengths you take for granted in yourself.", ar:"الطريقة التي يراك بها الآخرون باستمرار تعكس غالبًا نقاط قوة حقيقية تعتبرها أنت أمرًا عاديًا."}, t:{en:"Your favorite teacher would most likely describe you as…", ar:"غالبًا سيصفك معلمك المفضل بأنك…"}, opts:[
+    {t:{en:"Analytical؛ asks “why” about everything", ar:"محلّل؛ تسأل «لماذا» عن كل شيء"}, w:{riasec:{I:2}, vals:{analyzing:1}}},
+    {t:{en:"Creative؛ full of original ideas", ar:"مبدع؛ مليء بالأفكار الأصيلة"}, w:{riasec:{A:2}, vals:{creating:1}}},
+    {t:{en:"Caring؛ always supporting classmates", ar:"متعاون؛ تدعم زملاءك دائمًا"}, w:{riasec:{S:2}, vals:{helping:1}}},
+    {t:{en:"Persuasive؛ a natural leader", ar:"مقنع؛ قائد بالفطرة"}, w:{riasec:{E:2}, vals:{leading:1}}},
+    {t:{en:"Organized؛ precise and reliable", ar:"منظم؛ دقيق ويُعتمد عليه"}, w:{riasec:{C:2}, vals:{structure:1}}},
+    {t:{en:"Practical؛ good at getting things done", ar:"عملي؛ بارع في إنجاز المهام"}, w:{riasec:{R:2}, vals:{building:1}}}
   ]},
-  {sec:1, type:"mc", t:{en:"How strong are you with numbers and mental math?", ar:"ما مدى قوتك في الأرقام والحساب الذهني؟"}, opts:[
+  {sec:1, type:"mc", why:{en:"Your self-rating here is combined with the number puzzles later, so the result is fairer than either alone.", ar:"تقييمك الذاتي هنا يُدمج مع ألغاز الأرقام لاحقًا، فتكون النتيجة أعدل من أي منهما وحده."}, t:{en:"How strong are you with numbers and mental math?", ar:"ما مدى قوتك في الأرقام والحساب الذهني؟"}, opts:[
     {t:{en:"Not really my thing", ar:"ليست نقطة قوتي"}, w:{apts:{num:0}}},
-    {t:{en:"OK — I manage", ar:"مقبول — أتدبر أمري"}, w:{apts:{num:1}}},
-    {t:{en:"Good — better than most classmates", ar:"جيد — أفضل من أغلب زملائي"}, w:{apts:{num:2}}},
+    {t:{en:"OK؛ I manage", ar:"مقبول؛ أتدبر أمري"}, w:{apts:{num:1}}},
+    {t:{en:"Good؛ better than most classmates", ar:"جيد؛ أفضل من أغلب زملائي"}, w:{apts:{num:2}}},
     {t:{en:"One of my strongest skills", ar:"من أقوى مهاراتي"}, w:{apts:{num:3}}}
   ]},
-  {sec:1, type:"mc", t:{en:"How good are you at explaining ideas in words, spoken or written?", ar:"ما مدى براعتك في شرح الأفكار بالكلام أو الكتابة؟"}, opts:[
+  {sec:1, type:"mc", why:{en:"Communication strength points toward majors like law, media, education, and business, where words are the main tool.", ar:"قوة التواصل تشير نحو تخصصات مثل القانون والإعلام والتعليم والأعمال، حيث الكلمة هي الأداة الأساسية."}, t:{en:"How good are you at explaining ideas in words, spoken or written?", ar:"ما مدى براعتك في شرح الأفكار بالكلام أو الكتابة؟"}, opts:[
     {t:{en:"Not really my thing", ar:"ليست نقطة قوتي"}, w:{apts:{verb:0}}},
-    {t:{en:"OK — I manage", ar:"مقبول — أتدبر أمري"}, w:{apts:{verb:1}}},
-    {t:{en:"Good — people say I explain things well", ar:"جيد — يقول الناس إني أشرح جيدًا"}, w:{apts:{verb:2}}},
+    {t:{en:"OK؛ I manage", ar:"مقبول؛ أتدبر أمري"}, w:{apts:{verb:1}}},
+    {t:{en:"Good؛ people say I explain things well", ar:"جيد؛ يقول الناس إني أشرح جيدًا"}, w:{apts:{verb:2}}},
     {t:{en:"One of my strongest skills", ar:"من أقوى مهاراتي"}, w:{apts:{verb:3}}}
   ]},
-  {sec:1, type:"mc", t:{en:"How easily can you picture objects in 3D — reading maps, diagrams, or imagining how parts fit together?", ar:"ما مدى سهولة تخيلك للأجسام ثلاثية الأبعاد — قراءة الخرائط والرسوم، أو تخيل كيف تتركب الأجزاء؟"}, opts:[
+  {sec:1, type:"mc", why:{en:"Spatial thinking is the hidden talent behind architecture, engineering, design, and surgery, and school grades rarely capture it.", ar:"التفكير المكاني هو الموهبة الخفية وراء العمارة والهندسة والتصميم والجراحة، ودرجات المدرسة نادرًا ما تكشفه."}, t:{en:"How easily can you picture objects in 3D, like reading maps and diagrams or imagining how parts fit together?", ar:"ما مدى سهولة تخيلك للأجسام ثلاثية الأبعاد، مثل قراءة الخرائط والرسوم أو تخيل كيف تتركب الأجزاء؟"}, opts:[
     {t:{en:"Not really my thing", ar:"ليست نقطة قوتي"}, w:{apts:{spat:0}}},
-    {t:{en:"OK — I manage", ar:"مقبول — أتدبر أمري"}, w:{apts:{spat:1}}},
-    {t:{en:"Good — I rarely get lost or confused by diagrams", ar:"جيد — نادرًا ما أتوه أو تربكني الرسوم"}, w:{apts:{spat:2}}},
+    {t:{en:"OK؛ I manage", ar:"مقبول؛ أتدبر أمري"}, w:{apts:{spat:1}}},
+    {t:{en:"Good؛ I rarely get lost or confused by diagrams", ar:"جيد؛ نادرًا ما أتوه أو تربكني الرسوم"}, w:{apts:{spat:2}}},
     {t:{en:"One of my strongest skills", ar:"من أقوى مهاراتي"}, w:{apts:{spat:3}}}
   ]},
-  {sec:1, type:"mc", t:{en:"When you face a completely new type of problem, how quickly do you usually figure out the trick?", ar:"عندما تواجه نوعًا جديدًا تمامًا من المسائل، ما مدى سرعتك عادة في اكتشاف الفكرة؟"}, opts:[
+  {sec:1, type:"mc", why:{en:"Learning speed on brand-new problems matters more than ever in the AI era, where every field keeps changing.", ar:"سرعة التعلم مع المشكلات الجديدة كليًا أهم من أي وقت مضى في عصر الذكاء الاصطناعي، حيث تتغير كل المجالات باستمرار."}, t:{en:"When you face a completely new type of problem, how quickly do you usually figure out the trick?", ar:"عندما تواجه نوعًا جديدًا تمامًا من المسائل، ما مدى سرعتك عادة في اكتشاف الفكرة؟"}, opts:[
     {t:{en:"I usually need someone to show me first", ar:"غالبًا أحتاج من يريني الطريقة أولًا"}, w:{apts:{log:0}}},
     {t:{en:"I get there with some time", ar:"أصل إلى الحل مع بعض الوقت"}, w:{apts:{log:1}}},
     {t:{en:"Fairly quickly", ar:"بسرعة معقولة"}, w:{apts:{log:2}}},
-    {t:{en:"Very quickly — I love figuring out new things", ar:"بسرعة كبيرة — أحب اكتشاف الجديد"}, w:{apts:{log:3}}}
+    {t:{en:"Very quickly؛ I love figuring out new things", ar:"بسرعة كبيرة؛ أحب اكتشاف الجديد"}, w:{apts:{log:3}}}
   ]},
 
   /* ===== Section 2: Mind puzzles (right answers; +2 to aptitude) ===== */
@@ -489,7 +530,7 @@ const QUESTIONS = [
   ]},
 
   /* ===== Section 3: What matters to you ===== */
-  {sec:3, type:"mc", t:{en:"Imagine every job paid exactly the same salary. Which would you choose?", ar:"تخيّل أن كل الوظائف براتب واحد تمامًا. أيّها تختار؟"}, opts:[
+  {sec:3, type:"mc", why:{en:"Removing money and prestige from the picture reveals what genuinely attracts you, which is what keeps people happy in a career long-term.", ar:"إزالة المال والمكانة من الصورة تكشف ما يجذبك حقًا، وهذا ما يُبقي الإنسان سعيدًا في مهنته على المدى الطويل."}, t:{en:"Imagine every job paid exactly the same salary. Which would you choose?", ar:"تخيّل أن كل الوظائف براتب واحد تمامًا. أيّها تختار؟"}, opts:[
     {t:{en:"Treat and care for patients", ar:"علاج المرضى والاعتناء بهم"}, w:{riasec:{S:1}, vals:{helping:3}}},
     {t:{en:"Design a building or a bridge", ar:"تصميم مبنى أو جسر"}, w:{riasec:{R:1}, vals:{building:2,creating:1}}},
     {t:{en:"Analyze data to solve a big problem", ar:"تحليل البيانات لحل مشكلة كبيرة"}, w:{riasec:{I:1}, vals:{analyzing:3}}},
@@ -497,7 +538,7 @@ const QUESTIONS = [
     {t:{en:"Create films, designs, or campaigns", ar:"صناعة أفلام أو تصاميم أو حملات إبداعية"}, w:{riasec:{A:1}, vals:{creating:3}}},
     {t:{en:"Keep a huge project organized and on schedule", ar:"إبقاء مشروع ضخم منظمًا وملتزمًا بالجدول"}, w:{riasec:{C:1}, vals:{structure:3}}}
   ]},
-  {sec:3, type:"mc", t:{en:"Ten years from now, success for you mainly means…", ar:"بعد عشر سنوات، النجاح بالنسبة لك يعني أساسًا…"}, opts:[
+  {sec:3, type:"mc", why:{en:"Your personal definition of success shows the work values a career must satisfy for you to feel fulfilled.", ar:"تعريفك الشخصي للنجاح يُظهر القيم المهنية التي يجب أن تلبيها مهنتك حتى تشعر بالرضا."}, t:{en:"Ten years from now, success for you mainly means…", ar:"بعد عشر سنوات، النجاح بالنسبة لك يعني أساسًا…"}, opts:[
     {t:{en:"I made people's lives better", ar:"أنني حسّنت حياة الناس"}, w:{riasec:{S:1}, vals:{helping:2}}},
     {t:{en:"I built things that will last", ar:"أنني بنيت أشياء ستدوم"}, w:{riasec:{R:1}, vals:{building:2}}},
     {t:{en:"I became a deep expert who truly understands my field", ar:"أنني أصبحت خبيرًا متعمقًا يفهم مجاله حقًا"}, w:{riasec:{I:1}, vals:{analyzing:2}}},
@@ -505,7 +546,7 @@ const QUESTIONS = [
     {t:{en:"I'm known for my creativity", ar:"أنني معروف بإبداعي"}, w:{riasec:{A:1}, vals:{creating:2}}},
     {t:{en:"I have a stable, respected career", ar:"أن لديّ مسيرة مهنية مستقرة ومحترمة"}, w:{riasec:{C:1}, vals:{structure:2}}}
   ]},
-  {sec:3, type:"mc", t:{en:"Pick your ideal place to spend a working day:", ar:"اختر المكان المثالي لقضاء يوم عملك:"}, opts:[
+  {sec:3, type:"mc", why:{en:"You will spend thousands of days at work. Fit with the daily environment strongly affects long-term satisfaction.", ar:"ستقضي آلاف الأيام في عملك، والانسجام مع بيئة العمل اليومية يؤثر بقوة على رضاك على المدى الطويل."}, t:{en:"Pick your ideal place to spend a working day:", ar:"اختر المكان المثالي لقضاء يوم عملك:"}, opts:[
     {t:{en:"A hospital or clinic", ar:"مستشفى أو عيادة"}, w:{riasec:{S:2}, vals:{helping:1}}},
     {t:{en:"A science or technology lab", ar:"مختبر علمي أو تقني"}, w:{riasec:{I:2}, vals:{analyzing:1}}},
     {t:{en:"A creative studio", ar:"استوديو إبداعي"}, w:{riasec:{A:2}, vals:{creating:1}}},
@@ -513,7 +554,7 @@ const QUESTIONS = [
     {t:{en:"A workshop, a work site, or outdoors", ar:"ورشة أو موقع عمل أو في الهواء الطلق"}, w:{riasec:{R:2}, vals:{building:1}}},
     {t:{en:"A well-organized office with clear systems", ar:"مكتب منظم بأنظمة واضحة"}, w:{riasec:{C:2}, vals:{structure:1}}}
   ]},
-  {sec:3, type:"mc", t:{en:"In a group project, which role do you naturally take?", ar:"في مشروع جماعي، أي دور تتولاه تلقائيًا؟"}, opts:[
+  {sec:3, type:"mc", why:{en:"The role you take without being asked shows your natural working style, not the one you think you should have.", ar:"الدور الذي تتولاه دون أن يُطلب منك يُظهر أسلوب عملك الطبيعي، لا الأسلوب الذي تظن أنه ينبغي لك."}, t:{en:"In a group project, which role do you naturally take?", ar:"في مشروع جماعي، أي دور تتولاه تلقائيًا؟"}, opts:[
     {t:{en:"I make the plan and the timeline", ar:"أضع الخطة والجدول الزمني"}, w:{riasec:{C:2}, vals:{structure:1}}},
     {t:{en:"I present our work to the class", ar:"أعرض عملنا أمام الصف"}, w:{riasec:{E:2}, vals:{leading:1}}},
     {t:{en:"I do the research and dig for information", ar:"أتولى البحث والتنقيب عن المعلومات"}, w:{riasec:{I:2}, vals:{analyzing:1}}},
@@ -521,13 +562,13 @@ const QUESTIONS = [
     {t:{en:"I keep the team working happily together", ar:"أحافظ على انسجام الفريق وتعاونه"}, w:{riasec:{S:2}, vals:{helping:1}}},
     {t:{en:"I handle the practical, hands-on parts", ar:"أتولى الجوانب العملية والتنفيذية"}, w:{riasec:{R:2}, vals:{building:1}}}
   ]},
-  {sec:3, type:"mc", special:"years", t:{en:"How many years are you willing to study at university?", ar:"كم سنة أنت مستعد للدراسة في الجامعة؟"}, opts:[
-    {t:{en:"As long as it takes — even 6+ years (like medicine)", ar:"ما يلزم من سنوات — حتى ٦ سنوات أو أكثر (مثل الطب)"}, years:"any"},
+  {sec:3, type:"mc", special:"years", why:{en:"Some careers, like medicine, need six or more years of study. Your honest answer filters out unrealistic paths.", ar:"بعض المهن، كالطب، تتطلب ست سنوات دراسة أو أكثر. إجابتك الصادقة تستبعد المسارات غير الواقعية."}, t:{en:"How many years are you willing to study at university?", ar:"كم سنة أنت مستعد للدراسة في الجامعة؟"}, opts:[
+    {t:{en:"As long as it takes؛ even 6+ years (like medicine)", ar:"ما يلزم من سنوات؛ حتى ٦ سنوات أو أكثر (مثل الطب)"}, years:"any"},
     {t:{en:"Up to 5 years is fine", ar:"حتى ٥ سنوات مقبول"}, years:"medium"},
     {t:{en:"Around 4 years, please", ar:"حوالي ٤ سنوات فقط"}, years:"four"},
     {t:{en:"The shortest practical route to a good job", ar:"أقصر طريق عملي لوظيفة جيدة"}, years:"short"}
   ]},
-  {sec:3, type:"mc", special:"avoid", t:{en:"Be honest — which of these would you most want to AVOID in your daily work?", ar:"بصراحة — أيّ من هذه تريد تجنّبه في عملك اليومي أكثر شيء؟"}, opts:[
+  {sec:3, type:"mc", special:"avoid", why:{en:"Career research shows dealbreakers eliminate options faster than attractions choose them. One honest answer here prevents a painful mismatch.", ar:"أبحاث المهن تُظهر أن المنفّرات تستبعد الخيارات أسرع مما تجذبها المحفزات. إجابة صادقة هنا تجنّبك اختيارًا مؤلمًا."}, t:{en:"Be honest: which of these would you most want to AVOID in your daily work?", ar:"بصراحة، أيّ من هذه تريد تجنّبه في عملك اليومي أكثر شيء؟"}, opts:[
     {t:{en:"Blood, hospitals, and sick people", ar:"الدم والمستشفيات والمرضى"}, avoid:"medical"},
     {t:{en:"Lots of advanced mathematics", ar:"الكثير من الرياضيات المتقدمة"}, avoid:"math"},
     {t:{en:"Speaking in front of people all the time", ar:"التحدث أمام الناس طوال الوقت"}, avoid:"speaking"},
@@ -550,11 +591,11 @@ const MAJORS = [
    c:{en:["Physician","Surgeon","Medical researcher","Public-health specialist"], ar:["طبيب","جرّاح","باحث طبي","أخصائي صحة عامة"]}},
   {id:"dent", n:{en:"Dentistry", ar:"طب الأسنان"}, riasec:["I","R","S"], apts:["spat","log"], vals:["helping","building"], demand:false, years:"long",
    avoidHit:{medical:.3},
-   d:{en:"Combines medical science with fine hand skills — you literally build and repair with your hands.", ar:"يجمع العلوم الطبية مع مهارات يدوية دقيقة — عمل بنائي وإصلاحي بيديك حرفيًا."},
+   d:{en:"Combines medical science with fine hand skills: you literally build and repair with your hands.", ar:"يجمع العلوم الطبية مع مهارات يدوية دقيقة؛ عمل بنائي وإصلاحي بيديك حرفيًا."},
    c:{en:["Dentist","Orthodontist","Oral surgeon","Dental public-health officer"], ar:["طبيب أسنان","أخصائي تقويم","جرّاح فم","مسؤول صحة الفم العامة"]}},
   {id:"pharm", n:{en:"Pharmacy", ar:"الصيدلة"}, riasec:["I","C","S"], apts:["num","log"], vals:["helping","structure","analyzing"], demand:false, years:"std",
    avoidHit:{medical:.7},
-   d:{en:"The science of medicines — precise, chemistry-based, and patient-facing without surgery or blood.", ar:"علم الأدوية — دقيق، قائم على الكيمياء، وقريب من المرضى دون جراحة أو دم."},
+   d:{en:"The science of medicines: precise, chemistry-based, and patient-facing without surgery or blood.", ar:"علم الأدوية؛ دقيق، قائم على الكيمياء، وقريب من المرضى دون جراحة أو دم."},
    c:{en:["Clinical pharmacist","Community pharmacist","Drug-safety officer","Pharma industry specialist"], ar:["صيدلي سريري","صيدلي مجتمعي","مسؤول سلامة دوائية","أخصائي صناعات دوائية"]}},
   {id:"nurs", n:{en:"Nursing", ar:"التمريض"}, riasec:["S","I","C"], apts:["verb","log"], vals:["helping","structure"], demand:true, years:"std",
    avoidHit:{medical:.3},
@@ -562,37 +603,37 @@ const MAJORS = [
    c:{en:["Registered nurse","ICU / ER nurse","Midwife","Nurse educator"], ar:["ممرض مسجل","ممرض عناية مركزة وطوارئ","قابلة قانونية","مثقف صحي تمريضي"]}},
   {id:"biomed", n:{en:"Biomedical & Lab Science", ar:"العلوم الطبية المخبرية"}, riasec:["I","R","C"], apts:["log","num"], vals:["analyzing","helping","structure"], demand:false, years:"std",
    avoidHit:{medical:.5},
-   d:{en:"The detective work of healthcare — running the lab tests and scans that diagnoses depend on.", ar:"العمل الاستقصائي في الرعاية الصحية — إجراء الفحوصات المخبرية والأشعة التي يُبنى عليها التشخيص."},
+   d:{en:"The detective work of healthcare: running the lab tests and scans that diagnoses depend on.", ar:"العمل الاستقصائي في الرعاية الصحية؛ إجراء الفحوصات المخبرية والأشعة التي يُبنى عليها التشخيص."},
    c:{en:["Medical lab scientist","Radiographer","Biomedical researcher","Hospital lab supervisor"], ar:["أخصائي مختبرات طبية","فني أشعة","باحث طبي حيوي","مشرف مختبر"]}},
   {id:"physio", n:{en:"Physiotherapy & Sports Science", ar:"العلاج الطبيعي وعلوم الرياضة"}, riasec:["S","R"], apts:["spat","verb"], vals:["helping","building"], demand:false, years:"std",
    avoidHit:{medical:.6, physical:.6},
-   d:{en:"Helping people move, recover, and perform — healthcare for those who can't sit still at a desk.", ar:"مساعدة الناس على الحركة والتعافي والأداء — رعاية صحية لمن لا يطيق الجلوس المكتبي."},
+   d:{en:"Helping people move, recover, and perform: healthcare for those who can't sit still at a desk.", ar:"مساعدة الناس على الحركة والتعافي والأداء؛ رعاية صحية لمن لا يطيق الجلوس المكتبي."},
    c:{en:["Physiotherapist","Sports-rehab specialist","Performance coach","PE teacher"], ar:["أخصائي علاج طبيعي","أخصائي تأهيل رياضي","مدرب أداء","معلم تربية رياضية"]}},
   {id:"psych", n:{en:"Psychology", ar:"علم النفس"}, riasec:["I","S"], apts:["verb","log"], vals:["helping","analyzing"], demand:false, years:"std",
-   d:{en:"Understanding how people think, feel, and behave — the science behind helping minds.", ar:"فهم كيف يفكر الناس ويشعرون ويتصرفون — العلم الذي تقوم عليه مساعدة العقول."},
+   d:{en:"Understanding how people think, feel, and behave: the science behind helping minds.", ar:"فهم كيف يفكر الناس ويشعرون ويتصرفون؛ العلم الذي تقوم عليه مساعدة العقول."},
    c:{en:["Counsellor","Clinical psychologist (postgrad)","HR / organizational psychologist","School counsellor"], ar:["مرشد نفسي","أخصائي نفسي سريري (دراسات عليا)","أخصائي نفسي مؤسسي","مرشد مدرسي"]}},
   {id:"cs", n:{en:"Computer Science & Software Engineering", ar:"علوم الحاسوب وهندسة البرمجيات"}, riasec:["I","R","C"], apts:["log","num"], vals:["building","analyzing"], demand:true, years:"std",
    avoidHit:{math:.5},
-   d:{en:"Building the apps, systems, and games the world runs on — logic turned into products.", ar:"بناء التطبيقات والأنظمة والألعاب التي يعمل بها العالم — منطق يتحول إلى منتجات."},
+   d:{en:"Building the apps, systems, and games the world runs on؛ logic turned into products.", ar:"بناء التطبيقات والأنظمة والألعاب التي يعمل بها العالم؛ منطق يتحول إلى منتجات."},
    c:{en:["Software developer","App / web engineer","Systems architect","Game developer"], ar:["مطور برمجيات","مهندس تطبيقات وويب","مهندس أنظمة","مطور ألعاب"]}},
   {id:"cyber", n:{en:"Cybersecurity", ar:"الأمن السيبراني"}, riasec:["I","R","C"], apts:["log"], vals:["analyzing","structure"], demand:true, years:"std",
-   d:{en:"Defending banks, governments, and companies from digital attacks — one of the GCC's hottest fields.", ar:"حماية البنوك والحكومات والشركات من الهجمات الرقمية — من أسخن المجالات في الخليج."},
+   d:{en:"Defending banks, governments, and companies from digital attacks؛ one of the GCC's hottest fields.", ar:"حماية البنوك والحكومات والشركات من الهجمات الرقمية؛ من أسخن المجالات في الخليج."},
    c:{en:["Security analyst","Ethical hacker / pen-tester","SOC engineer","Digital-forensics investigator"], ar:["محلل أمن سيبراني","مخترق أخلاقي","مهندس مركز عمليات أمنية","محقق جنائي رقمي"]}},
   {id:"data", n:{en:"Data Science & Artificial Intelligence", ar:"علوم البيانات والذكاء الاصطناعي"}, riasec:["I","C"], apts:["num","log"], vals:["analyzing"], demand:true, years:"std",
    avoidHit:{math:.4},
-   d:{en:"Finding the story hidden in data and teaching machines to learn — the defining skill of this decade.", ar:"اكتشاف القصة المخفية في البيانات وتعليم الآلات — مهارة هذا العقد بامتياز."},
+   d:{en:"Finding the story hidden in data and teaching machines to learn: the defining skill of this decade.", ar:"اكتشاف القصة المخفية في البيانات وتعليم الآلات؛ مهارة هذا العقد بامتياز."},
    c:{en:["Data scientist","AI / ML engineer","Data analyst","Business-intelligence specialist"], ar:["عالم بيانات","مهندس ذكاء اصطناعي","محلل بيانات","أخصائي ذكاء أعمال"]}},
   {id:"netw", n:{en:"Computer & Network Engineering", ar:"هندسة الحاسوب والشبكات"}, riasec:["R","I"], apts:["log","spat"], vals:["building","analyzing"], demand:true, years:"std",
    avoidHit:{math:.6},
-   d:{en:"The physical side of tech — networks, chips, smart devices, and the cloud infrastructure behind everything.", ar:"الجانب المادي من التقنية — الشبكات والرقائق والأجهزة الذكية والبنية السحابية خلف كل شيء."},
+   d:{en:"The physical side of tech: networks, chips, smart devices, and the cloud infrastructure behind everything.", ar:"الجانب المادي من التقنية؛ الشبكات والرقائق والأجهزة الذكية والبنية السحابية خلف كل شيء."},
    c:{en:["Network engineer","IoT / embedded engineer","Telecom engineer","Cloud-infrastructure engineer"], ar:["مهندس شبكات","مهندس إنترنت الأشياء","مهندس اتصالات","مهندس بنية سحابية"]}},
   {id:"mech", n:{en:"Mechanical Engineering", ar:"الهندسة الميكانيكية"}, riasec:["R","I"], apts:["spat","num"], vals:["building"], demand:false, years:"std",
    avoidHit:{math:.4, physical:.75},
-   d:{en:"Machines, engines, energy, and everything that moves — the broadest classic engineering path.", ar:"الآلات والمحركات والطاقة وكل ما يتحرك — أوسع مسارات الهندسة الكلاسيكية."},
+   d:{en:"Machines, engines, energy, and everything that moves: the broadest classic engineering path.", ar:"الآلات والمحركات والطاقة وكل ما يتحرك؛ أوسع مسارات الهندسة الكلاسيكية."},
    c:{en:["Mechanical engineer","HVAC engineer","Automotive / aerospace engineer","Maintenance manager"], ar:["مهندس ميكانيكي","مهندس تكييف وتبريد","مهندس سيارات وطيران","مدير صيانة"]}},
   {id:"elec", n:{en:"Electrical & Electronics Engineering", ar:"الهندسة الكهربائية والإلكترونية"}, riasec:["R","I"], apts:["num","log"], vals:["building","analyzing"], demand:false, years:"std",
    avoidHit:{math:.4},
-   d:{en:"Power grids, electronics, and automation — the engineering behind the region's energy transition.", ar:"شبكات الكهرباء والإلكترونيات والأتمتة — الهندسة التي يقوم عليها تحول الطاقة في المنطقة."},
+   d:{en:"Power grids, electronics, and automation: the engineering behind the region's energy transition.", ar:"شبكات الكهرباء والإلكترونيات والأتمتة؛ الهندسة التي يقوم عليها تحول الطاقة في المنطقة."},
    c:{en:["Electrical engineer","Power-grid engineer","Electronics designer","Automation engineer"], ar:["مهندس كهرباء","مهندس شبكات طاقة","مصمم إلكترونيات","مهندس أتمتة وتحكم"]}},
   {id:"civil", n:{en:"Civil Engineering", ar:"الهندسة المدنية"}, riasec:["R","I","C"], apts:["spat","num"], vals:["building","structure"], demand:false, years:"std",
    avoidHit:{math:.5, physical:.6},
@@ -604,64 +645,64 @@ const MAJORS = [
    c:{en:["Process engineer","Petrochemical engineer","Quality & safety engineer","Refinery operations engineer"], ar:["مهندس عمليات","مهندس بتروكيماويات","مهندس جودة وسلامة","مهندس تشغيل مصافٍ"]}},
   {id:"indus", n:{en:"Industrial Engineering", ar:"الهندسة الصناعية"}, riasec:["E","I","R"], apts:["num","log"], vals:["structure","leading","analyzing"], demand:true, years:"std",
    avoidHit:{math:.6},
-   d:{en:"Engineering meets management — making factories, hospitals, and airports run better and cheaper.", ar:"التقاء الهندسة بالإدارة — جعل المصانع والمستشفيات والمطارات تعمل بكفاءة أعلى وتكلفة أقل."},
+   d:{en:"Engineering meets management: making factories, hospitals, and airports run better and cheaper.", ar:"التقاء الهندسة بالإدارة؛ جعل المصانع والمستشفيات والمطارات تعمل بكفاءة أعلى وتكلفة أقل."},
    c:{en:["Industrial engineer","Operations manager","Quality-systems engineer","Lean consultant"], ar:["مهندس صناعي","مدير عمليات","مهندس أنظمة جودة","مستشار تحسين عمليات"]}},
   {id:"renew", n:{en:"Renewable Energy & Environmental Engineering", ar:"الطاقة المتجددة وهندسة البيئة"}, riasec:["I","R"], apts:["num","spat"], vals:["building","analyzing","helping"], demand:true, years:"std",
    avoidHit:{math:.5, physical:.7},
-   d:{en:"Solar, wind, and sustainability — the field every GCC net-zero vision is betting on.", ar:"الطاقة الشمسية والرياح والاستدامة — المجال الذي تراهن عليه رؤى الحياد الصفري الخليجية."},
+   d:{en:"Solar, wind, and sustainability: the field every GCC net-zero vision is betting on.", ar:"الطاقة الشمسية والرياح والاستدامة؛ المجال الذي تراهن عليه رؤى الحياد الصفري الخليجية."},
    c:{en:["Solar / wind energy engineer","Sustainability consultant","Environmental engineer","Energy auditor"], ar:["مهندس طاقة شمسية ورياح","مستشار استدامة","مهندس بيئي","مدقق طاقة"]}},
   {id:"arch", n:{en:"Architecture & Interior Design", ar:"العمارة والتصميم الداخلي"}, riasec:["A","R","I"], apts:["spat"], vals:["creating","building"], demand:false, years:"std",
-   d:{en:"Art you can walk through — designing the buildings and spaces people live in.", ar:"فن يمكنك المشي داخله — تصميم المباني والفضاءات التي يعيش فيها الناس."},
+   d:{en:"Art you can walk through: designing the buildings and spaces people live in.", ar:"فن يمكنك المشي داخله؛ تصميم المباني والفضاءات التي يعيش فيها الناس."},
    c:{en:["Architect","Urban designer","Interior architect","BIM specialist"], ar:["مهندس معماري","مصمم حضري","مهندس تصميم داخلي","أخصائي نمذجة معلومات البناء"]}},
   {id:"acct", n:{en:"Accounting", ar:"المحاسبة"}, riasec:["C","E"], apts:["num"], vals:["structure","leading"], demand:true, years:"std",
    avoidHit:{routine:.55, math:.7},
-   d:{en:"The language of business — precise, always in demand, with a clear professional ladder (CPA, ACCA).", ar:"لغة الأعمال — دقيقة ومطلوبة دائمًا وبسلّم مهني واضح (CPA، ACCA)."},
+   d:{en:"The language of business: precise, always in demand, with a clear professional ladder (CPA, ACCA).", ar:"لغة الأعمال؛ دقيقة ومطلوبة دائمًا وبسلّم مهني واضح (CPA، ACCA)."},
    c:{en:["Accountant","Auditor","Tax / VAT advisor","CFO track"], ar:["محاسب","مدقق حسابات","مستشار ضرائب","مسار مدير مالي"]}},
   {id:"fin", n:{en:"Banking & Finance (incl. Islamic Finance)", ar:"المصارف والتمويل (ومنه التمويل الإسلامي)"}, riasec:["E","C","I"], apts:["num"], vals:["leading","analyzing","structure"], demand:true, years:"std",
    avoidHit:{math:.6},
-   d:{en:"Bahrain is the Gulf's Islamic-finance hub — this major leads straight into its banking sector.", ar:"البحرين مركز التمويل الإسلامي في الخليج — وهذا التخصص طريق مباشر إلى قطاعها المصرفي."},
+   d:{en:"Bahrain is the Gulf's Islamic-finance hub: this major leads straight into its banking sector.", ar:"البحرين مركز التمويل الإسلامي في الخليج؛ وهذا التخصص طريق مباشر إلى قطاعها المصرفي."},
    c:{en:["Investment analyst","Islamic banker","Risk manager","Wealth advisor"], ar:["محلل استثمار","مصرفي إسلامي","مدير مخاطر","مستشار ثروات"]}},
   {id:"fintech", n:{en:"Financial Technology (FinTech)", ar:"التقنية المالية (فنتك)"}, riasec:["E","I","C"], apts:["num","log"], vals:["analyzing","leading","building"], demand:true, years:"std",
    avoidHit:{math:.6},
-   d:{en:"Where banking meets coding — digital payments, blockchain, and Bahrain FinTech Bay careers.", ar:"حيث تلتقي المصارف بالبرمجة — المدفوعات الرقمية والبلوك تشين ووظائف خليج البحرين للتقنية المالية."},
+   d:{en:"Where banking meets coding: digital payments, blockchain, and Bahrain FinTech Bay careers.", ar:"حيث تلتقي المصارف بالبرمجة؛ المدفوعات الرقمية والبلوك تشين ووظائف خليج البحرين للتقنية المالية."},
    c:{en:["FinTech product manager","Payments / blockchain developer","Digital-banking analyst","RegTech specialist"], ar:["مدير منتجات تقنية مالية","مطور مدفوعات وبلوك تشين","محلل مصرفية رقمية","أخصائي تقنية تنظيمية"]}},
   {id:"math", n:{en:"Mathematics, Statistics & Actuarial Science", ar:"الرياضيات والإحصاء والعلوم الاكتوارية"}, riasec:["I","C"], apts:["num","log"], vals:["analyzing","structure"], demand:false, years:"std",
    avoidHit:{math:.3},
-   d:{en:"Pure problem-solving power — actuaries and statisticians are among the best-paid analytical careers.", ar:"قوة حل المسائل الخالصة — الاكتواريون والإحصائيون من أعلى المهن التحليلية أجرًا."},
+   d:{en:"Pure problem-solving power: actuaries and statisticians are among the best-paid analytical careers.", ar:"قوة حل المسائل الخالصة؛ الاكتواريون والإحصائيون من أعلى المهن التحليلية أجرًا."},
    c:{en:["Actuary","Statistician","Risk analyst","Math teacher / lecturer"], ar:["خبير اكتواري","إحصائي","محلل مخاطر","معلم أو محاضر رياضيات"]}},
   {id:"bus", n:{en:"Business Management", ar:"إدارة الأعمال"}, riasec:["E","S","C"], apts:["verb","num"], vals:["leading"], demand:false, years:"std",
    avoidHit:{speaking:.6},
-   d:{en:"The flexible all-rounder — management, HR, entrepreneurship, and consulting all start here.", ar:"التخصص المرن الشامل — الإدارة والموارد البشرية وريادة الأعمال والاستشارات تبدأ كلها من هنا."},
+   d:{en:"The flexible all-rounder: management, HR, entrepreneurship, and consulting all start here.", ar:"التخصص المرن الشامل؛ الإدارة والموارد البشرية وريادة الأعمال والاستشارات تبدأ كلها من هنا."},
    c:{en:["Operations manager","Management consultant","HR manager","Entrepreneur / startup founder"], ar:["مدير عمليات","مستشار إداري","مدير موارد بشرية","رائد أعمال"]}},
   {id:"mkt", n:{en:"Marketing & Digital Marketing", ar:"التسويق والتسويق الرقمي"}, riasec:["E","A","S"], apts:["verb"], vals:["leading","creating"], demand:false, years:"std",
    avoidHit:{speaking:.6},
-   d:{en:"Psychology + creativity + business — building brands and campaigns people actually notice.", ar:"علم النفس والإبداع والأعمال معًا — بناء علامات وحملات يلتفت إليها الناس فعلًا."},
+   d:{en:"Psychology + creativity + business: building brands and campaigns people actually notice.", ar:"علم النفس والإبداع والأعمال معًا؛ بناء علامات وحملات يلتفت إليها الناس فعلًا."},
    c:{en:["Digital marketer","Brand manager","Social-media strategist","Market researcher"], ar:["مسوق رقمي","مدير علامة تجارية","استراتيجي وسائل تواصل","باحث سوق"]}},
   {id:"logi", n:{en:"Logistics & Supply Chain Management", ar:"اللوجستيات وإدارة سلاسل الإمداد"}, riasec:["E","C","R"], apts:["num","log"], vals:["structure","leading"], demand:true, years:"std",
    avoidHit:{routine:.75},
-   d:{en:"Moving goods across ports, air, and land — a Bahrain EDB priority sector with real openings.", ar:"نقل البضائع عبر الموانئ والجو والبر — قطاع ذو أولوية لدى مجلس التنمية الاقتصادية البحريني وفرصه حقيقية."},
+   d:{en:"Moving goods across ports, air, and land: a Bahrain EDB priority sector with real openings.", ar:"نقل البضائع عبر الموانئ والجو والبر؛ قطاع ذو أولوية لدى مجلس التنمية الاقتصادية البحريني وفرصه حقيقية."},
    c:{en:["Supply-chain analyst","Port / maritime operations manager","Freight & customs specialist","Distribution manager"], ar:["محلل سلاسل إمداد","مدير عمليات موانئ","أخصائي شحن وجمارك","مدير توزيع"]}},
   {id:"avia", n:{en:"Aviation Management & Piloting", ar:"إدارة الطيران وقيادة الطائرات"}, riasec:["R","E","C"], apts:["spat","num"], vals:["structure","building"], demand:false, years:"std",
-   d:{en:"From the cockpit to airport operations — a natural fit in a region built around its airlines.", ar:"من قمرة القيادة إلى عمليات المطارات — مجال طبيعي في منطقة قامت حول شركات طيرانها."},
+   d:{en:"From the cockpit to airport operations: a natural fit in a region built around its airlines.", ar:"من قمرة القيادة إلى عمليات المطارات؛ مجال طبيعي في منطقة قامت حول شركات طيرانها."},
    c:{en:["Commercial pilot","Air-traffic controller","Airport operations manager","Aviation-safety officer"], ar:["طيار تجاري","مراقب جوي","مدير عمليات مطار","مسؤول سلامة طيران"]}},
   {id:"law", n:{en:"Law", ar:"القانون"}, riasec:["E","I","S"], apts:["verb","log"], vals:["leading","structure","helping"], demand:false, years:"std",
    avoidHit:{speaking:.6},
-   d:{en:"For sharp readers, writers, and arguers — from courtrooms to corporate deals and compliance.", ar:"لمن يجيد القراءة والكتابة والحِجاج — من قاعات المحاكم إلى صفقات الشركات والامتثال."},
+   d:{en:"For sharp readers, writers, and arguers: from courtrooms to corporate deals and compliance.", ar:"لمن يجيد القراءة والكتابة والحِجاج؛ من قاعات المحاكم إلى صفقات الشركات والامتثال."},
    c:{en:["Lawyer / advocate","Corporate legal counsel","Judge / prosecutor track","Compliance officer"], ar:["محامٍ","مستشار قانوني للشركات","مسار القضاء والنيابة","مسؤول امتثال"]}},
   {id:"media", n:{en:"Mass Communication & Media", ar:"الإعلام والاتصال الجماهيري"}, riasec:["A","E","S"], apts:["verb"], vals:["creating","leading"], demand:false, years:"std",
    avoidHit:{speaking:.5},
-   d:{en:"Telling stories that matter — journalism, broadcasting, PR, and content creation.", ar:"سرد القصص المهمة — صحافة وإذاعة وعلاقات عامة وصناعة محتوى."},
+   d:{en:"Telling stories that matter: journalism, broadcasting, PR, and content creation.", ar:"سرد القصص المهمة؛ صحافة وإذاعة وعلاقات عامة وصناعة محتوى."},
    c:{en:["Journalist","Broadcaster / presenter","PR & communications officer","Content producer"], ar:["صحفي","مذيع ومقدم برامج","مسؤول علاقات عامة واتصال","منتج محتوى"]}},
   {id:"design", n:{en:"Graphic & Multimedia Design", ar:"التصميم الجرافيكي والوسائط المتعددة"}, riasec:["A","R","I"], apts:["spat","verb"], vals:["creating"], demand:false, years:"std",
-   d:{en:"Visual creativity as a career — branding, animation, UX/UI, and film in growing creative industries.", ar:"الإبداع البصري مهنةً — هوية بصرية ورسوم متحركة وتصميم تجربة مستخدم وأفلام في صناعات إبداعية متنامية."},
+   d:{en:"Visual creativity as a career: branding, animation, UX/UI, and film in growing creative industries.", ar:"الإبداع البصري مهنةً؛ هوية بصرية ورسوم متحركة وتصميم تجربة مستخدم وأفلام في صناعات إبداعية متنامية."},
    c:{en:["Graphic designer","Animator / motion designer","UX/UI designer","Film / video editor"], ar:["مصمم جرافيك","مصمم رسوم متحركة","مصمم تجربة وواجهات","مونتير أفلام"]}},
   {id:"edu", n:{en:"Education (Teaching)", ar:"التربية والتعليم"}, riasec:["S","A","C"], apts:["verb"], vals:["helping","structure"], demand:false, years:"std",
    avoidHit:{speaking:.5},
-   d:{en:"Shaping the next generation — a stable, meaningful career at the center of every national vision.", ar:"صناعة الجيل القادم — مهنة مستقرة وذات معنى في قلب كل رؤية وطنية."},
+   d:{en:"Shaping the next generation: a stable, meaningful career at the center of every national vision.", ar:"صناعة الجيل القادم؛ مهنة مستقرة وذات معنى في قلب كل رؤية وطنية."},
    c:{en:["School teacher","Special-education teacher","Curriculum designer","Education supervisor"], ar:["معلم","معلم تربية خاصة","مصمم مناهج","مشرف تربوي"]}},
   {id:"tour", n:{en:"Tourism & Hospitality Management", ar:"إدارة السياحة والضيافة"}, riasec:["E","S","C"], apts:["verb"], vals:["leading","helping"], demand:true, years:"std",
    avoidHit:{speaking:.7},
-   d:{en:"Hotels, events, and experiences — a priority growth sector as the Gulf opens to the world.", ar:"الفنادق والفعاليات والتجارب — قطاع نمو ذو أولوية مع انفتاح الخليج على العالم."},
+   d:{en:"Hotels, events, and experiences: a priority growth sector as the Gulf opens to the world.", ar:"الفنادق والفعاليات والتجارب؛ قطاع نمو ذو أولوية مع انفتاح الخليج على العالم."},
    c:{en:["Hotel manager","Events manager","Tourism development officer","Airline services manager"], ar:["مدير فندق","مدير فعاليات","مسؤول تنمية سياحية","مدير خدمات طيران"]}}
 ];
 
@@ -799,7 +840,7 @@ if (typeof document !== "undefined") (function(){
     const U = UI[lang];
     document.documentElement.lang = lang;
     document.documentElement.dir = lang==="ar" ? "rtl" : "ltr";
-    document.title = lang==="ar" ? "بوصلة التخصص — اكتشف تخصصك الجامعي | د. صقر آل خليفة" : "Major Compass — Find Your University Major | Dr. Saqer AlKhalifa";
+    document.title = lang==="ar" ? "بوصلة التخصص؛ اكتشف تخصصك الجامعي | د. صقر آل خليفة" : "Major Compass؛ Find Your University Major | Dr. Saqer AlKhalifa";
     $("langToggle").textContent = lang==="en" ? "عربي" : "English";
     $("t-title").textContent = U.title;
     $("t-sub").textContent = U.sub;
@@ -813,7 +854,9 @@ if (typeof document !== "undefined") (function(){
     $("t-how4").textContent = U.how4;
     $("startBtn").textContent = U.start;
     $("t-note").textContent = U.note;
+    $("t-refs").textContent = U.refs;
     $("backBtn").textContent = U.back;
+    $("nextBtn").textContent = U.next;
     $("retakeBtn").textContent = U.retake;
     $("printBtn").textContent = U.print;
     $("shareBtn").textContent = U.share;
@@ -848,14 +891,21 @@ if (typeof document !== "undefined") (function(){
         answers[current] = i;
         box.querySelectorAll(".opt").forEach(el=>el.classList.remove("selected"));
         b.classList.add("selected");
+        $("nextBtn").classList.remove("hidden");
         setTimeout(()=>{
           if(current < QUESTIONS.length-1){ current++; renderQuestion(); }
           else finish();
-        }, 220);
+        }, 260);
       });
       box.appendChild(b);
     });
-    $("backBtn").disabled = current===0;
+    const why = q.why ? q.why[lang]
+      : q.type==="likert" ? WHY_DIM[q.dim][lang]
+      : q.type==="puzzle" ? WHY_APT[q.apt][lang] : "";
+    $("qWhy").innerHTML = why ? `<b>${U.whyQ}</b> ${why}` : "";
+    $("qWhy").style.display = why ? "" : "none";
+    $("backBtn").classList.toggle("hidden", current===0);
+    $("nextBtn").classList.toggle("hidden", answers[current]==null);
   }
 
   function finish(){
@@ -875,6 +925,7 @@ if (typeof document !== "undefined") (function(){
     $("r-majors-title").textContent = U.majorsTitle;
     $("r-majors-sub").textContent = U.majorsSub;
     $("r-disclaimer").textContent = U.disclaimer;
+    $("r-refs").textContent = U.refs;
 
     // profile bars (single-series magnitude, one hue, text in ink tokens)
     const rows = $("vizRows");
@@ -921,6 +972,11 @@ if (typeof document !== "undefined") (function(){
   });
   $("startBtn").addEventListener("click", ()=>{ show("quiz"); renderQuestion(); });
   $("backBtn").addEventListener("click", ()=>{ if(current>0){ current--; renderQuestion(); } });
+  $("nextBtn").addEventListener("click", ()=>{
+    if(answers[current]==null) return;
+    if(current < QUESTIONS.length-1){ current++; renderQuestion(); }
+    else finish();
+  });
   $("retakeBtn").addEventListener("click", ()=>{
     answers.fill(null); current = 0;
     show("intro");
