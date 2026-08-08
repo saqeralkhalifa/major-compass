@@ -109,6 +109,10 @@
   .navbtn:hover{border-color:var(--accent); color:var(--accent);}
   .navbtn.hidden{visibility:hidden; pointer-events:none;}
   .refs{font-size:.8rem; color:var(--ink-3); max-width:640px; margin:26px auto 0; line-height:1.6; text-align:center;}
+  .explorelink{display:block; margin:18px auto 0; font-size:1rem; color:var(--accent); text-decoration:none; font-weight:600;}
+  .explorelink:hover{text-decoration:underline;}
+  .mread{display:inline-block; margin-top:10px; font-size:.92rem; color:var(--accent); font-weight:600; text-decoration:none;}
+  .mread:hover{text-decoration:underline;}
 
   /* ---------- results ---------- */
   .res-head{text-align:center; padding:36px 0 10px;}
@@ -219,6 +223,7 @@
     <div style="text-align:center;">
       <button class="btn" id="startBtn"></button>
       <p class="note" id="t-note"></p>
+      <a class="explorelink" id="t-explore" href="https://saqeralkhalifa.github.io/major-compass/explore.html"></a>
       <p class="refs" id="t-refs"></p>
     </div>
   </section>
@@ -327,6 +332,8 @@ const UI = {
     majorsSub: "Ranked by fit with your profile. Research each one further, then talk it through with people in the field.",
     whyLabel: "Why it fits you:",
     careersLabel: "Possible careers:",
+    exploreLink: "Or browse all 31 majors first →",
+    readMore: "Read more about this major →",
     mktLabel: "Job market shown:",
     demandIn: (c)=>`High demand in ${c}`,
     demandWorld: "In high demand worldwide",
@@ -376,6 +383,8 @@ const UI = {
     majorsSub: "مرتبة حسب توافقها مع ملفك الشخصي. ابحث أكثر عن كل تخصص، وناقشه مع مختصين في المجال.",
     whyLabel: "لماذا يناسبك:",
     careersLabel: "مهن ممكنة:",
+    exploreLink: "أو تصفّح جميع التخصصات الـ٣١ أولًا ←",
+    readMore: "اقرأ المزيد عن هذا التخصص ←",
     mktLabel: "سوق العمل المعروض:",
     demandIn: (c)=>`طلب مرتفع في ${c}`,
     demandWorld: "طلب مرتفع عالميًا",
@@ -1028,6 +1037,7 @@ if (typeof document !== "undefined") (function(){
     $("t-how4").textContent = U.how4;
     $("startBtn").textContent = U.start;
     $("t-note").textContent = U.note;
+    $("t-explore").textContent = U.exploreLink;
     $("t-refs").textContent = U.refs;
     $("backBtn").textContent = U.back;
     $("nextBtn").textContent = U.next;
@@ -1160,7 +1170,8 @@ if (typeof document !== "undefined") (function(){
         `<span class="mpct">${r.pct}% ${U.matchWord}</span></div>` +
         `<p class="mwhy"><b>${U.whyLabel}</b> ${buildWhy(m, p, lang)}</p>` +
         `<p class="mcareers"><b>${U.careersLabel}</b> ${m.c[lang].join(" · ")}</p>` +
-        badge;
+        badge +
+        `<a class="mread" href="explore.html#${m.id}" target="_blank" rel="noopener">${U.readMore}</a>`;
       cards.appendChild(card);
     });
   }
