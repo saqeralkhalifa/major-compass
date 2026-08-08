@@ -150,8 +150,21 @@
   .mcareers b{color:var(--ink);}
   .badge{
     display:inline-block; background:#eef7f1; color:var(--good); border:1px solid #cde8d8;
-    font-size:.78rem; font-weight:700; border-radius:999px; padding:3px 12px; margin-top:10px;
+    font-size:.78rem; font-weight:700; border-radius:999px; padding:4px 13px; margin-top:10px;
   }
+  .mktbar{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:16px 22px; margin:22px 0 4px;
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  .mktbar label{font-size:.95rem; color:var(--ink-2); font-weight:600;}
+  .mktbar select{
+    font-family:inherit; font-size:1rem; font-weight:600; color:var(--accent);
+    background:var(--paper); border:1.5px solid var(--line); border-radius:10px;
+    padding:9px 14px; cursor:pointer;
+  }
+  .mktbar select:hover{border-color:var(--accent);}
+  .mktbar .srcnote{font-size:.8rem; color:var(--ink-3); flex:1 1 100%; line-height:1.5;}
   .res-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:28px 0 10px;}
   .disclaimer{
     font-size:.85rem; color:var(--ink-3); text-align:center; max-width:600px; margin:18px auto 0;
@@ -248,6 +261,13 @@
 
     <h2 class="majors-title serif" id="r-majors-title"></h2>
     <p class="majors-sub" id="r-majors-sub"></p>
+
+    <div class="mktbar">
+      <label for="mktSelect" id="r-mkt-label"></label>
+      <select id="mktSelect"></select>
+      <span class="srcnote" id="r-mkt-src"></span>
+    </div>
+
     <div id="majorCards"></div>
 
     <div class="res-actions">
@@ -286,7 +306,7 @@ const UI = {
     how4: "What matters to you in a future career.",
     start: "Start the assessment",
     note: "Tip: answer honestly, not how you think you “should” answer. Ignore money and prestige, and imagine all careers pay the same. This is a guidance tool to explore options, not a final verdict.",
-    refs: "Method and sources: interest questions follow the Holland RIASEC framework used in the U.S. Department of Labor's O*NET program (database 30.3, May 2026). Demand indicators draw on the World Economic Forum's Future of Jobs Report 2025 and Bahrain Economic Development Board priority sectors (2024 Annual Report). Puzzles follow standard modern aptitude-test formats (numerical, logical, verbal, spatial).",
+    refs: "Method and sources: interest questions follow the Holland RIASEC framework used in the U.S. Department of Labor's O*NET program (database 30.3, May 2026). Puzzles follow standard aptitude-test formats (numerical, logical, verbal, spatial). Demand indicators are country-specific and draw on each nation's current strategy and labour-market reporting: Bahrain EDB priority sectors and Skills Bahrain reports, Saudi Vision 2030 and 2025-2026 Saudization decisions, We the UAE 2031 and Operation 300bn, Qatar National Vision 2030 and its Third National Development Strategy, Kuwait Vision 2035, Oman Vision 2040 and its Digital Economy Roadmap, plus the World Economic Forum Future of Jobs Report 2025 for the global outlook.",
     back: "← Back",
     next: "Next →",
     whyQ: "Why this question:",
@@ -307,7 +327,9 @@ const UI = {
     majorsSub: "Ranked by fit with your profile. Research each one further, then talk it through with people in the field.",
     whyLabel: "Why it fits you:",
     careersLabel: "Possible careers:",
-    demandBadge: "⭐ High demand in Bahrain & the GCC",
+    mktLabel: "Job market shown:",
+    demandIn: (c)=>`High demand in ${c}`,
+    demandWorld: "In high demand worldwide",
     retake: "Retake",
     print: "Save / Print results",
     share: "Share this quiz",
@@ -333,7 +355,7 @@ const UI = {
     how4: "ما يهمّك في مستقبلك المهني.",
     start: "ابدأ الاختبار",
     note: "نصيحة: أجب بصدق، لا كما “يجب” أن تجيب. تجاهل المال والمكانة الاجتماعية، وتخيّل أن كل المهن براتب واحد. هذا الاختبار أداة إرشادية لاستكشاف الخيارات، وليس حكمًا نهائيًا.",
-    refs: "المنهجية والمصادر: أسئلة الميول تتبع إطار هولاند RIASEC المستخدم في برنامج O*NET التابع لوزارة العمل الأمريكية (قاعدة البيانات 30.3، مايو 2026). ومؤشرات الطلب مستندة إلى تقرير مستقبل الوظائف 2025 الصادر عن المنتدى الاقتصادي العالمي، وقطاعات الأولوية لدى مجلس التنمية الاقتصادية في البحرين (التقرير السنوي 2024). والألغاز تتبع الصيغ الحديثة المعتمدة في اختبارات القدرات (عددية، منطقية، لغوية، مكانية).",
+    refs: "المنهجية والمصادر: أسئلة الميول تتبع إطار هولاند RIASEC المستخدم في برنامج O*NET التابع لوزارة العمل الأمريكية (قاعدة البيانات 30.3، مايو 2026). والألغاز تتبع الصيغ المعتمدة في اختبارات القدرات (عددية، منطقية، لغوية، مكانية). ومؤشرات الطلب خاصة بكل دولة وتستند إلى استراتيجيتها الحالية وتقارير سوق العمل فيها: قطاعات الأولوية لدى مجلس التنمية الاقتصادية وتقارير مهارات البحرين، ورؤية السعودية 2030 وقرارات التوطين 2025-2026، ورؤية الإمارات 2031 ومشروع 300 مليار، ورؤية قطر الوطنية 2030 واستراتيجيتها الثالثة للتنمية، ورؤية الكويت 2035، ورؤية عُمان 2040 وخارطة اقتصادها الرقمي، إضافة إلى تقرير مستقبل الوظائف 2025 للنظرة العالمية.",
     back: "→ رجوع",
     next: "التالي ←",
     whyQ: "لماذا هذا السؤال؟",
@@ -354,7 +376,9 @@ const UI = {
     majorsSub: "مرتبة حسب توافقها مع ملفك الشخصي. ابحث أكثر عن كل تخصص، وناقشه مع مختصين في المجال.",
     whyLabel: "لماذا يناسبك:",
     careersLabel: "مهن ممكنة:",
-    demandBadge: "⭐ طلب مرتفع في البحرين والخليج",
+    mktLabel: "سوق العمل المعروض:",
+    demandIn: (c)=>`طلب مرتفع في ${c}`,
+    demandWorld: "طلب مرتفع عالميًا",
     retake: "إعادة الاختبار",
     print: "حفظ / طباعة النتيجة",
     share: "شارك الاختبار",
@@ -392,6 +416,83 @@ const APTS = {
   log:{en:"logical reasoning", ar:"التفكير المنطقي"},
   spat:{en:"visual-spatial", ar:"التصور البصري والمكاني"}
 };
+
+/* ---------------- Labour-market demand by country ----------------
+   Reason snippets, reused across countries to keep wording consistent.
+------------------------------------------------------------------- */
+const WHY_DEMAND = {
+  health:{en:"healthcare is expanding and hiring", ar:"قطاع الصحة يتوسع ويوظّف"},
+  nurse:{en:"a documented national shortage of nurses", ar:"نقص وطني موثّق في التمريض"},
+  localised:{en:"a profession being reserved for nationals", ar:"مهنة يجري توطينها للمواطنين"},
+  ict:{en:"ICT is a national priority sector", ar:"تقنية المعلومات قطاع ذو أولوية وطنية"},
+  ai:{en:"AI and data are top national priorities", ar:"الذكاء الاصطناعي والبيانات على رأس الأولويات الوطنية"},
+  cyber:{en:"cybersecurity is a named national priority", ar:"الأمن السيبراني أولوية وطنية معلنة"},
+  finhub:{en:"financial services is a leading sector here", ar:"الخدمات المالية من أبرز القطاعات هنا"},
+  fintech:{en:"a fast-growing fintech ecosystem", ar:"منظومة تقنية مالية سريعة النمو"},
+  shortage:{en:"a named shortage occupation", ar:"مهنة مصنّفة ضمن النقص في الكفاءات"},
+  logis:{en:"logistics is a national priority sector", ar:"اللوجستيات قطاع ذو أولوية وطنية"},
+  energy:{en:"energy and industry drive engineering demand", ar:"الطاقة والصناعة تقودان الطلب على الهندسة"},
+  lng:{en:"LNG and petrochemical expansion needs process engineers", ar:"توسّع الغاز والبتروكيماويات يتطلب مهندسي عمليات"},
+  constr:{en:"a large construction and infrastructure pipeline", ar:"مشاريع إنشاء وبنية تحتية ضخمة"},
+  green:{en:"renewables and sustainability are expanding fast", ar:"الطاقة المتجددة والاستدامة في توسّع سريع"},
+  teach:{en:"education is among the fastest-growing sectors", ar:"التعليم من أسرع القطاعات نموًا"},
+  tourism:{en:"tourism is a fast-growing national priority", ar:"السياحة أولوية وطنية سريعة النمو"},
+  avi:{en:"aviation is expanding under a national strategy", ar:"الطيران يتوسّع ضمن استراتيجية وطنية"},
+  pilots:{en:"a projected pilot and technician shortage to 2044", ar:"نقص متوقع في الطيارين والفنيين حتى ٢٠٤٤"},
+  wef:{en:"among the fastest-growing roles to 2030", ar:"من أسرع المهن نموًا حتى ٢٠٣٠"},
+  care:{en:"counselling and social care are growing fast", ar:"الإرشاد والرعاية الاجتماعية في نمو سريع"},
+  audit:{en:"audit, tax and ESG roles are in demand", ar:"وظائف التدقيق والضرائب والاستدامة مطلوبة"},
+  manu:{en:"manufacturing and industry are expanding", ar:"الصناعة والتصنيع في توسّع"}
+};
+
+/* Per-country high-demand majors. Anything not listed shows no badge.
+   Sources: national visions and current (2024-2026) labour-market reporting. */
+const COUNTRIES = {
+  bh:{n:{en:"Bahrain", ar:"البحرين"},
+    src:{en:"Based on Bahrain EDB priority sectors (Annual Report 2024) and Skills Bahrain sector reports (2024-2025).",
+         ar:"استنادًا إلى قطاعات الأولوية لدى مجلس التنمية الاقتصادية (التقرير السنوي 2024) وتقارير مهارات البحرين (2024-2025)."},
+    high:{med:"health", pharm:"health", nurs:"nurse", physio:"health", cs:"ict", cyber:"cyber", data:"ai",
+          fin:"finhub", fintech:"fintech", math:"shortage", acct:"audit", logi:"logis", avia:"avi", renew:"green"}},
+
+  sa:{n:{en:"Saudi Arabia", ar:"السعودية"},
+    src:{en:"Based on Vision 2030 priority sectors, 2025-2026 Saudization decisions, and current market reports.",
+         ar:"استنادًا إلى قطاعات رؤية 2030 وقرارات التوطين 2025-2026 وتقارير سوق العمل الحديثة."},
+    high:{med:"health", dent:"localised", pharm:"localised", nurs:"health", biomed:"localised", physio:"localised",
+          cs:"ict", cyber:"cyber", data:"ai", netw:"ict", mech:"manu", elec:"energy", civil:"constr", chem:"energy",
+          indus:"manu", renew:"green", acct:"localised", fin:"finhub", mkt:"localised", logi:"logis",
+          edu:"teach", tour:"tourism"}},
+
+  ae:{n:{en:"United Arab Emirates", ar:"الإمارات"},
+    src:{en:"Based on We the UAE 2031, Operation 300bn, the National AI Strategy, and 2026 salary and hiring guides.",
+         ar:"استنادًا إلى رؤية الإمارات 2031 ومشروع 300 مليار والاستراتيجية الوطنية للذكاء الاصطناعي وأدلة التوظيف 2026."},
+    high:{med:"health", nurs:"health", cs:"ict", cyber:"cyber", data:"ai", netw:"ict", elec:"energy",
+          civil:"constr", renew:"green", fin:"finhub", fintech:"fintech", edu:"teach"}},
+
+  qa:{n:{en:"Qatar", ar:"قطر"},
+    src:{en:"Based on Qatar National Vision 2030, the Third National Development Strategy 2024-2030, and current market reporting.",
+         ar:"استنادًا إلى رؤية قطر الوطنية 2030 والاستراتيجية الوطنية الثالثة للتنمية 2024-2030 وتقارير السوق الحديثة."},
+    high:{med:"health", nurs:"nurse", cs:"ict", cyber:"cyber", data:"ai", mech:"energy", elec:"energy",
+          civil:"constr", chem:"lng", fin:"finhub", tour:"tourism"}},
+
+  kw:{n:{en:"Kuwait", ar:"الكويت"},
+    src:{en:"Based on Kuwait Vision 2035, government scholarship priorities for 2026-27, and the national project pipeline.",
+         ar:"استنادًا إلى رؤية الكويت 2035 وأولويات البعثات الحكومية 2026-2027 وخطة المشاريع الوطنية."},
+    high:{med:"health", nurs:"nurse", physio:"health", cs:"ict", cyber:"cyber", data:"ai", mech:"energy",
+          elec:"energy", civil:"constr", chem:"energy", fin:"finhub", edu:"localised"}},
+
+  om:{n:{en:"Oman", ar:"عُمان"},
+    src:{en:"Based on Oman Vision 2040, the Digital Economy Roadmap 2026-2030, and current Omanisation decisions.",
+         ar:"استنادًا إلى رؤية عُمان 2040 وخارطة الاقتصاد الرقمي 2026-2030 وقرارات التعمين الحديثة."},
+    high:{med:"health", nurs:"nurse", cs:"localised", cyber:"cyber", data:"ai", netw:"localised", chem:"energy",
+          renew:"green", fin:"finhub", logi:"logis", law:"localised"}},
+
+  xx:{n:{en:"Global outlook", ar:"النظرة العالمية"},
+    src:{en:"Based on the World Economic Forum Future of Jobs Report 2025 (global outlook to 2030).",
+         ar:"استنادًا إلى تقرير مستقبل الوظائف 2025 الصادر عن المنتدى الاقتصادي العالمي (النظرة العالمية حتى 2030)."},
+    high:{nurs:"wef", psych:"care", cs:"wef", cyber:"wef", data:"wef", netw:"wef", renew:"wef",
+          fintech:"wef", math:"wef", avia:"pilots", edu:"wef"}}
+};
+const COUNTRY_ORDER = ["bh","sa","ae","qa","kw","om","xx"];
 
 /* "why this question" texts */
 const WHY_DIM = {
@@ -469,36 +570,36 @@ const QUESTIONS = [
     {t:{en:"Fixing, building, or working with your hands", ar:"إصلاح أو بناء أو عمل يدوي"}, w:{riasec:{R:2}, vals:{building:2}}}
   ]},
   {sec:1, type:"mc", why:{en:"How others consistently see you often reflects real strengths you take for granted in yourself.", ar:"الطريقة التي يراك بها الآخرون باستمرار تعكس غالبًا نقاط قوة حقيقية تعتبرها أنت أمرًا عاديًا."}, t:{en:"Your favorite teacher would most likely describe you as…", ar:"غالبًا سيصفك معلمك المفضل بأنك…"}, opts:[
-    {t:{en:"Analytical؛ asks “why” about everything", ar:"محلّل؛ تسأل «لماذا» عن كل شيء"}, w:{riasec:{I:2}, vals:{analyzing:1}}},
-    {t:{en:"Creative؛ full of original ideas", ar:"مبدع؛ مليء بالأفكار الأصيلة"}, w:{riasec:{A:2}, vals:{creating:1}}},
-    {t:{en:"Caring؛ always supporting classmates", ar:"متعاون؛ تدعم زملاءك دائمًا"}, w:{riasec:{S:2}, vals:{helping:1}}},
-    {t:{en:"Persuasive؛ a natural leader", ar:"مقنع؛ قائد بالفطرة"}, w:{riasec:{E:2}, vals:{leading:1}}},
-    {t:{en:"Organized؛ precise and reliable", ar:"منظم؛ دقيق ويُعتمد عليه"}, w:{riasec:{C:2}, vals:{structure:1}}},
-    {t:{en:"Practical؛ good at getting things done", ar:"عملي؛ بارع في إنجاز المهام"}, w:{riasec:{R:2}, vals:{building:1}}}
+    {t:{en:"Analytical: asks “why” about everything", ar:"محلّل؛ تسأل «لماذا» عن كل شيء"}, w:{riasec:{I:2}, vals:{analyzing:1}}},
+    {t:{en:"Creative: full of original ideas", ar:"مبدع؛ مليء بالأفكار الأصيلة"}, w:{riasec:{A:2}, vals:{creating:1}}},
+    {t:{en:"Caring: always supporting classmates", ar:"متعاون؛ تدعم زملاءك دائمًا"}, w:{riasec:{S:2}, vals:{helping:1}}},
+    {t:{en:"Persuasive: a natural leader", ar:"مقنع؛ قائد بالفطرة"}, w:{riasec:{E:2}, vals:{leading:1}}},
+    {t:{en:"Organized: precise and reliable", ar:"منظم؛ دقيق ويُعتمد عليه"}, w:{riasec:{C:2}, vals:{structure:1}}},
+    {t:{en:"Practical: good at getting things done", ar:"عملي؛ بارع في إنجاز المهام"}, w:{riasec:{R:2}, vals:{building:1}}}
   ]},
   {sec:1, type:"mc", why:{en:"Your self-rating here is combined with the number puzzles later, so the result is fairer than either alone.", ar:"تقييمك الذاتي هنا يُدمج مع ألغاز الأرقام لاحقًا، فتكون النتيجة أعدل من أي منهما وحده."}, t:{en:"How strong are you with numbers and mental math?", ar:"ما مدى قوتك في الأرقام والحساب الذهني؟"}, opts:[
     {t:{en:"Not really my thing", ar:"ليست نقطة قوتي"}, w:{apts:{num:0}}},
-    {t:{en:"OK؛ I manage", ar:"مقبول؛ أتدبر أمري"}, w:{apts:{num:1}}},
-    {t:{en:"Good؛ better than most classmates", ar:"جيد؛ أفضل من أغلب زملائي"}, w:{apts:{num:2}}},
+    {t:{en:"OK: I manage", ar:"مقبول؛ أتدبر أمري"}, w:{apts:{num:1}}},
+    {t:{en:"Good: better than most classmates", ar:"جيد؛ أفضل من أغلب زملائي"}, w:{apts:{num:2}}},
     {t:{en:"One of my strongest skills", ar:"من أقوى مهاراتي"}, w:{apts:{num:3}}}
   ]},
   {sec:1, type:"mc", why:{en:"Communication strength points toward majors like law, media, education, and business, where words are the main tool.", ar:"قوة التواصل تشير نحو تخصصات مثل القانون والإعلام والتعليم والأعمال، حيث الكلمة هي الأداة الأساسية."}, t:{en:"How good are you at explaining ideas in words, spoken or written?", ar:"ما مدى براعتك في شرح الأفكار بالكلام أو الكتابة؟"}, opts:[
     {t:{en:"Not really my thing", ar:"ليست نقطة قوتي"}, w:{apts:{verb:0}}},
-    {t:{en:"OK؛ I manage", ar:"مقبول؛ أتدبر أمري"}, w:{apts:{verb:1}}},
-    {t:{en:"Good؛ people say I explain things well", ar:"جيد؛ يقول الناس إني أشرح جيدًا"}, w:{apts:{verb:2}}},
+    {t:{en:"OK: I manage", ar:"مقبول؛ أتدبر أمري"}, w:{apts:{verb:1}}},
+    {t:{en:"Good: people say I explain things well", ar:"جيد؛ يقول الناس إني أشرح جيدًا"}, w:{apts:{verb:2}}},
     {t:{en:"One of my strongest skills", ar:"من أقوى مهاراتي"}, w:{apts:{verb:3}}}
   ]},
   {sec:1, type:"mc", why:{en:"Spatial thinking is the hidden talent behind architecture, engineering, design, and surgery, and school grades rarely capture it.", ar:"التفكير المكاني هو الموهبة الخفية وراء العمارة والهندسة والتصميم والجراحة، ودرجات المدرسة نادرًا ما تكشفه."}, t:{en:"How easily can you picture objects in 3D, like reading maps and diagrams or imagining how parts fit together?", ar:"ما مدى سهولة تخيلك للأجسام ثلاثية الأبعاد، مثل قراءة الخرائط والرسوم أو تخيل كيف تتركب الأجزاء؟"}, opts:[
     {t:{en:"Not really my thing", ar:"ليست نقطة قوتي"}, w:{apts:{spat:0}}},
-    {t:{en:"OK؛ I manage", ar:"مقبول؛ أتدبر أمري"}, w:{apts:{spat:1}}},
-    {t:{en:"Good؛ I rarely get lost or confused by diagrams", ar:"جيد؛ نادرًا ما أتوه أو تربكني الرسوم"}, w:{apts:{spat:2}}},
+    {t:{en:"OK: I manage", ar:"مقبول؛ أتدبر أمري"}, w:{apts:{spat:1}}},
+    {t:{en:"Good: I rarely get lost or confused by diagrams", ar:"جيد؛ نادرًا ما أتوه أو تربكني الرسوم"}, w:{apts:{spat:2}}},
     {t:{en:"One of my strongest skills", ar:"من أقوى مهاراتي"}, w:{apts:{spat:3}}}
   ]},
   {sec:1, type:"mc", why:{en:"Learning speed on brand-new problems matters more than ever in the AI era, where every field keeps changing.", ar:"سرعة التعلم مع المشكلات الجديدة كليًا أهم من أي وقت مضى في عصر الذكاء الاصطناعي، حيث تتغير كل المجالات باستمرار."}, t:{en:"When you face a completely new type of problem, how quickly do you usually figure out the trick?", ar:"عندما تواجه نوعًا جديدًا تمامًا من المسائل، ما مدى سرعتك عادة في اكتشاف الفكرة؟"}, opts:[
     {t:{en:"I usually need someone to show me first", ar:"غالبًا أحتاج من يريني الطريقة أولًا"}, w:{apts:{log:0}}},
     {t:{en:"I get there with some time", ar:"أصل إلى الحل مع بعض الوقت"}, w:{apts:{log:1}}},
     {t:{en:"Fairly quickly", ar:"بسرعة معقولة"}, w:{apts:{log:2}}},
-    {t:{en:"Very quickly؛ I love figuring out new things", ar:"بسرعة كبيرة؛ أحب اكتشاف الجديد"}, w:{apts:{log:3}}}
+    {t:{en:"Very quickly: I love figuring out new things", ar:"بسرعة كبيرة؛ أحب اكتشاف الجديد"}, w:{apts:{log:3}}}
   ]},
 
   /* ===== Section 2: Mind puzzles (right answers; +2 to aptitude) ===== */
@@ -564,7 +665,7 @@ const QUESTIONS = [
     {t:{en:"I handle the practical, hands-on parts", ar:"أتولى الجوانب العملية والتنفيذية"}, w:{riasec:{R:2}, vals:{building:1}}}
   ]},
   {sec:3, type:"mc", special:"years", why:{en:"Some careers, like medicine, need six or more years of study. Your honest answer filters out unrealistic paths.", ar:"بعض المهن، كالطب، تتطلب ست سنوات دراسة أو أكثر. إجابتك الصادقة تستبعد المسارات غير الواقعية."}, t:{en:"How many years are you willing to study at university?", ar:"كم سنة أنت مستعد للدراسة في الجامعة؟"}, opts:[
-    {t:{en:"As long as it takes؛ even 6+ years (like medicine)", ar:"ما يلزم من سنوات؛ حتى ٦ سنوات أو أكثر (مثل الطب)"}, years:"any"},
+    {t:{en:"As long as it takes: even 6+ years (like medicine)", ar:"ما يلزم من سنوات؛ حتى ٦ سنوات أو أكثر (مثل الطب)"}, years:"any"},
     {t:{en:"Up to 5 years is fine", ar:"حتى ٥ سنوات مقبول"}, years:"medium"},
     {t:{en:"Around 4 years, please", ar:"حوالي ٤ سنوات فقط"}, years:"four"},
     {t:{en:"The shortest practical route to a good job", ar:"أقصر طريق عملي لوظيفة جيدة"}, years:"short"}
@@ -600,7 +701,7 @@ const MAJORS = [
    c:{en:["Clinical pharmacist","Community pharmacist","Drug-safety officer","Pharma industry specialist"], ar:["صيدلي سريري","صيدلي مجتمعي","مسؤول سلامة دوائية","أخصائي صناعات دوائية"]}},
   {id:"nurs", n:{en:"Nursing", ar:"التمريض"}, riasec:["S","I","C"], apts:["verb","log"], vals:["helping","structure"], demand:true, years:"std",
    avoidHit:{medical:.3},
-   d:{en:"Hands-on patient care with strong job security across Bahrain and the GCC.", ar:"رعاية مباشرة للمرضى مع أمان وظيفي قوي في البحرين والخليج."},
+   d:{en:"Hands-on patient care, with nursing shortages reported across the Gulf and worldwide.", ar:"رعاية مباشرة للمرضى، مع نقص في التمريض مسجّل في الخليج والعالم."},
    c:{en:["Registered nurse","ICU / ER nurse","Midwife","Nurse educator"], ar:["ممرض مسجل","ممرض عناية مركزة وطوارئ","قابلة قانونية","مثقف صحي تمريضي"]}},
   {id:"biomed", n:{en:"Biomedical & Lab Science", ar:"العلوم الطبية المخبرية"}, riasec:["I","R","C"], apts:["log","num"], vals:["analyzing","helping","structure"], demand:false, years:"std",
    avoidHit:{medical:.5},
@@ -615,10 +716,10 @@ const MAJORS = [
    c:{en:["Counsellor","Clinical psychologist (postgrad)","HR / organizational psychologist","School counsellor"], ar:["مرشد نفسي","أخصائي نفسي سريري (دراسات عليا)","أخصائي نفسي مؤسسي","مرشد مدرسي"]}},
   {id:"cs", n:{en:"Computer Science & Software Engineering", ar:"علوم الحاسوب وهندسة البرمجيات"}, riasec:["I","R","C"], apts:["log","num"], vals:["building","analyzing"], demand:true, years:"std",
    avoidHit:{math:.5},
-   d:{en:"Building the apps, systems, and games the world runs on؛ logic turned into products.", ar:"بناء التطبيقات والأنظمة والألعاب التي يعمل بها العالم؛ منطق يتحول إلى منتجات."},
+   d:{en:"Building the apps, systems, and games the world runs on: logic turned into products.", ar:"بناء التطبيقات والأنظمة والألعاب التي يعمل بها العالم؛ منطق يتحول إلى منتجات."},
    c:{en:["Software developer","App / web engineer","Systems architect","Game developer"], ar:["مطور برمجيات","مهندس تطبيقات وويب","مهندس أنظمة","مطور ألعاب"]}},
   {id:"cyber", n:{en:"Cybersecurity", ar:"الأمن السيبراني"}, riasec:["I","R","C"], apts:["log"], vals:["analyzing","structure"], demand:true, years:"std",
-   d:{en:"Defending banks, governments, and companies from digital attacks؛ one of the GCC's hottest fields.", ar:"حماية البنوك والحكومات والشركات من الهجمات الرقمية؛ من أسخن المجالات في الخليج."},
+   d:{en:"Defending banks, governments, and companies from digital attacks: one of the GCC's hottest fields.", ar:"حماية البنوك والحكومات والشركات من الهجمات الرقمية؛ من أسخن المجالات في الخليج."},
    c:{en:["Security analyst","Ethical hacker / pen-tester","SOC engineer","Digital-forensics investigator"], ar:["محلل أمن سيبراني","مخترق أخلاقي","مهندس مركز عمليات أمنية","محقق جنائي رقمي"]}},
   {id:"data", n:{en:"Data Science & Artificial Intelligence", ar:"علوم البيانات والذكاء الاصطناعي"}, riasec:["I","C"], apts:["num","log"], vals:["analyzing"], demand:true, years:"std",
    avoidHit:{math:.4},
@@ -661,11 +762,11 @@ const MAJORS = [
    c:{en:["Accountant","Auditor","Tax / VAT advisor","CFO track"], ar:["محاسب","مدقق حسابات","مستشار ضرائب","مسار مدير مالي"]}},
   {id:"fin", n:{en:"Banking & Finance (incl. Islamic Finance)", ar:"المصارف والتمويل (ومنه التمويل الإسلامي)"}, riasec:["E","C","I"], apts:["num"], vals:["leading","analyzing","structure"], demand:true, years:"std",
    avoidHit:{math:.6},
-   d:{en:"Bahrain is the Gulf's Islamic-finance hub: this major leads straight into its banking sector.", ar:"البحرين مركز التمويل الإسلامي في الخليج؛ وهذا التخصص طريق مباشر إلى قطاعها المصرفي."},
+   d:{en:"Banking and Islamic finance sit at the centre of Gulf economies, and this major leads straight into them.", ar:"المصارف والتمويل الإسلامي في قلب اقتصادات الخليج، وهذا التخصص طريق مباشر إليهما."},
    c:{en:["Investment analyst","Islamic banker","Risk manager","Wealth advisor"], ar:["محلل استثمار","مصرفي إسلامي","مدير مخاطر","مستشار ثروات"]}},
   {id:"fintech", n:{en:"Financial Technology (FinTech)", ar:"التقنية المالية (فنتك)"}, riasec:["E","I","C"], apts:["num","log"], vals:["analyzing","leading","building"], demand:true, years:"std",
    avoidHit:{math:.6},
-   d:{en:"Where banking meets coding: digital payments, blockchain, and Bahrain FinTech Bay careers.", ar:"حيث تلتقي المصارف بالبرمجة؛ المدفوعات الرقمية والبلوك تشين ووظائف خليج البحرين للتقنية المالية."},
+   d:{en:"Where banking meets coding: digital payments, blockchain, and the region's fintech hubs.", ar:"حيث تلتقي المصارف بالبرمجة؛ المدفوعات الرقمية والبلوك تشين ومراكز التقنية المالية في المنطقة."},
    c:{en:["FinTech product manager","Payments / blockchain developer","Digital-banking analyst","RegTech specialist"], ar:["مدير منتجات تقنية مالية","مطور مدفوعات وبلوك تشين","محلل مصرفية رقمية","أخصائي تقنية تنظيمية"]}},
   {id:"math", n:{en:"Mathematics, Statistics & Actuarial Science", ar:"الرياضيات والإحصاء والعلوم الاكتوارية"}, riasec:["I","C"], apts:["num","log"], vals:["analyzing","structure"], demand:false, years:"std",
    avoidHit:{math:.3},
@@ -681,7 +782,7 @@ const MAJORS = [
    c:{en:["Digital marketer","Brand manager","Social-media strategist","Market researcher"], ar:["مسوق رقمي","مدير علامة تجارية","استراتيجي وسائل تواصل","باحث سوق"]}},
   {id:"logi", n:{en:"Logistics & Supply Chain Management", ar:"اللوجستيات وإدارة سلاسل الإمداد"}, riasec:["E","C","R"], apts:["num","log"], vals:["structure","leading"], demand:true, years:"std",
    avoidHit:{routine:.75},
-   d:{en:"Moving goods across ports, air, and land: a Bahrain EDB priority sector with real openings.", ar:"نقل البضائع عبر الموانئ والجو والبر؛ قطاع ذو أولوية لدى مجلس التنمية الاقتصادية البحريني وفرصه حقيقية."},
+   d:{en:"Moving goods across ports, air, and land: a priority sector in nearly every Gulf national vision.", ar:"نقل البضائع عبر الموانئ والجو والبر؛ قطاع ذو أولوية في معظم الرؤى الوطنية الخليجية."},
    c:{en:["Supply-chain analyst","Port / maritime operations manager","Freight & customs specialist","Distribution manager"], ar:["محلل سلاسل إمداد","مدير عمليات موانئ","أخصائي شحن وجمارك","مدير توزيع"]}},
   {id:"avia", n:{en:"Aviation Management & Piloting", ar:"إدارة الطيران وقيادة الطائرات"}, riasec:["R","E","C"], apts:["spat","num"], vals:["structure","building"], demand:false, years:"std",
    d:{en:"From the cockpit to airport operations: a natural fit in a region built around its airlines.", ar:"من قمرة القيادة إلى عمليات المطارات؛ مجال طبيعي في منطقة قامت حول شركات طيرانها."},
@@ -837,11 +938,49 @@ if (typeof document !== "undefined") (function(){
   let current = 0;
   let startTime = null;
   let resultsSent = false;
+  let lastProfile = null;
   const answers = new Array(QUESTIONS.length).fill(null);
   const $ = (id)=>document.getElementById(id);
 
   /* anonymous usage counters and results collection */
   const NOTRACK = location.search.indexOf("notrack") !== -1;
+
+  /* ---- which country's job market to show ----
+     IP lookup first (country only, nothing stored), timezone as fallback,
+     and the student can always change it on the results page. */
+  let market = null, marketDetected = false;
+  const TZ_MAP = {"Asia/Bahrain":"bh","Asia/Qatar":"qa","Asia/Riyadh":"sa","Asia/Kuwait":"kw",
+                  "Asia/Dubai":"ae","Asia/Muscat":"om"};
+  function guessFromTimezone(){
+    try{
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if(TZ_MAP[tz]) return TZ_MAP[tz];
+      const off = -new Date().getTimezoneOffset()/60;
+      if(off === 3 || off === 4) return "bh";
+    }catch(e){}
+    return "xx";
+  }
+  function detectMarket(){
+    market = guessFromTimezone();
+    if(NOTRACK) return;
+    try{
+      const ctl = new AbortController();
+      setTimeout(()=>ctl.abort(), 2500);
+      fetch("https://ipwho.is/?fields=country_code", {signal: ctl.signal})
+        .then(r=>r.json())
+        .then(j=>{
+          const c = (j && j.country_code || "").toLowerCase();
+          if(COUNTRIES[c]){ market = c; marketDetected = true; }
+          else if(c){ market = "xx"; marketDetected = true; }
+          const sel = $("mktSelect");
+          if(sel && document.getElementById("screen-results").classList.contains("active")){
+            sel.value = market; renderMarket();
+          }
+        })
+        .catch(function(){});
+    }catch(e){}
+  }
+  detectMarket();
   const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfAebWbx8udVD_Ug2kKHvQ8F0SUuNeZ_uIDrkmtlRcEs7Z-IA/formResponse";
   const FORM_ENTRY = "entry.156577286";
   function track(path){
@@ -861,6 +1000,8 @@ if (typeof document !== "undefined") (function(){
         puzzles: p.puzzles,
         years: p.years,
         avoid: p.avoid,
+        market: market || "",
+        marketAuto: marketDetected,
         seconds: startTime ? Math.round((Date.now()-startTime)/1000) : null
       };
       const body = new URLSearchParams();
@@ -873,7 +1014,7 @@ if (typeof document !== "undefined") (function(){
     const U = UI[lang];
     document.documentElement.lang = lang;
     document.documentElement.dir = lang==="ar" ? "rtl" : "ltr";
-    document.title = lang==="ar" ? "بوصلة التخصص؛ اكتشف تخصصك الجامعي | د. صقر آل خليفة" : "Major Compass؛ Find Your University Major | Dr. Saqer AlKhalifa";
+    document.title = lang==="ar" ? "بوصلة التخصص: اكتشف تخصصك الجامعي | د. صقر آل خليفة" : "Major Compass: Find Your University Major | Dr. Saqer AlKhalifa";
     $("langToggle").textContent = lang==="en" ? "عربي" : "English";
     $("t-title").textContent = U.title;
     $("t-sub").textContent = U.sub;
@@ -984,12 +1125,33 @@ if (typeof document !== "undefined") (function(){
       rows.appendChild(row);
     });
 
-    // major cards
+    // country selector
+    if(!market || !COUNTRIES[market]) market = "xx";
+    const sel = $("mktSelect");
+    sel.innerHTML = COUNTRY_ORDER.map(c=>
+      `<option value="${c}"${c===market?" selected":""}>${COUNTRIES[c].n[lang]}</option>`).join("");
+    $("r-mkt-label").textContent = U.mktLabel;
+
+    lastProfile = p;
+    renderMarket();
+  }
+
+  /* renders the major cards against the currently selected job market */
+  function renderMarket(){
+    const p = lastProfile; if(!p) return;
+    const U = UI[lang];
+    const c = COUNTRIES[market] || COUNTRIES.xx;
+    $("r-mkt-src").textContent = c.src[lang];
+
     const ranked = rankMajors(p);
     const cards = $("majorCards");
     cards.innerHTML = "";
     ranked.forEach((r,idx)=>{
       const m = r.major;
+      const key = c.high[m.id];
+      const badge = key
+        ? `<span class="badge">${market==="xx" ? U.demandWorld : U.demandIn(c.n[lang])}: ${WHY_DEMAND[key][lang]}</span>`
+        : "";
       const card = document.createElement("div");
       card.className = "mcard";
       card.innerHTML =
@@ -997,8 +1159,8 @@ if (typeof document !== "undefined") (function(){
         `<span class="mname serif">${m.n[lang]}</span>` +
         `<span class="mpct">${r.pct}% ${U.matchWord}</span></div>` +
         `<p class="mwhy"><b>${U.whyLabel}</b> ${buildWhy(m, p, lang)}</p>` +
-        `<p class="mcareers"><b>${U.careersLabel}</b> ${m.c[lang].join(lang==="en"?" · ":" · ")}</p>` +
-        (m.demand ? `<span class="badge">${U.demandBadge}</span>` : "");
+        `<p class="mcareers"><b>${U.careersLabel}</b> ${m.c[lang].join(" · ")}</p>` +
+        badge;
       cards.appendChild(card);
     });
   }
@@ -1025,6 +1187,11 @@ if (typeof document !== "undefined") (function(){
   $("retakeBtn").addEventListener("click", ()=>{
     answers.fill(null); current = 0;
     show("intro");
+  });
+  $("mktSelect").addEventListener("change", (e)=>{
+    market = e.target.value;
+    track("market-" + market);
+    renderMarket();
   });
   $("printBtn").addEventListener("click", ()=>window.print());
   $("shareBtn").addEventListener("click", async ()=>{
