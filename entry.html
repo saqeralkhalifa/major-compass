@@ -6,6 +6,9 @@
 <title>Entry Requirements Checker | Dr. Saqer AlKhalifa</title>
 <meta name="description" content="A free bilingual entry requirements checker for Gulf school leavers: published minimums at named universities in Bahrain, Saudi Arabia, the UAE, Qatar, Kuwait and Oman, what your school track closes, equivalency rules for IGCSE, IB and American diplomas, and the tests you must sit.">
 <script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#101418; --ink-2:#4a5158; --ink-3:#8a9199;
@@ -160,14 +163,247 @@
     .panel{padding:18px;}
     table{font-size:.85rem;} th,td{padding:6px 4px;}
   }
+
+/* ============================================================
+   Shared design system, applied across every page
+   ============================================================ */
+:root{
+  --font-display:'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:'Source Sans 3', 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --font-ar:'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, 'Noto Naskh Arabic', Arial, sans-serif;
+
+  --paper:#fbf9f5;
+  --paper-2:#f4f0e7;
+  --card:#ffffff;
+  --line:#e7e1d5;
+  --line-2:#d6ccb9;
+
+  --ink:#14181d;
+  --ink-2:#4a525b;
+  --ink-3:#8b929b;
+
+  --navy:#14365c;
+  --navy-deep:#0d2036;
+  --accent:#16456f;
+  --accent-soft:#eaf0f7;
+  --accent-line:#c9d9ea;
+
+  --gold:#a37518;
+  --gold-soft:#fbf3e1;
+  --gold-line:#ecdcb4;
+  --gold-bright:#c79a3a;
+
+  --good:#0d6f47;
+  --good-soft:#e8f4ee;
+  --good-line:#c4e2d3;
+  --warn:#8a5a12;
+  --warn-soft:#fbf3e1;
+  --warn-line:#ecdcb4;
+  --bad:#9c3b34;
+  --bad-soft:#fbecea;
+  --bad-line:#eecdc9;
+
+  --radius:16px;
+  --radius-sm:12px;
+  --shadow:0 1px 2px rgba(20,24,29,.04), 0 14px 30px -16px rgba(20,24,29,.20);
+  --shadow-lift:0 2px 4px rgba(20,24,29,.05), 0 22px 40px -20px rgba(20,24,29,.28);
+}
+
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+[dir="rtl"] body{font-family:var(--font-ar);}
+body::before{
+  content:""; position:fixed; inset:0 0 auto 0; height:3px; z-index:99;
+  background:linear-gradient(90deg, var(--navy-deep), var(--navy) 38%, var(--gold-bright) 72%, var(--gold) 100%);
+}
+
+.serif, .chap h2, .cn, .stat-n, .minrow b{
+  font-family:var(--font-display);
+  font-variation-settings:'SOFT' 22, 'WONK' 0;
+  letter-spacing:-.012em;
+}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .stat-n{
+  font-family:var(--font-ar); font-variation-settings:normal; letter-spacing:0; font-weight:700;
+}
+h1,h2,h3{letter-spacing:-.01em;}
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3{letter-spacing:0;}
+.stat-n, .minrow b, .cnt, td, th, .cal-row b{font-variant-numeric:tabular-nums;}
+::selection{background:var(--gold-soft); color:var(--navy-deep);}
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:2.5px solid var(--gold-bright); outline-offset:2px; border-radius:6px;
+}
+
+/* ---------- masthead ---------- */
+header.site{
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  padding:16px 0 14px; border-bottom:1px solid var(--line); margin-bottom:0;
+}
+header.site .brand{
+  display:flex; align-items:center; gap:11px; text-decoration:none; color:inherit; min-width:0;
+}
+header.site .mark{
+  flex:0 0 auto; width:34px; height:34px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 34% 30%, #1d4a79, var(--navy-deep));
+  box-shadow:0 2px 8px rgba(13,32,54,.28), inset 0 0 0 1px rgba(232,194,106,.45);
+}
+header.site .bt{display:flex; flex-direction:column; line-height:1.15; min-width:0;}
+header.site .bt strong{
+  font-family:var(--font-display); font-weight:600; font-size:1.06rem; color:var(--ink);
+  letter-spacing:-.015em; white-space:nowrap;
+}
+[dir="rtl"] header.site .bt strong{font-family:var(--font-ar); letter-spacing:0;}
+header.site .bs{
+  font-size:.74rem; color:var(--ink-3); letter-spacing:.07em; text-transform:uppercase; white-space:nowrap;
+}
+[dir="rtl"] header.site .bs{letter-spacing:0; text-transform:none; font-size:.82rem;}
+.lang-toggle{
+  flex:0 0 auto; border:1px solid var(--line-2); background:var(--card); border-radius:999px;
+  padding:7px 17px; font-size:.9rem; cursor:pointer; color:var(--accent); font-weight:600;
+  font-family:inherit; transition:background .15s, border-color .15s, transform .12s;
+}
+.lang-toggle:hover{background:var(--accent-soft); border-color:var(--accent-line); transform:translateY(-1px);}
+
+/* ---------- tool switcher ---------- */
+.toolnav{
+  display:flex; gap:6px; padding:12px 0 4px; overflow-x:auto; scrollbar-width:none;
+  border-bottom:1px solid var(--line); margin-bottom:4px;
+}
+.toolnav::-webkit-scrollbar{display:none;}
+.toolnav a{
+  flex:0 0 auto; text-decoration:none; font-size:.88rem; font-weight:600; color:var(--ink-2);
+  padding:7px 14px; border-radius:999px; border:1px solid transparent; white-space:nowrap;
+  transition:background .15s, color .15s, border-color .15s;
+}
+.toolnav a:hover{background:var(--accent-soft); color:var(--accent);}
+.toolnav a.on{background:var(--navy); color:#fff; box-shadow:0 3px 10px -3px rgba(20,54,92,.6);}
+.toolnav a.on:hover{background:var(--navy-deep); color:#fff;}
+
+/* ---------- hero ---------- */
+.hero, .res-head{position:relative;}
+.hero::before{
+  content:""; position:absolute; z-index:-1; left:50%; top:-40px; transform:translateX(-50%);
+  width:min(760px, 118%); height:330px; pointer-events:none;
+  background:
+    radial-gradient(closest-side, rgba(199,154,58,.13), transparent 72%) 22% 12%/58% 78% no-repeat,
+    radial-gradient(closest-side, rgba(20,54,92,.13), transparent 72%) 82% 34%/62% 82% no-repeat;
+  filter:blur(2px);
+}
+.hero h1{font-size:clamp(1.75rem, 1.15rem + 2.3vw, 2.5rem); line-height:1.18; font-weight:600;}
+[dir="rtl"] .hero h1{line-height:1.4; font-weight:700;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+.kicker{color:var(--gold); font-weight:700;}
+
+/* ---------- surfaces ---------- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .lede, .stat, .nextbox{
+  border-radius:var(--radius); border-color:var(--line); box-shadow:var(--shadow);
+}
+.mcard, .pcard{transition:box-shadow .18s, border-color .18s, transform .18s;}
+.mcard:hover, .pcard:hover{box-shadow:var(--shadow-lift); border-color:var(--line-2);}
+.pcard{border-inline-start-width:5px;}
+
+/* ---------- buttons and chips ---------- */
+.btn{
+  background:linear-gradient(180deg, #1d4d7c, var(--navy));
+  border:none; border-radius:999px; font-weight:600; letter-spacing:.005em; color:#fff;
+  box-shadow:0 2px 4px rgba(13,32,54,.18), 0 10px 22px -10px rgba(13,32,54,.7);
+  transition:transform .14s, box-shadow .14s, filter .14s;
+}
+.btn:hover{transform:translateY(-1.5px); box-shadow:0 3px 6px rgba(13,32,54,.2), 0 16px 30px -12px rgba(13,32,54,.75); filter:saturate(1.08);}
+.btn.ghost, .btn.secondary{
+  background:var(--card); color:var(--accent); border:1.5px solid var(--accent-line);
+  box-shadow:0 1px 2px rgba(20,24,29,.04);
+}
+.btn.ghost:hover, .btn.secondary:hover{background:var(--accent-soft); border-color:var(--accent);}
+.fbtn{
+  border:1.5px solid var(--line-2); border-radius:999px; background:var(--card); color:var(--ink-2);
+  transition:border-color .15s, background .15s, color .15s, transform .12s;
+}
+.fbtn:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
+.fbtn.on{
+  background:var(--navy); border-color:var(--navy); color:#fff; font-weight:600;
+  box-shadow:0 3px 10px -4px rgba(20,54,92,.75);
+}
+.printbtn{border-color:var(--accent-line);}
+.printbtn:hover{background:var(--accent-soft);}
+
+/* ---------- bars and callouts ---------- */
+.bar, .quizbar, .cta-inline{
+  background:linear-gradient(180deg, #f2f6fb, var(--accent-soft));
+  border:1px solid var(--accent-line); border-radius:var(--radius);
+}
+.rule, .checked, .hedge, .extra, .flag{border-radius:var(--radius-sm);}
+.rule.w, .checked, .hedge, .extra, .flag{
+  background:linear-gradient(180deg, #fdf8ec, var(--gold-soft)); border-color:var(--gold-line);
+}
+.rule.b{background:linear-gradient(180deg, #fdf1ef, var(--bad-soft)); border-color:var(--bad-line);}
+.rule.n{background:linear-gradient(180deg, #f2f6fb, var(--accent-soft)); border-color:var(--accent-line);}
+
+/* ---------- section labels ---------- */
+.sec h3, .lbl, .toc h2{letter-spacing:.1em; font-weight:800;}
+[dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2{letter-spacing:0;}
+.grp-t, .grp h2, .panel h2, .srcbox h2, .majors-title{font-family:var(--font-display); letter-spacing:-.012em; font-weight:600;}
+[dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2,
+[dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title{font-family:var(--font-ar); letter-spacing:0; font-weight:700;}
+
+/* ---------- footer ---------- */
+footer.site{
+  margin-top:52px; padding:26px 0 0; border-top:1px solid var(--line); color:var(--ink-3);
+}
+footer.site a{color:var(--accent); font-weight:600;}
+
+@media (max-width:520px){
+  header.site .bs{display:none;}
+  .toolnav a{font-size:.83rem; padding:6px 12px;}
+}
+
+/* ---------- page specific polish ---------- */
+:root{--accent-2:#2f6da6;}
+body:has(#screen-quiz.active) .toolnav{display:none;}
+.bar-fill{background:linear-gradient(90deg, var(--navy), #2f6da6);}
+.viz-bar-fill, .viz-row .fill{background:linear-gradient(90deg, var(--navy), var(--accent-2));}
+.navbtn{
+  background:var(--card); border:1.5px solid var(--line-2); border-radius:999px;
+  color:var(--ink-2); font-weight:600; transition:border-color .15s, color .15s, transform .12s, background .15s;
+}
+.navbtn:hover{border-color:var(--accent); color:var(--accent); background:var(--accent-soft); transform:translateY(-1px);}
+.section-chip{background:var(--accent-soft); color:var(--accent); border:1px solid var(--accent-line);}
+.opt{border-radius:var(--radius-sm); transition:border-color .15s, background .15s, box-shadow .15s;}
+.opt.selected{box-shadow:0 0 0 1px var(--accent) inset;}
+[dir="rtl"] body::before{
+  background:linear-gradient(270deg, var(--navy-deep), var(--navy) 38%, var(--gold-bright) 72%, var(--gold) 100%);
+}
+.hero::before{filter:blur(0px); opacity:.85;}
+.mhead h2, .phead .ptxt b, .mcard h3{letter-spacing:-.005em;}
+
+@media print{ .toolnav, body::before, .crosslinks{display:none;} }
+  .crosslinks{margin-top:44px; padding-top:26px; border-top:1px solid var(--line);}
+  .crosslinks .quizbar:first-child, .crosslinks .bar:first-child{margin-top:0;}
+
+
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="site">
-    <a class="brand" href="https://www.saqeralkhalifa.com"><strong>Saqer AlKhalifa</strong> &middot; saqeralkhalifa.com</a>
+    <a class="brand" href="./">
+      <span class="mark" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#e8c26a" stroke-width="3"/><path d="M32 8 L36.5 27.5 L56 32 L36.5 36.5 L32 56 L27.5 36.5 L8 32 L27.5 27.5 Z" fill="#e8c26a"/><circle cx="32" cy="32" r="3.2" fill="#0d2036"/></svg></span>
+      <span class="bt"><strong data-en="Major Compass" data-ar="بوصلة التخصص">Major Compass</strong><span class="bs" data-en="Dr. Saqer AlKhalifa" data-ar="د. صقر آل خليفة">Dr. Saqer AlKhalifa</span></span>
+    </a>
     <button class="lang-toggle" id="langToggle">عربي</button>
   </header>
+  <nav class="toolnav" aria-label="Tools">
+    <a href="./" data-en="The quiz" data-ar="الاختبار">The quiz</a>
+    <a href="explore.html" data-en="Majors" data-ar="التخصصات">Majors</a>
+    <a href="entry.html" class="on" data-en="Entry" data-ar="شروط القبول">Entry</a>
+    <a href="scholarships.html" data-en="Funding" data-ar="المنح">Funding</a>
+    <a href="parents.html" data-en="Parents" data-ar="أولياء الأمور">Parents</a>
+  </nav>
 
   <div class="hero">
     <h1 class="serif" id="t-title"></h1>
@@ -228,6 +464,7 @@
     <p id="last"></p>
   </div>
 
+  <div class="crosslinks">
   <div class="bar">
     <p id="t-quizline"></p>
     <a class="btn" id="t-quizbtn" href="https://saqeralkhalifa.github.io/major-compass/"></a>
@@ -239,6 +476,8 @@
   <div class="bar">
     <p id="t-parline"></p>
     <a class="btn ghost" id="t-parbtn" href="parents.html"></a>
+  </div>
+
   </div>
 
   <footer class="site">
@@ -1225,6 +1464,18 @@ $("langToggle").addEventListener("click", () => {
 })();
 render();
 
+</script>
+<script>
+(function(){
+  function sync(){
+    var l = document.documentElement.lang === "ar" ? "ar" : "en";
+    var n = document.querySelectorAll("[data-en]");
+    for(var i=0;i<n.length;i++){ n[i].textContent = n[i].getAttribute("data-"+l); }
+  }
+  try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
+  document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
+  sync();
+})();
 </script>
 </body>
 </html>
