@@ -170,6 +170,10 @@
     <p id="t-expline"></p>
     <a class="btn ghost" id="t-expbtn" href="explore.html"></a>
   </div>
+  <div class="bar">
+    <p id="t-entline"></p>
+    <a class="btn ghost" id="t-entbtn" href="entry.html"></a>
+  </div>
 
   <div class="srcbox">
     <h2 id="srcT"></h2>
@@ -575,6 +579,8 @@ const NAV = {
      schbtn:"Scholarships and funding",
      expline:"<b>Want to know what a major is really like?</b> Thirty one majors explained honestly, including what students find hardest and why some switch out.",
      expbtn:"Explore the majors",
+     entline:"<b>Not sure the grades are enough?</b> The entry requirements checker shows the published minimums at Gulf universities, and which programmes your child's school track has already closed.",
+     entbtn:"Entry requirements",
      toggle:"English",
      contents:"On this page",
      print:"Print or save this guide",
@@ -586,6 +592,8 @@ const NAV = {
      schbtn:"المنح والتمويل",
      expline:"<b>تريد معرفة حقيقة التخصص؟</b> واحد وثلاثون تخصصًا بشرح صادق، بما في ذلك أصعب ما يواجهه الطلبة ولماذا يغيّر بعضهم تخصصه.",
      expbtn:"استكشف التخصصات",
+     entline:"<b>لست واثقًا أن الدرجات تكفي؟</b> أداة شروط القبول تعرض الحدود الدنيا المنشورة في جامعات الخليج، وأي البرامج أغلقها مسار ابنك المدرسي أصلًا.",
+     entbtn:"شروط القبول",
      toggle:"عربي",
      contents:"في هذه الصفحة",
      print:"اطبع الدليل أو احفظه",
@@ -618,6 +626,8 @@ function render(){
   $("t-schbtn").textContent = N.schbtn;
   $("t-expline").innerHTML = N.expline;
   $("t-expbtn").textContent = N.expbtn;
+  $("t-entline").innerHTML = N.entline;
+  $("t-entbtn").textContent = N.entbtn;
   $("t-contents").textContent = N.contents;
   $("t-print").textContent = N.print;
   $("t-disc").textContent = N.disc;

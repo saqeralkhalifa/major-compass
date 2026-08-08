@@ -178,6 +178,10 @@
     <p id="t-parline"></p>
     <a class="btn ghost" id="t-parbtn" href="parents.html"></a>
   </div>
+  <div class="quizbar" style="margin-top:10px;">
+    <p id="t-entline"></p>
+    <a class="btn ghost" id="t-entbtn" href="entry.html"></a>
+  </div>
 
   <div class="tools">
     <div class="picker">
@@ -397,8 +401,8 @@ const S1 = [
 /* ---------- QATAR ---------- */
 {id:"qf", cat:"nat", ct:"qa", who:["all"], lvl:"ug", st:"open",
  n:{en:"Qatar Foundation financial aid, Education City", ar:"المساعدة المالية من مؤسسة قطر، المدينة التعليمية"},
- el:{en:"<b>Not restricted by nationality.</b> You must be admitted to an Education City university (Georgetown, Northwestern, Carnegie Mellon, Texas A&amp;M, VCUarts, Weill Cornell or HBKU), enrolled full time in a bachelor's programme, with no prior loan default.",
-     ar:"<b>غير مقيّدة بالجنسية.</b> يجب أن تكون مقبولًا في إحدى جامعات المدينة التعليمية (جورجتاون، نورث وسترن، كارنيجي ميلون، تكساس إيه آند إم، فرجينيا كومنولث للفنون، وايل كورنيل، أو حمد بن خليفة)، ومسجلًا بدوام كامل في برنامج بكالوريوس، وليس عليك تعثر في قرض سابق."},
+ el:{en:"<b>Not restricted by nationality.</b> You must be admitted to an Education City university (Georgetown, Northwestern, Carnegie Mellon, VCUarts, Weill Cornell or HBKU), enrolled full time in a bachelor's programme, with no prior loan default. <b>Note that Texas A&amp;M at Qatar is no longer admitting undergraduates</b>, having announced in 2024 that it will close its Qatar campus by 2028, so ignore it on any list that still includes it.",
+     ar:"<b>غير مقيّدة بالجنسية.</b> يجب أن تكون مقبولًا في إحدى جامعات المدينة التعليمية (جورجتاون، نورث وسترن، كارنيجي ميلون، فرجينيا كومنولث للفنون، وايل كورنيل، أو حمد بن خليفة)، ومسجلًا بدوام كامل في برنامج بكالوريوس، وليس عليك تعثر في قرض سابق. <b>ولاحظ أن تكساس إيه آند إم في قطر لم تعد تقبل طلبة بكالوريوس</b>، إذ أعلنت في ٢٠٢٤ أنها ستغلق حرمها في قطر بحلول ٢٠٢٨، فتجاهلها في أي قائمة ما زالت تدرجها."},
  cv:{en:"An <b>interest free, need based loan</b> covering up to 100% of the annual cost of attendance. On graduation you either repay on a plan or enter a paid service programme at an approved organisation in Qatar. There is <b>partial debt forgiveness over one to six years</b> depending on the size of the loan, while employed at an approved company, organisation or government office, for students who signed financial aid contracts from Fall 2024 onwards.",
      ar:"<b>قرض بدون فوائد قائم على الحاجة</b> يغطي حتى ١٠٠٪ من التكلفة السنوية للدراسة. عند التخرج إما تسدد وفق خطة أو تلتحق ببرنامج خدمة مدفوع في جهة معتمدة في قطر. ويوجد <b>إعفاء جزئي من الدين خلال سنة إلى ست سنوات</b> بحسب حجم القرض، أثناء العمل في شركة أو جهة أو مؤسسة حكومية معتمدة، لمن وقّع عقود المساعدة المالية من خريف ٢٠٢٤ فصاعدًا."},
  wn:{en:"Applied for alongside admission to an Education City university, through the financial aid portal.",
@@ -946,6 +950,8 @@ const UI = {
     explorebtn:"Explore majors",
     parline:"<b>Are you the parent here?</b> Read the guide on timing, on what to say, and on why the degrees that feel safest are no longer the safest.",
     parbtn:"Parent guide",
+    entline:"<b>Will they even take you?</b> The entry requirements checker shows the published minimums, what your school track closes, and the tests you have to sit.",
+    entbtn:"Entry requirements",
     r1t:"Rule one: most famous scholarships are for master's degrees",
     r1:"Chevening, Fulbright, Commonwealth, Rhodes, Gates Cambridge, Erasmus Mundus, the DAAD flagship awards and Eiffel all require a completed bachelor's degree, and several also require two or more years of work experience. If you are in Grade 12 you cannot apply to any of them. They are listed at the bottom of this page so you know when to come back.",
     r2t:"Rule two: many scholarships exclude Gulf students on purpose",
@@ -995,6 +1001,8 @@ const UI = {
     explorebtn:"استكشف التخصصات",
     parline:"<b>هل أنت ولي الأمر؟</b> اقرأ الدليل عن التوقيت، وعمّا تقوله، وعن سبب أن الشهادات التي تبدو الأكثر أمانًا لم تعد كذلك.",
     parbtn:"دليل أولياء الأمور",
+    entline:"<b>هل سيقبلونك أصلًا؟</b> أداة شروط القبول تعرض الحدود الدنيا المنشورة، وما يغلقه مسارك المدرسي، والاختبارات التي عليك أداؤها.",
+    entbtn:"شروط القبول",
     r1t:"القاعدة الأولى: معظم المنح المشهورة للماجستير",
     r1:"شيفنينغ وفولبرايت والكومنولث ورودس وغيتس كامبريدج وإيراسموس موندوس والجوائز الرئيسية للهيئة الألمانية وإيفل، جميعها تشترط بكالوريوس مكتملًا، وبعضها يشترط سنتين خبرة عمل أو أكثر. فإن كنت في الصف الثاني عشر فلا يمكنك التقديم على أي منها. وهي مدرجة في أسفل الصفحة لتعرف متى تعود إليها.",
     r2t:"القاعدة الثانية: كثير من المنح تستثني طلبة الخليج عمدًا",
@@ -1103,6 +1111,8 @@ function applyChrome(){
   $("t-explorebtn").textContent = U.explorebtn;
   $("t-parline").innerHTML = U.parline;
   $("t-parbtn").textContent = U.parbtn;
+  $("t-entline").innerHTML = U.entline;
+  $("t-entbtn").textContent = U.entbtn;
   $("r1t").textContent = U.r1t; $("r1").textContent = U.r1;
   $("r2t").textContent = U.r2t; $("r2").textContent = U.r2;
   $("r3t").textContent = U.r3t; $("r3").textContent = U.r3;

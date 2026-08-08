@@ -126,6 +126,10 @@
     <p id="t-parline"></p>
     <a class="btn" id="t-parbtn" href="parents.html" style="background:#fff; color:#1c5d99; border:1.5px solid #cfe0ef; box-shadow:none;"></a>
   </div>
+  <div class="quizbar" style="margin-top:10px;">
+    <p id="t-entline"></p>
+    <a class="btn" id="t-entbtn" href="entry.html" style="background:#fff; color:#1c5d99; border:1.5px solid #cfe0ef; box-shadow:none;"></a>
+  </div>
 
   <div class="tools">
     <input class="search" id="search" type="search" autocomplete="off">
@@ -634,6 +638,8 @@ const UI = {
     scholbtn:"Scholarships",
     parline:"<b>Are you a parent?</b> There is a separate guide for you on how to talk about this decision, and what the Gulf job market actually rewards now.",
     parbtn:"Parent guide",
+    entline:"<b>Can you actually get in?</b> The entry requirements checker shows the published minimums at Gulf universities, and what your school track has already closed.",
+    entbtn:"Entry requirements",
     search:"Search a major, a career, or a subject",
     count:(n,t)=> n===t ? `Showing all ${t} majors` : `Showing ${n} of ${t} majors`,
     empty:"No majors match that search. Try a different word, or clear the search box.",
@@ -657,6 +663,8 @@ const UI = {
     scholbtn:"المنح الدراسية",
     parline:"<b>هل أنت ولي أمر؟</b> يوجد دليل منفصل لك عن كيفية الحوار في هذا القرار، وما يكافئه سوق العمل الخليجي فعلًا اليوم.",
     parbtn:"دليل أولياء الأمور",
+    entline:"<b>هل يمكنك الالتحاق فعلًا؟</b> أداة شروط القبول تعرض الحدود الدنيا المنشورة في جامعات الخليج، وما أغلقه مسارك المدرسي أصلًا.",
+    entbtn:"شروط القبول",
     search:"ابحث عن تخصص أو مهنة أو مادة",
     count:(n,t)=> n===t ? `عرض جميع التخصصات (${t})` : `عرض ${n} من ${t} تخصصًا`,
     empty:"لا توجد تخصصات مطابقة. جرّب كلمة أخرى أو امسح خانة البحث.",
@@ -692,6 +700,8 @@ function applyChrome(){
   $("t-scholbtn").textContent = U.scholbtn;
   $("t-parline").innerHTML = U.parline;
   $("t-parbtn").textContent = U.parbtn;
+  $("t-entline").innerHTML = U.entline;
+  $("t-entbtn").textContent = U.entbtn;
   $("search").placeholder = U.search;
   $("t-disc").textContent = U.disc;
   $("t-foot").innerHTML = U.foot;
