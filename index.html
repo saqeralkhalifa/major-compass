@@ -109,6 +109,13 @@
   .navbtn:hover{border-color:var(--accent); color:var(--accent);}
   .navbtn.hidden{visibility:hidden; pointer-events:none;}
   .refs{font-size:.8rem; color:var(--ink-3); max-width:640px; margin:26px auto 0; line-height:1.6; text-align:center;}
+  .nextbox{background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:24px; margin:26px 0 8px; text-align:center;
+    box-shadow:0 1px 3px rgba(16,20,24,.06), 0 8px 24px rgba(16,20,24,.07);}
+  .nextbox h2{font-size:1.25rem; font-weight:800; margin-bottom:6px;}
+  .nextbox p{color:var(--ink-2); font-size:1rem; max-width:560px; margin:0 auto 16px;}
+  .nextlinks{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+  .nextlinks a{text-decoration:none; display:inline-block;}
   .explorelink{display:block; margin:18px auto 0; font-size:1rem; color:var(--accent); text-decoration:none; font-weight:600;}
   .explorelink:hover{text-decoration:underline;}
   .mread{display:inline-block; margin-top:10px; font-size:.92rem; color:var(--accent); font-weight:600; text-decoration:none;}
@@ -224,6 +231,7 @@
       <button class="btn" id="startBtn"></button>
       <p class="note" id="t-note"></p>
       <a class="explorelink" id="t-explore" href="https://saqeralkhalifa.github.io/major-compass/explore.html"></a>
+      <a class="explorelink" id="t-schol" href="https://saqeralkhalifa.github.io/major-compass/scholarships.html" style="margin-top:10px;"></a>
       <p class="refs" id="t-refs"></p>
     </div>
   </section>
@@ -274,6 +282,15 @@
     </div>
 
     <div id="majorCards"></div>
+
+    <div class="nextbox">
+      <h2 id="r-next-title"></h2>
+      <p id="r-next-sub"></p>
+      <div class="nextlinks">
+        <a class="btn" id="r-next-sch" href="https://saqeralkhalifa.github.io/major-compass/scholarships.html"></a>
+        <a class="btn secondary" id="r-next-exp" href="https://saqeralkhalifa.github.io/major-compass/explore.html"></a>
+      </div>
+    </div>
 
     <div class="res-actions">
       <button class="btn secondary" id="retakeBtn"></button>
@@ -333,6 +350,11 @@ const UI = {
     whyLabel: "Why it fits you:",
     careersLabel: "Possible careers:",
     exploreLink: "Or browse all 31 majors first →",
+    scholLink: "Or see who will fund your degree →",
+    nextTitle: "Two things to do next",
+    nextSub: "Knowing the major is only half of it. Find out who will pay for it, and read honestly about what the subject is really like before you commit.",
+    nextSch: "Find scholarships and funding",
+    nextExp: "Read about these majors",
     readMore: "Read more about this major →",
     mktLabel: "Job market shown:",
     demandIn: (c)=>`High demand in ${c}`,
@@ -384,6 +406,11 @@ const UI = {
     whyLabel: "لماذا يناسبك:",
     careersLabel: "مهن ممكنة:",
     exploreLink: "أو تصفّح جميع التخصصات الـ٣١ أولًا ←",
+    scholLink: "أو اطّلع على من سيموّل دراستك ←",
+    nextTitle: "خطوتان بعد النتيجة",
+    nextSub: "معرفة التخصص نصف الطريق فقط. اعرف من سيدفع تكاليفه، واقرأ بصدق عن حقيقة دراسته قبل أن تلتزم به.",
+    nextSch: "ابحث عن المنح والتمويل",
+    nextExp: "اقرأ عن هذه التخصصات",
     readMore: "اقرأ المزيد عن هذا التخصص ←",
     mktLabel: "سوق العمل المعروض:",
     demandIn: (c)=>`طلب مرتفع في ${c}`,
@@ -1038,6 +1065,7 @@ if (typeof document !== "undefined") (function(){
     $("startBtn").textContent = U.start;
     $("t-note").textContent = U.note;
     $("t-explore").textContent = U.exploreLink;
+    $("t-schol").textContent = U.scholLink;
     $("t-refs").textContent = U.refs;
     $("backBtn").textContent = U.back;
     $("nextBtn").textContent = U.next;
@@ -1116,6 +1144,10 @@ if (typeof document !== "undefined") (function(){
     $("r-codeline").innerHTML = U.codeLine(p.code.join(""));
     $("r-majors-title").textContent = U.majorsTitle;
     $("r-majors-sub").textContent = U.majorsSub;
+    $("r-next-title").textContent = U.nextTitle;
+    $("r-next-sub").textContent = U.nextSub;
+    $("r-next-sch").textContent = U.nextSch;
+    $("r-next-exp").textContent = U.nextExp;
     $("r-disclaimer").textContent = U.disclaimer;
     $("r-refs").textContent = U.refs;
 
