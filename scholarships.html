@@ -174,6 +174,10 @@
     <p id="t-exploreline"></p>
     <a class="btn ghost" id="t-explorebtn" href="explore.html"></a>
   </div>
+  <div class="quizbar" style="margin-top:10px;">
+    <p id="t-parline"></p>
+    <a class="btn ghost" id="t-parbtn" href="parents.html"></a>
+  </div>
 
   <div class="tools">
     <div class="picker">
@@ -940,6 +944,8 @@ const UI = {
     quizbtn:"Take the quiz",
     exploreline:"<b>Want to know what a major is actually like?</b> Read the honest guide to 31 majors, including what you study and what the work is really like.",
     explorebtn:"Explore majors",
+    parline:"<b>Are you the parent here?</b> Read the guide on timing, on what to say, and on why the degrees that feel safest are no longer the safest.",
+    parbtn:"Parent guide",
     r1t:"Rule one: most famous scholarships are for master's degrees",
     r1:"Chevening, Fulbright, Commonwealth, Rhodes, Gates Cambridge, Erasmus Mundus, the DAAD flagship awards and Eiffel all require a completed bachelor's degree, and several also require two or more years of work experience. If you are in Grade 12 you cannot apply to any of them. They are listed at the bottom of this page so you know when to come back.",
     r2t:"Rule two: many scholarships exclude Gulf students on purpose",
@@ -987,6 +993,8 @@ const UI = {
     quizbtn:"ابدأ الاختبار",
     exploreline:"<b>تريد معرفة حقيقة التخصص؟</b> اقرأ الدليل الصادق لواحد وثلاثين تخصصًا، بما في ذلك ما تدرسه وكيف يبدو العمل فعلًا.",
     explorebtn:"استكشف التخصصات",
+    parline:"<b>هل أنت ولي الأمر؟</b> اقرأ الدليل عن التوقيت، وعمّا تقوله، وعن سبب أن الشهادات التي تبدو الأكثر أمانًا لم تعد كذلك.",
+    parbtn:"دليل أولياء الأمور",
     r1t:"القاعدة الأولى: معظم المنح المشهورة للماجستير",
     r1:"شيفنينغ وفولبرايت والكومنولث ورودس وغيتس كامبريدج وإيراسموس موندوس والجوائز الرئيسية للهيئة الألمانية وإيفل، جميعها تشترط بكالوريوس مكتملًا، وبعضها يشترط سنتين خبرة عمل أو أكثر. فإن كنت في الصف الثاني عشر فلا يمكنك التقديم على أي منها. وهي مدرجة في أسفل الصفحة لتعرف متى تعود إليها.",
     r2t:"القاعدة الثانية: كثير من المنح تستثني طلبة الخليج عمدًا",
@@ -1093,6 +1101,8 @@ function applyChrome(){
   $("t-quizbtn").textContent = U.quizbtn;
   $("t-exploreline").innerHTML = U.exploreline;
   $("t-explorebtn").textContent = U.explorebtn;
+  $("t-parline").innerHTML = U.parline;
+  $("t-parbtn").textContent = U.parbtn;
   $("r1t").textContent = U.r1t; $("r1").textContent = U.r1;
   $("r2t").textContent = U.r2t; $("r2").textContent = U.r2;
   $("r3t").textContent = U.r3t; $("r3").textContent = U.r3;

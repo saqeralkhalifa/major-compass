@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل أولياء الأمور | د. صقر آل خليفة</title>
+<meta name="description" content="دليل مجاني ثنائي اللغة لأولياء الأمور في الخليج: كيف تقرأ نتيجة ابنك، وماذا تقول وماذا تتجنب، وما يكافئه سوق العمل فعلًا. A free bilingual guide for Gulf parents on helping a child choose a university major.">
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<style>
+  :root{
+    --ink:#101418; --ink-2:#40474e; --ink-3:#8a9199;
+    --paper:#faf9f6; --card:#ffffff; --line:#e6e3dc;
+    --accent:#1c5d99; --accent-soft:#e8f0f8; --gold:#b98c2f; --gold-soft:#fdf4e3;
+    --good:#0e7a4d; --good-soft:#e9f5ef; --bad:#a3413a; --bad-soft:#fbeceb;
+    --radius:14px; --shadow:0 1px 3px rgba(16,20,24,.06), 0 8px 24px rgba(16,20,24,.07);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); line-height:1.75; min-height:100vh;
+    font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif;}
+  [dir="rtl"] body{font-family:'Segoe UI', Tahoma, 'Noto Naskh Arabic', 'Geeza Pro', Arial, sans-serif; line-height:1.95;}
+  .serif{font-family:Georgia, 'Times New Roman', serif;}
+  [dir="rtl"] .serif{font-family:'Noto Naskh Arabic', 'Geeza Pro', 'Traditional Arabic', Georgia, serif;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 22px 80px;}
+
+  header.site{display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0 14px; border-bottom:1px solid var(--line);}
+  .brand{font-size:.95rem; color:var(--ink-2); text-decoration:none;}
+  .brand strong{color:var(--ink); font-weight:600;}
+  .lang-toggle{border:1px solid var(--line); background:var(--card); border-radius:999px;
+    padding:7px 16px; font-size:.95rem; cursor:pointer; color:var(--accent); font-weight:600;
+    font-family:inherit;}
+  .lang-toggle:hover{background:var(--accent-soft);}
+
+  .hero{text-align:center; padding:44px 0 4px;}
+  .kicker{font-size:.8rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold);
+    font-weight:800; margin-bottom:12px;}
+  [dir="rtl"] .kicker{letter-spacing:0; text-transform:none; font-size:.95rem;}
+  .hero h1{font-size:2.2rem; line-height:1.28; margin-bottom:12px;}
+  .hero p{color:var(--ink-2); font-size:1.1rem; max-width:600px; margin:0 auto;}
+
+  .lede{font-size:1.15rem; line-height:1.8; color:var(--ink); margin:34px 0 6px;
+    padding:22px 26px; background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); box-shadow:var(--shadow);}
+  [dir="ltr"] .lede{border-left:4px solid var(--gold);}
+  [dir="rtl"] .lede{border-right:4px solid var(--gold); line-height:2;}
+
+  .toc{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px 24px; margin:26px 0 8px; box-shadow:var(--shadow);}
+  .toc h2{font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);
+    font-weight:800; margin-bottom:10px;}
+  [dir="rtl"] .toc h2{letter-spacing:0; text-transform:none; font-size:.95rem;}
+  .toc ol{list-style:none;}
+  .toc li{padding:5px 0; border-bottom:1px dashed var(--line);}
+  .toc li:last-child{border-bottom:none;}
+  .toc a{color:var(--ink-2); text-decoration:none; font-size:1rem; display:flex; gap:12px; align-items:baseline;}
+  .toc a:hover{color:var(--accent);}
+  .tn{color:var(--gold); font-weight:800; font-size:.9rem; min-width:18px;}
+
+  .bar{background:var(--accent-soft); border:1px solid #cfe0ef; border-radius:var(--radius);
+    padding:16px 20px; margin-top:12px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+  .bar p{flex:1 1 260px; font-size:.98rem; color:var(--ink-2); margin:0; line-height:1.6;}
+  .bar b{color:var(--ink);}
+  .btn{display:inline-block; border:none; cursor:pointer; text-decoration:none; text-align:center;
+    background:var(--accent); color:#fff; font-size:.98rem; font-weight:600; font-family:inherit;
+    padding:11px 24px; border-radius:999px; white-space:nowrap;
+    box-shadow:0 4px 14px rgba(28,93,153,.28);}
+  .btn.ghost{background:var(--card); color:var(--accent); border:1.5px solid #cfe0ef; box-shadow:none;}
+
+  .chap{margin-top:46px;}
+  .chap h2{font-size:1.55rem; line-height:1.35; margin-bottom:16px; display:flex; gap:14px; align-items:baseline;
+    font-family:Georgia,'Times New Roman',serif;}
+  [dir="rtl"] .chap h2{font-family:'Noto Naskh Arabic','Geeza Pro',Georgia,serif; font-size:1.5rem;}
+  .cn{color:var(--gold); font-weight:800; font-size:1.1rem; flex:0 0 auto;
+    font-family:Georgia,serif;}
+  .chap p{margin-bottom:15px; color:var(--ink-2); font-size:1.06rem;}
+  .chap p b, .chap li b{color:var(--ink); font-weight:700;}
+  .chap ul, .chap ol{margin:0 0 16px; padding-inline-start:22px;}
+  .chap li{margin-bottom:9px; color:var(--ink-2); font-size:1.05rem;}
+
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px 22px; margin:18px 0; box-shadow:var(--shadow);}
+  .stat-n{font-family:Georgia,'Times New Roman',serif; font-size:1.75rem; font-weight:700;
+    color:var(--accent); line-height:1.2; margin-bottom:6px;}
+  [dir="rtl"] .stat-n{font-family:'Noto Naskh Arabic','Geeza Pro',Georgia,serif; font-size:1.6rem;}
+  .stat-b{font-size:1rem; color:var(--ink-2); line-height:1.7;}
+  .stat-b b{color:var(--ink);}
+
+  .hedge{background:var(--gold-soft); border:1px solid #efdcb6; border-radius:12px;
+    padding:14px 18px; font-size:.98rem !important; color:#5c4415 !important;}
+  .hedge b{color:#3f2f0e !important;}
+  .cta-inline{background:var(--accent-soft); border:1px solid #cfe0ef; border-radius:12px;
+    padding:14px 18px; font-size:1rem !important; color:#204660 !important;}
+
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0;}
+  .col{border-radius:var(--radius); padding:18px 20px; border:1px solid;}
+  .col h3{font-size:1.05rem; font-weight:800; margin-bottom:10px;}
+  .col ol{padding-inline-start:20px; margin-bottom:0;}
+  .col li{font-size:.98rem; margin-bottom:9px;}
+  .col.good{background:var(--good-soft); border-color:#c9e6d8;}
+  .col.good h3{color:var(--good);} .col.good li{color:#245c45;} .col.good li b{color:#123a2b;}
+  .col.bad{background:var(--bad-soft); border-color:#f0cfcc;}
+  .col.bad h3{color:var(--bad);} .col.bad li{color:#6b3630;} .col.bad li b{color:#4a231f;}
+  .small{font-size:.9rem !important; margin-top:10px; margin-bottom:0 !important; color:#3f6b57 !important;}
+
+  .srcbox{margin-top:52px; background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:24px; box-shadow:var(--shadow);}
+  .srcbox h2{font-size:1.15rem; font-weight:800; margin-bottom:5px;}
+  .srcbox .sub{font-size:.93rem; color:var(--ink-2); margin-bottom:14px;}
+  .srcbox ol{padding-inline-start:20px;}
+  .srcbox li{font-size:.9rem; margin-bottom:8px; color:var(--ink-3); line-height:1.6;}
+  .srcbox a{color:var(--accent); text-decoration:none;}
+  .srcbox a:hover{text-decoration:underline;}
+
+  .printbtn{display:block; margin:26px auto 0; background:var(--card); color:var(--accent);
+    border:1.5px solid #cfe0ef; border-radius:999px; padding:11px 26px; font-size:.98rem;
+    font-weight:600; font-family:inherit; cursor:pointer;}
+
+  footer.site{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
+    text-align:center; font-size:.85rem; color:var(--ink-3);}
+  footer.site a{color:var(--accent); text-decoration:none;}
+  .disc{font-size:.84rem; color:var(--ink-3); max-width:640px; margin:0 auto 14px; line-height:1.6;}
+
+  @media (max-width:620px){
+    .hero h1{font-size:1.65rem;}
+    .two{grid-template-columns:1fr;}
+    .chap h2{font-size:1.3rem;}
+    .stat-n{font-size:1.45rem;}
+    .lede{font-size:1.05rem; padding:18px 20px;}
+  }
+  @media print{
+    .bar, .lang-toggle, .printbtn, .toc{display:none;}
+    body{background:#fff;} .stat, .srcbox{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="https://www.saqeralkhalifa.com"><strong>Saqer AlKhalifa</strong> &middot; saqeralkhalifa.com</a>
+    <button class="lang-toggle" id="langToggle">English</button>
+  </header>
+
+  <div class="hero">
+    <div class="kicker" id="kicker"></div>
+    <h1 class="serif" id="t-title"></h1>
+    <p id="t-sub"></p>
+  </div>
+
+  <p class="lede" id="lede"></p>
+
+  <div class="toc">
+    <h2 id="t-contents"></h2>
+    <ol id="toc"></ol>
+  </div>
+
+  <div class="bar">
+    <p id="t-quizline"></p>
+    <a class="btn" id="t-quizbtn" href="https://saqeralkhalifa.github.io/major-compass/"></a>
+  </div>
+
+  <div id="body"></div>
+
+  <div class="bar" style="margin-top:34px;">
+    <p id="t-schline"></p>
+    <a class="btn" id="t-schbtn" href="scholarships.html"></a>
+  </div>
+  <div class="bar">
+    <p id="t-expline"></p>
+    <a class="btn ghost" id="t-expbtn" href="explore.html"></a>
+  </div>
+
+  <div class="srcbox">
+    <h2 id="srcT"></h2>
+    <p class="sub" id="srcS"></p>
+    <ol id="srcList"></ol>
+  </div>
+
+  <button class="printbtn" id="t-print"></button>
+
+  <footer class="site">
+    <p class="disc" id="t-disc"></p>
+    <p id="t-foot"></p>
+  </footer>
+</div>
+<script>
+/* ===== Parent guide: content ===== */
+
+const HERO = {
+  en:{kicker:"A guide for parents",
+      t:"Your son or daughter is choosing a major",
+      s:"What the research actually says about your role in this decision, what the Gulf job market actually rewards, and how to have the conversation without losing them."},
+  ar:{kicker:"دليل لأولياء الأمور",
+      t:"ابنك أو ابنتك يختار تخصصه الجامعي",
+      s:"ما تقوله الأبحاث فعلًا عن دورك في هذا القرار، وما يكافئه سوق العمل الخليجي حقيقةً، وكيف تدير الحوار دون أن تخسرهما."}
+};
+
+const LEDE = {
+  en:"You are not being asked to step back. That is not what the evidence recommends, and it is not what your child needs. Studies find that parents who disengage from this decision leave their children measurably worse at planning a career, not freer. What the evidence recommends is something harder and better: stay closely involved, and stop deciding.",
+  ar:"لا يُطلب منك أن تبتعد. ليس هذا ما توصي به الأدلة، وليس ما يحتاجه ابنك. فالدراسات تجد أن الآباء الذين ينسحبون من هذا القرار يتركون أبناءهم أضعف في التخطيط المهني، لا أكثر حرية. ما توصي به الأدلة أصعب وأفضل: ابقَ قريبًا ومشاركًا، وتوقف عن أن تقرر بدلًا عنه."
+};
+
+const SECTIONS = [
+
+{id:"three",
+ t:{en:"Three findings worth knowing before you say anything", ar:"ثلاث نتائج تستحق أن تعرفها قبل أن تتكلم"},
+ b:{en:`<p>Most of what families believe about this decision was true twenty years ago. Three things have changed enough to be worth reading carefully.</p>
+
+<div class="stat">
+  <div class="stat-n">0.83 against 0.25</div>
+  <div class="stat-b">In the most complete review of career guidance research, being <b>supported through</b> the decision had more than three times the effect of being <b>told about</b> the options. Emotional support scored an effect size of 0.83. Giving someone information about the world of work scored 0.25. Your value here is not the lecture about which field pays. It is being the person they can think out loud in front of.</div>
+</div>
+
+<div class="stat">
+  <div class="stat-n">25%</div>
+  <div class="stat-b">Youth unemployment among Saudi holders of STEM degrees, as of 2023. Only 30% of Saudi engineering and technology graduates were judged fully qualified for private sector positions. Meanwhile <b>38% of Saudi employers say they plan to remove degree requirements altogether</b>, against 19% globally. The degree that felt safest to your generation is no longer the one that guarantees work.</div>
+</div>
+
+<div class="stat">
+  <div class="stat-n">$64,000 to $146,000</div>
+  <div class="stat-b">The range of median earnings <b>within</b> science and engineering majors in the most recent large US analysis. The gap inside one field is far wider than the gap between fields, and fourteen of nineteen humanities and arts majors out-earn the bottom quarter of STEM. Choosing "engineering" tells you almost nothing about your child's future income. What they do inside it tells you a great deal.</div>
+</div>
+
+<p>None of this means that practical considerations do not matter. It means the practical considerations your family is probably using are out of date.</p>`,
+
+    ar:`<p>معظم ما تؤمن به الأسر حول هذا القرار كان صحيحًا قبل عشرين عامًا. وثلاثة أمور تغيّرت بما يكفي لتستحق قراءة متأنية.</p>
+
+<div class="stat">
+  <div class="stat-n">٠٫٨٣ مقابل ٠٫٢٥</div>
+  <div class="stat-b">في أشمل مراجعة لأبحاث الإرشاد المهني، كان <b>الدعم أثناء اتخاذ القرار</b> أقوى أثرًا بأكثر من ثلاثة أضعاف من <b>إخبار الشخص</b> بالخيارات. فحجم أثر الدعم العاطفي بلغ ٠٫٨٣، أما تزويد الشخص بمعلومات عن عالم العمل فبلغ ٠٫٢٥. قيمتك هنا ليست المحاضرة عن أي المجالات أعلى دخلًا، بل أن تكون الشخص الذي يستطيع ابنك أن يفكر بصوت عالٍ أمامه.</div>
+</div>
+
+<div class="stat">
+  <div class="stat-n">٢٥٪</div>
+  <div class="stat-b">نسبة البطالة بين الشباب السعودي من حملة شهادات العلوم والهندسة والتقنية، بحسب بيانات ٢٠٢٣. و٣٠٪ فقط من خريجي الهندسة والتقنية السعوديين اعتُبروا مؤهلين تمامًا لوظائف القطاع الخاص. وفي الوقت نفسه يقول <b>٣٨٪ من أصحاب العمل السعوديين إنهم يخططون لإلغاء اشتراط الشهادة الجامعية</b>، مقابل ١٩٪ عالميًا. الشهادة التي بدت الأكثر أمانًا لجيلك لم تعد هي التي تضمن العمل.</div>
+</div>
+
+<div class="stat">
+  <div class="stat-n">٦٤ ألفًا إلى ١٤٦ ألف دولار</div>
+  <div class="stat-b">مدى الدخل الوسيط <b>داخل</b> تخصصات العلوم والهندسة في أحدث تحليل أمريكي واسع. الفجوة داخل المجال الواحد أوسع بكثير من الفجوة بين المجالات، وأربعة عشر تخصصًا من تسعة عشر في الإنسانيات والفنون تتجاوز دخلها الربع الأدنى من تخصصات العلوم والهندسة. اختيار "الهندسة" لا يخبرك تقريبًا بشيء عن دخل ابنك مستقبلًا، أما ما يفعله داخلها فيخبرك بالكثير.</div>
+</div>
+
+<p>لا يعني هذا أن الاعتبارات العملية غير مهمة، بل يعني أن الاعتبارات العملية التي تستخدمها أسرتك على الأرجح قديمة.</p>`}},
+
+{id:"result",
+ t:{en:"How to read the result they bring you", ar:"كيف تقرأ النتيجة التي يعرضها عليك"},
+ b:{en:`<p>If your child has taken the assessment on this site, they will come to you with five majors ranked by fit, a three letter interest code, and a percentage next to each one. Here is what those numbers are, and what they are not.</p>
+
+<p><b>The list is a conversation opener, not a verdict.</b> It is built on the Holland interest model, the most widely used framework in career guidance, and it matches a young person's pattern of interests, strengths, values and constraints against thirty one majors. That is a reasonable starting point. It is not a measurement of talent, and it cannot see the things you can see: how they behave under pressure, what they are like when nobody is grading them, what they have quietly loved since they were nine.</p>
+
+<p><b>The percentages are relative, not absolute.</b> A 74% match does not mean the student will be 74% happy. It means that of the thirty one options, this one lines up with their answers more closely than the one below it. Two majors three points apart are, for practical purposes, tied.</p>
+
+<p><b>Read the whole list, not just the first item.</b> The most useful information is usually the pattern. If four of the five are people facing, that is the finding. If the list is split between something creative and something technical, that split is real and worth talking about, and there are many careers that need both.</p>
+
+<p><b>Look at what they avoided.</b> The assessment asks about dealbreakers. Roughly three in ten students who have taken it say they would rather not work with blood or clinical procedures. Around two in ten want to avoid heavy mathematics. If your child has said one of these, pushing them toward medicine or engineering is not ambition, it is a plan for them to be miserable for six years and then leave.</p>
+
+<p>The most productive question you can ask about the result is not "why is this one first" but <b>"which of these five do you actually want to go and find out more about"</b>.</p>`,
+
+    ar:`<p>إذا أجرى ابنك الاختبار في هذا الموقع فسيأتيك بخمسة تخصصات مرتبة حسب التوافق، ورمز ميول من ثلاثة أحرف، ونسبة مئوية بجانب كل تخصص. وهذا ما تعنيه هذه الأرقام، وما لا تعنيه.</p>
+
+<p><b>القائمة بداية حوار لا حكم نهائي.</b> فهي مبنية على نموذج هولاند للميول، وهو الإطار الأوسع استخدامًا في الإرشاد المهني، وتطابق نمط ميول الطالب وقدراته وقيمه وقيوده مع واحد وثلاثين تخصصًا. هذه نقطة انطلاق معقولة، لكنها ليست قياسًا للموهبة، ولا ترى ما تراه أنت: كيف يتصرف تحت الضغط، وكيف يكون حين لا يقيّمه أحد، وما الذي أحبه بهدوء منذ كان في التاسعة.</p>
+
+<p><b>النسب نسبية لا مطلقة.</b> فتوافق ٧٤٪ لا يعني أن الطالب سيكون سعيدًا بنسبة ٧٤٪، بل يعني أن هذا التخصص، من بين واحد وثلاثين خيارًا، أقرب إلى إجاباته من الذي يليه. وتخصصان بينهما ثلاث نقاط متعادلان عمليًا.</p>
+
+<p><b>اقرأ القائمة كاملة لا الأول فقط.</b> فالمعلومة الأنفع عادة هي النمط. إن كانت أربعة من الخمسة تتعامل مع الناس فهذه هي النتيجة. وإن انقسمت القائمة بين شيء إبداعي وآخر تقني فهذا الانقسام حقيقي ويستحق النقاش، وهناك مهن كثيرة تحتاج الاثنين معًا.</p>
+
+<p><b>انظر إلى ما تجنّبه.</b> فالاختبار يسأل عن الأمور المستبعدة تمامًا. ونحو ثلاثة من كل عشرة ممن أجروه يقولون إنهم يفضلون ألا يعملوا مع الدم أو الإجراءات السريرية، ونحو اثنين من كل عشرة يريدون تجنب الرياضيات الثقيلة. فإن قال ابنك أحد هذين، فدفعه نحو الطب أو الهندسة ليس طموحًا، بل خطة ليشقى ست سنوات ثم ينسحب.</p>
+
+<p>وأنفع سؤال تطرحه عن النتيجة ليس "لماذا جاء هذا أولًا" بل <b>"أي هذه الخمسة تريد فعلًا أن تذهب وتعرف عنه أكثر"</b>.</p>`}},
+
+{id:"influence",
+ t:{en:"How much you actually influence this, and which kind of influence helps", ar:"كم تؤثر فعلًا، وأي نوع من التأثير ينفع"},
+ b:{en:`<p>In a study of 453 undergraduates at a Saudi public university in 2023 and 2024, <b>81% agreed that their chosen major aligns with their parents' preferences</b>, and 95% cited family encouragement. Family alignment outranked both expected income and social status as a stated influence. That is a single institution with a mostly female sample, and agreement is not the same as compliance, but the direction is unmistakable. In the Gulf, you are in this decision whether you intend to be or not.</p>
+
+<p>The research is much clearer on <b>which kind of involvement helps</b>. A pooled analysis of 238 studies covering 126,423 people found that parental autonomy support, meaning taking the young person's own perspective seriously and supporting their initiative, correlates with wellbeing at 0.30. Parental psychological control, meaning guilt, conditional warmth and pressure, correlates with ill-being at 0.26.</p>
+
+<p>The important detail, and the one most parents get wrong: <b>these are not two ends of one dial.</b> They are two separate behaviours, and you can do both at the same time. Being loving and generous does not cancel out being controlling about this one decision. Your child experiences both.</p>
+
+<p>Two more findings complete the picture. First, students who study because someone else expects it are measurably more likely to want to quit. In a study of 754 students, controlled motivation predicted intention to drop out, while autonomous motivation predicted both staying and performing better. Second, withdrawing is not the safe alternative. In a 2025 study of 814 students, a lack of parental engagement directly reduced career planning ability.</p>
+
+<p>Engaged, warm and non directive is the target. It is harder than either shouting or shrugging.</p>
+
+<p class="hedge">Worth being honest about: these are correlations from populations, not predictions about your family. One study of young adults found that school career support mattered more than parental behaviour, which is a reminder that you are one influence among several, and that pressing your child's school to do more may matter as much as anything you do at home.</p>`,
+
+    ar:`<p>في دراسة على ٤٥٣ طالبًا جامعيًا في جامعة حكومية سعودية عامي ٢٠٢٣ و٢٠٢٤، <b>وافق ٨١٪ على أن تخصصهم المختار يتوافق مع تفضيلات والديهم</b>، وذكر ٩٥٪ تشجيع الأسرة. وتفوّق التوافق مع الأسرة على الدخل المتوقع وعلى المكانة الاجتماعية معًا كعامل مؤثر مُعلن. صحيح أن هذه مؤسسة واحدة بعينة غالبها من الإناث، وأن الموافقة ليست هي الامتثال، لكن الاتجاه واضح. في الخليج أنت طرف في هذا القرار سواء قصدت ذلك أم لا.</p>
+
+<p>والأبحاث أوضح بكثير في <b>أي نوع من المشاركة ينفع</b>. فتحليل مجمّع لـ٢٣٨ دراسة شملت ١٢٦٤٢٣ شخصًا وجد أن دعم الاستقلالية من الوالدين، أي أخذ وجهة نظر الابن على محمل الجد ودعم مبادرته، يرتبط بالعافية النفسية بمعامل ٠٫٣٠. أما السيطرة النفسية، أي الشعور بالذنب والحنان المشروط والضغط، فترتبط بسوء الحال النفسي بمعامل ٠٫٢٦.</p>
+
+<p>والتفصيل المهم، وهو ما يخطئ فيه أكثر الآباء: <b>هذان ليسا طرفي مقياس واحد</b>، بل سلوكان منفصلان يمكن أن يصدرا منك في الوقت نفسه. فكونك محبًا وكريمًا لا يلغي كونك مسيطرًا في هذا القرار تحديدًا. وابنك يعيش الأمرين معًا.</p>
+
+<p>وتكمل الصورةَ نتيجتان أخريان. الأولى أن الطلبة الذين يدرسون لأن غيرهم يتوقع ذلك منهم أميل بوضوح إلى الرغبة في الانسحاب. ففي دراسة على ٧٥٤ طالبًا تنبأ الدافع الخارجي بنية ترك الدراسة، بينما تنبأ الدافع الذاتي بالاستمرار وبالأداء الأفضل معًا. والثانية أن الانسحاب ليس البديل الآمن. ففي دراسة عام ٢٠٢٥ على ٨١٤ طالبًا، أدى غياب مشاركة الوالدين مباشرة إلى ضعف القدرة على التخطيط المهني.</p>
+
+<p>المطلوب إذن: حضور دافئ ومشارك وغير آمر. وهو أصعب من الصياح ومن اللامبالاة معًا.</p>
+
+<p class="hedge">وللأمانة: هذه ارتباطات مستخلصة من مجموعات كبيرة، لا تنبؤات عن أسرتك أنت. كما وجدت دراسة على شباب بالغين أن الدعم المهني من المدرسة كان أهم من سلوك الوالدين، وهو تذكير بأنك مؤثر واحد بين عدة مؤثرات، وأن الضغط على مدرسة ابنك لتقدّم إرشادًا أفضل قد يوازي في أهميته كل ما تفعله في البيت.</p>`}},
+
+{id:"prestige",
+ t:{en:"The prestige trap, in numbers", ar:"فخ المكانة، بالأرقام"},
+ b:{en:`<p>Almost every Gulf family has a short list of respectable degrees. Medicine, engineering, law, accounting. That list was assembled when a government job followed a degree almost automatically. It no longer does, and the policy change is deliberate.</p>
+
+<p>Saudi Arabia now produces over 300,000 graduates a year, up from 200,000 in 2015, concentrated heavily in business, law and management. Nitaqat has moved Saudi nationals in private sector employment from roughly 24% before 2011 to about 33% by 2023. In the UAE, Emiratisation legally requires companies with fifty or more employees to raise Emirati skilled roles toward 10% by 2026, with penalties of AED 6,000 a month per unfilled position. Governments across the Gulf are legislating nationals into the private sector. The safe government job is not an assumption that policy supports any more.</p>
+
+<p>The specific degrees have moved too:</p>
+
+<ul>
+  <li><b>Accounting and auditing</b> appear on the World Economic Forum's list of the fastest declining occupations to 2030. It is on the same list as cashiers and administrative assistants.</li>
+  <li><b>Computer science</b>, the field families were most recently told was guaranteed, had the highest unemployment rate within science and engineering for recent graduates at 6.8%, even while paying a strong median salary. High pay and high unemployment can sit inside the same major.</li>
+  <li><b>Entry level white collar work</b> is where artificial intelligence is landing first. A Stanford analysis found workers aged 22 to 25 in the most AI exposed occupations saw employment fall by roughly 16%, while workers over 30 in the same roles saw increases of 6% to 9%. Software developers aged 22 to 25 fell nearly 20%. Salaries barely moved. The adjustment came through hiring, which means it hits new graduates first.</li>
+</ul>
+
+<p>And the general picture is less reassuring than the brochures suggest: in the United States, 42% of recent graduates are working in jobs that do not require a degree at all.</p>
+
+<p>What is growing, globally and in the Gulf: artificial intelligence and big data, networks and cybersecurity, fintech, renewable energy engineering, and in sheer numbers, nursing and teaching. In Saudi Arabia employers expect autonomous technology to handle 45% of work tasks by 2030. In the UAE, 87% say technological literacy is becoming more important.</p>
+
+<p>The honest conclusion is not "avoid medicine" or "everyone should study computing". It is that <b>the field name on the certificate is a weak predictor of anything</b>, and a family that argues for two years about the field name while ignoring what the student will actually be good at and willing to sustain has optimised for the wrong variable.</p>`,
+
+    ar:`<p>لدى كل أسرة خليجية تقريبًا قائمة قصيرة من الشهادات المحترمة: الطب والهندسة والقانون والمحاسبة. وقد وُضعت هذه القائمة حين كانت الوظيفة الحكومية تتبع الشهادة تلقائيًا تقريبًا. لم يعد الأمر كذلك، والتغيير في السياسات مقصود.</p>
+
+<p>تنتج السعودية اليوم أكثر من ٣٠٠ ألف خريج سنويًا، صعودًا من ٢٠٠ ألف عام ٢٠١٥، ويتركز معظمهم في الأعمال والقانون والإدارة. وقد رفع نطاقات نسبة السعوديين في القطاع الخاص من نحو ٢٤٪ قبل ٢٠١١ إلى نحو ٣٣٪ بحلول ٢٠٢٣. وفي الإمارات يلزم التوطين الشركات التي لديها خمسون موظفًا فأكثر برفع نسبة الوظائف المهارية للمواطنين نحو ١٠٪ بحلول ٢٠٢٦، بغرامة ٦٠٠٠ درهم شهريًا عن كل وظيفة شاغرة. الحكومات في الخليج تشرّع لدخول المواطنين إلى القطاع الخاص. والوظيفة الحكومية الآمنة لم تعد افتراضًا تسنده السياسات.</p>
+
+<p>والشهادات نفسها تحركت أيضًا:</p>
+
+<ul>
+  <li><b>المحاسبة والتدقيق</b> ترد في قائمة المنتدى الاقتصادي العالمي للمهن الأسرع انحسارًا حتى ٢٠٣٠، في القائمة نفسها التي تضم أمناء الصناديق والسكرتارية الإدارية.</li>
+  <li><b>علوم الحاسوب</b>، وهي المجال الذي قيل للأسر مؤخرًا إنه مضمون، سجلت أعلى بطالة بين تخصصات العلوم والهندسة لحديثي التخرج عند ٦٫٨٪، رغم دخلها الوسيط الجيد. فالأجر المرتفع والبطالة المرتفعة قد يجتمعان في التخصص نفسه.</li>
+  <li><b>الوظائف المكتبية في مستوى المبتدئين</b> هي أول ما يصيبه الذكاء الاصطناعي. فقد وجد تحليل من ستانفورد أن العاملين بين ٢٢ و٢٥ سنة في المهن الأكثر تعرضًا للذكاء الاصطناعي تراجعت أعدادهم بنحو ١٦٪، بينما ارتفعت أعداد من تجاوزوا الثلاثين في المهن نفسها بين ٦٪ و٩٪. ومطورو البرمجيات بين ٢٢ و٢٥ سنة تراجعوا بنحو ٢٠٪. أما الرواتب فلم تتحرك تقريبًا، أي أن التعديل جرى عبر التوظيف، وهذا يصيب الخريجين الجدد أولًا.</li>
+</ul>
+
+<p>والصورة العامة أقل طمأنة مما توحي به كتيبات الجامعات: ففي الولايات المتحدة يعمل ٤٢٪ من حديثي التخرج في وظائف لا تشترط شهادة جامعية أصلًا.</p>
+
+<p>أما ما ينمو، عالميًا وفي الخليج: الذكاء الاصطناعي والبيانات الضخمة، والشبكات والأمن السيبراني، والتقنية المالية، وهندسة الطاقة المتجددة، ومن حيث الأعداد المطلقة التمريض والتعليم. ويتوقع أصحاب العمل في السعودية أن تؤدي التقنيات ذاتية التشغيل ٤٥٪ من المهام بحلول ٢٠٣٠. وفي الإمارات يقول ٨٧٪ إن الثقافة التقنية تزداد أهمية.</p>
+
+<p>والخلاصة الصادقة ليست "تجنّبوا الطب" ولا "ليدرس الجميع الحاسوب"، بل أن <b>اسم التخصص على الشهادة مؤشر ضعيف على أي شيء</b>، وأن الأسرة التي تتجادل سنتين حول اسم التخصص وتتجاهل ما سيبرع فيه ابنها فعلًا وما يقوى على الاستمرار فيه، قد حسّنت المتغير الخطأ.</p>`}},
+
+{id:"say",
+ t:{en:"What to say, and what to stop saying", ar:"ما تقوله، وما تتوقف عن قوله"},
+ b:{en:`<p>There is no study that tests exact parental wording and measures the result. Anyone who tells you otherwise is overselling. What follows is reasoned from mechanisms that are evidenced, and each avoidance below is tied to a finding rather than to an opinion.</p>
+
+<div class="two">
+  <div class="col good">
+    <h3>Six questions worth asking</h3>
+    <ol>
+      <li>What do you actually know about what a person in that job does all day?</li>
+      <li>Who could we find for you to talk to who does this work now?</li>
+      <li>What parts of school do you lose track of time in?</li>
+      <li>If money and other people's opinions were not a factor, what would you look at? And then, separately: now let us put the practical constraints back in.</li>
+      <li>What would you want to be true about your working life at thirty? Not the job title, the day.</li>
+      <li>What would make you want to change your mind later, and would you tell me if that happened?</li>
+    </ol>
+    <p class="small">The first question targets the strongest Gulf finding we have on dropout. The last one quietly gives them permission to be honest with you in two years' time, which is worth more than it looks.</p>
+  </div>
+  <div class="col bad">
+    <h3>Six things to stop saying</h3>
+    <ol>
+      <li><b>"We have already decided."</b> Psychological control tracks with ill-being at 0.26 across 126,423 people.</li>
+      <li><b>"After everything we have spent on you."</b> Obligation framing produces exactly the kind of motivation that predicts wanting to drop out.</li>
+      <li><b>"Engineering and medicine are safe."</b> 25% youth unemployment among Saudi STEM graduates in 2023.</li>
+      <li><b>"Accounting is always in demand."</b> It is on the World Economic Forum's fastest declining list.</li>
+      <li><b>"Decide now and never change."</b> Students who declared immediately and never switched graduated at a lower rate than those who settled later.</li>
+      <li><b>Nothing at all.</b> Disengagement measurably reduces career planning ability. Silence is not neutrality.</li>
+    </ol>
+  </div>
+</div>`,
+
+    ar:`<p>لا توجد دراسة تختبر صياغات محددة يقولها الوالدان وتقيس نتيجتها. ومن يخبرك بغير ذلك يبالغ. وما يلي مستنتج من آليات مثبتة، وكل عبارة يُنصح بتجنبها أدناه مرتبطة بنتيجة بحثية لا برأي.</p>
+
+<div class="two">
+  <div class="col good">
+    <h3>ستة أسئلة تستحق أن تُطرح</h3>
+    <ol>
+      <li>ماذا تعرف فعلًا عمّا يفعله صاحب هذه المهنة طوال يومه؟</li>
+      <li>من يمكننا أن نجد لك لتتحدث معه ممن يعملون في هذا المجال الآن؟</li>
+      <li>أي جزء من الدراسة تنسى الوقت وأنت فيه؟</li>
+      <li>لو لم يكن المال ولا رأي الناس عاملًا، ماذا كنت ستنظر إليه؟ ثم، بشكل منفصل: والآن لنعد القيود العملية إلى الحساب.</li>
+      <li>ما الذي تتمنى أن يكون صحيحًا في حياتك العملية وأنت في الثلاثين؟ لا المسمى الوظيفي بل تفاصيل اليوم.</li>
+      <li>ما الذي قد يجعلك تغيّر رأيك لاحقًا، وهل ستخبرني لو حدث ذلك؟</li>
+    </ol>
+    <p class="small">السؤال الأول يستهدف أقوى نتيجة خليجية لدينا عن التسرب الجامعي. والسؤال الأخير يمنح ابنك بهدوء إذنًا بأن يكون صادقًا معك بعد سنتين، وهذا أثمن مما يبدو.</p>
+  </div>
+  <div class="col bad">
+    <h3>ستة أمور توقف عن قولها</h3>
+    <ol>
+      <li><b>"لقد قررنا مسبقًا".</b> السيطرة النفسية ترتبط بسوء الحال النفسي بمعامل ٠٫٢٦ عبر ١٢٦٤٢٣ شخصًا.</li>
+      <li><b>"بعد كل ما أنفقناه عليك".</b> صياغة الالتزام تنتج تحديدًا نوع الدافع الذي يتنبأ بالرغبة في ترك الدراسة.</li>
+      <li><b>"الهندسة والطب آمنان".</b> ٢٥٪ بطالة بين الشباب السعودي من خريجي العلوم والهندسة عام ٢٠٢٣.</li>
+      <li><b>"المحاسبة مطلوبة دائمًا".</b> هي في قائمة المنتدى الاقتصادي العالمي للمهن الأسرع انحسارًا.</li>
+      <li><b>"قرر الآن ولا تغيّر أبدًا".</b> الطلبة الذين حسموا فورًا ولم يغيّروا تخرجوا بنسبة أقل ممن استقروا لاحقًا.</li>
+      <li><b>لا شيء إطلاقًا.</b> الانسحاب يضعف قدرة الابن على التخطيط المهني بشكل ملموس. الصمت ليس حيادًا.</li>
+    </ol>
+  </div>
+</div>`}},
+
+{id:"meet",
+ t:{en:"The single most useful thing you can arrange", ar:"أنفع شيء يمكنك ترتيبه"},
+ b:{en:`<p>A machine learning study of 4,560 students across Saudi universities, with data collected between July 2024 and January 2025, identified the strongest predictors of dropping out. Alongside grade average and employment status was something families rarely think about: <b>major pre-knowledge</b>, meaning how much the student actually knew about the subject before enrolling.</p>
+
+<p>That is a Gulf finding, it is recent, and it points at something you can do this month. Your child does not need another brochure. They need to sit with a person who does the job.</p>
+
+<p>British research tracking school leavers found that <b>four or more encounters with employers while still at school</b> is the threshold associated with better outcomes as a young adult, and attributed the benefit to knowledge and contacts rather than to skills. In the career guidance meta analysis, watching and learning from a real person scored higher than being given information about the world of work.</p>
+
+<p>Practically, in a Gulf family this is often easy. You already know a radiographer, a site engineer, a compliance officer, a teacher, a pharmacist, someone at the bank. Ask three of them for twenty minutes with your child, and brief your child to ask what a normal Tuesday looks like, what the worst part of the job is, and what they would study if they were eighteen now.</p>
+
+<p>One warning worth passing on: the professions your child sees on television are not the professions as they are lived. A study of young people found that where they did not personally know someone doing a job, television and film became the main source of what they believed about it.</p>`,
+
+    ar:`<p>حدّدت دراسة تعلّم آلي على ٤٥٦٠ طالبًا في جامعات سعودية، بُنيت على بيانات جُمعت بين يوليو ٢٠٢٤ ويناير ٢٠٢٥، أقوى العوامل المتنبئة بالتسرب. وإلى جانب المعدل التراكمي وحالة العمل جاء عامل نادرًا ما تفكر فيه الأسر: <b>المعرفة المسبقة بالتخصص</b>، أي كم كان الطالب يعرف فعلًا عن مجاله قبل التحاقه به.</p>
+
+<p>هذه نتيجة خليجية وحديثة، وتشير إلى شيء يمكنك فعله هذا الشهر. ابنك لا يحتاج كتيّبًا آخر، بل يحتاج أن يجلس مع إنسان يمارس المهنة.</p>
+
+<p>ووجدت أبحاث بريطانية تتبعت خريجي المدارس أن <b>أربعة لقاءات فأكثر مع أرباب عمل أثناء الدراسة</b> هي العتبة المرتبطة بنتائج أفضل في مقتبل العمر، ونسبت الفائدة إلى المعرفة والعلاقات لا إلى المهارات. وفي المراجعة الشاملة لأبحاث الإرشاد المهني، تفوّقت المشاهدة والتعلم من شخص حقيقي على مجرد تزويد الطالب بمعلومات عن عالم العمل.</p>
+
+<p>وعمليًا، هذا سهل غالبًا في الأسرة الخليجية. أنت تعرف بالفعل أخصائي أشعة، ومهندس موقع، وموظف التزام، ومعلمًا، وصيدليًا، وشخصًا في البنك. اطلب من ثلاثة منهم عشرين دقيقة مع ابنك، ووجّه ابنك ليسأل: كيف يبدو يوم ثلاثاء عادي، وما أسوأ جزء في هذه المهنة، وماذا كنت ستدرس لو كنت في الثامنة عشرة اليوم.</p>
+
+<p>وتحذير يستحق النقل: المهن التي يراها ابنك في التلفاز ليست المهن كما تُعاش. فقد وجدت دراسة على الصغار أنه حين لا يعرفون شخصًا يمارس المهنة، يصبح التلفاز والسينما المصدر الأساسي لما يعتقدونه عنها.</p>`}},
+
+{id:"switch",
+ t:{en:"If they change their mind, that is not failure", ar:"إن غيّر رأيه فليس ذلك فشلًا"},
+ b:{en:`<p>Two corrections here, one that families overestimate and one they underestimate.</p>
+
+<p><b>The myth that everyone switches is false.</b> The most reliable national tracking data found that about 30% of students who had declared a major changed it within three years, not the 80% that circulates online. About one in ten changed more than once.</p>
+
+<p><b>The fear that switching ruins things is also false.</b> An analysis of more than 78,000 students across ten institutions compared graduation rates by when a student settled on their final major. Students who never switched graduated at 78%. Students who switched in the second, third, fourth, fifth or sixth term graduated at 82% to 84%. Switchers did better at nearly every point, and median time to degree held at eight terms for anyone switching through the first semester of third year. Only switching in the twelfth term dropped it, to 74%.</p>
+
+<p class="hedge">The caveat that must go with that: the analysis only included students who had already completed sixty credits, so students who left early are not counted. The honest claim is that among students who reach third year, switching is not associated with worse outcomes. It is not proof that switching improves them.</p>
+
+<p>One detail worth keeping in mind next time someone in the family calls a subject soft: <b>mathematics has the highest switching rate of any field, at 52%</b>, followed by the natural sciences at 40%. The rigorous, serious subjects are the ones students most often leave.</p>
+
+<p>The practical implication for you is small and concrete. If your child knows in advance that changing direction will be met with a conversation rather than a punishment, they will tell you in first year when it is cheap, rather than in fourth year when it is not.</p>`,
+
+    ar:`<p>هنا تصحيحان: أمر تبالغ فيه الأسر، وأمر تستهين به.</p>
+
+<p><b>خرافة أن الجميع يغيّر تخصصه غير صحيحة.</b> فأوثق بيانات التتبع الوطنية وجدت أن نحو ٣٠٪ ممن حددوا تخصصهم غيّروه خلال ثلاث سنوات، لا ٨٠٪ كما يتداول على الإنترنت. ونحو واحد من كل عشرة غيّر أكثر من مرة.</p>
+
+<p><b>والخوف من أن التغيير يفسد كل شيء غير صحيح أيضًا.</b> فقد قارن تحليل لأكثر من ٧٨ ألف طالب في عشر مؤسسات نسب التخرج بحسب موعد استقرار الطالب على تخصصه النهائي. الذين لم يغيّروا أبدًا تخرجوا بنسبة ٧٨٪. والذين غيّروا في الفصل الثاني أو الثالث أو الرابع أو الخامس أو السادس تخرجوا بنسبة ٨٢٪ إلى ٨٤٪. أي أن المغيّرين كانوا أفضل في كل نقطة تقريبًا، وبقي متوسط مدة الدراسة ثمانية فصول لمن غيّر حتى الفصل الأول من السنة الثالثة. ولم تنخفض النسبة إلى ٧٤٪ إلا لمن غيّر في الفصل الثاني عشر.</p>
+
+<p class="hedge">والتحفظ الواجب ذكره معه: اقتصر التحليل على من أتمّ ستين ساعة معتمدة، أي أن من انسحب مبكرًا غير محسوب. والقول الصادق هو أن التغيير، بين من يصلون إلى السنة الثالثة، لا يرتبط بنتائج أسوأ. وليس دليلًا على أنه يحسّنها.</p>
+
+<p>وتفصيل يستحق التذكّر حين يصف أحد في العائلة مادةً بأنها سهلة: <b>الرياضيات هي الأعلى في نسبة تغيير التخصص بين كل المجالات عند ٥٢٪</b>، تليها العلوم الطبيعية عند ٤٠٪. فالمواد الصارمة الجادة هي أكثر ما يتركه الطلبة.</p>
+
+<p>والنتيجة العملية بالنسبة لك صغيرة وملموسة: إن علم ابنك مسبقًا أن تغيير الاتجاه سيقابَل بحوار لا بعقاب، فسيخبرك في السنة الأولى حين تكون الكلفة زهيدة، لا في السنة الرابعة حين لا تكون كذلك.</p>`}},
+
+{id:"timing",
+ t:{en:"The calendar nobody tells you about", ar:"الرزنامة التي لا يخبرك بها أحد"},
+ b:{en:`<p>This is the part of the guide with the shortest shelf life and the highest cost of missing it.</p>
+
+<p>The most valuable scholarships in the Gulf do not select students in their final year. <b>They select them in Grade 11.</b></p>
+
+<ul>
+  <li><b>Bahrain, Crown Prince's International Scholarship Programme.</b> Applicants must be enrolled in Grade 11, with a cumulative average of 97% or above across Grade 10 and the first semester of Grade 11. Applications open in March.</li>
+  <li><b>Bahrain, Bapco Energies NBH Future Energy Leaders.</b> Grade 11 students only. Grade 12 students cannot apply. Minimum 95% cumulative and 97% in core subjects.</li>
+  <li><b>Oman, Takatuf Scholars.</b> Omani nationals registered in Grade 11, minimum 75% overall and 75% in English in the first semester. The 2026 deadline was 25 February.</li>
+</ul>
+
+<p>Read the grade thresholds again. They are cumulative <b>from Grade 10</b>. A student whose Grade 10 results are weak has already lost eligibility for the best funded routes in the country before anyone in the family has sat down to discuss university. That is not a reason to panic in Grade 11. It is a reason to start in Grade 9.</p>
+
+<p>There is a second timing finding that sits underneath all of this. Research on children aged 7 to 11 found that career ideas and gendered assumptions about jobs are largely formed by around age eight, and that where a child does not personally know someone doing a job, television fills the gap. Analysis of teenagers across many countries found that roughly half expect to work in one of just ten popular occupations, that this concentration has increased since 2000, and that their expectations bear little relationship to actual labour market demand.</p>
+
+<p>By the time most families begin the conversation, most of the narrowing has already happened. Starting in Grade 11 is starting late.</p>
+
+<p class="cta-inline">The scholarship guide on this site lists what is open to your family's passport, what each award covers, and the month each one opens.</p>`,
+
+    ar:`<p>هذا هو الجزء الأقصر عمرًا في الدليل، والأغلى ثمنًا إن فاتك.</p>
+
+<p>أثمن البعثات في الخليج لا تختار الطلبة في سنتهم الأخيرة. <b>بل تختارهم في الصف الحادي عشر.</b></p>
+
+<ul>
+  <li><b>البحرين، برنامج ولي العهد للمنح الدراسية العالمية.</b> يجب أن يكون المتقدم مسجلًا في الصف الحادي عشر، بمعدل تراكمي ٩٧٪ فأعلى عبر الصف العاشر والفصل الأول من الحادي عشر. ويفتح التقديم في مارس.</li>
+  <li><b>البحرين، بابكو للطاقة، برنامج قادة الطاقة المستقبليين.</b> لطلبة الصف الحادي عشر فقط، ولا يمكن لطلبة الثاني عشر التقديم. بحد أدنى ٩٥٪ تراكمي و٩٧٪ في المواد الأساسية.</li>
+  <li><b>عُمان، برنامج تكاتف.</b> للعُمانيين المسجلين في الصف الحادي عشر، بحد أدنى ٧٥٪ عام و٧٥٪ في الإنجليزية في الفصل الأول. وكان آخر موعد لدورة ٢٠٢٦ في ٢٥ فبراير.</li>
+</ul>
+
+<p>أعد قراءة حدود المعدلات. إنها تراكمية <b>من الصف العاشر</b>. أي أن الطالب ضعيف نتائج العاشر يكون قد خسر أهليته لأفضل المسارات تمويلًا في بلده قبل أن يجلس أحد في الأسرة ليتحدث عن الجامعة. وهذا ليس سببًا للذعر في الحادي عشر، بل سبب للبدء في التاسع.</p>
+
+<p>وتحت هذا كله نتيجة توقيت ثانية. فقد وجدت أبحاث على أطفال بين السابعة والحادية عشرة أن التصورات المهنية والافتراضات المرتبطة بالجنس عن المهن تتشكل إلى حد بعيد عند الثامنة تقريبًا، وأنه حين لا يعرف الطفل شخصًا يمارس المهنة يملأ التلفاز الفراغ. كما وجد تحليل للمراهقين في دول كثيرة أن نحو نصفهم يتوقعون العمل في عشر مهن شهيرة فقط، وأن هذا التركّز ازداد منذ عام ٢٠٠٠، وأن توقعاتهم لا تكاد ترتبط بالطلب الحقيقي في سوق العمل.</p>
+
+<p>فحين تبدأ معظم الأسر الحوار تكون معظم التصفية قد حدثت أصلًا. البدء في الصف الحادي عشر بدءٌ متأخر.</p>
+
+<p class="cta-inline">دليل المنح في هذا الموقع يعرض ما هو متاح لجواز أسرتك، وماذا تغطي كل منحة، وفي أي شهر تفتح.</p>`}},
+
+{id:"unknown",
+ t:{en:"What is not known, said plainly", ar:"ما لا نعرفه، بصراحة"},
+ b:{en:`<p>A guide that only reports the findings that suit its argument is not worth trusting. These are the gaps.</p>
+
+<ul>
+  <li>There is <b>no study</b> that isolates students who chose a major to satisfy their family and tracks what happened to them afterwards. The argument here is built on research into motivation more generally, which is close but not the same thing.</li>
+  <li>There is <b>no recent published research</b> on family influence on major choice specific to Bahrain or Kuwait. The Gulf figures used here are Saudi, Emirati and Qatari.</li>
+  <li>There is <b>no Gulf data</b> on how often students switch majors, or on how many graduates end up working outside their field.</li>
+  <li>There is <b>no tested evidence</b> for any specific wording a parent should use. The questions suggested above are reasoned, not trialled.</li>
+  <li>Some of the strongest findings here are correlations across large populations. They describe tendencies, not your child.</li>
+</ul>
+
+<p>Where a number could not be verified against its original source, it has been left out of this page rather than rounded into something quotable.</p>`,
+
+    ar:`<p>الدليل الذي ينقل فقط النتائج التي تخدم رأيه لا يستحق الثقة. وهذه هي الثغرات.</p>
+
+<ul>
+  <li><b>لا توجد دراسة</b> تعزل الطلبة الذين اختاروا تخصصهم إرضاءً لأسرهم وتتبع ما حدث لهم بعد ذلك. والحجة هنا مبنية على أبحاث الدافعية عمومًا، وهي قريبة لكنها ليست الشيء نفسه.</li>
+  <li><b>لا توجد أبحاث منشورة حديثة</b> عن تأثير الأسرة في اختيار التخصص خاصة بالبحرين أو الكويت. والأرقام الخليجية المستخدمة هنا سعودية وإماراتية وقطرية.</li>
+  <li><b>لا توجد بيانات خليجية</b> عن معدلات تغيير التخصص، ولا عن نسبة الخريجين الذين يعملون خارج مجال دراستهم.</li>
+  <li><b>لا يوجد دليل مختبَر</b> على صياغة بعينها ينبغي للوالد استخدامها. والأسئلة المقترحة أعلاه مستنتجة لا مجرّبة.</li>
+  <li>بعض أقوى النتائج هنا ارتباطات عبر مجموعات كبيرة، تصف اتجاهات عامة لا تصف ابنك أنت.</li>
+</ul>
+
+<p>وحيثما تعذّر التحقق من رقم في مصدره الأصلي، حُذف من هذه الصفحة بدل تقريبه إلى عبارة قابلة للاقتباس.</p>`}},
+
+{id:"close",
+ t:{en:"One last thing", ar:"أمر أخير"},
+ b:{en:`<p>The decision your child is making is smaller than it feels. They are not choosing a life. They are choosing what to study first, in a labour market where 39% of the skills people use are expected to change within five years, where 42% of recent graduates are working in jobs that do not need their degree, and where nearly four in ten employers in Saudi Arabia say they intend to stop asking about degrees at all.</p>
+
+<p>What will not change is whether your child learned how to make a considered decision, and whether they know they can come back to you and say they got it wrong. Those two things are within your control this year. The field name on the certificate mostly is not.</p>`,
+
+    ar:`<p>القرار الذي يتخذه ابنك أصغر مما يبدو. فهو لا يختار حياة كاملة، بل يختار ماذا يدرس أولًا، في سوق عمل يُتوقع أن تتغير فيه ٣٩٪ من المهارات المستخدمة خلال خمس سنوات، ويعمل فيه ٤٢٪ من حديثي التخرج في وظائف لا تشترط شهادتهم، ويقول فيه نحو أربعة من كل عشرة من أصحاب العمل في السعودية إنهم ينوون التوقف عن السؤال عن الشهادات أصلًا.</p>
+
+<p>وما لن يتغير هو: هل تعلّم ابنك كيف يتخذ قرارًا مدروسًا، وهل يعلم أنه يستطيع العودة إليك ليقول إنه أخطأ. هذان الأمران في يدك هذا العام. أما اسم التخصص على الشهادة فليس كذلك في الغالب.</p>`}}
+
+];
+
+const SRC = {
+ en:{t:"Where these figures come from",
+     s:"Every number on this page was taken from the source listed here and checked on 8 August 2026. Where a source could not be retrieved, the figure was left out.",
+     items:[
+      ["Parental autonomy support and psychological control, pooled analysis of 238 studies, 126,423 participants","https://selfdeterminationtheory.org/wp-content/uploads/2024/09/2024_BradshawDuinevelEtAl_ParentingMeta_PrePrint.pdf"],
+      ["Career choice interventions meta analysis, effect sizes for support against information, Whiston and colleagues","https://isidl.com/wp-content/uploads/2017/10/E4971-ISIDL.pdf"],
+      ["Motivation and dropout intention, 754 students","https://selfdeterminationtheory.org/wp-content/uploads/2020/09/2018_JenoDanielsenRaaheim_AProspectiveInvestigation.pdf"],
+      ["Lack of parental career engagement and career planning, 814 students, 2025","https://link.springer.com/article/10.1007/s10775-025-09755-1"],
+      ["Career specific parental behaviours and career doubt, 2024","https://link.springer.com/article/10.1186/s40359-024-01536-9"],
+      ["Influences on choice of major, 453 undergraduates, Saudi Arabia, 2023 to 2024","https://kuey.net/index.php/kuey/article/download/7906/5929/15321"],
+      ["Career choices of Emirati undergraduates, 400 responses, November 2024","https://journals.sagepub.com/doi/full/10.1177/21582440241295814"],
+      ["Predicting student dropout in Saudi universities, 4,560 students, 2025","https://peerj.com/articles/cs-3490/"],
+      ["Saudi graduate output, Nitaqat and STEM graduate unemployment, Konrad Adenauer Stiftung","https://www.kas.de/en/web/rpg/detail/-/content/vision-2030-and-the-socio-economic-reform-process-the-future-of-labour-and-migration-in-saudi-arabia-2"],
+      ["Emiratisation targets and penalties, UAE government portal","https://u.ae/en/information-and-services/jobs/employment-in-the-private-sector/emiratis-employment-in-private-sector"],
+      ["World Economic Forum, Future of Jobs Report 2025, growing and declining occupations","https://www.weforum.org/publications/the-future-of-jobs-report-2025/"],
+      ["Georgetown Center on Education and the Workforce, The Major Payoff, October 2025","https://cew.georgetown.edu/cew-reports/major-payoff/"],
+      ["Federal Reserve Bank of New York, labour market for recent graduates","https://www.newyorkfed.org/research/college-labor-market"],
+      ["Stanford Digital Economy Lab, employment effects of artificial intelligence, November 2025","https://digitaleconomy.stanford.edu/app/uploads/2025/11/CanariesintheCoalMine_Nov25.pdf"],
+      ["Switching majors and graduation rates, more than 78,000 students","https://www.luminafoundation.org/files/resources/how-late-is-too-late.pdf"],
+      ["How many students change major, national tracking data","https://nces.ed.gov/pubs2018/2018434.pdf"],
+      ["Employer encounters at school and later outcomes, Education and Employers","https://www.educationandemployers.org/research/"],
+      ["Teenagers' career expectations and labour market demand, OECD, May 2025","https://www.oecd.org/en/publications/the-state-of-global-teenage-career-preparation_d5f8e3f2-en.html"],
+      ["Crown Prince's International Scholarship Programme, application requirements","https://www.cpisp.bh/CPISPapplication"],
+      ["Bapco Energies NBH Future Energy Leaders, undergraduate track","https://www.bapcoenergies.com/nbh-future-energy-leaders/undergraduate"],
+      ["Takatuf Scholars Programme, Oman","https://www.takatufscholars.om/oman-scholars-apply/"]
+     ]},
+ ar:{t:"من أين جاءت هذه الأرقام",
+     s:"كل رقم في هذه الصفحة مأخوذ من المصدر المذكور هنا وروجع في ٨ أغسطس ٢٠٢٦. وحيثما تعذّر الوصول إلى مصدر، حُذف الرقم.",
+     items:[
+      ["دعم الاستقلالية والسيطرة النفسية من الوالدين، تحليل مجمّع لـ٢٣٨ دراسة و١٢٦٤٢٣ مشاركًا","https://selfdeterminationtheory.org/wp-content/uploads/2024/09/2024_BradshawDuinevelEtAl_ParentingMeta_PrePrint.pdf"],
+      ["تحليل شامل لتدخلات الاختيار المهني، حجم أثر الدعم مقابل المعلومات","https://isidl.com/wp-content/uploads/2017/10/E4971-ISIDL.pdf"],
+      ["الدافعية ونية ترك الدراسة، ٧٥٤ طالبًا","https://selfdeterminationtheory.org/wp-content/uploads/2020/09/2018_JenoDanielsenRaaheim_AProspectiveInvestigation.pdf"],
+      ["غياب مشاركة الوالدين والتخطيط المهني، ٨١٤ طالبًا، ٢٠٢٥","https://link.springer.com/article/10.1007/s10775-025-09755-1"],
+      ["السلوكيات الوالدية المهنية والشك المهني، ٢٠٢٤","https://link.springer.com/article/10.1186/s40359-024-01536-9"],
+      ["عوامل اختيار التخصص، ٤٥٣ طالبًا جامعيًا، السعودية، ٢٠٢٣ إلى ٢٠٢٤","https://kuey.net/index.php/kuey/article/download/7906/5929/15321"],
+      ["الاختيارات المهنية للطلبة الإماراتيين، ٤٠٠ استجابة، نوفمبر ٢٠٢٤","https://journals.sagepub.com/doi/full/10.1177/21582440241295814"],
+      ["التنبؤ بالتسرب في الجامعات السعودية، ٤٥٦٠ طالبًا، ٢٠٢٥","https://peerj.com/articles/cs-3490/"],
+      ["أعداد الخريجين السعوديين ونطاقات وبطالة خريجي العلوم والهندسة، مؤسسة كونراد أديناور","https://www.kas.de/en/web/rpg/detail/-/content/vision-2030-and-the-socio-economic-reform-process-the-future-of-labour-and-migration-in-saudi-arabia-2"],
+      ["مستهدفات التوطين والغرامات، البوابة الرسمية لحكومة الإمارات","https://u.ae/en/information-and-services/jobs/employment-in-the-private-sector/emiratis-employment-in-private-sector"],
+      ["المنتدى الاقتصادي العالمي، تقرير مستقبل الوظائف ٢٠٢٥، المهن النامية والمنحسرة","https://www.weforum.org/publications/the-future-of-jobs-report-2025/"],
+      ["مركز جورجتاون للتعليم والقوى العاملة، عائد التخصص، أكتوبر ٢٠٢٥","https://cew.georgetown.edu/cew-reports/major-payoff/"],
+      ["بنك الاحتياطي الفيدرالي في نيويورك، سوق العمل لحديثي التخرج","https://www.newyorkfed.org/research/college-labor-market"],
+      ["مختبر الاقتصاد الرقمي بستانفورد، آثار الذكاء الاصطناعي على التوظيف، نوفمبر ٢٠٢٥","https://digitaleconomy.stanford.edu/app/uploads/2025/11/CanariesintheCoalMine_Nov25.pdf"],
+      ["تغيير التخصص ونسب التخرج، أكثر من ٧٨ ألف طالب","https://www.luminafoundation.org/files/resources/how-late-is-too-late.pdf"],
+      ["كم طالبًا يغيّر تخصصه، بيانات تتبع وطنية","https://nces.ed.gov/pubs2018/2018434.pdf"],
+      ["لقاءات أرباب العمل في المدرسة والنتائج اللاحقة، منظمة التعليم وأرباب العمل","https://www.educationandemployers.org/research/"],
+      ["توقعات المراهقين المهنية وطلب سوق العمل، منظمة التعاون الاقتصادي والتنمية، مايو ٢٠٢٥","https://www.oecd.org/en/publications/the-state-of-global-teenage-career-preparation_d5f8e3f2-en.html"],
+      ["برنامج ولي العهد للمنح الدراسية العالمية، شروط التقديم","https://www.cpisp.bh/CPISPapplication"],
+      ["بابكو للطاقة، برنامج قادة الطاقة المستقبليين، المسار الجامعي","https://www.bapcoenergies.com/nbh-future-energy-leaders/undergraduate"],
+      ["برنامج تكاتف للمنح الدراسية، عُمان","https://www.takatufscholars.om/oman-scholars-apply/"]
+     ]}
+};
+
+const NAV = {
+ en:{quizline:"<b>Has your child not taken the assessment yet?</b> It is free, takes about eight minutes, and works in Arabic and English.",
+     quizbtn:"The assessment",
+     schline:"<b>Worried about the cost?</b> The scholarship guide shows what is open to your family's passport and, importantly, which programmes close while your child is still in Grade 11.",
+     schbtn:"Scholarships and funding",
+     expline:"<b>Want to know what a major is really like?</b> Thirty one majors explained honestly, including what students find hardest and why some switch out.",
+     expbtn:"Explore the majors",
+     toggle:"English",
+     contents:"On this page",
+     print:"Print or save this guide",
+     foot:'Prepared by <a href="https://www.saqeralkhalifa.com">Dr. Saqer AlKhalifa</a> · Free for all families',
+     disc:"This guide summarises published research for a general audience. It is not psychological, medical or financial advice, and it is not a substitute for a conversation with your child's school counsellor."},
+ ar:{quizline:"<b>لم يجرِ ابنك الاختبار بعد؟</b> مجاني، ويستغرق نحو ثماني دقائق، ومتوفر بالعربية والإنجليزية.",
+     quizbtn:"الاختبار",
+     schline:"<b>قلق من التكلفة؟</b> دليل المنح يوضح ما هو متاح لجواز أسرتك، والأهم: أي البرامج يُغلق وابنك ما زال في الصف الحادي عشر.",
+     schbtn:"المنح والتمويل",
+     expline:"<b>تريد معرفة حقيقة التخصص؟</b> واحد وثلاثون تخصصًا بشرح صادق، بما في ذلك أصعب ما يواجهه الطلبة ولماذا يغيّر بعضهم تخصصه.",
+     expbtn:"استكشف التخصصات",
+     toggle:"عربي",
+     contents:"في هذه الصفحة",
+     print:"اطبع الدليل أو احفظه",
+     foot:'إعداد <a href="https://www.saqeralkhalifa.com">د. صقر آل خليفة</a> · مجاني لجميع الأسر',
+     disc:"يلخّص هذا الدليل أبحاثًا منشورة لقارئ عام. وليس استشارة نفسية ولا طبية ولا مالية، ولا يغني عن حوار مع المرشد الأكاديمي في مدرسة ابنك."}
+};
+
+/* ===== Parent guide: rendering ===== */
+let lang = "ar";
+const $ = id => document.getElementById(id);
+const TOGGLE = {ar:"English", en:"عربي"};
+
+function render(){
+  const N = NAV[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.title = lang === "ar"
+    ? "دليل أولياء الأمور | د. صقر آل خليفة"
+    : "A Guide for Parents | Dr. Saqer AlKhalifa";
+
+  $("langToggle").textContent = TOGGLE[lang];
+  $("kicker").textContent = HERO[lang].kicker;
+  $("t-title").textContent = HERO[lang].t;
+  $("t-sub").textContent = HERO[lang].s;
+  $("lede").textContent = LEDE[lang];
+
+  $("t-quizline").innerHTML = N.quizline;
+  $("t-quizbtn").textContent = N.quizbtn;
+  $("t-schline").innerHTML = N.schline;
+  $("t-schbtn").textContent = N.schbtn;
+  $("t-expline").innerHTML = N.expline;
+  $("t-expbtn").textContent = N.expbtn;
+  $("t-contents").textContent = N.contents;
+  $("t-print").textContent = N.print;
+  $("t-disc").textContent = N.disc;
+  $("t-foot").innerHTML = N.foot;
+
+  $("toc").innerHTML = SECTIONS.map((s, i) =>
+    `<li><a href="#${s.id}"><span class="tn">${i + 1}</span>${s.t[lang]}</a></li>`).join("");
+
+  $("body").innerHTML = SECTIONS.map((s, i) => `
+    <section class="chap" id="${s.id}">
+      <h2><span class="cn">${i + 1}</span>${s.t[lang]}</h2>
+      ${s.b[lang]}
+    </section>`).join("");
+
+  const S = SRC[lang];
+  $("srcT").textContent = S.t;
+  $("srcS").textContent = S.s;
+  $("srcList").innerHTML = S.items.map(it =>
+    `<li><a href="${it[1]}" target="_blank" rel="noopener">${it[0]}</a></li>`).join("");
+}
+
+$("langToggle").addEventListener("click", () => {
+  lang = lang === "ar" ? "en" : "ar";
+  render();
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+$("t-print").addEventListener("click", () => window.print());
+
+render();
+
+</script>
+</body>
+</html>
