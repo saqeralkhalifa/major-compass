@@ -1,0 +1,183 @@
+/* ============================================================
+   Major Compass — shared theme
+   Applies to: index (quiz), explore.html, entry.html,
+               scholarships.html, parents.html
+   Matches saqeralkhalifa.com (ink/paper editorial, brass accent).
+   Drop this in and map existing markup onto the class names below.
+   ============================================================ */
+
+:root {
+  --mc-paper:      #f6f3ec;
+  --mc-band:       #efece4;
+  --mc-card:       #fbf9f4;
+  --mc-ink:        #14161a;
+  --mc-ink-2:      #33363c;
+  --mc-ink-3:      #55585e;
+  --mc-muted:      #6b6e74;
+  --mc-rule:       #ddd7cb;
+  --mc-border:     #cfc9bd;
+  --mc-accent:     #8a5a1e;
+  --mc-accent-dim: #d8b98a;   /* accent on dark backgrounds */
+  --mc-on-dark:    #f6f3ec;
+  --mc-on-dark-2:  #a8abb1;
+  --mc-dark-rule:  #2a2d33;
+
+  --mc-serif: Newsreader, Georgia, "Times New Roman", serif;
+  --mc-sans:  "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --mc-arabic:"IBM Plex Sans Arabic", "IBM Plex Sans", sans-serif;
+
+  --mc-max: 980px;
+  --mc-pad: 40px;
+}
+@media (max-width: 720px) { :root { --mc-pad: 20px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--mc-paper);
+  color: var(--mc-ink);
+  font-family: var(--mc-sans);
+  font-size: 16px;
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+a { color: var(--mc-accent); text-decoration: none; }
+a:hover { color: var(--mc-ink); }
+
+/* --- Arabic / RTL -------------------------------------------------
+   Set dir="rtl" lang="ar" on <html> (or on the page wrapper).
+   Never use physical flex-end / border-left / padding-left for layout
+   that must mirror — use logical properties, they flip for free. */
+[dir="rtl"] body,
+body[dir="rtl"] { font-family: var(--mc-arabic); line-height: 1.95; }
+[dir="rtl"] .mc-display,
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { font-family: var(--mc-arabic); line-height: 1.35; }
+
+/* --- Shell --------------------------------------------------------- */
+.mc-wrap { max-width: var(--mc-max); margin: 0 auto; padding-inline: var(--mc-pad); }
+
+.mc-nav {
+  background: var(--mc-ink);
+  color: var(--mc-on-dark);
+  position: sticky; top: 0; z-index: 20;
+}
+.mc-nav-inner {
+  max-width: var(--mc-max); margin: 0 auto;
+  padding: 14px var(--mc-pad);
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.mc-brand { display: flex; align-items: baseline; gap: 10px; color: var(--mc-on-dark); }
+.mc-brand b { font-family: var(--mc-serif); font-size: 17px; font-weight: 400; }
+.mc-brand span { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #9a9da3; }
+.mc-nav-links { display: flex; gap: 22px; font-size: 12px; letter-spacing: 0.06em; }
+.mc-nav-links a { color: #c9ccd2; }
+.mc-nav-links a:hover { color: var(--mc-on-dark); }
+.mc-nav-links a[aria-current="page"] {
+  color: var(--mc-on-dark);
+  border-bottom: 1px solid var(--mc-accent);
+  padding-bottom: 2px;
+}
+
+/* Language switch — identical on every page. Stays LTR always. */
+.mc-toggle { display: flex; gap: 4px; padding: 3px; border: 1px solid var(--mc-border); border-radius: 999px; direction: ltr; }
+.mc-toggle button {
+  font: inherit; font-size: 12px; letter-spacing: 0.08em; font-weight: 500;
+  padding: 7px 16px; border: 0; border-radius: 999px;
+  background: transparent; color: var(--mc-ink-3); cursor: pointer;
+}
+.mc-toggle button[aria-pressed="true"] { background: var(--mc-ink); color: var(--mc-on-dark); }
+.mc-toggle button[lang="ar"] { font-family: var(--mc-arabic); font-size: 13px; letter-spacing: 0; }
+/* on a dark background */
+.mc-nav .mc-toggle { border-color: #3a3d43; }
+.mc-nav .mc-toggle button { color: #9a9da3; }
+.mc-nav .mc-toggle button[aria-pressed="true"] { background: var(--mc-on-dark); color: var(--mc-ink); }
+
+/* --- Page header --------------------------------------------------- */
+.mc-header { padding-block: 56px 40px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+/* children that must span the column despite align-items: flex-start */
+.mc-header > .mc-stats,
+.mc-header > .mc-grid,
+.mc-header > .mc-row,
+.mc-header > table,
+.mc-header > .mc-table-scroll { align-self: stretch; }
+.mc-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mc-accent); font-weight: 600; }
+h1, .mc-h1 { margin: 0; font-family: var(--mc-serif); font-weight: 400; font-size: clamp(38px, 6vw, 56px); letter-spacing: -0.02em; line-height: 1.04; }
+.mc-lead { margin: 0; font-size: clamp(19px, 2.4vw, 22px); line-height: 1.5; color: var(--mc-ink-2); max-width: 640px; }
+.mc-body { margin: 0; color: var(--mc-ink-3); max-width: 680px; }
+
+/* --- Sections ------------------------------------------------------- */
+.mc-section { padding-block: 40px; border-top: 1px solid var(--mc-rule); }
+.mc-section--band { background: var(--mc-band); border-top: 1px solid var(--mc-rule); }
+h2, .mc-h2 { margin: 0 0 8px; font-family: var(--mc-serif); font-weight: 400; font-size: 26px; line-height: 1.25; }
+h3, .mc-h3 { margin: 0 0 6px; font-family: var(--mc-serif); font-weight: 400; font-size: 21px; line-height: 1.3; }
+
+/* --- Stat rail ------------------------------------------------------ */
+.mc-stats { width: 100%; display: flex; flex-wrap: wrap; gap: 36px; padding-block: 20px; border-block: 1px solid var(--mc-rule); }
+.mc-stat { display: flex; flex-direction: column; gap: 3px; }
+.mc-stat b { font-family: var(--mc-serif); font-size: 28px; font-weight: 400; }
+.mc-stat span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mc-muted); }
+
+/* --- Buttons -------------------------------------------------------- */
+.mc-btn {
+  display: inline-block; padding: 17px 34px; font-size: 16px; font-weight: 500;
+  background: var(--mc-ink); color: var(--mc-on-dark); border: 1px solid var(--mc-ink);
+  border-radius: 0; cursor: pointer; font-family: inherit; text-align: center;
+}
+.mc-btn:hover { background: var(--mc-accent); border-color: var(--mc-accent); color: #fff; }
+.mc-btn--ghost { background: transparent; color: var(--mc-ink); padding: 11px 16px; font-size: 13px; font-weight: 400; }
+.mc-btn--ghost:hover { background: var(--mc-ink); border-color: var(--mc-ink); color: var(--mc-on-dark); }
+.mc-link { border-bottom: 1px solid var(--mc-border); padding-bottom: 3px; }
+.mc-link:hover { border-color: var(--mc-ink); }
+@media (max-width: 720px) { .mc-btn { width: 100%; } .mc-btn--ghost { width: auto; } }
+
+/* --- Cards / grids (major cards, scholarship cards, university lists) */
+.mc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.mc-card {
+  background: var(--mc-card); border: 1px solid var(--mc-border);
+  padding: 26px 26px 22px; display: flex; flex-direction: column; gap: 10px;
+}
+.mc-card p { margin: 0; font-size: 14px; line-height: 1.8; color: var(--mc-ink-3); flex: 1; }
+.mc-card a { align-self: flex-start; }
+[dir="rtl"] .mc-card p { line-height: 1.95; }
+
+/* Numbered index rows (as used on the landing page) */
+.mc-row { display: grid; grid-template-columns: 52px 1fr 200px; gap: 24px; align-items: start; padding-block: 24px; border-top: 1px solid var(--mc-rule); }
+.mc-row .mc-num { font-family: var(--mc-serif); font-size: 22px; color: var(--mc-accent); }
+.mc-row p { margin: 0; font-size: 14px; color: var(--mc-ink-3); }
+@media (max-width: 720px) {
+  .mc-row { grid-template-columns: 36px 1fr; }
+  .mc-row > :last-child { grid-column: 2; justify-self: start; }
+}
+
+/* --- Tables (entry minimums, tuition, deadlines) --------------------- */
+.mc-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.mc-table th {
+  text-align: start; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mc-muted); font-weight: 600; padding: 12px 14px; border-bottom: 1px solid var(--mc-ink);
+}
+.mc-table td { padding: 14px; border-bottom: 1px solid var(--mc-rule); color: var(--mc-ink-2); vertical-align: top; }
+.mc-table tbody tr:hover { background: var(--mc-band); }
+.mc-table .num { font-family: var(--mc-serif); font-size: 17px; font-variant-numeric: tabular-nums; }
+.mc-table-scroll { overflow-x: auto; }
+
+/* --- Small parts ----------------------------------------------------- */
+.mc-tag {
+  display: inline-block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 9px; border: 1px solid var(--mc-border); color: var(--mc-ink-3);
+}
+.mc-tag--accent { border-color: var(--mc-accent); color: var(--mc-accent); }
+.mc-note { border-inline-start: 2px solid var(--mc-accent); padding-inline-start: 18px; color: var(--mc-ink-3); font-size: 15px; }
+.mc-quiet { font-size: 13px; color: var(--mc-muted); }
+
+/* --- Footer ---------------------------------------------------------- */
+.mc-footer {
+  margin-top: 56px; background: var(--mc-ink); color: var(--mc-on-dark-2);
+  padding-block: 28px; font-size: 13px;
+}
+.mc-footer .mc-wrap { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; }
+.mc-footer a { color: var(--mc-accent-dim); }
+.mc-footer a:hover { color: var(--mc-on-dark); }
+
+/* --- Focus ----------------------------------------------------------- */
+:focus-visible { outline: 2px solid var(--mc-accent); outline-offset: 2px; }
