@@ -66,6 +66,14 @@
   @media(max-width:640px){ .meta{grid-template-columns:1fr;} }
   .wh{margin-top:14px; padding:14px 16px; background:var(--paper-2); border:1px solid var(--line);
     font-size:.93rem; color:var(--ink-2); line-height:1.8;}
+  .wall{margin-top:6px;}
+  .wrow{display:grid; grid-template-columns:132px 1fr; gap:12px; padding:9px 0;
+    border-top:1px dashed var(--line);}
+  .wrow:first-child{border-top:0; padding-top:2px;}
+  .wrow .wc{font-weight:600; color:var(--ink); font-size:.86rem; line-height:1.75;}
+  .wrow .wt{font-size:.92rem; line-height:1.75;}
+  .wrow.empty .wt{color:var(--ink-3);}
+  @media(max-width:640px){ .wrow{grid-template-columns:1fr; gap:2px;} }
   .note{margin-top:10px; font-size:.88rem; color:var(--ink-3); line-height:1.7;}
 
   .gaps{margin-top:18px; padding:20px 24px; background:var(--warn-soft); border:1px solid var(--warn-line);}
@@ -696,9 +704,10 @@ const ALT = [
 
 ];
 
+
 /* ===== Routes without a degree: UI strings and rendering ===== */
 var LANG = "en";
-var CTRY = "bh";
+var CTRY = "all";
 var FAM = "all";
 
 const FAMS = [
@@ -711,6 +720,7 @@ const FAMS = [
 ];
 
 const CTRYS = [
+  {k:"all", en:"All six countries", ar:"دول الخليج الست"},
   {k:"bh", en:"Bahrain", ar:"البحرين"},
   {k:"sa", en:"Saudi Arabia", ar:"السعودية"},
   {k:"ae", en:"UAE", ar:"الإمارات"},
@@ -750,6 +760,7 @@ en:{
   time:"How long",
   cost:"What it costs",
   where:"Where, specifically",
+  whereAll:"Where, specifically, in each country",
   none:"No provider verified in this country.",
 
   downT:"What you give up, stated plainly",
@@ -838,6 +849,7 @@ ar:{
   time:"كم تستغرق",
   cost:"كم تكلف",
   where:"أين تحديدًا",
+  whereAll:"أين تحديدًا في كل دولة",
   none:"لم نتحقق من وجود مزوّد في هذه الدولة.",
 
   downT:"ماذا تخسر، بصراحة",
@@ -931,7 +943,18 @@ function renderList(){
   var list = ALT.filter(function(r){ return FAM === "all" || r.f === FAM; });
   document.getElementById("count").textContent = t.count(list.length);
   document.getElementById("rlist").innerHTML = list.map(function(r){
-    var w = r.w && r.w[CTRY] ? tx(r.w[CTRY]) : t.none;
+    var wLabel, w;
+    if(CTRY === "all"){
+      wLabel = t.whereAll;
+      w = '<div class="wall">' + CTRYS.filter(function(c){ return c.k !== "all"; }).map(function(c){
+        var has = r.w && r.w[c.k];
+        return '<div class="wrow'+(has?'':' empty')+'"><span class="wc">'+tx(c)+'</span>' +
+               '<span class="wt">'+(has ? tx(r.w[c.k]) : t.none)+'</span></div>';
+      }).join("") + '</div>';
+    } else {
+      wLabel = t.where;
+      w = r.w && r.w[CTRY] ? tx(r.w[CTRY]) : t.none;
+    }
     var note = r.note ? '<div class="note">'+tx(r.note)+'</div>' : '';
     return '<div class="rt">' +
       '<div class="rh"><b>'+tx(r.n)+'</b><span class="tag '+r.open+'">'+tx(OPEN[r.open])+'</span></div>' +
@@ -940,7 +963,7 @@ function renderList(){
         '<div><span class="ml">'+t.time+'</span>'+tx(r.t)+'</div>' +
         '<div><span class="ml">'+t.cost+'</span>'+tx(r.c)+'</div>' +
       '</div>' +
-      '<div class="wh"><span class="wl">'+t.where+'</span>'+w+'</div>' + note +
+      '<div class="wh"><span class="wl">'+wLabel+'</span>'+w+'</div>' + note +
     '</div>';
   }).join("");
 }
