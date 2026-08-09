@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI and your major | Major Compass</title>
+<meta name="description" content="An honest, sourced look at what artificial intelligence is actually doing to the work behind 31 university majors, for students in Bahrain and the Gulf. الذكاء الاصطناعي وتخصصك: قراءة صادقة موثقة لما يفعله الذكاء الاصطناعي فعلًا بالعمل خلف 31 تخصصًا جامعيًا.">
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{line-height:1.75; min-height:100vh;}
+  .wrap{max-width:820px; margin:0 auto; padding:0 22px 80px;}
+  .serif{font-family:Georgia,'Times New Roman',serif;}
+
+  header.site{display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0 14px; border-bottom:1px solid var(--line);}
+  .brand{font-size:.95rem; color:var(--ink-2); text-decoration:none;}
+  .lang-toggle{border:1px solid var(--line); background:var(--card); border-radius:999px;
+    padding:7px 16px; font-size:.95rem; cursor:pointer; color:var(--accent); font-weight:600;
+    font-family:inherit;}
+  .lang-toggle:hover{background:var(--accent-soft);}
+
+  .hero{text-align:center; padding:44px 0 6px;}
+  .kicker{font-size:.8rem; letter-spacing:.16em; text-transform:uppercase; font-weight:800; margin-bottom:12px;}
+  [dir="rtl"] .kicker{letter-spacing:0; text-transform:none; font-size:.95rem;}
+  .hero h1{font-size:2.2rem; line-height:1.28; margin-bottom:12px;}
+  .hero p.sub{color:var(--ink-2); font-size:1.1rem; max-width:640px; margin:0 auto;}
+
+  .lede{font-size:1.1rem; line-height:1.8; color:var(--ink); margin:32px 0 6px;
+    padding:22px 26px; background:var(--card); border:1px solid var(--line);}
+  [dir="ltr"] .lede{border-left:4px solid var(--gold);}
+  [dir="rtl"] .lede{border-right:4px solid var(--gold); line-height:2;}
+
+  /* ---- three framing facts ---- */
+  .facts{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:26px 0 10px;}
+  .fact{background:var(--card); border:1px solid var(--line); padding:18px 20px;}
+  .fact b{display:block; font-size:1.45rem; font-weight:700; line-height:1.15; margin-bottom:6px;}
+  .fact span{font-size:.92rem; color:var(--ink-2); line-height:1.6; display:block;}
+  @media(max-width:700px){ .facts{grid-template-columns:1fr;} }
+
+  /* ---- controls ---- */
+  .controls{position:sticky; top:0; z-index:5; background:var(--paper);
+    padding:14px 0 10px; margin:26px 0 4px; border-bottom:1px solid var(--line);}
+  .srch{width:100%; padding:12px 16px; font-size:1rem; font-family:inherit;
+    border:1px solid var(--line-2); background:var(--card); color:var(--ink); border-radius:999px;}
+  .srch:focus{outline:2px solid var(--accent-line); outline-offset:1px;}
+  .chips{display:flex; gap:6px; flex-wrap:wrap; margin-top:10px;}
+  .chip{border:1px solid var(--line-2); background:var(--card); color:var(--ink-2);
+    padding:6px 13px; border-radius:999px; font-size:.85rem; font-weight:600; cursor:pointer;
+    font-family:inherit; white-space:nowrap;}
+  .chip:hover{background:var(--accent-soft); color:var(--accent);}
+  .chip.on{background:var(--navy); color:#fff; border-color:var(--navy);}
+  .count{font-size:.85rem; color:var(--ink-3); margin-top:10px;}
+
+  /* ---- major cards ---- */
+  .mlist{margin-top:14px;}
+  .m{background:var(--card); border:1px solid var(--line); margin-bottom:10px; overflow:hidden;}
+  .mhead{display:flex; align-items:center; gap:14px; padding:16px 20px; cursor:pointer;
+    width:100%; background:none; border:0; font-family:inherit; text-align:start; color:var(--ink);}
+  .mhead:hover{background:var(--paper-2);}
+  .mname{flex:1; font-size:1.06rem; font-weight:600; line-height:1.35;}
+  .band{font-size:.76rem; font-weight:700; padding:5px 11px; border-radius:999px; white-space:nowrap;
+    border:1px solid transparent;}
+  [dir="rtl"] .band{font-size:.85rem;}
+  .band.high{background:var(--bad-soft); color:var(--bad); border-color:var(--bad-line);}
+  .band.entry{background:var(--warn-soft); color:var(--warn); border-color:var(--warn-line);}
+  .band.split{background:var(--accent-soft); color:var(--accent); border-color:var(--accent-line);}
+  .band.low{background:var(--good-soft); color:var(--good); border-color:var(--good-line);}
+  .caret{color:var(--ink-3); font-size:.9rem; transition:transform .18s;}
+  .m.open .caret{transform:rotate(90deg);}
+  [dir="rtl"] .m.open .caret{transform:rotate(-90deg);}
+  .mbody{display:none; padding:2px 20px 20px;}
+  .m.open .mbody{display:block;}
+  .row{padding:14px 0; border-top:1px dashed var(--line);}
+  .row h4{font-size:.76rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);
+    font-weight:800; margin-bottom:6px;}
+  [dir="rtl"] .row h4{letter-spacing:0; text-transform:none; font-size:.92rem;}
+  .row p{font-size:.98rem; color:var(--ink-2); line-height:1.75;}
+  [dir="rtl"] .row p{line-height:1.95;}
+  .row.act{background:var(--gold-soft); margin:14px -20px 0; padding:16px 20px; border-top:1px solid var(--gold-line);}
+  .row.act p{color:var(--ink);}
+  .ev{font-size:.86rem; color:var(--ink-3); line-height:1.7; padding:12px 0 0; border-top:1px dashed var(--line); margin-top:12px;}
+  [dir="rtl"] .ev{line-height:1.9;}
+
+  /* ---- chapters ---- */
+  .chap{margin-top:44px; padding-top:26px; border-top:2px solid var(--line);}
+  .chap h2{font-size:1.5rem; line-height:1.3; margin-bottom:8px;}
+  .chap p.sub{color:var(--ink-2); margin-bottom:16px;}
+  .pt{background:var(--card); border:1px solid var(--line); padding:18px 22px; margin-bottom:10px;}
+  [dir="ltr"] .pt{border-left:3px solid var(--navy);}
+  [dir="rtl"] .pt{border-right:3px solid var(--navy);}
+  .pt b{display:block; font-size:1.02rem; margin-bottom:5px;}
+  .pt span{color:var(--ink-2); font-size:.97rem; line-height:1.75; display:block;}
+  [dir="rtl"] .pt span{line-height:1.95;}
+  .pt.warn{border-color:var(--gold-line);}
+  [dir="ltr"] .pt.warn{border-left-color:var(--gold);}
+  [dir="rtl"] .pt.warn{border-right-color:var(--gold);}
+
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    background:var(--card); border:1px solid var(--line); padding:18px 22px; margin-top:12px;}
+  .bar p{color:var(--ink-2); font-size:.98rem; flex:1; min-width:230px;}
+  .btn{display:inline-block; background:var(--navy); color:#fff; text-decoration:none;
+    padding:11px 22px; border-radius:999px; font-weight:600; font-size:.95rem; white-space:nowrap;}
+  .btn:hover{background:var(--navy-deep);}
+  .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent-line);}
+  .btn.ghost:hover{background:var(--accent-soft);}
+
+  .srcbox{margin-top:40px; padding:22px 24px; background:var(--card); border:1px solid var(--line);}
+  .srcbox h2{font-size:1.05rem; margin-bottom:4px;}
+  .srcbox p.sub{font-size:.9rem; color:var(--ink-3); margin-bottom:12px;}
+  .srcbox ol{padding-inline-start:20px;}
+  .srcbox li{font-size:.9rem; color:var(--ink-2); margin-bottom:8px; line-height:1.65;}
+  .srcbox a{color:var(--accent); word-break:break-word;}
+
+  footer.site{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
+    font-size:.9rem; color:var(--ink-3); text-align:center;}
+  footer.site a{color:var(--accent);}
+  .disc{margin-bottom:8px;}
+
+/* ============================================================
+   Shared design system, applied across every page
+   ============================================================ */
+:root{
+  --font-display:'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:'Source Sans 3', 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --font-ar:'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, 'Noto Naskh Arabic', Arial, sans-serif;
+
+  --paper:#fbf9f5;
+  --paper-2:#f4f0e7;
+  --card:#ffffff;
+  --line:#e7e1d5;
+  --line-2:#d6ccb9;
+
+  --ink:#14181d;
+  --ink-2:#4a525b;
+  --ink-3:#8b929b;
+
+  --navy:#14365c;
+  --navy-deep:#0d2036;
+  --accent:#16456f;
+  --accent-soft:#eaf0f7;
+  --accent-line:#c9d9ea;
+
+  --gold:#a37518;
+  --gold-soft:#fbf3e1;
+  --gold-line:#ecdcb4;
+  --gold-bright:#c79a3a;
+
+  --good:#0d6f47;
+  --good-soft:#e8f4ee;
+  --good-line:#c4e2d3;
+  --warn:#8a5a12;
+  --warn-soft:#fbf3e1;
+  --warn-line:#ecdcb4;
+  --bad:#9c3b34;
+  --bad-soft:#fbecea;
+  --bad-line:#eecdc9;
+
+  --radius:16px;
+  --radius-sm:12px;
+  --shadow:0 1px 2px rgba(20,24,29,.04), 0 14px 30px -16px rgba(20,24,29,.20);
+  --shadow-lift:0 2px 4px rgba(20,24,29,.05), 0 22px 40px -20px rgba(20,24,29,.28);
+}
+
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+[dir="rtl"] body{font-family:var(--font-ar);}
+body::before{
+  content:""; position:fixed; inset:0 0 auto 0; height:3px; z-index:99;
+  background:linear-gradient(90deg, var(--navy-deep), var(--navy) 38%, var(--gold-bright) 72%, var(--gold) 100%);
+}
+
+.serif, .chap h2, .cn, .stat-n, .minrow b{
+  font-family:var(--font-display);
+  font-variation-settings:'SOFT' 22, 'WONK' 0;
+  letter-spacing:-.012em;
+}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .stat-n{
+  font-family:var(--font-ar); font-variation-settings:normal; letter-spacing:0; font-weight:700;
+}
+h1,h2,h3{letter-spacing:-.01em;}
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3{letter-spacing:0;}
+.stat-n, .minrow b, .cnt, td, th, .cal-row b{font-variant-numeric:tabular-nums;}
+::selection{background:var(--gold-soft); color:var(--navy-deep);}
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:2.5px solid var(--gold-bright); outline-offset:2px; border-radius:6px;
+}
+
+/* ---------- masthead ---------- */
+header.site{
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  padding:16px 0 14px; border-bottom:1px solid var(--line); margin-bottom:0;
+}
+header.site .brand{
+  display:flex; align-items:center; gap:11px; text-decoration:none; color:inherit; min-width:0;
+}
+header.site .mark{
+  flex:0 0 auto; width:34px; height:34px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 34% 30%, #1d4a79, var(--navy-deep));
+  box-shadow:0 2px 8px rgba(13,32,54,.28), inset 0 0 0 1px rgba(232,194,106,.45);
+}
+header.site .bt{display:flex; flex-direction:column; line-height:1.15; min-width:0;}
+header.site .bt strong{
+  font-family:var(--font-display); font-weight:600; font-size:1.06rem; color:var(--ink);
+  letter-spacing:-.015em; white-space:nowrap;
+}
+[dir="rtl"] header.site .bt strong{font-family:var(--font-ar); letter-spacing:0;}
+header.site .bs{
+  font-size:.74rem; color:var(--ink-3); letter-spacing:.07em; text-transform:uppercase; white-space:nowrap;
+}
+[dir="rtl"] header.site .bs{letter-spacing:0; text-transform:none; font-size:.82rem;}
+.lang-toggle{
+  flex:0 0 auto; border:1px solid var(--line-2); background:var(--card); border-radius:999px;
+  padding:7px 17px; font-size:.9rem; cursor:pointer; color:var(--accent); font-weight:600;
+  font-family:inherit; transition:background .15s, border-color .15s, transform .12s;
+}
+.lang-toggle:hover{background:var(--accent-soft); border-color:var(--accent-line); transform:translateY(-1px);}
+
+/* ---------- tool switcher ---------- */
+.toolnav{
+  display:flex; gap:6px; padding:12px 0 4px; overflow-x:auto; scrollbar-width:none;
+  border-bottom:1px solid var(--line); margin-bottom:4px;
+}
+.toolnav::-webkit-scrollbar{display:none;}
+.toolnav a{
+  flex:0 0 auto; text-decoration:none; font-size:.88rem; font-weight:600; color:var(--ink-2);
+  padding:7px 14px; border-radius:999px; border:1px solid transparent; white-space:nowrap;
+  transition:background .15s, color .15s, border-color .15s;
+}
+.toolnav a:hover{background:var(--accent-soft); color:var(--accent);}
+.toolnav a.on{background:var(--navy); color:#fff; box-shadow:0 3px 10px -3px rgba(20,54,92,.6);}
+.toolnav a.on:hover{background:var(--navy-deep); color:#fff;}
+
+/* ---------- hero ---------- */
+.hero, .res-head{position:relative;}
+.hero::before{
+  content:""; position:absolute; z-index:-1; left:50%; top:-40px; transform:translateX(-50%);
+  width:min(760px, 118%); height:330px; pointer-events:none;
+  background:
+    radial-gradient(closest-side, rgba(199,154,58,.13), transparent 72%) 22% 12%/58% 78% no-repeat,
+    radial-gradient(closest-side, rgba(20,54,92,.13), transparent 72%) 82% 34%/62% 82% no-repeat;
+  filter:blur(2px);
+}
+.hero h1{font-size:clamp(1.75rem, 1.15rem + 2.3vw, 2.5rem); line-height:1.18; font-weight:600;}
+[dir="rtl"] .hero h1{line-height:1.4; font-weight:700;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+.kicker{color:var(--gold); font-weight:700;}
+
+/* ---------- surfaces ---------- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .lede, .stat, .nextbox{
+  border-radius:var(--radius); border-color:var(--line); box-shadow:var(--shadow);
+}
+.mcard, .pcard{transition:box-shadow .18s, border-color .18s, transform .18s;}
+.mcard:hover, .pcard:hover{box-shadow:var(--shadow-lift); border-color:var(--line-2);}
+.pcard{border-inline-start-width:5px;}
+
+/* ---------- buttons and chips ---------- */
+.btn{
+  background:linear-gradient(180deg, #1d4d7c, var(--navy));
+  border:none; border-radius:999px; font-weight:600; letter-spacing:.005em; color:#fff;
+  box-shadow:0 2px 4px rgba(13,32,54,.18), 0 10px 22px -10px rgba(13,32,54,.7);
+  transition:transform .14s, box-shadow .14s, filter .14s;
+}
+.btn:hover{transform:translateY(-1.5px); box-shadow:0 3px 6px rgba(13,32,54,.2), 0 16px 30px -12px rgba(13,32,54,.75); filter:saturate(1.08);}
+.btn.ghost, .btn.secondary{
+  background:var(--card); color:var(--accent); border:1.5px solid var(--accent-line);
+  box-shadow:0 1px 2px rgba(20,24,29,.04);
+}
+.btn.ghost:hover, .btn.secondary:hover{background:var(--accent-soft); border-color:var(--accent);}
+.fbtn{
+  border:1.5px solid var(--line-2); border-radius:999px; background:var(--card); color:var(--ink-2);
+  transition:border-color .15s, background .15s, color .15s, transform .12s;
+}
+.fbtn:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
+.fbtn.on{
+  background:var(--navy); border-color:var(--navy); color:#fff; font-weight:600;
+  box-shadow:0 3px 10px -4px rgba(20,54,92,.75);
+}
+.printbtn{border-color:var(--accent-line);}
+.printbtn:hover{background:var(--accent-soft);}
+
+/* ---------- bars and callouts ---------- */
+.bar, .quizbar, .cta-inline{
+  background:linear-gradient(180deg, #f2f6fb, var(--accent-soft));
+  border:1px solid var(--accent-line); border-radius:var(--radius);
+}
+.rule, .checked, .hedge, .extra, .flag{border-radius:var(--radius-sm);}
+.rule.w, .checked, .hedge, .extra, .flag{
+  background:linear-gradient(180deg, #fdf8ec, var(--gold-soft)); border-color:var(--gold-line);
+}
+.rule.b{background:linear-gradient(180deg, #fdf1ef, var(--bad-soft)); border-color:var(--bad-line);}
+.rule.n{background:linear-gradient(180deg, #f2f6fb, var(--accent-soft)); border-color:var(--accent-line);}
+
+/* ---------- section labels ---------- */
+.sec h3, .lbl, .toc h2{letter-spacing:.1em; font-weight:800;}
+[dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2{letter-spacing:0;}
+.grp-t, .grp h2, .panel h2, .srcbox h2, .majors-title{font-family:var(--font-display); letter-spacing:-.012em; font-weight:600;}
+[dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2,
+[dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title{font-family:var(--font-ar); letter-spacing:0; font-weight:700;}
+
+/* ---------- footer ---------- */
+footer.site{
+  margin-top:52px; padding:26px 0 0; border-top:1px solid var(--line); color:var(--ink-3);
+}
+footer.site a{color:var(--accent); font-weight:600;}
+
+@media (max-width:520px){
+  header.site .bs{display:none;}
+  .toolnav a{font-size:.83rem; padding:6px 12px;}
+}
+@media print{ .toolnav, body::before{display:none;} }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="brand" href="./">
+      <span class="mark" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="#e8c26a" stroke-width="3"/><path d="M32 8 L36.5 27.5 L56 32 L36.5 36.5 L32 56 L27.5 36.5 L8 32 L27.5 27.5 Z" fill="#e8c26a"/><circle cx="32" cy="32" r="3.2" fill="#0d2036"/></svg></span>
+      <span class="bt"><strong data-en="Major Compass" data-ar="بوصلة التخصص">Major Compass</strong><span class="bs" data-en="Dr. Saqer AlKhalifa" data-ar="د. صقر آل خليفة">Dr. Saqer AlKhalifa</span></span>
+    </a>
+    <button class="lang-toggle" id="langToggle">عربي</button>
+  </header>
+  <nav class="toolnav" aria-label="Tools">
+    <a href="./" data-en="The quiz" data-ar="الاختبار">The quiz</a>
+    <a href="explore.html" data-en="Majors" data-ar="التخصصات">Majors</a>
+    <a href="entry.html" data-en="Entry" data-ar="شروط القبول">Entry</a>
+    <a href="scholarships.html" data-en="Funding" data-ar="المنح">Funding</a>
+    <a href="parents.html" data-en="Parents" data-ar="أولياء الأمور">Parents</a>
+    <a href="ai.html" class="on" data-en="AI" data-ar="الذكاء الاصطناعي">AI</a>
+  </nav>
+
+  <div class="hero">
+    <div class="kicker" id="kicker"></div>
+    <h1 class="serif" id="t-title"></h1>
+    <p class="sub" id="t-sub"></p>
+  </div>
+
+  <p class="lede" id="lede"></p>
+
+  <div class="facts" id="facts"></div>
+
+  <div class="chap" id="how">
+    <h2 class="serif" id="t-howT"></h2>
+    <p class="sub" id="t-howS"></p>
+    <div id="keys"></div>
+  </div>
+
+  <div class="controls">
+    <input class="srch" id="q" type="search" autocomplete="off">
+    <div class="chips" id="chips"></div>
+    <div class="count" id="count"></div>
+  </div>
+
+  <div class="mlist" id="mlist"></div>
+
+  <div class="chap" id="caveats">
+    <h2 class="serif" id="t-cavT"></h2>
+    <p class="sub" id="t-cavS"></p>
+    <div id="cavs"></div>
+  </div>
+
+  <div class="chap" id="gulf">
+    <h2 class="serif" id="t-gulfT"></h2>
+    <p class="sub" id="t-gulfS"></p>
+    <div id="gulfs"></div>
+  </div>
+
+  <div class="crosslinks">
+    <div class="bar" style="margin-top:34px;">
+      <p id="t-quizline"></p>
+      <a class="btn" id="t-quizbtn" href="./"></a>
+    </div>
+    <div class="bar">
+      <p id="t-expline"></p>
+      <a class="btn ghost" id="t-expbtn" href="explore.html"></a>
+    </div>
+    <div class="bar">
+      <p id="t-parline"></p>
+      <a class="btn ghost" id="t-parbtn" href="parents.html"></a>
+    </div>
+  </div>
+
+  <div class="srcbox">
+    <h2 id="srcT"></h2>
+    <p class="sub" id="srcS"></p>
+    <ol id="srcList"></ol>
+  </div>
+
+  <footer class="site">
+    <p class="disc" id="t-disc"></p>
+    <p id="t-foot"></p>
+  </footer>
+</div>
+<script>
+/* ===== AI and your major, part 1: health, computing, engineering ===== */
+const A1 = [
+
+{id:"med", g:"health", b:"low", n:{en:"Medicine", ar:"الطب البشري"},
+ d:{en:"Drafts notes, letters and discharge summaries, suggests differentials, flags findings on scans, and answers the questions patients used to bring to you.",
+    ar:"يكتب المسودات والرسائل وملخصات الخروج، ويقترح التشخيصات المحتملة، وينبّه إلى ملاحظات في الأشعة، ويجيب الأسئلة التي كان المريض يأتي بها إليك."},
+ x:{en:"Examine a body, hold a licence, or carry the legal responsibility for a decision. Every one of the six Gulf states requires a licence to practise, and a model cannot hold one.",
+    ar:"لا يفحص جسدًا، ولا يحمل ترخيصًا، ولا يتحمل المسؤولية القانونية عن قرار. دول الخليج الست جميعًا تشترط ترخيصًا لمزاولة المهنة، والنموذج لا يمكن أن يحمل ترخيصًا."},
+ t:{en:"Very little. The administrative half of the job is shrinking, which most doctors welcome. The gradient inside medicine is clear: the more your work is reading and writing, the more exposed it is; the more it is done with your hands, the less.",
+    ar:"قليل جدًا. النصف الإداري من العمل يتقلص، وأكثر الأطباء يرحبون بذلك. التدرج داخل الطب واضح: كلما كان عملك قراءة وكتابة زاد تعرضه، وكلما كان بيديك قلّ."},
+ a:{en:"Choose medicine for the work, not for shelter. But if shelter matters to you, procedural and surgical specialties sit closer to the floor than diagnostic and clinic-based ones.",
+    ar:"اختر الطب من أجل العمل نفسه لا بحثًا عن ملجأ. لكن إن كان الأمان يهمك، فالتخصصات الإجرائية والجراحية أقل تعرضًا من التشخيصية والعيادية."},
+ e:{en:"Microsoft ranked 785 US occupations by how much AI is actually used in them. Family medicine came 334th, emergency medicine 601st, orthopaedic surgery 570th, oral and maxillofacial surgery 749th. First place is the most used.",
+    ar:"رتّبت مايكروسوفت 785 مهنة أمريكية بحسب الاستخدام الفعلي للذكاء الاصطناعي فيها. جاء طب الأسرة في المرتبة 334، وطب الطوارئ 601، وجراحة العظام 570، وجراحة الفم والوجه والفكين 749. المرتبة الأولى هي الأكثر استخدامًا."}},
+
+{id:"dent", g:"health", b:"low", n:{en:"Dentistry", ar:"طب الأسنان"},
+ d:{en:"Reads radiographs, plans some treatment sequences, designs crowns and aligners, and writes the patient communication.",
+    ar:"يقرأ الصور الشعاعية، ويخطط بعض تسلسلات العلاج، ويصمم التيجان والمقوّمات، ويكتب مراسلات المرضى."},
+ x:{en:"Put a hand in a mouth. Dentistry is the least AI-exposed graduate profession measured anywhere in the evidence.",
+    ar:"لا يضع يدًا في فم. طب الأسنان هو أقل المهن الجامعية تعرضًا للذكاء الاصطناعي في كل الأدلة المتاحة."},
+ t:{en:"Nothing measurable. The pressure on dentistry in the Gulf is a supply problem, not an AI problem: there are a lot of new graduates chasing a fixed number of chairs.",
+    ar:"لا شيء يمكن قياسه. الضغط على طب الأسنان في الخليج هو مشكلة عرض لا مشكلة ذكاء اصطناعي: خريجون كثيرون يتنافسون على عدد ثابت من العيادات."},
+ a:{en:"If you want the least exposed degree on this page, this is it. Just be honest with yourself that the competition is human, not machine.",
+    ar:"إن أردت أقل تخصص تعرضًا في هذه الصفحة فهو هذا. لكن كن صادقًا مع نفسك: المنافسة هنا بشرية لا آلية."},
+ e:{en:"Microsoft: general dentists 705th of 785, prosthodontists near the very bottom, oral and maxillofacial surgeons 749th, dental hygienists 667th.",
+    ar:"مايكروسوفت: أطباء الأسنان العامون في المرتبة 705 من 785، وأخصائيو التعويضات قرب القاع تمامًا، وجراحو الفم والفكين 749، وأخصائيو صحة الأسنان 667."}},
+
+{id:"pharm", g:"health", b:"split", n:{en:"Pharmacy", ar:"الصيدلة"},
+ d:{en:"Checks interactions, screens prescriptions against protocols, answers dosage questions, and drafts the counselling script. Dispensing itself is increasingly automated in large hospitals.",
+    ar:"يفحص التداخلات الدوائية، ويراجع الوصفات مقابل البروتوكولات، ويجيب أسئلة الجرعات، ويصوغ نص الإرشاد للمريض. أما الصرف نفسه فيزداد أتمتة في المستشفيات الكبيرة."},
+ x:{en:"Sign for a controlled substance, refuse a prescription, or take responsibility when a dose is wrong.",
+    ar:"لا يوقّع على مادة خاضعة للرقابة، ولا يرفض وصفة، ولا يتحمل المسؤولية عند خطأ في الجرعة."},
+ t:{en:"This is the one honest warning in health. Pharmacy is the most AI-exposed licensed health profession by a clear margin, because so much of the work is checking information against rules, which is exactly what these systems do well.",
+    ar:"هذا هو التحذير الصادق الوحيد في المجال الصحي. الصيدلة أكثر المهن الصحية المرخصة تعرضًا بفارق واضح، لأن جزءًا كبيرًا من العمل هو مطابقة معلومات مع قواعد، وهو بالضبط ما تجيده هذه الأنظمة."},
+ a:{en:"Aim at clinical pharmacy on the ward, at regulatory affairs, or at industry, rather than at community dispensing. Saudi Arabia is localising hospital pharmacy at 65 per cent and community pharmacy at only 35, which tells you where the state expects the good jobs to be.",
+    ar:"اتجه إلى الصيدلة السريرية في الأقسام، أو الشؤون التنظيمية، أو الصناعة الدوائية، بدل صرف الوصفات في الصيدليات. السعودية توطّن صيدلة المستشفيات بنسبة 65 بالمئة وصيدليات المجتمع بـ35 فقط، وهذا يخبرك أين تتوقع الدولة أن تكون الوظائف الجيدة."},
+ e:{en:"Microsoft: pharmacists 119th of 785, the 85th percentile. Every other licensed health profession measured sits below the 60th.",
+    ar:"مايكروسوفت: الصيادلة في المرتبة 119 من 785، أي الشريحة 85. وكل مهنة صحية مرخصة أخرى قيست جاءت دون الشريحة 60."}},
+
+{id:"nurs", g:"health", b:"low", n:{en:"Nursing", ar:"التمريض"},
+ d:{en:"Writes the documentation, drafts handovers, and answers routine patient questions. Roughly a third of a nurse's shift is paperwork, and that is the part being taken.",
+    ar:"يكتب التوثيق، ويصوغ تقارير التسليم، ويجيب أسئلة المرضى الروتينية. نحو ثلث وردية الممرض ورق، وهذا هو الجزء الذي يُؤخذ."},
+ x:{en:"Lift a patient, insert a line, notice that someone has gone quiet, or be present at three in the morning.",
+    ar:"لا يرفع مريضًا، ولا يركّب قسطرة، ولا يلاحظ أن أحدهم صمت فجأة، ولا يكون حاضرًا في الثالثة فجرًا."},
+ t:{en:"Nothing. Nursing is the clearest positive case in the entire body of evidence, and it is the only field where every independent source agrees.",
+    ar:"لا شيء. التمريض أوضح حالة إيجابية في كل الأدلة، وهو المجال الوحيد الذي تتفق عليه كل المصادر المستقلة."},
+ a:{en:"Understand that low exposure and high pay are not the same thing. The protected part of care work includes many low-paid roles. Aim at the licensed, specialised end: intensive care, theatre, nurse practitioner.",
+    ar:"افهم أن قلة التعرض وارتفاع الأجر ليسا شيئًا واحدًا. الجزء المحمي من أعمال الرعاية يشمل وظائف كثيرة منخفضة الأجر. اتجه إلى الطرف المرخص المتخصص: العناية المركزة، وغرف العمليات، وممارس التمريض."},
+ e:{en:"Microsoft: registered nurses 460th of 785, nursing assistants 745th, orderlies at the joint lowest score in the whole dataset. US projections put nurse practitioners at plus 40 per cent to 2034, the third fastest growing occupation. In the Stanford payroll data, the youngest workers gained fastest in exactly these jobs.",
+    ar:"مايكروسوفت: الممرضون المسجلون في المرتبة 460 من 785، ومساعدو التمريض 745، والمساعدون الصحيون في أدنى درجة في البيانات كلها. والتوقعات الأمريكية تضع ممارسي التمريض عند زيادة 40 بالمئة حتى 2034، ثالث أسرع مهنة نموًا. وفي بيانات ستانفورد للرواتب، كان أصغر العاملين سنًا الأسرع نموًا في هذه الوظائف بالذات."}},
+
+{id:"biomed", g:"health", b:"low", n:{en:"Biomedical and Laboratory Science", ar:"العلوم الطبية المخبرية"},
+ d:{en:"Interprets result patterns, drafts reports, and increasingly runs the quality-control statistics. Clinical data management, the desk half of the field, is rated as fully exposed.",
+    ar:"يفسّر أنماط النتائج، ويكتب التقارير، ويدير إحصاءات ضبط الجودة بصورة متزايدة. أما إدارة البيانات السريرية، وهي النصف المكتبي من المجال، فمصنفة على أنها معرّضة بالكامل."},
+ x:{en:"Draw blood, run an analyser, handle a specimen, or validate that a machine is calibrated.",
+    ar:"لا يسحب دمًا، ولا يشغّل جهاز تحليل، ولا يتعامل مع عيّنة، ولا يتحقق من معايرة جهاز."},
+ t:{en:"The bench is safe. The reporting desk is not. If your career plan is to sit between a machine and a spreadsheet, that seat is the exposed one.",
+    ar:"العمل على الطاولة المخبرية آمن. أما مكتب التقارير فلا. إن كانت خطتك المهنية أن تجلس بين جهاز وجدول بيانات، فذلك هو المقعد المعرّض."},
+ a:{en:"Stay licensed and stay near the instruments. Saudi Arabia is localising medical laboratories at 70 per cent, which is one of the highest rates it has set for any profession.",
+    ar:"ابقَ مرخصًا وابقَ قريبًا من الأجهزة. السعودية توطّن المختبرات الطبية بنسبة 70 بالمئة، وهي من أعلى النسب التي حددتها لأي مهنة."},
+ e:{en:"Microsoft: phlebotomists 763rd of 785, medical assistants 633rd, radiologic technologists 516th. But the same research rated clinical data managers as fully exposed.",
+    ar:"مايكروسوفت: فنيو سحب الدم في المرتبة 763 من 785، والمساعدون الطبيون 633، وفنيو الأشعة 516. لكن البحث نفسه صنّف مديري البيانات السريرية على أنهم معرّضون بالكامل."}},
+
+{id:"physio", g:"health", b:"low", n:{en:"Physiotherapy and Sports Science", ar:"العلاج الطبيعي وعلوم الرياضة"},
+ d:{en:"Builds programme templates, tracks progress data, and writes the home-exercise sheet.",
+    ar:"يبني قوالب البرامج، ويتابع بيانات التقدم، ويكتب ورقة التمارين المنزلية."},
+ x:{en:"Put its hands on a joint, feel resistance, or watch a person walk and know what is wrong from how they move.",
+    ar:"لا يضع يديه على مفصل، ولا يشعر بالمقاومة، ولا يراقب شخصًا يمشي فيعرف الخلل من طريقة حركته."},
+ t:{en:"Nothing. This is hands-on, licensed, and physically present work, which is the combination that every dataset finds least substitutable.",
+    ar:"لا شيء. هذا عمل يدوي مرخص وحاضر جسديًا، وهو التركيب الذي تجده كل البيانات أقل قابلية للاستبدال."},
+ a:{en:"Worth knowing that Saudi Arabia has set physiotherapy localisation at 80 per cent, among the highest of any profession. A protected job in a protected profession is a rare combination.",
+    ar:"من المفيد أن تعرف أن السعودية حددت توطين العلاج الطبيعي عند 80 بالمئة، من أعلى النسب لأي مهنة. وظيفة محمية في مهنة محمية تركيب نادر."},
+ e:{en:"Microsoft: physical therapists 308th of 785, physical therapist assistants 711th, aides 726th, massage therapists near the very bottom.",
+    ar:"مايكروسوفت: أخصائيو العلاج الطبيعي في المرتبة 308 من 785، ومساعدوهم 711، والمعاونون 726، وأخصائيو التدليك قرب القاع تمامًا."}},
+
+{id:"psych", g:"health", b:"split", n:{en:"Psychology", ar:"علم النفس"},
+ d:{en:"Writes case notes, scores and interprets standard instruments, produces psychoeducation material, and holds a conversation that a lonely person finds genuinely helpful.",
+    ar:"يكتب ملاحظات الحالات، ويصحح المقاييس المعيارية ويفسرها، وينتج مواد التوعية النفسية، ويجري محادثة يجدها الشخص الوحيد نافعة فعلًا."},
+ x:{en:"Hold a licence, manage risk when someone is in danger, or be a person in a room with another person.",
+    ar:"لا يحمل ترخيصًا، ولا يدير الخطر حين يكون أحدهم في خطر، ولا يكون إنسانًا في غرفة مع إنسان آخر."},
+ t:{en:"The split here is brutal and worth naming. The licensed clinical route is protected. The far more common route, a psychology degree that leads to a general office job in human resources, research or marketing, lands squarely in the most exposed part of the labour market.",
+    ar:"الانقسام هنا قاسٍ ويستحق أن يُقال بوضوح. المسار السريري المرخص محمي. أما المسار الأكثر شيوعًا، وهو شهادة في علم النفس تقود إلى وظيفة مكتبية عامة في الموارد البشرية أو البحث أو التسويق، فيقع في أكثر أجزاء سوق العمل تعرضًا."},
+ a:{en:"Decide at the start whether you are going clinical. If you are, plan the licensing route from year one. If you are not, do not assume the degree alone will place you.",
+    ar:"احسم منذ البداية هل ستتجه إلى المسار السريري. إن كنت ستفعل فخطط لمسار الترخيص من السنة الأولى. وإن لم تكن، فلا تفترض أن الشهادة وحدها ستجد لك وظيفة."},
+ e:{en:"There is no Gulf study of psychology graduate outcomes. In Bahrain, 69 per cent of registered job seekers hold a bachelor's degree or higher, so a general degree is already not clearing the market.",
+    ar:"لا توجد دراسة خليجية لمآلات خريجي علم النفس. وفي البحرين، 69 بالمئة من الباحثين عن عمل المسجلين يحملون بكالوريوس فأعلى، أي أن الشهادة العامة لا تُصرَّف في السوق أصلًا."}},
+
+{id:"cs", g:"tech", b:"entry", n:{en:"Computer Science and Software Engineering", ar:"علوم الحاسوب وهندسة البرمجيات"},
+ d:{en:"Writes code, finds bugs, explains unfamiliar systems, and produces the tests. The single most common task people give AI anywhere in the world is fixing software errors.",
+    ar:"يكتب الشيفرة، ويجد الأخطاء، ويشرح أنظمة غير مألوفة، وينتج الاختبارات. وأكثر مهمة يُكلَّف بها الذكاء الاصطناعي في العالم كله هي إصلاح أخطاء البرمجيات."},
+ x:{en:"Decide what should be built, own a production system at three in the morning, argue with a stakeholder, or be accountable when the thing fails.",
+    ar:"لا يقرر ما الذي يجب بناؤه، ولا يتحمل مسؤولية نظام في الإنتاج الساعة الثالثة فجرًا، ولا يجادل صاحب مصلحة، ولا يُساءل حين يفشل النظام."},
+ t:{en:"This is the field with the sharpest measured damage at the entry level anywhere. Employment of American software developers aged 22 to 25 fell by roughly a fifth from late 2022 to late 2025, while employment of developers over 25 in the same firms rose. Total demand for software is still projected to grow strongly. Both of those are true at once.",
+    ar:"هذا هو المجال الذي يظهر فيه أوضح ضرر مقاس عند الدرجة الأولى. انخفض توظيف مطوري البرمجيات الأمريكيين بين 22 و25 سنة بنحو الخمس من أواخر 2022 إلى أواخر 2025، بينما ارتفع توظيف المطورين فوق 25 في الشركات نفسها. ومع ذلك ما زال الطلب الكلي على البرمجيات يُتوقع أن ينمو بقوة. والأمران صحيحان معًا."},
+ a:{en:"Still study it, but do not arrive with only the ability to write code, because that is the part that got cheap. Arrive with a second thing attached: security, systems and infrastructure, or deep knowledge of an industry such as health, energy or finance. When software hiring recovered through 2026, seven of every ten new roles were senior.",
+    ar:"ادرسه رغم ذلك، لكن لا تصل ومعك القدرة على كتابة الشيفرة فقط، فهذا هو الجزء الذي رخُص. صل ومعك شيء ثانٍ: الأمن السيبراني، أو الأنظمة والبنية التحتية، أو معرفة عميقة بقطاع كالصحة أو الطاقة أو المال. وحين تعافى التوظيف في البرمجيات خلال 2026، كانت سبع من كل عشر وظائف جديدة لمستوى أول."},
+ e:{en:"Stanford Digital Economy Lab, using payroll records for millions of American workers. Note that this is the most disputed finding in the field: two large studies of job postings, from the New York Federal Reserve and the Economic Innovation Group, find no such gap between junior and senior demand.",
+    ar:"مختبر الاقتصاد الرقمي بجامعة ستانفورد، اعتمادًا على سجلات رواتب لملايين العاملين الأمريكيين. ولاحظ أن هذه أكثر النتائج إثارة للجدل في المجال: دراستان كبيرتان لإعلانات الوظائف، من بنك الاحتياطي الفيدرالي في نيويورك ومن مجموعة الابتكار الاقتصادي، لا تجدان هذه الفجوة بين الطلب على المبتدئين والطلب على الخبراء."}},
+
+{id:"cyber", g:"tech", b:"low", n:{en:"Cybersecurity", ar:"الأمن السيبراني"},
+ d:{en:"Triages alerts, writes detection rules, summarises incidents, and reads log files far faster than a person can. It also writes the attacks, which is why demand keeps rising.",
+    ar:"يفرز التنبيهات، ويكتب قواعد الكشف، ويلخص الحوادث، ويقرأ ملفات السجلات أسرع بكثير من الإنسان. وهو أيضًا يكتب الهجمات، ولهذا يستمر الطلب في الارتفاع."},
+ x:{en:"Hold clearance, sign off on risk, testify to a regulator, or be trusted with the keys.",
+    ar:"لا يحمل تصريحًا أمنيًا، ولا يعتمد المخاطر، ولا يشهد أمام جهة تنظيمية، ولا يُؤتمن على المفاتيح."},
+ t:{en:"Nothing yet. This is one of the few fields where the same technology that automates the work also multiplies the threat it defends against.",
+    ar:"لا شيء حتى الآن. هذا أحد المجالات القليلة التي تضاعف فيها التقنية نفسها التي تؤتمت العمل حجمَ التهديد الذي يدافع عنه."},
+ a:{en:"Get certified early and get cleared. Gulf governments are building data centres and national AI programmes at speed, and every one of them needs people who can be trusted with access.",
+    ar:"احصل على الشهادات المهنية مبكرًا واحصل على التصاريح الأمنية. حكومات الخليج تبني مراكز بيانات وبرامج ذكاء اصطناعي وطنية بسرعة، وكلها تحتاج من يُؤتمن على الوصول."},
+ e:{en:"US projections: information security analysts plus 28.5 per cent to 2034. The World Economic Forum lists security management specialists and information security analysts among the fastest growing jobs to 2030.",
+    ar:"التوقعات الأمريكية: محللو أمن المعلومات بزيادة 28.5 بالمئة حتى 2034. والمنتدى الاقتصادي العالمي يضع أخصائيي إدارة الأمن ومحللي أمن المعلومات ضمن أسرع الوظائف نموًا حتى 2030."}},
+
+{id:"data", g:"tech", b:"split", n:{en:"Data Science and Artificial Intelligence", ar:"علوم البيانات والذكاء الاصطناعي"},
+ d:{en:"Cleans data, writes the analysis, builds the first model, and produces the chart and the summary. Most of what a junior data analyst did in 2022 is now a prompt.",
+    ar:"ينظف البيانات، ويكتب التحليل، ويبني النموذج الأول، وينتج الرسم البياني والملخص. ومعظم ما كان يفعله محلل بيانات مبتدئ في 2022 صار اليوم أمرًا نصيًا."},
+ x:{en:"Know which question is worth asking, tell you the data is wrong, or take responsibility for a decision made from a number.",
+    ar:"لا يعرف أي سؤال يستحق أن يُطرح، ولا يخبرك أن البيانات خاطئة، ولا يتحمل مسؤولية قرار اتُّخذ بناءً على رقم."},
+ t:{en:"The honest paradox of this page. Data science is simultaneously one of the most AI-applied occupations measured and one of the fastest growing. The tools eat the junior analysis work and create the senior work of building and governing the systems.",
+    ar:"المفارقة الصادقة في هذه الصفحة. علوم البيانات في آنٍ واحد من أكثر المهن استخدامًا للذكاء الاصطناعي ومن أسرعها نموًا. الأدوات تلتهم عمل التحليل المبتدئ وتخلق عمل بناء الأنظمة وحوكمتها في المستويات الأعلى."},
+ a:{en:"Do not stop at analysis. Go toward engineering the systems, or toward a regulated domain where the numbers carry legal weight, such as clinical trials, actuarial work or financial risk.",
+    ar:"لا تتوقف عند التحليل. اتجه إلى هندسة الأنظمة، أو إلى مجال منظَّم تحمل فيه الأرقام ثقلًا قانونيًا، كالتجارب السريرية أو العمل الاكتواري أو مخاطر التمويل."},
+ e:{en:"Microsoft ranked data scientists 19th of 785 occupations for measured AI use. US projections put the same occupation at plus 33.5 per cent to 2034. Both figures are real.",
+    ar:"رتّبت مايكروسوفت علماء البيانات في المرتبة 19 من 785 مهنة في الاستخدام الفعلي للذكاء الاصطناعي. والتوقعات الأمريكية تضع المهنة نفسها عند زيادة 33.5 بالمئة حتى 2034. والرقمان صحيحان."}},
+
+{id:"netw", g:"tech", b:"split", n:{en:"Computer and Network Engineering", ar:"هندسة الحاسوب والشبكات"},
+ d:{en:"Writes configurations, diagnoses faults from logs, and answers the first line of every support question.",
+    ar:"يكتب الإعدادات، ويشخّص الأعطال من السجلات، ويجيب الخط الأول من كل سؤال دعم."},
+ x:{en:"Pull a cable, stand in a data hall, or physically commission hardware.",
+    ar:"لا يسحب كابلًا، ولا يقف في قاعة بيانات، ولا يشغّل أجهزة فعليًا."},
+ t:{en:"The help-desk and first-line support layer is one of the most exposed jobs measured. The physical and infrastructure layer is not.",
+    ar:"طبقة مكتب المساعدة والدعم الأول من أكثر الوظائف تعرضًا في القياسات. أما طبقة البنية التحتية المادية فلا."},
+ a:{en:"Aim at infrastructure, not at support. The Gulf is in the middle of an enormous data-centre build: the UAE had 35 in operation by mid-2025 with tens of billions more committed, and Bahrain and Saudi Arabia are building too. Those buildings need engineers on site.",
+    ar:"اتجه إلى البنية التحتية لا إلى الدعم. الخليج في وسط طفرة ضخمة لمراكز البيانات: كان لدى الإمارات 35 مركزًا عاملًا بحلول منتصف 2025 مع عشرات المليارات ملتزم بها، والبحرين والسعودية تبنيان أيضًا. وهذه المباني تحتاج مهندسين في الموقع."},
+ e:{en:"Microsoft: computer user support specialists 36th of 785, one of the most exposed occupations measured. Network and hardware roles sit far lower.",
+    ar:"مايكروسوفت: أخصائيو دعم مستخدمي الحاسوب في المرتبة 36 من 785، من أكثر المهن تعرضًا في القياس. أما وظائف الشبكات والأجهزة فتقع أدنى بكثير."}},
+
+{id:"mech", g:"eng", b:"split", n:{en:"Mechanical Engineering", ar:"الهندسة الميكانيكية"},
+ d:{en:"Writes specifications, drafts calculations, produces documentation, and generates first-pass designs.",
+    ar:"يكتب المواصفات، ويصوغ الحسابات، وينتج الوثائق، ويولّد التصاميم الأولية."},
+ x:{en:"Commission a plant, sign a safety case, stand on a site, or hold the engineering licence that four Gulf states now tie to your work permit.",
+    ar:"لا يشغّل مصنعًا، ولا يوقّع ملف سلامة، ولا يقف في موقع، ولا يحمل رخصة الهندسة التي تربطها أربع دول خليجية الآن بتصريح العمل نفسه."},
+ t:{en:"Mechanical is the most AI-exposed of the major engineering branches, because more of its work is documentation, specification and analysis than you would expect. That is still mid-table across the whole economy, not the danger zone.",
+    ar:"الميكانيكية أكثر فروع الهندسة الكبرى تعرضًا، لأن نصيبها من التوثيق والمواصفات والتحليل أكبر مما تتوقع. ومع ذلك تبقى في وسط الترتيب على مستوى الاقتصاد كله، لا في منطقة الخطر."},
+ a:{en:"Get the licence and get on site. Oman made engineering accreditation a condition of the work permit in August 2025, Kuwait did the same in late 2024, and Saudi Arabia will not count you toward its localisation quota without Saudi Council of Engineers accreditation.",
+    ar:"احصل على الترخيص وانزل إلى الموقع. عُمان جعلت الاعتماد الهندسي شرطًا لتصريح العمل في أغسطس 2025، والكويت فعلت المثل أواخر 2024، والسعودية لا تحتسبك ضمن نسبة التوطين دون اعتماد الهيئة السعودية للمهندسين."},
+ e:{en:"Microsoft: mechanical engineers 141st of 785, the 82nd percentile, the highest of the engineering branches.",
+    ar:"مايكروسوفت: المهندسون الميكانيكيون في المرتبة 141 من 785، أي الشريحة 82، وهي الأعلى بين فروع الهندسة."}},
+
+{id:"elec", g:"eng", b:"low", n:{en:"Electrical Engineering", ar:"الهندسة الكهربائية"},
+ d:{en:"Helps with calculations, code for embedded systems, and documentation.",
+    ar:"يساعد في الحسابات، وفي شيفرة الأنظمة المدمجة، وفي التوثيق."},
+ x:{en:"Test a live panel, commission a substation, or carry the liability for a grid connection.",
+    ar:"لا يختبر لوحة مكهربة، ولا يشغّل محطة تحويل، ولا يتحمل مسؤولية ربط بالشبكة."},
+ t:{en:"Nothing measurable. Electrical is the least AI-exposed of the four main engineering branches, by a clear margin.",
+    ar:"لا شيء يمكن قياسه. الكهربائية أقل فروع الهندسة الأربعة الكبرى تعرضًا بفارق واضح."},
+ a:{en:"Power, grid and industrial control work in the Gulf is expanding with the data centres and the energy transition, and almost none of it can be done remotely by a model.",
+    ar:"أعمال القدرة والشبكات والتحكم الصناعي في الخليج تتوسع مع مراكز البيانات وتحول الطاقة، ولا يكاد شيء منها يمكن أن يؤديه نموذج عن بُعد."},
+ e:{en:"Microsoft: electrical engineers 498th of 785, the 37th percentile. Compare mechanical at 141st.",
+    ar:"مايكروسوفت: المهندسون الكهربائيون في المرتبة 498 من 785، أي الشريحة 37. قارنها بالميكانيكية عند 141."}},
+
+{id:"civil", g:"eng", b:"low", n:{en:"Civil Engineering", ar:"الهندسة المدنية"},
+ d:{en:"Produces drawings and schedules, checks against codes, and writes the reports and tender documents.",
+    ar:"ينتج الرسومات والجداول، ويراجع مقابل الأكواد، ويكتب التقارير ووثائق المناقصات."},
+ x:{en:"Inspect a pour, approve a structure, appear before a regulator, or be the named engineer of record when a building has to stand up.",
+    ar:"لا يفحص صبّة خرسانة، ولا يعتمد منشأً، ولا يمثل أمام جهة تنظيمية، ولا يكون المهندس المسؤول المسمّى حين يجب أن يقف المبنى."},
+ t:{en:"Little. Drafting is exposed, the licensed engineer is not, and the work is anchored to a physical site and a legal signature.",
+    ar:"قليل. الرسم الفني معرّض، أما المهندس المرخص فلا، والعمل مرتبط بموقع مادي وتوقيع قانوني."},
+ a:{en:"This is one of the most defensible choices in the Gulf specifically, because the region is still building. In Bahrain, Tamkeen subsidises the salary of a newly hired engineer at 40 per cent for five years, which is better than any other graduate category.",
+    ar:"هذا من أكثر الخيارات دفاعًا عن نفسها في الخليج تحديدًا، لأن المنطقة ما زالت تبني. وفي البحرين، تدعم تمكين راتب المهندس حديث التوظيف بنسبة 40 بالمئة لخمس سنوات، وهو أفضل من أي فئة خريجين أخرى."},
+ e:{en:"Microsoft: civil engineers 232nd of 785, the 70th percentile, and architectural and civil drafters higher at 204th.",
+    ar:"مايكروسوفت: المهندسون المدنيون في المرتبة 232 من 785، أي الشريحة 70، والرسامون المعماريون والمدنيون أعلى عند 204."}},
+
+{id:"chem", g:"eng", b:"low", n:{en:"Chemical and Process Engineering", ar:"الهندسة الكيميائية وهندسة العمليات"},
+ d:{en:"Runs simulations, drafts process documentation, and helps with optimisation calculations.",
+    ar:"يجري المحاكاة، ويكتب وثائق العمليات، ويساعد في حسابات التحسين."},
+ x:{en:"Walk a plant, smell that something is wrong, sign a hazard study, or take responsibility for a process that can kill people.",
+    ar:"لا يجول في مصنع، ولا يشم أن شيئًا خاطئًا، ولا يوقّع دراسة مخاطر، ولا يتحمل مسؤولية عملية قد تقتل أناسًا."},
+ t:{en:"Little. Process safety is a legal and human responsibility, and in the Gulf it sits inside the largest industrial employers in the region.",
+    ar:"قليل. سلامة العمليات مسؤولية قانونية وبشرية، وهي في الخليج داخل أكبر أرباب العمل الصناعيين في المنطقة."},
+ a:{en:"The risk to this degree in the Gulf is the energy transition, not artificial intelligence. Plan for chemicals, water, hydrogen and materials, not only for oil.",
+    ar:"الخطر على هذا التخصص في الخليج هو تحول الطاقة لا الذكاء الاصطناعي. خطط للكيماويات والمياه والهيدروجين والمواد، لا للنفط وحده."},
+ e:{en:"Microsoft: chemical engineers 311th of 785, the 60th percentile. Petroleum engineers sit at 244th.",
+    ar:"مايكروسوفت: المهندسون الكيميائيون في المرتبة 311 من 785، أي الشريحة 60. ومهندسو البترول عند 244."}},
+
+{id:"indus", g:"eng", b:"split", n:{en:"Industrial Engineering", ar:"الهندسة الصناعية"},
+ d:{en:"Models processes, runs the optimisation, builds the dashboards, and writes the improvement report. A large share of this job is analysis, and analysis is what these tools do.",
+    ar:"ينمذج العمليات، ويجري التحسين، ويبني لوحات المتابعة، ويكتب تقرير التطوير. وجزء كبير من هذه الوظيفة تحليل، والتحليل هو ما تجيده هذه الأدوات."},
+ x:{en:"Walk a factory floor, negotiate with the people whose jobs you are redesigning, or make a change actually happen in an organisation.",
+    ar:"لا يجول في صالة مصنع، ولا يتفاوض مع الناس الذين يعيد تصميم وظائفهم، ولا يجعل التغيير يحدث فعلًا داخل مؤسسة."},
+ t:{en:"Industrial sits with mechanical at the exposed end of engineering, for the same reason: it is the branch that spends the most time at a desk.",
+    ar:"الصناعية مع الميكانيكية في الطرف المعرّض من الهندسة، للسبب نفسه: هي الفرع الذي يقضي أطول وقت خلف مكتب."},
+ a:{en:"Anchor it to something physical. Manufacturing, ports and logistics operations in the Gulf are expanding, and an industrial engineer who understands a real operation is not interchangeable with a model.",
+    ar:"اربطها بشيء مادي. التصنيع وعمليات الموانئ واللوجستيات في الخليج تتوسع، والمهندس الصناعي الذي يفهم عملية حقيقية ليس بديلًا يقايَض بنموذج."},
+ e:{en:"Microsoft: industrial engineers 150th of 785, the 81st percentile.",
+    ar:"مايكروسوفت: المهندسون الصناعيون في المرتبة 150 من 785، أي الشريحة 81."}},
+
+{id:"renew", g:"eng", b:"low", n:{en:"Renewable Energy and Environmental Engineering", ar:"هندسة الطاقة المتجددة والبيئة"},
+ d:{en:"Models yield and load, drafts environmental assessments, and handles the reporting.",
+    ar:"ينمذج الإنتاج والأحمال، ويكتب مسودات التقييم البيئي، ويتولى إعداد التقارير."},
+ x:{en:"Install a turbine, commission a solar field, or take a measurement in the desert.",
+    ar:"لا يركّب توربينًا، ولا يشغّل حقلًا شمسيًا، ولا يأخذ قياسًا في الصحراء."},
+ t:{en:"Nothing. This is one of the very few fields that appears on the growth side of every forecast and the protected side of every exposure measure.",
+    ar:"لا شيء. هذا أحد المجالات النادرة جدًا التي تظهر في جانب النمو في كل التوقعات وفي الجانب المحمي في كل مقاييس التعرض."},
+ a:{en:"Saudi Arabia launched 20 gigawatts of renewable projects in 2024 alone. The constraint on this field in the Gulf is people, not demand.",
+    ar:"أطلقت السعودية 20 غيغاواط من مشاريع الطاقة المتجددة في 2024 وحدها. والقيد على هذا المجال في الخليج هو الكوادر لا الطلب."},
+ e:{en:"The World Economic Forum lists renewable energy engineers and environmental engineers among the fastest growing jobs to 2030. US projections put wind turbine technicians at plus 50 per cent and solar installers at plus 42 per cent to 2034, the two fastest growing occupations in the economy.",
+    ar:"يضع المنتدى الاقتصادي العالمي مهندسي الطاقة المتجددة ومهندسي البيئة ضمن أسرع الوظائف نموًا حتى 2030. والتوقعات الأمريكية تضع فنيي توربينات الرياح عند زيادة 50 بالمئة ومركبي الطاقة الشمسية عند 42 بالمئة حتى 2034، وهما أسرع مهنتين نموًا في الاقتصاد."}},
+
+{id:"arch", g:"eng", b:"split", n:{en:"Architecture and Interior Design", ar:"العمارة والتصميم الداخلي"},
+ d:{en:"Generates concept images in seconds, drafts, produces schedules and specifications, and writes the client presentation. Visualisation, which used to be a whole junior job, is now close to free.",
+    ar:"يولّد صور المفاهيم في ثوانٍ، ويرسم، وينتج الجداول والمواصفات، ويكتب عرض العميل. والإظهار المعماري، الذي كان وظيفة كاملة لمبتدئ، صار اليوم شبه مجاني."},
+ x:{en:"Get a permit, resolve a site condition, take responsibility for a structure, or sit with a client who does not know what they want.",
+    ar:"لا يستخرج تصريحًا، ولا يعالج وضعًا في الموقع، ولا يتحمل مسؤولية منشأ، ولا يجلس مع عميل لا يعرف ماذا يريد."},
+ t:{en:"The rendering and drafting rung, which is exactly how architecture graduates used to get their first job, has thinned sharply. The licensed architect above it has not.",
+    ar:"درجة الإظهار والرسم، وهي بالضبط الطريقة التي كان يحصل بها خريجو العمارة على وظيفتهم الأولى، ضاقت بشدة. أما المعماري المرخص فوقها فلا."},
+ a:{en:"Get to registration and site experience as fast as you can, and treat image generation as a tool you are fluent in rather than a service you sell.",
+    ar:"اوصل إلى التسجيل المهني وخبرة الموقع بأسرع ما يمكن، وتعامل مع توليد الصور كأداة تتقنها لا كخدمة تبيعها."},
+ e:{en:"Microsoft: architects 302nd of 785, the 62nd percentile, but architectural and civil drafters higher at 204th. On freelance platforms, three-dimensional modelling job posts fell about 16 per cent within a year of image generators arriving.",
+    ar:"مايكروسوفت: المعماريون في المرتبة 302 من 785، أي الشريحة 62، لكن الرسامين المعماريين والمدنيين أعلى عند 204. وعلى منصات العمل الحر، انخفضت إعلانات وظائف النمذجة ثلاثية الأبعاد نحو 16 بالمئة خلال عام من وصول مولّدات الصور."}}
+
+];
+
+/* ===== AI and your major, part 2: business, law, media, education ===== */
+const A2 = [
+
+{id:"acct", g:"biz", b:"split", n:{en:"Accounting", ar:"المحاسبة"},
+ d:{en:"Codes transactions, reconciles ledgers, drafts the notes to the accounts, and writes the first version of almost every report an accountant produces.",
+    ar:"يرمّز القيود، ويطابق الحسابات، ويكتب مسودة الإيضاحات، ويصوغ النسخة الأولى من كل تقرير يكتبه المحاسب تقريبًا."},
+ x:{en:"Sign an audit opinion, take professional liability, or stand in front of a regulator. Every Gulf state requires a registered auditor, and a model cannot be registered.",
+    ar:"لا يوقّع رأي مدقق، ولا يتحمل مسؤولية مهنية، ولا يقف أمام جهة تنظيمية. كل دولة خليجية تشترط مدققًا مسجلًا، والنموذج لا يمكن أن يُسجَّل."},
+ t:{en:"Bookkeeping and transaction processing are among the most exposed office work there is, and the World Economic Forum put accountants and auditors on its fastest declining list in 2025. Licensed audit, tax and forensic work did not move.",
+    ar:"مسك الدفاتر ومعالجة القيود من أكثر الأعمال المكتبية تعرضًا، وقد وضع المنتدى الاقتصادي العالمي المحاسبين والمدققين على قائمة أسرع الوظائف انحسارًا في 2025. أما التدقيق والضرائب والمحاسبة الجنائية المرخصة فلم تتحرك."},
+ a:{en:"Do not stop at the degree. Go straight for the professional qualification and the licence. In Saudi Arabia this is unusually concrete: accounting Saudisation rises ten points a year to 70 per cent by October 2028, and expatriate accountants have needed SOCPA registration since 2019. A quota guarantees a national gets the job if the job exists. It does not guarantee the job exists.",
+    ar:"لا تتوقف عند الشهادة الجامعية. اتجه مباشرة إلى الشهادة المهنية والترخيص. وفي السعودية الأمر ملموس بشكل لافت: توطين المحاسبة يرتفع عشر نقاط سنويًا حتى 70 بالمئة بحلول أكتوبر 2028، والمحاسبون الوافدون يحتاجون تسجيل الهيئة السعودية للمراجعين والمحاسبين منذ 2019. والنسبة تضمن أن يحصل المواطن على الوظيفة إن وُجدت، لكنها لا تضمن وجودها."},
+ e:{en:"Microsoft measured accountants and auditors at 255th of 785 for actual AI use, but bookkeeping clerks higher at 170th. An earlier capability study rated accountants as fully exposed, which is the classic gap between what a model can do and what a regulated profession lets it do.",
+    ar:"قاست مايكروسوفت المحاسبين والمدققين عند المرتبة 255 من 785 في الاستخدام الفعلي، لكن كتبة مسك الدفاتر أعلى عند 170. ودراسة قدرات أسبق صنّفت المحاسبين على أنهم معرّضون بالكامل، وهي الفجوة الكلاسيكية بين ما يستطيع النموذج فعله وما تسمح له المهنة المنظمة بفعله."}},
+
+{id:"fin", g:"biz", b:"split", n:{en:"Banking and Finance, including Islamic Finance", ar:"المصارف والتمويل، ومنه التمويل الإسلامي"},
+ d:{en:"Builds the model, writes the credit memo, summarises the filings, and produces the client-facing advice note.",
+    ar:"يبني النموذج المالي، ويكتب مذكرة الائتمان، ويلخص الإفصاحات، وينتج مذكرة النصح الموجهة للعميل."},
+ x:{en:"Take a fiduciary duty, hold a regulated advisory licence, sit on a Shariah board, or be the person a client sues.",
+    ar:"لا يتحمل واجب الأمانة، ولا يحمل ترخيص استشارة منظّمًا، ولا يجلس في هيئة شرعية، ولا يكون الشخص الذي يقاضيه العميل."},
+ t:{en:"Two different things are happening. Branch and teller work is disappearing, and bank tellers are on the World Economic Forum's fastest declining list. At the other end, personal financial advisers are among the most AI-used occupations measured, which is not what most people expect.",
+    ar:"يحدث أمران مختلفان. عمل الفروع والصرافين يختفي، وصرافو البنوك على قائمة المنتدى الاقتصادي العالمي لأسرع الوظائف انحسارًا. وفي الطرف الآخر، المستشارون الماليون الشخصيون من أكثر المهن استخدامًا للذكاء الاصطناعي في القياسات، وهو غير ما يتوقعه أكثر الناس."},
+ a:{en:"Islamic finance is the interesting Gulf answer: Shariah audit and structuring require a human scholar's judgement and a board's sign-off, and the expertise is concentrated in this region rather than imported.",
+    ar:"التمويل الإسلامي هو الجواب الخليجي اللافت: التدقيق الشرعي والهيكلة يتطلبان اجتهاد عالم واعتماد هيئة، والخبرة فيهما متركزة في هذه المنطقة لا مستوردة إليها."},
+ e:{en:"Microsoft: personal financial advisers 20th of 785. The World Economic Forum lists bank tellers among the fastest declining jobs to 2030.",
+    ar:"مايكروسوفت: المستشارون الماليون الشخصيون في المرتبة 20 من 785. والمنتدى الاقتصادي العالمي يضع صرافي البنوك ضمن أسرع الوظائف انحسارًا حتى 2030."}},
+
+{id:"fintech", g:"biz", b:"low", n:{en:"Financial Technology", ar:"التقنية المالية"},
+ d:{en:"Writes the integration code, drafts the compliance documentation, and builds the fraud-detection first pass.",
+    ar:"يكتب شيفرة الربط، ويصوغ وثائق الامتثال، ويبني النسخة الأولى من كشف الاحتيال."},
+ x:{en:"Get a licence from a central bank, pass an audit, or persuade a regulator that a product is safe.",
+    ar:"لا يحصل على ترخيص من بنك مركزي، ولا يجتاز تدقيقًا، ولا يقنع جهة تنظيمية بأن منتجًا آمن."},
+ t:{en:"Nothing yet. This sits at the intersection of two things that are both growing, and it is regulated, which slows substitution down.",
+    ar:"لا شيء حتى الآن. هذا يقع عند تقاطع أمرين ينموان معًا، وهو منظَّم، والتنظيم يبطئ الاستبدال."},
+ a:{en:"Bahrain built a regulatory sandbox and a fintech sector deliberately, and the Gulf is one of the few places where a graduate can reach a regulator quickly. Learn the rules, not only the code.",
+    ar:"بنت البحرين بيئة تنظيمية تجريبية وقطاع تقنية مالية عن قصد، والخليج من الأماكن القليلة التي يستطيع فيها الخريج الوصول إلى الجهة التنظيمية بسرعة. تعلّم القواعد لا الشيفرة وحدها."},
+ e:{en:"The World Economic Forum ranks fintech engineers second among the fastest growing jobs in the world to 2030.",
+    ar:"يضع المنتدى الاقتصادي العالمي مهندسي التقنية المالية في المرتبة الثانية بين أسرع الوظائف نموًا في العالم حتى 2030."}},
+
+{id:"math", g:"biz", b:"split", n:{en:"Mathematics, Statistics and Actuarial Science", ar:"الرياضيات والإحصاء والعلوم الاكتوارية"},
+ d:{en:"Solves and checks a great deal of mathematics, writes the proof sketch, and produces the statistical analysis.",
+    ar:"يحل ويتحقق من قدر كبير من الرياضيات، ويكتب مخطط البرهان، وينتج التحليل الإحصائي."},
+ x:{en:"Sign an actuarial valuation, certify reserves to a regulator, or decide what a model is allowed to assume.",
+    ar:"لا يوقّع تقييمًا اكتواريًا، ولا يعتمد الاحتياطيات أمام جهة تنظيمية، ولا يقرر ما الذي يُسمح للنموذج بافتراضه."},
+ t:{en:"Mathematics as an activity is one of the highest AI-use categories measured. Mathematics as a licensed profession is one of the fastest growing. The difference is the signature at the bottom of the page.",
+    ar:"الرياضيات كنشاط من أعلى الفئات استخدامًا للذكاء الاصطناعي في القياسات. والرياضيات كمهنة مرخصة من أسرع المهن نموًا. والفارق هو التوقيع في أسفل الصفحة."},
+ a:{en:"Go actuarial, or go into a regulated risk function. A pure mathematics degree with no professional route attached is one of the more exposed choices on this page.",
+    ar:"اتجه إلى العمل الاكتواري، أو إلى وظيفة مخاطر منظَّمة. شهادة رياضيات بحتة بلا مسار مهني ملحق بها من أكثر الخيارات تعرضًا في هذه الصفحة."},
+ e:{en:"Microsoft: mathematicians 10th of 785 for measured AI use. US projections put actuaries at plus 21.8 per cent and operations research analysts at plus 21.5 per cent to 2034.",
+    ar:"مايكروسوفت: علماء الرياضيات في المرتبة 10 من 785 في الاستخدام المقاس. والتوقعات الأمريكية تضع الاكتواريين عند زيادة 21.8 بالمئة ومحللي بحوث العمليات عند 21.5 بالمئة حتى 2034."}},
+
+{id:"bus", g:"biz", b:"high", n:{en:"Business Management", ar:"إدارة الأعمال"},
+ d:{en:"Writes the plan, the memo, the presentation, the analysis and the email. This is the most common single use of these systems in the working world.",
+    ar:"يكتب الخطة والمذكرة والعرض والتحليل والبريد. هذا هو الاستخدام الأكثر شيوعًا لهذه الأنظمة في عالم العمل."},
+ x:{en:"Manage people, carry accountability, or be in the room where a decision is made.",
+    ar:"لا يدير أشخاصًا، ولا يتحمل المساءلة، ولا يكون في الغرفة حين يُتخذ القرار."},
+ t:{en:"This is the blunt one. A general business degree has no licence behind it in any Gulf state, and the entry-level work it leads to, administration, coordination, reporting and analysis, is precisely the work these systems do best. Administrative assistants are on the World Economic Forum's fastest declining list.",
+    ar:"هذا هو الحديث الصريح. شهادة إدارة الأعمال العامة لا يقف خلفها ترخيص في أي دولة خليجية، والعمل المبتدئ الذي تقود إليه، من إدارة وتنسيق وتقارير وتحليل، هو بالضبط ما تجيده هذه الأنظمة. والمساعدون الإداريون على قائمة المنتدى الاقتصادي العالمي لأسرع الوظائف انحسارًا."},
+ a:{en:"If you choose it, do not choose it alone. Attach a licence, a language, a technical skill or a sector you actually know. It is the most popular degree in the Gulf and the one with the least protection around it, which is a bad combination when 69 per cent of Bahrain's registered job seekers already hold a degree.",
+    ar:"إن اخترته فلا تختره وحده. ألحق به ترخيصًا، أو لغة، أو مهارة تقنية، أو قطاعًا تعرفه فعلًا. هو أكثر التخصصات شعبية في الخليج وأقلها حماية، وهذا تركيب سيئ حين يكون 69 بالمئة من الباحثين عن عمل المسجلين في البحرين يحملون شهادة جامعية أصلًا."},
+ e:{en:"Microsoft: management analysts 22nd of 785. Saudi Arabia has set localisation of 69 administrative support roles at 100 per cent, which protects who gets the job without protecting whether the job exists.",
+    ar:"مايكروسوفت: محللو الإدارة في المرتبة 22 من 785. وقد حددت السعودية توطين 69 وظيفة دعم إداري عند 100 بالمئة، وهذا يحمي من يحصل على الوظيفة دون أن يحمي وجودها."}},
+
+{id:"mkt", g:"biz", b:"high", n:{en:"Marketing and Digital Marketing", ar:"التسويق والتسويق الرقمي"},
+ d:{en:"Writes the copy, produces the images, builds the campaign brief, drafts the social calendar, and runs the first analysis of what worked. A junior marketing job in 2022 is now largely a set of prompts.",
+    ar:"يكتب النصوص، وينتج الصور، ويبني موجز الحملة، ويصوغ جدول المنشورات، ويجري التحليل الأول لما نجح. ووظيفة التسويق المبتدئة في 2022 صارت اليوم في معظمها مجموعة أوامر نصية."},
+ x:{en:"Own a budget, understand a market it has never lived in, or be trusted with a brand.",
+    ar:"لا يملك ميزانية، ولا يفهم سوقًا لم يعش فيه، ولا يُؤتمن على علامة تجارية."},
+ t:{en:"The sharpest seniority split measured in any field. Marketing specialists and market research analysts sit in the top three per cent of all occupations for AI use. Marketing managers sit in the middle of the table. The exposure is entirely at the execution layer, which is where you would start.",
+    ar:"أحدّ انقسام حسب المستوى الوظيفي قيس في أي مجال. أخصائيو التسويق ومحللو أبحاث السوق في أعلى ثلاثة بالمئة من كل المهن في استخدام الذكاء الاصطناعي. أما مديرو التسويق ففي وسط الترتيب. والتعرض كله في طبقة التنفيذ، وهي حيث ستبدأ أنت."},
+ a:{en:"Get to budget ownership and to a real market fast. If you stay in content production you are competing directly with a tool your employer already pays for.",
+    ar:"اوصل إلى إدارة الميزانية وإلى سوق حقيقي بسرعة. إن بقيت في إنتاج المحتوى فأنت تنافس مباشرة أداة يدفع صاحب العمل ثمنها أصلًا."},
+ e:{en:"Microsoft: market research analysts and marketing specialists 26th of 785, the 97th percentile; marketing managers 266th, the 66th. On freelance platforms, writing job posts fell about 30 per cent within eight months of ChatGPT.",
+    ar:"مايكروسوفت: محللو أبحاث السوق وأخصائيو التسويق في المرتبة 26 من 785، أي الشريحة 97؛ ومديرو التسويق عند 266، أي الشريحة 66. وعلى منصات العمل الحر انخفضت إعلانات وظائف الكتابة نحو 30 بالمئة خلال ثمانية أشهر من إطلاق ChatGPT."}},
+
+{id:"logi", g:"biz", b:"split", n:{en:"Logistics and Supply Chain Management", ar:"اللوجستيات وإدارة سلاسل الإمداد"},
+ d:{en:"Plans routes, forecasts demand, drafts the purchase order, and reconciles the paperwork.",
+    ar:"يخطط المسارات، ويتنبأ بالطلب، ويصوغ أمر الشراء، ويطابق الأوراق."},
+ x:{en:"Clear customs when something goes wrong, negotiate with a carrier at midnight, or move a container.",
+    ar:"لا يخلّص جمركيًا حين يتعثر شيء، ولا يفاوض ناقلًا في منتصف الليل، ولا يحرّك حاوية."},
+ t:{en:"Split cleanly by level. Procurement clerks face the single largest decline that the US statistics agency attributes to AI, at minus 8.7 per cent. Logisticians and supply chain managers sit mid-table and are growing.",
+    ar:"منقسم بوضوح حسب المستوى. كتبة المشتريات يواجهون أكبر انخفاض منفرد تنسبه هيئة الإحصاء الأمريكية إلى الذكاء الاصطناعي، عند ناقص 8.7 بالمئة. أما اللوجستيون ومديرو سلاسل الإمداد ففي وسط الترتيب وفي نمو."},
+ a:{en:"Aim above the clerical layer, and aim at the Gulf's ports and industrial zones, which are being expanded deliberately. Saudi Arabia issued more than a thousand logistics licences in 2024 alone. Note that Saudi Arabia is also localising twelve procurement and supply chain roles at 70 per cent.",
+    ar:"اتجه فوق الطبقة الكتابية، واتجه إلى موانئ الخليج ومناطقه الصناعية التي يجري توسيعها عن قصد. أصدرت السعودية أكثر من ألف رخصة لوجستية في 2024 وحدها. ولاحظ أن السعودية توطّن أيضًا اثنتي عشرة وظيفة مشتريات وسلاسل إمداد بنسبة 70 بالمئة."},
+ e:{en:"Microsoft: logisticians 343rd of 785, mid-table. The US Bureau of Labor Statistics projects procurement clerks at minus 8.7 per cent to 2034 and names AI as the cause.",
+    ar:"مايكروسوفت: اللوجستيون في المرتبة 343 من 785، في وسط الترتيب. ومكتب إحصاءات العمل الأمريكي يتوقع كتبة المشتريات عند ناقص 8.7 بالمئة حتى 2034 ويسمي الذكاء الاصطناعي سببًا."}},
+
+{id:"avia", g:"biz", b:"split", n:{en:"Aviation and Airport Management", ar:"إدارة الطيران والمطارات"},
+ d:{en:"Handles scheduling, disruption messaging, passenger enquiries and the reporting.",
+    ar:"يتولى الجدولة، ورسائل الاضطرابات، واستفسارات المسافرين، وإعداد التقارير."},
+ x:{en:"Hold an air traffic control licence, sign an airworthiness release, or manage a terminal when a storm closes the airport.",
+    ar:"لا يحمل رخصة مراقبة جوية، ولا يوقّع إفراج صلاحية طيران، ولا يدير صالة حين تغلق عاصفة المطار."},
+ t:{en:"The passenger-facing information roles are among the most exposed jobs measured anywhere, because answering questions is exactly what these systems do. The licensed and operational roles are not exposed at all.",
+    ar:"الوظائف المعلوماتية التي تواجه المسافر من أكثر الوظائف تعرضًا في أي قياس، لأن الإجابة عن الأسئلة هي بالضبط ما تفعله هذه الأنظمة. أما الوظائف المرخصة والتشغيلية فغير معرّضة إطلاقًا."},
+ a:{en:"Go for the licence: air traffic control, operations, safety, or engineering. Gulf aviation is growing, but growth in the sector does not protect the desk jobs inside it.",
+    ar:"اتجه إلى الترخيص: المراقبة الجوية، أو العمليات، أو السلامة، أو الهندسة. الطيران الخليجي في نمو، لكن نمو القطاع لا يحمي الوظائف المكتبية داخله."},
+ e:{en:"Microsoft: passenger attendants 12th of 785, travel agents 182nd. Travel agents also appear on the World Economic Forum's declining list.",
+    ar:"مايكروسوفت: مضيفو الركاب في المرتبة 12 من 785، ووكلاء السفر 182. ووكلاء السفر يظهرون أيضًا على قائمة المنتدى الاقتصادي العالمي للوظائف المنحسرة."}},
+
+{id:"law", g:"soc", b:"low", n:{en:"Law", ar:"القانون"},
+ d:{en:"Reads and summarises contracts, does the first pass of research and discovery, and drafts standard documents.",
+    ar:"يقرأ العقود ويلخصها، ويجري الجولة الأولى من البحث والاستكشاف، ويصوغ الوثائق النمطية."},
+ x:{en:"Appear in court, hold a practising certificate, give privileged advice, or be struck off.",
+    ar:"لا يمثل أمام محكمة، ولا يحمل رخصة مزاولة، ولا يقدم استشارة محمية، ولا يُشطب من الجدول."},
+ t:{en:"Less than the headlines suggest, and this is the most counter-intuitive result in the evidence. Measured AI use puts lawyers mid-table and paralegals in the bottom fifth of all occupations. What is genuinely declining is legal secretarial work, projected at minus 5.8 per cent.",
+    ar:"أقل مما توحي به العناوين، وهذه أكثر النتائج مخالفة للتوقع في كل الأدلة. الاستخدام المقاس يضع المحامين في وسط الترتيب والمساعدين القانونيين في الخُمس الأدنى من كل المهن. أما الذي ينحسر فعلًا فهو العمل السكرتاري القانوني، بتوقع ناقص 5.8 بالمئة."},
+ a:{en:"Law is protected in the Gulf twice over: by licensing in all six states, and in places by nationality. Saudi law firms must be at least 70 per cent Saudi lawyers, and courtroom advocacy in Qatar is in practice reserved for Qataris. There are few clearer protections available to a Gulf graduate.",
+    ar:"القانون محمي في الخليج مرتين: بالترخيص في الدول الست، وبالجنسية في بعضها. فمكاتب المحاماة السعودية يجب أن تضم 70 بالمئة على الأقل من المحامين السعوديين، والمرافعة أمام محاكم قطر محصورة عمليًا بالقطريين. وقلّ أن تجد حماية أوضح متاحة لخريج خليجي."},
+ e:{en:"Microsoft: lawyers 286th of 785, paralegals 668th, in the 15th percentile. An earlier capability study rated legal secretaries as fully exposed, and the US statistics agency projects them at minus 5.8 per cent while projecting little change for paralegals.",
+    ar:"مايكروسوفت: المحامون في المرتبة 286 من 785، والمساعدون القانونيون 668، أي الشريحة 15. ودراسة قدرات أسبق صنّفت السكرتارية القانونية على أنها معرّضة بالكامل، وهيئة الإحصاء الأمريكية تتوقع لها ناقص 5.8 بالمئة بينما تتوقع تغيرًا ضئيلًا للمساعدين القانونيين."}},
+
+{id:"media", g:"soc", b:"high", n:{en:"Media and Mass Communication", ar:"الإعلام والاتصال الجماهيري"},
+ d:{en:"Writes articles, scripts, headlines, press releases and social copy. Written production is the single most substituted category of work in the entire economy.",
+    ar:"يكتب المقالات والنصوص والعناوين والبيانات الصحفية ونصوص التواصل الاجتماعي. وإنتاج الكلمة المكتوبة هو الفئة الأكثر استبدالًا في الاقتصاد كله."},
+ x:{en:"Be in the room, get a source to talk, verify what actually happened, or face a camera.",
+    ar:"لا يكون في الغرفة، ولا يجعل مصدرًا يتكلم، ولا يتحقق مما حدث فعلًا، ولا يواجه كاميرا."},
+ t:{en:"Almost the whole entry rung. Writers rank third and journalists eleventh out of 785 occupations for measured AI use, and freelance writing work fell about 30 per cent within eight months of ChatGPT arriving. Broadcast announcers are projected down 5.5 per cent, attributed to AI.",
+    ar:"الدرجة الأولى كلها تقريبًا. الكتّاب في المرتبة الثالثة والصحفيون في الحادية عشرة من 785 مهنة في الاستخدام المقاس، وانخفض العمل الحر في الكتابة نحو 30 بالمئة خلال ثمانية أشهر من وصول ChatGPT. ومقدمو البث يُتوقع انخفاضهم 5.5 بالمئة، ويُنسب ذلك إلى الذكاء الاصطناعي."},
+ a:{en:"If you love this, go where the work is physical and access-based: reporting from places, filming, investigation, live production. Film and video editors sit at 477th, far safer than writers. Do not build a career on producing text.",
+    ar:"إن كنت تحب هذا فاذهب حيث يكون العمل ميدانيًا وقائمًا على الوصول: التغطية من الأماكن، والتصوير، والتحقيقات، والإنتاج المباشر. محررو الأفلام والفيديو في المرتبة 477، أي أكثر أمانًا بكثير من الكتّاب. لا تبنِ مسارًا مهنيًا على إنتاج النص."},
+ e:{en:"Microsoft: writers and authors 3rd of 785, journalists 11th, editors 16th, proofreaders 15th, broadcast announcers 6th. Harvard and Imperial College research on freelance platforms: writing posts down 30.4 per cent.",
+    ar:"مايكروسوفت: الكتّاب والمؤلفون في المرتبة 3 من 785، والصحفيون 11، والمحررون 16، والمدققون اللغويون 15، ومقدمو البث 6. وبحث هارفارد وإمبريال كوليدج على منصات العمل الحر: انخفاض إعلانات الكتابة 30.4 بالمئة."}},
+
+{id:"design", g:"soc", b:"high", n:{en:"Graphic and Multimedia Design", ar:"التصميم الجرافيكي والوسائط المتعددة"},
+ d:{en:"Generates images, logos, layouts, mock-ups and variations in seconds, at a quality that is good enough for most clients who used to pay a junior designer.",
+    ar:"يولّد الصور والشعارات والتنسيقات والنماذج والبدائل في ثوانٍ، بجودة تكفي أكثر العملاء الذين كانوا يدفعون لمصمم مبتدئ."},
+ x:{en:"Understand a business, defend a decision to a client, art-direct a team, or build a brand system that holds together over years.",
+    ar:"لا يفهم عملًا تجاريًا، ولا يدافع عن قرار أمام عميل، ولا يقود فريقًا فنيًا، ولا يبني نظام علامة يتماسك عبر السنين."},
+ t:{en:"The freelance and junior end has measurably contracted. Graphic design job posts on freelance platforms fell about 18 per cent within a year of image generators arriving, and the World Economic Forum added graphic designers to its declining list in 2025 for the first time.",
+    ar:"الطرف الحر والمبتدئ انكمش بشكل قابل للقياس. انخفضت إعلانات وظائف التصميم الجرافيكي على منصات العمل الحر نحو 18 بالمئة خلال عام من وصول مولّدات الصور، وأضاف المنتدى الاقتصادي العالمي المصممين الجرافيكيين إلى قائمة الانحسار في 2025 لأول مرة."},
+ a:{en:"Motion, three-dimensional work, film editing and art direction are all measurably safer than static two-dimensional design. If you want to stay in this field, move toward time-based and physical media, and toward directing rather than producing.",
+    ar:"المتحرك والثلاثي الأبعاد وتحرير الأفلام والإدارة الفنية كلها أكثر أمانًا بشكل قابل للقياس من التصميم الثنائي الساكن. إن أردت البقاء في هذا المجال فاتجه إلى الوسائط الزمنية والمادية، وإلى التوجيه بدل الإنتاج."},
+ e:{en:"Microsoft: graphic designers 196th of 785, but special effects artists and animators much lower at 429th and film and video editors at 477th. The US statistics agency projects graphic design at plus 2 per cent and says plainly that AI design tools may reduce the need to contract freelance designers.",
+    ar:"مايكروسوفت: المصممون الجرافيكيون في المرتبة 196 من 785، لكن فناني المؤثرات والرسوم المتحركة أدنى بكثير عند 429، ومحرري الأفلام والفيديو عند 477. وهيئة الإحصاء الأمريكية تتوقع للتصميم الجرافيكي زيادة 2 بالمئة وتقول صراحة إن أدوات التصميم بالذكاء الاصطناعي قد تقلل الحاجة إلى التعاقد مع مصممين مستقلين."}},
+
+{id:"edu", g:"soc", b:"low", n:{en:"Education and Teaching", ar:"التربية والتعليم"},
+ d:{en:"Plans lessons, writes worksheets and rubrics, marks routine work, and differentiates material for different levels. Teachers are among the fastest growing users of these tools anywhere.",
+    ar:"يخطط الدروس، ويكتب أوراق العمل ومعايير التقييم، ويصحح الأعمال الروتينية، ويكيّف المواد لمستويات مختلفة. والمعلمون من أسرع فئات المستخدمين نموًا لهذه الأدوات في العالم."},
+ x:{en:"Hold a room of thirty fourteen-year-olds, notice that a child has stopped eating, or be the adult a student trusts.",
+    ar:"لا يضبط صفًا فيه ثلاثون في الرابعة عشرة، ولا يلاحظ أن طفلًا توقف عن الأكل، ولا يكون البالغ الذي يثق به الطالب."},
+ t:{en:"School teaching, very little. University lecturing is a different job and a far more exposed one: postsecondary teachers in business, economics, political science and engineering all sit in the top six per cent of occupations for AI use, while school teachers sit around the 62nd percentile.",
+    ar:"التدريس المدرسي، قليل جدًا. أما التدريس الجامعي فوظيفة أخرى وأكثر تعرضًا بكثير: أساتذة الجامعات في الأعمال والاقتصاد والعلوم السياسية والهندسة كلهم في أعلى ستة بالمئة من المهن في استخدام الذكاء الاصطناعي، بينما معلمو المدارس عند الشريحة 62 تقريبًا."},
+ a:{en:"Teaching is licensed in all six Gulf states, demand is growing in absolute terms worldwide, and the work is custodial and physically present. The honest caveat is pay, not exposure. Also note that the UAE made AI a compulsory school subject from 2025, so the students you teach will arrive already fluent.",
+    ar:"التدريس مرخص في دول الخليج الست، والطلب عليه ينمو بالأعداد المطلقة عالميًا، والعمل رعائي وحاضر جسديًا. والتحفظ الصادق هنا هو الأجر لا التعرض. ولاحظ أيضًا أن الإمارات جعلت الذكاء الاصطناعي مادة مدرسية إلزامية من 2025، فالطلبة الذين ستدرّسهم سيصلون وهم يتقنونه."},
+ e:{en:"Microsoft: secondary school teachers 299th of 785, elementary 267th, preschool 351st; business teachers in higher education 17th. The World Economic Forum places secondary and university teachers among the largest absolute job creators to 2030.",
+    ar:"مايكروسوفت: معلمو المرحلة الثانوية في المرتبة 299 من 785، والابتدائية 267، ورياض الأطفال 351؛ أما أساتذة إدارة الأعمال في التعليم العالي فعند 17. والمنتدى الاقتصادي العالمي يضع معلمي الثانوية وأساتذة الجامعات ضمن أكبر مولّدات الوظائف بالأعداد المطلقة حتى 2030."}},
+
+{id:"tour", g:"soc", b:"split", n:{en:"Tourism and Hospitality Management", ar:"إدارة السياحة والضيافة"},
+ d:{en:"Answers guest questions, builds itineraries, writes the descriptions and handles the booking conversation.",
+    ar:"يجيب أسئلة النزلاء، ويبني البرامج السياحية، ويكتب الأوصاف، ويدير محادثة الحجز."},
+ x:{en:"Cook, clean a room, run a service, or fix a guest's evening when something has gone wrong.",
+    ar:"لا يطبخ، ولا ينظف غرفة، ولا يدير خدمة، ولا ينقذ أمسية نزيل حين يسوء شيء."},
+ t:{en:"The surprise of this page. The information-giving parts of hospitality are as exposed as journalism, because answering questions is the job. Concierges rank fourteenth out of 785 occupations and tour guides sixty-ninth. The service-delivery parts are near the very bottom.",
+    ar:"مفاجأة هذه الصفحة. الأجزاء المعلوماتية في الضيافة معرّضة بقدر الصحافة، لأن الإجابة عن الأسئلة هي الوظيفة نفسها. المرشدون الفندقيون في المرتبة الرابعة عشرة من 785 مهنة، والمرشدون السياحيون في التاسعة والستين. أما أجزاء تقديم الخدمة ففي القاع تقريبًا."},
+ a:{en:"The sector is growing enormously in the Gulf. Saudi tourism employed about 1.4 million people in 2025 against a 2030 target of 1.6 million. But a growing sector does not protect the exposed roles inside it. Aim at operations and management, not at the information desk.",
+    ar:"القطاع ينمو نموًا هائلًا في الخليج. وظّفت السياحة السعودية نحو 1.4 مليون شخص في 2025 مقابل هدف 1.6 مليون بحلول 2030. لكن نمو القطاع لا يحمي الوظائف المعرّضة داخله. اتجه إلى التشغيل والإدارة لا إلى مكتب الاستعلامات."},
+ e:{en:"Microsoft: concierges 14th of 785, tour and travel guides 69th, but chefs and head cooks 370th, food service managers 546th, and housekeeping cleaners near the very bottom.",
+    ar:"مايكروسوفت: المرشدون الفندقيون في المرتبة 14 من 785، والمرشدون السياحيون 69، لكن الطهاة ورؤساء الطهاة عند 370، ومديرو خدمات الطعام 546، وعمال التدبير الفندقي قرب القاع تمامًا."}}
+
+];
+
+/* ===== AI and your major: UI strings and rendering ===== */
+const MAJORS_AI = A1.concat(A2);
+
+const BANDS = {
+  high:  {en:"Heavily exposed",        ar:"معرّض بشدة"},
+  entry: {en:"Thin at the entry level", ar:"الدرجة الأولى ضيقة"},
+  split: {en:"Split inside the field",  ar:"منقسم داخل المجال"},
+  low:   {en:"Largely protected",       ar:"محمي إلى حد كبير"}
+};
+
+const GROUPS = [
+  {k:"all",    en:"All 31",      ar:"الكل ٣١"},
+  {k:"health", en:"Health",      ar:"الصحة"},
+  {k:"tech",   en:"Computing",   ar:"الحوسبة"},
+  {k:"eng",    en:"Engineering", ar:"الهندسة"},
+  {k:"biz",    en:"Business",    ar:"الأعمال"},
+  {k:"soc",    en:"Law, media and education", ar:"القانون والإعلام والتعليم"}
+];
+
+const BANDCHIPS = [
+  {k:"b-high",  en:"Heavily exposed",  ar:"معرّض بشدة"},
+  {k:"b-entry", en:"Thin at entry",    ar:"درجة أولى ضيقة"},
+  {k:"b-split", en:"Split",            ar:"منقسم"},
+  {k:"b-low",   en:"Protected",        ar:"محمي"}
+];
+
+const T = {
+en:{
+  kicker:"Free · updated August 2026",
+  title:"AI and your major",
+  sub:"What artificial intelligence is actually doing to the work behind 31 university majors, and what it is not.",
+  lede:"Almost everything written about AI and jobs is either a sales pitch or a scare. This page is neither. It uses what has been measured rather than what has been predicted, it names the fields where the damage is real, it says plainly where the evidence is contested, and it tells you what nobody else will: that the safest thing about a degree in the Gulf is usually not the subject, it is whether the law requires a licence to do the job.",
+  f1n:"31", f1s:"majors, each with an honest read rather than a score",
+  f2n:"1 in 3", f2s:"of all measured AI use worldwide is a single occupational group: computing and mathematics",
+  f3n:"0", f3s:"studies measuring AI's effect on employment in any Gulf country. That absence is itself a finding",
+
+  howT:"Four things worth knowing before you read your major",
+  howS:"These four patterns explain almost every result on this page.",
+  keys:[
+    ["What predicts exposure is not pay or prestige. It is whether the work is information work.",
+     "The strongest measurement available found almost no relationship between how well paid an occupation is and how much AI is used in it. What predicts it is whether the job consists of gathering, producing and communicating information. A translator and a marketing executive are exposed. An electrician and a physiotherapist are not."],
+    ["The damage is concentrated at the first rung, not across whole careers.",
+     "In the American payroll data, workers aged 22 to 25 in the most exposed occupations fell by roughly a sixth, while workers over 25 doing the same jobs at the same companies grew. If you are eighteen, this is the finding that concerns you, and it is the one most often left out."],
+    ["Where AI augments people, employment grew. Where it automates tasks, employment fell.",
+     "This distinction shows up in real headcount. It also explains a worrying gap: what people buy for themselves is mostly collaborative, but what companies buy through software interfaces is roughly three quarters task completion."],
+    ["Choosing where you sit inside a field matters more than choosing the field.",
+     "Marketing specialists are in the top three per cent of occupations for AI use; marketing managers are mid-table. University lecturers are heavily exposed; school teachers are not. Bookkeeping clerks are exposed; licensed auditors are not. The same degree can lead to either."]
+  ],
+
+  q:"Search a major, for example nursing, law, design",
+  count:function(n,t){return n===t ? (t+" majors") : (n+" of "+t+" majors");},
+  none:"No major matches that. Try a shorter word.",
+
+  r1:"What AI already does here",
+  r2:"What it does not do",
+  r3:"Where it bites",
+  r4:"What to do about it",
+  r5:"The evidence",
+
+  cavT:"Read this before you panic",
+  cavS:"An honest guide has to tell you how strong its own evidence is. Here is where this page is least certain.",
+  cavs:[
+    ["The headline finding is disputed, and seriously.",
+     "The claim that AI is cutting entry-level jobs rests mainly on one team's analysis of American payroll records. Two large independent studies of job advertisements, from the Federal Reserve Bank of New York and the Economic Innovation Group, find no gap at all between junior and senior demand. A Danish study using government records found effects too small to measure. The original authors have themselves conceded that the effect only becomes statistically significant from 2024, not from late 2022 as first reported."],
+    ["Nobody can separate AI from interest rates and the end of the hiring boom.",
+     "Job advertisements in the most AI-exposed occupations peaked in March 2022, six months before ChatGPT existed, at exactly the moment central banks started raising rates. A general hiring freeze also shrinks the youngest cohort automatically, because nobody replaces the people who leave. Both would look like an AI effect in the data."],
+    ["Aggregate unemployment has not moved.",
+     "The entire measured shift among young workers amounts to roughly one tenth of one percentage point on the overall unemployment rate. This is a real and painful shift for the people it lands on, and it is not an economy-wide collapse. Anyone telling you otherwise is selling something."],
+    ["Exposure is not displacement, and the people who publish these scores say so.",
+     "Microsoft published a formal note stating that its applicability score is not a measure of job loss. The International Labour Organization warns that exposure indices describe what AI could do, not what employers will do. Read every number on this page as a description of the work, not a prophecy about your life."],
+    ["All of this measures the present, with tools from the recent past.",
+     "The occupational measurements here come from usage between 2024 and 2026. Models have improved since, and will again. Treat the rank order as more durable than the levels."]
+  ],
+
+  gulfT:"What is different in the Gulf",
+  gulfS:"Every occupational number above comes from American or global data. Nobody has measured this in Bahrain, Saudi Arabia, the UAE, Qatar, Kuwait or Oman. But four things about this region change the answer, and none of them appear in the international evidence.",
+  gulfs:[
+    ["Licensing here is attached to your work permit, which makes it a harder gate than almost anywhere.",
+     "In most countries a professional licence is a credential. In the Gulf it is increasingly a condition of being legally allowed to hold the job at all. Oman made engineering accreditation a work-permit requirement in August 2025 and added 41 oil and gas occupations a month later. Kuwait did the same for engineers in late 2024. Saudi Arabia will not count an unaccredited engineer toward its localisation quota. The UAE unified health licensing across all its authorities in February 2025. Medicine, dentistry, pharmacy, nursing, allied health, engineering and law all sit behind statutory gates in all six states. General business, marketing, generic management and administration sit behind none."],
+    ["The quotas and the exposure are landing on the same jobs.",
+     "Saudi Arabia is raising accounting localisation to 70 per cent by 2028, has set administrative support at 100 per cent, marketing and sales at 60 per cent, and procurement at 70. Those are among the most AI-exposed occupation groups in existence. A quota guarantees that a national gets the job if the job exists. It does not guarantee that the job exists."],
+    ["The government job, the traditional answer to graduate unemployment, is the most exposed employer of all.",
+     "A third of employed Bahrainis work in the public sector, and public-sector work is overwhelmingly administrative and clerical, which is the most exposed category measured anywhere. Meanwhile the International Monetary Fund is urging several Gulf governments to restrain public hiring. The traditional fallback is being squeezed from both directions at once."],
+    ["In Bahrain, the degree is already not clearing the market, before AI is considered at all.",
+     "Ministry of Labour figures for 2025 record 15,433 registered job seekers, of whom 10,607, that is 69 per cent, hold a bachelor's degree or higher. Of those, 8,600 are women. More than half of everyone looking for work in Bahrain is a woman with a university degree. Whatever AI does next, that is the market a Bahraini student is graduating into, and it argues for a licence, a technical skill or a scarce language rather than for a general degree."]
+  ],
+
+  quizline:"Not sure which majors fit you in the first place? Take the free 34-question assessment.",
+  quizbtn:"Take the assessment",
+  expline:"Want the full picture of what each major involves, and which Gulf universities offer it?",
+  expbtn:"Explore the majors",
+  parline:"Parents: there is a guide written for you, in Arabic first.",
+  parbtn:"The parent guide",
+
+  srcT:"Where these figures come from",
+  srcS:"Every number on this page is from one of these. Where a study is disputed, the disputes are listed too.",
+  src:[
+    ["Working with AI: Measuring the Occupational Implications of Generative AI. Microsoft Research, 785 occupations ranked by measured AI use, revised December 2025.","https://arxiv.org/abs/2507.07935"],
+    ["Applicability is not job displacement, a note from the same team.","https://www.microsoft.com/en-us/research/blog/applicability-vs-job-displacement-further-notes-on-our-recent-research-on-ai-and-occupations/"],
+    ["Canaries in the Coal Mine? Stanford Digital Economy Lab, payroll records, November 2025 version, with the live dashboard updated July 2026.","https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/"],
+    ["Canaries, interest rates and timing: the authors' own response to the criticism, February 2026.","https://digitaleconomy.stanford.edu/news/canaries-interest-rates-and-timinga-more-on-recent-drivers-of-employment-changes-for-young-workers/"],
+    ["Do job postings show early labour market effects of AI? Federal Reserve Bank of New York, May 2026, which finds no junior to senior gap.","https://libertystreeteconomics.newyorkfed.org/2026/05/do-job-postings-show-early-labor-market-effects-of-ai/"],
+    ["Looking for the Ladder: is AI impacting entry-level jobs? Economic Innovation Group, January 2026, the main critique.","https://eig.org/wp-content/uploads/2026/01/TAWP-Iscenko-Millet.pdf"],
+    ["What we do and do not know about how AI is affecting the labour market. Yale Budget Lab, May 2026.","https://budgetlab.yale.edu/research/what-we-do-and-dont-know-about-how-ai-affecting-labor-market"],
+    ["The Anthropic Economic Index, all releases to June 2026, for what people actually use these systems to do.","https://www.anthropic.com/economic-index"],
+    ["The Future of Jobs Report 2025. World Economic Forum, January 2025. The 2025 edition is the latest; there is no 2026 edition.","https://www.weforum.org/publications/the-future-of-jobs-report-2025/"],
+    ["Employment Projections 2024 to 2034 and the AI analysis of July 2026. US Bureau of Labor Statistics.","https://www.bls.gov/news.release/ecopro.nr0.htm"],
+    ["Who is AI replacing? Freelance platform evidence on writing, design and engineering work. Harvard Business School, DIW Berlin and Imperial College London, 2024.","https://questromworld.bu.edu/platformstrategy/wp-content/uploads/sites/49/2024/06/PlatStrat2024_paper_119.pdf"],
+    ["What AI exposure indicators reveal about jobs. International Labour Organization, April 2026.","https://www.ilo.org/resource/news/new-ilo-brief-explains-what-ai-exposure-indicators-reveal-about-jobs"],
+    ["Saudi professional localisation decisions, Ministry of Human Resources and Social Development.","https://www.hrsd.gov.sa/en"],
+    ["Bahrain Economic Report 2025, Ministry of Finance and National Economy, for the labour market figures.","https://www.mofne.gov.bh/media/ntzkzqvn/beq_2025_english.pdf"],
+    ["Bahrain Ministry of Labour registered job seeker figures for 2025, reported April 2026.","https://www.newsofbahrain.com/bahrain/131117.html"]
+  ],
+
+  disc:"This page describes what has been measured about the work, not what will happen to you. No one can tell you that. It is offered free and carries no advertising.",
+  foot:"Prepared by Dr. Saqer AlKhalifa · saqeralkhalifa.com"
+},
+ar:{
+  kicker:"مجاني · محدّث في أغسطس 2026",
+  title:"الذكاء الاصطناعي وتخصصك",
+  sub:"ما الذي يفعله الذكاء الاصطناعي فعلًا بالعمل خلف 31 تخصصًا جامعيًا، وما الذي لا يفعله.",
+  lede:"أكثر ما يُكتب عن الذكاء الاصطناعي والوظائف إما تسويق وإما تخويف. هذه الصفحة ليست واحدًا منهما. تعتمد على ما قيس لا على ما تُنبئ به التوقعات، وتسمي المجالات التي فيها ضرر حقيقي، وتقول بصراحة أين تكون الأدلة محل خلاف، وتخبرك بما لا يخبرك به غيرها: أن أكثر ما يحمي الشهادة في الخليج ليس موضوعها في الغالب، بل هل يشترط القانون ترخيصًا لمزاولة المهنة.",
+  f1n:"٣١", f1s:"تخصصًا، لكل واحد قراءة صادقة بدل درجة رقمية",
+  f2n:"١ من ٣", f2s:"من كل استخدام مقاس للذكاء الاصطناعي في العالم هو مجموعة مهنية واحدة: الحوسبة والرياضيات",
+  f3n:"٠", f3s:"دراسات تقيس أثر الذكاء الاصطناعي على التوظيف في أي دولة خليجية. وهذا الغياب نتيجة بحد ذاته",
+
+  howT:"أربعة أمور تستحق أن تعرفها قبل أن تقرأ تخصصك",
+  howS:"هذه الأنماط الأربعة تفسّر كل نتيجة تقريبًا في هذه الصفحة.",
+  keys:[
+    ["ما يتنبأ بالتعرض ليس الأجر ولا المكانة، بل هل العمل عمل معلومات.",
+     "وجد أقوى قياس متاح أنه لا توجد تقريبًا علاقة بين أجر المهنة ومقدار استخدام الذكاء الاصطناعي فيها. الذي يتنبأ بذلك هو هل تتكون الوظيفة من جمع المعلومات وإنتاجها وتوصيلها. المترجم ومسؤول التسويق معرّضان. الكهربائي وأخصائي العلاج الطبيعي ليسا كذلك."],
+    ["الضرر متركز في الدرجة الأولى من السلم لا في المسار المهني كله.",
+     "في بيانات الرواتب الأمريكية، انخفض العاملون بين 22 و25 سنة في أكثر المهن تعرضًا بنحو السدس، بينما نما من هم فوق 25 ممن يؤدون العمل نفسه في الشركات نفسها. إن كنت في الثامنة عشرة فهذه هي النتيجة التي تعنيك، وهي الأكثر إغفالًا."],
+    ["حيث يعزز الذكاء الاصطناعي الإنسان نما التوظيف. وحيث يؤتمت المهام انخفض.",
+     "يظهر هذا التمييز في أعداد الموظفين الفعلية. وهو يفسّر أيضًا فجوة مقلقة: ما يشتريه الناس لأنفسهم تعاوني في معظمه، أما ما تشتريه الشركات عبر واجهات البرمجة فنحو ثلاثة أرباعه إنجاز مهام."],
+    ["اختيارك أين تقف داخل المجال أهم من اختيارك المجال نفسه.",
+     "أخصائيو التسويق في أعلى ثلاثة بالمئة من المهن في استخدام الذكاء الاصطناعي؛ ومديرو التسويق في وسط الترتيب. أساتذة الجامعات معرّضون بشدة؛ ومعلمو المدارس لا. وكتبة مسك الدفاتر معرّضون؛ والمدققون المرخصون لا. والشهادة نفسها قد تقود إلى أيٍّ من الطرفين."]
+  ],
+
+  q:"ابحث عن تخصص، مثلًا التمريض، القانون، التصميم",
+  count:function(n,t){return n===t ? (t+" تخصصًا") : (n+" من "+t+" تخصصًا");},
+  none:"لا يوجد تخصص مطابق. جرّب كلمة أقصر.",
+
+  r1:"ما الذي يفعله الذكاء الاصطناعي هنا فعلًا",
+  r2:"ما الذي لا يفعله",
+  r3:"أين يعضّ",
+  r4:"ماذا تفعل حيال ذلك",
+  r5:"الدليل",
+
+  cavT:"اقرأ هذا قبل أن تقلق",
+  cavS:"الدليل الصادق يجب أن يخبرك بقوة أدلته هو. وهذه المواضع التي تكون فيها هذه الصفحة أقل يقينًا.",
+  cavs:[
+    ["النتيجة الرئيسية محل خلاف، وخلاف جدي.",
+     "الادعاء بأن الذكاء الاصطناعي يقلص وظائف الدرجة الأولى يستند أساسًا إلى تحليل فريق واحد لسجلات رواتب أمريكية. ودراستان مستقلتان كبيرتان لإعلانات الوظائف، من بنك الاحتياطي الفيدرالي في نيويورك ومن مجموعة الابتكار الاقتصادي، لا تجدان أي فجوة بين الطلب على المبتدئين والطلب على الخبراء. ودراسة دنماركية اعتمدت السجلات الحكومية وجدت آثارًا أصغر من أن تُقاس. بل إن المؤلفين الأصليين أقرّوا بأن الأثر لا يصبح ذا دلالة إحصائية إلا من 2024، لا من أواخر 2022 كما نُشر أول مرة."],
+    ["لا أحد يستطيع فصل الذكاء الاصطناعي عن أسعار الفائدة ونهاية طفرة التوظيف.",
+     "بلغت إعلانات الوظائف في أكثر المهن تعرضًا ذروتها في مارس 2022، أي قبل ستة أشهر من وجود ChatGPT، وفي اللحظة نفسها التي بدأت فيها البنوك المركزية رفع الفائدة. كما أن أي تجميد عام للتوظيف يقلص الفئة الأصغر سنًا تلقائيًا، لأن أحدًا لا يحل محل من يغادر. وكلا الأمرين سيبدو في البيانات كأثر للذكاء الاصطناعي."],
+    ["البطالة الإجمالية لم تتحرك.",
+     "كل التحول المقاس بين العاملين الشباب يعادل نحو عُشر نقطة مئوية واحدة من معدل البطالة العام. هذا تحول حقيقي ومؤلم لمن يقع عليه، وليس انهيارًا على مستوى الاقتصاد. ومن يخبرك بغير ذلك فهو يبيعك شيئًا."],
+    ["التعرض ليس إحلالًا، والذين ينشرون هذه الدرجات يقولون ذلك بأنفسهم.",
+     "نشرت مايكروسوفت مذكرة رسمية تنص على أن درجة قابلية التطبيق ليست مقياسًا لفقدان الوظائف. ومنظمة العمل الدولية تحذر من أن مؤشرات التعرض تصف ما يستطيع الذكاء الاصطناعي فعله لا ما سيفعله أصحاب العمل. اقرأ كل رقم في هذه الصفحة على أنه وصف للعمل لا نبوءة عن حياتك."],
+    ["كل هذا يقيس الحاضر بأدوات من الماضي القريب.",
+     "القياسات المهنية هنا مأخوذة من استخدام بين 2024 و2026. والنماذج تحسنت منذ ذلك الحين وستتحسن مجددًا. تعامل مع ترتيب المهن على أنه أدوم من مستوياتها."]
+  ],
+
+  gulfT:"ما الذي يختلف في الخليج",
+  gulfS:"كل رقم مهني أعلاه مأخوذ من بيانات أمريكية أو عالمية. لم يقس أحد هذا في البحرين أو السعودية أو الإمارات أو قطر أو الكويت أو عُمان. لكن أربعة أمور في هذه المنطقة تغيّر الجواب، ولا يظهر أي منها في الأدلة الدولية.",
+  gulfs:[
+    ["الترخيص هنا مرتبط بتصريح عملك، وهذا يجعله بوابة أصعب مما في أغلب الدول.",
+     "في معظم البلدان يكون الترخيص المهني شهادة اعتماد. أما في الخليج فيصبح شرطًا للسماح لك قانونًا بشغل الوظيفة أصلًا. عُمان جعلت الاعتماد الهندسي شرطًا لتصريح العمل في أغسطس 2025 وأضافت 41 مهنة نفط وغاز بعدها بشهر. والكويت فعلت المثل للمهندسين أواخر 2024. والسعودية لا تحتسب مهندسًا غير معتمد ضمن نسبة التوطين. والإمارات وحّدت تراخيص المهن الصحية بين جميع جهاتها في فبراير 2025. الطب وطب الأسنان والصيدلة والتمريض والمهن الصحية المساندة والهندسة والقانون كلها خلف بوابات قانونية في الدول الست. أما إدارة الأعمال العامة والتسويق والإدارة العامة والأعمال الإدارية فلا بوابة خلفها."],
+    ["النسب المفروضة والتعرض يقعان على الوظائف نفسها.",
+     "ترفع السعودية توطين المحاسبة إلى 70 بالمئة بحلول 2028، وحددت الدعم الإداري عند 100 بالمئة، والتسويق والمبيعات عند 60 بالمئة، والمشتريات عند 70. وهذه من أكثر المجموعات المهنية تعرضًا للذكاء الاصطناعي على الإطلاق. والنسبة تضمن أن يحصل المواطن على الوظيفة إن وُجدت، لكنها لا تضمن وجودها."],
+    ["الوظيفة الحكومية، وهي الجواب التقليدي لبطالة الخريجين، هي أكثر أرباب العمل تعرضًا.",
+     "ثلث البحرينيين العاملين في القطاع العام، والعمل في القطاع العام إداري وكتابي في معظمه، وهي الفئة الأكثر تعرضًا في كل القياسات. وفي الوقت نفسه يحث صندوق النقد الدولي عدة حكومات خليجية على كبح التوظيف الحكومي. أي أن الملاذ التقليدي يُضغط من الجهتين معًا."],
+    ["في البحرين، الشهادة لا تُصرَّف في السوق أصلًا، قبل حساب الذكاء الاصطناعي إطلاقًا.",
+     "تسجل أرقام وزارة العمل لعام 2025 وجود 15,433 باحثًا عن عمل مسجلًا، منهم 10,607، أي 69 بالمئة، يحملون بكالوريوس فأعلى. ومن هؤلاء 8,600 امرأة. أي أن أكثر من نصف الباحثين عن عمل في البحرين نساء يحملن شهادة جامعية. ومهما فعل الذكاء الاصطناعي بعد ذلك، فهذه هي السوق التي يتخرج إليها الطالب البحريني، وهي تدفع نحو ترخيص أو مهارة تقنية أو لغة نادرة، لا نحو شهادة عامة."]
+  ],
+
+  quizline:"لست متأكدًا أي التخصصات تناسبك أصلًا؟ ابدأ الاختبار المجاني المكوّن من 34 سؤالًا.",
+  quizbtn:"ابدأ الاختبار",
+  expline:"تريد الصورة الكاملة لكل تخصص وأي جامعات الخليج تقدّمه؟",
+  expbtn:"استكشف التخصصات",
+  parline:"لأولياء الأمور: هناك دليل كُتب لكم، بالعربية أولًا.",
+  parbtn:"دليل أولياء الأمور",
+
+  srcT:"من أين جاءت هذه الأرقام",
+  srcS:"كل رقم في هذه الصفحة من أحد هذه المصادر. وحيث تكون الدراسة محل خلاف، فالاعتراضات مذكورة أيضًا.",
+  src:null,
+
+  disc:"هذه الصفحة تصف ما قيس عن العمل، لا ما سيحدث لك أنت. لا أحد يستطيع أن يخبرك بذلك. وهي مجانية ولا تحمل أي إعلانات.",
+  foot:"إعداد د. صقر آل خليفة · saqeralkhalifa.com"
+}
+};
+
+/* ---------- state ---------- */
+var LANG = "en";
+var FILTER = "all";
+var BFILTER = null;
+var Q = "";
+var OPEN = {};
+
+function L(){ return T[LANG]; }
+function tx(o){ return o[LANG]; }
+
+/* ---------- render ---------- */
+function renderChrome(){
+  var t = L();
+  document.getElementById("kicker").textContent = t.kicker;
+  document.getElementById("t-title").textContent = t.title;
+  document.getElementById("t-sub").textContent = t.sub;
+  document.getElementById("lede").textContent = t.lede;
+
+  document.getElementById("facts").innerHTML =
+    '<div class="fact"><b>'+t.f1n+'</b><span>'+t.f1s+'</span></div>' +
+    '<div class="fact"><b>'+t.f2n+'</b><span>'+t.f2s+'</span></div>' +
+    '<div class="fact"><b>'+t.f3n+'</b><span>'+t.f3s+'</span></div>';
+
+  document.getElementById("t-howT").textContent = t.howT;
+  document.getElementById("t-howS").textContent = t.howS;
+  document.getElementById("keys").innerHTML = t.keys.map(function(k){
+    return '<div class="pt"><b>'+k[0]+'</b><span>'+k[1]+'</span></div>'; }).join("");
+
+  document.getElementById("q").placeholder = t.q;
+
+  document.getElementById("t-cavT").textContent = t.cavT;
+  document.getElementById("t-cavS").textContent = t.cavS;
+  document.getElementById("cavs").innerHTML = t.cavs.map(function(k){
+    return '<div class="pt warn"><b>'+k[0]+'</b><span>'+k[1]+'</span></div>'; }).join("");
+
+  document.getElementById("t-gulfT").textContent = t.gulfT;
+  document.getElementById("t-gulfS").textContent = t.gulfS;
+  document.getElementById("gulfs").innerHTML = t.gulfs.map(function(k){
+    return '<div class="pt"><b>'+k[0]+'</b><span>'+k[1]+'</span></div>'; }).join("");
+
+  document.getElementById("t-quizline").textContent = t.quizline;
+  document.getElementById("t-quizbtn").textContent = t.quizbtn;
+  document.getElementById("t-expline").textContent = t.expline;
+  document.getElementById("t-expbtn").textContent = t.expbtn;
+  document.getElementById("t-parline").textContent = t.parline;
+  document.getElementById("t-parbtn").textContent = t.parbtn;
+
+  document.getElementById("srcT").textContent = t.srcT;
+  document.getElementById("srcS").textContent = t.srcS;
+  document.getElementById("srcList").innerHTML = T.en.src.map(function(s){
+    return '<li>'+s[0]+' <a href="'+s[1]+'" target="_blank" rel="noopener">'+s[1]+'</a></li>'; }).join("");
+
+  document.getElementById("t-disc").textContent = t.disc;
+  document.getElementById("t-foot").textContent = t.foot;
+
+  var chips = GROUPS.map(function(g){
+    return '<button class="chip'+(FILTER===g.k?' on':'')+'" data-g="'+g.k+'">'+tx(g)+'</button>'; })
+    .concat(BANDCHIPS.map(function(b){
+      return '<button class="chip'+(BFILTER===b.k?' on':'')+'" data-b="'+b.k+'">'+tx(b)+'</button>'; }));
+  document.getElementById("chips").innerHTML = chips.join("");
+}
+
+function match(m){
+  if(FILTER !== "all" && m.g !== FILTER) return false;
+  if(BFILTER && ("b-"+m.b) !== BFILTER) return false;
+  if(!Q) return true;
+  var hay = (m.n.en+" "+m.n.ar+" "+m.d.en+" "+m.d.ar+" "+m.t.en+" "+m.t.ar+" "+m.a.en+" "+m.a.ar).toLowerCase();
+  return hay.indexOf(Q) > -1;
+}
+
+function renderList(){
+  var t = L();
+  var list = MAJORS_AI.filter(match);
+  document.getElementById("count").textContent = t.count(list.length, MAJORS_AI.length);
+  if(!list.length){ document.getElementById("mlist").innerHTML = '<div class="pt"><span>'+t.none+'</span></div>'; return; }
+  document.getElementById("mlist").innerHTML = list.map(function(m){
+    var open = OPEN[m.id] ? " open" : "";
+    return '<div class="m'+open+'" id="m-'+m.id+'">' +
+      '<button class="mhead" data-id="'+m.id+'" aria-expanded="'+(OPEN[m.id]?"true":"false")+'">' +
+        '<span class="mname">'+tx(m.n)+'</span>' +
+        '<span class="band '+m.b+'">'+tx(BANDS[m.b])+'</span>' +
+        '<span class="caret" aria-hidden="true">&#9654;</span>' +
+      '</button>' +
+      '<div class="mbody">' +
+        '<div class="row"><h4>'+t.r1+'</h4><p>'+tx(m.d)+'</p></div>' +
+        '<div class="row"><h4>'+t.r2+'</h4><p>'+tx(m.x)+'</p></div>' +
+        '<div class="row"><h4>'+t.r3+'</h4><p>'+tx(m.t)+'</p></div>' +
+        '<div class="row act"><h4>'+t.r4+'</h4><p>'+tx(m.a)+'</p></div>' +
+        '<div class="ev"><strong>'+t.r5+'.</strong> '+tx(m.e)+'</div>' +
+      '</div></div>';
+  }).join("");
+}
+
+function renderAll(){ renderChrome(); renderList(); }
+
+/* ---------- events ---------- */
+document.addEventListener("click", function(e){
+  var h = e.target.closest ? e.target.closest(".mhead") : null;
+  if(h){
+    var id = h.getAttribute("data-id");
+    OPEN[id] = !OPEN[id];
+    var card = document.getElementById("m-"+id);
+    if(card){ card.classList.toggle("open"); h.setAttribute("aria-expanded", OPEN[id]?"true":"false"); }
+    if(OPEN[id] && window.goatcounter && window.goatcounter.count){
+      try{ window.goatcounter.count({path:"ai-"+id, title:"AI major "+id, event:true}); }catch(err){}
+    }
+    return;
+  }
+  var c = e.target.closest ? e.target.closest(".chip") : null;
+  if(c){
+    if(c.hasAttribute("data-g")){ FILTER = c.getAttribute("data-g"); }
+    else { var b = c.getAttribute("data-b"); BFILTER = (BFILTER === b) ? null : b; }
+    renderAll();
+  }
+});
+
+document.getElementById("q").addEventListener("input", function(e){
+  Q = (e.target.value || "").trim().toLowerCase();
+  renderList();
+});
+
+document.getElementById("langToggle").addEventListener("click", function(){
+  LANG = (LANG === "en") ? "ar" : "en";
+  document.documentElement.lang = LANG;
+  document.documentElement.dir = (LANG === "ar") ? "rtl" : "ltr";
+  this.textContent = (LANG === "ar") ? "English" : "عربي";
+  renderAll();
+});
+
+renderAll();
+
+</script>
+<script>
+(function(){
+  function sync(){
+    var l = document.documentElement.lang === "ar" ? "ar" : "en";
+    var n = document.querySelectorAll("[data-en]");
+    for(var i=0;i<n.length;i++){ n[i].textContent = n[i].getAttribute("data-"+l); }
+  }
+  try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
+  document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
+  sync();
+})();
+</script>
+</body>
+</html>
