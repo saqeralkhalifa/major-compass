@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Routes without a degree | Major Compass</title>
+<meta name="description" content="Professional qualifications, technical certifications, technical institutes, paid apprenticeships and licensed trades for school leavers in Bahrain and the Gulf, with the named places where you can actually do each one.">
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{line-height:1.8; min-height:100vh;}
+  .wrap{max-width:860px; margin:0 auto; padding:0 22px 80px;}
+  .serif{font-family:Georgia,'Times New Roman',serif;}
+
+  header.site{display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0 14px; border-bottom:1px solid var(--line);}
+  .brand{font-size:.95rem; color:var(--ink-2); text-decoration:none;}
+  .lang-toggle{border:1px solid var(--line); background:var(--card); border-radius:999px;
+    padding:7px 16px; font-size:.95rem; cursor:pointer; color:var(--accent); font-weight:600; font-family:inherit;}
+
+  .hero{text-align:center; padding:44px 0 6px;}
+  .kicker{font-size:.8rem; letter-spacing:.16em; text-transform:uppercase; font-weight:800; margin-bottom:12px;}
+  .hero h1{font-size:2.2rem; line-height:1.28; margin-bottom:12px;}
+  .hero p.sub{color:var(--ink-2); font-size:1.1rem; max-width:680px; margin:0 auto;}
+
+  .lede{font-size:1.06rem; line-height:1.8; color:var(--ink); margin:32px 0 6px;
+    padding:22px 26px; background:var(--card); border:1px solid var(--line);}
+
+  .chap{margin-top:44px; padding-top:26px; border-top:2px solid var(--line);}
+  .chap h2{font-size:1.5rem; line-height:1.3; margin-bottom:8px;}
+  .chap p.sub{color:var(--ink-2); margin-bottom:16px;}
+  .pt{background:var(--card); border:1px solid var(--line); padding:18px 22px; margin-bottom:10px;}
+  .pt b{display:block; font-size:1.02rem; margin-bottom:5px;}
+  .pt span{color:var(--ink-2); font-size:.97rem; line-height:1.8; display:block;}
+
+  /* ---- pickers ---- */
+  .controls{margin-top:40px; padding-top:24px; border-top:2px solid var(--line);}
+  .controls h2{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+    font-weight:700; margin:0 0 8px;}
+  .chips{display:flex; gap:7px; flex-wrap:wrap; margin-bottom:16px;}
+  .chip{border:1px solid var(--line-2); background:var(--card); color:var(--ink-2);
+    padding:8px 14px; font-size:.9rem; font-weight:500; cursor:pointer; font-family:inherit;}
+  .count{font-size:.85rem; color:var(--ink-3); margin-bottom:12px;}
+
+  /* ---- route cards ---- */
+  .rt{background:var(--card); border:1px solid var(--line); padding:20px 24px; margin-bottom:12px;}
+  .rh{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px;}
+  .rh b{font-size:1.12rem; flex:1; min-width:200px;}
+  .tag{font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+    padding:4px 9px; border:1px solid var(--line-2); color:var(--ink-3); white-space:nowrap;}
+  .tag.all{color:var(--good); border-color:var(--good-line); background:var(--good-soft);}
+  .tag.nationals{color:var(--bad); border-color:var(--bad-line); background:var(--bad-soft);}
+  .tag.mixed{color:var(--warn); border-color:var(--warn-line); background:var(--warn-soft);}
+  .tag.degree{color:var(--ink-3);}
+  .rt p{color:var(--ink-2); font-size:.99rem; line-height:1.8;}
+  .meta{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; padding-top:12px;
+    border-top:1px dashed var(--line);}
+  .meta div{font-size:.92rem; color:var(--ink-2); line-height:1.7;}
+  .ml, .wl{display:block; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); font-weight:700; margin-bottom:3px;}
+  @media(max-width:640px){ .meta{grid-template-columns:1fr;} }
+  .wh{margin-top:14px; padding:14px 16px; background:var(--paper-2); border:1px solid var(--line);
+    font-size:.93rem; color:var(--ink-2); line-height:1.8;}
+  .note{margin-top:10px; font-size:.88rem; color:var(--ink-3); line-height:1.7;}
+
+  .gaps{margin-top:18px; padding:20px 24px; background:var(--warn-soft); border:1px solid var(--warn-line);}
+  .gaps h2{font-size:1.02rem; margin-bottom:8px;}
+  .gaps ul{padding-inline-start:20px;}
+  .gaps li{font-size:.93rem; color:var(--ink-2); margin-bottom:8px; line-height:1.75;}
+
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    background:var(--card); border:1px solid var(--line); padding:18px 22px; margin-top:12px;}
+  .bar p{color:var(--ink-2); font-size:.98rem; flex:1; min-width:230px;}
+  .btn{display:inline-block; background:var(--navy); color:#fff; text-decoration:none;
+    padding:11px 22px; font-weight:600; font-size:.95rem; white-space:nowrap;}
+  .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent-line);}
+
+  .srcbox{margin-top:40px; padding:22px 24px; background:var(--card); border:1px solid var(--line);}
+  .srcbox h2{font-size:1.05rem; margin-bottom:4px;}
+  .srcbox p.sub{font-size:.9rem; color:var(--ink-3); margin-bottom:12px;}
+  .srcbox ol{padding-inline-start:20px;}
+  .srcbox li{font-size:.88rem; color:var(--ink-2); margin-bottom:8px; line-height:1.7;}
+  .srcbox a{color:var(--accent); word-break:break-word;}
+
+  footer.site{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
+    font-size:.9rem; color:var(--ink-3); text-align:center;}
+  .disc{margin-bottom:8px;}
+/* ============================================================
+   Major Compass shared theme, option 2A
+   Ink and paper editorial, Newsreader display, brass accent.
+   Tokens mirror theme.css from the design handoff.
+   Square corners everywhere except the language pill.
+   No shadows, no gradients, no icons.
+   ============================================================ */
+:root{
+  --font-display:Newsreader, Georgia, 'Times New Roman', serif;
+  --font-body:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-ar:'IBM Plex Sans Arabic', 'IBM Plex Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+
+  --paper:#f6f3ec;
+  --paper-2:#efece4;
+  --card:#fbf9f4;
+  --line:#ddd7cb;
+  --line-2:#cfc9bd;
+
+  --ink:#14161a;
+  --ink-2:#33363c;
+  --ink-3:#6b6e74;
+
+  --navy:#14161a;
+  --navy-deep:#8a5a1e;
+  --accent:#8a5a1e;
+  --accent-soft:#efece4;
+  --accent-line:#cfc9bd;
+
+  --gold:#8a5a1e;
+  --gold-soft:#f0ebdf;
+  --gold-line:#ddd7cb;
+  --gold-bright:#d8b98a;
+
+  --good:#3f6b4f;  --good-soft:#eaefe9;  --good-line:#cfdbd0;
+  --warn:#8a5a1e;  --warn-soft:#f0ebdf;  --warn-line:#e2d9c6;
+  --bad:#8c3a30;   --bad-soft:#f4e9e5;   --bad-line:#e2cfc8;
+
+  --radius:0; --radius-sm:0;
+  --shadow:none; --shadow-lift:none;
+}
+
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+[dir="rtl"] body{font-family:var(--font-ar); line-height:1.95;}
+body::before{display:none !important;}
+
+/* ---------- display type: Newsreader 400, never bold serif ---------- */
+.serif, .chap h2, .cn, .stat-n, .minrow b, .grp-t, .grp h2, .panel h2,
+.srcbox h2, .majors-title, .hero h1, h1, h2, h3{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-variation-settings:normal;
+  letter-spacing:-.02em;
+}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .cn, [dir="rtl"] .stat-n,
+[dir="rtl"] .minrow b, [dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2,
+[dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title, [dir="rtl"] .hero h1,
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3{
+  font-family:var(--font-ar); letter-spacing:0; font-weight:600; line-height:1.35;
+}
+.stat-n, .minrow b, .cnt, td, th, .cal-row b{font-variant-numeric:tabular-nums;}
+::selection{background:var(--paper-2); color:var(--ink);}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px; border-radius:0;
+}
+
+/* ---------- the shared dark nav ---------- */
+.mc-nav{
+  background:var(--ink); color:var(--paper);
+  position:sticky; top:0; z-index:40;
+}
+.mc-nav-inner{
+  max-width:920px; margin:0 auto; padding:13px 22px;
+  display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+}
+.mc-brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; color:var(--paper); min-width:0;}
+.mc-brand b{font-family:var(--font-display); font-size:17px; font-weight:400; letter-spacing:-.01em; white-space:nowrap;}
+[dir="rtl"] .mc-brand b{font-family:var(--font-ar); font-weight:600; letter-spacing:0;}
+.mc-brand span{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#9a9da3; white-space:nowrap;}
+[dir="rtl"] .mc-brand span{letter-spacing:0; text-transform:none; font-size:12px;}
+.mc-nav-links{
+  display:flex; gap:20px; font-size:12px; letter-spacing:.06em; align-items:center;
+  overflow-x:auto; scrollbar-width:none; flex:1 1 auto; justify-content:center;
+}
+.mc-nav-links::-webkit-scrollbar{display:none;}
+[dir="rtl"] .mc-nav-links{letter-spacing:0; font-size:13px;}
+.mc-nav-links a{
+  color:#c9ccd2; text-decoration:none; white-space:nowrap; padding-bottom:2px;
+  border-bottom:1px solid transparent; transition:color .15s, border-color .15s;
+}
+.mc-nav-links a:hover{color:var(--paper);}
+.mc-nav-links a[aria-current="page"]{color:var(--paper); border-bottom-color:var(--accent);}
+.mc-nav .lang-toggle{
+  flex:0 0 auto; border:1px solid #3a3d43; background:transparent; border-radius:999px;
+  padding:6px 15px; font-size:12px; letter-spacing:.08em; font-weight:500;
+  color:#c9ccd2; cursor:pointer; font-family:var(--font-body);
+  transition:background .15s, color .15s, border-color .15s;
+}
+.mc-nav .lang-toggle:hover{background:var(--paper); color:var(--ink); border-color:var(--paper);}
+@media (max-width:640px){
+  .mc-nav-inner{padding:11px 18px; gap:10px;}
+  .mc-nav-links{justify-content:flex-start; order:3; width:100%; gap:16px; padding-bottom:2px;}
+}
+@media print{ .mc-nav{display:none;} }
+
+/* the old in-page masthead and pill switcher are replaced by .mc-nav */
+header.site, nav.toolnav{display:none !important;}
+
+/* ---------- page header ---------- */
+.hero, .res-head{position:relative;}
+.hero::before{display:none !important;}
+.hero{padding-top:52px;}
+.hero h1{font-size:clamp(34px, 5.4vw, 52px); line-height:1.04; font-weight:400;}
+[dir="rtl"] .hero h1{line-height:1.35; font-weight:600;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+.kicker, .eyebrow{
+  color:var(--accent); font-weight:600; font-size:11px;
+  letter-spacing:.18em; text-transform:uppercase;
+}
+[dir="rtl"] .kicker, [dir="rtl"] .eyebrow{letter-spacing:0; text-transform:none; font-size:13px;}
+
+/* ---------- surfaces: square, flat, ruled ---------- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .lede, .stat, .nextbox,
+.m, .fact, .pt, .bar, .quizbar, .cta-inline, .rule, .checked, .hedge, .extra, .flag,
+.note, .card, .grp{
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .stat, .nextbox, .m, .fact{
+  background:var(--card); border:1px solid var(--line-2);
+}
+.mcard:hover, .pcard:hover, .m:hover{border-color:var(--ink-3);}
+.pcard{border-inline-start-width:2px; border-inline-start-color:var(--accent);}
+.lede{background:var(--card); border:1px solid var(--line-2);
+  border-inline-start:2px solid var(--accent) !important; border-inline-end:1px solid var(--line-2) !important;}
+
+/* ---------- buttons ---------- */
+.btn{
+  background:var(--ink); border:1px solid var(--ink); border-radius:0;
+  font-weight:500; letter-spacing:0; color:var(--paper); box-shadow:none;
+  transition:background .15s, border-color .15s, color .15s;
+}
+.btn:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:none; filter:none; box-shadow:none;}
+.btn.ghost, .btn.secondary{
+  background:transparent; color:var(--ink); border:1px solid var(--ink); box-shadow:none;
+}
+.btn.ghost:hover, .btn.secondary:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+.printbtn{border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);}
+.printbtn:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+
+/* filter chips and pickers: square, ruled */
+.fbtn, .chip, .navbtn, .picker button, .filters button{
+  border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);
+  box-shadow:none; transition:background .15s, color .15s, border-color .15s;
+}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--ink); color:var(--ink); background:transparent; transform:none;}
+.fbtn.on, .chip.on, .navbtn.on{
+  background:var(--ink); border-color:var(--ink); color:var(--paper); font-weight:500; box-shadow:none;
+}
+input[type="text"], input[type="search"], select, textarea, .srch{
+  border-radius:0 !important; border:1px solid var(--line-2); background:var(--card);
+  font-family:var(--font-body); color:var(--ink);
+}
+[dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
+
+/* ---------- bars and callouts: flat bands, no gradients ---------- */
+.bar, .quizbar, .cta-inline{
+  background:var(--paper-2); border:1px solid var(--line); border-radius:0;
+}
+.rule, .checked, .hedge, .extra, .flag{border-radius:0;}
+.rule.w, .checked, .hedge, .extra, .flag{background:var(--warn-soft); border-color:var(--warn-line);}
+.rule.b{background:var(--bad-soft); border-color:var(--bad-line);}
+.rule.n{background:var(--paper-2); border-color:var(--line);}
+.row.act{background:var(--paper-2) !important; border-color:var(--line) !important;}
+
+/* ---------- band chips and verdict pills keep meaning, lose gloss ---------- */
+.band{border-radius:0; font-weight:600;}
+
+/* ---------- section labels ---------- */
+.sec h3, .lbl, .toc h2, .row h4{
+  letter-spacing:.14em; font-weight:600; text-transform:uppercase; font-size:11px; color:var(--ink-3);
+}
+[dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2, [dir="rtl"] .row h4{
+  letter-spacing:0; text-transform:none; font-size:13px;
+}
+
+/* ---------- tables ---------- */
+table{border-collapse:collapse;}
+th{
+  text-align:start; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; padding:12px 14px; border-bottom:1px solid var(--ink);
+}
+[dir="rtl"] th{letter-spacing:0; text-transform:none; font-size:13px;}
+td{padding:14px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top; font-size:14px;}
+
+/* ---------- footer ---------- */
+footer.site{
+  margin-top:56px; padding:26px 0 0; border-top:1px solid var(--line); color:var(--ink-3); font-size:13px;
+}
+footer.site a{color:var(--accent); font-weight:500;}
+
+
+/* ---- 2A refinements ---- */
+input, button, select, textarea{border-radius:0;}
+.lang-toggle, .mc-nav .lang-toggle{border-radius:999px;}
+.pt{border-inline-start-width:2px !important;}
+.compass, .emoji{display:none !important;}
+.opt{border-radius:0 !important;}
+.opt.selected{background:var(--paper-2); border-color:var(--ink);}
+.band{border-radius:0 !important;}
+hr{border:0; border-top:1px solid var(--line);}
+
+/* ---- 2A: square the remaining pills, protect quiz progress ---- */
+.section-chip, .progress-bar, .progress-fill, .bar-fill, .chip, .meta-chips .chip,
+.tag, .pill, .badge, .cta, .startbtn{border-radius:0 !important;}
+.section-chip{background:var(--paper-2); color:var(--accent); border:1px solid var(--line);
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:5px 12px;}
+[dir="rtl"] .section-chip{letter-spacing:0; text-transform:none; font-size:13px;}
+body:has(#screen-quiz.active) .mc-nav-links{display:none;}
+
+/* ---- 2A: square corners everywhere except the language pill ---- */
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:0 !important;}
+.lang-toggle{border-radius:999px !important;}
+.subj, .tag, .chip{
+  background:transparent !important; border:1px solid var(--line-2) !important;
+  color:var(--ink-2) !important; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  padding:4px 9px !important; font-weight:500;
+}
+[dir="rtl"] .subj, [dir="rtl"] .tag, [dir="rtl"] .chip{letter-spacing:0; text-transform:none; font-size:13px;}
+.mrank{
+  background:transparent !important; border:0 !important; width:auto !important; height:auto !important;
+  font-family:var(--font-display); font-size:22px; font-weight:400; color:var(--accent) !important;
+  box-shadow:none !important; min-width:28px;
+}
+[dir="rtl"] .mrank{font-family:var(--font-ar); font-weight:600;}
+html{scroll-padding-top:76px;}
+.wrap [id], .m, .mcard{scroll-margin-top:76px;}
+
+@media (max-width:520px){
+  .hero h1{font-size:clamp(28px, 8vw, 36px);}
+}
+
+/* ---- nav: links back to the main site and the book ---- */
+.mc-nav-inner{max-width:1160px !important; gap:14px; flex-wrap:nowrap;}
+.mc-nav-links{gap:17px; justify-content:center; min-width:0;}
+@media (max-width:1100px){ .mc-brand span{display:none;} }
+@media (max-width:760px){
+  .mc-nav-inner{flex-wrap:wrap;}
+  .mc-nav-links{order:3; width:100%; justify-content:flex-start;}
+}
+.mc-nav-right{display:flex; align-items:center; gap:14px; flex:0 0 auto;}
+.mc-site{
+  color:#9a9da3; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;
+}
+.mc-site:hover{color:var(--paper); border-bottom-color:#3a3d43;}
+[dir="rtl"] .mc-site{letter-spacing:0; font-size:13px;}
+.mc-book{
+  color:#d8b98a; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border:1px solid rgba(216,185,138,.45); padding:6px 13px; transition:background .15s, color .15s, border-color .15s;
+}
+.mc-book:hover{background:#d8b98a; color:var(--ink); border-color:#d8b98a;}
+[dir="rtl"] .mc-book{letter-spacing:0; font-size:13px;}
+@media (max-width:860px){ .mc-site{display:none;} }
+@media (max-width:640px){
+  .mc-nav-right{gap:9px;}
+  .mc-book{padding:5px 10px;}
+}
+</style>
+</head>
+<body>
+<div class="mc-nav">
+  <div class="mc-nav-inner">
+    <a class="mc-brand" href="./">
+      <b data-en="Major Compass" data-ar="بوصلة التخصص">Major Compass</b>
+      <span data-en="Dr. Saqer AlKhalifa" data-ar="د. صقر آل خليفة">Dr. Saqer AlKhalifa</span>
+    </a>
+    <nav class="mc-nav-links" aria-label="Tools">
+      <a href="./" data-en="The quiz" data-ar="الاختبار">The quiz</a>
+      <a href="explore.html" data-en="Majors" data-ar="التخصصات">Majors</a>
+      <a href="entry.html" data-en="Entry" data-ar="شروط القبول">Entry</a>
+      <a href="scholarships.html" data-en="Funding" data-ar="المنح">Funding</a>
+      <a href="routes.html" data-en="Dealbreakers" data-ar="المنفّرات">Dealbreakers</a>
+      <a href="alternatives.html" aria-current="page" data-en="No degree" data-ar="بدون شهادة">No degree</a>
+      <a href="parents.html" data-en="Parents" data-ar="أولياء الأمور">Parents</a>
+      <a href="ai.html" data-en="AI" data-ar="الذكاء الاصطناعي">AI</a>
+    </nav>
+    <div class="mc-nav-right">
+      <a class="mc-site" href="https://saqeralkhalifa.com/" data-en="saqeralkhalifa.com" data-ar="الموقع الرئيسي">saqeralkhalifa.com</a>
+      <a class="mc-book" href="https://saqeralkhalifa.com/#stores" data-en="Get the book" data-ar="اطلب الكتاب">Get the book</a>
+      <button class="lang-toggle" id="langToggle">عربي</button>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+
+<div class="hero">
+    <div class="kicker" id="kicker"></div>
+    <h1 class="serif" id="t-title"></h1>
+    <p class="sub" id="t-sub"></p>
+  </div>
+
+  <p class="lede" id="lede"></p>
+
+  <div class="chap" id="split">
+    <h2 class="serif" id="t-splitT"></h2>
+    <p class="sub" id="t-splitS"></p>
+    <div id="splits"></div>
+  </div>
+
+  <div class="controls">
+    <h2 id="t-pickC"></h2>
+    <div class="chips" id="cchips"></div>
+    <h2 id="t-pickF"></h2>
+    <div class="chips" id="fchips"></div>
+    <div class="count" id="count"></div>
+  </div>
+
+  <div id="rlist"></div>
+
+  <div class="chap" id="down">
+    <h2 class="serif" id="t-downT"></h2>
+    <p class="sub" id="t-downS"></p>
+    <div id="downs"></div>
+    <div class="gaps">
+      <h2 class="serif" id="t-gapsT"></h2>
+      <ul id="gaps"></ul>
+    </div>
+  </div>
+
+  <div class="crosslinks">
+    <div class="bar" style="margin-top:34px;">
+      <p id="t-quizline"></p>
+      <a class="btn" id="t-quizbtn" href="./"></a>
+    </div>
+    <div class="bar">
+      <p id="t-entline"></p>
+      <a class="btn ghost" id="t-entbtn" href="entry.html"></a>
+    </div>
+    <div class="bar">
+      <p id="t-ailine"></p>
+      <a class="btn ghost" id="t-aibtn" href="ai.html"></a>
+    </div>
+  </div>
+
+  <div class="srcbox">
+    <h2 id="srcT"></h2>
+    <p class="sub" id="srcS"></p>
+    <ol id="srcList"></ol>
+  </div>
+
+  <footer class="site">
+    <p class="disc" id="t-disc"></p>
+    <p id="t-foot"></p>
+  </footer>
+</div>
+<script>
+/* ===== Routes that are not a four-year degree ===== */
+const NONE_EN = "No provider verified in this country.";
+const NONE_AR = "لم نتحقق من وجود مزوّد في هذه الدولة.";
+
+const ALT = [
+
+/* ---------------- professional qualifications ---------------- */
+{id:"acca", f:"prof", open:"all", n:{en:"ACCA, chartered accountancy", ar:"شهادة ACCA في المحاسبة"},
+ d:{en:"The single most useful fact on this page: you can start ACCA straight from school. The Foundation level has no academic entry requirements at all, and the full qualification can be entered directly with strong A-levels. You work and study at the same time, which is the point.",
+    ar:"أهم معلومة في هذه الصفحة: يمكنك بدء ACCA مباشرة من الثانوية. فمستوى الأساس لا يشترط أي مؤهل أكاديمي إطلاقًا، ويمكن دخول الشهادة الكاملة مباشرة بمستوى متقدم قوي. تعمل وتدرس في الوقت نفسه، وهذا هو المقصود."},
+ t:{en:"Foundation level in 12 to 18 months. Full membership needs 13 exams plus 36 months of relevant work experience, so realistically 3 to 5 years from school while employed.",
+    ar:"مستوى الأساس في 12 إلى 18 شهرًا. والعضوية الكاملة تحتاج 13 اختبارًا و36 شهرًا من الخبرة العملية، أي 3 إلى 5 سنوات واقعيًا من الثانوية أثناء العمل."},
+ c:{en:"Registration about 89 pounds, annual subscription about 137, exams from about 98 to 278 pounds each. Tuition is the larger cost. Budget roughly 8,000 to 15,000 US dollars over three to four years, far below a private university degree.",
+    ar:"التسجيل نحو 89 جنيهًا، والاشتراك السنوي نحو 137، والاختبارات من نحو 98 إلى 278 جنيهًا للاختبار. والرسوم الدراسية هي الكلفة الأكبر. قدّر نحو 8,000 إلى 15,000 دولار على ثلاث إلى أربع سنوات، أي أقل بكثير من شهادة جامعية خاصة."},
+ w:{bh:{en:"Al Nada Training Centre, Bahrain Financial Harbour, is both a licensed exam centre and a tuition provider. BIBF in Juffair delivers professional qualifications and carries Tamkeen funding. Exam venues also at the British University of Bahrain and the University of Technology Bahrain.",
+        ar:"مركز الندى للتدريب في مرفأ البحرين المالي مركز اختبار مرخص ومزوّد تدريب في آن. ومعهد البحرين للدراسات المصرفية والمالية في الجفير يقدّم الشهادات المهنية ويحمل تمويل تمكين. وتوجد مراكز اختبار أيضًا في الجامعة البريطانية في البحرين وجامعة البحرين التقنية."},
+    sa:{en:"British Council centres in Riyadh, Jeddah and Dammam. PwC's Academy Middle East teaches in Riyadh and Jeddah.",
+        ar:"مراكز المجلس الثقافي البريطاني في الرياض وجدة والدمام. وأكاديمية PwC للشرق الأوسط تدرّس في الرياض وجدة."},
+    ae:{en:"PwC's Academy in Dubai, Abu Dhabi and Sharjah. British Council Abu Dhabi and the Emirates Institute of Banking and Finance are exam venues. Phoenix Financial Training in DIFC and Kaplan Genesis are among roughly twenty providers in the UAE.",
+        ar:"أكاديمية PwC في دبي وأبوظبي والشارقة. والمجلس الثقافي البريطاني في أبوظبي ومعهد الإمارات للدراسات المصرفية والمالية مركزا اختبار. وفينيكس للتدريب المالي في مركز دبي المالي وكابلان جينيسيس ضمن نحو عشرين مزوّدًا في الإمارات."},
+    qa:{en:"Qatar Skills Centre for Administrative Training in West Bay is listed by ACCA itself as a registered learning partner. Inspire Management Training Centre on Najma Street is an exam venue. PwC's Academy teaches in Doha.",
+        ar:"مركز قطر للمهارات للتدريب الإداري في الخليج الغربي مدرج لدى ACCA نفسها شريك تعلم مسجل. ومركز إنسباير للتدريب الإداري في شارع النجمة مركز اختبار. وأكاديمية PwC تدرّس في الدوحة."},
+    kw:{en:"American University of Kuwait in Salmiya is an exam venue. We could not find a named ACCA approved learning partner with a Kuwait address, so tuition is usually online.",
+        ar:"الجامعة الأمريكية في الكويت بالسالمية مركز اختبار. ولم نجد شريك تعلم معتمدًا لـACCA بعنوان في الكويت، فالتدريس عادةً عبر الإنترنت."},
+    om:{en:"British Council Muscat is the exam venue. PwC's Academy teaches in Muscat and Phoenix Financial Training has an Oman office.",
+        ar:"المجلس الثقافي البريطاني في مسقط هو مركز الاختبار. وأكاديمية PwC تدرّس في مسقط، ولفينيكس للتدريب المالي مكتب في عُمان."}},
+ note:{en:"Confirm the exam centre on ACCA's own website before booking. Their centre directory is the only reliable list and it changes.",
+       ar:"تأكد من مركز الاختبار على موقع ACCA نفسه قبل الحجز. فدليلهم هو القائمة الموثوقة الوحيدة وهو يتغير."}},
+
+{id:"cima", f:"prof", open:"all", n:{en:"CIMA, management accounting", ar:"شهادة CIMA في المحاسبة الإدارية"},
+ d:{en:"Also open entry from school. The Certificate in Business Accounting is four computer-based tests taken on demand, either at a test centre or online from home.",
+    ar:"مفتوحة القبول أيضًا من الثانوية. وشهادة محاسبة الأعمال أربعة اختبارات محوسبة تُؤدى عند الطلب، في مركز اختبار أو عبر الإنترنت من المنزل."},
+ t:{en:"About six months for the certificate, then the professional levels.",
+    ar:"نحو ستة أشهر للشهادة، ثم المستويات المهنية."},
+ c:{en:"We could not retrieve current fees from the official site, so check before committing.",
+    ar:"لم نستطع الحصول على الرسوم الحالية من الموقع الرسمي، فتحقق قبل الالتزام."},
+ w:{bh:{en:"BIBF in Juffair is a Pearson VUE testing centre, which is how CIMA is delivered.",
+        ar:"معهد البحرين للدراسات المصرفية والمالية في الجفير مركز اختبار Pearson VUE، وهو الطريق الذي تُقدَّم به CIMA."},
+    sa:{en:"Any Pearson VUE centre in the Kingdom, or online from home.", ar:"أي مركز Pearson VUE في المملكة، أو عبر الإنترنت من المنزل."},
+    ae:{en:"Future Target Institute in Al Nahda, Dubai, and other Pearson VUE centres.", ar:"معهد فيوتشر تارجت في النهدة بدبي، وغيره من مراكز Pearson VUE."},
+    qa:{en:"Pearson VUE centres in Doha, including BMTC Consulting.", ar:"مراكز Pearson VUE في الدوحة، ومنها BMTC للاستشارات."},
+    kw:{en:"Pearson VUE centres in Kuwait City.", ar:"مراكز Pearson VUE في مدينة الكويت."},
+    om:{en:"Pearson VUE centres in Muscat.", ar:"مراكز Pearson VUE في مسقط."}}},
+
+{id:"cfa", f:"prof", open:"mixed", n:{en:"CFA, investment analysis", ar:"شهادة CFA في تحليل الاستثمار"},
+ d:{en:"Not a direct school-leaver route, but there is a door most people do not know about. You can register with 4,000 hours of work experience accumulated over at least three sequential years, with no degree at all. Someone who starts work at eighteen can sit Level I at about twenty one.",
+    ar:"ليست مسارًا مباشرًا من الثانوية، لكن فيها بابًا لا يعرفه أكثر الناس. يمكنك التسجيل بأربعة آلاف ساعة خبرة عمل متراكمة خلال ثلاث سنوات متتابعة على الأقل، دون أي شهادة. فمن يبدأ العمل في الثامنة عشرة يمكنه دخول المستوى الأول في نحو الحادية والعشرين."},
+ t:{en:"Three levels, minimum about two and a half years of exams, plus the experience requirement.",
+    ar:"ثلاثة مستويات، وأقلها نحو سنتين ونصف من الاختبارات، إضافة إلى شرط الخبرة."},
+ c:{en:"From about 1,140 US dollars per exam.", ar:"من نحو 1,140 دولارًا للاختبار الواحد."},
+ w:{bh:{en:"Prometric centres in Manama.", ar:"مراكز Prometric في المنامة."},
+    sa:{en:"Prometric centres in Riyadh and Jeddah.", ar:"مراكز Prometric في الرياض وجدة."},
+    ae:{en:"Future Target Institute in Dubai is a named CFA Level I computer-based venue.", ar:"معهد فيوتشر تارجت في دبي مركز معتمد لاختبار المستوى الأول المحوسب."},
+    qa:{en:"Prometric centres in Doha.", ar:"مراكز Prometric في الدوحة."},
+    kw:{en:"Prometric centres in Kuwait City.", ar:"مراكز Prometric في مدينة الكويت."},
+    om:{en:"Prometric centres in Muscat.", ar:"مراكز Prometric في مسقط."}},
+ note:{en:"A valid international passport is mandatory to register.",
+       ar:"جواز سفر دولي ساري المفعول شرط إلزامي للتسجيل."}},
+
+{id:"cpa", f:"prof", open:"degree", n:{en:"US CPA and CMA", ar:"شهادتا CPA وCMA الأمريكيتان"},
+ d:{en:"Named here so you know where the walls are. CPA effectively requires a bachelor's plus about 150 semester hours. CMA requires a bachelor's or an accepted professional certification, which is the back door: finish ACCA first, then CMA.",
+    ar:"مذكورتان هنا لتعرف أين تقف الجدران. فـCPA تتطلب عمليًا بكالوريوس ونحو 150 ساعة فصلية. وCMA تتطلب بكالوريوس أو شهادة مهنية معتمدة، وهذا هو الباب الخلفي: أكمل ACCA أولًا ثم CMA."},
+ t:{en:"Four CPA sections; two CMA parts plus two years of experience.",
+    ar:"أربعة أقسام في CPA؛ وجزآن في CMA مع سنتي خبرة."},
+ c:{en:"CPA about 390 US dollars per section internationally, plus jurisdiction fees. CMA about 545 dollars per part, with lower student rates.",
+    ar:"CPA نحو 390 دولارًا للقسم دوليًا، إضافة إلى رسوم الولاية. وCMA نحو 545 دولارًا للجزء، مع أسعار أقل للطلبة."},
+ w:{bh:{en:"CPA international testing is available.", ar:"اختبار CPA الدولي متاح."},
+    sa:{en:"CPA international testing is available. Note that SOCPA registration, which matters for accountants working in the Kingdom, appears to require a degree certificate.",
+        ar:"اختبار CPA الدولي متاح. ولاحظ أن تسجيل الهيئة السعودية للمراجعين والمحاسبين، وهو مهم للمحاسبين العاملين في المملكة، يبدو أنه يشترط شهادة جامعية."},
+    ae:{en:"CPA international testing is available.", ar:"اختبار CPA الدولي متاح."},
+    qa:{en:"Qatar is not on the current CPA international testing list.", ar:"قطر ليست على قائمة اختبار CPA الدولي الحالية."},
+    kw:{en:"CPA international testing is available.", ar:"اختبار CPA الدولي متاح."},
+    om:{en:"Oman is not on the current CPA international testing list.", ar:"عُمان ليست على قائمة اختبار CPA الدولي الحالية."}}},
+
+/* ---------------- technical certifications ---------------- */
+{id:"cloud", f:"cert", open:"all", n:{en:"Cloud certifications: AWS, Azure, Google", ar:"شهادات الحوسبة السحابية: AWS وAzure وجوجل"},
+ d:{en:"No degree, no prerequisites, no minimum age in practice. The cheapest credible first rung in technology. AWS Certified Cloud Practitioner and Google Associate Cloud Engineer are the two usual starting points.",
+    ar:"لا شهادة جامعية ولا متطلبات سابقة ولا حد أدنى للعمر عمليًا. أرخص درجة أولى معتبرة في التقنية. وشهادتا AWS Cloud Practitioner وGoogle Associate Cloud Engineer هما نقطتا البداية المعتادتان."},
+ t:{en:"90 minutes to two hours per exam. Study time is what you make it, typically weeks not years.",
+    ar:"من 90 دقيقة إلى ساعتين للاختبار. أما وقت الدراسة فبيدك، وعادةً أسابيع لا سنوات."},
+ c:{en:"AWS Cloud Practitioner about 100 US dollars. Google Associate Cloud Engineer about 125. Microsoft AZ-900 varies by region. Valid three years.",
+    ar:"AWS Cloud Practitioner نحو 100 دولار. وGoogle Associate Cloud Engineer نحو 125. وMicrosoft AZ-900 يختلف بحسب المنطقة. وصلاحيتها ثلاث سنوات."},
+ w:{bh:{en:"BIBF in Juffair is a Pearson VUE centre. Exams can also be taken online under proctoring from home.",
+        ar:"معهد البحرين للدراسات المصرفية والمالية في الجفير مركز Pearson VUE. ويمكن أداء الاختبارات عبر الإنترنت من المنزل تحت مراقبة."},
+    sa:{en:"Pearson VUE centres across the Kingdom, plus free training through Tuwaiq Academy and the Saudi Digital Academy for citizens.",
+        ar:"مراكز Pearson VUE في أنحاء المملكة، مع تدريب مجاني عبر أكاديمية طويق والأكاديمية الرقمية السعودية للمواطنين."},
+    ae:{en:"Future Target Institute in Dubai runs Pearson VUE, Prometric and PSI under one roof. New Horizons Dubai and a Pearson VUE centre in Ajman.",
+        ar:"معهد فيوتشر تارجت في دبي يجمع Pearson VUE وPrometric وPSI تحت سقف واحد. ونيو هورايزونز دبي ومركز Pearson VUE في عجمان."},
+    qa:{en:"New Horizons Qatar and BMTC Consulting, an authorised Pearson VUE testing facility.",
+        ar:"نيو هورايزونز قطر وBMTC للاستشارات، وهو مرفق اختبار Pearson VUE معتمد."},
+    kw:{en:"New Horizons Kuwait City runs Cisco and CompTIA tracks and hosts exams.",
+        ar:"نيو هورايزونز في مدينة الكويت يقدّم مسارات سيسكو وCompTIA ويستضيف الاختبارات."},
+    om:{en:"Pearson VUE centres in Muscat.", ar:"مراكز Pearson VUE في مسقط."}}},
+
+{id:"comptia", f:"cert", open:"all", n:{en:"CompTIA and Cisco: A+, Network+, Security+, CCNA", ar:"شهادات CompTIA وسيسكو: ‏A+ وNetwork+ وSecurity+ وCCNA"},
+ d:{en:"The standard hardware, networking and security ladder. No degree required at any point. Security+ in particular is a common minimum for cybersecurity roles and for some government contracts.",
+    ar:"السلم المعياري للأجهزة والشبكات والأمن. لا تشترط شهادة جامعية في أي مرحلة. وSecurity+ تحديدًا حد أدنى شائع لوظائف الأمن السيبراني ولبعض العقود الحكومية."},
+ t:{en:"Each exam is a single sitting. A+ is two exams.",
+    ar:"كل اختبار جلسة واحدة. وA+ اختباران."},
+ c:{en:"A+ about 274 US dollars per exam and there are two, so about 548 in total. Network+ about 399. Security+ about 439. Cisco CCNA about 300. Most are valid three years.",
+    ar:"A+ نحو 274 دولارًا للاختبار وهما اثنان، أي نحو 548 دولارًا. وNetwork+ نحو 399. وSecurity+ نحو 439. وسيسكو CCNA نحو 300. ومعظمها صالح ثلاث سنوات."},
+ w:{bh:{en:"BIBF delivers Cisco, CompTIA, Oracle, VMware and other vendor exams as a Pearson VUE centre.",
+        ar:"معهد البحرين للدراسات المصرفية والمالية يقدّم اختبارات سيسكو وCompTIA وأوراكل وVMware وغيرها بصفته مركز Pearson VUE."},
+    sa:{en:"Pearson VUE centres across the Kingdom.", ar:"مراكز Pearson VUE في أنحاء المملكة."},
+    ae:{en:"Future Target Institute and New Horizons Dubai.", ar:"معهد فيوتشر تارجت ونيو هورايزونز دبي."},
+    qa:{en:"New Horizons Qatar.", ar:"نيو هورايزونز قطر."},
+    kw:{en:"New Horizons Kuwait City runs full Cisco and CompTIA tracks.", ar:"نيو هورايزونز في مدينة الكويت يقدّم مسارات سيسكو وCompTIA كاملة."},
+    om:{en:"Pearson VUE centres in Muscat.", ar:"مراكز Pearson VUE في مسقط."}}},
+
+{id:"free", f:"cert", open:"mixed", n:{en:"Free and state-funded technology training", ar:"التدريب التقني المجاني والممول من الدولة"},
+ d:{en:"The best value in the region, and the place where nationality matters most. Read the country line carefully.",
+    ar:"أفضل قيمة في المنطقة، وأكثر موضع تهم فيه الجنسية. اقرأ سطر دولتك بعناية."},
+ t:{en:"Typically 8 to 16 weeks full time.", ar:"عادةً من 8 إلى 16 أسبوعًا بدوام كامل."},
+ c:{en:"Free where you qualify.", ar:"مجاني لمن ينطبق عليه الشرط."},
+ w:{bh:{en:"AWS re/Start, delivered by ThinkSmart: free, full time, twelve weeks, Sunday to Thursday, and it pays for your AWS Cloud Practitioner exam. Eligibility is residency in Bahrain plus a high school diploma and the right to work, NOT nationality, which makes it the most accessible free technology route in the Gulf for an expatriate school leaver. Tamkeen funds training and on-the-job placements for Bahrainis.",
+        ar:"برنامج AWS re/Start عبر ThinkSmart: مجاني بدوام كامل لاثني عشر أسبوعًا من الأحد إلى الخميس، ويدفع رسوم اختبار AWS Cloud Practitioner. والشرط الإقامة في البحرين وشهادة ثانوية وحق العمل، لا الجنسية، وهذا يجعله أكثر مسار تقني مجاني إتاحةً في الخليج للخريج الوافد. وتمكين تموّل التدريب والتوظيف على رأس العمل للبحرينيين."},
+    sa:{en:"Tuwaiq Academy in Riyadh runs bootcamps in software, cybersecurity, cloud and game development. Doroob is free and open to any Saudi citizen. The Saudi Digital Academy and SAMAI are also citizen programmes. Non-Saudis should look at the private accredited institutes instead.",
+        ar:"أكاديمية طويق في الرياض تقدّم معسكرات في البرمجة والأمن السيبراني والسحابة وتطوير الألعاب. ودروب مجاني ومفتوح لأي مواطن سعودي. والأكاديمية الرقمية السعودية وسماي برنامجان للمواطنين أيضًا. أما غير السعوديين فعليهم النظر في المعاهد الخاصة المعتمدة."},
+    ae:{en:"AWS re/Start operates in the UAE as well as Bahrain. National coding programmes exist but we could not verify their current status, so check before relying on them.",
+        ar:"برنامج AWS re/Start يعمل في الإمارات كما في البحرين. وتوجد برامج برمجة وطنية لكننا لم نتحقق من وضعها الحالي، فتأكد قبل الاعتماد عليها."},
+    qa:{en:"The Qatar Digital Academy is a Ministry of Communications initiative. We could not verify eligibility, cost or partners, so contact them directly.",
+        ar:"الأكاديمية الرقمية القطرية مبادرة من وزارة الاتصالات. ولم نتحقق من شروط القبول أو الكلفة أو الشركاء، فتواصل معهم مباشرة."},
+    kw:{en:"Kuwait Codes, run by CODED Academy, is entirely free and open to high school and ninth grade students in Kuwait, covering mobile and web development, cybersecurity and Python. AWS re/Start also covers Kuwait.",
+        ar:"مبادرة كويت كودز من أكاديمية CODED مجانية تمامًا ومفتوحة لطلبة الثانوية والصف التاسع في الكويت، وتغطي تطوير التطبيقات والويب والأمن السيبراني وبايثون. ويغطي AWS re/Start الكويت أيضًا."},
+    om:{en:"The Oman AI and Digital Future Programme is running under the Ministry of Transport, Communications and Information Technology. We could not verify eligibility or cost.",
+        ar:"برنامج عُمان للذكاء الاصطناعي والمستقبل الرقمي يعمل تحت وزارة النقل والاتصالات وتقنية المعلومات. ولم نتحقق من شروط القبول أو الكلفة."}}},
+
+/* ---------------- vocational and technical ---------------- */
+{id:"voc", f:"voc", open:"mixed", n:{en:"Technical and vocational institutes", ar:"المعاهد التقنية والمهنية"},
+ d:{en:"A diploma or higher diploma in two to three years, taught with your hands, and in several Gulf states it carries the same admission rights to university afterwards as an academic secondary certificate. This is the most underrated route in the region.",
+    ar:"دبلوم أو دبلوم عالٍ في سنتين إلى ثلاث، يُدرّس بيديك، وفي عدة دول خليجية يمنحك بعده حق الالتحاق بالجامعة كما تمنحه الثانوية الأكاديمية. وهذا أكثر المسارات بخسًا لحقه في المنطقة."},
+ t:{en:"Two to three years, sometimes less for a craft certificate.",
+    ar:"سنتان إلى ثلاث، وأحيانًا أقل لشهادة حرفية."},
+ c:{en:"Heavily subsidised for nationals, and often not for anyone else. See your country.",
+    ar:"مدعوم بقوة للمواطنين، وغالبًا غير مدعوم لغيرهم. انظر دولتك."},
+ w:{bh:{en:"Bahrain Polytechnic in Isa Town takes a 70 per cent cumulative secondary average from any curriculum, and offers diplomas alongside degrees in engineering technology, ICT, logistics and business. Fees are BHD 2 per credit for Bahrainis and BHD 20 for non-Bahrainis, a tenfold difference. Bahrain Training Institute awards BTEC first, national and higher national diplomas, and importantly it offers craft certificates to learners who did not complete secondary school, which is the lowest formal barrier we found anywhere in the Gulf.",
+        ar:"بوليتكنك البحرين في مدينة عيسى يقبل معدلًا تراكميًا ثانويًا 70 بالمئة من أي منهج، ويقدّم دبلومات إلى جانب البكالوريوس في تقنية الهندسة وتقنية المعلومات واللوجستيات والأعمال. والرسوم ديناران للساعة للبحرينيين وعشرون لغيرهم، أي عشرة أضعاف. ومعهد البحرين للتدريب يمنح دبلومات BTEC الأولى والوطنية والعليا، والأهم أنه يقدّم شهادات حرفية لمن لم يكمل الثانوية، وهو أدنى حاجز رسمي وجدناه في الخليج."},
+    sa:{en:"The Technical and Vocational Training Corporation runs about 138 technical colleges and accredits more than 1,285 private institutes, with over 250 specialisations. Evening diploma programmes pay trainees a monthly stipend plus an accredited certificate. Named colleges include Riyadh, Jeddah, Dammam, Madinah and the Saudi Mining Polytechnic. Government college admission appears to be for citizens; the private accredited institutes are the likely route for others.",
+        ar:"المؤسسة العامة للتدريب التقني والمهني تدير نحو 138 كلية تقنية وتعتمد أكثر من 1,285 معهدًا خاصًا، بأكثر من 250 تخصصًا. وبرامج الدبلوم المسائية تدفع للمتدرب مكافأة شهرية مع شهادة معتمدة. ومن الكليات: الرياض وجدة والدمام والمدينة والبوليتكنك السعودي للتعدين. ويبدو أن القبول في الكليات الحكومية للمواطنين، وأن المعاهد الخاصة المعتمدة هي المسار المرجح لغيرهم."},
+    ae:{en:"Abu Dhabi Polytechnic accepts both UAE nationals and international students, although its national qualification programmes are for Emiratis only; entry is 75 to 85 per cent in maths and physics depending on track, with a maximum age of 25. Higher Colleges of Technology is for Emiratis and children of Emirati mothers only, at 60 per cent minimum. Also the Institute of Applied Technology, ADVETI and the National Institute for Vocational Education.",
+        ar:"بوليتكنك أبوظبي يقبل المواطنين والطلبة الدوليين، وإن كانت برامج المؤهلات الوطنية للإماراتيين فقط؛ والقبول من 75 إلى 85 بالمئة في الرياضيات والفيزياء بحسب المسار، بحد أقصى للعمر 25 سنة. أما كليات التقنية العليا فللإماراتيين وأبناء الأم الإماراتية فقط، بحد أدنى 60 بالمئة. وهناك أيضًا معهد التكنولوجيا التطبيقية وأدفيتي والمعهد الوطني للتعليم المهني."},
+    qa:{en:"The University of Doha for Science and Technology offers more than seventy diploma, bachelor's and master's programmes and explicitly welcomes international students. Diploma fees are QAR 12,500 per semester for Qatar residents and QAR 18,750 for international students, with a full tuition waiver for Qataris and children of Qatari mothers.",
+        ar:"جامعة الدوحة للعلوم والتكنولوجيا تقدّم أكثر من سبعين برنامج دبلوم وبكالوريوس وماجستير وترحّب صراحةً بالطلبة الدوليين. ورسوم الدبلوم 12,500 ريال قطري للفصل للمقيمين و18,750 للطلبة الدوليين، مع إعفاء كامل للقطريين وأبناء الأم القطرية."},
+    kw:{en:"The Public Authority for Applied Education and Training runs five colleges and several institutes, including the Higher Institute of Energy, the Industrial Training Institute and the Constructional Training Institute. For 2025 and 2026 PAAET announced admission limited to Kuwaiti nationals, while a standing government service for non-Kuwaitis sets a 70 per cent science requirement and opens only General Nursing within health sciences. The two are contradictory, so ask the registrar directly.",
+        ar:"الهيئة العامة للتعليم التطبيقي والتدريب تدير خمس كليات وعدة معاهد، منها المعهد العالي للطاقة ومعهد التدريب الصناعي ومعهد التدريب الإنشائي. وأعلنت الهيئة لعامي 2025 و2026 قصر القبول على الكويتيين، بينما تحدد خدمة حكومية قائمة لغير الكويتيين شرط 70 بالمئة في القسم العلمي وتفتح التمريض العام فقط ضمن العلوم الصحية. والأمران متناقضان، فاسأل التسجيل مباشرة."},
+    om:{en:"The University of Technology and Applied Sciences has eleven branches from Musandam to Salalah and awards diplomas, advanced diplomas and bachelor's degrees. Seven government vocational colleges operate at Seeb, Saham, Sur, Ibri, Shinas, Al Buraimi and Salalah, plus a marine sciences college at Al Khaburah. The vocational diploma runs a minimum of three years, and there is a separate apprenticeship pathway aimed at under-eighteens and jobseekers.",
+        ar:"جامعة التقنية والعلوم التطبيقية لها أحد عشر فرعًا من مسندم إلى صلالة، وتمنح الدبلوم والدبلوم المتقدم والبكالوريوس. وتعمل سبع كليات مهنية حكومية في السيب وصحم وصور وعبري وشناص والبريمي وصلالة، إضافة إلى كلية العلوم البحرية في الخابورة. والدبلوم المهني ثلاث سنوات على الأقل، وهناك مسار تلمذة مهنية منفصل موجّه لمن دون الثامنة عشرة وللباحثين عن عمل."}}},
+
+/* ---------------- apprenticeships ---------------- */
+{id:"oilgas", f:"appr", open:"nationals", n:{en:"Oil and gas apprenticeships", ar:"التلمذة المهنية في النفط والغاز"},
+ d:{en:"Paid from day one, and they end in a job rather than a job search. This is the single best non-degree route in the Gulf if you hold the right passport, and it is closed if you do not.",
+    ar:"مدفوعة من اليوم الأول، وتنتهي بوظيفة لا ببحث عن وظيفة. وهذا أفضل مسار غير جامعي في الخليج إن كنت تحمل الجواز المناسب، وهو مغلق إن لم تكن."},
+ t:{en:"Two to three years.", ar:"سنتان إلى ثلاث."},
+ c:{en:"Nothing. You are paid to attend.", ar:"لا شيء. أنت تُدفع لك مكافأة لتحضر."},
+ w:{bh:{en:"The Bapco diploma and apprenticeship programme runs three years: a foundation year then two years of technical training at the Oil and Gas Academy with practical work at the refinery, in operations, mechanical, electrical or instrumentation. It guarantees employment on successful completion. Entry requirements and pay are not published, so contact them.",
+        ar:"برنامج دبلوم وتلمذة بابكو ثلاث سنوات: سنة تأسيسية ثم سنتان تدريب تقني في أكاديمية النفط والغاز مع عمل تطبيقي في المصفاة، في التشغيل أو الميكانيكا أو الكهرباء أو أجهزة القياس. ويضمن التوظيف عند الإتمام بنجاح. أما شروط القبول والأجر فغير منشورة، فتواصل معهم."},
+    sa:{en:"The Saudi Aramco Apprenticeship Programme is for Saudi nationals, needs a 75 per cent secondary average and 72 on the QIYAS aptitude test, with a maximum age of 24. It pays a monthly stipend with housing, transport and medical care during training, and ends in an entry-level Aramco job with twelve monthly salaries plus a Ramadan salary and a housing allowance.",
+        ar:"برنامج التلمذة في أرامكو السعودية للسعوديين، ويشترط معدل ثانوي 75 بالمئة و72 في اختبار القدرات، بحد أقصى للعمر 24 سنة. ويدفع مكافأة شهرية مع سكن ونقل ورعاية طبية أثناء التدريب، وينتهي بوظيفة مبتدئة في أرامكو باثني عشر راتبًا شهريًا وراتب رمضان وبدل سكن."},
+    ae:{en:"The ADNOC Technical Academy has graduated more than six thousand UAE nationals since 1978, with 403 in 2025 alone. It is a two-year vocational curriculum in electrical maintenance, instrumentation, mechanical maintenance and processing operations, leading into ADNOC Group roles.",
+        ar:"أكاديمية أدنوك التقنية خرّجت أكثر من ستة آلاف إماراتي منذ 1978، منهم 403 في 2025 وحدها. وهي منهج مهني سنتان في الصيانة الكهربائية وأجهزة القياس والصيانة الميكانيكية وعمليات المعالجة، وتقود إلى وظائف في مجموعة أدنوك."},
+    qa:{en:"QatarEnergy runs technician-level national development programmes. We could not retrieve current entry requirements, so apply through their careers portal.",
+        ar:"قطر للطاقة تدير برامج تطوير وطنية على مستوى الفنيين. ولم نستطع الحصول على شروط القبول الحالية، فتقدّم عبر بوابة التوظيف لديهم."},
+    kw:{en:"We found no published Kuwait Oil Company school-leaver apprenticeship. Check their careers page directly.",
+        ar:"لم نجد برنامج تلمذة منشورًا لشركة نفط الكويت لخريجي الثانوية. راجع صفحة التوظيف لديهم مباشرة."},
+    om:{en:"The Technician Omanisation Programme is advertised through the national oil and gas jobs portal, and Oman's vocational colleges run a formal apprenticeship pathway at semi-skilled, skilled and professional levels.",
+        ar:"برنامج تعمين الفنيين يُعلن عبر البوابة الوطنية لوظائف النفط والغاز، والكليات المهنية العُمانية تدير مسار تلمذة رسميًا بمستويات شبه ماهر وماهر ومحترف."}}},
+
+{id:"aviation", f:"appr", open:"nationals", n:{en:"Aircraft maintenance engineering", ar:"هندسة صيانة الطائرات"},
+ d:{en:"The strongest earn-while-you-learn route in the region, and it ends in a civil aviation authority licence, which is a legal moat no degree gives you. Almost all of these schemes are for nationals.",
+    ar:"أقوى مسار للتعلم مع الكسب في المنطقة، وينتهي برخصة من هيئة الطيران المدني، وهي حصانة قانونية لا تمنحها شهادة جامعية. وأغلب هذه البرامج للمواطنين."},
+ t:{en:"Four to five and a half years.", ar:"من أربع إلى خمس سنوات ونصف."},
+ c:{en:"Fully sponsored, with a stipend that becomes a salary.", ar:"ممولة بالكامل، بمكافأة تتحول إلى راتب."},
+ w:{bh:{en:"The Gulf Aviation Academy in Muharraq is the Gulf Air Group training arm, but we found no published school-leaver apprenticeship. Ask Gulf Air careers directly.",
+        ar:"أكاديمية الخليج للطيران في المحرق هي الذراع التدريبي لمجموعة طيران الخليج، لكننا لم نجد برنامج تلمذة منشورًا لخريجي الثانوية. اسأل توظيف طيران الخليج مباشرة."},
+    sa:{en:"Saudia Aerospace Engineering Industries and the Saudi Academy of Civil Aviation run technician training. Verify current intakes directly.",
+        ar:"الشركة السعودية لهندسة وصناعة الطيران والأكاديمية السعودية للطيران المدني تديران تدريبًا للفنيين. تحقق من الدفعات الحالية مباشرة."},
+    ae:{en:"The Emirates Group AMEL scholarship runs five and a half years for Emirati school leavers, fully sponsored, with a stipend that progresses to a full salary, ending in a GCAA certificate and a higher diploma. flydubai runs a four-year apprenticeship for UAE nationals aged 17 to 24.",
+        ar:"منحة رخصة مهندس صيانة الطائرات في مجموعة الإمارات خمس سنوات ونصف لخريجي الثانوية الإماراتيين، ممولة بالكامل بمكافأة تتحول إلى راتب كامل، وتنتهي بشهادة الهيئة العامة للطيران المدني ودبلوم عالٍ. وفلاي دبي تدير تلمذة أربع سنوات للإماراتيين من 17 إلى 24 سنة."},
+    qa:{en:"The Qatar Airways aircraft maintenance engineering scholarship is for Qataris and applicants with a Qatari mother, aged 17 to 24, needing a scientific stream diploma at 70 or 75 per cent and IELTS 5.0 to 5.5. It runs about four and a quarter years, is fully funded, carries a five-year employment commitment, and ends in a Qatar Civil Aviation Authority licence.",
+        ar:"منحة هندسة صيانة الطائرات في الخطوط الجوية القطرية للقطريين ولأبناء الأم القطرية، من 17 إلى 24 سنة، وتشترط ثانوية علمية بنسبة 70 أو 75 بالمئة وآيلتس من 5.0 إلى 5.5. ومدتها نحو أربع سنوات وربع، وممولة بالكامل، وفيها التزام بالعمل خمس سنوات، وتنتهي برخصة من الهيئة العامة للطيران المدني القطرية."},
+    kw:{en:"We found no published Kuwait Airways school-leaver scheme.", ar:"لم نجد برنامجًا منشورًا للخطوط الجوية الكويتية لخريجي الثانوية."},
+    om:{en:"Oman Airports and Oman Air run technical training; check their careers pages.", ar:"مطارات عُمان والطيران العُماني يديران تدريبًا تقنيًا؛ راجع صفحات التوظيف لديهما."}}},
+
+{id:"ojt", f:"appr", open:"nationals", n:{en:"Government on-the-job training schemes", ar:"برامج التدريب الحكومية على رأس العمل"},
+ d:{en:"Not an apprenticeship in the trade sense, but you are paid an allowance while an employer trains you, and many of these convert into a permanent job.",
+    ar:"ليست تلمذة بالمعنى الحرفي، لكنك تتقاضى بدلًا بينما يدرّبك صاحب عمل، وكثير منها يتحول إلى وظيفة دائمة."},
+ t:{en:"Six to twelve months, longer in some tracks.", ar:"من ستة إلى اثني عشر شهرًا، وأطول في بعض المسارات."},
+ c:{en:"Free, and you are paid.", ar:"مجانية، وتتقاضى مقابلًا."},
+ w:{bh:{en:"The Tamkeen on-the-job training programme is open to any Bahraini aged 18 and over who is a jobseeker, whether or not nominated by the Ministry of Labour. It runs six to twelve months and pays a monthly allowance of BHD 200, or BHD 300 on the registered lawyers' track.",
+        ar:"برنامج التدريب على رأس العمل من تمكين مفتوح لأي بحريني من 18 سنة فأكثر باحث عن عمل، سواء رشحته وزارة العمل أو لا. ومدته من ستة إلى اثني عشر شهرًا، ويدفع بدلًا شهريًا 200 دينار، أو 300 دينار في مسار المحامين المسجلين."},
+    sa:{en:"Technical and Vocational Training Corporation evening programmes pay a monthly stipend during training. The Tamheer scheme exists but targets graduates, not school leavers.",
+        ar:"البرامج المسائية في المؤسسة العامة للتدريب التقني والمهني تدفع مكافأة شهرية أثناء التدريب. وبرنامج تمهير موجود لكنه يستهدف الخريجين لا خريجي الثانوية."},
+    ae:{en:"Nafis supports Emirati employment in the private sector, including training and salary support.",
+        ar:"برنامج نافس يدعم توظيف الإماراتيين في القطاع الخاص، بما في ذلك التدريب ودعم الرواتب."},
+    qa:{en:"Qatarisation programmes run through individual employers rather than a single national scheme.",
+        ar:"برامج التقطير تُدار عبر أصحاب العمل فرادى لا عبر برنامج وطني واحد."},
+    kw:{en:"Programmes run through the Manpower and Government Restructuring Programme.",
+        ar:"البرامج تُدار عبر برنامج إعادة هيكلة القوى العاملة والجهاز التنفيذي للدولة."},
+    om:{en:"The vocational colleges' apprenticeship pathway targets under-eighteens and jobseekers at three competence levels, and Oman's 2025 labour plan targeted 45,000 jobs.",
+        ar:"مسار التلمذة في الكليات المهنية يستهدف من دون الثامنة عشرة والباحثين عن عمل بثلاثة مستويات كفاءة، وخطة عُمان للعمل لعام 2025 استهدفت 45 ألف وظيفة."}}},
+
+/* ---------------- licensed trades ---------------- */
+{id:"trades", f:"trade", open:"all", n:{en:"Licensed electrical and plumbing trades", ar:"الحرف الكهربائية والسباكة المرخصة"},
+ d:{en:"A trade licence is a legal moat that a bachelor's degree does not give you. You cannot legally do the work without it, which means the number of people who can compete with you is fixed by an examination rather than by how many graduates a university produced.",
+    ar:"رخصة الحرفة حصانة قانونية لا تمنحها شهادة جامعية. فلا يمكنك مزاولة العمل قانونًا دونها، أي أن عدد من ينافسك يحدده اختبار لا عدد الخريجين الذين تنتجهم جامعة."},
+ t:{en:"Weeks to months of preparation, then a written and often a practical examination.",
+    ar:"أسابيع إلى أشهر من التحضير، ثم اختبار كتابي وعملي في الغالب."},
+ c:{en:"Very low compared with anything else on this page.",
+    ar:"منخفضة جدًا مقارنة بأي شيء آخر في هذه الصفحة."},
+ w:{bh:{en:"The Electricity and Water Authority issues four classes of electrician licence: engineer, technician, wireman and cable jointer. The wireman licence costs BHD 20 to register plus BHD 20 for the practical exam, needs a written and a practical test, and is valid five years. There is a parallel plumbers scheme. Applications are processed in about five working days. No degree is required for the technician or wireman routes.",
+        ar:"هيئة الكهرباء والماء تصدر أربع فئات لرخصة الكهربائي: مهندس وفني وسلكي ولاحم كابلات. ورخصة السلكي تكلف 20 دينارًا للتسجيل و20 دينارًا للاختبار العملي، وتتطلب اختبارًا كتابيًا وعمليًا، وصلاحيتها خمس سنوات. وهناك برنامج موازٍ للسباكين. وتُنجز الطلبات في نحو خمسة أيام عمل. ولا تشترط شهادة جامعية لمساري الفني والسلكي."},
+    sa:{en:"Trade competency is assessed through the Ministry of Human Resources professional examination route, which is designed for roles that do not require a degree, with 127 examination centres inside and outside the Kingdom.",
+        ar:"تُقيَّم كفاءة الحرفة عبر مسار الاختبار المهني في وزارة الموارد البشرية، وهو مصمم للوظائف التي لا تتطلب شهادة جامعية، ويضم 127 مركز اختبار داخل المملكة وخارجها."},
+    ae:{en:"Trade licensing runs through the municipalities and utilities, and welding inspection qualifications such as CSWIP 3.1 and AWS Certified Welding Inspector are taught in Abu Dhabi and Dubai by providers including Petronext and Haward Technology.",
+        ar:"ترخيص الحرف يمر عبر البلديات وشركات المرافق، وتُدرَّس مؤهلات تفتيش اللحام مثل CSWIP 3.1 وAWS للمفتش المعتمد في أبوظبي ودبي عبر مزودين منهم بترونكست وهاورد تكنولوجي."},
+    qa:{en:"Kahramaa has licensed individual electricians and plumbers since October 2023 under Ministerial Resolution 2 of 2022, with theoretical and practical examinations and a QR-coded card that customers can verify. Qatar Civil Defence electrical certification is a separate and widely required credential, with exam preparation providers in Doha.",
+        ar:"كهرماء ترخّص الكهربائيين والسباكين أفرادًا منذ أكتوبر 2023 بموجب القرار الوزاري رقم 2 لسنة 2022، باختبارات نظرية وعملية وبطاقة برمز استجابة سريعة يتحقق منها العملاء. واعتماد الدفاع المدني القطري للكهرباء مؤهل منفصل ومطلوب على نطاق واسع، وله مزودو تحضير في الدوحة."},
+    kw:{en:"Trade work runs through Ministry of Electricity and Water approvals and employer certification.",
+        ar:"العمل الحرفي يمر عبر موافقات وزارة الكهرباء والماء واعتماد أصحاب العمل."},
+    om:{en:"From September 2025 Oman requires a practice licence for 41 oil and gas occupations, including HSE advisers, crane operators, welders, drillers and technicians, as a condition of the work permit. This makes the licence more valuable, not less.",
+        ar:"من سبتمبر 2025 تشترط عُمان رخصة مزاولة لـ41 مهنة في النفط والغاز، منها مستشارو الصحة والسلامة ومشغلو الرافعات واللحامون وحفارو الآبار والفنيون، شرطًا لتصريح العمل. وهذا يزيد قيمة الرخصة لا ينقصها."}}},
+
+{id:"offshore", f:"trade", open:"all", n:{en:"Offshore and industrial safety tickets", ar:"شهادات السلامة البحرية والصناعية"},
+ d:{en:"Short courses that unlock offshore and industrial work: BOSIET for offshore survival, and welding inspection qualifications such as CSWIP 3.1. Well paid, degree-free, and in constant demand across Gulf engineering contracting.",
+    ar:"دورات قصيرة تفتح أبواب العمل البحري والصناعي: BOSIET للنجاة البحرية، ومؤهلات تفتيش اللحام مثل CSWIP 3.1. أجرها جيد، ولا تشترط شهادة جامعية، والطلب عليها دائم في مقاولات الهندسة الخليجية."},
+ t:{en:"Days to a few weeks.", ar:"من أيام إلى بضعة أسابيع."},
+ c:{en:"We could not verify current course fees in the Gulf, so ask the centre directly.",
+    ar:"لم نتحقق من رسوم الدورات الحالية في الخليج، فاسأل المركز مباشرة."},
+ w:{bh:{en:"No OPITO approved centre verified in Bahrain; students usually travel to Khobar or Abu Dhabi.",
+        ar:"لم نتحقق من وجود مركز معتمد من OPITO في البحرين؛ ويسافر الطلبة عادةً إلى الخبر أو أبوظبي."},
+    sa:{en:"SMTC in Khobar is an OPITO approved centre.", ar:"مركز SMTC في الخبر معتمد من OPITO."},
+    ae:{en:"ETSDC in Abu Dhabi is an OPITO approved centre. Welding inspection is taught by Petronext and Haward Technology in Abu Dhabi and Dubai.",
+        ar:"مركز ETSDC في أبوظبي معتمد من OPITO. ويُدرَّس تفتيش اللحام لدى بترونكست وهاورد تكنولوجي في أبوظبي ودبي."},
+    qa:{en:"Industrial safety training is delivered by several Doha providers; verify OPITO approval before paying.",
+        ar:"تدريب السلامة الصناعية يقدّمه عدة مزودين في الدوحة؛ تحقق من اعتماد OPITO قبل الدفع."},
+    kw:{en:"No OPITO approved centre verified in Kuwait.", ar:"لم نتحقق من وجود مركز معتمد من OPITO في الكويت."},
+    om:{en:"Energy and Minerals Sector Skills Unit licensing now governs 41 oil and gas occupations, and training runs through OPAL accredited providers.",
+        ar:"وحدة مهارات قطاع الطاقة والمعادن تنظّم الآن ترخيص 41 مهنة في النفط والغاز، والتدريب عبر مزودين معتمدين من أوبال."}}}
+
+];
+
+/* ===== Routes without a degree: UI strings and rendering ===== */
+var LANG = "en";
+var CTRY = "bh";
+var FAM = "all";
+
+const FAMS = [
+  {k:"all",   en:"Everything",              ar:"الكل"},
+  {k:"prof",  en:"Professional qualifications", ar:"الشهادات المهنية"},
+  {k:"cert",  en:"Technical certifications",    ar:"الشهادات التقنية"},
+  {k:"voc",   en:"Technical institutes",        ar:"المعاهد التقنية"},
+  {k:"appr",  en:"Paid apprenticeships",        ar:"التلمذة المدفوعة"},
+  {k:"trade", en:"Licensed trades",             ar:"الحرف المرخصة"}
+];
+
+const CTRYS = [
+  {k:"bh", en:"Bahrain", ar:"البحرين"},
+  {k:"sa", en:"Saudi Arabia", ar:"السعودية"},
+  {k:"ae", en:"UAE", ar:"الإمارات"},
+  {k:"qa", en:"Qatar", ar:"قطر"},
+  {k:"kw", en:"Kuwait", ar:"الكويت"},
+  {k:"om", en:"Oman", ar:"عُمان"}
+];
+
+const OPEN = {
+  all:      {en:"Open to everyone",       ar:"مفتوح للجميع"},
+  mixed:    {en:"Depends on your passport", ar:"يعتمد على جوازك"},
+  nationals:{en:"Nationals only",         ar:"للمواطنين فقط"},
+  degree:   {en:"Needs a degree first",   ar:"يحتاج شهادة جامعية أولًا"}
+};
+
+const T = {
+en:{
+  kicker:"Free · for school leavers in Bahrain and the Gulf",
+  title:"Routes that are not a four-year degree",
+  sub:"Professional qualifications, technical certifications, technical institutes, paid apprenticeships and licensed trades, with the specific places in the Gulf where you can actually do each one.",
+  lede:"One of the answers the assessment offers is the shortest practical route to a good job. Students who choose it are usually handed a university prospectus anyway. This page is the other answer. It is honest about two things nobody says out loud: some of these routes are better funded and better paid than a degree, and almost all of the best ones are closed to you unless you hold the passport of the country you live in.",
+
+  splitT:"The one thing that decides everything here",
+  splitS:"Read this before anything else, because it changes which half of this page applies to you.",
+  splits:[
+    ["If you are a Gulf national, the no-degree route is genuinely well funded.",
+     "Free bootcamps, stipended apprenticeships, guaranteed jobs at the end. Saudi Aramco pays you while it trains you and then employs you. Tamkeen pays a Bahraini trainee BHD 200 a month. Technical and Vocational Training Corporation evening programmes in Saudi Arabia pay a stipend. Higher Colleges of Technology, the Public Authority for Applied Education and Training and the state apprenticeships are all yours."],
+    ["If you are an expatriate school leaver in the Gulf, almost none of that is available to you.",
+     "Higher Colleges of Technology is for Emiratis only. The Public Authority for Applied Education and Training announced admission for Kuwaitis only. Bahrain Polytechnic charges non-Bahrainis ten times the per-credit fee. Tamkeen, Doroob and SAMAI are for citizens. Every major oil and aviation apprenticeship on this page is nationals-only. The clear exception is AWS re/Start in Bahrain, which gates on residency and a high school diploma rather than on nationality, and it is the single most accessible free route we found."],
+    ["The visa system also sorts you by credential, and this is the part most people miss.",
+     "The UAE assigns work permits by skill level, and level one requires an attested bachelor's degree. Saudi Arabia formally splits expatriate workers into a degree track and a practical examination track at the visa stage. Oman is progressively closing named occupations to expatriates entirely, including computer programmers and computer engineers from January 2026. A degree would not save you from that last one, but an expatriate should not build a plan around Omani IT work."]
+  ],
+
+  pickC:"Where are you?",
+  pickF:"What kind of route?",
+  count:function(n){ return n + (n===1 ? " route" : " routes"); },
+  time:"How long",
+  cost:"What it costs",
+  where:"Where, specifically",
+  none:"No provider verified in this country.",
+
+  downT:"What you give up, stated plainly",
+  downS:"An honest page has to price the decision, not just sell it. These are the specific costs, all of them documented policy rather than opinion.",
+  downs:[
+    ["Government pay floors in the Gulf are indexed to your certificate, not your ability.",
+     "Bahrain's Tamkeen wage support sets different minimum salaries for the same scheme: BHD 350 a month for a high school graduate, BHD 430 for a diploma holder and BHD 500 for a bachelor's degree. That is a 43 per cent gap at entry, written into policy, purely on paper. Saudi Arabia does the same in its accounting localisation rules, where a Saudi employee counts toward the employer's quota at SAR 6,000 a month with a bachelor's and SAR 4,500 with a diploma."],
+    ["Some professional doors close and stay closed.",
+     "Without a degree you cannot sit the US CPA at all. CMA needs a degree or an accepted professional certification first. CFA makes you wait for 4,000 hours of experience over three years. In Saudi Arabia, SOCPA registration, which matters for anyone working seriously in accounting there, appears to require a degree certificate."],
+    ["For expatriates, the work permit itself is capped.",
+     "The UAE's skill level one is reserved for attested degree holders, which locks you out of those job titles regardless of how good you are. Kuwait has previously used degree possession as a condition on residency for older workers, revoked it, and could reinstate it."],
+    ["And the honest counterweight.",
+     "We could not find a single published Gulf dataset showing what graduates actually earn compared with non-graduates. The policy floors above are the strongest hard evidence that exists, and they are floors rather than measured earnings. Anyone who quotes you a precise Gulf graduate premium is making it up."]
+  ],
+
+  quizline:"Not sure what kind of work suits you at all? The assessment takes about eight minutes.",
+  quizbtn:"Take the assessment",
+  entline:"If you are still weighing a degree, check what your grades actually open first.",
+  entbtn:"Entry requirements",
+  ailine:"Certifications age faster than degrees. Read what AI is doing to entry-level technical work before you commit.",
+  aibtn:"AI and your major",
+
+  srcT:"Sources, and what we could not verify",
+  srcS:"Checked in August 2026. Fees and eligibility in this field change often, so treat every figure as a starting point for a phone call rather than a promise.",
+  src:[
+    ["ACCA Foundation level has no academic entry requirements: ACCA.","https://www.accaglobal.com/an/en/qualifications/glance/foundation-level/overview.html"],
+    ["ACCA fees as listed by BPP; ACCA's own fee page was unavailable at the time of checking.","https://www.bpp.com/accountancy-and-tax/acca/fees"],
+    ["CFA registration by work experience rather than a degree: CFA Institute policies.","https://www.cfainstitute.org/programs/cfa-program/policies"],
+    ["CPA international testing locations and fees: NASBA.","https://nasba.org/internationalexam/"],
+    ["CMA entry requirements: IMA Middle East.","https://imamiddleeast.org/en/cma-certification/requirements-getting-started/"],
+    ["AWS re/Start in Bahrain, twelve weeks, free, residency-based eligibility: ThinkSmart.","https://thinksmartgulf.com/aws-re-start/"],
+    ["Bahrain Polytechnic entry requirements and the per-credit fee difference for non-Bahrainis.","https://www.polytechnic.bh/current-students/student-fees-finance/"],
+    ["Bahrain Training Institute qualifications, including craft certificates for those who did not complete secondary school: Bahrain Education and Training Quality Authority review.","https://www.bqa.gov.bh/wp-content/uploads/2024/10/BTI-summary-EN.pdf"],
+    ["Saudi Technical and Vocational Training Corporation scale and stipended evening programmes.","https://tvtc.gov.sa/En/Pages/TVTC.aspx"],
+    ["Abu Dhabi Polytechnic admission criteria, including international applicants.","https://adpoly.ac.ae/admission/admission-criteria/"],
+    ["Higher Colleges of Technology entry requirements, Emiratis only.","https://hct.ac.ae/en/admissions/entry-requirements/"],
+    ["University of Doha for Science and Technology tuition and fees.","https://www.udst.edu.qa/admissions/admissions-information/tuition-and-fees"],
+    ["PAAET admission limited to Kuwaiti nationals for 2025, alongside a standing service for non-Kuwaitis. The two conflict.","https://kuwaittimes.com/article/31399/kuwait/other-news/paaet-limits-2025-admission-to-kuwaitis-adds-new-program/"],
+    ["Oman's vocational colleges, diploma and apprenticeship pathways: Oman Education Council.","https://www.educouncil.gov.om/en/page.php?scrollto=start&id=41"],
+    ["Saudi Aramco apprenticeship entry requirements and benefits.","https://www.aramco.com/en/careers/for-saudi-applicants/student-opportunities/apprenticeship-program"],
+    ["ADNOC Technical Academy, 403 graduates in 2025.","https://www.adnoc.ae/en/news-and-media/press-releases/2025/adnoc-technical-academy-celebrates-graduation-of-403-uae-nationals"],
+    ["Bapco diploma and apprenticeship programme.","https://careers.bapco.net/new-page-68"],
+    ["Emirates Group aircraft maintenance engineer licence scholarship.","https://www.theemiratesgroup.com/media-centre/emirates-group-invites-uae-nationals-to-join-its-aircraft-maintenance-engineer-license-amel-scholarship-programme/"],
+    ["Qatar Airways aircraft engineering scholarship.","https://www.qatarairways.com/en-gb/nationalisation/aircraft-engineering-scholarship.html"],
+    ["Tamkeen on-the-job training allowance, and the qualification-tiered minimum salaries in the National Employment Programme.","https://www.tamkeen.bh/en/programs/national-employment-program-3-0/"],
+    ["Bahrain Electricity and Water Authority electrician licence classes and fees.","https://www.ewa.bh/en/licensing-building-installations-electricity-electricians"],
+    ["Kahramaa individual licensing for electricians and plumbers, in force since October 2023.","https://thepeninsulaqatar.com/article/04/10/2023/new-licensing-procedure-for-electricians-plumbers"],
+    ["Oman's mandatory practice licences for 41 oil and gas occupations from September 2025.","https://gulfnews.com/world/gulf/oman/oman-mandates-licensing-for-some-oil-and-gas-sector-jobs-1.500221885"],
+    ["Oman Ministerial Decree 501/2024, occupations progressively closed to expatriates.","https://kpmg.com/xx/en/our-insights/gms-flash-alert/flash-alert-2024-203.html"],
+    ["Saudi professional verification and professional examination tracks for expatriate workers.","https://www.hrsd.gov.sa/en/media-center/news/171020241"]
+  ],
+
+  gapsT:"What we could not verify",
+  gaps:[
+    "Whether expatriates may enrol in Saudi Arabia's government technical colleges, in Oman's University of Technology and Applied Sciences and vocational colleges, or in the Bahrain Training Institute. None of the three states this publicly in English. This is the question you will most want answered, so telephone the registrar.",
+    "Current fees for CIMA, for offshore safety courses in the Gulf, and for welding inspection training.",
+    "Entry requirements and pay for the Bapco apprenticeship, and entry criteria for the ADNOC Technical Academy.",
+    "Whether any school-leaver apprenticeship exists at Gulf Air, Kuwait Airways or Kuwait Oil Company. We found none published.",
+    "Eligibility and cost for the Qatar Digital Academy and the Oman AI and Digital Future Programme.",
+    "Any published Gulf figure for what graduates earn compared with non-graduates. It does not appear to exist."
+  ],
+
+  disc:"This page lists routes and named providers. It is not an endorsement of any provider, and fees and eligibility change constantly. Confirm everything with the institution before you pay anything.",
+  foot:"Prepared by Dr. Saqer AlKhalifa · saqeralkhalifa.com"
+},
+ar:{
+  kicker:"مجاني · لخريجي الثانوية في البحرين والخليج",
+  title:"طرق ليست شهادة جامعية من أربع سنوات",
+  sub:"شهادات مهنية وشهادات تقنية ومعاهد تقنية وتلمذة مدفوعة وحرف مرخصة، مع الأماكن المحددة في الخليج التي يمكنك أن تدرس فيها كلًا منها فعلًا.",
+  lede:"من بين إجابات الاختبار خيار أقصر طريق عملي لوظيفة جيدة. ومن يختاره يُعطى دليل جامعة في الغالب رغم ذلك. هذه الصفحة هي الجواب الآخر. وهي صادقة في أمرين لا يقولهما أحد بصوت عالٍ: بعض هذه الطرق أفضل تمويلًا وأجرًا من الشهادة الجامعية، وأغلب أفضلها مغلق أمامك ما لم تكن تحمل جواز الدولة التي تعيش فيها.",
+
+  splitT:"الأمر الوحيد الذي يحسم كل شيء هنا",
+  splitS:"اقرأ هذا قبل أي شيء آخر، فهو يحدد أي نصف من هذه الصفحة ينطبق عليك.",
+  splits:[
+    ["إن كنت مواطنًا خليجيًا، فالطريق غير الجامعي ممول تمويلًا حقيقيًا.",
+     "معسكرات مجانية، وتلمذة بمكافأة، ووظائف مضمونة في النهاية. أرامكو السعودية تدفع لك وهي تدرّبك ثم توظفك. وتمكين تدفع للمتدرب البحريني 200 دينار شهريًا. والبرامج المسائية في المؤسسة العامة للتدريب التقني والمهني في السعودية تدفع مكافأة. وكليات التقنية العليا والهيئة العامة للتعليم التطبيقي والتدريب وبرامج التلمذة الحكومية كلها لك."],
+    ["وإن كنت خريج ثانوية وافدًا في الخليج، فلا يكاد شيء من ذلك متاحًا لك.",
+     "كليات التقنية العليا للإماراتيين فقط. والهيئة العامة للتعليم التطبيقي والتدريب أعلنت القبول للكويتيين فقط. وبوليتكنك البحرين يفرض على غير البحرينيين عشرة أضعاف رسوم الساعة. وتمكين ودروب وسماي للمواطنين. وكل برنامج تلمذة كبير في النفط والطيران في هذه الصفحة للمواطنين فقط. والاستثناء الواضح هو AWS re/Start في البحرين، فشرطه الإقامة وشهادة ثانوية لا الجنسية، وهو أكثر مسار مجاني إتاحةً وجدناه."],
+    ["ونظام التأشيرات يصنّفك أيضًا بحسب مؤهلك، وهذا ما يغفله أكثر الناس.",
+     "الإمارات تصنّف تصاريح العمل بمستويات مهارة، والمستوى الأول يشترط بكالوريوس مصدّقًا. والسعودية تقسم العمالة الوافدة رسميًا إلى مسار شهادة ومسار اختبار عملي عند مرحلة التأشيرة. وعُمان تغلق مهنًا محددة أمام الوافدين تدريجيًا، ومنها مبرمجو الحاسوب ومهندسو الحاسوب من يناير 2026. والشهادة لن تنقذك من الأخيرة، لكن على الوافد ألا يبني خطته على العمل التقني في عُمان."]
+  ],
+
+  pickC:"أين أنت؟",
+  pickF:"أي نوع من الطرق؟",
+  count:function(n){ return n + " طريقًا"; },
+  time:"كم تستغرق",
+  cost:"كم تكلف",
+  where:"أين تحديدًا",
+  none:"لم نتحقق من وجود مزوّد في هذه الدولة.",
+
+  downT:"ماذا تخسر، بصراحة",
+  downS:"الصفحة الصادقة يجب أن تسعّر القرار لا أن تبيعه فقط. وهذه الكلف محددة، وكلها سياسات موثقة لا آراء.",
+  downs:[
+    ["أرضيات الأجور الحكومية في الخليج مربوطة بشهادتك لا بقدرتك.",
+     "دعم الأجور في تمكين البحرينية يحدد حدودًا دنيا مختلفة للبرنامج نفسه: 350 دينارًا شهريًا لخريج الثانوية، و430 لحامل الدبلوم، و500 لحامل البكالوريوس. أي فجوة 43 بالمئة عند البداية، مكتوبة في السياسة، على الورق فقط. والسعودية تفعل المثل في قواعد توطين المحاسبة، حيث يُحتسب الموظف السعودي ضمن نسبة صاحب العمل عند 6,000 ريال شهريًا بالبكالوريوس و4,500 بالدبلوم."],
+    ["وبعض الأبواب المهنية تُغلق وتبقى مغلقة.",
+     "بدون شهادة جامعية لا يمكنك دخول اختبار CPA الأمريكي إطلاقًا. وCMA تحتاج شهادة أو شهادة مهنية معتمدة أولًا. وCFA تجعلك تنتظر أربعة آلاف ساعة خبرة على ثلاث سنوات. وفي السعودية يبدو أن تسجيل الهيئة السعودية للمراجعين والمحاسبين، وهو مهم لمن يعمل في المحاسبة هناك بجدية، يشترط شهادة جامعية."],
+    ["وللوافدين، تصريح العمل نفسه محدود بسقف.",
+     "المستوى الأول للمهارة في الإمارات محجوز لحاملي الشهادات المصدّقة، وهذا يغلق أمامك تلك المسميات مهما كنت جيدًا. والكويت استخدمت سابقًا حيازة الشهادة شرطًا على الإقامة لكبار السن، ثم ألغته، وقد تعيده."],
+    ["والثقل المقابل، بصدق.",
+     "لم نجد ولا مجموعة بيانات خليجية منشورة تبيّن ما يكسبه الخريجون فعلًا مقارنة بغيرهم. وأرضيات السياسات أعلاه هي أقوى دليل موجود، وهي أرضيات لا أجور مقاسة. ومن يعطيك نسبة دقيقة لعلاوة الشهادة في الخليج فهو يخترعها."]
+  ],
+
+  quizline:"لست متأكدًا أي عمل يناسبك أصلًا؟ الاختبار يستغرق نحو ثماني دقائق.",
+  quizbtn:"ابدأ الاختبار",
+  entline:"إن كنت ما زلت توازن الشهادة الجامعية، فتحقق أولًا مما تفتحه درجاتك فعلًا.",
+  entbtn:"شروط القبول",
+  ailine:"الشهادات التقنية تشيخ أسرع من الشهادات الجامعية. اقرأ ما يفعله الذكاء الاصطناعي بالعمل التقني المبتدئ قبل أن تلتزم.",
+  aibtn:"الذكاء الاصطناعي وتخصصك",
+
+  srcT:"المصادر، وما لم نتحقق منه",
+  srcS:"جرى التحقق في أغسطس 2026. والرسوم وشروط القبول في هذا المجال تتغير كثيرًا، فتعامل مع كل رقم على أنه نقطة بداية لمكالمة هاتفية لا وعدًا.",
+  src:null,
+
+  gapsT:"ما لم نستطع التحقق منه",
+  gaps:[
+    "هل يجوز للوافدين الالتحاق بالكليات التقنية الحكومية في السعودية، أو بجامعة التقنية والعلوم التطبيقية والكليات المهنية في عُمان، أو بمعهد البحرين للتدريب. لا تصرّح أي من الدول الثلاث بذلك علنًا بالإنجليزية. وهذا أكثر سؤال ستريد جوابه، فاتصل بقسم التسجيل هاتفيًا.",
+    "الرسوم الحالية لشهادة CIMA، ولدورات السلامة البحرية في الخليج، ولتدريب تفتيش اللحام.",
+    "شروط القبول والأجر في برنامج تلمذة بابكو، وشروط القبول في أكاديمية أدنوك التقنية.",
+    "هل يوجد برنامج تلمذة لخريجي الثانوية في طيران الخليج أو الخطوط الجوية الكويتية أو شركة نفط الكويت. لم نجد شيئًا منشورًا.",
+    "شروط القبول والكلفة في الأكاديمية الرقمية القطرية وبرنامج عُمان للذكاء الاصطناعي والمستقبل الرقمي.",
+    "أي رقم خليجي منشور لما يكسبه الخريجون مقارنة بغيرهم. لا يبدو أنه موجود."
+  ],
+
+  disc:"هذه الصفحة تسرد الطرق والمزودين بالاسم. وليست تزكية لأي مزوّد، والرسوم وشروط القبول تتغير باستمرار. تحقق من كل شيء مع الجهة قبل أن تدفع أي مبلغ.",
+  foot:"إعداد د. صقر آل خليفة · saqeralkhalifa.com"
+}
+};
+
+function L(){ return T[LANG]; }
+function tx(o){ return o ? o[LANG] : ""; }
+
+function renderChrome(){
+  var t = L();
+  document.getElementById("kicker").textContent = t.kicker;
+  document.getElementById("t-title").textContent = t.title;
+  document.getElementById("t-sub").textContent = t.sub;
+  document.getElementById("lede").textContent = t.lede;
+
+  document.getElementById("t-splitT").textContent = t.splitT;
+  document.getElementById("t-splitS").textContent = t.splitS;
+  document.getElementById("splits").innerHTML = t.splits.map(function(k){
+    return '<div class="pt"><b>'+k[0]+'</b><span>'+k[1]+'</span></div>'; }).join("");
+
+  document.getElementById("t-pickC").textContent = t.pickC;
+  document.getElementById("t-pickF").textContent = t.pickF;
+  document.getElementById("cchips").innerHTML = CTRYS.map(function(c){
+    return '<button class="chip'+(CTRY===c.k?' on':'')+'" data-c="'+c.k+'">'+tx(c)+'</button>'; }).join("");
+  document.getElementById("fchips").innerHTML = FAMS.map(function(f){
+    return '<button class="chip'+(FAM===f.k?' on':'')+'" data-f="'+f.k+'">'+tx(f)+'</button>'; }).join("");
+
+  document.getElementById("t-downT").textContent = t.downT;
+  document.getElementById("t-downS").textContent = t.downS;
+  document.getElementById("downs").innerHTML = t.downs.map(function(k){
+    return '<div class="pt warn"><b>'+k[0]+'</b><span>'+k[1]+'</span></div>'; }).join("");
+
+  document.getElementById("t-quizline").textContent = t.quizline;
+  document.getElementById("t-quizbtn").textContent = t.quizbtn;
+  document.getElementById("t-entline").textContent = t.entline;
+  document.getElementById("t-entbtn").textContent = t.entbtn;
+  document.getElementById("t-ailine").textContent = t.ailine;
+  document.getElementById("t-aibtn").textContent = t.aibtn;
+
+  document.getElementById("t-gapsT").textContent = t.gapsT;
+  document.getElementById("gaps").innerHTML = t.gaps.map(function(g){
+    return '<li>'+g+'</li>'; }).join("");
+
+  document.getElementById("srcT").textContent = t.srcT;
+  document.getElementById("srcS").textContent = t.srcS;
+  document.getElementById("srcList").innerHTML = T.en.src.map(function(s){
+    return '<li>'+s[0]+' <a href="'+s[1]+'" target="_blank" rel="noopener">'+s[1]+'</a></li>'; }).join("");
+
+  document.getElementById("t-disc").textContent = t.disc;
+  document.getElementById("t-foot").textContent = t.foot;
+}
+
+function renderList(){
+  var t = L();
+  var list = ALT.filter(function(r){ return FAM === "all" || r.f === FAM; });
+  document.getElementById("count").textContent = t.count(list.length);
+  document.getElementById("rlist").innerHTML = list.map(function(r){
+    var w = r.w && r.w[CTRY] ? tx(r.w[CTRY]) : t.none;
+    var note = r.note ? '<div class="note">'+tx(r.note)+'</div>' : '';
+    return '<div class="rt">' +
+      '<div class="rh"><b>'+tx(r.n)+'</b><span class="tag '+r.open+'">'+tx(OPEN[r.open])+'</span></div>' +
+      '<p>'+tx(r.d)+'</p>' +
+      '<div class="meta">' +
+        '<div><span class="ml">'+t.time+'</span>'+tx(r.t)+'</div>' +
+        '<div><span class="ml">'+t.cost+'</span>'+tx(r.c)+'</div>' +
+      '</div>' +
+      '<div class="wh"><span class="wl">'+t.where+'</span>'+w+'</div>' + note +
+    '</div>';
+  }).join("");
+}
+
+function renderAll(){ renderChrome(); renderList(); }
+
+document.addEventListener("click", function(e){
+  var c = e.target.closest ? e.target.closest(".chip") : null;
+  if(!c) return;
+  if(c.hasAttribute("data-c")) CTRY = c.getAttribute("data-c");
+  else if(c.hasAttribute("data-f")) FAM = c.getAttribute("data-f");
+  else return;
+  renderAll();
+  if(window.goatcounter && window.goatcounter.count){
+    try{ window.goatcounter.count({path:"alt-"+CTRY+"-"+FAM, title:"Alt routes "+CTRY+" "+FAM, event:true}); }catch(err){}
+  }
+});
+
+document.getElementById("langToggle").addEventListener("click", function(){
+  LANG = (LANG === "en") ? "ar" : "en";
+  document.documentElement.lang = LANG;
+  document.documentElement.dir = (LANG === "ar") ? "rtl" : "ltr";
+  this.textContent = (LANG === "ar") ? "English" : "عربي";
+  renderAll();
+});
+
+renderAll();
+
+</script>
+</body>
+</html>
