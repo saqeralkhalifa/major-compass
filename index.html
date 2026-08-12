@@ -304,9 +304,9 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .mc-nav-links a:hover{color:var(--paper);}
 .mc-nav-links a[aria-current="page"]{color:var(--paper); border-bottom-color:var(--accent);}
 .mc-nav .lang-toggle{
-  flex:0 0 auto; border:1px solid #3a3d43; background:transparent; border-radius:999px;
-  padding:6px 15px; font-size:12px; letter-spacing:.08em; font-weight:500;
-  color:#c9ccd2; cursor:pointer; font-family:var(--font-body);
+  flex:0 0 auto; border:1px solid var(--accent); background:var(--accent); border-radius:999px;
+  padding:6px 17px; font-size:13px; letter-spacing:.04em; font-weight:600;
+  color:#fbf9f4; cursor:pointer; font-family:var(--font-body);
   transition:background .15s, color .15s, border-color .15s;
 }
 .mc-nav .lang-toggle:hover{background:var(--paper); color:var(--ink); border-color:var(--paper);}
@@ -491,6 +491,25 @@ html{scroll-padding-top:76px;}
 }
 </style>
 <script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="en" href="https://saqeralkhalifa.github.io/major-compass/?lang=en">
+<link rel="alternate" hreflang="ar" href="https://saqeralkhalifa.github.io/major-compass/?lang=ar">
+<link rel="alternate" hreflang="x-default" href="https://saqeralkhalifa.github.io/major-compass/">
+<script>
+/* MCLANG: one language resolver shared by every Major Compass page.
+   Order: ?lang= in the URL, then the visitor's saved choice, then the browser. */
+function mcInitLang(){
+  try{
+    var q = (location.search.match(/[?&]lang=(ar|en)\b/) || [])[1];
+    if(q) return q;
+    var s = window.localStorage && localStorage.getItem("mc-lang");
+    if(s === "ar" || s === "en") return s;
+    var n = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    if(/^ar/i.test(n)) return "ar";
+  }catch(e){}
+  return "en";
+}
+function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
+</script>
 </head>
 <body>
 <div class="mc-nav">
@@ -600,8 +619,19 @@ html{scroll-padding-top:76px;}
       <div class="nextlinks">
         <a class="btn" id="r-next-sch" href="https://saqeralkhalifa.github.io/major-compass/scholarships.html"></a>
         <a class="btn secondary" id="r-next-exp" href="https://saqeralkhalifa.github.io/major-compass/explore.html"></a>
+        <a class="btn secondary" id="r-next-db" href="https://saqeralkhalifa.github.io/major-compass/routes.html" style="display:none"></a>
       </div>
       <p class="nextpar" id="r-next-par"></p>
+    </div>
+
+    <div class="nextbox" id="parentbox">
+      <h2 id="r-par-title"></h2>
+      <p id="r-par-sub"></p>
+      <div class="nextlinks">
+        <button class="btn" id="r-par-send"></button>
+        <a class="btn secondary" id="r-par-read" href="https://saqeralkhalifa.github.io/major-compass/parents.html?lang=ar"></a>
+      </div>
+      <p class="nextpar" id="r-par-note"></p>
     </div>
 
     <div class="res-actions">
@@ -663,11 +693,20 @@ const UI = {
     careersLabel: "Possible careers:",
     exploreLink: "Or browse all the majors first →",
     scholLink: "Or see who will fund your degree →",
-    nextTitle: "Two things to do next",
+    nextTitle: "What to do next",
     nextSub: "Knowing the major is only half of it. Find out who will pay for it, and read honestly about what the subject is really like before you commit.",
     nextSch: "Find scholarships and funding",
     nextExp: "Read about these majors",
-    nextPar: 'Wondering whether your grades are enough? Try the <a href="https://saqeralkhalifa.github.io/major-compass/entry.html">entry requirements checker</a>. Showing this to your family? There is <a href="https://saqeralkhalifa.github.io/major-compass/parents.html">a guide for parents</a> too.',
+    nextPar: 'Wondering whether your grades are enough? Try the <a href="https://saqeralkhalifa.github.io/major-compass/entry.html">entry requirements checker</a>.',
+    nextDb: (s) => `What avoiding ${s} really closes`,
+    dbShort: {medical:"blood and hospitals", math:"advanced mathematics", speaking:"public speaking",
+              routine:"routine desk work", physical:"physical work"},
+    parTitle: "Showing this to a parent",
+    parSub: "Most parents want to help and are working from an outdated picture of where these majors lead. Send them the result together with the guide written for them.",
+    parSend: "Send the result to a parent, in Arabic",
+    parRead: "Open the parents guide",
+    parNote: "The message opens in whatever you normally share with, WhatsApp, Messages or anything else. Nothing is stored and nothing is sent to us.",
+    parCopied: "Message copied. Paste it wherever you like.",
     readMore: "Read more about this major →",
     mktLabel: "Job market shown:",
     demandIn: (c)=>`High demand in ${c}`,
@@ -720,11 +759,20 @@ const UI = {
     careersLabel: "مهن ممكنة:",
     exploreLink: "أو تصفّح جميع التخصصات التخصصات أولًا ←",
     scholLink: "أو اطّلع على من سيموّل دراستك ←",
-    nextTitle: "خطوتان بعد النتيجة",
+    nextTitle: "الخطوات التالية",
     nextSub: "معرفة التخصص نصف الطريق فقط. اعرف من سيدفع تكاليفه، واقرأ بصدق عن حقيقة دراسته قبل أن تلتزم به.",
     nextSch: "ابحث عن المنح والتمويل",
     nextExp: "اقرأ عن هذه التخصصات",
-    nextPar: 'تتساءل هل تكفي درجاتك؟ جرّب <a href="https://saqeralkhalifa.github.io/major-compass/entry.html">أداة شروط القبول</a>. وستعرض النتيجة على أسرتك؟ يوجد أيضًا <a href="https://saqeralkhalifa.github.io/major-compass/parents.html">دليل لأولياء الأمور</a>.',
+    nextPar: 'تتساءل هل تكفي درجاتك؟ جرّب <a href="https://saqeralkhalifa.github.io/major-compass/entry.html">أداة شروط القبول</a>.',
+    nextDb: (s) => `ما الذي يغلقه فعلًا تجنّب ${s}`,
+    dbShort: {medical:"الدم والمستشفيات", math:"الرياضيات المتقدمة", speaking:"التحدث أمام الناس",
+              routine:"العمل المكتبي الروتيني", physical:"العمل البدني"},
+    parTitle: "عرض النتيجة على ولي الأمر",
+    parSub: "أغلب الأهل يريدون المساعدة، لكن صورتهم عن هذه التخصصات قديمة. أرسل لهم النتيجة ومعها الدليل المكتوب لهم.",
+    parSend: "أرسل النتيجة لولي الأمر",
+    parRead: "افتح دليل أولياء الأمور",
+    parNote: "ستفتح الرسالة في التطبيق الذي تشارك به عادةً، واتساب أو الرسائل أو غيرهما. ولا يُحفظ منها شيء ولا يصلنا منها شيء.",
+    parCopied: "نُسخت الرسالة. الصقها حيث تشاء.",
     readMore: "اقرأ المزيد عن هذا التخصص ←",
     mktLabel: "سوق العمل المعروض:",
     demandIn: (c)=>`طلب مرتفع في ${c}`,
@@ -1551,6 +1599,23 @@ if (typeof document !== "undefined") (function(){
     $("r-next-sch").textContent = U.nextSch;
     $("r-next-exp").textContent = U.nextExp;
     $("r-next-par").innerHTML = U.nextPar;
+
+    /* MCDB: send the student to the dealbreaker guide on their own answer */
+    const db = $("r-next-db");
+    if(p.avoid && p.avoid !== "none" && U.dbShort[p.avoid]){
+      db.textContent = U.nextDb(U.dbShort[p.avoid]);
+      db.href = "https://saqeralkhalifa.github.io/major-compass/routes.html?d=" + p.avoid + "&lang=" + lang;
+      db.style.display = "";
+    } else {
+      db.style.display = "none";
+    }
+
+    /* MCPAR: parent hand-off */
+    $("r-par-title").textContent = U.parTitle;
+    $("r-par-sub").textContent   = U.parSub;
+    $("r-par-send").textContent  = U.parSend;
+    $("r-par-read").textContent  = U.parRead;
+    $("r-par-note").textContent  = U.parNote;
     $("r-disclaimer").textContent = U.disclaimer;
     $("r-refs").textContent = U.refs;
 
@@ -1579,6 +1644,22 @@ if (typeof document !== "undefined") (function(){
 
     lastProfile = p;
     renderMarket();
+  }
+
+  /* MCPAR: the Arabic message a student hands to a parent */
+  function parentMessage(){
+    const p = lastProfile; if(!p) return "";
+    const AD = ["١","٢","٣"];
+    const top = rankMajors(p).slice(0,3).map((r,i)=> AD[i] + ". " + r.major.n.ar);
+    return [
+      "نتيجة اختبار بوصلة التخصص، أقرب ثلاثة تخصصات لي:",
+      top.join("\n"),
+      "",
+      "دليل أولياء الأمور: " + "https://saqeralkhalifa.github.io/major-compass/parents.html?lang=ar",
+      "الاختبار نفسه: " + "https://saqeralkhalifa.github.io/major-compass/?lang=ar",
+      "",
+      "إعداد د. صقر آل خليفة، الجامعة الأمريكية في البحرين"
+    ].join("\n");
   }
 
   /* renders the major cards against the currently selected job market */
@@ -1639,6 +1720,19 @@ if (typeof document !== "undefined") (function(){
     track("market-" + market);
     renderMarket();
   });
+  $("r-par-send").addEventListener("click", async ()=>{
+    const U = UI[lang];
+    const txt = parentMessage();
+    if(!txt) return;
+    track("parent-share");
+    try{
+      if(navigator.share){ await navigator.share({text: txt}); return; }
+      await navigator.clipboard.writeText(txt);
+      const b = $("r-par-send");
+      b.textContent = U.parCopied;
+      setTimeout(()=>{ b.textContent = U.parSend; }, 3000);
+    }catch(e){/* user cancelled */}
+  });
   $("printBtn").addEventListener("click", ()=>window.print());
   $("shareBtn").addEventListener("click", async ()=>{
     const url = location.href.split("#")[0];
@@ -1672,6 +1766,22 @@ if (typeof module !== "undefined" && module.exports){
   try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
   document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
   sync();
+})();
+</script>
+<script>
+/* MCLANG boot: applies the resolved language by driving the page's own toggle,
+   then remembers whatever the visitor lands on. */
+(function(){
+  var b = document.getElementById("langToggle");
+  if(!b) return;
+  if(mcInitLang() === "ar" && document.documentElement.lang !== "ar") b.click();
+  document.addEventListener("click", function(e){
+    if(e.target && e.target.id === "langToggle"){
+      setTimeout(function(){
+        mcSaveLang(document.documentElement.lang === "ar" ? "ar" : "en");
+      }, 0);
+    }
+  }, true);
 })();
 </script>
 </body>

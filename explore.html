@@ -6,6 +6,25 @@
 <title>Explore University Majors | Dr. Saqer AlKhalifa</title>
 <meta name="description" content="A free bilingual guide to 82 university majors for students in Bahrain and the Gulf: what you actually study, what the work is like, what students find hardest, and which GCC universities offer each one.">
 <script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="en" href="https://saqeralkhalifa.github.io/major-compass/explore.html?lang=en">
+<link rel="alternate" hreflang="ar" href="https://saqeralkhalifa.github.io/major-compass/explore.html?lang=ar">
+<link rel="alternate" hreflang="x-default" href="https://saqeralkhalifa.github.io/major-compass/explore.html">
+<script>
+/* MCLANG: one language resolver shared by every Major Compass page.
+   Order: ?lang= in the URL, then the visitor's saved choice, then the browser. */
+function mcInitLang(){
+  try{
+    var q = (location.search.match(/[?&]lang=(ar|en)\b/) || [])[1];
+    if(q) return q;
+    var s = window.localStorage && localStorage.getItem("mc-lang");
+    if(s === "ar" || s === "en") return s;
+    var n = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    if(/^ar/i.test(n)) return "ar";
+  }catch(e){}
+  return "en";
+}
+function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -206,9 +225,9 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .mc-nav-links a:hover{color:var(--paper);}
 .mc-nav-links a[aria-current="page"]{color:var(--paper); border-bottom-color:var(--accent);}
 .mc-nav .lang-toggle{
-  flex:0 0 auto; border:1px solid #3a3d43; background:transparent; border-radius:999px;
-  padding:6px 15px; font-size:12px; letter-spacing:.08em; font-weight:500;
-  color:#c9ccd2; cursor:pointer; font-family:var(--font-body);
+  flex:0 0 auto; border:1px solid var(--accent); background:var(--accent); border-radius:999px;
+  padding:6px 17px; font-size:13px; letter-spacing:.04em; font-weight:600;
+  color:#fbf9f4; cursor:pointer; font-family:var(--font-body);
   transition:background .15s, color .15s, border-color .15s;
 }
 .mc-nav .lang-toggle:hover{background:var(--paper); color:var(--ink); border-color:var(--paper);}
@@ -1170,6 +1189,22 @@ render();
   try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
   document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
   sync();
+})();
+</script>
+<script>
+/* MCLANG boot: applies the resolved language by driving the page's own toggle,
+   then remembers whatever the visitor lands on. */
+(function(){
+  var b = document.getElementById("langToggle");
+  if(!b) return;
+  if(mcInitLang() === "ar" && document.documentElement.lang !== "ar") b.click();
+  document.addEventListener("click", function(e){
+    if(e.target && e.target.id === "langToggle"){
+      setTimeout(function(){
+        mcSaveLang(document.documentElement.lang === "ar" ? "ar" : "en");
+      }, 0);
+    }
+  }, true);
 })();
 </script>
 </body>
