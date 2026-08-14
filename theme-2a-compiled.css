@@ -53,6 +53,18 @@
   background:#C09A45 !important; color:#152A55 !important; border-radius:2px !important;
 }
 
+/* The Arabic pages use a sticky <header> rather than the plain strip the
+   English pages use, so it needs its own hook to become the blue band. */
+.entry-content header[style*="sticky"]{
+  background:#152A55 !important;
+  border-bottom-color:#2E4477 !important;
+}
+.entry-content header[style*="sticky"] a{ color:#D3DCEF !important; border-bottom-color:transparent !important; }
+.entry-content header[style*="sticky"] a:hover{ color:#C09A45 !important; }
+.entry-content header[style*="sticky"] a[style*="background"]{
+  background:#C09A45 !important; color:#152A55 !important;
+}
+
 /* Arabic: its own face, more leading, never tracked. */
 html[lang^="ar"] .entry-content *, [dir="rtl"] .entry-content *{
   font-family:'Noto Naskh Arabic', 'Amiri', serif !important;
