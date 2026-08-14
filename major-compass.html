@@ -790,7 +790,7 @@ const UI = {
     share: "شارك الاختبار",
     shareCopied: "تم نسخ الرابط؛ شاركه مع أصدقائك!",
     disclaimer: "هذا الاختبار أداة استكشافية تستند إلى أبحاث الميول المهنية الراسخة (نموذج هولاند RIASEC وبنود O*NET Interest Profiler المتاحة للعموم، مع مقاييس القدرات والقيم المهنية). هو إرشاد لا قرار نهائي: استخدم نتيجتك نقطة انطلاق للبحث والحوار مع المرشدين وأهلك والمختصين، وثق بحكمك الشخصي.",
-    footer: 'إعداد <a href="https://www.saqeralkhalifa.com">د. صقر آل خليفة</a> · مجاني لجميع الطلبة',
+    footer: 'إعداد <a href="https://saqeralkhalifa.com/arabic/">د. صقر آل خليفة</a> · مجاني لجميع الطلبة',
     matchWord: "توافق",
     andWord: " و",
     whyInterest: (names)=>`توافق قوي مع ميولك ${names}`,
@@ -1770,6 +1770,14 @@ if (typeof module !== "undefined" && module.exports){
     var l = document.documentElement.lang === "ar" ? "ar" : "en";
     var n = document.querySelectorAll("[data-en]");
     for(var i=0;i<n.length;i++){ n[i].textContent = n[i].getAttribute("data-"+l); }
+    /* Links that point at saqeralkhalifa.com have an Arabic twin. The
+       main site is two separate pages, not a toggle, so the href has to
+       move with the language or an Arabic reader lands in English. */
+    var h = document.querySelectorAll("[data-href-en]");
+    for(var j=0;j<h.length;j++){
+      var v = h[j].getAttribute("data-href-"+l);
+      if(v) h[j].setAttribute("href", v);
+    }
   }
   try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
   document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);

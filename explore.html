@@ -481,8 +481,8 @@ h1,h2,h3,h4,h5,.mc-h1,.mc-h2,.mc-h3{ font-family:var(--font-display); color:var(
       <a href="ai.html" data-en="AI" data-ar="الذكاء الاصطناعي">AI</a>
     </nav>
     <div class="mc-nav-right">
-      <a class="mc-site" href="https://saqeralkhalifa.com/" data-en="saqeralkhalifa.com" data-ar="الموقع الرئيسي">saqeralkhalifa.com</a>
-      <a class="mc-book" href="https://saqeralkhalifa.com/#stores" data-en="Get the book" data-ar="اطلب الكتاب">Get the book</a>
+      <a class="mc-site" href="https://saqeralkhalifa.com/" data-href-en="https://saqeralkhalifa.com/" data-href-ar="https://saqeralkhalifa.com/arabic/" data-en="saqeralkhalifa.com" data-ar="الموقع الرئيسي">saqeralkhalifa.com</a>
+      <a class="mc-book" href="https://saqeralkhalifa.com/#stores" data-href-en="https://saqeralkhalifa.com/#stores" data-href-ar="https://saqeralkhalifa.com/arabic/#buy" data-en="Get the book" data-ar="اطلب الكتاب">Get the book</a>
       <button class="lang-toggle" id="langToggle">عربي</button>
     </div>
   </div>
@@ -1123,7 +1123,7 @@ const UI = {
     none:"لم نجد برنامج بكالوريوس هنا. ستحتاج إلى الدراسة في الخارج أو اختيار تخصص قريب.",
     uniNote:"قوائم الجامعات جُمعت من البرامج المنشورة على مواقع المؤسسات نفسها، وهي نقطة بداية لا قائمة كاملة أو مضمونة. البرامج تتغير، لذا تأكد دائمًا من الجامعة مباشرة قبل التقديم.",
     disc:"هذا الدليل للاستكشاف والنقاش، لا حكمًا نهائيًا. تحدث مع من يعملون في المجال قبل أن تلتزم به، وتحقق من شروط القبول لدى كل جامعة.",
-    foot:'إعداد <a href="https://www.saqeralkhalifa.com">د. صقر آل خليفة</a> · مجاني لجميع الطلبة',
+    foot:'إعداد <a href="https://saqeralkhalifa.com/arabic/">د. صقر آل خليفة</a> · مجاني لجميع الطلبة',
     toggle:"English"
   }
 };
@@ -1236,6 +1236,14 @@ render();
     var l = document.documentElement.lang === "ar" ? "ar" : "en";
     var n = document.querySelectorAll("[data-en]");
     for(var i=0;i<n.length;i++){ n[i].textContent = n[i].getAttribute("data-"+l); }
+    /* Links that point at saqeralkhalifa.com have an Arabic twin. The
+       main site is two separate pages, not a toggle, so the href has to
+       move with the language or an Arabic reader lands in English. */
+    var h = document.querySelectorAll("[data-href-en]");
+    for(var j=0;j<h.length;j++){
+      var v = h[j].getAttribute("data-href-"+l);
+      if(v) h[j].setAttribute("href", v);
+    }
   }
   try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
   document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
