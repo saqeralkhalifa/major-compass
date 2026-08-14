@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The thing you want to avoid | Major Compass</title>
 <meta name="description" content="Blood, mathematics, public speaking, routine desk work or physical work: what each one honestly closes, what it does not, and which routes are still open to a student in Bahrain and the Gulf.">
+<script>
+/* Strip the query string so ?lang= and cache busters do not split one page
+   into many rows in the stats. */
+window.goatcounter = {path: function(p){ return p.replace(/[?#].*$/, ""); }};
+</script>
 <script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <link rel="alternate" hreflang="en" href="https://saqeralkhalifa.github.io/major-compass/routes.html?lang=en">
 <link rel="alternate" hreflang="ar" href="https://saqeralkhalifa.github.io/major-compass/routes.html?lang=ar">
@@ -908,9 +913,46 @@ if(MCFROM){ try{ document.getElementById("t-pick").scrollIntoView({block:"start"
 /* MCLANG boot: applies the resolved language by driving the page's own toggle,
    then remembers whatever the visitor lands on. */
 (function(){
+  /* The visitor's language has to survive every click, including clicks that
+     cross from one of these sites to another. They sit on different origins,
+     so localStorage cannot carry the choice across; every internal link gets
+     stamped with the current language instead. */
+  var HOSTS = ["saqeralkhalifa.github.io", "internships.saqeralkhalifa.com",
+               "saqeralkhalifa.com", "www.saqeralkhalifa.com"];
+
+  function cur(){ return document.documentElement.lang === "ar" ? "ar" : "en"; }
+
+  /* Never overwrite a lang that is already on the link. An explicit ?lang=ar
+     link is itself a deliberate choice and outranks the running preference. */
+  function stamp(a){
+    try{
+      var raw = a.getAttribute("href");
+      if(!raw || raw.charAt(0) === "#") return;
+      var u = new URL(raw, location.href);
+      if(u.protocol !== "http:" && u.protocol !== "https:") return;
+      if(HOSTS.indexOf(u.hostname) === -1) return;
+      if(u.searchParams.has("lang")) return;
+      u.searchParams.set("lang", cur());
+      a.setAttribute("href", u.toString());
+    }catch(e){}
+  }
+  function onAnchor(e){
+    var t = e.target;
+    var a = (t && t.closest) ? t.closest("a[href]") : null;
+    if(a) stamp(a);
+  }
+  /* Capture phase, so the href is correct before the browser follows it.
+     auxclick covers middle click, contextmenu covers "copy link address". */
+  ["click", "auxclick", "contextmenu"].forEach(function(ev){
+    document.addEventListener(ev, onAnchor, true);
+  });
+
   var b = document.getElementById("langToggle");
   if(!b) return;
-  if(mcInitLang() === "ar" && document.documentElement.lang !== "ar") b.click();
+  var want = mcInitLang();
+  if(want === "ar" && document.documentElement.lang !== "ar") b.click();
+  if(want === "en" && document.documentElement.lang === "ar") b.click();
+  mcSaveLang(want);
   document.addEventListener("click", function(e){
     if(e.target && e.target.id === "langToggle"){
       setTimeout(function(){
