@@ -30,26 +30,32 @@
 }
 
 /* The top strip becomes the blue band that carries the whole system. */
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"]{
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"],
+.entry-content [style*="justify-content: space-between"][style*="border-bottom"]{
   background:#152A55 !important;
   border-bottom-color:#2E4477 !important;
 }
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a{
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a,
+.entry-content [style*="justify-content: space-between"][style*="border-bottom"] a{
   color:#D3DCEF !important;
   border-bottom:0 !important;
 }
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:hover{
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:hover,
+.entry-content [style*="justify-content: space-between"][style*="border-bottom"] a:hover{
   color:#C09A45 !important;
 }
 /* the wordmark and its mono subtitle */
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:first-child{
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:first-child,
+.entry-content [style*="justify-content: space-between"][style*="border-bottom"] a:first-child{
   font-family:'EB Garamond', Georgia, 'Times New Roman', serif !important; color:#F3EADA !important;
 }
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"] [style*="uppercase"]{
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] [style*="uppercase"],
+.entry-content [style*="justify-content: space-between"][style*="border-bottom"] [style*="uppercase"]{
   color:#9AAAD0 !important;
 }
 /* the one gold CTA sitting in the band */
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a[style*="background"]{
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a[style*="background"],
+.entry-content [style*="justify-content: space-between"][style*="border-bottom"] a[style*="background"]{
   background:#C09A45 !important; color:#152A55 !important; border-radius:2px !important;
 }
 
