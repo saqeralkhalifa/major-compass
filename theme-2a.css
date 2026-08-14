@@ -571,3 +571,69 @@ html, body { overflow-x: hidden; }
   .entry-content h1, .entry-content [style*="font-size: 84px"] { font-size: 32px !important; }
   .entry-content [style*="font-size: 46px"] { font-size: 24px !important; }
 }
+
+/* ==================================================================
+   14b. BRIDGE — saqeralkhalifa.com page markup
+   These pages are hand-built with inline styles from the block editor,
+   so the theme has to be asserted over them. Typography, colour and the
+   header band only. Nothing structural, no content touched.
+   ================================================================== */
+
+/* Body copy in the serif, in both scripts. */
+.entry-content,
+.entry-content p, .entry-content li, .entry-content span,
+.entry-content div, .entry-content td, .entry-content th,
+.entry-content blockquote, .entry-content figcaption{
+  font-family:var(--font-body) !important;
+}
+
+/* Headlines: serif, band blue, lighter weight than the old sans bold. */
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4,
+.entry-content h1 *, .entry-content h2 *, .entry-content h3 *{
+  font-family:var(--font-display) !important;
+  color:var(--band) !important;
+  font-weight:500 !important;
+  letter-spacing:-0.005em !important;
+}
+
+/* Where the page already shouts in caps, it becomes the mono label. */
+.entry-content [style*="uppercase"],
+.entry-content [style*="uppercase"] *{
+  font-family:var(--font-label) !important;
+  color:var(--gold-dark) !important;
+}
+
+/* The top strip becomes the blue band that carries the whole system. */
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"]{
+  background:var(--band) !important;
+  border-bottom-color:var(--band-line) !important;
+}
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a{
+  color:#D3DCEF !important;
+  border-bottom:0 !important;
+}
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:hover{
+  color:var(--gold) !important;
+}
+/* the wordmark and its mono subtitle */
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:first-child{
+  font-family:var(--font-display) !important; color:var(--on-band) !important;
+}
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] [style*="uppercase"]{
+  color:var(--on-band-muted) !important;
+}
+/* the one gold CTA sitting in the band */
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a[style*="background"]{
+  background:var(--gold) !important; color:var(--band) !important; border-radius:2px !important;
+}
+
+/* Arabic: its own face, more leading, never tracked. */
+html[lang^="ar"] .entry-content *, [dir="rtl"] .entry-content *{
+  font-family:var(--font-arabic) !important;
+  letter-spacing:0 !important;
+}
+html[lang^="ar"] .entry-content p, [dir="rtl"] .entry-content p{ line-height:2.0 !important; }
+html[lang^="ar"] .entry-content h1, [dir="rtl"] .entry-content h1{ line-height:1.5 !important; }
+
+/* No shadows anywhere in this theme. */
+.entry-content *{ box-shadow:none !important; text-shadow:none !important; }
