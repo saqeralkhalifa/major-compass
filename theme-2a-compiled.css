@@ -1,3 +1,88 @@
+/* ==================================================================
+   14b. BRIDGE — saqeralkhalifa.com page markup
+   These pages are hand-built with inline styles from the block editor,
+   so the theme has to be asserted over them. Typography, colour and the
+   header band only. Nothing structural, no content touched.
+   ================================================================== */
+
+/* Body copy in the serif, in both scripts. */
+.entry-content,
+.entry-content p, .entry-content li, .entry-content span,
+.entry-content div, .entry-content td, .entry-content th,
+.entry-content blockquote, .entry-content figcaption{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif !important;
+}
+
+/* Headlines: serif, band blue, lighter weight than the old sans bold. */
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4,
+.entry-content h1 *, .entry-content h2 *, .entry-content h3 *{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif !important;
+  color:#152A55 !important;
+  font-weight:500 !important;
+  letter-spacing:-0.005em !important;
+}
+
+/* Where the page already shouts in caps, it becomes the mono label. */
+.entry-content [style*="uppercase"],
+.entry-content [style*="uppercase"] *{
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace !important;
+  color:#8A6A2E !important;
+}
+
+/* The top strip becomes the blue band that carries the whole system. */
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"]{
+  background:#152A55 !important;
+  border-bottom-color:#2E4477 !important;
+}
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a{
+  color:#D3DCEF !important;
+  border-bottom:0 !important;
+}
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:hover{
+  color:#C09A45 !important;
+}
+/* the wordmark and its mono subtitle */
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:first-child{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif !important; color:#F3EADA !important;
+}
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] [style*="uppercase"]{
+  color:#9AAAD0 !important;
+}
+/* the one gold CTA sitting in the band */
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a[style*="background"]{
+  background:#C09A45 !important; color:#152A55 !important; border-radius:2px !important;
+}
+
+/* Arabic: its own face, more leading, never tracked. */
+html[lang^="ar"] .entry-content *, [dir="rtl"] .entry-content *{
+  font-family:'Noto Naskh Arabic', 'Amiri', serif !important;
+  letter-spacing:0 !important;
+}
+html[lang^="ar"] .entry-content p, [dir="rtl"] .entry-content p{ line-height:2.0 !important; }
+html[lang^="ar"] .entry-content h1, [dir="rtl"] .entry-content h1{ line-height:1.5 !important; }
+
+/* No shadows anywhere in this theme. */
+.entry-content *{ box-shadow:none !important; text-shadow:none !important; }
+
+/* ============ KEPT: the existing mobile responsive fix ============ */
+/* RESPONSIVE FIX */
+.entry-content *, [class*="alignfull"] * { box-sizing: border-box; }
+html, body { overflow-x: hidden; }
+@media (max-width: 900px) {
+  .entry-content [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  .entry-content [style*="flex"] { flex-wrap: wrap !important; }
+  .entry-content [style*="padding: 96px"], .entry-content [style*="padding: 88px"],
+  .entry-content [style*="padding: 64px"], .entry-content [style*="padding: 56px"],
+  .entry-content [style*="padding: 48px"] { padding: 32px 20px !important; }
+  .entry-content h1 { font-size: 40px !important; line-height: 1.12 !important; }
+  .entry-content img { max-width: 100% !important; height: auto !important; }
+}
+@media (max-width: 560px) {
+  .entry-content h1, .entry-content [style*="font-size: 84px"] { font-size: 32px !important; }
+  .entry-content [style*="font-size: 46px"] { font-size: 24px !important; }
+}
+
+
 /* ===================================================================
    saqeralkhalifa.com — THEME 2a "MAJLIS · BLUE BAND"
    Complete drop-in stylesheet. Paste ALL of it into
@@ -516,86 +601,3 @@ html[lang="ar"] p,[dir="rtl"] p{ font-feature-settings:"anum" 1; }
 }
 
 
-/* ============ KEPT: the existing mobile responsive fix ============ */
-/* RESPONSIVE FIX */
-.entry-content *, [class*="alignfull"] * { box-sizing: border-box; }
-html, body { overflow-x: hidden; }
-@media (max-width: 900px) {
-  .entry-content [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
-  .entry-content [style*="flex"] { flex-wrap: wrap !important; }
-  .entry-content [style*="padding: 96px"], .entry-content [style*="padding: 88px"],
-  .entry-content [style*="padding: 64px"], .entry-content [style*="padding: 56px"],
-  .entry-content [style*="padding: 48px"] { padding: 32px 20px !important; }
-  .entry-content h1 { font-size: 40px !important; line-height: 1.12 !important; }
-  .entry-content img { max-width: 100% !important; height: auto !important; }
-}
-@media (max-width: 560px) {
-  .entry-content h1, .entry-content [style*="font-size: 84px"] { font-size: 32px !important; }
-  .entry-content [style*="font-size: 46px"] { font-size: 24px !important; }
-}
-
-/* ==================================================================
-   14b. BRIDGE — saqeralkhalifa.com page markup
-   These pages are hand-built with inline styles from the block editor,
-   so the theme has to be asserted over them. Typography, colour and the
-   header band only. Nothing structural, no content touched.
-   ================================================================== */
-
-/* Body copy in the serif, in both scripts. */
-.entry-content,
-.entry-content p, .entry-content li, .entry-content span,
-.entry-content div, .entry-content td, .entry-content th,
-.entry-content blockquote, .entry-content figcaption{
-  font-family:'EB Garamond', Georgia, 'Times New Roman', serif !important;
-}
-
-/* Headlines: serif, band blue, lighter weight than the old sans bold. */
-.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4,
-.entry-content h1 *, .entry-content h2 *, .entry-content h3 *{
-  font-family:'EB Garamond', Georgia, 'Times New Roman', serif !important;
-  color:#152A55 !important;
-  font-weight:500 !important;
-  letter-spacing:-0.005em !important;
-}
-
-/* Where the page already shouts in caps, it becomes the mono label. */
-.entry-content [style*="uppercase"],
-.entry-content [style*="uppercase"] *{
-  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace !important;
-  color:#8A6A2E !important;
-}
-
-/* The top strip becomes the blue band that carries the whole system. */
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"]{
-  background:#152A55 !important;
-  border-bottom-color:#2E4477 !important;
-}
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a{
-  color:#D3DCEF !important;
-  border-bottom:0 !important;
-}
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:hover{
-  color:#C09A45 !important;
-}
-/* the wordmark and its mono subtitle */
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:first-child{
-  font-family:'EB Garamond', Georgia, 'Times New Roman', serif !important; color:#F3EADA !important;
-}
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"] [style*="uppercase"]{
-  color:#9AAAD0 !important;
-}
-/* the one gold CTA sitting in the band */
-.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a[style*="background"]{
-  background:#C09A45 !important; color:#152A55 !important; border-radius:2px !important;
-}
-
-/* Arabic: its own face, more leading, never tracked. */
-html[lang^="ar"] .entry-content *, [dir="rtl"] .entry-content *{
-  font-family:'Noto Naskh Arabic', 'Amiri', serif !important;
-  letter-spacing:0 !important;
-}
-html[lang^="ar"] .entry-content p, [dir="rtl"] .entry-content p{ line-height:2.0 !important; }
-html[lang^="ar"] .entry-content h1, [dir="rtl"] .entry-content h1{ line-height:1.5 !important; }
-
-/* No shadows anywhere in this theme. */
-.entry-content *{ box-shadow:none !important; text-shadow:none !important; }
