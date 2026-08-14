@@ -59,9 +59,12 @@
   background:#152A55 !important;
   border-bottom-color:#2E4477 !important;
 }
+/* everything in the band reads light, then the CTA takes gold back */
+.entry-content header[style*="sticky"] *{ color:#D3DCEF !important; }
 .entry-content header[style*="sticky"] a{ color:#D3DCEF !important; border-bottom-color:transparent !important; }
 .entry-content header[style*="sticky"] a:hover{ color:#C09A45 !important; }
-.entry-content header[style*="sticky"] a[style*="background"]{
+.entry-content header[style*="sticky"] a[style*="background"],
+.entry-content header[style*="sticky"] a[style*="background"] *{
   background:#C09A45 !important; color:#152A55 !important;
 }
 
