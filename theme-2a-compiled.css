@@ -1,0 +1,603 @@
+/* ===================================================================
+   saqeralkhalifa.com — THEME 2a "MAJLIS · BLUE BAND"
+   Complete drop-in stylesheet. Paste ALL of it into
+   WordPress.com → Appearance → Customize → Additional CSS
+   (or the site's global custom CSS field).
+
+   Ivory paper, brown ink, royal blue bands, gold accents.
+   English: EB Garamond. Arabic: Noto Naskh Arabic. Labels: IBM Plex Mono.
+   Works on: / , /check/ , /the-trust-trap/ , /major-compass/ ,
+   /arabic/ , /readers/ , /blog/ + archives, and the internships subdomain.
+   =================================================================== */
+
+0,500;0,600;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ------------------------------------------------------------------
+   1. TOKENS
+   ------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------
+   2. GLOBAL ELEMENTS
+   ------------------------------------------------------------------ */
+html{ -webkit-text-size-adjust:100%; }
+
+body,
+.wp-site-blocks,
+.entry-content{
+  background:#FAF5EA;
+  color:#4A3728;
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size:18px;
+  line-height:1.65;
+  font-kerning:normal;
+  font-variant-ligatures:common-ligatures;
+  text-rendering:optimizeLegibility;
+}
+@media (max-width:600px){ body{ font-size:17px; } }
+
+p{ max-width:68ch; text-wrap:pretty; margin:0 0 1.15em; }
+
+h1,h2,h3,h4,h5{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif;
+  color:#152A55;
+  font-weight:500;
+  letter-spacing:-0.005em;
+  text-wrap:balance;
+  margin:0 0 0.5em;
+}
+h1{ font-size:clamp(34px, 5.2vw, 56px); line-height:1.06; }
+h2{ font-size:clamp(26px, 3.6vw, 36px); line-height:1.12; }
+h3{ font-size:clamp(20px, 2.4vw, 24px); line-height:1.25; }
+h4{ font-size:19px; line-height:1.3; }
+
+/* All-caps mono eyebrow: the site's signature label.
+   Any short uppercase line above a headline should carry .eyebrow */
+.eyebrow,
+.wp-block-group .is-style-eyebrow,
+.eyebrow p{
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size:11px;
+  letter-spacing:0.20em;
+  text-transform:uppercase;
+  color:#8A6A2E;
+  margin:0 0 14px;
+}
+@media (max-width:600px){ .eyebrow{ font-size:10px; } }
+
+a{ color:#1E3A78; text-decoration:none; border-bottom:1px solid rgba(30,58,120,.35); }
+a:hover{ color:#8A6A2E; border-bottom-color:#C09A45; }
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible{ outline:2px solid #C09A45; outline-offset:2px; }
+
+strong,b{ font-weight:600; color:#152A55; }
+em,i{ font-style:italic; }
+hr,
+.wp-block-separator{ border:0; border-top:1px solid #E2D5BB; margin:clamp(20px, 3vw, 40px) 0; max-width:none; }
+
+img,
+.wp-block-image img{ border-radius:2px; box-shadow:none; }
+
+/* Book covers and headshots: sand plinth, hairline, no shadow */
+.figure-plinth,
+.wp-block-image.is-style-plinth img{
+  background:#EFE4CE;
+  border:1px solid #E2D5BB;
+  padding:0;
+}
+
+blockquote,
+.wp-block-quote{
+  margin:clamp(20px, 3vw, 40px) 0;
+  padding:4px 0 4px 22px;
+  border-inline-start:3px solid #C09A45;
+  border-left:3px solid #C09A45;
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-style:italic;
+  font-size:clamp(21px, 2.6vw, 26px);
+  line-height:1.4;
+  color:#152A55;
+}
+blockquote cite,
+.wp-block-quote cite{
+  display:block;
+  margin-top:12px;
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-style:normal;
+  font-size:10px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:#8A7761;
+}
+
+ul,ol{ max-width:68ch; padding-inline-start:1.15em; }
+li{ margin-bottom:0.45em; }
+
+::selection{ background:#C09A45; color:#152A55; }
+
+/* ------------------------------------------------------------------
+   3. BUTTONS  (solid, square, mono caps, no shadow, no pills)
+   ------------------------------------------------------------------ */
+.btn,
+.wp-block-button__link,
+input[type="submit"],
+button{
+  display:inline-block;
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  padding:13px 20px;
+  border-radius:2px;
+  border:1px solid transparent;
+  background:#152A55;
+  color:#FAF5EA;
+  text-decoration:none;
+  box-shadow:none;
+  cursor:pointer;
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn:hover,
+.wp-block-button__link:hover,
+input[type="submit"]:hover{ background:#1E3A78; color:#FAF5EA; border-color:transparent; }
+
+/* secondary: gold hairline on paper */
+.btn--ghost,
+.wp-block-button.is-style-outline .wp-block-button__link{
+  background:transparent;
+  color:#4A3728;
+  border:1px solid #C09A45;
+}
+.btn--ghost:hover,
+.wp-block-button.is-style-outline .wp-block-button__link:hover{
+  background:#EFE4CE;
+  color:#152A55;
+  border-color:#8A6A2E;
+}
+
+/* on a blue band, the primary flips to gold */
+.band .btn,
+.band .wp-block-button__link{ background:#C09A45; color:#152A55; }
+.band .btn:hover{ background:#D9B863; }
+.band .btn--ghost{ background:transparent; color:#F3EADA; border-color:#2E4477; }
+
+/* tertiary text link with arrow */
+.btn--text{
+  background:none; border:0; padding:0;
+  color:#1E3A78;
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+}
+.btn--text:hover{ color:#8A6A2E; }
+
+@media (max-width:600px){
+  .btn,.wp-block-button__link{ padding:15px 20px; } /* 44px+ tap target */
+}
+
+/* ------------------------------------------------------------------
+   4. HEADER  (solid blue band)
+   ------------------------------------------------------------------ */
+.site-header,
+header.wp-block-template-part,
+.wp-block-site-header{
+  background:#152A55;
+  border:0;
+  padding:16px clamp(20px, 4vw, 40px);
+}
+.site-header a,
+header.wp-block-template-part a{ border-bottom:0; }
+
+.site-title,
+.wp-block-site-title a{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size:23px;
+  font-weight:500;
+  color:#F3EADA;
+  letter-spacing:0.01em;
+}
+.site-tagline,
+.wp-block-site-tagline{
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size:9px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:#9AAAD0;
+}
+
+.site-header nav a,
+.wp-block-navigation__container > li > a{
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size:10px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:#D3DCEF;
+  padding-bottom:3px;
+  border-bottom:1px solid transparent;
+}
+.site-header nav a:hover,
+.wp-block-navigation__container > li > a:hover{ color:#C09A45; }
+.site-header nav .current-menu-item > a,
+.wp-block-navigation-item.current-menu-item > a{
+  color:#C09A45;
+  border-bottom:1px solid #C09A45;
+}
+
+/* Arabic language switch keeps its own script, untracked */
+.lang-switch,
+a[hreflang="ar"]{ font-family:'Noto Naskh Arabic', 'Amiri', serif; font-size:15px; letter-spacing:0; text-transform:none; }
+a[hreflang="en"]{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:10px; letter-spacing:0.16em; }
+
+/* header CTA */
+.site-header .btn,
+.site-header .wp-block-button__link{ background:#C09A45; color:#152A55; padding:9px 15px; font-size:10px; }
+
+/* mobile menu panel */
+.wp-block-navigation__responsive-container.is-menu-open{ background:#152A55; }
+.wp-block-navigation__responsive-container.is-menu-open a{ color:#F3EADA; font-size:14px; }
+
+/* ------------------------------------------------------------------
+   5. SECTIONS & SURFACES  (max two surfaces per page)
+   ------------------------------------------------------------------ */
+.section{ padding:clamp(56px, 7vw, 104px) clamp(20px, 4vw, 40px); }
+.section--sand{ background:#EFE4CE; }
+.section--band,
+.band{ background:#152A55; color:#F3EADA; }
+
+.band h1,.band h2,.band h3{ color:#F3EADA; }
+.band p{ color:#CBD5EA; }
+.band .eyebrow{ color:#C09A45; }
+.band a{ color:#A9BBE2; border-bottom-color:rgba(169,187,226,.4); }
+.band a:hover{ color:#C09A45; border-bottom-color:#C09A45; }
+.band hr{ border-top-color:#2E4477; }
+
+.wrap{ max-width:1160px; margin-inline:auto; }
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px, 3vw, 40px); align-items:start; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px, 3vw, 40px); }
+.grid-4{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(20px, 3vw, 40px); }
+@media (max-width:860px){ .grid-2,.grid-3,.grid-4{ grid-template-columns:1fr; } }
+
+/* ------------------------------------------------------------------
+   6. CARDS  (chapters, formats, majors, FAQ, resources)
+   ------------------------------------------------------------------ */
+.card{
+  background:#EFE4CE;
+  border:1px solid #E2D5BB;
+  border-radius:2px;
+  padding:24px;
+  box-shadow:none;
+}
+.card--blue{ background:#152A55; border-color:#2E4477; color:#F3EADA; }
+.card--blue h3{ color:#F3EADA; }
+.card .eyebrow{ color:#8A6A2E; }
+.card--blue .eyebrow{ color:#C09A45; }
+.card h3{ margin-bottom:8px; }
+.card p{ font-size:16px; margin:0; }
+
+/* Retailer / store grid: pure hairline cells */
+.store-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:1px; background:#E2D5BB; border:1px solid #E2D5BB; }
+.store-grid > *{
+  background:#FAF5EA;
+  padding:16px 18px;
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+  color:#4A3728; border-bottom:0;
+}
+.store-grid > *:hover{ background:#EFE4CE; color:#152A55; }
+.store-grid .price{ color:#8A6A2E; }
+
+/* ------------------------------------------------------------------
+   7. PULL-OUT / QUOTE BLOCK  (blue, gold label)
+   ------------------------------------------------------------------ */
+.pullout{
+  background:#152A55;
+  color:#F3EADA;
+  padding:28px;
+  border-radius:2px;
+}
+.pullout .quote{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-style:italic;
+  font-size:clamp(21px, 2.6vw, 26px);
+  line-height:1.38;
+  color:#F3EADA;
+  margin:0 0 14px;
+  max-width:none;
+}
+.pullout .source{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#C09A45; }
+
+/* ------------------------------------------------------------------
+   8. STAT ROW  (Home hero, /check/, Major Compass)
+   ------------------------------------------------------------------ */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(120px,1fr));
+  gap:clamp(20px, 3vw, 40px);
+  border-top:1px solid #E2D5BB;
+  padding-top:22px;
+}
+.band .stats{ border-top-color:#2E4477; }
+.stat__num{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size:clamp(32px, 4.4vw, 46px);
+  line-height:1;
+  color:#152A55;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.band .stat__num{ color:#C09A45; }
+.stat__label{
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size:10px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#8A7761;
+  margin-top:6px;
+}
+.band .stat__label{ color:#9AAAD0; }
+
+/* ------------------------------------------------------------------
+   9. FORMS  (chapter signup, newsletter, contact)
+   ------------------------------------------------------------------ */
+label,
+.wpcf7-form label{
+  display:block;
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size:10px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:#8A7761;
+  margin-bottom:8px;
+}
+input[type="text"],input[type="email"],input[type="search"],textarea,select{
+  width:100%;
+  background:#FAF5EA;
+  border:1px solid #D3C0A0;
+  border-radius:2px;
+  padding:13px 14px;
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size:17px;
+  color:#4A3728;
+}
+input:focus,textarea:focus,select:focus{ border-color:#1E3A78; outline:2px solid #C09A45; outline-offset:1px; }
+.band input,.band textarea{ background:#0F2047; border-color:#2E4477; color:#F3EADA; }
+.band label{ color:#C09A45; }
+::placeholder{ color:#A79680; }
+
+/* WordPress subscribe / Jetpack forms */
+.wp-block-jetpack-subscriptions__container input[type="email"]{ border-color:#D3C0A0; }
+.wp-block-jetpack-subscriptions__container button{ background:#152A55; color:#FAF5EA; }
+
+/* ------------------------------------------------------------------
+   10. FOOTER  (blue anchor band)
+   ------------------------------------------------------------------ */
+.site-footer,
+footer.wp-block-template-part,
+.wp-block-site-footer{
+  background:#152A55;
+  color:#9AAAD0;
+  padding:clamp(36px, 5vw, 64px) clamp(20px, 4vw, 40px);
+  border:0;
+}
+.site-footer a,
+footer.wp-block-template-part a{
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size:10px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:#D3DCEF;
+  border-bottom:0;
+}
+.site-footer a:hover{ color:#C09A45; }
+.site-footer .copyright{ font-family:'EB Garamond', Georgia, 'Times New Roman', serif; font-size:15px; color:#9AAAD0; letter-spacing:0; text-transform:none; }
+
+/* ------------------------------------------------------------------
+   11. BLOG  (list, single, archives)
+   ------------------------------------------------------------------ */
+.wp-block-query .wp-block-post{
+  border-bottom:1px solid #E2D5BB;
+  padding-bottom:26px;
+  margin-bottom:26px;
+}
+.wp-block-post-title{ font-family:'EB Garamond', Georgia, 'Times New Roman', serif; font-size:clamp(24px,3vw,32px); line-height:1.15; }
+.wp-block-post-title a{ color:#152A55; border-bottom:0; }
+.wp-block-post-title a:hover{ color:#1E3A78; }
+.wp-block-post-date,
+.wp-block-post-author{
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size:10px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:#8A6A2E;
+}
+.wp-block-post-excerpt__excerpt{ color:#6B5B47; font-size:17px; }
+.wp-block-post-excerpt__more-link{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; }
+
+/* single post: measured column, lifted first paragraph */
+.single .entry-content{ max-width:68ch; margin-inline:auto; }
+.single .entry-content > p:first-of-type{ font-size:20px; line-height:1.6; color:#152A55; }
+
+/* category / tag chips */
+.wp-block-post-terms a,
+.tag-cloud-link{
+  display:inline-block;
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size:10px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#4A3728;
+  border:1px solid #D3C0A0;
+  border-radius:2px;
+  padding:6px 10px;
+  margin:0 6px 6px 0;
+}
+.wp-block-post-terms a:hover,
+.tag-cloud-link:hover{ background:#EFE4CE; color:#152A55; border-color:#C09A45; }
+
+/* archive header */
+.wp-block-query-title,
+.page-title{ font-family:'EB Garamond', Georgia, 'Times New Roman', serif; color:#152A55; }
+
+/* ------------------------------------------------------------------
+   12. TABLES (data / FAQ / model tables on /check/)
+   ------------------------------------------------------------------ */
+table{ width:100%; border-collapse:collapse; font-size:16px; }
+th{
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+  color:#8A7761; text-align:start; font-weight:500;
+  border-bottom:1px solid #D3C0A0; padding:10px 12px;
+}
+td{ border-bottom:1px solid #E2D5BB; padding:12px; color:#4A3728; }
+tr:hover td{ background:#EFE4CE; }
+
+code,pre,kbd{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:13px; background:#EFE4CE; color:#4A3728; border-radius:2px; }
+code{ padding:2px 5px; }
+pre{ padding:16px; overflow:auto; border:1px solid #E2D5BB; }
+
+/* ------------------------------------------------------------------
+   13. ARABIC / RTL   (/arabic/, /readers/, AR half of Major Compass)
+   ------------------------------------------------------------------ */
+html[lang="ar"],
+html[lang^="ar-"],
+[dir="rtl"],
+.rtl{
+  direction:rtl;
+  font-family:'Noto Naskh Arabic', 'Amiri', serif;
+}
+html[lang="ar"] body,[dir="rtl"] body,.rtl body{ font-family:'Noto Naskh Arabic', 'Amiri', serif; }
+
+html[lang="ar"] p,[dir="rtl"] p,.rtl p{
+  font-size:19px;
+  line-height:2.0;
+  letter-spacing:0;          /* never track Arabic */
+}
+html[lang="ar"] h1,[dir="rtl"] h1,.rtl h1{ font-family:'Noto Naskh Arabic', 'Amiri', serif; font-weight:700; font-size:clamp(30px,4.6vw,46px); line-height:1.45; letter-spacing:0; }
+html[lang="ar"] h2,[dir="rtl"] h2,.rtl h2{ font-family:'Noto Naskh Arabic', 'Amiri', serif; font-weight:700; font-size:clamp(24px,3.2vw,34px); line-height:1.5; letter-spacing:0; }
+html[lang="ar"] h3,[dir="rtl"] h3,.rtl h3{ font-family:'Noto Naskh Arabic', 'Amiri', serif; font-weight:600; line-height:1.6; letter-spacing:0; }
+
+/* Arabic eyebrows: same size, no tracking, Arabic face */
+html[lang="ar"] .eyebrow,[dir="rtl"] .eyebrow{ font-family:'Noto Naskh Arabic', 'Amiri', serif; font-size:13px; letter-spacing:0; text-transform:none; }
+/* English eyebrows kept deliberately in Latin (ARABIC EDITION, METHOD) */
+[dir="rtl"] .eyebrow--latin{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; direction:ltr; text-align:right; }
+
+/* Arabic body numerals; stat blocks and prices stay Latin for scanning */
+html[lang="ar"] p,[dir="rtl"] p{ font-feature-settings:"anum" 1; }
+[dir="rtl"] .stat__num,[dir="rtl"] .price,[dir="rtl"] .isbn{ font-feature-settings:normal; direction:ltr; unicode-bidi:embed; }
+
+/* mirror directional glyphs and edges */
+[dir="rtl"] blockquote,[dir="rtl"] .wp-block-quote{ border-left:0; border-right:3px solid #C09A45; }
+[dir="rtl"] .arrow::after{ content:" ←"; }
+.arrow::after{ content:" →"; }
+[dir="rtl"] .store-grid > *{ flex-direction:row-reverse; }
+[dir="rtl"] th,[dir="rtl"] td{ text-align:right; }
+
+/* Major Compass: two languages on one page, separated by a hairline */
+.bilingual-split{ display:grid; grid-template-columns:1fr 1fr; gap:0; }
+.bilingual-split > *{ padding:clamp(20px, 3vw, 40px); }
+.bilingual-split > *:first-child{ border-inline-end:1px solid #E2D5BB; }
+@media (max-width:860px){
+  .bilingual-split{ grid-template-columns:1fr; }
+  .bilingual-split > *:first-child{ border-inline-end:0; border-bottom:1px solid #E2D5BB; }
+}
+
+/* ------------------------------------------------------------------
+   14. HOUSEKEEPING
+   ------------------------------------------------------------------ */
+/* kill platform chrome that fights the theme */
+.wp-block-image figcaption{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#8A7761; }
+.sharedaddy,
+.sd-sharing,
+#jp-post-flair{ border-top:1px solid #E2D5BB; padding-top:18px; }
+.sharedaddy h3.sd-title{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace!important; font-size:10px!important; letter-spacing:0.16em!important; text-transform:uppercase!important; color:#8A7761!important; }
+
+/* no gradients, no shadows anywhere in this theme */
+*{ text-shadow:none; }
+.has-background{ box-shadow:none; }
+
+@media print{
+  body{ background:#fff; color:#000; }
+  .site-header,.site-footer,.sharedaddy{ display:none; }
+}
+
+
+/* ============ KEPT: the existing mobile responsive fix ============ */
+/* RESPONSIVE FIX */
+.entry-content *, [class*="alignfull"] * { box-sizing: border-box; }
+html, body { overflow-x: hidden; }
+@media (max-width: 900px) {
+  .entry-content [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  .entry-content [style*="flex"] { flex-wrap: wrap !important; }
+  .entry-content [style*="padding: 96px"], .entry-content [style*="padding: 88px"],
+  .entry-content [style*="padding: 64px"], .entry-content [style*="padding: 56px"],
+  .entry-content [style*="padding: 48px"] { padding: 32px 20px !important; }
+  .entry-content h1 { font-size: 40px !important; line-height: 1.12 !important; }
+  .entry-content img { max-width: 100% !important; height: auto !important; }
+}
+@media (max-width: 560px) {
+  .entry-content h1, .entry-content [style*="font-size: 84px"] { font-size: 32px !important; }
+  .entry-content [style*="font-size: 46px"] { font-size: 24px !important; }
+}
+
+/* ==================================================================
+   14b. BRIDGE — saqeralkhalifa.com page markup
+   These pages are hand-built with inline styles from the block editor,
+   so the theme has to be asserted over them. Typography, colour and the
+   header band only. Nothing structural, no content touched.
+   ================================================================== */
+
+/* Body copy in the serif, in both scripts. */
+.entry-content,
+.entry-content p, .entry-content li, .entry-content span,
+.entry-content div, .entry-content td, .entry-content th,
+.entry-content blockquote, .entry-content figcaption{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif !important;
+}
+
+/* Headlines: serif, band blue, lighter weight than the old sans bold. */
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4,
+.entry-content h1 *, .entry-content h2 *, .entry-content h3 *{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif !important;
+  color:#152A55 !important;
+  font-weight:500 !important;
+  letter-spacing:-0.005em !important;
+}
+
+/* Where the page already shouts in caps, it becomes the mono label. */
+.entry-content [style*="uppercase"],
+.entry-content [style*="uppercase"] *{
+  font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace !important;
+  color:#8A6A2E !important;
+}
+
+/* The top strip becomes the blue band that carries the whole system. */
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"]{
+  background:#152A55 !important;
+  border-bottom-color:#2E4477 !important;
+}
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a{
+  color:#D3DCEF !important;
+  border-bottom:0 !important;
+}
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:hover{
+  color:#C09A45 !important;
+}
+/* the wordmark and its mono subtitle */
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a:first-child{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif !important; color:#F3EADA !important;
+}
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] [style*="uppercase"]{
+  color:#9AAAD0 !important;
+}
+/* the one gold CTA sitting in the band */
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] a[style*="background"]{
+  background:#C09A45 !important; color:#152A55 !important; border-radius:2px !important;
+}
+
+/* Arabic: its own face, more leading, never tracked. */
+html[lang^="ar"] .entry-content *, [dir="rtl"] .entry-content *{
+  font-family:'Noto Naskh Arabic', 'Amiri', serif !important;
+  letter-spacing:0 !important;
+}
+html[lang^="ar"] .entry-content p, [dir="rtl"] .entry-content p{ line-height:2.0 !important; }
+html[lang^="ar"] .entry-content h1, [dir="rtl"] .entry-content h1{ line-height:1.5 !important; }
+
+/* No shadows anywhere in this theme. */
+.entry-content *{ box-shadow:none !important; text-shadow:none !important; }
