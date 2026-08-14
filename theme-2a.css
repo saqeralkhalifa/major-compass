@@ -27,17 +27,17 @@
   --band-line:#2E4477;   /* hairlines inside blue */
   --royal:#1E3A78;       /* links, secondary blue */
   --gold:#C09A45;        /* labels & rules ON BLUE, CTA on blue */
-  --gold-dark:#8A6A2E;   /* gold-family text on paper (passes contrast) */
+  --gold-dark:#7D5F27;   /* gold-family text on paper (passes contrast) */
   --brown:#4A3728;       /* body ink */
   --brown-soft:#6B5B47;
 
   /* text */
   --text:#4A3728;
-  --muted:#8A7761;
+  --muted:#6F5D4A;
   --on-band:#F3EADA;
   --on-band-muted:#9AAAD0;
   --link:#1E3A78;
-  --link-hover:#8A6A2E;
+  --link-hover:#7D5F27;
 
   /* type */
   --font-display:'EB Garamond', Georgia, 'Times New Roman', serif;

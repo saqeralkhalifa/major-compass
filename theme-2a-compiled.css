@@ -135,13 +135,13 @@ h4{ font-size:19px; line-height:1.3; }
   font-size:11px;
   letter-spacing:0.20em;
   text-transform:uppercase;
-  color:#8A6A2E;
+  color:#7D5F27;
   margin:0 0 14px;
 }
 @media (max-width:600px){ .eyebrow{ font-size:10px; } }
 
 a{ color:#1E3A78; text-decoration:none; border-bottom:1px solid rgba(30,58,120,.35); }
-a:hover{ color:#8A6A2E; border-bottom-color:#C09A45; }
+a:hover{ color:#7D5F27; border-bottom-color:#C09A45; }
 a:focus-visible,
 button:focus-visible,
 .btn:focus-visible{ outline:2px solid #C09A45; outline-offset:2px; }
@@ -183,7 +183,7 @@ blockquote cite,
   font-size:10px;
   letter-spacing:0.16em;
   text-transform:uppercase;
-  color:#8A7761;
+  color:#6F5D4A;
 }
 
 ul,ol{ max-width:68ch; padding-inline-start:1.15em; }
@@ -229,7 +229,7 @@ input[type="submit"]:hover{ background:#1E3A78; color:#FAF5EA; border-color:tran
 .wp-block-button.is-style-outline .wp-block-button__link:hover{
   background:#EFE4CE;
   color:#152A55;
-  border-color:#8A6A2E;
+  border-color:#7D5F27;
 }
 
 /* on a blue band, the primary flips to gold */
@@ -244,7 +244,7 @@ input[type="submit"]:hover{ background:#1E3A78; color:#FAF5EA; border-color:tran
   color:#1E3A78;
   font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
 }
-.btn--text:hover{ color:#8A6A2E; }
+.btn--text:hover{ color:#7D5F27; }
 
 @media (max-width:600px){
   .btn,.wp-block-button__link{ padding:15px 20px; } /* 44px+ tap target */
@@ -314,7 +314,7 @@ a[hreflang="en"]{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, mon
 /* ------------------------------------------------------------------
    5. SECTIONS & SURFACES  (max two surfaces per page)
    ------------------------------------------------------------------ */
-.section{ padding:clamp(56px, 7vw, 104px) clamp(20px, 4vw, 40px); }
+.section{ padding-block:clamp(56px, 7vw, 104px); padding-inline:clamp(20px, 4vw, 40px); }
 .section--sand{ background:#EFE4CE; }
 .section--band,
 .band{ background:#152A55; color:#F3EADA; }
@@ -344,7 +344,7 @@ a[hreflang="en"]{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, mon
 }
 .card--blue{ background:#152A55; border-color:#2E4477; color:#F3EADA; }
 .card--blue h3{ color:#F3EADA; }
-.card .eyebrow{ color:#8A6A2E; }
+.card .eyebrow{ color:#7D5F27; }
 .card--blue .eyebrow{ color:#C09A45; }
 .card h3{ margin-bottom:8px; }
 .card p{ font-size:16px; margin:0; }
@@ -359,7 +359,7 @@ a[hreflang="en"]{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, mon
   color:#4A3728; border-bottom:0;
 }
 .store-grid > *:hover{ background:#EFE4CE; color:#152A55; }
-.store-grid .price{ color:#8A6A2E; }
+.store-grid .price{ color:#7D5F27; }
 
 /* ------------------------------------------------------------------
    7. PULL-OUT / QUOTE BLOCK  (blue, gold label)
@@ -405,7 +405,7 @@ a[hreflang="en"]{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, mon
   font-size:10px;
   letter-spacing:0.14em;
   text-transform:uppercase;
-  color:#8A7761;
+  color:#6F5D4A;
   margin-top:6px;
 }
 .band .stat__label{ color:#9AAAD0; }
@@ -420,7 +420,7 @@ label,
   font-size:10px;
   letter-spacing:0.16em;
   text-transform:uppercase;
-  color:#8A7761;
+  color:#6F5D4A;
   margin-bottom:8px;
 }
 input[type="text"],input[type="email"],input[type="search"],textarea,select{
@@ -450,13 +450,14 @@ footer.wp-block-template-part,
 .wp-block-site-footer{
   background:#152A55;
   color:#9AAAD0;
-  padding:clamp(36px, 5vw, 64px) clamp(20px, 4vw, 40px);
+  padding-block:clamp(36px, 5vw, 64px);
+  padding-inline:clamp(20px, 4vw, 40px);
   border:0;
 }
 .site-footer a,
 footer.wp-block-template-part a{
   font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
-  font-size:10px;
+  font-size:11px;
   letter-spacing:0.16em;
   text-transform:uppercase;
   color:#D3DCEF;
@@ -482,7 +483,7 @@ footer.wp-block-template-part a{
   font-size:10px;
   letter-spacing:0.18em;
   text-transform:uppercase;
-  color:#8A6A2E;
+  color:#7D5F27;
 }
 .wp-block-post-excerpt__excerpt{ color:#6B5B47; font-size:17px; }
 .wp-block-post-excerpt__more-link{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; }
@@ -518,7 +519,7 @@ footer.wp-block-template-part a{
 table{ width:100%; border-collapse:collapse; font-size:16px; }
 th{
   font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
-  color:#8A7761; text-align:start; font-weight:500;
+  color:#6F5D4A; text-align:start; font-weight:500;
   border-bottom:1px solid #D3C0A0; padding:10px 12px;
 }
 td{ border-bottom:1px solid #E2D5BB; padding:12px; color:#4A3728; }
@@ -578,11 +579,11 @@ html[lang="ar"] p,[dir="rtl"] p{ font-feature-settings:"anum" 1; }
    14. HOUSEKEEPING
    ------------------------------------------------------------------ */
 /* kill platform chrome that fights the theme */
-.wp-block-image figcaption{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#8A7761; }
+.wp-block-image figcaption{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#6F5D4A; }
 .sharedaddy,
 .sd-sharing,
 #jp-post-flair{ border-top:1px solid #E2D5BB; padding-top:18px; }
-.sharedaddy h3.sd-title{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace!important; font-size:10px!important; letter-spacing:0.16em!important; text-transform:uppercase!important; color:#8A7761!important; }
+.sharedaddy h3.sd-title{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace!important; font-size:10px!important; letter-spacing:0.16em!important; text-transform:uppercase!important; color:#6F5D4A!important; }
 
 /* no gradients, no shadows anywhere in this theme */
 *{ text-shadow:none; }
@@ -593,3 +594,37 @@ html[lang="ar"] p,[dir="rtl"] p{ font-feature-settings:"anum" 1; }
   .site-header,.site-footer,.sharedaddy{ display:none; }
 }
 
+
+/* ------------------------------------------------------------------
+   14. CONTRAST GUARDS
+   Gold at paper strength (#8A6A2E) is only 2.8:1 on the band. Anything
+   sitting on band blue gets the full-strength gold instead, which is the
+   pairing the brief actually specifies.
+   ------------------------------------------------------------------ */
+.entry-content [style*="background:#152A55"] [style*="#7D5F27"],
+.entry-content [style*="background: #152A55"] [style*="#7D5F27"],
+.entry-content [style*="justify-content:space-between"][style*="border-bottom"] [style*="#7D5F27"],
+.entry-content [style*="justify-content: space-between"][style*="border-bottom"] [style*="#7D5F27"],
+.band [style*="#7D5F27"], .section--band [style*="#7D5F27"]{
+  color:#C09A45 !important;
+}
+/* Muted ink is a paper colour. On the band it must be the blue-grey. */
+.band .stat__label, .section--band .stat__label,
+.band figcaption, .section--band figcaption{ color:#9AAAD0; }
+/* Footer links live on the band, so they take the band link colour and beat
+   the generic anchor rule on specificity. */
+footer.wp-block-template-part .wp-block-group.has-background a,
+.site-footer .wp-block-group.has-background a{ color:#C09A45; border-bottom:0; }
+
+/* Page markup carries the old muted ink inline, 37 times on the home page
+   alone. Same darkening as the token, applied where the markup declares it. */
+.entry-content [style*="color:#8A7761"],
+.entry-content [style*="color: #8A7761"]{ color:#6F5D4A !important; }
+/* Belt and braces: the same for anything still spelling the old gold. */
+.entry-content [style*="color:#8A6A2E"],
+.entry-content [style*="color: #8A6A2E"]{ color:#7D5F27 !important; }
+
+/* Jetpack's like-widget placeholder ships its own grey. It is transient text,
+   but it is still text on our paper. */
+.likes-widget-placeholder .loading,
+.sharedaddy .loading{ color:#6F5D4A; }
