@@ -7,24 +7,24 @@
    ============================================================ */
 
 :root {
-  --mc-paper:      #f6f3ec;
-  --mc-band:       #efece4;
-  --mc-card:       #fbf9f4;
-  --mc-ink:        #14161a;
-  --mc-ink-2:      #33363c;
-  --mc-ink-3:      #55585e;
-  --mc-muted:      #6b6e74;
-  --mc-rule:       #ddd7cb;
-  --mc-border:     #cfc9bd;
-  --mc-accent:     #8a5a1e;
-  --mc-accent-dim: #d8b98a;   /* accent on dark backgrounds */
-  --mc-on-dark:    #f6f3ec;
-  --mc-on-dark-2:  #a8abb1;
-  --mc-dark-rule:  #2a2d33;
+  --mc-paper:#FAF5EA;
+  --mc-band:#EFE4CE;
+  --mc-card:#F5ECDA;
+  --mc-ink:#152A55;
+  --mc-ink-2:#4A3728;
+  --mc-ink-3:#6B5B47;
+  --mc-muted:#8A7761;
+  --mc-rule:#E2D5BB;
+  --mc-border:#D3C0A0;
+  --mc-accent:#8A6A2E;
+  --mc-accent-dim:#C09A45;   /* accent on dark backgrounds */
+  --mc-on-dark:#F3EADA;
+  --mc-on-dark-2:#9AAAD0;
+  --mc-dark-rule:#2E4477;
 
-  --mc-serif: Newsreader, Georgia, "Times New Roman", serif;
-  --mc-sans:  "IBM Plex Sans", system-ui, -apple-system, sans-serif;
-  --mc-arabic:"IBM Plex Sans Arabic", "IBM Plex Sans", sans-serif;
+  --mc-serif:'EB Garamond', Georgia, 'Times New Roman', serif;
+  --mc-sans:'EB Garamond', Georgia, 'Times New Roman', serif;
+  --mc-arabic:'Noto Naskh Arabic', 'Amiri', Georgia, serif;
 
   --mc-max: 980px;
   --mc-pad: 40px;
@@ -69,7 +69,7 @@ body[dir="rtl"] { font-family: var(--mc-arabic); line-height: 1.95; }
 }
 .mc-brand { display: flex; align-items: baseline; gap: 10px; color: var(--mc-on-dark); }
 .mc-brand b { font-family: var(--mc-serif); font-size: 17px; font-weight: 400; }
-.mc-brand span { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #9a9da3; }
+.mc-brand span { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #9a9da3; font-family:var(--font-label);}
 .mc-nav-links { display: flex; gap: 22px; font-size: 12px; letter-spacing: 0.06em; }
 .mc-nav-links a { color: #c9ccd2; }
 .mc-nav-links a:hover { color: var(--mc-on-dark); }
@@ -101,7 +101,7 @@ body[dir="rtl"] { font-family: var(--mc-arabic); line-height: 1.95; }
 .mc-header > .mc-row,
 .mc-header > table,
 .mc-header > .mc-table-scroll { align-self: stretch; }
-.mc-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mc-accent); font-weight: 600; }
+.mc-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mc-accent); font-weight: 600; font-family:var(--font-label);}
 h1, .mc-h1 { margin: 0; font-family: var(--mc-serif); font-weight: 400; font-size: clamp(38px, 6vw, 56px); letter-spacing: -0.02em; line-height: 1.04; }
 .mc-lead { margin: 0; font-size: clamp(19px, 2.4vw, 22px); line-height: 1.5; color: var(--mc-ink-2); max-width: 640px; }
 .mc-body { margin: 0; color: var(--mc-ink-3); max-width: 680px; }
@@ -116,7 +116,7 @@ h3, .mc-h3 { margin: 0 0 6px; font-family: var(--mc-serif); font-weight: 400; fo
 .mc-stats { width: 100%; display: flex; flex-wrap: wrap; gap: 36px; padding-block: 20px; border-block: 1px solid var(--mc-rule); }
 .mc-stat { display: flex; flex-direction: column; gap: 3px; }
 .mc-stat b { font-family: var(--mc-serif); font-size: 28px; font-weight: 400; }
-.mc-stat span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mc-muted); }
+.mc-stat span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mc-muted); font-family:var(--font-label);}
 
 /* --- Buttons -------------------------------------------------------- */
 .mc-btn {
@@ -154,8 +154,7 @@ h3, .mc-h3 { margin: 0 0 6px; font-family: var(--mc-serif); font-weight: 400; fo
 .mc-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .mc-table th {
   text-align: start; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--mc-muted); font-weight: 600; padding: 12px 14px; border-bottom: 1px solid var(--mc-ink);
-}
+  color: var(--mc-muted); font-weight: 600; padding: 12px 14px; border-bottom: 1px solid var(--mc-ink); font-family:var(--font-label);}
 .mc-table td { padding: 14px; border-bottom: 1px solid var(--mc-rule); color: var(--mc-ink-2); vertical-align: top; }
 .mc-table tbody tr:hover { background: var(--mc-band); }
 .mc-table .num { font-family: var(--mc-serif); font-size: 17px; font-variant-numeric: tabular-nums; }
@@ -164,8 +163,7 @@ h3, .mc-h3 { margin: 0 0 6px; font-family: var(--mc-serif); font-weight: 400; fo
 /* --- Small parts ----------------------------------------------------- */
 .mc-tag {
   display: inline-block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 4px 9px; border: 1px solid var(--mc-border); color: var(--mc-ink-3);
-}
+  padding: 4px 9px; border: 1px solid var(--mc-border); color: var(--mc-ink-3); font-family:var(--font-label);}
 .mc-tag--accent { border-color: var(--mc-accent); color: var(--mc-accent); }
 .mc-note { border-inline-start: 2px solid var(--mc-accent); padding-inline-start: 18px; color: var(--mc-ink-3); font-size: 15px; }
 .mc-quiet { font-size: 13px; color: var(--mc-muted); }
