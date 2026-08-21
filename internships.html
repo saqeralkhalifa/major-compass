@@ -27,7 +27,7 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
 <style>
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -447,6 +447,144 @@ html{scroll-padding-top:76px;}
   .subbox{padding:28px 22px;}
 }
 </style>
+<style>
+/* ================= THEME 2a MAJLIS, BLUE BAND =================
+   The same look as saqeralkhalifa.com, internships and gigs: cream
+   paper, one deep blue band, gold for emphasis, EB Garamond.
+   Radius 2px. No shadows, no gradients. Palette is the contrast
+   corrected one of 14 August 2026. This block is last in <head>
+   on purpose: it overrides the older 2A block above it. */
+:root{
+  --font-display:'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-body:'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-ar:'Noto Naskh Arabic', 'EB Garamond', Georgia, serif;
+  --font-label:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --paper:#FAF5EA; --paper-2:#EFE4CE; --card:#FFFBF2;
+  --line:#E2D5BB; --line-2:#D3C0A0;
+  --ink:#4A3728; --ink-2:#6B5B47; --ink-3:#6F5D4A;
+  --band:#152A55; --band-line:#2E4477; --royal:#1E3A78;
+  --on-band:#F3EADA; --on-band-muted:#9AAAD0; --on-band-link:#D3DCEF;
+  --gold:#C09A45; --gold-dark:#7D5F27;
+
+  --navy:#152A55; --navy-deep:#1E3A78;
+  --accent:#1E3A78; --accent-soft:#EFE4CE; --accent-line:#D3C0A0;
+  --gold-soft:#EFE4CE; --gold-line:#E2D5BB; --gold-bright:#C09A45;
+  --good:#3F6B4F; --good-soft:#EAEFE3; --good-line:#C9D6C2;
+  --warn:#7D5F27; --warn-soft:#F5ECDA; --warn-line:#E2D5BB;
+  --bad:#8C3A30; --bad-soft:#F4E7E1; --bad-line:#E2CBC1;
+  --radius:2px; --radius-sm:2px; --shadow:none; --shadow-lift:none;
+
+  --mc-paper:#FAF5EA; --mc-band:#EFE4CE; --mc-card:#FFFBF2;
+  --mc-ink:#4A3728; --mc-ink-2:#6B5B47; --mc-ink-3:#6F5D4A; --mc-muted:#6F5D4A;
+  --mc-rule:#E2D5BB; --mc-border:#D3C0A0;
+  --mc-accent:#1E3A78; --mc-accent-dim:#C09A45;
+  --mc-on-dark:#F3EADA; --mc-on-dark-2:#9AAAD0; --mc-dark-rule:#2E4477;
+  --mc-serif:'EB Garamond', Georgia, serif;
+  --mc-sans:'EB Garamond', Georgia, serif;
+  --mc-arabic:'Noto Naskh Arabic', 'EB Garamond', serif;
+}
+body{background:var(--paper); color:var(--ink); font-family:var(--font-body); font-size:18px; line-height:1.7;}
+[dir="rtl"] body{font-family:var(--font-ar); line-height:1.9;}
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:2px !important;}
+.lang-toggle, .mc-nav .lang-toggle{border-radius:2px !important;}
+.serif, .chap h2, .cn, .stat-n, .minrow b, .grp-t, .grp h2, .panel h2, .srcbox h2, .majors-title,
+.hero h1, h1, h2, h3, .mc-brand b{font-family:var(--font-display); font-weight:400; letter-spacing:0; color:var(--band);}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .cn, [dir="rtl"] .stat-n, [dir="rtl"] .minrow b,
+[dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2, [dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title,
+[dir="rtl"] .hero h1, [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] .mc-brand b{
+  font-family:var(--font-ar); font-weight:600; letter-spacing:0; line-height:1.35;}
+a{color:var(--accent);}
+::selection{background:var(--paper-2); color:var(--band);}
+:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{outline:2px solid var(--gold-dark); outline-offset:2px;}
+button, input, select, textarea{font-family:var(--font-body);}
+[dir="rtl"] button, [dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
+
+/* ---- labels: IBM Plex Mono uppercase, like the main site ---- */
+.kicker, .eyebrow, .sec h3, .lbl, .toc h2, .row h4, th, .controls h2, .section-chip, .subj, .tag,
+.mc-brand span, .mc-site, .mc-book, .ml, .wl, .count, .badge, .pill{font-family:var(--font-label);}
+[dir="rtl"] .kicker, [dir="rtl"] .eyebrow, [dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2,
+[dir="rtl"] .row h4, [dir="rtl"] th, [dir="rtl"] .controls h2, [dir="rtl"] .section-chip, [dir="rtl"] .subj,
+[dir="rtl"] .tag, [dir="rtl"] .mc-site, [dir="rtl"] .mc-book, [dir="rtl"] .ml, [dir="rtl"] .wl,
+[dir="rtl"] .count, [dir="rtl"] .badge, [dir="rtl"] .pill{font-family:var(--font-ar);}
+.kicker, .eyebrow{color:var(--gold-dark); font-weight:500; font-size:12px; letter-spacing:.2em;}
+.sec h3, .lbl, .toc h2, .row h4, .controls h2{color:var(--gold-dark); font-weight:500;}
+.section-chip{background:var(--paper-2); color:var(--gold-dark); border:1px solid var(--line);}
+
+/* ---- masthead: the blue band ---- */
+.mc-nav{background:var(--band); color:var(--on-band); border-bottom:1px solid var(--band-line);}
+.mc-brand, .mc-brand b{color:var(--on-band);}
+.mc-brand b{font-weight:600; font-size:21px;}
+.mc-brand span{color:var(--gold); font-size:10.5px; letter-spacing:.12em;}
+.mc-brand{gap:12px; flex:0 0 auto;}
+.mc-nav-links{font-family:var(--font-body); font-size:15px; letter-spacing:0; gap:15px;}
+[dir="rtl"] .mc-nav-links{font-family:var(--font-ar); font-size:15px;}
+.mc-nav-links a{color:var(--on-band-link); border-bottom:1px solid transparent;}
+.mc-nav-links a:hover{color:var(--on-band);}
+.mc-nav-links a[aria-current="page"]{color:var(--gold); border-bottom-color:var(--gold);}
+.mc-site{color:var(--on-band-muted); font-size:12px;}
+.mc-site:hover{color:var(--on-band); border-bottom-color:var(--band-line);}
+.mc-book{color:var(--gold); border:1px solid var(--gold); font-size:12px; padding:6px 12px;}
+.mc-book:hover{background:var(--gold); color:var(--band); border-color:var(--gold);}
+.mc-nav .lang-toggle{background:var(--gold); border:1px solid var(--gold); color:var(--band);
+  font-family:var(--font-label); font-weight:600; letter-spacing:.06em; padding:6px 14px;}
+.mc-nav .lang-toggle:hover{background:var(--on-band); border-color:var(--on-band); color:var(--band);}
+@media (max-width:1560px){ .mc-brand span{display:none;} }
+@media (max-width:1360px){ .mc-site{display:none;} }
+
+/* ---- page header ---- */
+.hero h1{color:var(--band); font-weight:400;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+
+/* ---- surfaces ---- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .stat, .nextbox, .m, .fact, .pt, .card, .grp,
+.rt, .opp, .lede, .parentbox, .crossbox{background:var(--card); border-color:var(--line-2);}
+.mcard:hover, .pcard:hover, .m:hover, .rt:hover, .card:hover{border-color:var(--gold);}
+.pcard, .lede, .pt{border-inline-start-color:var(--gold) !important;}
+.bar, .quizbar, .cta-inline, .found, .wh, .evnote, .gaps{background:var(--paper-2); border-color:var(--line);}
+.rule.w, .checked, .hedge, .extra, .flag{background:var(--warn-soft); border-color:var(--warn-line);}
+.rule.b{background:var(--bad-soft); border-color:var(--bad-line);}
+.rule.n, .row.act{background:var(--paper-2) !important; border-color:var(--line) !important;}
+hr{border-top-color:var(--line);}
+
+/* ---- buttons ---- */
+.btn, .startbtn, .cta, button.primary, .navbtn.next{
+  background:var(--band); border:1px solid var(--band); color:var(--on-band); font-weight:500; letter-spacing:0;
+  font-family:var(--font-body); text-transform:none;}
+.btn:hover, .startbtn:hover, .cta:hover, .navbtn.next:hover{background:var(--royal); border-color:var(--royal); color:var(--on-band);}
+.btn.ghost, .btn.secondary, .printbtn{background:transparent; color:var(--band); border:1px solid var(--band);}
+.btn.ghost:hover, .btn.secondary:hover, .printbtn:hover{background:var(--band); border-color:var(--band); color:var(--on-band);}
+[dir="rtl"] .btn, [dir="rtl"] .startbtn, [dir="rtl"] .cta{font-family:var(--font-ar);}
+
+/* ---- chips, filters, quiz options ---- */
+.fbtn, .chip, .navbtn, .picker button, .filters button{
+  border:1px solid var(--line-2) !important; background:transparent !important; color:var(--ink) !important;
+  font-family:var(--font-body); font-size:15px; letter-spacing:0; text-transform:none;}
+[dir="rtl"] .fbtn, [dir="rtl"] .chip, [dir="rtl"] .navbtn{font-family:var(--font-ar);}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--band) !important; color:var(--band) !important;}
+.fbtn.on, .chip.on, .navbtn.on{background:var(--band) !important; border-color:var(--band) !important; color:var(--on-band) !important;}
+.subj, .tag{background:transparent !important; border:1px solid var(--line-2) !important; color:var(--ink-3) !important;
+  font-size:10.5px; letter-spacing:.14em;}
+[dir="rtl"] .subj, [dir="rtl"] .tag{font-size:13px; letter-spacing:0;}
+.opt{background:var(--card); border-color:var(--line-2); color:var(--ink);}
+.opt:hover{border-color:var(--band);}
+.opt.selected{background:var(--paper-2); border-color:var(--band); color:var(--band);}
+.progress-bar, .bar-track{background:var(--paper-2);}
+.progress-fill, .bar-fill{background:var(--band);}
+input[type="text"], input[type="search"], select, textarea, .srch{border:1px solid var(--line-2); background:var(--card); color:var(--ink);}
+.mrank{color:var(--gold-dark) !important; font-family:var(--font-display);}
+[dir="rtl"] .mrank{font-family:var(--font-ar);}
+
+/* ---- tables ---- */
+th{color:var(--gold-dark); border-bottom:1px solid var(--band); font-weight:500;}
+td{border-bottom:1px solid var(--line); color:var(--ink);}
+
+/* ---- footer ---- */
+footer.site{border-top:1px solid var(--line); color:var(--ink-3);}
+footer.site a{color:var(--accent);}
+
+@media (max-width:760px){ .mc-brand b{font-size:18px;} }
+</style>
 <style id="skbar-css">
 /* SKBAR: the one site-wide top bar. Same look everywhere. */
 .skbar{position:sticky;top:0;z-index:90;background:#FAF5EA;border-bottom:1px solid #E2D5BB;
@@ -484,6 +622,12 @@ html{scroll-padding-top:76px;}
   .skdd{position:static;}
   .skcta{padding:8px 14px;font-size:13px;}
 }
+
+/* SKBAR metrics: fixed line heights so the bar is the same height on every page. */
+.skbrand b,.skbrand span,.skitem,.sktop span{line-height:26px;}
+.skcta{line-height:20px;}
+.skbrand b{font-weight:600;}
+.skcta{font-weight:600;}
 </style>
 </head>
 <body>
