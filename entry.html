@@ -5,11 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Entry Requirements Checker | Dr. Saqer AlKhalifa</title>
 <meta name="description" content="A free bilingual entry requirements checker for Gulf school leavers: published minimums at named universities in Bahrain, Saudi Arabia, the UAE, Qatar, Kuwait and Oman, what your school track closes, equivalency rules for IGCSE, IB and American diplomas, and the tests you must sit.">
-<script>
-/* Strip the query string so ?lang= and cache busters do not split one page
-   into many rows in the stats. */
-window.goatcounter = {path: function(p){ return p.replace(/[?#].*$/, ""); }};
-</script>
 <script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <link rel="alternate" hreflang="en" href="https://saqeralkhalifa.github.io/major-compass/entry.html?lang=en">
 <link rel="alternate" hreflang="ar" href="https://saqeralkhalifa.github.io/major-compass/entry.html?lang=ar">
@@ -32,17 +27,17 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
 <style>
   :root{
-    --ink:#152A55; --ink-2:#4A3728; --ink-3:#6B5B47;
-    --paper:#FAF5EA; --card:#F5ECDA; --line:#E2D5BB;
-    --accent:#7D5F27; --accent-soft:#EFE4CE; --gold:#7D5F27;
-    --good:#2F5D46; --good-soft:#E7EEE8; --good-line:#C9D8CC;
-    --warn:#7D5F27; --warn-soft:#F5ECDA; --warn-line:#E2D5BB;
-    --bad:#8C3A30; --bad-soft:#F6EAE3; --bad-line:#E4D2C7;
-    --radius:2px; --shadow:none;
+    --ink:#101418; --ink-2:#4a5158; --ink-3:#8a9199;
+    --paper:#faf9f6; --card:#ffffff; --line:#e6e3dc;
+    --accent:#1c5d99; --accent-soft:#e8f0f8; --gold:#b98c2f;
+    --good:#0e7a4d; --good-soft:#e9f5ef; --good-line:#c9e6d8;
+    --warn:#8a5a12; --warn-soft:#fdf4e3; --warn-line:#efdcb6;
+    --bad:#a3413a; --bad-soft:#fbeceb; --bad-line:#f0cfcc;
+    --radius:14px; --shadow:0 1px 3px rgba(16,20,24,.06), 0 8px 24px rgba(16,20,24,.07);
     color-scheme: light;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -70,9 +65,9 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   .rule{border-radius:var(--radius); padding:16px 20px; border:1px solid;}
   .rule h3{font-size:1rem; font-weight:800; margin-bottom:5px;}
   .rule p{font-size:.95rem; line-height:1.6;}
-  .rule.w{background:var(--warn-soft); border-color:var(--warn-line); color:#6E5424;}
+  .rule.w{background:var(--warn-soft); border-color:var(--warn-line); color:#5c4415;}
   .rule.w h3{color:var(--warn);}
-  .rule.n{background:var(--accent-soft); border-color:#C7D0E4; color:#1E3A78;}
+  .rule.n{background:var(--accent-soft); border-color:#cfe0ef; color:#204660;}
   .rule.n h3{color:var(--accent);}
 
   .panel{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
@@ -87,7 +82,7 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
 
   .picker{margin-bottom:14px;}
   .lbl{font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3);
-    font-weight:800; margin-bottom:7px; display:block; font-family:var(--font-label);}
+    font-weight:800; margin-bottom:7px; display:block;}
   [dir="rtl"] .lbl{letter-spacing:0; text-transform:none; font-size:.92rem;}
   .filters{display:flex; gap:7px; flex-wrap:wrap;}
   .fbtn{background:var(--card); border:1.5px solid var(--line); border-radius:999px;
@@ -112,10 +107,10 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
     box-shadow:var(--shadow); margin-bottom:10px; overflow:hidden; border-inline-start:4px solid var(--line);}
   .pcard.v-meet{border-inline-start-color:var(--good);}
   .pcard.v-close{border-inline-start-color:var(--gold);}
-  .pcard.v-blocked{border-inline-start-color:var(--bad); background:#FAF5EA;}
+  .pcard.v-blocked{border-inline-start-color:var(--bad); background:#fdfbfa;}
   .pcard.v-short{border-inline-start-color:var(--ink-3);}
   .pcard.v-info{border-inline-start-color:var(--accent);}
-  .pcard.v-nodata{border-inline-start-color:#d8d4cc; background:#FAF5EA;}
+  .pcard.v-nodata{border-inline-start-color:#d8d4cc; background:#fcfbf9;}
   .g-nodata h2{color:var(--ink-3);}
   .phead{display:flex; align-items:center; gap:12px; padding:15px 20px; cursor:pointer; width:100%;
     background:none; border:none; text-align:start; font-family:inherit; color:var(--ink);}
@@ -134,13 +129,13 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   .minrow b{font-size:1.5rem; color:var(--accent); font-family:Georgia,serif;}
   .sec{margin-top:14px;}
   .sec h3{font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold);
-    font-weight:800; margin-bottom:4px; font-family:var(--font-label);}
+    font-weight:800; margin-bottom:4px;}
   [dir="rtl"] .sec h3{letter-spacing:0; text-transform:none; font-size:.92rem;}
   .sec p{color:var(--ink-2); font-size:.98rem;}
   .sec p b{color:var(--ink);}
   .extra{margin-top:12px; background:var(--warn-soft); border:1px solid var(--warn-line);
-    border-radius:10px; padding:11px 15px; font-size:.94rem; color:#6E5424;}
-  .extra b{color:#4A3A16;}
+    border-radius:10px; padding:11px 15px; font-size:.94rem; color:#5c4415;}
+  .extra b{color:#3f2f0e;}
   .olink{display:inline-block; margin-top:14px; color:var(--accent); font-weight:600;
     font-size:.94rem; text-decoration:none;}
   .olink:hover{text-decoration:underline;}
@@ -156,25 +151,25 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   .cal-row span{color:var(--ink-2);}
   table{width:100%; border-collapse:collapse; margin-top:6px; font-size:.95rem;}
   th{text-align:start; font-size:.8rem; letter-spacing:.05em; text-transform:uppercase;
-    color:var(--ink-3); font-weight:800; padding:8px 6px; border-bottom:2px solid var(--line); font-family:var(--font-label);}
+    color:var(--ink-3); font-weight:800; padding:8px 6px; border-bottom:2px solid var(--line);}
   [dir="rtl"] th{letter-spacing:0; text-transform:none; font-size:.9rem;}
   td{padding:8px 6px; border-bottom:1px solid var(--line); color:var(--ink-2);}
   tr td:first-child{font-weight:700; color:var(--ink);}
   .tnote{font-size:.86rem; color:var(--ink-3); margin-top:10px; line-height:1.55;}
 
   .checked{background:var(--warn-soft); border:1px solid var(--warn-line); border-radius:var(--radius);
-    padding:16px 20px; margin:22px 0; color:#6E5424;}
+    padding:16px 20px; margin:22px 0; color:#5c4415;}
   .checked b{display:block; color:var(--warn); font-weight:800; margin-bottom:4px;}
   .checked p{font-size:.93rem; line-height:1.6;}
 
-  .bar{background:var(--accent-soft); border:1px solid #C7D0E4; border-radius:var(--radius);
+  .bar{background:var(--accent-soft); border:1px solid #cfe0ef; border-radius:var(--radius);
     padding:15px 20px; margin-top:10px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
   .bar p{flex:1 1 240px; font-size:.96rem; color:var(--ink-2); margin:0;}
   .bar b{color:var(--ink);}
   .btn{display:inline-block; border:none; cursor:pointer; text-decoration:none; text-align:center;
     background:var(--accent); color:#fff; font-size:.96rem; font-weight:600; font-family:inherit;
     padding:10px 22px; border-radius:999px; white-space:nowrap; box-shadow:0 4px 14px rgba(28,93,153,.28);}
-  .btn.ghost{background:var(--card); color:var(--accent); border:1.5px solid #C7D0E4; box-shadow:none;}
+  .btn.ghost{background:var(--card); color:var(--accent); border:1.5px solid #cfe0ef; box-shadow:none;}
 
   footer.site{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
     text-align:center; font-size:.85rem; color:var(--ink-3);}
@@ -197,36 +192,36 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
    No shadows, no gradients, no icons.
    ============================================================ */
 :root{
-  --font-display:'EB Garamond', Georgia, 'Times New Roman', serif;
-  --font-body:'EB Garamond', Georgia, 'Times New Roman', serif;
-  --font-ar:'Noto Naskh Arabic', 'Amiri', Georgia, serif;
+  --font-display:Newsreader, Georgia, 'Times New Roman', serif;
+  --font-body:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-ar:'IBM Plex Sans Arabic', 'IBM Plex Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
 
-  --paper:#FAF5EA;
-  --paper-2:#EFE4CE;
-  --card:#F5ECDA;
-  --line:#E2D5BB;
-  --line-2:#D3C0A0;
+  --paper:#f6f3ec;
+  --paper-2:#efece4;
+  --card:#fbf9f4;
+  --line:#ddd7cb;
+  --line-2:#cfc9bd;
 
-  --ink:#152A55;
-  --ink-2:#4A3728;
-  --ink-3:#6B5B47;
+  --ink:#14161a;
+  --ink-2:#33363c;
+  --ink-3:#6b6e74;
 
-  --navy:#152A55;
-  --navy-deep:#0F2047;
-  --accent:#7D5F27;
-  --accent-soft:#EFE4CE;
-  --accent-line:#D3C0A0;
+  --navy:#14161a;
+  --navy-deep:#8a5a1e;
+  --accent:#8a5a1e;
+  --accent-soft:#efece4;
+  --accent-line:#cfc9bd;
 
-  --gold:#7D5F27;
-  --gold-soft:#F5ECDA;
-  --gold-line:#E2D5BB;
-  --gold-bright:#C09A45;
+  --gold:#8a5a1e;
+  --gold-soft:#f0ebdf;
+  --gold-line:#ddd7cb;
+  --gold-bright:#d8b98a;
 
-  --good:#2F5D46;  --good-soft:#E7EEE8;  --good-line:#C9D8CC;
-  --warn:#7D5F27;  --warn-soft:#F5ECDA;  --warn-line:#E2D5BB;
-  --bad:#8C3A30;   --bad-soft:#F6EAE3;   --bad-line:#E4D2C7;
+  --good:#3f6b4f;  --good-soft:#eaefe9;  --good-line:#cfdbd0;
+  --warn:#8a5a1e;  --warn-soft:#f0ebdf;  --warn-line:#e2d9c6;
+  --bad:#8c3a30;   --bad-soft:#f4e9e5;   --bad-line:#e2cfc8;
 
-  --radius:2px; --radius-sm:2px;
+  --radius:0; --radius-sm:0;
   --shadow:none; --shadow-lift:none;
 }
 
@@ -275,7 +270,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .mc-brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; color:var(--paper); min-width:0;}
 .mc-brand b{font-family:var(--font-display); font-size:17px; font-weight:400; letter-spacing:-.01em; white-space:nowrap;}
 [dir="rtl"] .mc-brand b{font-family:var(--font-ar); font-weight:600; letter-spacing:0;}
-.mc-brand span{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#9AAAD0; white-space:nowrap; font-family:var(--font-label);}
+.mc-brand span{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#9a9da3; white-space:nowrap;}
 [dir="rtl"] .mc-brand span{letter-spacing:0; text-transform:none; font-size:12px;}
 .mc-nav-links{
   display:flex; gap:20px; font-size:12px; letter-spacing:.06em; align-items:center;
@@ -284,7 +279,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .mc-nav-links::-webkit-scrollbar{display:none;}
 [dir="rtl"] .mc-nav-links{letter-spacing:0; font-size:13px;}
 .mc-nav-links a{
-  color:#D3DCEF; text-decoration:none; white-space:nowrap; padding-bottom:2px;
+  color:#c9ccd2; text-decoration:none; white-space:nowrap; padding-bottom:2px;
   border-bottom:1px solid transparent; transition:color .15s, border-color .15s;
 }
 .mc-nav-links a:hover{color:var(--paper);}
@@ -292,7 +287,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .mc-nav .lang-toggle{
   flex:0 0 auto; border:1px solid var(--accent); background:var(--accent); border-radius:999px;
   padding:6px 17px; font-size:13px; letter-spacing:.04em; font-weight:600;
-  color:#F5ECDA; cursor:pointer; font-family:var(--font-body);
+  color:#fbf9f4; cursor:pointer; font-family:var(--font-body);
   transition:background .15s, color .15s, border-color .15s;
 }
 .mc-nav .lang-toggle:hover{background:var(--paper); color:var(--ink); border-color:var(--paper);}
@@ -314,7 +309,8 @@ header.site, nav.toolnav{display:none !important;}
 .hero p, .hero p.sub{color:var(--ink-2);}
 .kicker, .eyebrow{
   color:var(--accent); font-weight:600; font-size:11px;
-  letter-spacing:.18em; text-transform:uppercase; font-family:var(--font-label);}
+  letter-spacing:.18em; text-transform:uppercase;
+}
 [dir="rtl"] .kicker, [dir="rtl"] .eyebrow{letter-spacing:0; text-transform:none; font-size:13px;}
 
 /* ---------- surfaces: square, flat, ruled ---------- */
@@ -376,7 +372,8 @@ input[type="text"], input[type="search"], select, textarea, .srch{
 
 /* ---------- section labels ---------- */
 .sec h3, .lbl, .toc h2, .row h4{
-  letter-spacing:.14em; font-weight:600; text-transform:uppercase; font-size:11px; color:var(--ink-3); font-family:var(--font-label);}
+  letter-spacing:.14em; font-weight:600; text-transform:uppercase; font-size:11px; color:var(--ink-3);
+}
 [dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2, [dir="rtl"] .row h4{
   letter-spacing:0; text-transform:none; font-size:13px;
 }
@@ -385,7 +382,8 @@ input[type="text"], input[type="search"], select, textarea, .srch{
 table{border-collapse:collapse;}
 th{
   text-align:start; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--ink-3); font-weight:600; padding:12px 14px; border-bottom:1px solid var(--ink); font-family:var(--font-label);}
+  color:var(--ink-3); font-weight:600; padding:12px 14px; border-bottom:1px solid var(--ink);
+}
 [dir="rtl"] th{letter-spacing:0; text-transform:none; font-size:13px;}
 td{padding:14px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top; font-size:14px;}
 
@@ -416,7 +414,7 @@ hr{border:0; border-top:1px solid var(--line);}
 .section-chip, .progress-bar, .progress-fill, .bar-fill, .chip, .meta-chips .chip,
 .tag, .pill, .badge, .cta, .startbtn{border-radius:0 !important;}
 .section-chip{background:var(--paper-2); color:var(--accent); border:1px solid var(--line);
-  font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:5px 12px; font-family:var(--font-label);}
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:5px 12px;}
 [dir="rtl"] .section-chip{letter-spacing:0; text-transform:none; font-size:13px;}
 body:has(#screen-quiz.active) .mc-nav-links{display:none;}
 body:has(#screen-quiz.active) .mc-nav-inner{justify-content:space-between;}
@@ -429,7 +427,8 @@ body:has(#screen-quiz.active) .mc-nav-inner{justify-content:space-between;}
 .subj, .tag, .chip{
   background:transparent !important; border:1px solid var(--line-2) !important;
   color:var(--ink-2) !important; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
-  padding:4px 9px !important; font-weight:500; font-family:var(--font-label);}
+  padding:4px 9px !important; font-weight:500;
+}
 [dir="rtl"] .subj, [dir="rtl"] .tag, [dir="rtl"] .chip{letter-spacing:0; text-transform:none; font-size:13px;}
 
 /* the ranked numeral on the results screen: Newsreader, brass, no disc */
@@ -455,75 +454,22 @@ html{scroll-padding-top:76px;}
 }
 .mc-nav-right{display:flex; align-items:center; gap:14px; flex:0 0 auto;}
 .mc-site{
-  color:#9AAAD0; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  color:#9a9da3; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
   border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;
 }
-.mc-site:hover{color:var(--paper); border-bottom-color:#2E4477;}
+.mc-site:hover{color:var(--paper); border-bottom-color:#3a3d43;}
 [dir="rtl"] .mc-site{letter-spacing:0; font-size:13px;}
 .mc-book{
-  color:#C09A45; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
-  border:1px solid rgba(192,154,69,.45); padding:6px 13px; transition:background .15s, color .15s, border-color .15s;
+  color:#d8b98a; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border:1px solid rgba(216,185,138,.45); padding:6px 13px; transition:background .15s, color .15s, border-color .15s;
 }
-.mc-book:hover{background:#C09A45; color:var(--ink); border-color:#C09A45;}
+.mc-book:hover{background:#d8b98a; color:var(--ink); border-color:#d8b98a;}
 [dir="rtl"] .mc-book{letter-spacing:0; font-size:13px;}
-@media (max-width:860px) and (min-width:761px){ .mc-site{display:none;} }
+@media (max-width:860px){ .mc-site{display:none;} }
 @media (max-width:640px){
   .mc-nav-right{gap:9px;}
   .mc-book{padding:5px 10px;}
 }
-</style>
-
-<style>
-/* ---- Theme 2a: Majlis, Blue Band --------------------------------------
-   Layered on top of the page's own tokens. Visual only: no markup moves,
-   no copy changes, no links touched. */
-:root{ --font-label:'IBM Plex Mono', 'Noto Naskh Arabic', ui-monospace, SFMono-Regular, monospace; }
-
-body{ font-family:var(--font-body); color:var(--ink-2); background:var(--paper); }
-[dir="rtl"] body{ font-family:var(--font-ar); line-height:2.0; }
-
-/* Headlines carry the band blue, in the serif, in both scripts. */
-h1,h2,h3,h4,h5,.mc-h1,.mc-h2,.mc-h3{ font-family:var(--font-display); color:var(--ink); }
-[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] h4,
-[dir="rtl"] .mc-h1,[dir="rtl"] .mc-h2,[dir="rtl"] .mc-h3{
-  font-family:var(--font-ar); line-height:1.5; }
-
-/* Rule 2 of the brief: never track Arabic, and never uppercase it. */
-[dir="rtl"] *{ letter-spacing:0 !important; }
-[dir="rtl"] [class*="eyebrow"],[dir="rtl"] [class*="chip"],[dir="rtl"] [class*="tag"],
-[dir="rtl"] .mc-eyebrow,[dir="rtl"] .mc-tag,[dir="rtl"] th{ text-transform:none; }
-
-/* The nav and footer are the blue bands the whole system hangs off. */
-.mc-nav,.mc-footer{ background:var(--navy); }
-.mc-nav-links{ gap:14px; font-size:11.5px; }
-.mc-nav-links a{ color:#D3DCEF; letter-spacing:.06em; }
-.mc-nav-links a:hover{ color:#C09A45; }
-.mc-nav-links a[aria-current="page"]{ color:#C09A45; border-bottom-color:#C09A45; }
-.mc-brand b{ font-family:var(--font-display); }
-.mc-brand span{ color:#9AAAD0; font-size:9px; }
-.mc-footer a{ color:#C09A45; }
-.mc-footer a:hover{ color:#F3EADA; }
-/* the full nav no longer fits once the type is this wide */
-@media (max-width:1180px) and (min-width:761px){ .mc-site{display:none;} }
-
-/* Gold reaches full strength only on blue. */
-.mc-nav .mc-toggle,.mc-nav .lang-toggle{ border-color:#2E4477; }
-.mc-nav .mc-toggle button{ color:#9AAAD0; }
-.mc-nav .mc-toggle button[aria-pressed="true"]{ background:#F3EADA; color:var(--navy); }
-
-/* Square, mono, no shadow, no pills. */
-.btn,.mc-btn{ font-family:var(--font-label); text-transform:uppercase;
-  letter-spacing:.1em; font-size:14px; border-radius:2px; box-shadow:none; }
-.btn.secondary,.btn.ghost,.mc-btn--ghost{ font-size:12px; }
-.mc-eyebrow{ font-family:var(--font-label); color:var(--accent); }
-.mc-stat b{ font-family:var(--font-display); color:var(--ink); }
-.mc-table th{ font-family:var(--font-label); border-bottom-color:var(--line-2); }
-*{ text-shadow:none; }
-:focus-visible{ outline:2px solid #C09A45; outline-offset:2px; }
-
-.foot-home{ text-align:center; margin:14px 0 30px; }
-.foot-home a{ font-size:14px; font-weight:500; }
-[dir="rtl"] .foot-home{ letter-spacing:0; }
 </style>
 </head>
 <body>
@@ -540,13 +486,12 @@ h1,h2,h3,h4,h5,.mc-h1,.mc-h2,.mc-h3{ font-family:var(--font-display); color:var(
       <a href="scholarships.html" data-en="Funding" data-ar="المنح">Funding</a>
       <a href="routes.html" data-en="Dealbreakers" data-ar="المنفّرات">Dealbreakers</a>
       <a href="alternatives.html" data-en="No degree" data-ar="بدون شهادة">No degree</a>
-      <a href="internships.html" data-en="Internships" data-ar="التدريب">Internships</a>
       <a href="parents.html" data-en="Parents" data-ar="أولياء الأمور">Parents</a>
       <a href="ai.html" data-en="AI" data-ar="الذكاء الاصطناعي">AI</a>
     </nav>
     <div class="mc-nav-right">
-      <a class="mc-site" href="https://saqeralkhalifa.com/" data-href-en="https://saqeralkhalifa.com/" data-href-ar="https://saqeralkhalifa.com/arabic/" data-en="saqeralkhalifa.com" data-ar="الموقع الرئيسي">saqeralkhalifa.com</a>
-      <a class="mc-book" href="https://saqeralkhalifa.com/#stores" data-href-en="https://saqeralkhalifa.com/#stores" data-href-ar="https://saqeralkhalifa.com/arabic/#buy" data-en="Get the book" data-ar="اطلب الكتاب">Get the book</a>
+      <a class="mc-site" href="https://saqeralkhalifa.com/" data-en="saqeralkhalifa.com" data-ar="الموقع الرئيسي">saqeralkhalifa.com</a>
+      <a class="mc-book" href="https://saqeralkhalifa.com/#stores" data-en="Get the book" data-ar="اطلب الكتاب">Get the book</a>
       <button class="lang-toggle" id="langToggle">عربي</button>
     </div>
   </div>
@@ -631,9 +576,6 @@ h1,h2,h3,h4,h5,.mc-h1,.mc-h2,.mc-h3{ font-family:var(--font-display); color:var(
     <p class="disc" id="t-disc"></p>
     <p id="t-foot"></p>
   </footer>
-  <p class="foot-home"><a href="https://saqeralkhalifa.com/"
-     data-href-en="https://saqeralkhalifa.com/" data-href-ar="https://saqeralkhalifa.com/arabic/"
-     data-en="Back to saqeralkhalifa.com" data-ar="العودة إلى الموقع الرئيسي">Back to saqeralkhalifa.com</a></p>
 </div>
 <script>
 /* ===== Entry checker, part 1: Bahrain and Kuwait ===== */
@@ -1188,7 +1130,7 @@ const P2 = [
        ar:"تعمل عُمان بطريقة مختلفة عن بقية دول الخليج، وهذا أهم ما يمكن أن يفهمه الطالب العُماني. فلا يوجد <b>حد أدنى ثابت للنسبة</b>. بل عليك أن تكون قد درست مواد دبلوم التعليم العام المطلوبة للبرنامج، ثم يُرتَّب جميع المستوفين حسب معدل تنافسي ويُملأ كل برنامج حتى طاقته. وينشر المركز <b>أدنى نسبة قبول للعام الماضي</b> لكل برنامج كمؤشر، وهي تتغير كل سنة. فالجواب الصادق للطالب العُماني احتمال، لا نعم أو لا."},
  note2:{en:"Widely reported but not confirmed on the centre's own pages: the competitive average is 40% of the total of all subject grades plus 60% of the grades in the subjects required for that specialisation, and applicants must be under 25 as at 1 October. Treat both as likely rather than certain, and read the annual Student Guide, which is the authoritative document.",
         ar:"ما يُتداول كثيرًا دون تأكيد من صفحات المركز: أن المعدل التنافسي هو ٤٠٪ من مجموع درجات جميع المواد مع ٦٠٪ من درجات المواد المطلوبة للتخصص، وأن يكون المتقدم دون الخامسة والعشرين في ١ أكتوبر. اعتبرهما مرجحين لا مؤكدين، واقرأ دليل الطالب السنوي فهو الوثيقة المعتمدة."},
- note3:{en:"The practical consequence: list as many qualifying programmes as you can, and rank them honestly. A student who lists only three ambitious choices can end up with nothing.",
+ note3:{en:"The practical consequence: list as many qualifying programmes as you can, and rank them realistically. A student who lists only three ambitious choices can end up with nothing.",
         ar:"والنتيجة العملية: أدرج أكبر عدد ممكن من البرامج التي تستوفي شروطها، ورتّبها بصدق. فالطالب الذي يدرج ثلاث رغبات طموحة فقط قد ينتهي بلا شيء."},
  url:"https://www.heac.gov.om/"},
 
@@ -1244,7 +1186,7 @@ const EQUIV = {
      ar:"<p>معادلة الشهادات البريطانية <b>مجانية وتستغرق ثمانية أيام عمل</b>، وهي أسرع خدمة منشورة في الخليج. والشروط: أن يكون الطالب دون الثامنة عشرة، وأن يكون قد أتم اثنتي عشرة سنة دراسية، وأن يحمل بطاقة قطرية سارية. ولا تُنشر أعداد المواد ولا حدود التقديرات على بطاقة الخدمة العامة.</p><p>وجدول جامعة قطر نفسه هو أوضح معادلة منشورة في الدولة، وهو معروض مع الجامعة في النتائج أعلاه. وتشترط جامعة فرجينيا كومنولث للفنون شهادة معادلة من وزارة التعليم، ويُعفى منها خريجو المدارس القطرية.</p>"},
  kw:{en:"<p>Kuwait has the strictest published breadth rule in the Gulf. For a British certificate you need <b>at least six subjects at Ordinary Level, none below grade D</b>. A-level and AS subjects can count among the six. <b>Religion and Arabic are compulsory.</b> A student on a narrow international programme who dropped Arabic can fail Kuwaiti equivalency while passing the UAE's.</p><p>You also need a study sequence certificate for grades 9 to 11, and certificates authenticated by the British Council. The fee is a half dinar stamp per entity requiring the certificate. Home schooling, distance learning and inclusion systems are not accepted, except GCC home schooling.</p><p>Equivalency is handled by the Ministry of Education, not the Ministry of Higher Education. Kuwait University then applies its own reading of your certificate, which is shown against that university above.</p>",
      ar:"<p>لدى الكويت أشد قاعدة اتساع منشورة في الخليج. فللشهادة البريطانية تحتاج <b>ست مواد على الأقل في المستوى العادي، لا تقل أي منها عن تقدير D</b>. ويمكن احتساب مواد المستوى المتقدم وAS ضمن الست. و<b>الدين والعربية إلزاميتان.</b> فالطالب في برنامج دولي ضيق ترك العربية قد ترفض معادلته في الكويت وتقبل في الإمارات.</p><p>وتحتاج أيضًا شهادة تسلسل دراسي للصفوف ٩ إلى ١١، وشهادات مصدقة من المجلس الثقافي البريطاني. والرسم نصف دينار طابعًا لكل جهة تطلب الشهادة. والتعليم المنزلي والتعليم عن بعد وأنظمة الدمج غير مقبولة، عدا التعليم المنزلي الخليجي.</p><p>والمعادلة من اختصاص وزارة التربية لا وزارة التعليم العالي. ثم تطبق جامعة الكويت قراءتها الخاصة لشهادتك، وهي معروضة مع الجامعة أعلاه.</p>"},
- om:{en:"<p>Oman's rules are the most consequential in the Gulf and the least widely known.</p><p><b>IGCSE and O-level are equivalent to completing grade ten only</b>, not to a school leaving certificate. Five passes are needed and that still does not make you a school leaver in Omani terms.</p><p><b>A-level is equalised to the General Education Diploma</b>, with passes in four different subjects, or three A-level subjects if you already hold IGCSE or equivalent. Omani students additionally require Islamic Education and Social Studies.</p><p><b>The International Baccalaureate is equalised</b> at an average of not less than 24 points, with at least twelve years of study.</p><p><b>The American diploma</b> requires an academic accreditation certificate from an internationally recognised institution and not less than twelve academic years.</p><p>There is <b>no percentage conversion scale</b>. Since the admission centre sorts competitively on a numeric average, how an A-level or IB student is actually scored inside that system is not published anywhere. If that is you, ask the centre directly rather than assuming.</p>",
+ om:{en:"<p>Oman's rules are the most consequential in the Gulf and the least widely known.</p><p><b>IGCSE and O-level are equivalent to completing grade ten only</b>, not to a school leaving certificate. Five passes are needed and that still does not make you a school leaver in Omani terms.</p><p><b>A-level is equalised to the General Education Diploma</b>, with passes in four different subjects, or three A-level subjects if you already hold IGCSE or equivalent. Omani students additionally require Islamic Education and Social Studies.</p><p><b>The International Baccalaureate is equalised</b> at an average of not less than 24 points, with at least twelve years of study.</p><p><b>The American diploma</b> requires an academic accreditation certificate from an internationally recognised institution and not less than twelve academic years.</p><p>There is <b>no percentage conversion scale</b>. Since the admission centre sorts competitively on a numeric average, how an A-level or IB student is scored inside that system is not published anywhere. If that is you, ask the centre directly rather than assuming.</p>",
      ar:"<p>قواعد عُمان أكثرها أثرًا في الخليج وأقلها شهرة.</p><p><b>شهادتا IGCSE والمستوى العادي تعادلان إتمام الصف العاشر فقط</b>، لا شهادة إنهاء الثانوية. وتُطلب خمس مواد ناجحة، ومع ذلك لا تجعلك خريج ثانوية بالمفهوم العُماني.</p><p>و<b>المستوى المتقدم يُعادَل بدبلوم التعليم العام</b>، بنجاح في أربع مواد مختلفة، أو ثلاث مواد متقدمة إن كنت تحمل IGCSE أو ما يعادلها. ويُطلب من الطلبة العُمانيين إضافة التربية الإسلامية والدراسات الاجتماعية.</p><p>و<b>البكالوريا الدولية تُعادَل</b> بمتوسط لا يقل عن ٢٤ نقطة، مع اثنتي عشرة سنة دراسية على الأقل.</p><p>و<b>الدبلوم الأمريكي</b> يتطلب شهادة اعتماد أكاديمي من مؤسسة معترف بها دوليًا، ولا تقل عن اثنتي عشرة سنة دراسية.</p><p>و<b>لا يوجد مقياس تحويل إلى نسبة مئوية</b>. ولأن مركز القبول يرتب تنافسيًا على معدل رقمي، فإن طريقة احتساب طالب المستوى المتقدم أو البكالوريا الدولية داخل ذلك النظام غير منشورة في أي مكان. فإن كان هذا وضعك فاسأل المركز مباشرة بدل الافتراض.</p>"}
 };
 
@@ -1296,7 +1238,7 @@ const LOSE = {
 
 /* Calendar */
 const CAL = {
- en:{t:"When things actually happen",
+ en:{t:"When things happen",
      s:"The Gulf admission cycle is squeezed into March to August, and several of the windows are startlingly short. Confirm every date at the source, because they move each year.",
      rows:[
       ["Qatar","International applications to Qatar University open 1 March and close 25 March, with documents due about a week later. Qatari, GCC and resident applications open 3 May and close 5 July. Decisions are announced in early August. Education City universities run American style deadlines: Early Action or Early Decision 1 November, Regular Decision 15 January. Certificate equivalency takes eight working days and is free."],
@@ -1305,7 +1247,7 @@ const CAL = {
       ["Oman","The unified admission centre has run roughly <b>1 April to 1 June</b>, followed by a trial screening, a wish modification phase after second semester results, and then three screening rounds."],
       ["Bahrain and the UAE","Application windows and test dates were not published in a form that could be verified for this tool. Ask the institution directly."]
      ]},
- ar:{t:"متى تحدث الأمور فعلًا",
+ ar:{t:"متى تحدث الأمور",
      s:"دورة القبول في الخليج مضغوطة بين مارس وأغسطس، وبعض فتراتها قصيرة على نحو مفاجئ. تأكد من كل تاريخ من مصدره لأنها تتغير سنويًا.",
      rows:[
       ["قطر","تفتح طلبات الدوليين لجامعة قطر في ١ مارس وتغلق في ٢٥ مارس، والوثائق بعدها بنحو أسبوع. وتفتح طلبات القطريين والخليجيين والمقيمين في ٣ مايو وتغلق في ٥ يوليو. وتُعلن النتائج في أوائل أغسطس. وتعمل جامعات المدينة التعليمية بمواعيد على النمط الأمريكي: القبول المبكر ١ نوفمبر، والقبول العادي ١٥ يناير. ومعادلة الشهادة تستغرق ثمانية أيام عمل وهي مجانية."],
@@ -1356,7 +1298,7 @@ const TRACKS = [
 const UI = {
  en:{
   title:"Where do you stand?",
-  sub:"An honest look at what your grades open, what your school track has already closed, and what you still have to clear. Built from what universities and ministries actually publish, and explicit about what they do not.",
+  sub:"An honest look at what your grades open, what your school track has already closed, and what you still have to clear. Built from what universities and ministries publish, and explicit about what they do not.",
   warnT:"Read this before you use it",
   warn:"A published minimum is a <b>floor, not a cut-off</b>. Almost every Gulf university admits competitively against a fixed number of places, so meeting the minimum means you may apply, not that you will get in. Kuwait's medicine floor is 85% while the real cut-off has recently sat in the mid nineties. This tool shows you the floor, and the real figure wherever one has been published.",
   warn2T:"And one thing nobody tells international school students",
@@ -1402,7 +1344,7 @@ const UI = {
  },
  ar:{
   title:"أين تقف؟",
-  sub:"نظرة صادقة إلى ما تفتحه درجاتك، وما أغلقه مسارك المدرسي أصلًا، وما بقي عليك اجتيازه. مبنية على ما تنشره الجامعات والوزارات فعلًا، وصريحة فيما لا تنشره.",
+  sub:"نظرة صادقة إلى ما تفتحه درجاتك، وما أغلقه مسارك المدرسي أصلًا، وما بقي عليك اجتيازه. مبنية على ما تنشره الجامعات والوزارات، وصريحة فيما لا تنشره.",
   warnT:"اقرأ هذا قبل الاستخدام",
   warn:"الحد الأدنى المنشور <b>عتبة لا حد قبول</b>. فأغلب جامعات الخليج تقبل تنافسيًا ضمن عدد ثابت من المقاعد، ولذلك فاستيفاء الحد الأدنى يعني أنه يجوز لك التقديم، لا أنك ستُقبل. فالحد الأدنى للطب في الكويت ٨٥٪ بينما الحد الفعلي كان مؤخرًا في منتصف التسعينات. هذه الأداة تعرض لك العتبة، والرقم الفعلي حيثما نُشر.",
   warn2T:"وأمر لا يخبر به أحدٌ طلبةَ المدارس الدولية",
@@ -1437,7 +1379,7 @@ const UI = {
   lastT:"روجعت في ٨ أغسطس ٢٠٢٦",
   last:"كل رقم في هذه الصفحة مأخوذ من صفحة المؤسسة أو الوزارة نفسها في ذلك التاريخ. والشروط تتغير كل سنة، وبعض المصادر يناقض بعضًا، وبعض المؤسسات لا تنشر شيئًا أصلًا. وحيثما تعذر التحقق من رقم تقول هذه الصفحة ذلك بدل التخمين. تأكد من كل شيء مع المؤسسة قبل الاعتماد عليه. هذا دليل لا قرار قبول.",
   disc:"هذه الأداة لا تتبع أي مؤسسة مذكورة، ولا تعالج طلبات القبول، ولا تستطيع أن تخبرك هل ستُقبل.",
-  foot:'إعداد <a href="https://saqeralkhalifa.com/arabic/">د. صقر آل خليفة</a> · مجاني لجميع الطلبة',
+  foot:'إعداد <a href="https://www.saqeralkhalifa.com">د. صقر آل خليفة</a> · مجاني لجميع الطلبة',
   toggle:"English",
   quizline:"<b>لم تحدد تخصصك بعد؟</b> جرّب الاختبار المجاني في ٨ دقائق واحصل على أفضل ٥ تخصصات لك.",
   quizbtn:"ابدأ الاختبار",
@@ -1621,14 +1563,6 @@ render();
     var l = document.documentElement.lang === "ar" ? "ar" : "en";
     var n = document.querySelectorAll("[data-en]");
     for(var i=0;i<n.length;i++){ n[i].textContent = n[i].getAttribute("data-"+l); }
-    /* Links that point at saqeralkhalifa.com have an Arabic twin. The
-       main site is two separate pages, not a toggle, so the href has to
-       move with the language or an Arabic reader lands in English. */
-    var h = document.querySelectorAll("[data-href-en]");
-    for(var j=0;j<h.length;j++){
-      var v = h[j].getAttribute("data-href-"+l);
-      if(v) h[j].setAttribute("href", v);
-    }
   }
   try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
   document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
@@ -1639,46 +1573,9 @@ render();
 /* MCLANG boot: applies the resolved language by driving the page's own toggle,
    then remembers whatever the visitor lands on. */
 (function(){
-  /* The visitor's language has to survive every click, including clicks that
-     cross from one of these sites to another. They sit on different origins,
-     so localStorage cannot carry the choice across; every internal link gets
-     stamped with the current language instead. */
-  var HOSTS = ["saqeralkhalifa.github.io", "internships.saqeralkhalifa.com",
-               "saqeralkhalifa.com", "www.saqeralkhalifa.com"];
-
-  function cur(){ return document.documentElement.lang === "ar" ? "ar" : "en"; }
-
-  /* Never overwrite a lang that is already on the link. An explicit ?lang=ar
-     link is itself a deliberate choice and outranks the running preference. */
-  function stamp(a){
-    try{
-      var raw = a.getAttribute("href");
-      if(!raw || raw.charAt(0) === "#") return;
-      var u = new URL(raw, location.href);
-      if(u.protocol !== "http:" && u.protocol !== "https:") return;
-      if(HOSTS.indexOf(u.hostname) === -1) return;
-      if(u.searchParams.has("lang")) return;
-      u.searchParams.set("lang", cur());
-      a.setAttribute("href", u.toString());
-    }catch(e){}
-  }
-  function onAnchor(e){
-    var t = e.target;
-    var a = (t && t.closest) ? t.closest("a[href]") : null;
-    if(a) stamp(a);
-  }
-  /* Capture phase, so the href is correct before the browser follows it.
-     auxclick covers middle click, contextmenu covers "copy link address". */
-  ["click", "auxclick", "contextmenu"].forEach(function(ev){
-    document.addEventListener(ev, onAnchor, true);
-  });
-
   var b = document.getElementById("langToggle");
   if(!b) return;
-  var want = mcInitLang();
-  if(want === "ar" && document.documentElement.lang !== "ar") b.click();
-  if(want === "en" && document.documentElement.lang === "ar") b.click();
-  mcSaveLang(want);
+  if(mcInitLang() === "ar" && document.documentElement.lang !== "ar") b.click();
   document.addEventListener("click", function(e){
     if(e.target && e.target.id === "langToggle"){
       setTimeout(function(){

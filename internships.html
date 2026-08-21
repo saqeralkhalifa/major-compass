@@ -1,35 +1,1177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Internships in Bahrain and the Gulf</title>
-<link rel="canonical" href="https://internships.saqeralkhalifa.com/">
-<meta name="robots" content="noindex, follow">
+<title>Internships in Bahrain and the Gulf | Major Compass</title>
+<meta name="description" content="Every internship programme in Bahrain we could verify, with the application link, the application dates, and who each one is for. Free, in Arabic and English, for school students, university students and new graduates.">
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="en" href="https://saqeralkhalifa.github.io/major-compass/internships.html?lang=en">
+<link rel="alternate" hreflang="ar" href="https://saqeralkhalifa.github.io/major-compass/internships.html?lang=ar">
+<link rel="alternate" hreflang="x-default" href="https://saqeralkhalifa.github.io/major-compass/internships.html">
 <script>
-/* This page has moved to its own site. Carry the visitor's language across
-   with it, because the new site is on a different origin and cannot read the
-   language this one had stored. */
-(function(){
-  var q = (location.search.match(/[?&]lang=(ar|en)\b/) || [])[1];
-  if(!q){ try{ var s = localStorage.getItem("mc-lang"); if(s === "ar" || s === "en") q = s; }catch(e){} }
-  if(!q){
+/* MCLANG: one language resolver shared by every Major Compass page.
+   Order: ?lang= in the URL, then the visitor's saved choice, then the browser. */
+function mcInitLang(){
+  try{
+    var q = (location.search.match(/[?&]lang=(ar|en)\b/) || [])[1];
+    if(q) return q;
+    var s = window.localStorage && localStorage.getItem("mc-lang");
+    if(s === "ar" || s === "en") return s;
     var n = (navigator.languages && navigator.languages[0]) || navigator.language || "";
-    q = /^ar/i.test(n) ? "ar" : "en";
-  }
-  location.replace("https://internships.saqeralkhalifa.com/?lang=" + q);
-})();
+    if(/^ar/i.test(n)) return "ar";
+  }catch(e){}
+  return "en";
+}
+function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
 </script>
-<meta http-equiv="refresh" content="0; url=https://internships.saqeralkhalifa.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
 <style>
-body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif; background:#FAF5EA; color:#4A3728;
-  margin:0; padding:18vh 24px; text-align:center; line-height:1.7;}
-p{font-size:1.05rem; max-width:34rem; margin:0 auto 12px;}
-a{color:#7D5F27;}
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{line-height:1.8; min-height:100vh;}
+  .wrap{max-width:860px; margin:0 auto; padding:0 22px 80px;}
+  .serif{font-family:Georgia,'Times New Roman',serif;}
+
+  header.site{display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0 14px; border-bottom:1px solid var(--line);}
+  .brand{font-size:.95rem; color:var(--ink-2); text-decoration:none;}
+  .lang-toggle{border:1px solid var(--line); background:var(--card); border-radius:999px;
+    padding:7px 16px; font-size:.95rem; cursor:pointer; color:var(--accent); font-weight:600; font-family:inherit;}
+
+  .hero{text-align:center; padding:44px 0 6px;}
+  .kicker{font-size:.8rem; letter-spacing:.16em; text-transform:uppercase; font-weight:800; margin-bottom:12px;}
+  .hero h1{font-size:2.2rem; line-height:1.28; margin-bottom:12px;}
+  .hero p.sub{color:var(--ink-2); font-size:1.1rem; max-width:680px; margin:0 auto;}
+
+  .lede{font-size:1.06rem; line-height:1.8; color:var(--ink); margin:32px 0 6px;
+    padding:22px 26px; background:var(--card); border:1px solid var(--line);}
+
+  .chap{margin-top:44px; padding-top:26px; border-top:2px solid var(--line);}
+  .chap h2{font-size:1.5rem; line-height:1.3; margin-bottom:8px;}
+  .chap p.sub{color:var(--ink-2); margin-bottom:16px;}
+  .pt{background:var(--card); border:1px solid var(--line); padding:18px 22px; margin-bottom:10px;}
+  .pt b{display:block; font-size:1.02rem; margin-bottom:5px;}
+  .pt span{color:var(--ink-2); font-size:.97rem; line-height:1.8; display:block;}
+
+  /* ---- pickers ---- */
+  .controls{margin-top:40px; padding-top:24px; border-top:2px solid var(--line);}
+  .controls h2{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+    font-weight:700; margin:0 0 8px;}
+  .chips{display:flex; gap:7px; flex-wrap:wrap; margin-bottom:16px;}
+  .chip{border:1px solid var(--line-2); background:var(--card); color:var(--ink-2);
+    padding:8px 14px; font-size:.9rem; font-weight:500; cursor:pointer; font-family:inherit;}
+  .count{font-size:.85rem; color:var(--ink-3); margin-bottom:12px;}
+
+  /* ---- route cards ---- */
+  .rt{background:var(--card); border:1px solid var(--line); padding:20px 24px; margin-bottom:12px;}
+  .rh{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px;}
+  .rh b{font-size:1.12rem; flex:1; min-width:200px;}
+  .tag{font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+    padding:4px 9px; border:1px solid var(--line-2); color:var(--ink-3); white-space:nowrap;}
+  .tag.all{color:var(--good); border-color:var(--good-line); background:var(--good-soft);}
+  .tag.nationals{color:var(--bad); border-color:var(--bad-line); background:var(--bad-soft);}
+  .tag.mixed{color:var(--warn); border-color:var(--warn-line); background:var(--warn-soft);}
+  .tag.degree{color:var(--ink-3);}
+  .rt p{color:var(--ink-2); font-size:.99rem; line-height:1.8;}
+  .meta{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; padding-top:12px;
+    border-top:1px dashed var(--line);}
+  .meta div{font-size:.92rem; color:var(--ink-2); line-height:1.7;}
+  .ml, .wl{display:block; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); font-weight:700; margin-bottom:3px;}
+  @media(max-width:640px){ .meta{grid-template-columns:1fr;} }
+  .wh{margin-top:14px; padding:14px 16px; background:var(--paper-2); border:1px solid var(--line);
+    font-size:.93rem; color:var(--ink-2); line-height:1.8;}
+  .wall{margin-top:6px;}
+  .wrow{display:grid; grid-template-columns:132px 1fr; gap:12px; padding:9px 0;
+    border-top:1px dashed var(--line);}
+  .wrow:first-child{border-top:0; padding-top:2px;}
+  .wrow .wc{font-weight:600; color:var(--ink); font-size:.86rem; line-height:1.75;}
+  .wrow .wt{font-size:.92rem; line-height:1.75;}
+  .wrow.empty .wt{color:var(--ink-3);}
+  @media(max-width:640px){ .wrow{grid-template-columns:1fr; gap:2px;} }
+  .note{margin-top:10px; font-size:.88rem; color:var(--ink-3); line-height:1.7;}
+
+  .gaps{margin-top:18px; padding:20px 24px; background:var(--warn-soft); border:1px solid var(--warn-line);}
+  .gaps h2{font-size:1.02rem; margin-bottom:8px;}
+  .gaps ul{padding-inline-start:20px;}
+  .gaps li{font-size:.93rem; color:var(--ink-2); margin-bottom:8px; line-height:1.75;}
+
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    background:var(--card); border:1px solid var(--line); padding:18px 22px; margin-top:12px;}
+  .bar p{color:var(--ink-2); font-size:.98rem; flex:1; min-width:230px;}
+  .btn{display:inline-block; background:var(--navy); color:#fff; text-decoration:none;
+    padding:11px 22px; font-weight:600; font-size:.95rem; white-space:nowrap;}
+  .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent-line);}
+
+  .srcbox{margin-top:40px; padding:22px 24px; background:var(--card); border:1px solid var(--line);}
+  .srcbox h2{font-size:1.05rem; margin-bottom:4px;}
+  .srcbox p.sub{font-size:.9rem; color:var(--ink-3); margin-bottom:12px;}
+  .srcbox ol{padding-inline-start:20px;}
+  .srcbox li{font-size:.88rem; color:var(--ink-2); margin-bottom:8px; line-height:1.7;}
+  .srcbox a{color:var(--accent); word-break:break-word;}
+
+  footer.site{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
+    font-size:.9rem; color:var(--ink-3); text-align:center;}
+  .disc{margin-bottom:8px;}
+/* ============================================================
+   Major Compass shared theme, option 2A
+   Ink and paper editorial, Newsreader display, brass accent.
+   Tokens mirror theme.css from the design handoff.
+   Square corners everywhere except the language pill.
+   No shadows, no gradients, no icons.
+   ============================================================ */
+:root{
+  --font-display:Newsreader, Georgia, 'Times New Roman', serif;
+  --font-body:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-ar:'IBM Plex Sans Arabic', 'IBM Plex Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+
+  --paper:#f6f3ec;
+  --paper-2:#efece4;
+  --card:#fbf9f4;
+  --line:#ddd7cb;
+  --line-2:#cfc9bd;
+
+  --ink:#14161a;
+  --ink-2:#33363c;
+  --ink-3:#6b6e74;
+
+  --navy:#14161a;
+  --navy-deep:#8a5a1e;
+  --accent:#8a5a1e;
+  --accent-soft:#efece4;
+  --accent-line:#cfc9bd;
+
+  --gold:#8a5a1e;
+  --gold-soft:#f0ebdf;
+  --gold-line:#ddd7cb;
+  --gold-bright:#d8b98a;
+
+  --good:#3f6b4f;  --good-soft:#eaefe9;  --good-line:#cfdbd0;
+  --warn:#8a5a1e;  --warn-soft:#f0ebdf;  --warn-line:#e2d9c6;
+  --bad:#8c3a30;   --bad-soft:#f4e9e5;   --bad-line:#e2cfc8;
+
+  --radius:0; --radius-sm:0;
+  --shadow:none; --shadow-lift:none;
+}
+
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+[dir="rtl"] body{font-family:var(--font-ar); line-height:1.95;}
+body::before{display:none !important;}
+
+/* ---------- display type: Newsreader 400, never bold serif ---------- */
+.serif, .chap h2, .cn, .stat-n, .minrow b, .grp-t, .grp h2, .panel h2,
+.srcbox h2, .majors-title, .hero h1, h1, h2, h3{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-variation-settings:normal;
+  letter-spacing:-.02em;
+}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .cn, [dir="rtl"] .stat-n,
+[dir="rtl"] .minrow b, [dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2,
+[dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title, [dir="rtl"] .hero h1,
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3{
+  font-family:var(--font-ar); letter-spacing:0; font-weight:600; line-height:1.35;
+}
+.stat-n, .minrow b, .cnt, td, th, .cal-row b{font-variant-numeric:tabular-nums;}
+::selection{background:var(--paper-2); color:var(--ink);}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px; border-radius:0;
+}
+
+/* ---------- the shared dark nav ---------- */
+.mc-nav{
+  background:var(--ink); color:var(--paper);
+  position:sticky; top:0; z-index:40;
+}
+.mc-nav-inner{
+  max-width:920px; margin:0 auto; padding:13px 22px;
+  display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+}
+.mc-brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; color:var(--paper); min-width:0;}
+.mc-brand b{font-family:var(--font-display); font-size:17px; font-weight:400; letter-spacing:-.01em; white-space:nowrap;}
+[dir="rtl"] .mc-brand b{font-family:var(--font-ar); font-weight:600; letter-spacing:0;}
+.mc-brand span{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#9a9da3; white-space:nowrap;}
+[dir="rtl"] .mc-brand span{letter-spacing:0; text-transform:none; font-size:12px;}
+.mc-nav-links{
+  display:flex; gap:20px; font-size:12px; letter-spacing:.06em; align-items:center;
+  overflow-x:auto; scrollbar-width:none; flex:1 1 auto; justify-content:center;
+}
+.mc-nav-links::-webkit-scrollbar{display:none;}
+[dir="rtl"] .mc-nav-links{letter-spacing:0; font-size:13px;}
+.mc-nav-links a{
+  color:#c9ccd2; text-decoration:none; white-space:nowrap; padding-bottom:2px;
+  border-bottom:1px solid transparent; transition:color .15s, border-color .15s;
+}
+.mc-nav-links a:hover{color:var(--paper);}
+.mc-nav-links a[aria-current="page"]{color:var(--paper); border-bottom-color:var(--accent);}
+.mc-nav .lang-toggle{
+  flex:0 0 auto; border:1px solid var(--accent); background:var(--accent); border-radius:999px;
+  padding:6px 17px; font-size:13px; letter-spacing:.04em; font-weight:600;
+  color:#fbf9f4; cursor:pointer; font-family:var(--font-body);
+  transition:background .15s, color .15s, border-color .15s;
+}
+.mc-nav .lang-toggle:hover{background:var(--paper); color:var(--ink); border-color:var(--paper);}
+@media (max-width:640px){
+  .mc-nav-inner{padding:11px 18px; gap:10px;}
+  .mc-nav-links{justify-content:flex-start; order:3; width:100%; gap:16px; padding-bottom:2px;}
+}
+@media print{ .mc-nav{display:none;} }
+
+/* the old in-page masthead and pill switcher are replaced by .mc-nav */
+header.site, nav.toolnav{display:none !important;}
+
+/* ---------- page header ---------- */
+.hero, .res-head{position:relative;}
+.hero::before{display:none !important;}
+.hero{padding-top:52px;}
+.hero h1{font-size:clamp(34px, 5.4vw, 52px); line-height:1.04; font-weight:400;}
+[dir="rtl"] .hero h1{line-height:1.35; font-weight:600;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+.kicker, .eyebrow{
+  color:var(--accent); font-weight:600; font-size:11px;
+  letter-spacing:.18em; text-transform:uppercase;
+}
+[dir="rtl"] .kicker, [dir="rtl"] .eyebrow{letter-spacing:0; text-transform:none; font-size:13px;}
+
+/* ---------- surfaces: square, flat, ruled ---------- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .lede, .stat, .nextbox,
+.m, .fact, .pt, .bar, .quizbar, .cta-inline, .rule, .checked, .hedge, .extra, .flag,
+.note, .card, .grp{
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .stat, .nextbox, .m, .fact{
+  background:var(--card); border:1px solid var(--line-2);
+}
+.mcard:hover, .pcard:hover, .m:hover{border-color:var(--ink-3);}
+.pcard{border-inline-start-width:2px; border-inline-start-color:var(--accent);}
+.lede{background:var(--card); border:1px solid var(--line-2);
+  border-inline-start:2px solid var(--accent) !important; border-inline-end:1px solid var(--line-2) !important;}
+
+/* ---------- buttons ---------- */
+.btn{
+  background:var(--ink); border:1px solid var(--ink); border-radius:0;
+  font-weight:500; letter-spacing:0; color:var(--paper); box-shadow:none;
+  transition:background .15s, border-color .15s, color .15s;
+}
+.btn:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:none; filter:none; box-shadow:none;}
+.btn.ghost, .btn.secondary{
+  background:transparent; color:var(--ink); border:1px solid var(--ink); box-shadow:none;
+}
+.btn.ghost:hover, .btn.secondary:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+.printbtn{border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);}
+.printbtn:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+
+/* filter chips and pickers: square, ruled */
+.fbtn, .chip, .navbtn, .picker button, .filters button{
+  border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);
+  box-shadow:none; transition:background .15s, color .15s, border-color .15s;
+}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--ink); color:var(--ink); background:transparent; transform:none;}
+.fbtn.on, .chip.on, .navbtn.on{
+  background:var(--ink); border-color:var(--ink); color:var(--paper); font-weight:500; box-shadow:none;
+}
+input[type="text"], input[type="search"], select, textarea, .srch{
+  border-radius:0 !important; border:1px solid var(--line-2); background:var(--card);
+  font-family:var(--font-body); color:var(--ink);
+}
+[dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
+
+/* ---------- bars and callouts: flat bands, no gradients ---------- */
+.bar, .quizbar, .cta-inline{
+  background:var(--paper-2); border:1px solid var(--line); border-radius:0;
+}
+.rule, .checked, .hedge, .extra, .flag{border-radius:0;}
+.rule.w, .checked, .hedge, .extra, .flag{background:var(--warn-soft); border-color:var(--warn-line);}
+.rule.b{background:var(--bad-soft); border-color:var(--bad-line);}
+.rule.n{background:var(--paper-2); border-color:var(--line);}
+.row.act{background:var(--paper-2) !important; border-color:var(--line) !important;}
+
+/* ---------- band chips and verdict pills keep meaning, lose gloss ---------- */
+.band{border-radius:0; font-weight:600;}
+
+/* ---------- section labels ---------- */
+.sec h3, .lbl, .toc h2, .row h4{
+  letter-spacing:.14em; font-weight:600; text-transform:uppercase; font-size:11px; color:var(--ink-3);
+}
+[dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2, [dir="rtl"] .row h4{
+  letter-spacing:0; text-transform:none; font-size:13px;
+}
+
+/* ---------- tables ---------- */
+table{border-collapse:collapse;}
+th{
+  text-align:start; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; padding:12px 14px; border-bottom:1px solid var(--ink);
+}
+[dir="rtl"] th{letter-spacing:0; text-transform:none; font-size:13px;}
+td{padding:14px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top; font-size:14px;}
+
+/* ---------- footer ---------- */
+footer.site{
+  margin-top:56px; padding:26px 0 0; border-top:1px solid var(--line); color:var(--ink-3); font-size:13px;
+}
+footer.site a{color:var(--accent); font-weight:500;}
+
+
+/* ---- 2A refinements ---- */
+input, button, select, textarea{border-radius:0;}
+.lang-toggle, .mc-nav .lang-toggle{border-radius:999px;}
+.pt{border-inline-start-width:2px !important;}
+.compass, .emoji{display:none !important;}
+.opt{border-radius:0 !important;}
+.opt.selected{background:var(--paper-2); border-color:var(--ink);}
+.band{border-radius:0 !important;}
+hr{border:0; border-top:1px solid var(--line);}
+
+/* ---- 2A: square the remaining pills, protect quiz progress ---- */
+.section-chip, .progress-bar, .progress-fill, .bar-fill, .chip, .meta-chips .chip,
+.tag, .pill, .badge, .cta, .startbtn{border-radius:0 !important;}
+.section-chip{background:var(--paper-2); color:var(--accent); border:1px solid var(--line);
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:5px 12px;}
+[dir="rtl"] .section-chip{letter-spacing:0; text-transform:none; font-size:13px;}
+body:has(#screen-quiz.active) .mc-nav-links{display:none;}
+
+/* ---- 2A: square corners everywhere except the language pill ---- */
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:0 !important;}
+.lang-toggle{border-radius:999px !important;}
+.subj, .tag, .chip{
+  background:transparent !important; border:1px solid var(--line-2) !important;
+  color:var(--ink-2) !important; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  padding:4px 9px !important; font-weight:500;
+}
+[dir="rtl"] .subj, [dir="rtl"] .tag, [dir="rtl"] .chip{letter-spacing:0; text-transform:none; font-size:13px;}
+.mrank{
+  background:transparent !important; border:0 !important; width:auto !important; height:auto !important;
+  font-family:var(--font-display); font-size:22px; font-weight:400; color:var(--accent) !important;
+  box-shadow:none !important; min-width:28px;
+}
+[dir="rtl"] .mrank{font-family:var(--font-ar); font-weight:600;}
+html{scroll-padding-top:76px;}
+.wrap [id], .m, .mcard{scroll-margin-top:76px;}
+
+@media (max-width:520px){
+  .hero h1{font-size:clamp(28px, 8vw, 36px);}
+}
+
+/* ---- nav: links back to the main site and the book ---- */
+.mc-nav-inner{max-width:1160px !important; gap:14px; flex-wrap:nowrap;}
+.mc-nav-links{gap:17px; justify-content:center; min-width:0;}
+@media (max-width:1100px){ .mc-brand span{display:none;} }
+@media (max-width:760px){
+  .mc-nav-inner{flex-wrap:wrap;}
+  .mc-nav-links{order:3; width:100%; justify-content:flex-start;}
+}
+.mc-nav-right{display:flex; align-items:center; gap:14px; flex:0 0 auto;}
+.mc-site{
+  color:#9a9da3; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;
+}
+.mc-site:hover{color:var(--paper); border-bottom-color:#3a3d43;}
+[dir="rtl"] .mc-site{letter-spacing:0; font-size:13px;}
+.mc-book{
+  color:#d8b98a; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border:1px solid rgba(216,185,138,.45); padding:6px 13px; transition:background .15s, color .15s, border-color .15s;
+}
+.mc-book:hover{background:#d8b98a; color:var(--ink); border-color:#d8b98a;}
+[dir="rtl"] .mc-book{letter-spacing:0; font-size:13px;}
+@media (max-width:860px){ .mc-site{display:none;} }
+@media (max-width:640px){
+  .mc-nav-right{gap:9px;}
+  .mc-book{padding:5px 10px;}
+}
+</style>
+
+<style>
+/* ---------- internships page ---------- */
+.keybox{background:var(--card); border-block:1px solid var(--line); padding:30px 26px; margin:34px 0 8px;}
+.keybox h2{font-size:1.42rem; line-height:1.45; color:var(--ink); margin-bottom:12px;}
+.keybox p{font-size:1rem; line-height:1.85; color:var(--body);}
+.ctrow{margin-top:28px;}
+.ctrow h3, .fgroup h3{font-size:.74rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:11px; font-weight:600;}
+[dir="rtl"] .ctrow h3, [dir="rtl"] .fgroup h3{letter-spacing:0; font-size:.86rem;}
+.chips{display:flex; flex-wrap:wrap; gap:8px;}
+.chip{border:1px solid var(--line); background:var(--card); color:var(--body);
+  padding:7px 14px; font-size:.9rem; cursor:pointer; font-family:inherit; line-height:1.5;
+  text-transform:none; letter-spacing:normal; border-radius:0;}
+.chip:hover{border-color:var(--accent);}
+.chip.on{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+.chip.soon{opacity:.5; cursor:not-allowed;}
+.chip.soon:hover{border-color:var(--line);}
+.fgroup{margin-top:17px;}
+.count{margin-top:20px; font-size:.94rem; color:var(--muted);}
+
+.opp{border-top:1px solid var(--line); padding:26px 0;}
+.opp:first-child{border-top:0;}
+.otop{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 14px;}
+.oorg{font-size:1.24rem; font-weight:600; color:var(--ink); line-height:1.4;}
+.oprog{font-size:1.02rem; color:var(--sec); line-height:1.5;}
+.tag{font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; font-weight:600;
+  padding:4px 10px; border:1px solid var(--line); color:var(--muted); white-space:nowrap;}
+[dir="rtl"] .tag{letter-spacing:0; font-size:.8rem;}
+.tag.open{border-color:var(--accent); color:var(--accent);}
+.orows{margin-top:15px; display:grid; grid-template-columns:150px 1fr; gap:7px 18px;}
+.orows dt{font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+  font-weight:600; padding-top:3px;}
+[dir="rtl"] .orows dt{letter-spacing:0; font-size:.9rem;}
+.orows dd{font-size:.98rem; line-height:1.75; color:var(--body);}
+.olink{display:inline-block; margin-top:15px; font-size:.95rem; font-weight:600;
+  color:var(--accent); border-bottom:1px solid var(--accent-line); text-decoration:none;}
+.ometa{margin-top:11px; font-size:.82rem; color:var(--muted);}
+.empty{padding:34px 0; color:var(--muted); font-size:1rem;}
+
+.subbox{background:var(--ink); color:var(--paper); padding:36px 30px; margin-top:46px;}
+.subbox h2{color:var(--paper); font-size:1.5rem; line-height:1.4;}
+.subbox p{color:#c9ccd2; font-size:1rem; line-height:1.8; margin-top:14px;}
+.subbox .btn{margin-top:22px; background:var(--paper); color:var(--ink); border-color:var(--paper);}
+.subbox .btn:hover{background:var(--accent); color:var(--paper); border-color:var(--accent);}
+
+@media (max-width:640px){
+  .orows{grid-template-columns:1fr; gap:2px 0;}
+  .orows dt{padding-top:11px;}
+  .keybox{padding:24px 20px;}
+  .subbox{padding:28px 22px;}
+}
 </style>
 </head>
 <body>
-<p>This page now lives at <a href="https://internships.saqeralkhalifa.com/">internships.saqeralkhalifa.com</a>.</p>
-<p dir="rtl">انتقلت هذه الصفحة إلى <a href="https://internships.saqeralkhalifa.com/">internships.saqeralkhalifa.com</a></p>
+<div class="mc-nav">
+  <div class="mc-nav-inner">
+    <a class="mc-brand" href="./">
+      <b data-en="Major Compass" data-ar="بوصلة التخصص">Major Compass</b>
+      <span data-en="Dr. Saqer AlKhalifa" data-ar="د. صقر آل خليفة">Dr. Saqer AlKhalifa</span>
+    </a>
+    <nav class="mc-nav-links" aria-label="Tools">
+      <a href="./" data-en="The quiz" data-ar="الاختبار">The quiz</a>
+      <a href="explore.html" data-en="Majors" data-ar="التخصصات">Majors</a>
+      <a href="entry.html" data-en="Entry" data-ar="شروط القبول">Entry</a>
+      <a href="scholarships.html" data-en="Funding" data-ar="المنح">Funding</a>
+      <a href="routes.html" data-en="Dealbreakers" data-ar="المنفّرات">Dealbreakers</a>
+      <a href="alternatives.html" data-en="No degree" data-ar="بدون شهادة">No degree</a>
+      <a href="internships.html" data-en="Internships" data-ar="التدريب">Internships</a>
+      <a href="internships.html" aria-current="page" data-en="Internships" data-ar="التدريب">Internships</a>
+      <a href="parents.html" data-en="Parents" data-ar="أولياء الأمور">Parents</a>
+      <a href="ai.html" data-en="AI" data-ar="الذكاء الاصطناعي">AI</a>
+    </nav>
+    <div class="mc-nav-right">
+      <a class="mc-site" href="https://saqeralkhalifa.com/" data-en="saqeralkhalifa.com" data-ar="الموقع الرئيسي">saqeralkhalifa.com</a>
+      <a class="mc-book" href="https://saqeralkhalifa.com/#stores" data-en="Get the book" data-ar="اطلب الكتاب">Get the book</a>
+      <button class="lang-toggle" id="langToggle">عربي</button>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+
+<div class="hero">
+  <div class="kicker" id="kicker"></div>
+  <h1 class="serif" id="t-title"></h1>
+  <p class="sub" id="t-sub"></p>
+</div>
+
+<div class="keybox">
+  <h2 id="k-h"></h2>
+  <p id="k-p"></p>
+</div>
+
+<div class="ctrow">
+  <h3 id="t-ctlabel"></h3>
+  <div class="chips" id="ctchips"></div>
+</div>
+
+<div class="fgroup"><h3 id="t-stlabel"></h3><div class="chips" id="stchips"></div></div>
+<div class="fgroup"><h3 id="t-lvlabel"></h3><div class="chips" id="lvchips"></div></div>
+<div class="fgroup"><h3 id="t-selabel"></h3><div class="chips" id="sechips"></div></div>
+
+<div class="count" id="count"></div>
+<div id="list"></div>
+
+<div class="subbox">
+  <h2 id="s-h"></h2>
+  <p id="s-p"></p>
+  <a class="btn" id="s-btn" href="mailto:alkhalifa.sager@gmail.com?subject=Internship%20opportunity%20for%20Major%20Compass" target="_blank" rel="noopener"></a>
+</div>
+
+<div class="srcbox">
+  <h2 id="srcT"></h2>
+  <p class="sub" id="srcS"></p>
+</div>
+
+<div class="crosslinks">
+  <div class="bar" style="margin-top:34px;">
+    <p id="t-quizline"></p>
+    <a class="btn" id="t-quizbtn" href="./"></a>
+  </div>
+  <div class="bar">
+    <p id="t-schline"></p>
+    <a class="btn ghost" id="t-schbtn" href="scholarships.html"></a>
+  </div>
+  <div class="bar">
+    <p id="t-altline"></p>
+    <a class="btn ghost" id="t-altbtn" href="alternatives.html"></a>
+  </div>
+</div>
+
+<footer class="site">
+  <p class="disc" id="t-disc"></p>
+  <p id="t-foot"></p>
+</footer>
+</div>
+<script>
+/* Major Compass: internships data.
+   Bahrain, first sweep, verified 12 August 2026.
+   status: "open"    applications are open now or run on a rolling basis
+           "annual"  runs every year, this year's window has passed
+           "dormant" last confirmed cycle was 2024 or earlier, may not still run
+   Every entry has a url that was fetched and read. Nothing here is guessed. */
+
+const OPPS = [
+
+/* ============================ OPEN NOW ============================ */
+{id:"silah-grad", ct:"bh", sector:"consulting", level:["grad"], paid:"unknown", status:"open",
+ org:{en:"Silah Gulf", ar:"صلة الخليج"},
+ prog:{en:"Graduate Trainee Programme", ar:"برنامج تدريب الخريجين"},
+ apply:{en:"Open now. Applications run every year from July to September.", ar:"مفتوح الآن. يُفتح باب التقديم سنويًا من يوليو إلى سبتمبر."},
+ duration:{en:"One year.", ar:"سنة واحدة."},
+ elig:{en:"Bahraini university graduates.", ar:"خريجو الجامعات من البحرينيين."},
+ how:{en:"Online form on the careers page, with a CV and a 1,000 word essay.", ar:"نموذج إلكتروني في صفحة التوظيف، مع سيرة ذاتية ومقال من ١٠٠٠ كلمة."},
+ url:"https://silah.bh/careers/", checked:"2026-08-12"},
+
+{id:"silah-intern", ct:"bh", sector:"consulting", level:["uni","grad"], paid:"unknown", status:"open",
+ org:{en:"Silah Gulf", ar:"صلة الخليج"},
+ prog:{en:"Internship Programme", ar:"برنامج التدريب"},
+ apply:{en:"Rolling. Apply about one month before you want to start.", ar:"مفتوح على مدار العام. قدّم قبل نحو شهر من التاريخ الذي تريد البدء فيه."},
+ duration:{en:"One to three months, usually over the summer.", ar:"من شهر إلى ثلاثة أشهر، عادةً في الصيف."},
+ elig:{en:"Undergraduate students and recent graduates.", ar:"طلبة البكالوريوس والخريجون الجدد."},
+ how:{en:"Online form asking for academic details, CPR, CV and a 1,000 word essay.", ar:"نموذج إلكتروني يطلب البيانات الأكاديمية والبطاقة الذكية والسيرة الذاتية ومقالًا من ١٠٠٠ كلمة."},
+ url:"https://silah.bh/careers/", checked:"2026-08-12"},
+
+{id:"kpmg-hussain-kasim", ct:"bh", sector:"consulting", level:["uni"], paid:"unknown", status:"open",
+ org:{en:"KPMG in Bahrain", ar:"كي بي إم جي في البحرين"},
+ prog:{en:"Hussain Kasim Internship Programme", ar:"برنامج حسين قاسم للتدريب"},
+ apply:{en:"No closing date is published, so the programme accepts applications by email at any time.", ar:"لا يوجد موعد نهائي معلن، والتقديم عبر البريد الإلكتروني متاح في أي وقت."},
+ duration:{en:"Not stated. Placements sit in audit, tax and advisory.", ar:"غير مذكورة. التنسيب في إدارات التدقيق والضرائب والاستشارات."},
+ elig:{en:"Bahraini students at universities inside and outside Bahrain.", ar:"الطلبة البحرينيون في جامعات داخل البحرين وخارجها."},
+ how:{en:"Email bh-fmcareers@kpmg.com with the subject line Hussain Kasim Internship Program.", ar:"أرسل بريدًا إلى bh-fmcareers@kpmg.com بعنوان Hussain Kasim Internship Program."},
+ url:"https://kpmg.com/bh/en/careers/hussain-kasim-internship.html", checked:"2026-08-12"},
+
+{id:"hassan-radhi-law", ct:"bh", sector:"legal", level:["uni"], paid:"unknown", status:"open",
+ org:{en:"Hassan Radhi and Associates", ar:"حسن رضي وشركاه"},
+ prog:{en:"Summer training for law students", ar:"التدريب الصيفي لطلبة القانون"},
+ apply:{en:"No published deadline. Places each year are limited, so apply early.", ar:"لا يوجد موعد نهائي معلن. المقاعد محدودة كل عام، فبادر بالتقديم مبكرًا."},
+ duration:{en:"Not stated. Summer placements.", ar:"غير مذكورة. تدريب صيفي."},
+ elig:{en:"Law students. Many places are taken through the University of Bahrain student training route.", ar:"طلبة القانون. تُشغل مقاعد كثيرة عبر مسار التدريب الطلابي في جامعة البحرين."},
+ how:{en:"Send an application with a CV and academic documents. The firm says applying does not guarantee a place.", ar:"أرسل طلبًا مع السيرة الذاتية والوثائق الأكاديمية. ويوضح المكتب أن التقديم لا يضمن القبول."},
+ url:"https://hassanradhi.com/en/summer_training_facilities", checked:"2026-08-12"},
+
+{id:"bfb-bd-intern", ct:"bh", sector:"tech", level:["uni"], paid:"unknown", status:"open",
+ org:{en:"Bahrain FinTech Bay", ar:"خليج البحرين للتكنولوجيا المالية"},
+ prog:{en:"Business Development Intern", ar:"متدرب في تطوير الأعمال"},
+ apply:{en:"The listing was open when checked. No closing date is published.", ar:"كان الإعلان مفتوحًا عند التحقق. ولا يوجد موعد نهائي معلن."},
+ duration:{en:"Not stated.", ar:"غير مذكورة."},
+ elig:{en:"Students in finance, business, economics, data or technology with an interest in fintech.", ar:"طلبة التمويل أو الأعمال أو الاقتصاد أو البيانات أو التقنية ممن لديهم اهتمام بالتقنية المالية."},
+ how:{en:"Use the Apply Now button on the listing.", ar:"اضغط زر Apply Now في الإعلان."},
+ url:"https://www.bahrainfintechbay.com/careers/business-development-intern", checked:"2026-08-12"},
+
+{id:"apm-marsa", ct:"bh", sector:"industry", level:["uni","grad"], paid:"unknown", status:"open",
+ org:{en:"APM Terminals Bahrain", ar:"إيه بي إم ترمينلز البحرين"},
+ prog:{en:"MARSA Internship Programme", ar:"برنامج مرسى للتدريب"},
+ apply:{en:"Announced July 2026 with no closing date published, so it appears to still be open.", ar:"أُعلن عنه في يوليو ٢٠٢٦ دون موعد نهائي معلن، ويبدو أنه ما يزال مفتوحًا."},
+ duration:{en:"Interns on the company page describe placements of three to eight months.", ar:"يذكر متدربون على صفحة الشركة فترات تراوحت بين ثلاثة وثمانية أشهر."},
+ elig:{en:"Bahraini nationals aged 18 to 30, including final year students and graduates from any discipline.", ar:"المواطنون البحرينيون من ١٨ إلى ٣٠ عامًا، ومنهم طلبة السنة النهائية والخريجون من أي تخصص."},
+ how:{en:"Apply through the Bahrain page of the APM Terminals site, or email hrbah@apmterminals.com.", ar:"قدّم عبر صفحة البحرين في موقع إيه بي إم ترمينلز، أو راسل hrbah@apmterminals.com."},
+ url:"https://www.apmterminals.com/en/bahrain/careers/internships-program", checked:"2026-08-12"},
+
+{id:"alba-ojt", ct:"bh", sector:"industry", level:["hs","uni"], paid:"unknown", status:"open",
+ org:{en:"Aluminium Bahrain", ar:"ألمنيوم البحرين، ألبا"},
+ prog:{en:"On the Job Training Programme", ar:"برنامج التدريب على رأس العمل"},
+ apply:{en:"Runs through the year rather than in one window, with most places in the summer.", ar:"يعمل على مدار العام لا ضمن فترة واحدة، ومعظم المقاعد في الصيف."},
+ duration:{en:"Not published. In 2025 Alba took 367 trainees, 46 from schools and 321 from universities.", ar:"غير منشورة. في ٢٠٢٥ استقبلت ألبا ٣٦٧ متدربًا، منهم ٤٦ من المدارس و٣٢١ من الجامعات."},
+ elig:{en:"School and university students, mostly from institutions inside Bahrain.", ar:"طلبة المدارس والجامعات، وغالبيتهم من مؤسسات داخل البحرين."},
+ how:{en:"Not published. Alba directs enquiries to its careers portal and to info@alba.com.bh.", ar:"غير منشورة. تحيل ألبا الاستفسارات إلى بوابة التوظيف وإلى info@alba.com.bh."},
+ url:"https://www.albasmelter.com/en/category/training-and-development", checked:"2026-08-12"},
+
+{id:"brcs-volunteer", ct:"bh", sector:"ngo", level:["hs","uni"], paid:"no", status:"open",
+ org:{en:"Bahrain Red Crescent Society", ar:"جمعية الهلال الأحمر البحريني"},
+ prog:{en:"Volunteer membership", ar:"عضوية التطوع"},
+ apply:{en:"Open all year.", ar:"مفتوح طوال العام."},
+ duration:{en:"Ongoing, with training provided.", ar:"مستمر، مع تدريب تقدمه الجمعية."},
+ elig:{en:"The society welcomes volunteers of all ages but publishes no minimum. If you are under 18, email first to check.", ar:"ترحب الجمعية بالمتطوعين من مختلف الأعمار دون تحديد حد أدنى. إن كنت دون ١٨ عامًا فراسلهم أولًا للتأكد."},
+ how:{en:"Download the membership form and email it with your CPR, a photo and a CV to volunteer@rcsbahrain.org.", ar:"حمّل نموذج العضوية وأرسله مع البطاقة الذكية وصورة شخصية وسيرة ذاتية إلى volunteer@rcsbahrain.org."},
+ url:"https://rcsbahrain.org/en/get-involved/", checked:"2026-08-12"},
+
+{id:"microsoft-bh-intern", ct:"bh", sector:"tech", level:["uni"], paid:"unknown", status:"open",
+ org:{en:"Microsoft", ar:"مايكروسوفت"},
+ prog:{en:"University Intern, Bahrain", ar:"متدرب جامعي، البحرين"},
+ apply:{en:"Roles appear on the Microsoft careers site when they open. Set an alert rather than waiting for an announcement.", ar:"تظهر الشواغر على موقع التوظيف عند فتحها. اضبط تنبيهًا بدل انتظار إعلان."},
+ duration:{en:"Not stated for Bahrain.", ar:"غير مذكورة بالنسبة للبحرين."},
+ elig:{en:"Full time student in the final year or within 12 months of graduating, on a science, technology, engineering or maths degree, with the right to work in Bahrain.", ar:"طالب بدوام كامل في سنته الأخيرة أو خلال ١٢ شهرًا من التخرج، في تخصص علمي أو تقني أو هندسي أو رياضي، ولديه حق العمل في البحرين."},
+ how:{en:"Search Bahrain intern roles on the Microsoft careers site and apply online.", ar:"ابحث عن شواغر التدريب في البحرين على موقع التوظيف وقدّم إلكترونيًا."},
+ url:"https://careers.microsoft.com/v2/global/en/internship_eligibility", checked:"2026-08-12"},
+
+/* ==================== ANNUAL, WINDOW HAS PASSED ==================== */
+{id:"bapco-empower", ct:"bh", sector:"energy", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Bapco Energies", ar:"بابكو للطاقة"},
+ prog:{en:"Empower Summer Internship Programme", ar:"برنامج إمباور للتدريب الصيفي"},
+ apply:{en:"Applications opened 29 April and closed 7 May 2026, with offers in the first week of June. Watch for the same window next spring.", ar:"فُتح التقديم في ٢٩ أبريل وأُغلق في ٧ مايو ٢٠٢٦، وصدرت العروض في الأسبوع الأول من يونيو. ترقّب الفترة نفسها في الربيع القادم."},
+ duration:{en:"Eight weeks across July and August.", ar:"ثمانية أسابيع خلال يوليو وأغسطس."},
+ elig:{en:"University students who need a placement to meet a graduation requirement. Placements are matched to your major.", ar:"طلبة الجامعات الذين يحتاجون التدريب لاستيفاء متطلب التخرج. توزَّع الفرص بحسب تخصصك."},
+ how:{en:"Apply on the Bapco Energies career portal under the job title Intern. Places span Bapco Refining, Bapco Upstream, Bapco Gas, ASRY and GPIC.", ar:"قدّم عبر بوابة التوظيف تحت المسمى Intern. تشمل الفرص بابكو للتكرير وبابكو للتنقيب وبابكو للغاز وأسري وشركة الخليج لصناعة البتروكيماويات."},
+ url:"https://www.bapcoenergies.com/empower-program", checked:"2026-08-12"},
+
+{id:"edb-internship", ct:"bh", sector:"gov", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Bahrain Economic Development Board", ar:"مجلس التنمية الاقتصادية"},
+ prog:{en:"EDB Internship Programme", ar:"برنامج التدريب في مجلس التنمية الاقتصادية"},
+ apply:{en:"Two rounds a year. Summer applications 5 to 31 May. Winter applications 1 to 23 November, so the winter round is the next one open.", ar:"دورتان في السنة. التقديم للصيف من ٥ إلى ٣١ مايو، وللشتاء من ١ إلى ٢٣ نوفمبر، والدورة الشتوية هي القادمة."},
+ duration:{en:"Four weeks in January for the winter round, four to eight weeks in July and August for the summer round.", ar:"أربعة أسابيع في يناير للدورة الشتوية، ومن أربعة إلى ثمانية أسابيع في يوليو وأغسطس للدورة الصيفية."},
+ elig:{en:"Bahraini students at universities anywhere in the world, aged 18 or over, with a GPA of 3.0 or above on the American system or 2.2 or above on the British system. Graduates are not eligible.", ar:"الطلبة البحرينيون في جامعات حول العالم، بعمر ١٨ فأكثر، بمعدل ٣٫٠ فأعلى في النظام الأمريكي أو ٢٫٢ فأعلى في النظام البريطاني. الخريجون غير مؤهلين."},
+ how:{en:"Online form with a CV, CPR copy, transcript and a video answering three set questions. Interviews follow within two to four weeks of closing.", ar:"نموذج إلكتروني مع سيرة ذاتية ونسخة من البطاقة الذكية وكشف الدرجات ومقطع مصور يجيب عن ثلاثة أسئلة. تجري المقابلات خلال أسبوعين إلى أربعة من الإغلاق."},
+ url:"https://www.bahrainedb.com/about-us/career-opportunities/edb-internship-programme", checked:"2026-08-12"},
+
+{id:"sico-summer", ct:"bh", sector:"finance", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"SICO", ar:"سيكو"},
+ prog:{en:"Summer Internship Programme", ar:"برنامج التدريب الصيفي"},
+ apply:{en:"The deadline is the end of May each year. Watch the same page from around March.", ar:"الموعد النهائي نهاية مايو من كل عام. تابع الصفحة نفسها ابتداءً من مارس تقريبًا."},
+ duration:{en:"Two months, covering asset management, investment banking, brokerage, market making, treasury and research.", ar:"شهران تشمل إدارة الأصول والخدمات المصرفية الاستثمارية والوساطة وصناعة السوق والخزينة والبحوث."},
+ elig:{en:"Bahraini nationals on an undergraduate degree in finance, business or economics, GPA 2.5 or above, competent in Excel and PowerPoint, strong Arabic and English.", ar:"مواطنون بحرينيون في بكالوريوس التمويل أو الأعمال أو الاقتصاد، بمعدل ٢٫٥ فأعلى، مع إجادة الإكسل والباوربوينت والعربية والإنجليزية."},
+ how:{en:"Send your contact details and CV to Careers@sicobank.com.", ar:"أرسل بيانات التواصل والسيرة الذاتية إلى Careers@sicobank.com."},
+ url:"https://www.sicobank.com/en/internships", checked:"2026-08-12"},
+
+{id:"ghg-summer", ct:"bh", sector:"hospitality", level:["uni","grad"], paid:"unknown", status:"annual",
+ org:{en:"Gulf Hotels Group", ar:"مجموعة فنادق الخليج"},
+ prog:{en:"Summer Internship Programme", ar:"برنامج التدريب الصيفي"},
+ apply:{en:"The 2026 round closed before June. Applications open in the spring, so watch from around March.", ar:"أُغلقت دورة ٢٠٢٦ قبل يونيو. يُفتح التقديم في الربيع، فتابع ابتداءً من مارس تقريبًا."},
+ duration:{en:"Eight weeks, 1 July to 31 August.", ar:"ثمانية أسابيع، من ١ يوليو إلى ٣١ أغسطس."},
+ elig:{en:"Bahraini nationals aged 18 or over, undergraduates or recent graduates.", ar:"المواطنون البحرينيون بعمر ١٨ فأكثر، من طلبة البكالوريوس أو الخريجين الجدد."},
+ how:{en:"The group invites CVs to recruitment@gulfhotelsgroup.com between rounds, and announces the next round on its own channels.", ar:"تستقبل المجموعة السير الذاتية على recruitment@gulfhotelsgroup.com بين الدورات، وتعلن الدورة القادمة عبر قنواتها."},
+ url:"https://gulfhotelsgroup.com/internship/", checked:"2026-08-12"},
+
+{id:"amh-medical", ct:"bh", sector:"health", level:["grad"], paid:"unknown", status:"annual",
+ org:{en:"American Mission Hospital", ar:"المستشفى الأمريكي"},
+ prog:{en:"Medical Internship Programme", ar:"برنامج الامتياز الطبي"},
+ apply:{en:"Applications close in early May, interviews late May, offers in June and a July start. The page still shows the 2024 cycle, so check it again each spring.", ar:"يُغلق التقديم في مطلع مايو، والمقابلات أواخر مايو، والعروض في يونيو والبداية في يوليو. ما تزال الصفحة تعرض دورة ٢٠٢٤، فراجعها كل ربيع."},
+ duration:{en:"Not stated. Training is split between the hospital and Salmaniya Medical Complex.", ar:"غير مذكورة. يتوزع التدريب بين المستشفى ومجمع السلمانية الطبي."},
+ elig:{en:"Graduates of medical schools in Bahrain, Bahraini and non Bahraini, plus Bahraini graduates of universities abroad.", ar:"خريجو كليات الطب في البحرين، بحرينيين وغير بحرينيين، إضافة إلى الخريجين البحرينيين من جامعات خارج البحرين."},
+ how:{en:"Online form. Prepare every document first because the form cannot be saved. Enquiries to internship@amh.org.bh.", ar:"نموذج إلكتروني. جهّز كل المستندات مسبقًا لأن النموذج لا يُحفظ. للاستفسار internship@amh.org.bh."},
+ url:"https://www.amh.org.bh/internship/", checked:"2026-08-12"},
+
+{id:"bisb-athr", ct:"bh", sector:"finance", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Bahrain Islamic Bank", ar:"بنك البحرين الإسلامي"},
+ prog:{en:"Athr Summer Internship Programme", ar:"برنامج أثر للتدريب الصيفي"},
+ apply:{en:"Runs each July. Application dates are not published, so ask the bank or your university career office in the spring.", ar:"يُقام كل يوليو. مواعيد التقديم غير منشورة، فاسأل البنك أو مكتب التوظيف في جامعتك خلال الربيع."},
+ duration:{en:"Two months, rotating across several departments.", ar:"شهران مع التنقل بين عدة إدارات."},
+ elig:{en:"University students. The bank took 52 interns in 2026.", ar:"طلبة الجامعات. استقبل البنك ٥٢ متدربًا في ٢٠٢٦."},
+ how:{en:"Not published.", ar:"غير منشورة."},
+ url:"https://www.bisb.com/", checked:"2026-08-12"},
+
+{id:"benefit-masar", ct:"bh", sector:"finance", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"BENEFIT", ar:"بنفت"},
+ prog:{en:"MASAR Fintech Summer Internship Programme", ar:"برنامج مسار للتدريب الصيفي في التقنية المالية"},
+ apply:{en:"Runs each July. Application dates are not published.", ar:"يُقام كل يوليو. مواعيد التقديم غير منشورة."},
+ duration:{en:"Two months across several departments, with sessions on communication and career readiness.", ar:"شهران عبر عدة إدارات، مع جلسات في التواصل والجاهزية المهنية."},
+ elig:{en:"Third and fourth year university students.", ar:"طلبة الجامعات في السنتين الثالثة والرابعة."},
+ how:{en:"Not published.", ar:"غير منشورة."},
+ url:"https://benefit.bh/Application-Forms/Careers", checked:"2026-08-12"},
+
+{id:"nbb-evolve", ct:"bh", sector:"finance", level:["hs","uni"], paid:"unknown", status:"annual",
+ org:{en:"National Bank of Bahrain", ar:"بنك البحرين الوطني"},
+ prog:{en:"EVOLVE Summer Internship Programme", ar:"برنامج إيفولف للتدريب الصيفي"},
+ apply:{en:"There is no open public application. Places are arranged through participating schools and universities, so ask whether yours takes part.", ar:"لا يوجد تقديم عام مفتوح. تُرتَّب المقاعد عبر المدارس والجامعات المشاركة، فاسأل ما إذا كانت مدرستك أو جامعتك منها."},
+ duration:{en:"July and August, in two phases, a school phase then a university phase.", ar:"يوليو وأغسطس على مرحلتين، مرحلة للمدارس ثم مرحلة للجامعات."},
+ elig:{en:"School and university students. The 2026 edition drew on 12 schools and 7 universities plus the Crown Prince's scholarship programme and two foundations.", ar:"طلبة المدارس والجامعات. اعتمدت نسخة ٢٠٢٦ على ١٢ مدرسة و٧ جامعات، إضافة إلى برنامج ولي العهد ومؤسستين."},
+ how:{en:"Through your school or university, not directly.", ar:"عبر مدرستك أو جامعتك، لا مباشرةً."},
+ url:"https://nbbonline.com/about/careers/", checked:"2026-08-12"},
+
+{id:"alsalam-summer", ct:"bh", sector:"finance", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Al Salam Bank", ar:"مصرف السلام"},
+ prog:{en:"Summer Internship Programme", ar:"برنامج التدريب الصيفي"},
+ apply:{en:"Runs 1 July to 31 August each year, so applications close in the spring. Now in its twentieth edition.", ar:"يُقام من ١ يوليو إلى ٣١ أغسطس كل عام، ويُغلق التقديم في الربيع. وهو الآن في نسخته العشرين."},
+ duration:{en:"Two months, starting with an induction week.", ar:"شهران يبدآن بأسبوع تعريفي."},
+ elig:{en:"University students from institutions in Bahrain and abroad. Fifty students took part in 2026.", ar:"طلبة الجامعات من مؤسسات داخل البحرين وخارجها. شارك خمسون طالبًا في ٢٠٢٦."},
+ how:{en:"Not published. The bank's careers page is the place to watch.", ar:"غير منشورة. تابع صفحة الوظائف لدى المصرف."},
+ url:"https://www.alsalambank.com/en/careers", checked:"2026-08-12"},
+
+{id:"bbk-nextgen", ct:"bh", sector:"finance", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Bank of Bahrain and Kuwait", ar:"بنك البحرين والكويت"},
+ prog:{en:"NextGen by BBK", ar:"برنامج نكست جن"},
+ apply:{en:"Launched in July 2026. The application window is not published, so watch the bank's careers page in the spring.", ar:"انطلق في يوليو ٢٠٢٦. فترة التقديم غير منشورة، فتابع صفحة الوظائف لدى البنك في الربيع."},
+ duration:{en:"Not published.", ar:"غير منشورة."},
+ elig:{en:"University students. Fifty five students took part in 2026.", ar:"طلبة الجامعات. شارك خمسة وخمسون طالبًا في ٢٠٢٦."},
+ how:{en:"Not published.", ar:"غير منشورة."},
+ url:"https://www.bbkonline.com/careers", checked:"2026-08-12"},
+
+{id:"solidarity-tamayaz", ct:"bh", sector:"finance", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Solidarity Bahrain", ar:"سوليدرتي البحرين"},
+ prog:{en:"Tamayaz Summer Training Programme", ar:"برنامج تميز للتدريب الصيفي"},
+ apply:{en:"Runs each July. Application dates are not published.", ar:"يُقام كل يوليو. مواعيد التقديم غير منشورة."},
+ duration:{en:"Not published. Placements cover motor and medical insurance, sales, compliance, investment, human resources, underwriting and finance.", ar:"غير منشورة. تشمل الفرص تأمين المركبات والتأمين الطبي والمبيعات والالتزام والاستثمار والموارد البشرية والاكتتاب والتمويل."},
+ elig:{en:"Bahraini university students studying in Bahrain and abroad, from a range of disciplines.", ar:"الطلبة البحرينيون الدارسون داخل البحرين وخارجها، من تخصصات متنوعة."},
+ how:{en:"Not published.", ar:"غير منشورة."},
+ url:"https://www.solidarity.com.bh/careers", checked:"2026-08-12"},
+
+{id:"bourse-emerging", ct:"bh", sector:"finance", level:["grad"], paid:"unknown", status:"annual",
+ org:{en:"Bahrain Bourse", ar:"بورصة البحرين"},
+ prog:{en:"Emerging Talents Graduate Training Programme", ar:"برنامج المواهب الناشئة لتدريب الخريجين"},
+ apply:{en:"First edition ran in 2026 with eight trainees. Application dates are not published.", ar:"أُقيمت النسخة الأولى في ٢٠٢٦ بثمانية متدربين. مواعيد التقديم غير منشورة."},
+ duration:{en:"Two months across Bahrain Bourse and Bahrain Clear, with mentoring.", ar:"شهران في بورصة البحرين وشركة البحرين للمقاصة، مع إرشاد مهني."},
+ elig:{en:"Recent graduates.", ar:"الخريجون الجدد."},
+ how:{en:"Not published.", ar:"غير منشورة."},
+ url:"https://bahrainbourse.com/en/careers", checked:"2026-08-12"},
+
+{id:"stc-emerge", ct:"bh", sector:"tech", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"stc Bahrain", ar:"stc البحرين"},
+ prog:{en:"emerge Summer Internship Programme", ar:"برنامج emerge للتدريب الصيفي"},
+ apply:{en:"Third edition ran in summer 2026. Places come through partner universities, so start with your own career office.", ar:"أُقيمت النسخة الثالثة في صيف ٢٠٢٦. تأتي المقاعد عبر الجامعات الشريكة، فابدأ من مكتب التوظيف في جامعتك."},
+ duration:{en:"Two months over the summer.", ar:"شهران خلال الصيف."},
+ elig:{en:"Bahraini students at partner universities including the University of Bahrain, Bahrain Polytechnic, the American University of Bahrain, the British University of Bahrain, the Royal University for Women and the Euro University of Bahrain. Some places are held for Royal Humanitarian Foundation beneficiaries.", ar:"طلبة بحرينيون في الجامعات الشريكة، ومنها جامعة البحرين وبوليتكنك البحرين والجامعة الأمريكية في البحرين والجامعة البريطانية في البحرين وجامعة البحرين الملكية للبنات والجامعة الأوروبية في البحرين. وتُخصَّص مقاعد لمستفيدي المؤسسة الملكية للأعمال الإنسانية."},
+ how:{en:"Through your university career office.", ar:"عبر مكتب التوظيف في جامعتك."},
+ url:"https://www.stc.com.bh/media-center/template?id=4727", checked:"2026-08-12"},
+
+{id:"zain-career-connect", ct:"bh", sector:"tech", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Zain Bahrain", ar:"زين البحرين"},
+ prog:{en:"Zain Career Connect Summer Internship", ar:"برنامج زين للتدريب الصيفي"},
+ apply:{en:"Confirmed for July and August 2025 in two batches. No 2026 cycle was confirmed, so treat the dates as a guide and watch Zain's channels in the spring.", ar:"تأكد إقامته في يوليو وأغسطس ٢٠٢٥ على دفعتين. لم تتأكد دورة ٢٠٢٦، فتعامل مع التواريخ كمؤشر وتابع قنوات زين في الربيع."},
+ duration:{en:"A summer programme delivered in two batches.", ar:"برنامج صيفي يُنفَّذ على دفعتين."},
+ elig:{en:"University students in Bahrain. Places covered marketing, customer experience, network operations, human resources and digital innovation.", ar:"طلبة الجامعات في البحرين. شملت الفرص التسويق وتجربة العملاء وعمليات الشبكة والموارد البشرية والابتكار الرقمي."},
+ how:{en:"Not published. Watch the Zain Bahrain careers channels.", ar:"غير منشورة. تابع قنوات التوظيف لدى زين البحرين."},
+ url:"https://www.bh.zain.com/career-connect", checked:"2026-08-12"},
+
+{id:"khaleeji-intern", ct:"bh", sector:"finance", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Khaleeji Bank", ar:"بنك الخليجي"},
+ prog:{en:"Annual Internship Programme", ar:"برنامج التدريب السنوي"},
+ apply:{en:"The bank has run this since 2004. The last confirmed cycle was 2025 with 40 students, so check the careers page each spring.", ar:"يقدم البنك البرنامج منذ ٢٠٠٤. آخر دورة مؤكدة كانت ٢٠٢٥ بأربعين طالبًا، فراجع صفحة الوظائف كل ربيع."},
+ duration:{en:"Not published. Interns rotate across departments under supervision.", ar:"غير منشورة. يتنقل المتدربون بين الإدارات تحت إشراف."},
+ elig:{en:"Students at universities in Bahrain and abroad.", ar:"طلبة الجامعات داخل البحرين وخارجها."},
+ how:{en:"Not published.", ar:"غير منشورة."},
+ url:"https://khaleeji.bank/pages-sidebar-nav/careers/", checked:"2026-08-12"},
+
+{id:"kfh-bh-summer", ct:"bh", sector:"finance", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Kuwait Finance House Bahrain", ar:"بيت التمويل الكويتي، البحرين"},
+ prog:{en:"Summer Internship Programme", ar:"برنامج التدريب الصيفي"},
+ apply:{en:"Last confirmed cycle was announced in August 2025. No 2026 cycle was found, so confirm with the bank before relying on it.", ar:"أُعلنت آخر دورة مؤكدة في أغسطس ٢٠٢٥. لم يُعثر على دورة ٢٠٢٦، فتأكد من البنك قبل الاعتماد عليها."},
+ duration:{en:"Six months according to the bank, beginning with an induction then departmental placements.", ar:"ستة أشهر بحسب البنك، تبدأ ببرنامج تعريفي ثم التنسيب في الإدارات."},
+ elig:{en:"Not published. The 2025 announcement named 26 interns and referred to young Bahraini talent.", ar:"غير منشورة. ذكر إعلان ٢٠٢٥ عدد ٢٦ متدربًا وأشار إلى الكفاءات البحرينية الشابة."},
+ how:{en:"Enquiries to the bank on 17221999 or through its careers page.", ar:"للاستفسار اتصل بالبنك على ١٧٢٢١٩٩٩ أو عبر صفحة الوظائف."},
+ url:"https://www.bh.kfh.com/about/careers/", checked:"2026-08-12"},
+
+{id:"gib-internship", ct:"bh", sector:"finance", level:["grad"], paid:"unknown", status:"annual",
+ org:{en:"Gulf International Bank", ar:"بنك الخليج الدولي"},
+ prog:{en:"Internship Programme", ar:"برنامج التدريب"},
+ apply:{en:"The 2025 posting was open 28 July to 27 August, so the window is late summer rather than spring. Watch the careers portal from July.", ar:"كان إعلان ٢٠٢٥ مفتوحًا من ٢٨ يوليو إلى ٢٧ أغسطس، أي أن الفترة في أواخر الصيف لا في الربيع. تابع بوابة الوظائف ابتداءً من يوليو."},
+ duration:{en:"Not published.", ar:"غير منشورة."},
+ elig:{en:"Bahraini recent graduates with a bachelor's degree from an accredited university, GPA 2.8 or above, in engineering, IT, digitisation or marketing.", ar:"خريجون بحرينيون جدد بدرجة بكالوريوس من جامعة معتمدة، بمعدل ٢٫٨ فأعلى، في الهندسة أو تقنية المعلومات أو الرقمنة أو التسويق."},
+ how:{en:"Through the GIB careers portal when a posting is open.", ar:"عبر بوابة الوظائف لدى البنك عند فتح إعلان."},
+ url:"https://careers.gib.com/en/bahrain/", checked:"2026-08-12"},
+
+{id:"asry-summer", ct:"bh", sector:"industry", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Arab Shipbuilding and Repair Yard", ar:"أسري لإصلاح وبناء السفن"},
+ prog:{en:"Annual Summer Internship Programme", ar:"برنامج التدريب الصيفي السنوي"},
+ apply:{en:"Held each summer. The last confirmed cycle ended in September 2025. ASRY also takes interns through the Bapco Energies Empower round, which is the easier route.", ar:"يُقام كل صيف. اختُتمت آخر دورة مؤكدة في سبتمبر ٢٠٢٥. وتستقبل أسري متدربين أيضًا عبر دفعة إمباور، وهي الطريق الأسهل."},
+ duration:{en:"Two months.", ar:"شهران."},
+ elig:{en:"University students in Bahrain, with activities matched to your specialisation.", ar:"طلبة الجامعات في البحرين، مع أنشطة تتناسب مع تخصصك."},
+ how:{en:"Not published. Apply through Bapco Energies Empower instead.", ar:"غير منشورة. قدّم عبر برنامج إمباور من بابكو للطاقة بدلًا من ذلك."},
+ url:"https://www.asry.net/Contact/Careers/", checked:"2026-08-12"},
+
+{id:"gpic-summer", ct:"bh", sector:"energy", level:["uni"], paid:"unknown", status:"annual",
+ org:{en:"Gulf Petrochemical Industries Company", ar:"شركة الخليج لصناعة البتروكيماويات"},
+ prog:{en:"Summer Industrial Training Programme", ar:"برنامج التدريب الصناعي الصيفي"},
+ apply:{en:"Held every summer, but the company's own page still shows the 2023 intake. GPIC also takes interns through the Bapco Energies Empower round.", ar:"يُقام كل صيف، غير أن صفحة الشركة ما تزال تعرض دفعة ٢٠٢٣. وتستقبل الشركة متدربين أيضًا عبر دفعة إمباور."},
+ duration:{en:"About two months, July to the end of August.", ar:"نحو شهرين، من يوليو حتى نهاية أغسطس."},
+ elig:{en:"University students in Bahrain and abroad, placed by academic specialisation. Around 60 students in the cycle described.", ar:"طلبة الجامعات داخل البحرين وخارجها، ويوزَّعون بحسب التخصص. نحو ٦٠ طالبًا في الدورة الموصوفة."},
+ how:{en:"Through the GPIC careers portal, or through Bapco Energies Empower.", ar:"عبر بوابة الوظائف لدى الشركة، أو عبر برنامج إمباور."},
+ url:"https://www.gpic.com/careers/", checked:"2026-08-12"},
+
+{id:"bapco-idt-grad", ct:"bh", sector:"energy", level:["grad"], paid:"unknown", status:"annual",
+ org:{en:"Bapco Energies", ar:"بابكو للطاقة"},
+ prog:{en:"Information and Digital Technology Graduate Trainee Programme", ar:"برنامج تدريب الخريجين في تقنية المعلومات والتقنية الرقمية"},
+ apply:{en:"No intake dates are published. Watch the careers page.", ar:"لا تُنشر مواعيد الدفعات. تابع صفحة الوظائف."},
+ duration:{en:"One year.", ar:"سنة واحدة."},
+ elig:{en:"Bahraini graduates. Runs across the Bapco Energies operating companies.", ar:"الخريجون البحرينيون. يُنفَّذ في شركات بابكو للطاقة التشغيلية."},
+ how:{en:"Through the Bapco Energies recruitment portal linked from the careers page.", ar:"عبر بوابة التوظيف المرتبطة بصفحة الوظائف."},
+ url:"https://www.bapcoenergies.com/careers", checked:"2026-08-12"},
+
+{id:"batelco-grad", ct:"bh", sector:"tech", level:["grad"], paid:"unknown", status:"annual",
+ org:{en:"Batelco", ar:"بتلكو"},
+ prog:{en:"Graduate Trainee Programme", ar:"برنامج تدريب الخريجين"},
+ apply:{en:"The listing is still live on the careers portal but carries an old posting date, so treat it as a standing programme rather than an open call.", ar:"ما يزال الإعلان منشورًا على بوابة الوظائف لكن تاريخ نشره قديم، فتعامل معه كبرنامج قائم لا كدعوة مفتوحة."},
+ duration:{en:"Not published.", ar:"غير منشورة."},
+ elig:{en:"A bachelor's degree in any field with nought to two years of experience, fluent Arabic and English. Based in Manama.", ar:"بكالوريوس في أي تخصص بخبرة من صفر إلى سنتين، مع إجادة العربية والإنجليزية. المقر في المنامة."},
+ how:{en:"Apply through the Batelco careers portal.", ar:"قدّم عبر بوابة الوظائف لدى بتلكو."},
+ url:"https://careers.batelco.com/en/bahrain/", checked:"2026-08-12"},
+
+/* ==================== SCHOOL STUDENTS ==================== */
+{id:"cpisp", ct:"bh", sector:"gov", level:["hs"], paid:"yes", status:"annual",
+ org:{en:"Crown Prince's International Scholarship Programme", ar:"برنامج ولي العهد للمنح الدراسية العالمية"},
+ prog:{en:"CPISP, Grade 11 round", ar:"دورة الصف الحادي عشر"},
+ apply:{en:"Applications open every March. The 2026 round has closed.", ar:"يُفتح التقديم كل مارس. وقد أُغلقت دورة ٢٠٢٦."},
+ duration:{en:"A fully funded undergraduate degree abroad. Ministry of Education students first do two years of preparatory boarding school.", ar:"منحة كاملة لبكالوريوس في الخارج. يدرس طلبة مدارس وزارة التربية سنتين تحضيريتين داخليتين قبلها."},
+ elig:{en:"Bahraini citizens in Grade 11 or equivalent with a cumulative average of 97 per cent or above across Grade 10 and the first semester of Grade 11. You apply yourself, no school nomination needed.", ar:"مواطنون بحرينيون في الصف الحادي عشر أو ما يعادله بمعدل تراكمي ٩٧٪ فأعلى للصف العاشر والفصل الأول من الحادي عشر. التقديم فردي دون حاجة لترشيح المدرسة."},
+ how:{en:"Apply online in the March window, then sit the English and critical reasoning examinations.", ar:"قدّم إلكترونيًا في فترة مارس، ثم اجلس لاختباري اللغة الإنجليزية والتفكير النقدي."},
+ url:"https://www.cpisp.bh/CPISPapplication/", checked:"2026-08-12"},
+
+{id:"youth-city-2030", ct:"bh", sector:"gov", level:["hs","uni"], paid:"no", status:"open",
+ org:{en:"Ministry of Youth Affairs", ar:"وزارة شؤون الشباب"},
+ prog:{en:"Youth City 2030", ar:"مدينة شباب ٢٠٣٠"},
+ apply:{en:"The summer season runs 12 July to 20 August, so registration is open right now for the last of this year's programmes.", ar:"يمتد الموسم الصيفي من ١٢ يوليو إلى ٢٠ أغسطس، والتسجيل مفتوح الآن لآخر برامج هذا العام."},
+ duration:{en:"Short programmes. The 15 and over group runs evenings, 4pm to 8.30pm. A certificate needs 80 per cent attendance.", ar:"برامج قصيرة. تحضر الفئة من ١٥ عامًا فأكثر مساءً من الرابعة حتى الثامنة والنصف. وتُمنح الشهادة بحضور ٨٠٪."},
+ elig:{en:"Bahrainis aged 15 to 35, with a valid smart card and an active eKey account.", ar:"البحرينيون من ١٥ إلى ٣٥ عامًا، ببطاقة ذكية سارية وحساب مفتاح إلكتروني فعّال."},
+ how:{en:"Register on the E-Shabab app and pay online. Fees are 10 dinars per programme, or 20 for programmes with a training body certificate. No cash.", ar:"سجّل عبر تطبيق E-Shabab وادفع إلكترونيًا. الرسوم ١٠ دنانير للبرنامج، أو ٢٠ للبرامج التي تمنح شهادة من جهة تدريبية. ولا تُقبل النقدية."},
+ url:"https://www.mya.gov.bh/en/faq-youth-city-2030", checked:"2026-08-12"},
+
+{id:"uob-early-access", ct:"bh", sector:"education", level:["hs"], paid:"no", status:"annual",
+ org:{en:"University of Bahrain", ar:"جامعة البحرين"},
+ prog:{en:"Early Access to University", ar:"برنامج الوصول المبكر للجامعة"},
+ apply:{en:"Registration ran 9 to 19 June for the summer term. It opens once a year before each term.", ar:"جرى التسجيل من ٩ إلى ١٩ يونيو للفصل الصيفي. ويُفتح مرة واحدة سنويًا قبل كل فصل."},
+ duration:{en:"Real university courses taken while still at school, for credit. Grade 12 entrants take one summer term, Grade 10 entrants can take two academic years. Three courses a semester at most.", ar:"مقررات جامعية حقيقية تُدرس أثناء المدرسة وتُحتسب. يدرس طلبة الثاني عشر فصلًا صيفيًا واحدًا، ويمكن لطلبة العاشر الدراسة سنتين. بحد أقصى ثلاثة مقررات في الفصل."},
+ elig:{en:"Students in Grade 10, 11 or 12 at government or private schools. Under 18s need parental consent.", ar:"طلبة الصفوف العاشر والحادي عشر والثاني عشر في المدارس الحكومية والخاصة. ويشترط موافقة ولي الأمر لمن هم دون ١٨."},
+ how:{en:"Register on the student information system with a transcript, ID and parental consent. Fees are 8 dinars per credit hour for Bahrainis and 80 for others, plus a one off 50 dinar summer registration fee.", ar:"سجّل عبر نظام معلومات الطلبة مع كشف درجات وإثبات هوية وموافقة ولي الأمر. الرسوم ٨ دنانير للساعة للبحرينيين و٨٠ لغيرهم، مع رسم تسجيل صيفي ٥٠ دينارًا يُدفع مرة واحدة."},
+ url:"https://www.uob.edu.bh/study/early-access-to-university/", checked:"2026-08-12"},
+
+{id:"mkf-rayaat", ct:"bh", sector:"ngo", level:["hs","uni"], paid:"yes", status:"annual",
+ org:{en:"AlMabarrah AlKhalifia Foundation", ar:"مؤسسة المبرة الخليفية"},
+ prog:{en:"Rayaat scholarship programme", ar:"برنامج رايات للمنح الدراسية"},
+ apply:{en:"Registration for the current intake ran 12 to 21 April, with results in July. Watch for the same window next April.", ar:"جرى التسجيل للدفعة الحالية من ١٢ إلى ٢١ أبريل، وصدرت النتائج في يوليو. ترقّب الفترة نفسها في أبريل القادم."},
+ duration:{en:"A full bachelor's degree in Bahrain, normally four years, including internship placements in the public and private sectors.", ar:"بكالوريوس كامل في البحرين، عادة أربع سنوات، ويشمل تدريبًا عمليًا في القطاعين العام والخاص."},
+ elig:{en:"Bahraini nationals. School leavers need a secondary average of at least 85 per cent, higher for fields such as medicine, must not hold another scholarship, and must show volunteering. Students already at university may also apply.", ar:"بحرينيو الجنسية. يشترط لخريجي الثانوية معدل ٨٥٪ على الأقل، ويرتفع في تخصصات مثل الطب، وألا يكون المتقدم حاصلًا على منحة أخرى، مع إثبات عمل تطوعي. ويحق لطلبة الجامعات الحاليين التقديم."},
+ how:{en:"Apply to a partner university in Bahrain first, then apply to the foundation with your passport, transcripts and community service letters.", ar:"قدّم أولًا إلى جامعة شريكة في البحرين، ثم إلى المؤسسة مع جواز السفر والسجلات الأكاديمية ورسائل العمل المجتمعي."},
+ url:"https://mkfbh.org/rayaat", checked:"2026-08-12"},
+
+{id:"mkf-watheq", ct:"bh", sector:"ngo", level:["hs"], paid:"no", status:"annual",
+ org:{en:"AlMabarrah AlKhalifia Foundation", ar:"مؤسسة المبرة الخليفية"},
+ prog:{en:"Watheq university preparatory programme", ar:"برنامج واثق التحضيري للجامعة"},
+ apply:{en:"Runs mid July to late August each summer. Seats are limited and there is no published deadline, so register as soon as it opens.", ar:"يُقام من منتصف يوليو إلى أواخر أغسطس كل صيف. المقاعد محدودة ولا يوجد موعد نهائي معلن، فسجّل فور فتحه."},
+ duration:{en:"21 days, 24 sessions, daily 9am to 2pm, with university visits, company tours and mock interviews.", ar:"٢١ يومًا و٢٤ جلسة، يوميًا من التاسعة حتى الثانية، مع زيارات جامعية وجولات في الشركات ومقابلات تجريبية."},
+ elig:{en:"Aged 16 to 18, secondary students or recent school leavers. You apply yourself, no school nomination needed.", ar:"من ١٦ إلى ١٨ عامًا، من طلبة الثانوية أو خريجيها حديثًا. التقديم فردي دون حاجة لترشيح المدرسة."},
+ how:{en:"Register on the programme page. A non refundable fee of 30 dinars applies.", ar:"سجّل عبر صفحة البرنامج. الرسوم ٣٠ دينارًا وغير قابلة للاسترداد."},
+ url:"https://mkfbh.org/watheq", checked:"2026-08-12"},
+
+{id:"ncst-secondary", ct:"bh", sector:"education", level:["hs"], paid:"unknown", status:"open",
+ org:{en:"Nasser Centre for Science and Technology", ar:"مركز ناصر للعلوم والتكنولوجيا"},
+ prog:{en:"Secondary technical and vocational programmes", ar:"البرامج الثانوية التقنية والمهنية"},
+ apply:{en:"Applications are through the centre's own form, with two rounds of offers. No fixed dates are published.", ar:"التقديم عبر نموذج المركز، مع جولتين من العروض. ولا تُنشر تواريخ ثابتة."},
+ duration:{en:"A full time secondary school route, not a short placement. Streams include technical education, mechanical and electrical engineering, artificial intelligence, cloud computing, cybersecurity, sport and business, and vocational training.", ar:"مسار مدرسي ثانوي بدوام كامل لا تدريبًا قصيرًا. تشمل المسارات التعليم التقني والهندسة الميكانيكية والكهربائية والذكاء الاصطناعي والحوسبة السحابية والأمن السيبراني والرياضة وإدارة الأعمال والتدريب المهني."},
+ elig:{en:"Bahraini citizens only, entering after Grade 9, roughly ages 14 to 16, and up to 20 for vocational training. You must pass placement tests in English, Arabic and mathematics.", ar:"المواطنون البحرينيون فقط، والالتحاق بعد الصف التاسع، وتتراوح الأعمار غالبًا بين ١٤ و١٦، وتصل إلى ٢٠ للتدريب المهني. ويشترط اجتياز اختبارات تحديد المستوى في الإنجليزية والعربية والرياضيات."},
+ how:{en:"Apply through the online registration form on the centre website, then sit the placement tests.", ar:"قدّم عبر نموذج التسجيل الإلكتروني في موقع المركز، ثم اجلس لاختبارات تحديد المستوى."},
+ url:"https://ncst.edu.bh/academic/programmes-courses/", checked:"2026-08-12"},
+
+{id:"injaz-company", ct:"bh", sector:"ngo", level:["hs"], paid:"no", status:"annual",
+ org:{en:"INJAZ Bahrain", ar:"إنجاز البحرين"},
+ prog:{en:"Company Programme, school track", ar:"برنامج الشركة الطلابية، مسار المدارس"},
+ apply:{en:"An annual cycle ending in national finals in June. Teams enter through their school, so this depends on your school taking part.", ar:"دورة سنوية تنتهي بنهائيات وطنية في يونيو. تشارك الفرق عبر مدارسها، فالأمر يعتمد على مشاركة مدرستك."},
+ duration:{en:"A school year. Student teams set up and run a real company, ending at the Young Entrepreneurs Competition.", ar:"سنة دراسية. تؤسس فرق الطلبة شركة حقيقية وتديرها، وتنتهي بمسابقة رواد الأعمال الشباب."},
+ elig:{en:"Secondary school students at participating schools.", ar:"طلبة المرحلة الثانوية في المدارس المشاركة."},
+ how:{en:"Ask your school whether it runs INJAZ Bahrain programmes.", ar:"اسأل مدرستك إن كانت تنفذ برامج إنجاز البحرين."},
+ url:"https://www.injazbh.org/", checked:"2026-08-12"},
+
+/* ==================== INSIDE YOUR OWN UNIVERSITY ==================== */
+{id:"rcsi-research-summer", ct:"bh", sector:"health", level:["uni"], paid:"unknown", status:"open",
+ org:{en:"RCSI Medical University of Bahrain", ar:"جامعة البحرين الطبية، الكلية الملكية للجراحين في أيرلندا"},
+ prog:{en:"Research Summer School", ar:"المدرسة الصيفية للبحث العلمي"},
+ apply:{en:"No published deadline. Apply for an advertised project or propose your own to a supervisor.", ar:"لا يوجد موعد نهائي معلن. قدّم على مشروع معلن أو اقترح مشروعك على مشرف."},
+ duration:{en:"About eight weeks over the summer on a laboratory, clinical or non laboratory project.", ar:"نحو ثمانية أسابيع صيفًا في مشروع مختبري أو سريري أو غير مختبري."},
+ elig:{en:"RCSI undergraduate students. The page does not say whether students of other universities may apply.", ar:"طلبة البكالوريوس في الجامعة. ولا توضح الصفحة إمكانية تقديم طلبة جامعات أخرى."},
+ how:{en:"Through the university virtual learning environment, or email rss@rcsi-mub.com.", ar:"عبر بيئة التعلم الافتراضية بالجامعة، أو راسل rss@rcsi-mub.com."},
+ url:"https://www.rcsi.com/bahrain/research/research-summer-school", checked:"2026-08-12"},
+
+{id:"ahlia-intr400", ct:"bh", sector:"education", level:["uni"], paid:"unknown", status:"open",
+ org:{en:"Ahlia University", ar:"الجامعة الأهلية"},
+ prog:{en:"Internship course INTR 400", ar:"مقرر التدريب العملي INTR 400"},
+ apply:{en:"Register in the normal course registration periods. No separate deadline.", ar:"سجّل في فترات تسجيل المقررات المعتادة. لا يوجد موعد نهائي منفصل."},
+ duration:{en:"At least 240 hours at the workplace, usually about two months, worth six credit hours.", ar:"٢٤٠ ساعة عمل على الأقل، عادة نحو شهرين، وتعادل ست ساعات معتمدة."},
+ elig:{en:"Ahlia undergraduates who have completed at least 90 credit hours with a GPA of 2.0 or above.", ar:"طلبة البكالوريوس في الجامعة ممن أتموا ٩٠ ساعة معتمدة على الأقل بمعدل ٢٫٠ فأعلى."},
+ how:{en:"Get an internship letter from the Deanship of Student Affairs, secure an employer, then register for INTR 400. You pay tuition for six credits.", ar:"احصل على خطاب تدريب من عمادة شؤون الطلبة، ثم على موافقة جهة التدريب، ثم سجّل المقرر. وتدفع رسوم ست ساعات معتمدة."},
+ url:"https://www.ahlia.edu.bh/internships/", checked:"2026-08-12"},
+
+{id:"khuh-academy", ct:"bh", sector:"health", level:["uni"], paid:"unknown", status:"open",
+ org:{en:"King Hamad University Hospital", ar:"مستشفى الملك حمد الجامعي"},
+ prog:{en:"Healthcare Academy clinical attachments", ar:"أكاديمية الرعاية الصحية، التنسيب السريري"},
+ apply:{en:"Booked through the academy platform. No intake dates are published.", ar:"الحجز عبر منصة الأكاديمية. ولا تُنشر مواعيد للدفعات."},
+ duration:{en:"Not published. Covers workshops, clinical attachments and placements.", ar:"غير منشورة. تشمل ورشًا وتنسيبًا سريريًا وتدريبًا ميدانيًا."},
+ elig:{en:"Not published. Expect to be asked for a university letter.", ar:"غير منشورة. توقّع أن يُطلب منك خطاب من جامعتك."},
+ how:{en:"Apply and book through the Healthcare Academy platform on the hospital website. Some courses carry a fee.", ar:"قدّم واحجز عبر منصة أكاديمية الرعاية الصحية في موقع المستشفى. وبعض الدورات برسوم."},
+ url:"https://www.khuh.org.bh/en/healthcareacademy", checked:"2026-08-12"}
+
+];
+
+/* ---------------- countries ---------------- */
+const CTS = [
+  {k:"bh", en:"Bahrain",      ar:"البحرين",  live:true},
+  {k:"sa", en:"Saudi Arabia", ar:"السعودية", live:false},
+  {k:"ae", en:"UAE",          ar:"الإمارات", live:false},
+  {k:"qa", en:"Qatar",        ar:"قطر",      live:false},
+  {k:"kw", en:"Kuwait",       ar:"الكويت",   live:false},
+  {k:"om", en:"Oman",         ar:"عُمان",     live:false}
+];
+
+const STATUSES = [
+  {k:"all",    en:"Everything",     ar:"الكل"},
+  {k:"open",   en:"Open now",       ar:"مفتوح الآن"},
+  {k:"annual", en:"Runs each year", ar:"يُقام سنويًا"}
+];
+
+const LEVELS = [
+  {k:"all",  en:"Anyone",            ar:"الجميع"},
+  {k:"hs",   en:"School students",   ar:"طلبة المدارس"},
+  {k:"uni",  en:"University students", ar:"طلبة الجامعات"},
+  {k:"grad", en:"New graduates",     ar:"الخريجون الجدد"}
+];
+
+const SECTORS = [
+  {k:"all",        en:"All sectors",        ar:"كل القطاعات"},
+  {k:"finance",    en:"Banking and finance", ar:"المصارف والتمويل"},
+  {k:"energy",     en:"Energy",             ar:"الطاقة"},
+  {k:"industry",   en:"Industry and ports", ar:"الصناعة والموانئ"},
+  {k:"tech",       en:"Technology",         ar:"التقنية"},
+  {k:"consulting", en:"Consulting",         ar:"الاستشارات"},
+  {k:"gov",        en:"Government",         ar:"الحكومة"},
+  {k:"health",     en:"Healthcare",         ar:"الرعاية الصحية"},
+  {k:"education",  en:"Education",          ar:"التعليم"},
+  {k:"hospitality",en:"Hospitality",        ar:"الضيافة"},
+  {k:"legal",      en:"Law",                ar:"القانون"},
+  {k:"ngo",        en:"Non profit",         ar:"القطاع الأهلي"}
+];
+
+/* ---------------- copy ---------------- */
+const T = {
+en:{
+  kicker:"Internships",
+  title:"Internships in Bahrain and the Gulf",
+  sub:"Every internship programme on this list is verified, with the link that goes to the real page. If we could not open it and read it, it is not here.",
+  keyH:"Bahrain's internship season is the spring, not the summer.",
+  keyP:"Almost everything on this list closes in April and May, months before the summer it is for. Bapco Energies closed on 7 May. The EDB closes on 31 May. SICO closes at the end of May. If you are reading this in August, you have not missed next year, you have found it early. Set a reminder for March.",
+  ctLabel:"Country",
+  stLabel:"When",
+  lvLabel:"Who it is for",
+  seLabel:"Sector",
+  count:(n,t)=> n===t ? ("Showing all "+n+" opportunities") : ("Showing "+n+" of "+t+" opportunities"),
+  none:"Nothing matches those filters. Try widening one of them.",
+  soon:"Not yet researched. Bahrain came first because the sweep is slow and done by hand.",
+  dWhen:"When to apply", dWho:"Who can apply", dHow:"How to apply", dLong:"How long",
+  more:"Open the official page",
+  checked:(d)=>"Checked "+d,
+  paidNo:"Unpaid", paidYes:"Paid", paidUnk:"Pay not published",
+  subH:"Do you run an internship?",
+  subP:"If your organisation takes interns anywhere in the Gulf, send the details by email. There is no charge. Submissions are reviewed and published daily.",
+  subB:"Submit an opportunity",
+  srcT:"How this list is made",
+  srcS:"Every entry was checked by opening the organisation's own page on 12 August 2026. Where a programme clearly runs but the organisation publishes no dates or no application route, we say so rather than filling the gap. Where the only page we could find describes a past cycle, we say that too. Nothing here is invented, and no organisation pays to be listed.",
+  quizline:"Not sure what you want to intern in yet? Start with the major.",
+  quizbtn:"Take the quiz",
+  schline:"An internship is not the only thing worth applying for this spring.",
+  schbtn:"Scholarships and funding",
+  altline:"Some of the best paid training in Bahrain does not need a degree at all.",
+  altbtn:"Routes without a degree",
+  disc:"Programmes change, close early and sometimes quietly stop running. Always check the organisation's own page before you rely on anything here, and tell us if you find something out of date.",
+  foot:"Compiled by Dr. Saqer AlKhalifa · saqeralkhalifa.com"
+},
+ar:{
+  kicker:"التدريب",
+  title:"التدريب في البحرين والخليج",
+  sub:"كل برنامج تدريب في هذه القائمة موثّق، مع الرابط الذي يصل إلى الصفحة الحقيقية. وما لم نستطع فتحه وقراءته لا تجده هنا.",
+  keyH:"موسم التدريب في البحرين هو الربيع، لا الصيف.",
+  keyP:"أغلب ما في هذه القائمة يُغلق في أبريل ومايو، أي قبل الصيف الذي هو له بأشهر. أغلقت بابكو للطاقة في ٧ مايو، ويغلق مجلس التنمية الاقتصادية في ٣١ مايو، وتغلق سيكو نهاية مايو. فإن كنت تقرأ هذا في أغسطس فأنت لم تفوّت العام القادم، بل وجدته مبكرًا. ضع تذكيرًا في مارس.",
+  ctLabel:"الدولة",
+  stLabel:"التوقيت",
+  lvLabel:"لمن",
+  seLabel:"القطاع",
+  count:(n,t)=> n===t ? ("تُعرض كل الفرص، وعددها "+n) : ("تُعرض "+n+" فرصة من أصل "+t),
+  none:"لا شيء يطابق هذه المرشّحات. جرّب توسيع أحدها.",
+  soon:"لم تُبحث بعد. بدأنا بالبحرين لأن الحصر بطيء ويجري يدويًا.",
+  dWhen:"موعد التقديم", dWho:"لمن", dHow:"كيف تقدّم", dLong:"المدة",
+  more:"افتح الصفحة الرسمية",
+  checked:(d)=>"جرى التحقق في "+d,
+  paidNo:"بلا أجر", paidYes:"بأجر", paidUnk:"الأجر غير منشور",
+  subH:"هل لديكم برنامج تدريب؟",
+  subP:"إن كانت مؤسستكم تستقبل متدربين في أي دولة خليجية فأرسلوا التفاصيل بالبريد الإلكتروني. لا توجد رسوم. وتُراجع الفرص وتُنشر يوميًا.",
+  subB:"أرسل فرصة تدريب",
+  srcT:"كيف أُعدّت هذه القائمة",
+  srcS:"جرى التحقق من كل فرصة بفتح صفحة الجهة نفسها في ١٢ أغسطس ٢٠٢٦. وحيث يوجد البرنامج دون أن تنشر الجهة مواعيد أو آلية تقديم، نقول ذلك بدل ملء الفراغ. وحيث كانت الصفحة الوحيدة المتاحة تصف دورة سابقة، نقول ذلك أيضًا. ولا شيء هنا مُختلق، ولا تدفع أي جهة مقابل الإدراج.",
+  quizline:"لم تحسم بعد في أي مجال تريد التدرب؟ ابدأ من التخصص.",
+  quizbtn:"ابدأ الاختبار",
+  schline:"التدريب ليس الشيء الوحيد الذي يستحق التقديم عليه هذا الربيع.",
+  schbtn:"المنح والتمويل",
+  altline:"بعض أفضل التدريب أجرًا في البحرين لا يحتاج شهادة جامعية أصلًا.",
+  altbtn:"طرق بدون شهادة",
+  disc:"البرامج تتغير، وتُغلق مبكرًا، وقد تتوقف بهدوء. تحقق دائمًا من صفحة الجهة نفسها قبل أن تعتمد على شيء هنا، وأخبرنا إن وجدت معلومة قديمة.",
+  foot:"إعداد د. صقر آل خليفة · saqeralkhalifa.com"
+}
+};
+
+/* ---------------- state ---------------- */
+var LANG = "en", CT = "bh", ST = "all", LV = "all", SE = "all";
+function L(){ return T[LANG]; }
+function tx(o){ return o ? o[LANG] : ""; }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function matches(o){
+  if(o.ct !== CT) return false;
+  if(ST !== "all" && o.status !== ST) return false;
+  if(LV !== "all" && o.level.indexOf(LV) < 0) return false;
+  if(SE !== "all" && o.sector !== SE) return false;
+  return true;
+}
+
+function chips(el, items, sel, attr){
+  document.getElementById(el).innerHTML = items.map(function(i){
+    var soon = (i.live === false);
+    return '<button class="chip'+(i.k===sel?" on":"")+(soon?" soon":"")+'"'+
+      (soon?' disabled title="'+esc(L().soon)+'"':'')+
+      ' data-'+attr+'="'+i.k+'">'+ (i[LANG] || i.en) +'</button>';
+  }).join("");
+}
+
+function statusTag(o){
+  var t = L();
+  var lab = o.status === "open" ? (LANG==="en"?"Open now":"مفتوح الآن")
+                                : (LANG==="en"?"Runs each year":"يُقام سنويًا");
+  return '<span class="tag'+(o.status==="open"?" open":"")+'">'+lab+'</span>';
+}
+
+function paidTag(o){
+  var t = L();
+  if(o.paid === "yes") return '<span class="tag">'+t.paidYes+'</span>';
+  if(o.paid === "no")  return '<span class="tag">'+t.paidNo+'</span>';
+  return "";
+}
+
+function render(){
+  var t = L();
+  document.getElementById("kicker").textContent = t.kicker;
+  document.getElementById("t-title").textContent = t.title;
+  document.getElementById("t-sub").textContent = t.sub;
+  document.getElementById("k-h").textContent = t.keyH;
+  document.getElementById("k-p").textContent = t.keyP;
+  document.getElementById("t-ctlabel").textContent = t.ctLabel;
+  document.getElementById("t-stlabel").textContent = t.stLabel;
+  document.getElementById("t-lvlabel").textContent = t.lvLabel;
+  document.getElementById("t-selabel").textContent = t.seLabel;
+
+  chips("ctchips", CTS, CT, "ct");
+  chips("stchips", STATUSES, ST, "st");
+  chips("lvchips", LEVELS, LV, "lv");
+  chips("sechips", SECTORS, SE, "se");
+
+  var inCountry = OPPS.filter(function(o){ return o.ct === CT; });
+  var rows = OPPS.filter(matches);
+  var order = {open:0, annual:1};
+  rows.sort(function(a,b){ return (order[a.status]-order[b.status]) || a.org.en.localeCompare(b.org.en); });
+
+  document.getElementById("count").textContent = t.count(rows.length, inCountry.length);
+
+  document.getElementById("list").innerHTML = rows.length ? rows.map(function(o){
+    return '<div class="opp">' +
+      '<div class="otop">' +
+        '<span class="oorg">'+tx(o.org)+'</span>' +
+        '<span class="oprog">'+tx(o.prog)+'</span>' +
+        statusTag(o) + paidTag(o) +
+      '</div>' +
+      '<dl class="orows">' +
+        '<dt>'+t.dWhen+'</dt><dd>'+tx(o.apply)+'</dd>' +
+        '<dt>'+t.dWho+'</dt><dd>'+tx(o.elig)+'</dd>' +
+        '<dt>'+t.dLong+'</dt><dd>'+tx(o.duration)+'</dd>' +
+        '<dt>'+t.dHow+'</dt><dd>'+tx(o.how)+'</dd>' +
+      '</dl>' +
+      '<a class="olink" href="'+o.url+'" target="_blank" rel="noopener">'+t.more+'</a>' +
+      '<div class="ometa">'+t.checked(o.checked)+'</div>' +
+    '</div>';
+  }).join("") : '<div class="empty">'+t.none+'</div>';
+
+  document.getElementById("s-h").textContent = t.subH;
+  document.getElementById("s-p").textContent = t.subP;
+  document.getElementById("s-btn").textContent = t.subB;
+  document.getElementById("srcT").textContent = t.srcT;
+  document.getElementById("srcS").textContent = t.srcS;
+  document.getElementById("t-quizline").textContent = t.quizline;
+  document.getElementById("t-quizbtn").textContent = t.quizbtn;
+  document.getElementById("t-schline").textContent = t.schline;
+  document.getElementById("t-schbtn").textContent = t.schbtn;
+  document.getElementById("t-altline").textContent = t.altline;
+  document.getElementById("t-altbtn").textContent = t.altbtn;
+  document.getElementById("t-disc").textContent = t.disc;
+  document.getElementById("t-foot").textContent = t.foot;
+}
+
+function gc(path, title){
+  if(window.goatcounter && window.goatcounter.count){
+    try{ window.goatcounter.count({path:path, title:title, event:true}); }catch(e){}
+  }
+}
+
+document.addEventListener("click", function(e){
+  var c = e.target.closest ? e.target.closest(".chip") : null;
+  if(c && !c.disabled){
+    if(c.hasAttribute("data-ct")){ CT = c.getAttribute("data-ct"); gc("int-ct-"+CT, "Internships country "+CT); }
+    else if(c.hasAttribute("data-st")){ ST = c.getAttribute("data-st"); }
+    else if(c.hasAttribute("data-lv")){ LV = c.getAttribute("data-lv"); gc("int-lv-"+LV, "Internships level "+LV); }
+    else if(c.hasAttribute("data-se")){ SE = c.getAttribute("data-se"); gc("int-se-"+SE, "Internships sector "+SE); }
+    render();
+    return;
+  }
+  var a = e.target.closest ? e.target.closest(".olink") : null;
+  if(a){ gc("int-out", "Internships outbound click"); }
+  var s = e.target.closest ? e.target.closest("#s-btn") : null;
+  if(s){ gc("int-submit", "Internships employer submit"); }
+});
+
+document.getElementById("langToggle").addEventListener("click", function(){
+  LANG = (LANG === "en") ? "ar" : "en";
+  document.documentElement.lang = LANG;
+  document.documentElement.dir = (LANG === "ar") ? "rtl" : "ltr";
+  this.textContent = (LANG === "ar") ? "English" : "عربي";
+  render();
+});
+
+/* deep link: internships.html?ct=bh&lv=hs */
+try{
+  var q = new URLSearchParams(location.search);
+  var _c = q.get("ct"); if(_c && CTS.some(function(x){return x.k===_c && x.live;})) CT = _c;
+  var _l = q.get("lv"); if(_l && LEVELS.some(function(x){return x.k===_l;})) LV = _l;
+  var _s = q.get("se"); if(_s && SECTORS.some(function(x){return x.k===_s;})) SE = _s;
+}catch(e){}
+
+render();
+
+</script>
+<script>
+(function(){
+  function sync(){
+    var l = document.documentElement.lang === "ar" ? "ar" : "en";
+    var n = document.querySelectorAll("[data-en]");
+    for(var i=0;i<n.length;i++){ n[i].textContent = n[i].getAttribute("data-"+l); }
+  }
+  try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
+  document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
+  sync();
+})();
+</script>
+<script>
+/* MCLANG boot: applies the resolved language by driving the page's own toggle,
+   then remembers whatever the visitor lands on. */
+(function(){
+  var b = document.getElementById("langToggle");
+  if(!b) return;
+  if(mcInitLang() === "ar" && document.documentElement.lang !== "ar") b.click();
+  document.addEventListener("click", function(e){
+    if(e.target && e.target.id === "langToggle"){
+      setTimeout(function(){
+        mcSaveLang(document.documentElement.lang === "ar" ? "ar" : "en");
+      }, 0);
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>
