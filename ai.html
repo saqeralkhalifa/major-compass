@@ -567,31 +567,47 @@ footer.site a{color:var(--accent);}
 
 @media (max-width:760px){ .mc-brand b{font-size:18px;} }
 </style>
+<style id="skbar-css">
+/* SKBAR: the one site-wide top bar. Same look everywhere. */
+.skbar{position:sticky;top:0;z-index:90;background:#FAF5EA;border-bottom:1px solid #E2D5BB;
+  font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
+.skbar[dir="rtl"], [dir="rtl"] .skbar{font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+.skbar-in{max-width:1200px;margin:0 auto;padding:13px 32px;display:flex;align-items:center;
+  justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.skbrand{display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap;}
+.skbrand b{font-weight:700;font-size:17px;color:#152A55;letter-spacing:-.01em;}
+.skbrand span{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:11px;color:#7D5F27;}
+.sknav{display:flex;align-items:center;gap:22px;flex-wrap:nowrap;}
+.skitem{text-decoration:none;color:#4A3728;font-size:14.5px;font-weight:500;white-space:nowrap;
+  background:none;border:0;cursor:pointer;font-family:inherit;padding:0;line-height:1.4;}
+.skitem:hover{color:#7D5F27;}
+.skcaret{font-size:9px;color:#7D5F27;margin-inline-start:5px;vertical-align:2px;}
+.skdd{position:relative;}
+.skmenu{display:none;position:absolute;top:100%;inset-inline-start:-14px;padding-top:10px;
+  background:transparent;min-width:235px;z-index:95;}
+.skmenu-inner, .skmenu{border:0;}
+.skdd:hover .skmenu, .skdd:focus-within .skmenu{display:block;}
+.skmenu > a{display:block;background:#FFFDF6;border:1px solid #E2D5BB;border-top:0;
+  padding:10px 18px;font-size:14px;color:#4A3728;text-decoration:none;font-weight:500;white-space:nowrap;}
+.skmenu > a:first-child{border-top:1px solid #E2D5BB;}
+.skmenu > a:hover{background:#F4EAD6;color:#152A55;}
+.skcta{text-decoration:none;background:#152A55;color:#FAF5EA;padding:9px 20px;border-radius:2px;
+  font-weight:700;font-size:14px;white-space:nowrap;}
+.skcta:hover{background:#1E3A6E;color:#FAF5EA;}
+.skbar[dir="rtl"] .skitem, [dir="rtl"] .skbar .skitem{font-size:15px;}
+@media (max-width:920px){
+  .skbar-in{padding:11px 16px;gap:10px;}
+  .sknav{order:3;width:100%;overflow-x:auto;gap:18px;padding-bottom:2px;scrollbar-width:none;}
+  .sknav::-webkit-scrollbar{display:none;}
+  .skbrand span{display:none;}
+  .skmenu{position:fixed;inset-inline-start:0;inset-inline-end:0;top:auto;min-width:0;padding-top:0;}
+  .skdd{position:static;}
+  .skcta{padding:8px 14px;font-size:13px;}
+}
+</style>
 </head>
 <body>
-<div class="mc-nav">
-  <div class="mc-nav-inner">
-    <a class="mc-brand" href="./">
-      <b data-en="Major Compass" data-ar="بوصلة التخصص">Major Compass</b>
-      <span data-en="Dr. Saqer AlKhalifa" data-ar="د. صقر آل خليفة">Dr. Saqer AlKhalifa</span>
-    </a>
-    <nav class="mc-nav-links" aria-label="Tools">
-      <a href="./" data-en="The quiz" data-ar="الاختبار">The quiz</a>
-      <a href="explore.html" data-en="Majors" data-ar="التخصصات">Majors</a>
-      <a href="entry.html" data-en="Entry" data-ar="شروط القبول">Entry</a>
-      <a href="scholarships.html" data-en="Funding" data-ar="المنح">Funding</a>
-      <a href="routes.html" data-en="Dealbreakers" data-ar="المنفّرات">Dealbreakers</a>
-      <a href="alternatives.html" data-en="No degree" data-ar="بدون شهادة">No degree</a>
-      <a href="parents.html" data-en="Parents" data-ar="أولياء الأمور">Parents</a>
-      <a href="ai.html" aria-current="page" data-en="AI" data-ar="الذكاء الاصطناعي">AI</a>
-    </nav>
-    <div class="mc-nav-right">
-      <a class="mc-site" href="https://saqeralkhalifa.com/" data-en="saqeralkhalifa.com" data-ar="الموقع الرئيسي">saqeralkhalifa.com</a>
-      <a class="mc-book" href="https://saqeralkhalifa.com/#stores" data-en="Get the book" data-ar="اطلب الكتاب">Get the book</a>
-      <button class="lang-toggle" id="langToggle">عربي</button>
-    </div>
-  </div>
-</div>
+<div class="skbar" id="skbar"><div class="skbar-in"><a class="skbrand" href="https://saqeralkhalifa.com/" data-href-en="https://saqeralkhalifa.com/" data-href-ar="https://saqeralkhalifa.com/arabic/"><b data-en="Saqer AlKhalifa" data-ar="د. صقر آل خليفة">Saqer AlKhalifa</b><span data-en="Ph.D. · Political Science" data-ar="دكتوراه · علوم سياسية">Ph.D. · Political Science</span></a><div class="sknav"><div class="skdd"><a class="skitem sktop" href="https://saqeralkhalifa.com/#book" data-href-en="https://saqeralkhalifa.com/#book" data-href-ar="https://saqeralkhalifa.com/arabic/#book"><span data-en="The Book" data-ar="الكتاب">The Book</span><span class="skcaret">▾</span></a><div class="skmenu"><a class="skdrop" href="https://saqeralkhalifa.com/#book" data-href-en="https://saqeralkhalifa.com/#book" data-href-ar="https://saqeralkhalifa.com/arabic/#book" data-en="The Book" data-ar="الكتاب">The Book</a><a class="skdrop" href="https://saqeralkhalifa.com/readers/" data-href-en="https://saqeralkhalifa.com/readers/" data-href-ar="https://saqeralkhalifa.com/readers/" data-en="First Chapter Free" data-ar="الفصل الأول مجانًا">First Chapter Free</a><a class="skdrop" href="https://saqeralkhalifa.com/check/" data-href-en="https://saqeralkhalifa.com/check/" data-href-ar="https://saqeralkhalifa.com/check/" data-en="The Data" data-ar="البيانات">The Data</a><a class="skdrop" href="https://saqeralkhalifa.com/the-trust-trap/" data-href-en="https://saqeralkhalifa.com/the-trust-trap/" data-href-ar="https://saqeralkhalifa.com/arabic/#trusttrap" data-en="The Trust Trap" data-ar="فخ الثقة">The Trust Trap</a><a class="skdrop" href="https://saqeralkhalifa.com/#stores" data-href-en="https://saqeralkhalifa.com/#stores" data-href-ar="https://saqeralkhalifa.com/arabic/#buy" data-en="Get the Book" data-ar="اطلب الكتاب">Get the Book</a></div></div><div class="skdd"><a class="skitem sktop" href="https://saqeralkhalifa.com/major-compass/" data-href-en="https://saqeralkhalifa.com/major-compass/" data-href-ar="https://saqeralkhalifa.com/major-compass/#ar"><span data-en="For Students" data-ar="للطلبة">For Students</span><span class="skcaret">▾</span></a><div class="skmenu"><a class="skdrop" href="https://saqeralkhalifa.com/major-compass/" data-href-en="https://saqeralkhalifa.com/major-compass/" data-href-ar="https://saqeralkhalifa.com/major-compass/#ar" data-en="Major Compass" data-ar="بوصلة التخصص">Major Compass</a><a class="skdrop" href="https://saqeralkhalifa.github.io/major-compass/explore.html?lang=en" data-href-en="https://saqeralkhalifa.github.io/major-compass/explore.html?lang=en" data-href-ar="https://saqeralkhalifa.github.io/major-compass/explore.html?lang=ar" data-en="Explore the Majors" data-ar="استكشف التخصصات">Explore the Majors</a><a class="skdrop" href="https://saqeralkhalifa.github.io/major-compass/entry.html?lang=en" data-href-en="https://saqeralkhalifa.github.io/major-compass/entry.html?lang=en" data-href-ar="https://saqeralkhalifa.github.io/major-compass/entry.html?lang=ar" data-en="Entry Requirements" data-ar="شروط القبول">Entry Requirements</a><a class="skdrop" href="https://saqeralkhalifa.github.io/major-compass/scholarships.html?lang=en" data-href-en="https://saqeralkhalifa.github.io/major-compass/scholarships.html?lang=en" data-href-ar="https://saqeralkhalifa.github.io/major-compass/scholarships.html?lang=ar" data-en="Scholarships and Funding" data-ar="المنح والتمويل">Scholarships and Funding</a><a class="skdrop" href="https://saqeralkhalifa.github.io/major-compass/parents.html?lang=en" data-href-en="https://saqeralkhalifa.github.io/major-compass/parents.html?lang=en" data-href-ar="https://saqeralkhalifa.github.io/major-compass/parents.html?lang=ar" data-en="Parent Guide" data-ar="دليل أولياء الأمور">Parent Guide</a><a class="skdrop" href="https://saqeralkhalifa.github.io/major-compass/ai.html?lang=en" data-href-en="https://saqeralkhalifa.github.io/major-compass/ai.html?lang=en" data-href-ar="https://saqeralkhalifa.github.io/major-compass/ai.html?lang=ar" data-en="AI and Your Major" data-ar="الذكاء الاصطناعي وتخصصك">AI and Your Major</a><a class="skdrop" href="https://saqeralkhalifa.github.io/major-compass/routes.html?lang=en" data-href-en="https://saqeralkhalifa.github.io/major-compass/routes.html?lang=en" data-href-ar="https://saqeralkhalifa.github.io/major-compass/routes.html?lang=ar" data-en="What Stays Open" data-ar="ما يبقى مفتوحًا">What Stays Open</a><a class="skdrop" href="https://saqeralkhalifa.github.io/major-compass/alternatives.html?lang=en" data-href-en="https://saqeralkhalifa.github.io/major-compass/alternatives.html?lang=en" data-href-ar="https://saqeralkhalifa.github.io/major-compass/alternatives.html?lang=ar" data-en="No-Degree Routes" data-ar="مسارات بدون شهادة">No-Degree Routes</a></div></div><div class="skdd"><a class="skitem sktop" href="https://gigs.saqeralkhalifa.com/?lang=en" data-href-en="https://gigs.saqeralkhalifa.com/?lang=en" data-href-ar="https://gigs.saqeralkhalifa.com/?lang=ar"><span data-en="Work" data-ar="العمل">Work</span><span class="skcaret">▾</span></a><div class="skmenu"><a class="skdrop" href="https://gigs.saqeralkhalifa.com/?lang=en" data-href-en="https://gigs.saqeralkhalifa.com/?lang=en" data-href-ar="https://gigs.saqeralkhalifa.com/?lang=ar" data-en="Gigs Board" data-ar="لوحة الأعمال القصيرة">Gigs Board</a><a class="skdrop" href="https://gigs.saqeralkhalifa.com/?lang=en#jobs" data-href-en="https://gigs.saqeralkhalifa.com/?lang=en#jobs" data-href-ar="https://gigs.saqeralkhalifa.com/?lang=ar#jobs" data-en="Full-time Jobs" data-ar="الوظائف الدائمة">Full-time Jobs</a><a class="skdrop" href="https://internships.saqeralkhalifa.com/?lang=en" data-href-en="https://internships.saqeralkhalifa.com/?lang=en" data-href-ar="https://internships.saqeralkhalifa.com/?lang=ar" data-en="Internships" data-ar="فرص التدريب">Internships</a><a class="skdrop" href="https://internships.saqeralkhalifa.com/cv.html?lang=en" data-href-en="https://internships.saqeralkhalifa.com/cv.html?lang=en" data-href-ar="https://internships.saqeralkhalifa.com/cv.html?lang=ar" data-en="CV Builder" data-ar="السيرة الذاتية">CV Builder</a><a class="skdrop" href="https://saqeralkhalifa.com/post-a-gig/" data-href-en="https://saqeralkhalifa.com/post-a-gig/" data-href-ar="https://saqeralkhalifa.com/post-a-gig/" data-en="Post a Gig" data-ar="انشر فرصة">Post a Gig</a><a class="skdrop" href="https://saqeralkhalifa.com/find-work/" data-href-en="https://saqeralkhalifa.com/find-work/" data-href-ar="https://saqeralkhalifa.com/find-work/" data-en="Find Work" data-ar="سجّل بياناتك">Find Work</a></div></div><div class="skdd"><a class="skitem sktop" href="https://saqeralkhalifa.com/about/" data-href-en="https://saqeralkhalifa.com/about/" data-href-ar="https://saqeralkhalifa.com/arabic/#author"><span data-en="About" data-ar="نبذة">About</span><span class="skcaret">▾</span></a><div class="skmenu"><a class="skdrop" href="https://saqeralkhalifa.com/about/" data-href-en="https://saqeralkhalifa.com/about/" data-href-ar="https://saqeralkhalifa.com/arabic/#author" data-en="About" data-ar="نبذة">About</a><a class="skdrop" href="https://saqeralkhalifa.com/#speaking" data-href-en="https://saqeralkhalifa.com/#speaking" data-href-ar="https://saqeralkhalifa.com/#speaking" data-en="Speaking" data-ar="المحاضرات">Speaking</a><a class="skdrop" href="https://saqeralkhalifa.com/blog/" data-href-en="https://saqeralkhalifa.com/blog/" data-href-ar="https://saqeralkhalifa.com/blog/" data-en="Articles" data-ar="المقالات">Articles</a><a class="skdrop" href="https://saqeralkhalifa.com/contact-me/" data-href-en="https://saqeralkhalifa.com/contact-me/" data-href-ar="https://saqeralkhalifa.com/contact-me/" data-en="Contact" data-ar="تواصل">Contact</a></div></div><button class="skitem sklang" id="langToggle">عربي</button></div><a class="skcta" href="https://saqeralkhalifa.com/#stores" data-href-en="https://saqeralkhalifa.com/#stores" data-href-ar="https://saqeralkhalifa.com/arabic/#buy" data-en="Get the Book" data-ar="اطلب الكتاب">Get the Book</a></div></div>
 <div class="wrap">
 
 <div class="hero">
@@ -1455,6 +1471,31 @@ renderAll();
       }, 0);
     }
   }, true);
+})();
+</script>
+<script>
+/* SKBARX: the unified bar syncs its own labels and hrefs with the page language. */
+(function(){
+  function sync(){
+    var l = document.documentElement.lang === "ar" ? "ar" : "en";
+    var bar = document.getElementById("skbar");
+    if(!bar) return;
+    bar.setAttribute("dir", l === "ar" ? "rtl" : "ltr");
+    var n = bar.querySelectorAll("[data-en]");
+    for(var i = 0; i < n.length; i++){
+      n[i].textContent = n[i].getAttribute("data-" + l);
+      var h = n[i].getAttribute("data-href-" + l);
+      if(h) n[i].setAttribute("href", h);
+    }
+    var a = bar.querySelectorAll("a[data-href-en]");
+    for(var k = 0; k < a.length; k++){
+      var hh = a[k].getAttribute("data-href-" + l);
+      if(hh) a[k].setAttribute("href", hh);
+    }
+  }
+  try{ new MutationObserver(sync).observe(document.documentElement, {attributes:true, attributeFilter:["lang"]}); }catch(e){}
+  document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
+  sync();
 })();
 </script>
 </body>
