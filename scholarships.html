@@ -639,6 +639,10 @@ footer.site a{color:var(--accent);}
 .skcta{line-height:20px;}
 .skbrand b{font-weight:600;}
 .skcta{font-weight:600;}
+
+/* The bar must hold at the top: overflow-x hidden on the root makes it a scroll
+   container and kills sticky. clip stops sideways scroll without that side effect. */
+html, body{overflow-x:clip !important;}
 </style>
 </head>
 <body>
