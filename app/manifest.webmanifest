@@ -1,0 +1,19 @@
+{
+  "name": "Major Compass",
+  "short_name": "Major Compass",
+  "description": "Choosing a university major in the Gulf. 82 majors, entry requirements, scholarships, internships and routes without a degree, in English and Arabic.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#152A55",
+  "theme_color": "#152A55",
+  "lang": "en",
+  "dir": "auto",
+  "categories": ["education", "reference"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

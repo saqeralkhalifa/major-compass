@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<script src="app-early.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entry Requirements Checker | Dr. Saqer AlKhalifa</title>
+<meta name="description" content="A free bilingual entry requirements checker for Gulf school leavers: published minimums at named universities in Bahrain, Saudi Arabia, the UAE, Qatar, Kuwait and Oman, what your school track closes, equivalency rules for IGCSE, IB and American diplomas, and the tests you must sit.">
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="en" href="entry.html?lang=en">
+<link rel="alternate" hreflang="ar" href="entry.html?lang=ar">
+<link rel="alternate" hreflang="x-default" href="entry.html">
+<script>
+/* MCLANG: one language resolver shared by every Major Compass page.
+   Order: ?lang= in the URL, then the visitor's saved choice, then the browser. */
+function mcInitLang(){
+  try{
+    var q = (location.search.match(/[?&]lang=(ar|en)\b/) || [])[1];
+    if(q) return q;
+    var s = window.localStorage && localStorage.getItem("mc-lang");
+    if(s === "ar" || s === "en") return s;
+    var n = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    if(/^ar/i.test(n)) return "ar";
+  }catch(e){}
+  return "en";
+}
+function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
+</script>
+
+<link rel="stylesheet" href="theme.css">
+<style>
+  :root{
+    --ink:#101418; --ink-2:#4a5158; --ink-3:#8a9199;
+    --paper:#faf9f6; --card:#ffffff; --line:#e6e3dc;
+    --accent:#1c5d99; --accent-soft:#e8f0f8; --gold:#b98c2f;
+    --good:#0e7a4d; --good-soft:#e9f5ef; --good-line:#c9e6d8;
+    --warn:#8a5a12; --warn-soft:#fdf4e3; --warn-line:#efdcb6;
+    --bad:#a3413a; --bad-soft:#fbeceb; --bad-line:#f0cfcc;
+    --radius:14px; --shadow:0 1px 3px rgba(16,20,24,.06), 0 8px 24px rgba(16,20,24,.07);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); line-height:1.65; min-height:100vh;
+    font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif;}
+  [dir="rtl"] body{font-family:'Segoe UI', Tahoma, 'Noto Naskh Arabic', 'Geeza Pro', Arial, sans-serif; line-height:1.85;}
+  .serif{font-family:Georgia, 'Times New Roman', serif;}
+  [dir="rtl"] .serif{font-family:'Noto Naskh Arabic', 'Geeza Pro', 'Traditional Arabic', Georgia, serif;}
+  .wrap{max-width:840px; margin:0 auto; padding:0 20px 80px;}
+
+  header.site{display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0 14px; border-bottom:1px solid var(--line);}
+  .brand{font-size:.95rem; color:var(--ink-2); text-decoration:none;}
+  .brand strong{color:var(--ink); font-weight:600;}
+  .lang-toggle{border:1px solid var(--line); background:var(--card); border-radius:999px;
+    padding:7px 16px; font-size:.95rem; cursor:pointer; color:var(--accent); font-weight:600; font-family:inherit;}
+  .lang-toggle:hover{background:var(--accent-soft);}
+
+  .hero{text-align:center; padding:40px 0 6px;}
+  .hero h1{font-size:2.1rem; line-height:1.25; margin-bottom:10px;}
+  .hero p{color:var(--ink-2); font-size:1.06rem; max-width:660px; margin:0 auto;}
+
+  .rules{margin:26px 0 4px; display:grid; gap:12px;}
+  .rule{border-radius:var(--radius); padding:16px 20px; border:1px solid;}
+  .rule h3{font-size:1rem; font-weight:800; margin-bottom:5px;}
+  .rule p{font-size:.95rem; line-height:1.6;}
+  .rule.w{background:var(--warn-soft); border-color:var(--warn-line); color:#5c4415;}
+  .rule.w h3{color:var(--warn);}
+  .rule.n{background:var(--accent-soft); border-color:#cfe0ef; color:#204660;}
+  .rule.n h3{color:var(--accent);}
+
+  .panel{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:22px 24px; margin:22px 0;}
+  .panel h2{font-size:1.2rem; font-weight:800; margin-bottom:5px;}
+  .panel .sub{font-size:.93rem; color:var(--ink-2); margin-bottom:14px;}
+  .panel p{font-size:1rem; color:var(--ink-2); margin-bottom:12px;}
+  .panel p:last-child{margin-bottom:0;}
+  .panel ul{margin:0 0 12px; padding-inline-start:22px;}
+  .panel li{font-size:1rem; color:var(--ink-2); margin-bottom:8px;}
+  .panel b{color:var(--ink);}
+
+  .picker{margin-bottom:14px;}
+  .lbl{font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3);
+    font-weight:800; margin-bottom:7px; display:block;}
+  [dir="rtl"] .lbl{letter-spacing:0; text-transform:none; font-size:.92rem;}
+  .filters{display:flex; gap:7px; flex-wrap:wrap;}
+  .fbtn{background:var(--card); border:1.5px solid var(--line); border-radius:999px;
+    padding:7px 15px; font-size:.9rem; font-family:inherit; color:var(--ink-2); cursor:pointer;}
+  .fbtn:hover{border-color:var(--accent);}
+  .fbtn.on{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600;}
+  .scorewrap{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+  .score{width:130px; font-family:inherit; font-size:1.15rem; font-weight:700; padding:10px 14px;
+    border:1.5px solid var(--line); border-radius:12px; background:var(--card); color:var(--ink); text-align:center;}
+  .score:focus{outline:none; border-color:var(--accent);}
+  .hint{font-size:.9rem; color:var(--ink-3);}
+
+  .grp{margin-bottom:26px;}
+  .grp h2{font-size:1.15rem; font-weight:800; margin-bottom:3px; display:flex; align-items:center; gap:10px;}
+  .cnt{font-size:.75rem; font-weight:700; background:var(--line); color:var(--ink-2);
+    border-radius:999px; padding:2px 10px;}
+  .grp-s{font-size:.93rem; color:var(--ink-2); margin-bottom:12px;}
+  .g-blocked h2{color:var(--bad);} .g-meet h2{color:var(--good);}
+  .g-close h2{color:var(--warn);} .g-short h2, .g-info h2{color:var(--ink-2);}
+
+  .pcard{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); margin-bottom:10px; overflow:hidden; border-inline-start:4px solid var(--line);}
+  .pcard.v-meet{border-inline-start-color:var(--good);}
+  .pcard.v-close{border-inline-start-color:var(--gold);}
+  .pcard.v-blocked{border-inline-start-color:var(--bad); background:#fdfbfa;}
+  .pcard.v-short{border-inline-start-color:var(--ink-3);}
+  .pcard.v-info{border-inline-start-color:var(--accent);}
+  .pcard.v-nodata{border-inline-start-color:#d8d4cc; background:#fcfbf9;}
+  .g-nodata h2{color:var(--ink-3);}
+  .phead{display:flex; align-items:center; gap:12px; padding:15px 20px; cursor:pointer; width:100%;
+    background:none; border:none; text-align:start; font-family:inherit; color:var(--ink);}
+  .phead:hover{background:var(--accent-soft);}
+  .ptxt{flex:1;}
+  .ptxt b{font-size:1.03rem; font-weight:700; display:block; line-height:1.4;}
+  .pinst{font-size:.85rem; color:var(--ink-3); display:block; margin-top:2px;}
+  .chev{color:var(--accent); font-size:1.1rem; flex:0 0 auto; transition:transform .2s;}
+  .pcard.open .chev{transform:rotate(90deg);}
+  [dir="rtl"] .chev{transform:rotate(180deg);}
+  [dir="rtl"] .pcard.open .chev{transform:rotate(90deg);}
+  .pbody{display:none; padding:0 20px 18px; border-top:1px solid var(--line);}
+  .pcard.open .pbody{display:block;}
+  .minrow{display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+    padding:12px 0 4px; font-size:.92rem; color:var(--ink-3);}
+  .minrow b{font-size:1.5rem; color:var(--accent); font-family:Georgia,serif;}
+  .sec{margin-top:14px;}
+  .sec h3{font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold);
+    font-weight:800; margin-bottom:4px;}
+  [dir="rtl"] .sec h3{letter-spacing:0; text-transform:none; font-size:.92rem;}
+  .sec p{color:var(--ink-2); font-size:.98rem;}
+  .sec p b{color:var(--ink);}
+  .extra{margin-top:12px; background:var(--warn-soft); border:1px solid var(--warn-line);
+    border-radius:10px; padding:11px 15px; font-size:.94rem; color:#5c4415;}
+  .extra b{color:#3f2f0e;}
+  .olink{display:inline-block; margin-top:14px; color:var(--accent); font-weight:600;
+    font-size:.94rem; text-decoration:none;}
+  .olink:hover{text-decoration:underline;}
+
+  .lose-row{padding:12px 0; border-bottom:1px dashed var(--line);}
+  .lose-row:last-child{border-bottom:none;}
+  .lose-row b{display:block; font-size:1rem; color:var(--ink); margin-bottom:3px;}
+  .lose-row p{font-size:.95rem; color:var(--ink-2); margin:0;}
+  .cal-row{display:grid; grid-template-columns:130px 1fr; gap:14px; padding:11px 0;
+    border-bottom:1px dashed var(--line); font-size:.95rem;}
+  .cal-row:last-child{border-bottom:none;}
+  .cal-row b{color:var(--accent); font-weight:700;}
+  .cal-row span{color:var(--ink-2);}
+  table{width:100%; border-collapse:collapse; margin-top:6px; font-size:.95rem;}
+  th{text-align:start; font-size:.8rem; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--ink-3); font-weight:800; padding:8px 6px; border-bottom:2px solid var(--line);}
+  [dir="rtl"] th{letter-spacing:0; text-transform:none; font-size:.9rem;}
+  td{padding:8px 6px; border-bottom:1px solid var(--line); color:var(--ink-2);}
+  tr td:first-child{font-weight:700; color:var(--ink);}
+  .tnote{font-size:.86rem; color:var(--ink-3); margin-top:10px; line-height:1.55;}
+
+  .checked{background:var(--warn-soft); border:1px solid var(--warn-line); border-radius:var(--radius);
+    padding:16px 20px; margin:22px 0; color:#5c4415;}
+  .checked b{display:block; color:var(--warn); font-weight:800; margin-bottom:4px;}
+  .checked p{font-size:.93rem; line-height:1.6;}
+
+  .bar{background:var(--accent-soft); border:1px solid #cfe0ef; border-radius:var(--radius);
+    padding:15px 20px; margin-top:10px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+  .bar p{flex:1 1 240px; font-size:.96rem; color:var(--ink-2); margin:0;}
+  .bar b{color:var(--ink);}
+  .btn{display:inline-block; border:none; cursor:pointer; text-decoration:none; text-align:center;
+    background:var(--accent); color:#fff; font-size:.96rem; font-weight:600; font-family:inherit;
+    padding:10px 22px; border-radius:999px; white-space:nowrap; box-shadow:0 4px 14px rgba(28,93,153,.28);}
+  .btn.ghost{background:var(--card); color:var(--accent); border:1.5px solid #cfe0ef; box-shadow:none;}
+
+  footer.site{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
+    text-align:center; font-size:.85rem; color:var(--ink-3);}
+  footer.site a{color:var(--accent); text-decoration:none;}
+  .disc{font-size:.84rem; color:var(--ink-3); max-width:640px; margin:0 auto 14px; line-height:1.55;}
+
+  @media (max-width:600px){
+    .hero h1{font-size:1.6rem;}
+    .phead{padding:13px 15px;} .pbody{padding:0 15px 15px;}
+    .cal-row{grid-template-columns:1fr; gap:2px;}
+    .panel{padding:18px;}
+    table{font-size:.85rem;} th,td{padding:6px 4px;}
+  }
+
+/* ============================================================
+   Major Compass shared theme, option 2A
+   Ink and paper editorial, Newsreader display, brass accent.
+   Tokens mirror theme.css from the design handoff.
+   Square corners everywhere except the language pill.
+   No shadows, no gradients, no icons.
+   ============================================================ */
+:root{
+  --font-display:Newsreader, Georgia, 'Times New Roman', serif;
+  --font-body:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-ar:'IBM Plex Sans Arabic', 'IBM Plex Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+
+  --paper:#f6f3ec;
+  --paper-2:#efece4;
+  --card:#fbf9f4;
+  --line:#ddd7cb;
+  --line-2:#cfc9bd;
+
+  --ink:#14161a;
+  --ink-2:#33363c;
+  --ink-3:#6b6e74;
+
+  --navy:#14161a;
+  --navy-deep:#8a5a1e;
+  --accent:#8a5a1e;
+  --accent-soft:#efece4;
+  --accent-line:#cfc9bd;
+
+  --gold:#8a5a1e;
+  --gold-soft:#f0ebdf;
+  --gold-line:#ddd7cb;
+  --gold-bright:#d8b98a;
+
+  --good:#3f6b4f;  --good-soft:#eaefe9;  --good-line:#cfdbd0;
+  --warn:#8a5a1e;  --warn-soft:#f0ebdf;  --warn-line:#e2d9c6;
+  --bad:#8c3a30;   --bad-soft:#f4e9e5;   --bad-line:#e2cfc8;
+
+  --radius:0; --radius-sm:0;
+  --shadow:none; --shadow-lift:none;
+}
+
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+[dir="rtl"] body{font-family:var(--font-ar); line-height:1.95;}
+body::before{display:none !important;}
+
+/* ---------- display type: Newsreader 400, never bold serif ---------- */
+.serif, .chap h2, .cn, .stat-n, .minrow b, .grp-t, .grp h2, .panel h2,
+.srcbox h2, .majors-title, .hero h1, h1, h2, h3{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-variation-settings:normal;
+  letter-spacing:-.02em;
+}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .cn, [dir="rtl"] .stat-n,
+[dir="rtl"] .minrow b, [dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2,
+[dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title, [dir="rtl"] .hero h1,
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3{
+  font-family:var(--font-ar); letter-spacing:0; font-weight:600; line-height:1.35;
+}
+.stat-n, .minrow b, .cnt, td, th, .cal-row b{font-variant-numeric:tabular-nums;}
+::selection{background:var(--paper-2); color:var(--ink);}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px; border-radius:0;
+}
+
+/* ---------- the shared dark nav ---------- */
+.mc-nav{
+  background:var(--ink); color:var(--paper);
+  position:sticky; top:0; z-index:40;
+}
+.mc-nav-inner{
+  max-width:900px; margin:0 auto; padding:13px 22px;
+  display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+}
+.mc-brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; color:var(--paper); min-width:0;}
+.mc-brand b{font-family:var(--font-display); font-size:17px; font-weight:400; letter-spacing:-.01em; white-space:nowrap;}
+[dir="rtl"] .mc-brand b{font-family:var(--font-ar); font-weight:600; letter-spacing:0;}
+.mc-brand span{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#9a9da3; white-space:nowrap;}
+[dir="rtl"] .mc-brand span{letter-spacing:0; text-transform:none; font-size:12px;}
+.mc-nav-links{
+  display:flex; gap:20px; font-size:12px; letter-spacing:.06em; align-items:center;
+  overflow-x:auto; scrollbar-width:none; flex:1 1 auto; justify-content:center;
+}
+.mc-nav-links::-webkit-scrollbar{display:none;}
+[dir="rtl"] .mc-nav-links{letter-spacing:0; font-size:13px;}
+.mc-nav-links a{
+  color:#c9ccd2; text-decoration:none; white-space:nowrap; padding-bottom:2px;
+  border-bottom:1px solid transparent; transition:color .15s, border-color .15s;
+}
+.mc-nav-links a:hover{color:var(--paper);}
+.mc-nav-links a[aria-current="page"]{color:var(--paper); border-bottom-color:var(--accent);}
+.mc-nav .lang-toggle{
+  flex:0 0 auto; border:1px solid var(--accent); background:var(--accent); border-radius:999px;
+  padding:6px 17px; font-size:13px; letter-spacing:.04em; font-weight:600;
+  color:#fbf9f4; cursor:pointer; font-family:var(--font-body);
+  transition:background .15s, color .15s, border-color .15s;
+}
+.mc-nav .lang-toggle:hover{background:var(--paper); color:var(--ink); border-color:var(--paper);}
+@media (max-width:640px){
+  .mc-nav-inner{padding:11px 18px; gap:10px;}
+  .mc-nav-links{justify-content:flex-start; order:3; width:100%; gap:16px; padding-bottom:2px;}
+}
+@media print{ .mc-nav{display:none;} }
+
+/* the old in-page masthead and pill switcher are replaced by .mc-nav */
+header.site, nav.toolnav{display:none !important;}
+
+/* ---------- page header ---------- */
+.hero, .res-head{position:relative;}
+.hero::before{display:none !important;}
+.hero{padding-top:52px;}
+.hero h1{font-size:clamp(34px, 5.4vw, 52px); line-height:1.04; font-weight:400;}
+[dir="rtl"] .hero h1{line-height:1.35; font-weight:600;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+.kicker, .eyebrow{
+  color:var(--accent); font-weight:600; font-size:11px;
+  letter-spacing:.18em; text-transform:uppercase;
+}
+[dir="rtl"] .kicker, [dir="rtl"] .eyebrow{letter-spacing:0; text-transform:none; font-size:13px;}
+
+/* ---------- surfaces: square, flat, ruled ---------- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .lede, .stat, .nextbox,
+.m, .fact, .pt, .bar, .quizbar, .cta-inline, .rule, .checked, .hedge, .extra, .flag,
+.note, .card, .grp{
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .stat, .nextbox, .m, .fact{
+  background:var(--card); border:1px solid var(--line-2);
+}
+.mcard:hover, .pcard:hover, .m:hover{border-color:var(--ink-3);}
+.pcard{border-inline-start-width:2px; border-inline-start-color:var(--accent);}
+.lede{background:var(--card); border:1px solid var(--line-2);
+  border-inline-start:2px solid var(--accent) !important; border-inline-end:1px solid var(--line-2) !important;}
+
+/* ---------- buttons ---------- */
+.btn{
+  background:var(--ink); border:1px solid var(--ink); border-radius:0;
+  font-weight:500; letter-spacing:0; color:var(--paper); box-shadow:none;
+  transition:background .15s, border-color .15s, color .15s;
+}
+.btn:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:none; filter:none; box-shadow:none;}
+.btn.ghost, .btn.secondary{
+  background:transparent; color:var(--ink); border:1px solid var(--ink); box-shadow:none;
+}
+.btn.ghost:hover, .btn.secondary:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+.printbtn{border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);}
+.printbtn:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+
+/* filter chips and pickers: square, ruled */
+.fbtn, .chip, .navbtn, .picker button, .filters button{
+  border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);
+  box-shadow:none; transition:background .15s, color .15s, border-color .15s;
+}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--ink); color:var(--ink); background:transparent; transform:none;}
+.fbtn.on, .chip.on, .navbtn.on{
+  background:var(--ink); border-color:var(--ink); color:var(--paper); font-weight:500; box-shadow:none;
+}
+input[type="text"], input[type="search"], select, textarea, .srch{
+  border-radius:0 !important; border:1px solid var(--line-2); background:var(--card);
+  font-family:var(--font-body); color:var(--ink);
+}
+[dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
+
+/* ---------- bars and callouts: flat bands, no gradients ---------- */
+.bar, .quizbar, .cta-inline{
+  background:var(--paper-2); border:1px solid var(--line); border-radius:0;
+}
+.rule, .checked, .hedge, .extra, .flag{border-radius:0;}
+.rule.w, .checked, .hedge, .extra, .flag{background:var(--warn-soft); border-color:var(--warn-line);}
+.rule.b{background:var(--bad-soft); border-color:var(--bad-line);}
+.rule.n{background:var(--paper-2); border-color:var(--line);}
+.row.act{background:var(--paper-2) !important; border-color:var(--line) !important;}
+
+/* ---------- band chips and verdict pills keep meaning, lose gloss ---------- */
+.band{border-radius:0; font-weight:600;}
+
+/* ---------- section labels ---------- */
+.sec h3, .lbl, .toc h2, .row h4{
+  letter-spacing:.14em; font-weight:600; text-transform:uppercase; font-size:11px; color:var(--ink-3);
+}
+[dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2, [dir="rtl"] .row h4{
+  letter-spacing:0; text-transform:none; font-size:13px;
+}
+
+/* ---------- tables ---------- */
+table{border-collapse:collapse;}
+th{
+  text-align:start; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; padding:12px 14px; border-bottom:1px solid var(--ink);
+}
+[dir="rtl"] th{letter-spacing:0; text-transform:none; font-size:13px;}
+td{padding:14px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top; font-size:14px;}
+
+/* ---------- footer ---------- */
+footer.site{
+  margin-top:56px; padding:26px 0 0; border-top:1px solid var(--line); color:var(--ink-3); font-size:13px;
+}
+footer.site a{color:var(--accent); font-weight:500;}
+
+@media (max-width:520px){
+  .hero h1{font-size:clamp(28px, 8vw, 36px);}
+}
+
+/* ---- 2A refinements ---- */
+input, button, select, textarea{border-radius:0;}
+.lang-toggle, .mc-nav .lang-toggle{border-radius:999px;}
+.pt{border-inline-start-width:2px !important;}
+.compass{display:none !important;}
+.emoji{display:none !important;}
+.mcard, .m, .panel, .qcard, .fact, .stat, .srcbox, .toc, .nextbox, .viz-root{border-color:var(--line-2);}
+.opt{border-radius:0 !important;}
+.opt.selected{background:var(--paper-2); border-color:var(--ink);}
+.band{border-radius:0 !important;}
+.crosslinks .bar, .bar{border-radius:0 !important;}
+hr{border:0; border-top:1px solid var(--line);}
+
+/* ---- 2A: square the remaining pills, protect quiz progress ---- */
+.section-chip, .progress-bar, .progress-fill, .bar-fill, .chip, .meta-chips .chip,
+.tag, .pill, .badge, .cta, .startbtn{border-radius:0 !important;}
+.section-chip{background:var(--paper-2); color:var(--accent); border:1px solid var(--line);
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:5px 12px;}
+[dir="rtl"] .section-chip{letter-spacing:0; text-transform:none; font-size:13px;}
+body:has(#screen-quiz.active) .mc-nav-links{display:none;}
+body:has(#screen-quiz.active) .mc-nav-inner{justify-content:space-between;}
+
+/* ---- 2A: square corners everywhere except the language pill ---- */
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:0 !important;}
+.lang-toggle{border-radius:999px !important;}
+
+/* subject and topic chips become ruled tags, per the handoff */
+.subj, .tag, .chip{
+  background:transparent !important; border:1px solid var(--line-2) !important;
+  color:var(--ink-2) !important; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  padding:4px 9px !important; font-weight:500;
+}
+[dir="rtl"] .subj, [dir="rtl"] .tag, [dir="rtl"] .chip{letter-spacing:0; text-transform:none; font-size:13px;}
+
+/* the ranked numeral on the results screen: Newsreader, brass, no disc */
+.mrank{
+  background:transparent !important; border:0 !important; width:auto !important; height:auto !important;
+  font-family:var(--font-display); font-size:22px; font-weight:400; color:var(--accent) !important;
+  box-shadow:none !important; min-width:28px;
+}
+[dir="rtl"] .mrank{font-family:var(--font-ar); font-weight:600;}
+
+/* the sticky nav must not cover anything scrolled into view */
+html{scroll-padding-top:76px;}
+.wrap [id], .m, .mcard{scroll-margin-top:76px;}
+
+
+/* ---- nav: links back to the main site and the book ---- */
+.mc-nav-inner{max-width:1160px !important; gap:14px; flex-wrap:nowrap;}
+.mc-nav-links{gap:17px; justify-content:center; min-width:0;}
+@media (max-width:1100px){ .mc-brand span{display:none;} }
+@media (max-width:760px){
+  .mc-nav-inner{flex-wrap:wrap;}
+  .mc-nav-links{order:3; width:100%; justify-content:flex-start;}
+}
+.mc-nav-right{display:flex; align-items:center; gap:14px; flex:0 0 auto;}
+.mc-site{
+  color:#9a9da3; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;
+}
+.mc-site:hover{color:var(--paper); border-bottom-color:#3a3d43;}
+[dir="rtl"] .mc-site{letter-spacing:0; font-size:13px;}
+.mc-book{
+  color:#d8b98a; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border:1px solid rgba(216,185,138,.45); padding:6px 13px; transition:background .15s, color .15s, border-color .15s;
+}
+.mc-book:hover{background:#d8b98a; color:var(--ink); border-color:#d8b98a;}
+[dir="rtl"] .mc-book{letter-spacing:0; font-size:13px;}
+@media (max-width:860px){ .mc-site{display:none;} }
+@media (max-width:640px){
+  .mc-nav-right{gap:9px;}
+  .mc-book{padding:5px 10px;}
+}
+</style>
+
+<style>
+/* ================= THEME 2a MAJLIS, BLUE BAND =================
+   The same look as saqeralkhalifa.com, internships and gigs: cream
+   paper, one deep blue band, gold for emphasis, EB Garamond.
+   Radius 2px. No shadows, no gradients. Palette is the contrast
+   corrected one of 14 August 2026. This block is last in <head>
+   on purpose: it overrides the older 2A block above it. */
+:root{
+  --font-display:'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-body:'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-ar:'Noto Naskh Arabic', 'EB Garamond', Georgia, serif;
+  --font-label:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --paper:#FAF5EA; --paper-2:#EFE4CE; --card:#FFFBF2;
+  --line:#E2D5BB; --line-2:#D3C0A0;
+  --ink:#4A3728; --ink-2:#6B5B47; --ink-3:#6F5D4A;
+  --band:#152A55; --band-line:#2E4477; --royal:#1E3A78;
+  --on-band:#F3EADA; --on-band-muted:#9AAAD0; --on-band-link:#D3DCEF;
+  --gold:#C09A45; --gold-dark:#7D5F27;
+
+  --navy:#152A55; --navy-deep:#1E3A78;
+  --accent:#1E3A78; --accent-soft:#EFE4CE; --accent-line:#D3C0A0;
+  --gold-soft:#EFE4CE; --gold-line:#E2D5BB; --gold-bright:#C09A45;
+  --good:#3F6B4F; --good-soft:#EAEFE3; --good-line:#C9D6C2;
+  --warn:#7D5F27; --warn-soft:#F5ECDA; --warn-line:#E2D5BB;
+  --bad:#8C3A30; --bad-soft:#F4E7E1; --bad-line:#E2CBC1;
+  --radius:2px; --radius-sm:2px; --shadow:none; --shadow-lift:none;
+
+  --mc-paper:#FAF5EA; --mc-band:#EFE4CE; --mc-card:#FFFBF2;
+  --mc-ink:#4A3728; --mc-ink-2:#6B5B47; --mc-ink-3:#6F5D4A; --mc-muted:#6F5D4A;
+  --mc-rule:#E2D5BB; --mc-border:#D3C0A0;
+  --mc-accent:#1E3A78; --mc-accent-dim:#C09A45;
+  --mc-on-dark:#F3EADA; --mc-on-dark-2:#9AAAD0; --mc-dark-rule:#2E4477;
+  --mc-serif:'EB Garamond', Georgia, serif;
+  --mc-sans:'EB Garamond', Georgia, serif;
+  --mc-arabic:'Noto Naskh Arabic', 'EB Garamond', serif;
+}
+body{background:var(--paper); color:var(--ink); font-family:var(--font-body); font-size:18px; line-height:1.7;}
+[dir="rtl"] body{font-family:var(--font-ar); line-height:1.9;}
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:2px !important;}
+.lang-toggle, .mc-nav .lang-toggle{border-radius:2px !important;}
+.serif, .chap h2, .cn, .stat-n, .minrow b, .grp-t, .grp h2, .panel h2, .srcbox h2, .majors-title,
+.hero h1, h1, h2, h3, .mc-brand b{font-family:var(--font-display); font-weight:400; letter-spacing:0; color:var(--band);}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .cn, [dir="rtl"] .stat-n, [dir="rtl"] .minrow b,
+[dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2, [dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title,
+[dir="rtl"] .hero h1, [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] .mc-brand b{
+  font-family:var(--font-ar); font-weight:600; letter-spacing:0; line-height:1.35;}
+a{color:var(--accent);}
+::selection{background:var(--paper-2); color:var(--band);}
+:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{outline:2px solid var(--gold-dark); outline-offset:2px;}
+button, input, select, textarea{font-family:var(--font-body);}
+[dir="rtl"] button, [dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
+
+/* ---- labels: IBM Plex Mono uppercase, like the main site ---- */
+.kicker, .eyebrow, .sec h3, .lbl, .toc h2, .row h4, th, .controls h2, .section-chip, .subj, .tag,
+.mc-brand span, .mc-site, .mc-book, .ml, .wl, .count, .badge, .pill{font-family:var(--font-label);}
+[dir="rtl"] .kicker, [dir="rtl"] .eyebrow, [dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2,
+[dir="rtl"] .row h4, [dir="rtl"] th, [dir="rtl"] .controls h2, [dir="rtl"] .section-chip, [dir="rtl"] .subj,
+[dir="rtl"] .tag, [dir="rtl"] .mc-site, [dir="rtl"] .mc-book, [dir="rtl"] .ml, [dir="rtl"] .wl,
+[dir="rtl"] .count, [dir="rtl"] .badge, [dir="rtl"] .pill{font-family:var(--font-ar);}
+.kicker, .eyebrow{color:var(--gold-dark); font-weight:500; font-size:12px; letter-spacing:.2em;}
+.sec h3, .lbl, .toc h2, .row h4, .controls h2{color:var(--gold-dark); font-weight:500;}
+.section-chip{background:var(--paper-2); color:var(--gold-dark); border:1px solid var(--line);}
+
+/* ---- masthead: the blue band ---- */
+.mc-nav{background:var(--band); color:var(--on-band); border-bottom:1px solid var(--band-line);}
+.mc-brand, .mc-brand b{color:var(--on-band);}
+.mc-brand b{font-weight:600; font-size:21px;}
+.mc-brand span{color:var(--gold); font-size:10.5px; letter-spacing:.12em;}
+.mc-brand{gap:12px; flex:0 0 auto;}
+.mc-nav-links{font-family:var(--font-body); font-size:15px; letter-spacing:0; gap:15px;}
+[dir="rtl"] .mc-nav-links{font-family:var(--font-ar); font-size:15px;}
+.mc-nav-links a{color:var(--on-band-link); border-bottom:1px solid transparent;}
+.mc-nav-links a:hover{color:var(--on-band);}
+.mc-nav-links a[aria-current="page"]{color:var(--gold); border-bottom-color:var(--gold);}
+.mc-site{color:var(--on-band-muted); font-size:12px;}
+.mc-site:hover{color:var(--on-band); border-bottom-color:var(--band-line);}
+.mc-book{color:var(--gold); border:1px solid var(--gold); font-size:12px; padding:6px 12px;}
+.mc-book:hover{background:var(--gold); color:var(--band); border-color:var(--gold);}
+.mc-nav .lang-toggle{background:var(--gold); border:1px solid var(--gold); color:var(--band);
+  font-family:var(--font-label); font-weight:600; letter-spacing:.06em; padding:6px 14px;}
+.mc-nav .lang-toggle:hover{background:var(--on-band); border-color:var(--on-band); color:var(--band);}
+@media (max-width:1560px){ .mc-brand span{display:none;} }
+@media (max-width:1360px){ .mc-site{display:none;} }
+
+/* ---- page header ---- */
+.hero h1{color:var(--band); font-weight:400;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+
+/* ---- surfaces ---- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .stat, .nextbox, .m, .fact, .pt, .card, .grp,
+.rt, .opp, .lede, .parentbox, .crossbox{background:var(--card); border-color:var(--line-2);}
+.mcard:hover, .pcard:hover, .m:hover, .rt:hover, .card:hover{border-color:var(--gold);}
+.pcard, .lede, .pt{border-inline-start-color:var(--gold) !important;}
+.bar, .quizbar, .cta-inline, .found, .wh, .evnote, .gaps{background:var(--paper-2); border-color:var(--line);}
+.rule.w, .checked, .hedge, .extra, .flag{background:var(--warn-soft); border-color:var(--warn-line);}
+.rule.b{background:var(--bad-soft); border-color:var(--bad-line);}
+.rule.n, .row.act{background:var(--paper-2) !important; border-color:var(--line) !important;}
+hr{border-top-color:var(--line);}
+
+/* ---- buttons ---- */
+.btn, .startbtn, .cta, button.primary, .navbtn.next{
+  background:var(--band); border:1px solid var(--band); color:var(--on-band); font-weight:500; letter-spacing:0;
+  font-family:var(--font-body); text-transform:none;}
+.btn:hover, .startbtn:hover, .cta:hover, .navbtn.next:hover{background:var(--royal); border-color:var(--royal); color:var(--on-band);}
+.btn.ghost, .btn.secondary, .printbtn{background:transparent; color:var(--band); border:1px solid var(--band);}
+.btn.ghost:hover, .btn.secondary:hover, .printbtn:hover{background:var(--band); border-color:var(--band); color:var(--on-band);}
+[dir="rtl"] .btn, [dir="rtl"] .startbtn, [dir="rtl"] .cta{font-family:var(--font-ar);}
+
+/* ---- chips, filters, quiz options ---- */
+.fbtn, .chip, .navbtn, .picker button, .filters button{
+  border:1px solid var(--line-2) !important; background:transparent !important; color:var(--ink) !important;
+  font-family:var(--font-body); font-size:15px; letter-spacing:0; text-transform:none;}
+[dir="rtl"] .fbtn, [dir="rtl"] .chip, [dir="rtl"] .navbtn{font-family:var(--font-ar);}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--band) !important; color:var(--band) !important;}
+.fbtn.on, .chip.on, .navbtn.on{background:var(--band) !important; border-color:var(--band) !important; color:var(--on-band) !important;}
+.subj, .tag{background:transparent !important; border:1px solid var(--line-2) !important; color:var(--ink-3) !important;
+  font-size:10.5px; letter-spacing:.14em;}
+[dir="rtl"] .subj, [dir="rtl"] .tag{font-size:13px; letter-spacing:0;}
+.opt{background:var(--card); border-color:var(--line-2); color:var(--ink);}
+.opt:hover{border-color:var(--band);}
+.opt.selected{background:var(--paper-2); border-color:var(--band); color:var(--band);}
+.progress-bar, .bar-track{background:var(--paper-2);}
+.progress-fill, .bar-fill{background:var(--band);}
+input[type="text"], input[type="search"], select, textarea, .srch{border:1px solid var(--line-2); background:var(--card); color:var(--ink);}
+.mrank{color:var(--gold-dark) !important; font-family:var(--font-display);}
+[dir="rtl"] .mrank{font-family:var(--font-ar);}
+
+/* ---- tables ---- */
+th{color:var(--gold-dark); border-bottom:1px solid var(--band); font-weight:500;}
+td{border-bottom:1px solid var(--line); color:var(--ink);}
+
+/* ---- footer ---- */
+footer.site{border-top:1px solid var(--line); color:var(--ink-3);}
+footer.site a{color:var(--accent);}
+
+@media (max-width:760px){ .mc-brand b{font-size:18px;} }
+</style>
+<style id="wpbar-css">
+/* WPBAR: the exact site header from saqeralkhalifa.com, replicated for the tool sites. */
+.wpbar{background:#152A55;font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
+.wpbar-in{margin-left:40px;margin-right:40px;padding-top:14px;padding-bottom:14px;padding-left:min(104px,8vw);padding-right:min(104px,8vw);}
+.wpbar-row{width:100%;max-width:1280px;margin-left:auto;margin-right:auto;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;direction:ltr;}
+.wpright{display:flex;align-items:flex-start;gap:20px;}
+html[lang="ar"] .wpright{direction:rtl;}
+.wpbrand{font-size:20px;line-height:33px;margin-top:-1px;margin-bottom:1px;font-weight:500;color:#F3EADA;text-decoration:none;letter-spacing:.2px;white-space:nowrap;border:0;}
+.wpnav{display:flex;align-items:flex-start;gap:20px;flex-wrap:nowrap;margin-top:4px;line-height:19px;}
+.wpdd{line-height:19px;}
+.wpnav-ar{direction:rtl;font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+html[lang="ar"] .wpnav-en{display:none;}
+html:not([lang="ar"]) .wpnav-ar{display:none;}
+.wpitem{display:flex;align-items:center;font-size:15px;font-weight:500;color:#F3EADA;text-decoration:none;white-space:nowrap;border:0;line-height:19px;}
+.wpnav-ar .wpitem{font-size:15px;font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+.wpitem:hover{color:#C09A45;}
+.wplang{background:none;border:0;cursor:pointer;padding:0;margin-top:4px;font-family:'EB Garamond',Georgia,'Times New Roman',serif !important;line-height:19px;}
+.wpcaret{width:10.8px;height:10.8px;margin:0 0 0 4.5px;position:relative;top:3px;flex:none;}
+.wpcaret path{stroke:#F3EADA;}
+.wpitem:hover .wpcaret path{stroke:#C09A45;}
+.wpnav-ar .wpcaret{margin:0 4.5px 0 0;}
+.wpdd{position:relative;}
+.wpmenu{display:none;position:absolute;top:100%;left:-14px;padding-top:10px;min-width:250px;z-index:300;}
+.wpnav-ar .wpmenu{left:auto;right:-14px;text-align:right;}
+.wpdd:hover .wpmenu,.wpdd:focus-within .wpmenu{display:block;}
+.wpmenu > a{display:block;background:#152A55;border:1px solid rgba(0,0,0,.15);border-top:0;padding:9px 16px;font-size:18px;line-height:1.65;color:#F3EADA;text-decoration:none;white-space:nowrap;font-weight:500;}
+.wpmenu > a:first-child{border-top:1px solid #2E4477;border-radius:2px 2px 0 0;}
+.wpmenu > a:last-child{border-radius:0 0 2px 2px;}
+.wpmenu > a:hover{color:#C09A45;}
+.wpburger{display:none;background:none;border:0;padding:0;color:#F3EADA;font-size:20px;line-height:24px;cursor:pointer;}
+.wpburger:hover{color:#C09A45;}
+.wpmob{display:none;}
+.wpmob-nav a{display:block;color:#F3EADA;text-decoration:none;font-weight:500;font-family:'EB Garamond',Georgia,serif;}
+.wpmob-nav a.wpmob-top{font-size:19px;padding:12px 20px 12px 20px;border-top:1px solid #2E4477;margin-top:10px;}
+.wpmob-nav a.wpmob-top:first-child{border-top:0;margin-top:0;}
+.wpmob-nav a.wpmob-sub{font-size:16px;padding:7px 20px 7px 38px;color:#CBD5EA;}
+.wpmob-nav a:hover{color:#C09A45;}
+.wpmob-ar{direction:rtl;text-align:right;}
+.wpmob-ar a{font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+.wpmob-ar a.wpmob-sub{padding:8px 38px 8px 20px;}
+html[lang="ar"] .wpmob-en{display:none;}
+html:not([lang="ar"]) .wpmob-ar{display:none;}
+@media (max-width:1149px){
+.wpbar-in{margin-left:0;margin-right:0;padding:9px 18px;}
+.wpbar-row{max-width:none;align-items:center;gap:14px;}
+.wpright{align-items:center;gap:14px;}
+.wpnav{display:none !important;}
+.wpbrand{margin-right:auto;}
+html[lang="ar"] .wpbrand{margin-right:0;margin-left:auto;}
+.wplang{margin-top:0;}
+.wpburger{display:block;}
+.wpbar.open .wpmob{display:block;background:#152A55;border-top:1px solid #2E4477;max-height:calc(100vh - 51px);overflow-y:auto;}
+}
+
+</style>
+</head>
+<body>
+<div class="wpbar" id="wpbar"><div class="wpbar-in"><div class="wpbar-row"><a class="wpbrand" href="https://saqeralkhalifa.com/">Dr. Saqer AlKhalifa</a><div class="wpright"><nav class="wpnav wpnav-en"><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/major-compass/">For Students<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="quiz.html">Major Compass Quiz</a><a href="explore.html">Every Major Explained</a><a href="entry.html">Entry Requirements</a><a href="scholarships.html">Scholarships and Funding</a><a href="parents.html">Parent Guide</a><a href="ai.html">AI and Your Major</a><a href="routes.html">What a Dealbreaker Closes</a><a href="alternatives.html">Routes Without a Degree</a><a href="internships.html?lang=en">Internships</a><a href="cv.html?lang=en">Build a CV</a></div></div><div class="wpdd"><a class="wpitem" href="https://gigs.saqeralkhalifa.com/?lang=en">For Job Seekers<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://gigs.saqeralkhalifa.com/?lang=en">Gigs Board</a><a href="https://gigs.saqeralkhalifa.com/?lang=en#jobs">Full-time Jobs</a><a href="internships.html?lang=en">Internships</a><a href="cv.html?lang=en">Build a CV</a><a href="https://saqeralkhalifa.com/post-a-gig/">Post a Gig</a><a href="https://saqeralkhalifa.com/find-work/">Find Work</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/#book">Shackles of Democracy<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/#book">The Book</a><a href="https://saqeralkhalifa.com/first-chapter/">First Chapter Free</a><a href="https://saqeralkhalifa.com/#formats">Choose Your Format</a><a href="https://saqeralkhalifa.com/#stores">Where to Buy</a><a href="https://saqeralkhalifa.com/check/">The Data</a><a href="https://saqeralkhalifa.com/arabic/">Arabic Edition</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/the-trust-trap/">The Trust Trap<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/the-trust-trap/">About the Book</a><a href="https://saqeralkhalifa.com/the-trust-trap/#chapters">Inside the Book</a><a href="https://saqeralkhalifa.com/the-trust-trap/#resources">Free Resources</a><a href="https://saqeralkhalifa.com/the-trust-trap/#faq">Questions</a><a href="https://saqeralkhalifa.com/the-trust-trap/#buy">Where to Buy</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/#author">About</a><a class="wpitem" href="https://saqeralkhalifa.com/#contact">Contact</a><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/blog/">Blog<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/blog/">All Articles</a><a href="https://saqeralkhalifa.com/category/trust-by-design/">Trust by Design</a><a href="https://saqeralkhalifa.com/category/reform-theater/">Reform Theater</a><a href="https://saqeralkhalifa.com/category/country-cases/">Country Cases</a><a href="https://saqeralkhalifa.com/category/institutional-memory/">Institutional Memory</a><a href="https://saqeralkhalifa.com/category/politics/">Politics</a><a href="https://saqeralkhalifa.com/category/economics/">Economics</a><a href="https://saqeralkhalifa.com/category/social/">Social</a><a href="https://saqeralkhalifa.com/category/published-and-mentions/">Published & Mentions</a><a href="https://saqeralkhalifa.com/category/interesting/">Interesting</a></div></div></nav><nav class="wpnav wpnav-ar"><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/major-compass/#ar">للطلبة<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="quiz.html?lang=ar">بوصلة التخصص</a><a href="explore.html?lang=ar">استكشف التخصصات</a><a href="entry.html?lang=ar">شروط القبول</a><a href="scholarships.html?lang=ar">المنح والتمويل</a><a href="parents.html?lang=ar">دليل أولياء الأمور</a><a href="ai.html?lang=ar">الذكاء الاصطناعي وتخصصك</a><a href="routes.html?lang=ar">ماذا يغلق كل شرط</a><a href="alternatives.html?lang=ar">مسارات بدون شهادة</a><a href="internships.html?lang=ar">فرص التدريب</a><a href="cv.html?lang=ar">السيرة الذاتية</a></div></div><div class="wpdd"><a class="wpitem" href="https://gigs.saqeralkhalifa.com/?lang=ar">للباحثين عن عمل<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://gigs.saqeralkhalifa.com/?lang=ar">لوحة الأعمال القصيرة</a><a href="https://gigs.saqeralkhalifa.com/?lang=ar#jobs">الوظائف الدائمة</a><a href="internships.html?lang=ar">فرص التدريب</a><a href="cv.html?lang=ar">السيرة الذاتية</a><a href="https://saqeralkhalifa.com/post-a-gig/">انشر فرصة</a><a href="https://saqeralkhalifa.com/find-work/">سجّل بياناتك</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/arabic/#book">أغلال الديمقراطية<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/arabic/#book">الكتاب</a><a href="https://saqeralkhalifa.com/readers/">الفصل الأول مجانا</a><a href="https://saqeralkhalifa.com/arabic/#buy">الشراء</a><a href="https://saqeralkhalifa.com/check-ar/">البيانات</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/the-trust-trap-ar/">مصيدة الثقة</a><a class="wpitem" href="https://saqeralkhalifa.com/arabic/#author">نبذة</a><a class="wpitem" href="https://saqeralkhalifa.com/#contact">تواصل</a><a class="wpitem" href="https://saqeralkhalifa.com/blog/">المدونة</a></nav><button class="wpitem wplang" id="langToggle" type="button">العربية</button><button class="wpburger" id="wpburger" type="button" aria-label="Open menu">☰</button></div></div></div><div class="wpmob"><div class="wpmob-nav wpmob-en"><a class="wpmob-top" href="https://saqeralkhalifa.com/major-compass/">For Students</a><a class="wpmob-sub" href="quiz.html">Major Compass Quiz</a><a class="wpmob-sub" href="explore.html">Every Major Explained</a><a class="wpmob-sub" href="entry.html">Entry Requirements</a><a class="wpmob-sub" href="scholarships.html">Scholarships and Funding</a><a class="wpmob-sub" href="parents.html">Parent Guide</a><a class="wpmob-sub" href="ai.html">AI and Your Major</a><a class="wpmob-sub" href="routes.html">What a Dealbreaker Closes</a><a class="wpmob-sub" href="alternatives.html">Routes Without a Degree</a><a class="wpmob-sub" href="internships.html?lang=en">Internships</a><a class="wpmob-sub" href="cv.html?lang=en">Build a CV</a><a class="wpmob-top" href="https://gigs.saqeralkhalifa.com/?lang=en">For Job Seekers</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=en">Gigs Board</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=en#jobs">Full-time Jobs</a><a class="wpmob-sub" href="internships.html?lang=en">Internships</a><a class="wpmob-sub" href="cv.html?lang=en">Build a CV</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/post-a-gig/">Post a Gig</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-work/">Find Work</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#book">Shackles of Democracy</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#book">The Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/first-chapter/">First Chapter Free</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#formats">Choose Your Format</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#stores">Where to Buy</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/check/">The Data</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/">Arabic Edition</a><a class="wpmob-top" href="https://saqeralkhalifa.com/the-trust-trap/">The Trust Trap</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/">About the Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#chapters">Inside the Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#resources">Free Resources</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#faq">Questions</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#buy">Where to Buy</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#author">About</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#contact">Contact</a><a class="wpmob-top" href="https://saqeralkhalifa.com/blog/">Blog</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/blog/">All Articles</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/trust-by-design/">Trust by Design</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/reform-theater/">Reform Theater</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/country-cases/">Country Cases</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/institutional-memory/">Institutional Memory</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/politics/">Politics</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/economics/">Economics</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/social/">Social</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/published-and-mentions/">Published & Mentions</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/interesting/">Interesting</a></div><div class="wpmob-nav wpmob-ar"><a class="wpmob-top" href="https://saqeralkhalifa.com/major-compass/#ar">للطلبة</a><a class="wpmob-sub" href="quiz.html?lang=ar">بوصلة التخصص</a><a class="wpmob-sub" href="explore.html?lang=ar">استكشف التخصصات</a><a class="wpmob-sub" href="entry.html?lang=ar">شروط القبول</a><a class="wpmob-sub" href="scholarships.html?lang=ar">المنح والتمويل</a><a class="wpmob-sub" href="parents.html?lang=ar">دليل أولياء الأمور</a><a class="wpmob-sub" href="ai.html?lang=ar">الذكاء الاصطناعي وتخصصك</a><a class="wpmob-sub" href="routes.html?lang=ar">ماذا يغلق كل شرط</a><a class="wpmob-sub" href="alternatives.html?lang=ar">مسارات بدون شهادة</a><a class="wpmob-sub" href="internships.html?lang=ar">فرص التدريب</a><a class="wpmob-sub" href="cv.html?lang=ar">السيرة الذاتية</a><a class="wpmob-top" href="https://gigs.saqeralkhalifa.com/?lang=ar">للباحثين عن عمل</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=ar">لوحة الأعمال القصيرة</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=ar#jobs">الوظائف الدائمة</a><a class="wpmob-sub" href="internships.html?lang=ar">فرص التدريب</a><a class="wpmob-sub" href="cv.html?lang=ar">السيرة الذاتية</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/post-a-gig/">انشر فرصة</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-work/">سجّل بياناتك</a><a class="wpmob-top" href="https://saqeralkhalifa.com/arabic/#book">أغلال الديمقراطية</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/#book">الكتاب</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/readers/">الفصل الأول مجانا</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/#buy">الشراء</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/check-ar/">البيانات</a><a class="wpmob-top" href="https://saqeralkhalifa.com/the-trust-trap-ar/">مصيدة الثقة</a><a class="wpmob-top" href="https://saqeralkhalifa.com/arabic/#author">نبذة</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#contact">تواصل</a><a class="wpmob-top" href="https://saqeralkhalifa.com/blog/">المدونة</a></div></div><script>(function(){var b=document.getElementById("wpburger"),w=document.getElementById("wpbar");if(b&&w){b.addEventListener("click",function(){var o=w.classList.toggle("open");b.textContent=o?"✕":"☰";b.setAttribute("aria-label",o?"Close menu":"Open menu");});}var t=document.getElementById("langToggle");if(!t)return;function fix(){var ar=document.documentElement.lang==="ar";var want=ar?"English":"العربية";if(t.textContent.trim()!==want){t.textContent=want;}}fix();new MutationObserver(fix).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});new MutationObserver(fix).observe(t,{childList:true,characterData:true,subtree:true});})();</script></div>
+<div class="wrap">
+<div class="hero">
+    <h1 class="serif" id="t-title"></h1>
+    <p id="t-sub"></p>
+  </div>
+
+  <div class="rules">
+    <div class="rule w"><h3 id="warnT"></h3><p id="warn"></p></div>
+    <div class="rule n"><h3 id="warn2T"></h3><p id="warn2"></p></div>
+  </div>
+
+  <div class="panel">
+    <div class="picker"><span class="lbl" id="q1"></span><div class="filters" id="currs"></div></div>
+    <div class="picker" id="trackrow"><span class="lbl" id="q2"></span><div class="filters" id="tracks"></div></div>
+    <div class="picker"><span class="lbl" id="q3"></span>
+      <div class="scorewrap">
+        <input class="score" id="score" type="number" step="0.01" inputmode="decimal">
+        <span class="hint" id="hint"></span>
+      </div>
+    </div>
+    <div class="picker" style="margin-bottom:0;"><span class="lbl" id="q4"></span><div class="filters" id="ctys"></div></div>
+  </div>
+
+  <h2 class="serif" id="resT" style="font-size:1.5rem; margin:30px 0 16px;"></h2>
+  <div id="list"></div>
+
+  <div class="panel">
+    <h2 id="eqT"></h2>
+    <div id="eq"></div>
+  </div>
+
+  <div class="panel">
+    <h2 id="gateT"></h2>
+    <div id="gate"></div>
+  </div>
+
+  <div class="panel">
+    <h2 id="loseT"></h2>
+    <p class="sub" id="loseS"></p>
+    <div id="lose"></div>
+  </div>
+
+  <div class="panel">
+    <h2 id="calT"></h2>
+    <p class="sub" id="calS"></p>
+    <div id="cal"></div>
+  </div>
+
+  <div class="panel">
+    <h2 id="engT"></h2>
+    <p class="sub" id="engS"></p>
+    <table><tbody id="engTable"></tbody></table>
+    <p class="tnote" id="engNote"></p>
+  </div>
+
+  <div class="checked">
+    <b id="lastT"></b>
+    <p id="last"></p>
+  </div>
+
+  <div class="crosslinks">
+  <div class="bar">
+    <p id="t-quizline"></p>
+    <a class="btn" id="t-quizbtn" href="quiz.html"></a>
+  </div>
+  <div class="bar">
+    <p id="t-schline"></p>
+    <a class="btn ghost" id="t-schbtn" href="scholarships.html"></a>
+  </div>
+  <div class="bar">
+    <p id="t-parline"></p>
+    <a class="btn ghost" id="t-parbtn" href="parents.html"></a>
+  </div>
+
+  </div>
+
+  <footer class="site">
+    <p class="disc" id="t-disc"></p>
+    <p id="t-foot"></p>
+  </footer>
+</div>
+<script>
+/* ===== Entry checker, part 1: Bahrain and Kuwait ===== */
+/* track codes: sci = science, lit = literary or humanities, com = commercial, tech = technological or industrial */
+
+const P1 = [
+
+/* ---------------- BAHRAIN ---------------- */
+{id:"uob-health", ct:"bh",
+ inst:{en:"University of Bahrain", ar:"جامعة البحرين"},
+ prog:{en:"Nursing, Pharmacy, Medical Laboratory Science, Radiologic Technology", ar:"التمريض والصيدلة وعلوم المختبرات الطبية وتقنية الأشعة"},
+ nat:{min:90, tracks:["sci"]},
+ note:{en:"The university wide floor is 70%, but these programmes publish a conditional average of 90% and admit competitively against a fixed number of places.",
+       ar:"الحد الأدنى العام للجامعة ٧٠٪، لكن هذه البرامج تنشر معدلًا مشروطًا قدره ٩٠٪ وتقبل تنافسيًا ضمن عدد محدد من المقاعد."},
+ eng:{en:"Foundation Programme is compulsory unless exempt. Exemption: 90% or above in secondary school, or 90% in secondary English, or IELTS 5.5, or TOEFL 500 within the last two years, or passing the English section of the university's General Aptitude Test.",
+      ar:"البرنامج التأسيسي إلزامي ما لم تُعفَ منه. الإعفاء: ٩٠٪ فأعلى في الثانوية، أو ٩٠٪ في مادة الإنجليزية، أو آيلتس ٥٫٥، أو توفل ٥٠٠ خلال آخر سنتين، أو اجتياز قسم الإنجليزية في اختبار القدرات العامة بالجامعة."},
+ test:{en:"An admission test or interview is required for these programmes.", ar:"يُطلب اختبار قبول أو مقابلة لهذه البرامج."},
+ url:"https://www.uob.edu.bh/join-uobv4/"},
+
+{id:"uob-eng", ct:"bh",
+ inst:{en:"University of Bahrain", ar:"جامعة البحرين"},
+ prog:{en:"Engineering, all branches", ar:"الهندسة بجميع تخصصاتها"},
+ nat:{min:85, tracks:["sci","tech"]},
+ note:{en:"Accepted tracks are Scientific, Industrial Developed, Unified Scientific and Nasser Centre. A literary track student cannot enter engineering here.",
+       ar:"المسارات المقبولة: العلمي، والصناعي المطور، والموحد العلمي، ومركز ناصر. ولا يمكن لطالب المسار الأدبي دخول الهندسة هنا."},
+ eng:{en:"Foundation Programme compulsory unless exempt. Teaching is in English.", ar:"البرنامج التأسيسي إلزامي ما لم تُعفَ منه. والتدريس بالإنجليزية."},
+ test:{en:"Architecture and Interior Architecture require an admission test. Other engineering programmes are listed as not requiring one, though the university's own pages disagree on this point, so confirm.",
+       ar:"العمارة والعمارة الداخلية تتطلبان اختبار قبول. وبقية برامج الهندسة مذكورة على أنها لا تتطلب اختبارًا، رغم اختلاف صفحات الجامعة نفسها في هذه النقطة، فتأكد."},
+ url:"https://www.uob.edu.bh/join-uobv4/"},
+
+{id:"uob-it", ct:"bh",
+ inst:{en:"University of Bahrain", ar:"جامعة البحرين"},
+ prog:{en:"Computer Science, Software Engineering, Computer Engineering, Network Engineering, Cloud Computing, Cybersecurity", ar:"علوم الحاسوب وهندسة البرمجيات وهندسة الحاسوب وهندسة الشبكات والحوسبة السحابية والأمن السيبراني"},
+ nat:{min:85, tracks:["sci","tech"]},
+ note:{en:"Computer Science and Software Engineering take Scientific and Unified Scientific only. Computer Engineering, Network Engineering and Cybersecurity also take Industrial tracks.",
+       ar:"علوم الحاسوب وهندسة البرمجيات تقبلان العلمي والموحد العلمي فقط. أما هندسة الحاسوب وهندسة الشبكات والأمن السيبراني فتقبل أيضًا المسارات الصناعية."},
+ eng:{en:"Foundation Programme compulsory unless exempt. Teaching is in English.", ar:"البرنامج التأسيسي إلزامي ما لم تُعفَ منه. والتدريس بالإنجليزية."},
+ url:"https://www.uob.edu.bh/join-uobv4/"},
+
+{id:"uob-is", ct:"bh",
+ inst:{en:"University of Bahrain", ar:"جامعة البحرين"},
+ prog:{en:"Information Systems", ar:"نظم المعلومات"},
+ nat:{min:82, tracks:["sci","com","tech"]},
+ note:{en:"This is the one computing programme at the university open to commercial and administrative tracks as well as scientific.",
+       ar:"هذا هو البرنامج الحاسوبي الوحيد في الجامعة المفتوح للمسارات التجارية والإدارية إلى جانب العلمي."},
+ eng:{en:"Foundation Programme compulsory unless exempt.", ar:"البرنامج التأسيسي إلزامي ما لم تُعفَ منه."},
+ url:"https://www.uob.edu.bh/join-uobv4/"},
+
+{id:"uob-sci", ct:"bh",
+ inst:{en:"University of Bahrain", ar:"جامعة البحرين"},
+ prog:{en:"Mathematics, Physics, Biology, Chemistry, Actuarial Science, Statistics and Data Science", ar:"الرياضيات والفيزياء والأحياء والكيمياء وعلوم الاكتوارية والإحصاء وعلم البيانات"},
+ nat:{min:82, tracks:["sci"]},
+ eng:{en:"Foundation Programme compulsory unless exempt. Teaching is in English.", ar:"البرنامج التأسيسي إلزامي ما لم تُعفَ منه. والتدريس بالإنجليزية."},
+ test:{en:"Actuarial Science requires an admission test.", ar:"علوم الاكتوارية تتطلب اختبار قبول."},
+ url:"https://www.uob.edu.bh/join-uobv4/"},
+
+{id:"uob-bus", ct:"bh",
+ inst:{en:"University of Bahrain", ar:"جامعة البحرين"},
+ prog:{en:"Business Administration, all programmes", ar:"إدارة الأعمال بجميع برامجها"},
+ nat:{min:82, tracks:["sci","lit","com"]},
+ note:{en:"Open to Scientific, Literary and all Commercial tracks. Banking and Islamic Banking also accept the Religious track.",
+       ar:"مفتوحة للمسار العلمي والأدبي وجميع المسارات التجارية. والمصرفية والمصرفية الإسلامية تقبلان أيضًا المسار الشرعي."},
+ eng:{en:"Foundation Programme compulsory unless exempt. Teaching is in English.", ar:"البرنامج التأسيسي إلزامي ما لم تُعفَ منه. والتدريس بالإنجليزية."},
+ url:"https://www.uob.edu.bh/join-uobv4/"},
+
+{id:"uob-law", ct:"bh",
+ inst:{en:"University of Bahrain", ar:"جامعة البحرين"},
+ prog:{en:"Law", ar:"القانون"},
+ nat:{min:82, tracks:["sci","lit","com"]},
+ eng:{en:"Taught in Arabic.", ar:"التدريس بالعربية."},
+ url:"https://www.uob.edu.bh/join-uobv4/"},
+
+{id:"uob-arts", ct:"bh",
+ inst:{en:"University of Bahrain", ar:"جامعة البحرين"},
+ prog:{en:"Arabic, English, Mass Communication, Tourism, History, Islamic Studies, Arts and Design", ar:"العربية والإنجليزية والإعلام والسياحة والتاريخ والدراسات الإسلامية والفنون والتصميم"},
+ nat:{min:80, tracks:["sci","lit","com","tech"]},
+ eng:{en:"Foundation Programme compulsory unless exempt. Arabic, Islamic Studies and History are taught in Arabic. Mass Communication and Arts and Design are half Arabic and half English.",
+      ar:"البرنامج التأسيسي إلزامي ما لم تُعفَ منه. العربية والدراسات الإسلامية والتاريخ تُدرَّس بالعربية. والإعلام والفنون والتصميم مناصفة بين العربية والإنجليزية."},
+ test:{en:"Mass Communication, History, Arts and Design, and English Language and Literature require an admission test.",
+       ar:"الإعلام والتاريخ والفنون والتصميم واللغة الإنجليزية وآدابها تتطلب اختبار قبول."},
+ url:"https://www.uob.edu.bh/join-uobv4/"},
+
+{id:"uob-applied", ct:"bh",
+ inst:{en:"University of Bahrain", ar:"جامعة البحرين"},
+ prog:{en:"Applied Studies, associate diplomas", ar:"الدراسات التطبيقية، دبلوم مشارك"},
+ nat:{min:70, tracks:["sci","lit","com","tech"]},
+ note:{en:"This is the realistic route for a student in the seventies. Business diplomas take commercial and literary tracks; technical diplomas need Scientific or Industrial. A diploma can later be used to transfer into a bachelor's.",
+       ar:"هذا هو المسار الواقعي لمن معدله في السبعينات. دبلومات الأعمال تقبل المسارين التجاري والأدبي، أما الدبلومات التقنية فتتطلب العلمي أو الصناعي. ويمكن استخدام الدبلوم لاحقًا للتحويل إلى بكالوريوس."},
+ url:"https://www.uob.edu.bh/join-uobv4/"},
+
+{id:"poly", ct:"bh",
+ inst:{en:"Bahrain Polytechnic", ar:"بوليتكنك البحرين"},
+ prog:{en:"All programmes", ar:"جميع البرامج"},
+ nat:{min:70, tracks:["sci","lit","com","tech"]},
+ alevel:{en:"British system: minimum grade C. An equivalence letter from the Ministry of Education Examinations Directorate is required.",
+         ar:"النظام البريطاني: الحد الأدنى تقدير C. ويُطلب خطاب معادلة من إدارة الامتحانات بوزارة التربية والتعليم."},
+ cbse:{min:70, en:"Indian and Pakistani systems: 70% cumulative or equivalent.", ar:"الأنظمة الهندية والباكستانية: ٧٠٪ تراكمي أو ما يعادله."},
+ eng:{en:"<b>IELTS and internet based TOEFL are not accepted here and do not exempt you from testing.</b> Every applicant sits the Oxford Online Placement Test for English and the Password Mathematics test. This is unusual in the region and catches people out.",
+      ar:"<b>آيلتس وتوفل الإنترنت غير مقبولين هنا ولا يعفيانك من الاختبار.</b> كل متقدم يؤدي اختبار أوكسفورد الإلكتروني للإنجليزية واختبار باسوورد للرياضيات. وهذا غير معتاد في المنطقة ويفاجئ الكثيرين."},
+ fall:{en:"If you fall short there is the Certificate in Academic Preparation, but progression into a degree is not automatic and can be limited by available places.",
+       ar:"إن لم تحقق المطلوب فهناك شهادة الإعداد الأكاديمي، لكن الانتقال إلى البكالوريوس ليس تلقائيًا وقد تحدّه المقاعد المتاحة."},
+ url:"https://www.polytechnic.bh/admission/entry-requirements/"},
+
+{id:"rcsi-med5", ct:"bh",
+ inst:{en:"RCSI Medical University of Bahrain", ar:"الكلية الملكية للجراحين في البحرين"},
+ prog:{en:"Medicine, five year direct entry", ar:"الطب، الدخول المباشر لخمس سنوات"},
+ nat:{min:null, tracks:[], en:"Not offered on this route. A Tawjihiya or American diploma student applies to the six year route below.",
+      ar:"غير متاح على هذا المسار. طالب الثانوية العامة أو الدبلوم الأمريكي يتقدم لمسار الست سنوات أدناه."},
+ alevel:{en:"<b>ABB or AAC.</b> Chemistry plus one further laboratory science (Biology or Physics), plus one of Biology, Physics, Maths or Psychology. GCSE Maths at C or 4. At least six IGCSE subjects including grade C in English and Mathematics.",
+         ar:"<b>ABB أو AAC.</b> الكيمياء مع علم مختبري آخر (أحياء أو فيزياء)، إضافة إلى واحدة من الأحياء أو الفيزياء أو الرياضيات أو علم النفس. ورياضيات IGCSE بتقدير C أو ٤. وستة مواد IGCSE على الأقل تشمل تقدير C في الإنجليزية والرياضيات."},
+ ib:{min:35, en:"<b>35 points including bonus.</b> Chemistry at Higher Level minimum 5, plus Biology, Physics or Maths at Higher Level.",
+     ar:"<b>٣٥ نقطة شاملة النقاط الإضافية.</b> الكيمياء في المستوى العالي بحد أدنى ٥، مع الأحياء أو الفيزياء أو الرياضيات في المستوى العالي."},
+ eng:{en:"IELTS Academic 6.5 with no band below 6.0, or GCSE English at C or 4, or IB English Standard Level 5.",
+      ar:"آيلتس أكاديمي ٦٫٥ دون نزول أي قسم عن ٦٫٠، أو إنجليزية IGCSE بتقدير C أو ٤، أو الإنجليزية في المستوى العادي بالبكالوريا الدولية بدرجة ٥."},
+ test:{en:"No UCAT or HPAT. Selection includes a structured interview.", ar:"لا يوجد اختبار UCAT ولا HPAT. ويشمل الاختيار مقابلة منظمة."},
+ url:"https://www.rcsi.com/bahrain/undergraduate/medicine/entry-requirements"},
+
+{id:"rcsi-med6", ct:"bh",
+ inst:{en:"RCSI Medical University of Bahrain", ar:"الكلية الملكية للجراحين في البحرين"},
+ prog:{en:"Medicine, six year route with Foundation Year", ar:"الطب، مسار الست سنوات مع السنة التأسيسية"},
+ nat:{min:97, tracks:["sci"]},
+ note:{en:"This is the route for a GCC Tawjihiya holder. The published requirement is a <b>97% cumulative average in the science stream</b>. Note that RCSI's downloadable PDF still says 95%, so confirm the current figure with the university before you rely on it.",
+       ar:"هذا هو مسار حامل الثانوية العامة الخليجية. والشرط المنشور هو <b>معدل تراكمي ٩٧٪ في القسم العلمي</b>. ولاحظ أن ملف الكلية القابل للتحميل ما زال يذكر ٩٥٪، فتأكد من الرقم الحالي مع الجامعة قبل الاعتماد عليه."},
+ alevel:{en:"BCC from Biology, Chemistry, Physics or Maths, with GCSE Maths at C or 4.", ar:"BCC من الأحياء أو الكيمياء أو الفيزياء أو الرياضيات، مع رياضيات IGCSE بتقدير C أو ٤."},
+ ib:{min:30, en:"30 points including bonus.", ar:"٣٠ نقطة شاملة النقاط الإضافية."},
+ us:{min:92, en:"American High School Diploma: 92% or 3.60 GPA across grades 10 to 12, plus SAT 500 in Evidence Based Reading and Writing and 550 in Maths.",
+     ar:"الدبلوم الأمريكي: ٩٢٪ أو معدل ٣٫٦٠ عبر الصفوف ١٠ إلى ١٢، مع سات ٥٠٠ في القراءة والكتابة و٥٥٠ في الرياضيات."},
+ eng:{en:"IELTS Academic 6.5 with no band below 6.0.", ar:"آيلتس أكاديمي ٦٫٥ دون نزول أي قسم عن ٦٫٠."},
+ url:"https://www.rcsi.com/bahrain/undergraduate/medicine/entry-requirements"},
+
+{id:"rcsi-mcp", ct:"bh",
+ inst:{en:"RCSI Medical University of Bahrain", ar:"الكلية الملكية للجراحين في البحرين"},
+ prog:{en:"Medical Commencement Programme, one year before the Foundation Year", ar:"برنامج البدء الطبي، سنة قبل السنة التأسيسية"},
+ nat:{min:94, tracks:["sci"]},
+ note:{en:"New from September 2026, and the most realistic medicine route for a strong student who is short of 97%. MENA Tawjihiya 94%, or an American or private high school diploma at 90% or 3.50.",
+       ar:"جديد من سبتمبر ٢٠٢٦، وهو أكثر مسارات الطب واقعية لطالب متميز لم يبلغ ٩٧٪. الثانوية العربية ٩٤٪، أو دبلوم أمريكي أو خاص بنسبة ٩٠٪ أو معدل ٣٫٥٠."},
+ us:{min:90, en:"American or private high school diploma at 90% or 3.50 GPA.", ar:"دبلوم أمريكي أو خاص بنسبة ٩٠٪ أو معدل ٣٫٥٠."},
+ cbse:{min:70, en:"CBSE or ICSE: 70% in grade XII with no subject below 65%, including three of Biology, Biotechnology, Chemistry, Maths, Physics.",
+       ar:"سي بي إس إي أو آي سي إس إي: ٧٠٪ في الصف الثاني عشر دون نزول أي مادة عن ٦٥٪، وتشمل ثلاثًا من الأحياء والتقنية الحيوية والكيمياء والرياضيات والفيزياء."},
+ eng:{en:"Entry at IELTS Academic 5.5 with no band below 5.0. <b>To progress into the Foundation Year you must then reach IELTS 6.5 with no band below 6.0.</b>",
+      ar:"الدخول بآيلتس أكاديمي ٥٫٥ دون نزول أي قسم عن ٥٫٠. <b>وللانتقال إلى السنة التأسيسية عليك بعدها بلوغ آيلتس ٦٫٥ دون نزول أي قسم عن ٦٫٠.</b>"},
+ url:"https://www.rcsi.com/bahrain/undergraduate/medical-commencement-programme/entry-requirements"},
+
+{id:"rcsi-nurs", ct:"bh",
+ inst:{en:"RCSI Medical University of Bahrain", ar:"الكلية الملكية للجراحين في البحرين"},
+ prog:{en:"Nursing", ar:"التمريض"},
+ nat:{min:80, tracks:["sci","com"]},
+ note:{en:"Worth knowing: this is one of the very few health programmes in Bahrain that accepts a <b>commercial track</b> student. The University of Bahrain's nursing programme does not.",
+       ar:"يستحق المعرفة: هذا من البرامج الصحية القليلة جدًا في البحرين التي تقبل طالب <b>المسار التجاري</b>. أما برنامج التمريض في جامعة البحرين فلا يقبله."},
+ alevel:{en:"Two A-levels at CC, or four AS-levels at CCCC, plus six IGCSE subjects.", ar:"مادتان في المستوى المتقدم بتقدير CC، أو أربع مواد AS بتقدير CCCC، مع ست مواد IGCSE."},
+ ib:{min:24, en:"24 points with no subject grade below 3.", ar:"٢٤ نقطة دون نزول أي مادة عن ٣."},
+ us:{min:80, en:"American High School Diploma, science or commerce stream, 80% across grades 10, 11 and 12.", ar:"الدبلوم الأمريكي، المسار العلمي أو التجاري، ٨٠٪ عبر الصفوف ١٠ و١١ و١٢."},
+ cbse:{min:70, en:"CBSE or ICSE science stream, 70% at grade XII.", ar:"سي بي إس إي أو آي سي إس إي علمي، ٧٠٪ في الصف الثاني عشر."},
+ eng:{en:"All accepted applicants sit the Aptis exam and must reach B1 or above with no component below A2.",
+      ar:"جميع المقبولين يؤدون اختبار أبتس ويجب بلوغ المستوى B1 فأعلى دون نزول أي مكوّن عن A2."},
+ url:"https://www.rcsi.com/bahrain/undergraduate/undergraduate-nursing/entry-requirements"},
+
+/* ---------------- KUWAIT ---------------- */
+{id:"ku-med", ct:"kw",
+ inst:{en:"Kuwait University", ar:"جامعة الكويت"},
+ prog:{en:"Medicine and Dentistry", ar:"الطب وطب الأسنان"},
+ nat:{min:85, tracks:["sci"]},
+ note:{en:"<b>Read this carefully.</b> 85% is only the threshold to apply. Kuwait admits on an <b>equivalent average</b>: 75% of the secondary certificate, 15% of the English aptitude test and 10% of the Maths aptitude test. The real cut-off is set after applications close and has recently sat in the mid nineties, roughly eleven points above the published floor.",
+       ar:"<b>اقرأ هذا بعناية.</b> نسبة ٨٥٪ هي عتبة التقديم فقط. فالكويت تقبل على أساس <b>المعدل المكافئ</b>: ٧٥٪ من شهادة الثانوية، و١٥٪ من اختبار القدرات في الإنجليزية، و١٠٪ من اختبار القدرات في الرياضيات. والحد الفعلي يُحدَّد بعد إغلاق التقديم، وكان مؤخرًا في منتصف التسعينات، أي أعلى بنحو إحدى عشرة نقطة من الحد المنشور."},
+ eng:{en:"The university's own English aptitude test is compulsory and is weighted into the admission score. TOEFL or IELTS may be submitted instead, but the conversion scores are not published.",
+      ar:"اختبار القدرات في الإنجليزية بالجامعة إلزامي ويدخل ضمن حساب درجة القبول. ويمكن تقديم توفل أو آيلتس بدلًا منه، لكن درجات التحويل غير منشورة."},
+ url:"https://portal.ku.edu.kw/manuals/admission/en/ku_admission_rules.pdf"},
+
+{id:"ku-pharm", ct:"kw",
+ inst:{en:"Kuwait University", ar:"جامعة الكويت"},
+ prog:{en:"Pharmacy, Public Health, Allied Health Sciences", ar:"الصيدلة والصحة العامة والعلوم الصحية المساندة"},
+ nat:{min:80, tracks:["sci"]},
+ note:{en:"Equivalent average weighting: Pharmacy and Public Health 70% certificate, 15% English, 15% Maths. Allied Health Sciences 70% certificate, 20% English, 10% Maths.",
+       ar:"أوزان المعدل المكافئ: الصيدلة والصحة العامة ٧٠٪ للشهادة و١٥٪ للإنجليزية و١٥٪ للرياضيات. والعلوم الصحية المساندة ٧٠٪ للشهادة و٢٠٪ للإنجليزية و١٠٪ للرياضيات."},
+ eng:{en:"Compulsory English aptitude test, weighted into the score.", ar:"اختبار قدرات إلزامي في الإنجليزية يدخل في حساب الدرجة."},
+ url:"https://portal.ku.edu.kw/manuals/admission/en/ku_admission_rules.pdf"},
+
+{id:"ku-eng", ct:"kw",
+ inst:{en:"Kuwait University", ar:"جامعة الكويت"},
+ prog:{en:"Engineering and Petroleum, and Architecture", ar:"الهندسة والبترول، والعمارة"},
+ nat:{min:80, tracks:["sci"]},
+ note:{en:"Equivalent average weighting for Engineering: 65% certificate, 15% English, 20% Maths. This is the heaviest Maths weighting in the university. Architecture additionally requires <b>80% in the English aptitude test and 75% in the Maths aptitude test</b>.",
+       ar:"أوزان المعدل المكافئ للهندسة: ٦٥٪ للشهادة و١٥٪ للإنجليزية و٢٠٪ للرياضيات، وهو أعلى وزن للرياضيات في الجامعة. والعمارة تشترط إضافة إلى ذلك <b>٨٠٪ في اختبار القدرات الإنجليزية و٧٥٪ في اختبار القدرات الرياضية</b>."},
+ eng:{en:"Compulsory aptitude tests in English and Mathematics.", ar:"اختبارا قدرات إلزاميان في الإنجليزية والرياضيات."},
+ url:"https://portal.ku.edu.kw/manuals/admission/en/ku_admission_rules.pdf"},
+
+{id:"ku-sci", ct:"kw",
+ inst:{en:"Kuwait University", ar:"جامعة الكويت"},
+ prog:{en:"Science and Life Sciences", ar:"العلوم وعلوم الحياة"},
+ nat:{min:78, tracks:["sci"]},
+ note:{en:"Science track only. The 78% figure is the university's general statement for the lower threshold group and should be confirmed against the current admission guide.",
+       ar:"للمسار العلمي فقط. ورقم ٧٨٪ هو ما تذكره الجامعة عمومًا للفئة الأدنى ويجب تأكيده من دليل القبول الحالي."},
+ url:"https://portal.ku.edu.kw/manuals/admission/en/ku_admission_rules.pdf"},
+
+{id:"ku-bus", ct:"kw",
+ inst:{en:"Kuwait University", ar:"جامعة الكويت"},
+ prog:{en:"Administrative Sciences", ar:"العلوم الإدارية"},
+ nat:{min:78, tracks:["sci","lit"]},
+ note:{en:"This is the one college that accepts both the science and the literary track. Equivalent average: 70% certificate, 15% English, 15% Maths, and you must score <b>40% or above in the English aptitude test</b>.",
+       ar:"هذه الكلية الوحيدة التي تقبل المسارين العلمي والأدبي. المعدل المكافئ: ٧٠٪ للشهادة و١٥٪ للإنجليزية و١٥٪ للرياضيات، ويشترط <b>٤٠٪ فأعلى في اختبار القدرات الإنجليزية</b>."},
+ url:"https://portal.ku.edu.kw/manuals/admission/en/ku_admission_rules.pdf"},
+
+{id:"ku-lit", ct:"kw",
+ inst:{en:"Kuwait University", ar:"جامعة الكويت"},
+ prog:{en:"Law, Arts, Sharia and Islamic Studies, Social Sciences", ar:"الحقوق والآداب والشريعة والدراسات الإسلامية والعلوم الاجتماعية"},
+ nat:{min:78, tracks:["lit"]},
+ note:{en:"<b>Literary track only.</b> A science track student cannot enter these colleges at Kuwait University. The certificate carries between 65% and 90% of the equivalent average here, with an Arabic or English aptitude component of 10% to 15%.",
+       ar:"<b>للمسار الأدبي فقط.</b> ولا يمكن لطالب المسار العلمي دخول هذه الكليات في جامعة الكويت. وتمثل الشهادة هنا بين ٦٥٪ و٩٠٪ من المعدل المكافئ، مع مكوّن قدرات في العربية أو الإنجليزية بين ١٠٪ و١٥٪."},
+ url:"https://portal.ku.edu.kw/manuals/admission/en/ku_admission_rules.pdf"},
+
+{id:"ku-intl", ct:"kw",
+ inst:{en:"Kuwait University", ar:"جامعة الكويت"},
+ prog:{en:"How a non Kuwaiti curriculum is read", ar:"كيف تُقرأ المناهج غير الكويتية"},
+ nat:{min:null, tracks:[]},
+ alevel:{en:"At least <b>eight courses</b>, of which two or more at Advanced level, all at grade C or higher, with the certificate equated by the competent authorities.",
+         ar:"ثماني مواد على الأقل، منها اثنتان أو أكثر في المستوى المتقدم، جميعها بتقدير C فأعلى، مع معادلة الشهادة من الجهات المختصة."},
+ ib:{min:null, en:"Grade 6 or above at Standard Level, or 5 or above at Higher Level.", ar:"درجة ٦ فأعلى في المستوى العادي، أو ٥ فأعلى في المستوى العالي."},
+ us:{min:null, en:"<b>The most concrete subject rule in the region.</b> To be treated as a science track graduate you must have passed Biology, Chemistry, Algebra II, Physics and Calculus. Without all five you are not a science track applicant, whatever your GPA. Advanced Placement counts at 3 points or more. The recognised cumulative GPA is capped at 4.0.",
+     ar:"<b>أوضح شرط مواد في المنطقة.</b> لتُعامَل خريج مسار علمي يجب أن تكون قد اجتزت الأحياء والكيمياء والجبر ٢ والفيزياء والتفاضل والتكامل. ودون هذه الخمس لست متقدمًا في المسار العلمي مهما كان معدلك. وتُحتسب مواد الوضع المتقدم بثلاث نقاط فأكثر. والمعدل التراكمي المعترف به بحد أقصى ٤٫٠."},
+ url:"https://portal.ku.edu.kw/manuals/admission/en/ku_admission_rules.pdf"},
+
+{id:"gust", ct:"kw",
+ inst:{en:"Gulf University for Science and Technology", ar:"جامعة الخليج للعلوم والتكنولوجيا"},
+ prog:{en:"All programmes", ar:"جميع البرامج"},
+ nat:{min:null, tracks:["sci","lit","com","tech"]},
+ note:{en:"No minimum secondary percentage is published. Admission is governed by placement testing, so your English and Maths results decide how long you spend before credit courses.",
+       ar:"لا تُنشر نسبة ثانوية دنيا. والقبول يحكمه اختبار التحديد، فنتيجتك في الإنجليزية والرياضيات هي ما يحدد المدة قبل المواد المحتسبة."},
+ eng:{en:"Direct entry to credit bearing English needs <b>TOEFL iBT 76</b> or <b>IELTS 6.5</b>. IELTS 5.0 or above puts you in a one semester foundation. IELTS 4.5 or below is a two semester foundation. All applicants also sit the Accuplacer mathematics placement test.",
+      ar:"الدخول المباشر لمواد الإنجليزية المحتسبة يحتاج <b>توفل ٧٦</b> أو <b>آيلتس ٦٫٥</b>. وآيلتس ٥٫٠ فأعلى يضعك في تأسيسي فصل واحد. وآيلتس ٤٫٥ فأقل يعني تأسيسيًا لفصلين. وكل المتقدمين يؤدون اختبار أكيوبلاسر لتحديد مستوى الرياضيات."},
+ url:"https://www.gust.edu.kw/admissions/applicants-categories-requirements/english-and-mathematics"},
+
+{id:"auk", ct:"kw",
+ inst:{en:"American University of Kuwait", ar:"الجامعة الأمريكية في الكويت"},
+ prog:{en:"All programmes", ar:"جميع البرامج"},
+ nat:{min:60, tracks:["sci","lit","com","tech"]},
+ note:{en:"One of the lowest published floors in the Gulf at 60%, or 2.00 on the modular system. Figures are from the 2023/24 catalogue, so confirm the current ones.",
+       ar:"من أدنى الحدود المنشورة في الخليج عند ٦٠٪، أو ٢٫٠٠ في النظام الوحداتي. والأرقام من دليل ٢٠٢٣/٢٠٢٤ فتأكد من الحالي."},
+ alevel:{en:"Six IGCSE subjects at minimum grade 3 or D.", ar:"ست مواد IGCSE بحد أدنى تقدير ٣ أو D."},
+ ib:{min:24, en:"Six subjects, at least three at Higher Level, minimum 24 points.", ar:"ست مواد، ثلاث منها على الأقل في المستوى العالي، بحد أدنى ٢٤ نقطة."},
+ us:{min:2.0, en:"American system: 2.00 GPA.", ar:"النظام الأمريكي: معدل ٢٫٠٠."},
+ cbse:{min:60, en:"Indian system: 60% cumulative.", ar:"النظام الهندي: ٦٠٪ تراكمي."},
+ eng:{en:"Direct admission at TOEFL iBT 60 with Reading 13 and Writing 14, or IELTS Academic 6.0 with Reading 6.0 and Writing 5.0, or the university's own placement test at 106 with essay 5. Otherwise you enter the Intensive English Program, and completing its second semester satisfies the requirement.",
+      ar:"القبول المباشر بتوفل ٦٠ مع قراءة ١٣ وكتابة ١٤، أو آيلتس ٦٫٠ مع قراءة ٦٫٠ وكتابة ٥٫٠، أو اختبار التحديد بالجامعة بدرجة ١٠٦ ومقال ٥. وإلا فتلتحق ببرنامج الإنجليزية المكثف، وإتمام فصله الثاني يستوفي الشرط."},
+ url:"https://www.auk.edu.kw/admissions-aid/first-year-students/"},
+
+{id:"au-kw", ct:"kw",
+ inst:{en:"Australian University Kuwait", ar:"الجامعة الأسترالية في الكويت"},
+ prog:{en:"Engineering, Business, Aviation and Nautical programmes", ar:"برامج الهندسة والأعمال والطيران والملاحة"},
+ nat:{min:60, tracks:["sci","lit","com"]},
+ note:{en:"Engineering, Aircraft Maintenance Engineering and Nautical Science require the <b>scientific track at 65%</b>. Business, Air Traffic Control and Aviation Logistics take either track at 60%. Direct entry bachelor routes in MIS, Events Management, Banking and Finance need 70%. Figures are from a 2023 booklet, so confirm.",
+       ar:"الهندسة وهندسة صيانة الطائرات وعلوم الملاحة تتطلب <b>المسار العلمي بنسبة ٦٥٪</b>. والأعمال ومراقبة الحركة الجوية والخدمات اللوجستية للطيران تقبل أي مسار بنسبة ٦٠٪. ومسارات البكالوريوس المباشرة في نظم المعلومات الإدارية وإدارة الفعاليات والمصرفية والمالية تحتاج ٧٠٪. والأرقام من كتيّب ٢٠٢٣ فتأكد."},
+ eng:{en:"All programmes are taught in English. Applicants who do not meet the requirement may enter the Intensive English Program. The specific scores are not published.",
+      ar:"جميع البرامج بالإنجليزية. ومن لا يستوفي الشرط قد يلتحق ببرنامج الإنجليزية المكثف. والدرجات المحددة غير منشورة."},
+ url:"https://www.au.edu.kw/"},
+
+{id:"kcst", ct:"kw",
+ inst:{en:"Kuwait College of Science and Technology", ar:"كلية الكويت للعلوم والتكنولوجيا"},
+ prog:{en:"All programmes", ar:"جميع البرامج"},
+ nat:{min:65, tracks:["sci","lit","com","tech"]},
+ alevel:{en:"65% with four science subjects: Biology, Chemistry, Physics and Maths, plus two electives.", ar:"٦٥٪ مع أربع مواد علمية: الأحياء والكيمياء والفيزياء والرياضيات، مع مادتين اختياريتين."},
+ us:{min:2.25, en:"Bilingual and American system: 65%, stated as equivalent to 2.25, and you must have taken Biology, Chemistry, Algebra II, Physics, and Calculus or Pre-Calculus.",
+     ar:"النظام ثنائي اللغة والأمريكي: ٦٥٪، وتعادل ٢٫٢٥، ويجب أن تكون قد درست الأحياء والكيمياء والجبر ٢ والفيزياء والتفاضل أو ما قبله."},
+ cbse:{min:65, en:"Indian system: 65% or equivalent to 2.25. Pakistani system: average 42 or 2.25 equivalent.", ar:"النظام الهندي: ٦٥٪ أو ما يعادل ٢٫٢٥. والنظام الباكستاني: معدل ٤٢ أو ما يعادل ٢٫٢٥."},
+ note:{en:"An unusual rule worth knowing: your school certificate must not be more than <b>eleven years old</b>.", ar:"شرط غير معتاد يستحق المعرفة: يجب ألا يزيد عمر شهادتك الثانوية على <b>إحدى عشرة سنة</b>."},
+ eng:{en:"There is an English entrance exam with published exemption conditions, but the required score is not published.",
+      ar:"يوجد اختبار قبول في الإنجليزية بشروط إعفاء منشورة، لكن الدرجة المطلوبة غير منشورة."},
+ url:"https://www.kcst.edu.kw/default/high-school-graduates"},
+
+{id:"paaet", ct:"kw",
+ inst:{en:"Public Authority for Applied Education and Training", ar:"الهيئة العامة للتعليم التطبيقي والتدريب"},
+ prog:{en:"Applied colleges and training institutes", ar:"الكليات التطبيقية ومعاهد التدريب"},
+ nat:{min:50, tracks:["sci","lit","com","tech"]},
+ note:{en:"PAAET publishes <b>separate admission plans for male and female students</b>, with different programmes and different thresholds. Published percentages are application thresholds, not final cut-offs, and range roughly from 50% to 85% by programme. The literary threshold usually sits about five points below the science one for the same programme. The plan tables are published as scanned images, so read them directly rather than relying on any summary.",
+       ar:"تنشر الهيئة <b>خططًا منفصلة للبنين والبنات</b>، ببرامج ونسب مختلفة. والنسب المنشورة هي نسب تقديم لا حدودًا نهائية، وتتراوح تقريبًا بين ٥٠٪ و٨٥٪ حسب البرنامج. وعتبة المسار الأدبي أقل عادة بنحو خمس نقاط من العلمي للبرنامج نفسه. وجداول الخطة منشورة كصور ممسوحة، فاقرأها مباشرة ولا تعتمد على أي ملخص."},
+ url:"https://www.paaet.edu.kw/ar/acceptence/"}
+
+];
+
+/* ===== Entry checker, part 2: Saudi Arabia, UAE, Qatar, Oman ===== */
+
+const P2 = [
+
+/* ---------------- SAUDI ARABIA ---------------- */
+{id:"ksu-med", ct:"sa", wt:true,
+ inst:{en:"King Saud University", ar:"جامعة الملك سعود"},
+ prog:{en:"Medicine and Surgery", ar:"الطب والجراحة"},
+ nat:{min:95, tracks:["sci"]},
+ note:{en:"<b>This number is a weighted score, not your school percentage.</b> King Saud University weights the secondary certificate 30%, Qudurat 30% and Tahsili 40%. The published minimum is a weighted 95%. The actual allocation average in the last cycle was <b>95.70 for male and 96.95 for female applicants</b>. You must then hold a first year grade average of 4.50 out of 5.00 to continue. Medicine also requires a personal interview, and the certificate must be no more than two years old.",
+       ar:"<b>هذا الرقم درجة موزونة لا نسبتك المدرسية.</b> فجامعة الملك سعود توزن شهادة الثانوية ٣٠٪ والقدرات ٣٠٪ والتحصيلي ٤٠٪. والحد الأدنى المنشور درجة موزونة ٩٥٪. أما معدل التخصيص الفعلي في آخر دورة فكان <b>٩٥٫٧٠ للطلاب و٩٦٫٩٥ للطالبات</b>. ثم يجب أن تحقق معدل ٤٫٥٠ من ٥٫٠٠ في السنة الأولى للاستمرار. والطب يتطلب أيضًا مقابلة شخصية، وألا يزيد عمر الشهادة على سنتين."},
+ eng:{en:"No English test is published as an admission condition for Saudi nationals at King Saud University.",
+      ar:"لا يُنشر اختبار إنجليزية كشرط قبول للسعوديين في جامعة الملك سعود."},
+ url:"https://dar.ksu.edu.sa/"},
+
+{id:"ksu-health", ct:"sa", wt:true,
+ inst:{en:"King Saud University", ar:"جامعة الملك سعود"},
+ prog:{en:"Dentistry, Pharmacy and the allied health programmes", ar:"طب الأسنان والصيدلة والبرامج الصحية المساندة"},
+ nat:{min:70, tracks:["sci"]},
+ note:{en:"Weighted scores again. The most recent allocation averages: <b>Dentistry 93.20 male and 93.90 female. Pharmacy 70.00 male and 72.35 female. Radiological Sciences 74.35 and 85.70. Clinical Laboratory Sciences 70.00 and 78.50.</b> Notice that Pharmacy filled at the floor, meaning everyone who met the minimum was admitted, while Dentistry did not. These swing every year.",
+       ar:"درجات موزونة أيضًا. وآخر معدلات التخصيص: <b>طب الأسنان ٩٣٫٢٠ للطلاب و٩٣٫٩٠ للطالبات. والصيدلة ٧٠٫٠٠ و٧٢٫٣٥. وعلوم الأشعة ٧٤٫٣٥ و٨٥٫٧٠. وعلوم المختبرات الإكلينيكية ٧٠٫٠٠ و٧٨٫٥٠.</b> ولاحظ أن الصيدلة امتلأت عند الحد الأدنى، أي قُبل كل من استوفى الشرط، بينما لم يحدث ذلك في طب الأسنان. وهذه الأرقام تتغير كل سنة."},
+ note2:{en:"Health colleges require medical fitness. The university guide states that applicants with a disability are exempted from the national tests but are limited to humanities programmes.",
+        ar:"الكليات الصحية تشترط اللياقة الطبية. ويذكر دليل الجامعة أن ذوي الإعاقة يُعفون من الاختبارات الوطنية لكن يقتصر قبولهم على البرامج الإنسانية."},
+ url:"https://dar.ksu.edu.sa/"},
+
+{id:"ksu-cs", ct:"sa", wt:true,
+ inst:{en:"King Saud University", ar:"جامعة الملك سعود"},
+ prog:{en:"Software Engineering, Computer Science, Computer Engineering, Information Systems", ar:"هندسة البرمجيات وعلوم الحاسب وهندسة الحاسب ونظم المعلومات"},
+ nat:{min:90, tracks:["sci"]},
+ note:{en:"Weighted scores. Recent allocation averages: <b>Software Engineering 96.50 male and 95.20 female. Computer Science 96.05 and 93.40. Computer Engineering 93.35. Information Systems 94.35.</b> Computing is now harder to enter at King Saud University than dentistry.",
+       ar:"درجات موزونة. وآخر معدلات التخصيص: <b>هندسة البرمجيات ٩٦٫٥٠ للطلاب و٩٥٫٢٠ للطالبات. وعلوم الحاسب ٩٦٫٠٥ و٩٣٫٤٠. وهندسة الحاسب ٩٣٫٣٥. ونظم المعلومات ٩٤٫٣٥.</b> أي أن دخول تخصصات الحاسب في جامعة الملك سعود صار أصعب من طب الأسنان."},
+ note2:{en:"Excellence programmes in engineering and computer science set a minimum weighted score of 90 and then require a first year average of 4.00 out of 5.00.",
+        ar:"برامج التميز في الهندسة وعلوم الحاسب تشترط درجة موزونة لا تقل عن ٩٠ ثم معدل ٤٫٠٠ من ٥٫٠٠ في السنة الأولى."},
+ url:"https://dar.ksu.edu.sa/"},
+
+{id:"ksu-eng", ct:"sa", wt:true,
+ inst:{en:"King Saud University", ar:"جامعة الملك سعود"},
+ prog:{en:"Engineering and Architecture", ar:"الهندسة والعمارة"},
+ nat:{min:86, tracks:["sci"]},
+ note:{en:"Engineering is allocated <b>after the common first year</b>, not on entry, at a recent average of 89.45. Architecture and Building Sciences allocates at 86.60 male and 92.35 female, and requires a written examination.",
+       ar:"تُخصَّص الهندسة <b>بعد السنة الأولى المشتركة</b> لا عند الدخول، بمعدل حديث ٨٩٫٤٥. أما العمارة وعلوم البناء فتُخصَّص عند ٨٦٫٦٠ للطلاب و٩٢٫٣٥ للطالبات، وتتطلب اختبارًا تحريريًا."},
+ url:"https://dar.ksu.edu.sa/"},
+
+{id:"ksu-hum", ct:"sa",
+ inst:{en:"King Saud University", ar:"جامعة الملك سعود"},
+ prog:{en:"Law, Political Science, Media, Arabic, History, Geography", ar:"القانون والعلوم السياسية والإعلام والعربية والتاريخ والجغرافيا"},
+ nat:{min:null, tracks:["lit","sci"]},
+ note:{en:"Humanities allocation at King Saud University is published on a <b>5.00 scale</b>, not a percentage, which is easy to misread. Recent figures: Law 4.80 male and 4.86 female. Political Science 4.64 and 4.81. Media 4.69 female. Arabic, Geography and History all sat at the floor of 3.00, meaning they admitted everyone who qualified.",
+       ar:"تُنشر تخصيصات التخصصات الإنسانية في جامعة الملك سعود على <b>مقياس من ٥٫٠٠</b> لا كنسبة مئوية، وهو ما يسهل الخلط فيه. وآخر الأرقام: القانون ٤٫٨٠ للطلاب و٤٫٨٦ للطالبات. والعلوم السياسية ٤٫٦٤ و٤٫٨١. والإعلام ٤٫٦٩ للطالبات. أما العربية والجغرافيا والتاريخ فكانت جميعًا عند الحد الأدنى ٣٫٠٠، أي قبلت كل من استوفى الشروط."},
+ note2:{en:"King Saud University requires both Qudurat and Tahsili of every applicant, whatever the school track, and whether the certificate was obtained inside or outside the Kingdom.",
+        ar:"تشترط جامعة الملك سعود القدرات والتحصيلي على كل متقدم، أيًا كان مساره المدرسي، وسواء حصل على الشهادة داخل المملكة أو خارجها."},
+ url:"https://dar.ksu.edu.sa/"},
+
+{id:"kfupm", ct:"sa",
+ inst:{en:"King Fahd University of Petroleum and Minerals", ar:"جامعة الملك فهد للبترول والمعادن"},
+ prog:{en:"All programmes", ar:"جميع البرامج"},
+ nat:{min:null, tracks:["sci"]},
+ note:{en:"KFUPM does not use the same formula as the other universities. Its main route is holistic: a <b>minimum Qudurat score of 85</b>, a Tahsili score, an English test, a recommendation letter, a statement of purpose, and graduation in the current or previous two years. Its secondary route weights the certificate only 10%, Qudurat 50% and Tahsili 40%. There is also an SAT route at 1350 or above plus a mathematics test, and an Olympiad route. KFUPM states plainly that meeting the minimum does not guarantee admission.",
+       ar:"لا تستخدم جامعة الملك فهد الصيغة نفسها. فمسارها الرئيسي شمولي: <b>حد أدنى ٨٥ في القدرات</b>، ودرجة تحصيلي، واختبار إنجليزية، وخطاب توصية، وخطاب أهداف، والتخرج في السنة الحالية أو السنتين السابقتين. أما مسارها الثانوي فيوزن الشهادة ١٠٪ فقط والقدرات ٥٠٪ والتحصيلي ٤٠٪. وهناك مسار سات بدرجة ١٣٥٠ فأعلى مع اختبار رياضيات، ومسار الأولمبياد. وتذكر الجامعة صراحة أن استيفاء الحد الأدنى لا يضمن القبول."},
+ eng:{en:"STEP 65, or IELTS 4.5, or TOEFL 45, or Duolingo 80 for admission eligibility. A higher set of scores appears in the university booklet and probably governs exemption from the preparatory year rather than admission, so confirm which applies to you.",
+      ar:"ستيب ٦٥، أو آيلتس ٤٫٥، أو توفل ٤٥، أو دولينغو ٨٠ لأهلية القبول. وتظهر مجموعة درجات أعلى في كتيّب الجامعة، والأرجح أنها تخص الإعفاء من السنة التحضيرية لا القبول، فتأكد أيهما ينطبق عليك."},
+ url:"https://www.kfupm.edu.sa/"},
+
+{id:"pnu", ct:"sa",
+ inst:{en:"Princess Nourah bint Abdulrahman University", ar:"جامعة الأميرة نورة بنت عبدالرحمن"},
+ prog:{en:"All colleges, women only", ar:"جميع الكليات، للطالبات"},
+ nat:{min:null, tracks:["sci","lit"]},
+ note:{en:"Princess Nourah publishes the clearest track mapping in Saudi Arabia. Health and scientific colleges weight the certificate 30%, Qudurat 30% and Tahsili 40%. Business weights the certificate 50% and Qudurat 50% with no Tahsili. Humanities colleges weight 50% certificate, 25% Qudurat and 25% Tahsili. Languages weights 50% certificate, 15% Qudurat, 15% Tahsili and 20% STEP.",
+       ar:"تنشر جامعة الأميرة نورة أوضح خريطة مسارات في السعودية. فالكليات الصحية والعلمية توزن الشهادة ٣٠٪ والقدرات ٣٠٪ والتحصيلي ٤٠٪. والأعمال توزن الشهادة ٥٠٪ والقدرات ٥٠٪ دون تحصيلي. والكليات الإنسانية ٥٠٪ للشهادة و٢٥٪ للقدرات و٢٥٪ للتحصيلي. واللغات ٥٠٪ للشهادة و١٥٪ للقدرات و١٥٪ للتحصيلي و٢٠٪ لاختبار ستيب."},
+ url:"https://www.pnu.edu.sa/"},
+
+{id:"kau-iau", ct:"sa",
+ inst:{en:"King Abdulaziz University and Imam Abdulrahman Bin Faisal University", ar:"جامعة الملك عبدالعزيز وجامعة الإمام عبدالرحمن بن فيصل"},
+ prog:{en:"All programmes", ar:"جميع البرامج"},
+ nat:{min:null, tracks:["sci","lit"]},
+ note:{en:"Both use the same weighting as King Saud University: certificate 30%, Qudurat 30%, Tahsili 40%. <b>Neither publishes minimum weighted scores or per college cut-offs</b>, so nobody can tell you in advance what you need. Imam Abdulrahman accepts certificates from the past five years, except health colleges which accept only the current or previous year.",
+       ar:"كلتاهما تستخدمان الوزن نفسه في جامعة الملك سعود: الشهادة ٣٠٪ والقدرات ٣٠٪ والتحصيلي ٤٠٪. و<b>لا تنشر أي منهما حدودًا دنيا موزونة ولا حدود قبول لكل كلية</b>، فلا أحد يستطيع إخبارك مسبقًا بما تحتاجه. وتقبل جامعة الإمام عبدالرحمن الشهادات خلال خمس سنوات، عدا الكليات الصحية فتقبل السنة الحالية أو السابقة فقط."},
+ url:"https://www.moe.gov.sa/"},
+
+/* ---------------- UAE ---------------- */
+{id:"uaeu-med", ct:"ae",
+ inst:{en:"United Arab Emirates University", ar:"جامعة الإمارات العربية المتحدة"},
+ prog:{en:"Medicine, MD", ar:"الطب، بكالوريوس الطب والجراحة"},
+ nat:{min:90, tracks:["sci"]},
+ note:{en:"You need <b>90% in Mathematics and 90% in two of Chemistry, Biology and Physics</b>, not just a 90% overall average. Fall intake only. You must also pass the MD Entrance Exam and the Multiple Mini Interviews.",
+       ar:"تحتاج <b>٩٠٪ في الرياضيات و٩٠٪ في اثنتين من الكيمياء والأحياء والفيزياء</b>، لا مجرد معدل عام ٩٠٪. والقبول في الفصل الأول فقط. ويجب أيضًا اجتياز اختبار القبول للطب والمقابلات القصيرة المتعددة."},
+ alevel:{en:"A-level B in Mathematics and in two sciences.", ar:"تقدير B في المستوى المتقدم في الرياضيات وفي مادتين علميتين."},
+ ib:{min:null, en:"IB Higher Level 5 in Mathematics and in two sciences.", ar:"المستوى العالي بدرجة ٥ في الرياضيات وفي مادتين علميتين."},
+ us:{min:null, en:"SAT Maths 590, or Advanced Placement Maths at 4.", ar:"سات رياضيات ٥٩٠، أو الوضع المتقدم في الرياضيات بدرجة ٤."},
+ eng:{en:"90% in secondary English, or IELTS Academic 5.5, or TOEFL ITP 525, or TOEFL iBT 70.",
+      ar:"٩٠٪ في إنجليزية الثانوية، أو آيلتس أكاديمي ٥٫٥، أو توفل ورقي ٥٢٥، أو توفل إنترنت ٧٠."},
+ url:"https://www.uaeu.ac.ae/en/admission/"},
+
+{id:"uaeu-eng", ct:"ae",
+ inst:{en:"United Arab Emirates University", ar:"جامعة الإمارات العربية المتحدة"},
+ prog:{en:"Engineering, Computing and Artificial Intelligence, Science, Health Sciences", ar:"الهندسة والحوسبة والذكاء الاصطناعي والعلوم والعلوم الصحية"},
+ nat:{min:80, tracks:["sci"]},
+ note:{en:"<b>80% in Mathematics</b> plus 80% in the required sciences: Engineering needs Physics plus Chemistry or Biology, Computing needs Physics or Computer Science, Science and Health Sciences need one of Chemistry, Biology or Physics.",
+       ar:"<b>٨٠٪ في الرياضيات</b> مع ٨٠٪ في العلوم المطلوبة: الهندسة تحتاج الفيزياء مع الكيمياء أو الأحياء، والحوسبة تحتاج الفيزياء أو علوم الحاسوب، والعلوم والعلوم الصحية تحتاج واحدة من الكيمياء أو الأحياء أو الفيزياء."},
+ alevel:{en:"A-level grade C in Mathematics and in the required science.", ar:"تقدير C في المستوى المتقدم في الرياضيات وفي المادة العلمية المطلوبة."},
+ ib:{min:null, en:"IB Higher Level 4 in Mathematics and in the required science.", ar:"المستوى العالي بدرجة ٤ في الرياضيات وفي المادة العلمية المطلوبة."},
+ us:{min:null, en:"SAT Maths 555, or Advanced Placement Maths at 3.", ar:"سات رياضيات ٥٥٥، أو الوضع المتقدم في الرياضيات بدرجة ٣."},
+ eng:{en:"80% in secondary English, or IELTS Academic 5.0, or TOEFL ITP 500, or TOEFL iBT 61.",
+      ar:"٨٠٪ في إنجليزية الثانوية، أو آيلتس أكاديمي ٥٫٠، أو توفل ورقي ٥٠٠، أو توفل إنترنت ٦١."},
+ url:"https://www.uaeu.ac.ae/en/admission/"},
+
+{id:"uaeu-bus", ct:"ae",
+ inst:{en:"United Arab Emirates University", ar:"جامعة الإمارات العربية المتحدة"},
+ prog:{en:"Business and Economics, Humanities and Social Sciences, Education, Law", ar:"الأعمال والاقتصاد والعلوم الإنسانية والاجتماعية والتربية والقانون"},
+ nat:{min:80, tracks:["sci","lit"]},
+ note:{en:"Business needs 80% in Mathematics. Humanities, Social Sciences and Education have no subject requirement and give priority to higher overall scores. Law needs 70% in Mathematics and 80% in Arabic, or 5.5 on the Al Ain Arabic Language Test.",
+       ar:"الأعمال تحتاج ٨٠٪ في الرياضيات. والعلوم الإنسانية والاجتماعية والتربية لا تشترط مواد وتعطي الأولوية للمعدلات الأعلى. والقانون يحتاج ٧٠٪ في الرياضيات و٨٠٪ في العربية، أو ٥٫٥ في اختبار العين للغة العربية."},
+ eng:{en:"80% in secondary English, or IELTS Academic 5.0, or TOEFL ITP 500, or TOEFL iBT 61.",
+      ar:"٨٠٪ في إنجليزية الثانوية، أو آيلتس أكاديمي ٥٫٠، أو توفل ورقي ٥٠٠، أو توفل إنترنت ٦١."},
+ url:"https://www.uaeu.ac.ae/en/admission/"},
+
+{id:"zu", ct:"ae",
+ inst:{en:"Zayed University", ar:"جامعة زايد"},
+ prog:{en:"All colleges", ar:"جميع الكليات"},
+ nat:{min:80, tracks:["sci","lit"]},
+ note:{en:"The general bar is 80% in secondary English or the equivalent, plus 80% in Mathematics for Business, Technological Innovation, Psychology, Public Health, Environmental Science and Architecture. Psychology and Public Health additionally need two sciences at 80%. Architecture requires a portfolio. Computational Systems is the highest bar at 90% English or TOEFL 90.",
+       ar:"الحد العام ٨٠٪ في إنجليزية الثانوية أو ما يعادلها، مع ٨٠٪ في الرياضيات لبرامج الأعمال والابتكار التقني وعلم النفس والصحة العامة وعلوم البيئة والعمارة. ويحتاج علم النفس والصحة العامة إضافة إلى ذلك مادتين علميتين بنسبة ٨٠٪. والعمارة تتطلب ملف أعمال. وأعلى حد هو النظم الحاسوبية عند ٩٠٪ في الإنجليزية أو توفل ٩٠."},
+ eng:{en:"TOEFL iBT 71 for most programmes, 79 for Psychology, 90 for Computational Systems. IELTS equivalents are not published on the criteria page.",
+      ar:"توفل إنترنت ٧١ لمعظم البرامج، و٧٩ لعلم النفس، و٩٠ للنظم الحاسوبية. ولا تُنشر معادلات آيلتس على صفحة المعايير."},
+ url:"https://www.zu.ac.ae/main/en/admission/"},
+
+{id:"hct", ct:"ae",
+ inst:{en:"Higher Colleges of Technology", ar:"كليات التقنية العليا"},
+ prog:{en:"Applied bachelor's and vocational diplomas", ar:"البكالوريوس التطبيقي والدبلومات المهنية"},
+ nat:{min:60, tracks:["sci","lit","com","tech"]},
+ note:{en:"The base condition is a General Secondary Certificate at <b>60%</b>. But if you are not a current year graduate, HCT requires a competitive cumulative average of <b>not less than 85%</b>. Self sponsored international students need 85% overall and 90% in English and the relevant grade 12 subjects, plus a Ministry of Education equivalency certificate. The programme by programme grid published through the ministry is difficult to read reliably, so check it at the source rather than trusting a summary.",
+       ar:"الشرط الأساسي شهادة الثانوية العامة بنسبة <b>٦٠٪</b>. لكن إن لم تكن من خريجي السنة الحالية فتشترط الكليات معدلًا تنافسيًا <b>لا يقل عن ٨٥٪</b>. والطلبة الدوليون الممولون ذاتيًا يحتاجون ٨٥٪ عامًا و٩٠٪ في الإنجليزية والمواد المعنية في الصف الثاني عشر، مع شهادة معادلة من وزارة التربية والتعليم. وجدول البرامج المنشور عبر الوزارة صعب القراءة بدقة، فراجعه من المصدر ولا تثق بأي ملخص."},
+ eng:{en:"HCT still lists EmSAT English 1100 on its own site, while the ministry document for the same year is built on secondary percentages and TOEFL iBT 61. Both exist. Ask which applies to your intake.",
+      ar:"ما زالت الكليات تدرج إمسات الإنجليزية ١١٠٠ على موقعها، بينما وثيقة الوزارة للسنة نفسها مبنية على نسب الثانوية وتوفل ٦١. وكلاهما موجود. اسأل أيهما ينطبق على دفعتك."},
+ url:"https://www.hct.ac.ae/en/admissions/"},
+
+/* ---------------- QATAR ---------------- */
+{id:"qu-med", ct:"qa",
+ inst:{en:"Qatar University", ar:"جامعة قطر"},
+ prog:{en:"Medicine and Dental Medicine", ar:"الطب وطب الأسنان"},
+ nat:{min:85, tracks:["sci"]},
+ note:{en:"Scientific stream only. The university states plainly that minimum scores do not guarantee admission and may change, and it does not publish competitive cut-offs for medicine, dentistry or pharmacy.",
+       ar:"للمسار العلمي فقط. وتذكر الجامعة صراحة أن الحدود الدنيا لا تضمن القبول وقد تتغير، ولا تنشر حدود القبول التنافسية للطب أو طب الأسنان أو الصيدلة."},
+ eng:{en:"IELTS 6.0 or above, or TOEFL iBT 68 or above, or TOEFL 520 on the non internet version.",
+      ar:"آيلتس ٦٫٠ فأعلى، أو توفل إنترنت ٦٨ فأعلى، أو توفل ٥٢٠ في النسخة غير الإلكترونية."},
+ url:"https://www.qu.edu.qa/en-us/students/admission/undergraduate/"},
+
+{id:"qu-health", ct:"qa",
+ inst:{en:"Qatar University", ar:"جامعة قطر"},
+ prog:{en:"Pharmacy, Health Sciences, Nursing", ar:"الصيدلة والعلوم الصحية والتمريض"},
+ nat:{min:80, tracks:["sci"]},
+ note:{en:"Pharmacy needs 80%. Health Sciences and Nursing need 70%, but all three are scientific stream only. A technological or humanities stream student is locked out.",
+       ar:"الصيدلة تحتاج ٨٠٪. والعلوم الصحية والتمريض تحتاجان ٧٠٪، لكن الثلاثة للمسار العلمي فقط. وطالب المسار التقني أو الإنساني مستبعد."},
+ eng:{en:"IELTS 5.5 or above, or TOEFL iBT 61 or above.", ar:"آيلتس ٥٫٥ فأعلى، أو توفل إنترنت ٦١ فأعلى."},
+ url:"https://www.qu.edu.qa/en-us/students/admission/undergraduate/"},
+
+{id:"qu-eng", ct:"qa",
+ inst:{en:"Qatar University", ar:"جامعة قطر"},
+ prog:{en:"Engineering", ar:"الهندسة"},
+ nat:{min:70, tracks:["sci","tech"]},
+ note:{en:"Scientific stream, and the technological stream too, except for Chemical Engineering. The humanities stream is not accepted.",
+       ar:"المسار العلمي، والمسار التقني أيضًا، عدا الهندسة الكيميائية. والمسار الإنساني غير مقبول."},
+ eng:{en:"University wide competency: TOEFL iBT 61, or IELTS Academic 5.5, or the university's own Accuplacer ESL at 400 aggregate with 100 in Reading Skills and 100 in Language in Use.",
+      ar:"الكفاءة العامة بالجامعة: توفل إنترنت ٦١، أو آيلتس أكاديمي ٥٫٥، أو اختبار أكيوبلاسر بالجامعة بمجموع ٤٠٠ مع ١٠٠ في مهارات القراءة و١٠٠ في استخدام اللغة."},
+ url:"https://www.qu.edu.qa/en-us/students/admission/undergraduate/"},
+
+{id:"qu-other", ct:"qa",
+ inst:{en:"Qatar University", ar:"جامعة قطر"},
+ prog:{en:"Arts and Sciences, Business and Economics, Education, Law, Sharia, Sport Sciences", ar:"الآداب والعلوم والأعمال والاقتصاد والتربية والقانون والشريعة وعلوم الرياضة"},
+ nat:{min:70, tracks:["sci","lit","com","tech"]},
+ note:{en:"70% and open to all streams, with one catch: the <b>sciences side</b> of Arts and Sciences takes scientific and technological streams only. Arts programmes, Business, Law, Sharia and Sport Sciences take every stream.",
+       ar:"٧٠٪ ومفتوحة لجميع المسارات، مع استثناء واحد: <b>الجانب العلمي</b> في كلية الآداب والعلوم يقبل المسارين العلمي والتقني فقط. أما برامج الآداب والأعمال والقانون والشريعة وعلوم الرياضة فتقبل جميع المسارات."},
+ note2:{en:"If you miss the 70% or are in the wrong stream there is a published exception route based on ACT Maths 24, or SAT Maths 550 on the old version or 570 on the new one.",
+        ar:"إن لم تبلغ ٧٠٪ أو كنت في المسار الخطأ فهناك مسار استثناء منشور يعتمد على أكت رياضيات ٢٤، أو سات رياضيات ٥٥٠ في النسخة القديمة أو ٥٧٠ في الجديدة."},
+ eng:{en:"TOEFL iBT 61, or IELTS Academic 5.5, or Accuplacer ESL 400. Otherwise you enter the Foundation Program.",
+      ar:"توفل إنترنت ٦١، أو آيلتس أكاديمي ٥٫٥، أو أكيوبلاسر ٤٠٠. وإلا فتلتحق بالبرنامج التأسيسي."},
+ url:"https://www.qu.edu.qa/en-us/students/admission/undergraduate/"},
+
+{id:"qu-intl", ct:"qa",
+ inst:{en:"Qatar University", ar:"جامعة قطر"},
+ prog:{en:"How a non Qatari curriculum is read", ar:"كيف تُقرأ المناهج غير القطرية"},
+ nat:{min:null, tracks:[]},
+ note:{en:"This is the most concrete published equivalency in Qatar, so use it as your reference point.",
+       ar:"هذه أوضح معادلة منشورة في قطر، فاتخذها مرجعك."},
+ alevel:{en:"Minimum <b>five IGCSE subjects at grade E or 3</b>, plus <b>two A-level or AS subjects at minimum grade E</b>, including mathematics, science and a language.",
+         ar:"خمس مواد IGCSE على الأقل بتقدير E أو ٣، مع مادتين في المستوى المتقدم أو AS بتقدير E على الأقل، تشمل الرياضيات والعلوم ولغة."},
+ ib:{min:24, en:"Full diploma with 24 points or more out of 42, excluding Theory of Knowledge and the Extended Essay.",
+     ar:"الدبلوم الكامل بـ٢٤ نقطة فأكثر من ٤٢، دون احتساب نظرية المعرفة والمقال الموسع."},
+ us:{min:2.0, en:"Private and international diplomas on a GPA system: minimum cumulative 2.00 out of 4.00, with passing grades in mathematics and two science subjects.",
+     ar:"الدبلومات الخاصة والدولية بنظام المعدل: حد أدنى تراكمي ٢٫٠٠ من ٤٫٠٠، مع النجاح في الرياضيات ومادتين علميتين."},
+ note2:{en:"If your academic track is unspecified, the university requires one mathematics course and two science courses from Biology, Physics or Chemistry with passing grades.",
+        ar:"إن لم يكن مسارك الأكاديمي محددًا، تشترط الجامعة مقرر رياضيات ومقررين علميين من الأحياء أو الفيزياء أو الكيمياء بدرجات ناجحة."},
+ url:"https://www.qu.edu.qa/en-us/students/admission/undergraduate/"},
+
+{id:"udst", ct:"qa",
+ inst:{en:"University of Doha for Science and Technology", ar:"جامعة الدوحة للعلوم والتكنولوجيا"},
+ prog:{en:"Diplomas and bachelor's degrees", ar:"الدبلومات ودرجات البكالوريوس"},
+ nat:{min:60, tracks:["sci","lit","com","tech"]},
+ note:{en:"60% overall, and a final year mathematics course is required. Engineering and Computing need an additional final year science or technology course. Health Sciences need Chemistry and Biology at 60% or above. The university's own placement tests are set at 65 for English and 60 for Mathematics. Figures come from a document dated 2024, so confirm.",
+       ar:"٦٠٪ عام، ويُشترط مقرر رياضيات في السنة النهائية. والهندسة والحوسبة تحتاجان مقررًا علميًا أو تقنيًا إضافيًا في السنة النهائية. والعلوم الصحية تحتاج الكيمياء والأحياء بنسبة ٦٠٪ فأعلى. واختبارات التحديد بالجامعة محددة عند ٦٥ للإنجليزية و٦٠ للرياضيات. والأرقام من وثيقة بتاريخ ٢٠٢٤ فتأكد."},
+ eng:{en:"IELTS 5.0 overall, or TOEFL iBT 49, or SAT 480 or above, or Accuplacer 400 with 100 in Reading and Language in Use. IELTS, TOEFL and Accuplacer are valid two years, SAT three years.",
+      ar:"آيلتس ٥٫٠ عام، أو توفل إنترنت ٤٩، أو سات ٤٨٠ فأعلى، أو أكيوبلاسر ٤٠٠ مع ١٠٠ في القراءة واستخدام اللغة. وصلاحية آيلتس وتوفل وأكيوبلاسر سنتان، وسات ثلاث سنوات."},
+ url:"https://www.udst.edu.qa/admissions"},
+
+{id:"ec-georgetown", ct:"qa",
+ inst:{en:"Georgetown University in Qatar", ar:"جامعة جورجتاون في قطر"},
+ prog:{en:"Foreign Service, Education City", ar:"الخدمة الخارجية، المدينة التعليمية"},
+ nat:{min:null, tracks:["sci","lit","com"]},
+ note:{en:"No minimum secondary percentage is published. A strong mathematics background is described as essential because the curriculum has three required economics courses. Minimum twelve years of formal education. Early Action closes 1 November and Regular Decision 15 January, with no spring intake.",
+       ar:"لا تُنشر نسبة ثانوية دنيا. ويُوصف أساس الرياضيات القوي بأنه ضروري لأن المنهج يتضمن ثلاثة مقررات اقتصاد إلزامية. ويشترط اثنتا عشرة سنة تعليم نظامي على الأقل. ويغلق القبول المبكر في ١ نوفمبر والعادي في ١٥ يناير، ولا يوجد قبول في الفصل الثاني."},
+ alevel:{en:"Minimum three A-level subjects. Mathematics plus one reading and writing intensive course recommended. Around eight or nine IGCSE subjects recommended as a foundation.",
+         ar:"ثلاث مواد على الأقل في المستوى المتقدم. ويُستحسن الرياضيات مع مقرر مكثف في القراءة والكتابة. ويُستحسن نحو ثماني أو تسع مواد IGCSE كأساس."},
+ ib:{min:null, en:"Diploma accepted with no specific subject requirements. English language or literature and mathematics strongly recommended.",
+     ar:"الدبلوم مقبول دون شروط مواد محددة. ويُستحسن بقوة الإنجليزية لغةً أو أدبًا مع الرياضيات."},
+ eng:{en:"TOEFL iBT 102 and above is competitive, minimum 80 recommended. IELTS 7 competitive, minimum 6 recommended. Duolingo 130 competitive, minimum 100. Waived at SAT Evidence Based Reading and Writing 620, or ACT Reading and English 26.",
+      ar:"توفل ١٠٢ فأعلى تنافسي، والحد الموصى به ٨٠. وآيلتس ٧ تنافسي، والحد الموصى به ٦. ودولينغو ١٣٠ تنافسي، والحد ١٠٠. ويُعفى منها بسات قراءة وكتابة ٦٢٠، أو أكت قراءة وإنجليزية ٢٦."},
+ test:{en:"SAT and ACT are optional. Submit only if they strengthen your application.", ar:"سات وأكت اختياريان. قدّمهما فقط إن كانا يقويان طلبك."},
+ url:"https://www.qatar.georgetown.edu/admissions/"},
+
+{id:"ec-cmu", ct:"qa",
+ inst:{en:"Carnegie Mellon University in Qatar", ar:"جامعة كارنيجي ميلون في قطر"},
+ prog:{en:"Computing, Business Administration, Biological Sciences, Education City", ar:"الحوسبة وإدارة الأعمال والعلوم البيولوجية، المدينة التعليمية"},
+ nat:{min:null, tracks:["sci","lit","com"]},
+ note:{en:"<b>SAT or ACT is required if you intend to study Artificial Intelligence or Computer Science.</b> For other majors the requirement depends on your major choice and your school curriculum. No minimum scores are published. Computing applicants enter a common first year and choose between AI and Computer Science at the end of it. Early Decision 1 November, Regular 15 January.",
+       ar:"<b>سات أو أكت مطلوب إن كنت تنوي دراسة الذكاء الاصطناعي أو علوم الحاسوب.</b> ولبقية التخصصات يعتمد الاشتراط على تخصصك ومنهجك المدرسي. ولا تُنشر حدود دنيا للدرجات. ويدخل طلبة الحوسبة سنة أولى مشتركة ثم يختارون بين الذكاء الاصطناعي وعلوم الحاسوب في نهايتها. القبول المبكر ١ نوفمبر والعادي ١٥ يناير."},
+ eng:{en:"TOEFL, IELTS or Duolingo required unless waived, with no published minimum. Waived at SAT Reading and Writing 600, or ACT English and Reading both 26.",
+      ar:"توفل أو آيلتس أو دولينغو مطلوب ما لم يُعفَ منه، دون حد أدنى منشور. ويُعفى منه بسات قراءة وكتابة ٦٠٠، أو أكت إنجليزية وقراءة ٢٦ لكل منهما."},
+ url:"https://www.qatar.cmu.edu/admission/"},
+
+{id:"ec-nu", ct:"qa",
+ inst:{en:"Northwestern University in Qatar", ar:"جامعة نورث وسترن في قطر"},
+ prog:{en:"Journalism, Communication, Liberal Arts, Education City", ar:"الصحافة والاتصال والفنون الحرة، المدينة التعليمية"},
+ nat:{min:null, tracks:["sci","lit","com"]},
+ note:{en:"SAT and ACT are optional and will not be required for the current entry cycle. Advanced Placement scores of 5 or IB Higher Level scores of 6 and above are looked for. A-levels are evaluated individually. For an American diploma, sixteen courses are recommended including four English, three or more mathematics, two or more laboratory sciences and two of a foreign language. Early Action 1 November, Regular Decision 15 January.",
+       ar:"سات وأكت اختياريان ولن يُطلبا لدورة القبول الحالية. ويُنظر إلى درجات الوضع المتقدم ٥ أو المستوى العالي في البكالوريا الدولية ٦ فأعلى. وتُقيَّم مواد المستوى المتقدم البريطانية فرديًا. وللدبلوم الأمريكي يُوصى بستة عشر مقررًا تشمل أربعة في الإنجليزية وثلاثة فأكثر في الرياضيات ومقررين فأكثر في العلوم المخبرية ومقررين في لغة أجنبية. القبول المبكر ١ نوفمبر والعادي ١٥ يناير."},
+ eng:{en:"TOEFL, IELTS or Duolingo required for most applicants, no older than two years. <b>No minimum scores are published.</b> Waived for native speakers from listed countries, or SAT 600 in both Critical Reading and Writing, or ACT 26 in both English and Reading.",
+      ar:"توفل أو آيلتس أو دولينغو مطلوب لمعظم المتقدمين، وألا يزيد عمره على سنتين. و<b>لا تُنشر حدود دنيا.</b> ويُعفى منه الناطقون الأصليون من دول محددة، أو بسات ٦٠٠ في القراءة النقدية والكتابة معًا، أو أكت ٢٦ في الإنجليزية والقراءة معًا."},
+ url:"https://www.qatar.northwestern.edu/admissions/"},
+
+{id:"ec-vcu", ct:"qa",
+ inst:{en:"VCUarts Qatar", ar:"جامعة فرجينيا كومنولث للفنون في قطر"},
+ prog:{en:"Art and Design, Education City", ar:"الفنون والتصميم، المدينة التعليمية"},
+ nat:{min:80, tracks:["sci","lit","com","tech"]},
+ note:{en:"The university labels its academic figures <b>recommended</b>, not minimum: Qatari secondary 80% or higher, American system 3.00 GPA, British system A or B grades with five to six IGCSEs and three to four AS or A-levels, IB total 32 or above. A portfolio through Slideroom is required for the fine arts degrees but not for the BA. Deadline 15 January for all materials.",
+       ar:"تصف الجامعة أرقامها الأكاديمية بأنها <b>موصى بها</b> لا حدودًا دنيا: الثانوية القطرية ٨٠٪ فأعلى، والنظام الأمريكي معدل ٣٫٠٠، والنظام البريطاني تقديرات A أو B مع خمس إلى ست مواد IGCSE وثلاث إلى أربع مواد AS أو متقدمة، والبكالوريا الدولية بمجموع ٣٢ فأعلى. ويُطلب ملف أعمال عبر سلايدروم لدرجات الفنون الجميلة دون درجة البكالوريوس في الآداب. والموعد النهائي ١٥ يناير لجميع الوثائق."},
+ ib:{min:32, en:"IB academic score total of 32 or above, recommended.", ar:"مجموع البكالوريا الدولية ٣٢ فأعلى، موصى به."},
+ us:{min:3.0, en:"American system cumulative GPA 3.00 or higher, recommended.", ar:"النظام الأمريكي بمعدل تراكمي ٣٫٠٠ فأعلى، موصى به."},
+ eng:{en:"TOEFL 80 internet based, or IELTS 6.0, or Duolingo 105, taken within two years. SAT Reading and Writing is accepted as a substitute.",
+      ar:"توفل ٨٠ إلكتروني، أو آيلتس ٦٫٠، أو دولينغو ١٠٥، خلال سنتين. ويُقبل قسم القراءة والكتابة في سات بديلًا."},
+ url:"https://www.qatar.vcu.edu/admissions/"},
+
+{id:"ec-closed", ct:"qa", dead:true,
+ inst:{en:"Texas A&amp;M University at Qatar", ar:"جامعة تكساس إيه آند إم في قطر"},
+ prog:{en:"Engineering, Education City", ar:"الهندسة، المدينة التعليمية"},
+ nat:{min:null, tracks:[]},
+ note:{en:"<b>Closed to new undergraduates.</b> Texas A&amp;M announced in February 2024 that it would wind down its Qatar operations and close the campus by 31 August 2028. Its own admissions page states that no further undergraduates will be admitted. It still appears on scholarship and university listings, so this is worth knowing before you plan around it.",
+       ar:"<b>مغلقة أمام الطلبة الجدد.</b> أعلنت جامعة تكساس إيه آند إم في فبراير ٢٠٢٤ أنها ستنهي عملياتها في قطر وتغلق حرمها بحلول ٣١ أغسطس ٢٠٢٨. وتذكر صفحة القبول لديها أنه لن يُقبل مزيد من طلبة البكالوريوس. وما زالت تظهر في قوائم المنح والجامعات، فيستحق أن تعرف ذلك قبل أن تبني خططك عليها."},
+ url:"https://www.qatar.tamu.edu/"},
+
+{id:"ec-wcm", ct:"qa",
+ inst:{en:"Weill Cornell Medicine Qatar", ar:"وايل كورنيل للطب في قطر"},
+ prog:{en:"Six Year Medical Program, Education City", ar:"برنامج الطب لست سنوات، المدينة التعليمية"},
+ nat:{min:null, tracks:["sci"]},
+ note:{en:"This is the one entry in this checker where the requirements could not be verified. Weill Cornell's requirement pages did not render for retrieval, so entry grades, subject requirements, testing and English minima are unknown here. What is confirmed is the structure: a Six Year Medical Program entered directly from school, and a Four Year curriculum for graduates, both leading to the Cornell University MD. <b>Go to the university's own admissions page for the numbers.</b>",
+       ar:"هذا هو المدخل الوحيد في هذه الأداة الذي تعذر التحقق من شروطه. فصفحات الشروط في وايل كورنيل لم تُعرض للاسترجاع، ولذلك فإن درجات القبول وشروط المواد والاختبارات والحد الأدنى للإنجليزية غير معروفة هنا. والمؤكد هو الهيكل: برنامج طب لست سنوات يُدخل إليه مباشرة من المدرسة، ومنهج لأربع سنوات للخريجين، وكلاهما يفضي إلى شهادة الطب من جامعة كورنيل. <b>راجع صفحة القبول في الجامعة نفسها للأرقام.</b>"},
+ url:"https://qatar-weill.cornell.edu/education/admissions"},
+
+/* ---------------- OMAN ---------------- */
+{id:"heac", ct:"om",
+ inst:{en:"Higher Education Admission Centre", ar:"مركز القبول الموحد"},
+ prog:{en:"The single gateway to every government funded place", ar:"البوابة الوحيدة لكل مقعد ممول حكوميًا"},
+ nat:{min:null, tracks:["sci","lit","com","tech"]},
+ note:{en:"Oman works differently from every other Gulf country, and this is the most important thing an Omani student can understand. There is <b>no fixed minimum percentage</b>. Instead you must hold the required General Education Diploma subjects for a programme, and then all qualified applicants are ranked by a competitive average and each programme is filled to capacity. The centre publishes <b>last year's lowest admitted score</b> per programme as an indicator, and it moves every year. So the honest answer for an Omani student is a probability, not a yes or no.",
+       ar:"تعمل عُمان بطريقة مختلفة عن بقية دول الخليج، وهذا أهم ما يمكن أن يفهمه الطالب العُماني. فلا يوجد <b>حد أدنى ثابت للنسبة</b>. بل عليك أن تكون قد درست مواد دبلوم التعليم العام المطلوبة للبرنامج، ثم يُرتَّب جميع المستوفين حسب معدل تنافسي ويُملأ كل برنامج حتى طاقته. وينشر المركز <b>أدنى نسبة قبول للعام الماضي</b> لكل برنامج كمؤشر، وهي تتغير كل سنة. فالجواب الصادق للطالب العُماني احتمال، لا نعم أو لا."},
+ note2:{en:"Widely reported but not confirmed on the centre's own pages: the competitive average is 40% of the total of all subject grades plus 60% of the grades in the subjects required for that specialisation, and applicants must be under 25 as at 1 October. Treat both as likely rather than certain, and read the annual Student Guide, which is the authoritative document.",
+        ar:"ما يُتداول كثيرًا دون تأكيد من صفحات المركز: أن المعدل التنافسي هو ٤٠٪ من مجموع درجات جميع المواد مع ٦٠٪ من درجات المواد المطلوبة للتخصص، وأن يكون المتقدم دون الخامسة والعشرين في ١ أكتوبر. اعتبرهما مرجحين لا مؤكدين، واقرأ دليل الطالب السنوي فهو الوثيقة المعتمدة."},
+ note3:{en:"The practical consequence: list as many qualifying programmes as you can, and rank them realistically. A student who lists only three ambitious choices can end up with nothing.",
+        ar:"والنتيجة العملية: أدرج أكبر عدد ممكن من البرامج التي تستوفي شروطها، ورتّبها بصدق. فالطالب الذي يدرج ثلاث رغبات طموحة فقط قد ينتهي بلا شيء."},
+ url:"https://www.heac.gov.om/"},
+
+{id:"squ", ct:"om",
+ inst:{en:"Sultan Qaboos University", ar:"جامعة السلطان قابوس"},
+ prog:{en:"All programmes for Omani school leavers", ar:"جميع البرامج لخريجي الثانوية العُمانيين"},
+ nat:{min:null, tracks:["sci","lit","com","tech"]},
+ note:{en:"If you hold the Omani General Education Diploma you apply <b>only through the Higher Education Admission Centre</b>. There is no separate national route. Separate routes exist for children of non Omani university staff, fee paying admission, and the international students programme. IELTS or TOEFL scores are required for English purposes. The university publishes its detailed criteria as separate documents that could not be retrieved for this tool, so check them directly.",
+       ar:"إن كنت تحمل دبلوم التعليم العام العُماني فالتقديم <b>عبر مركز القبول الموحد فقط</b>. ولا يوجد مسار وطني منفصل. وتوجد مسارات منفصلة لأبناء موظفي الجامعة غير العُمانيين، وللقبول برسوم، ولبرنامج الطلبة الدوليين. وتُطلب درجات آيلتس أو توفل لأغراض اللغة الإنجليزية. وتنشر الجامعة معاييرها التفصيلية في وثائق منفصلة تعذر استرجاعها لهذه الأداة، فراجعها مباشرة."},
+ url:"https://www.squ.edu.om/admissions/Admission-Transfer"},
+
+{id:"utas", ct:"om",
+ inst:{en:"University of Technology and Applied Sciences", ar:"جامعة التقنية والعلوم التطبيقية"},
+ prog:{en:"All programmes, eleven branches", ar:"جميع البرامج، أحد عشر فرعًا"},
+ nat:{min:null, tracks:["sci","lit","com","tech"]},
+ note:{en:"Oman's largest government university with over 48,000 students. Entry for Omani school leavers is through the Higher Education Admission Centre. Everyone starts in the General Foundation Programme, which has four pillars: English, Mathematics, Computing and General Study Skills. English has four ability levels and Mathematics has three courses. Computing is only available once you pass the Level 2 English course. The placement test used and the numerical exit standards are not published.",
+       ar:"أكبر جامعة حكومية في عُمان بأكثر من ٤٨ ألف طالب. والدخول لخريجي الثانوية العُمانيين عبر مركز القبول الموحد. ويبدأ الجميع في البرنامج التأسيسي العام، وله أربعة أعمدة: الإنجليزية والرياضيات والحوسبة ومهارات الدراسة العامة. وللإنجليزية أربعة مستويات وللرياضيات ثلاثة مقررات. ولا تتاح الحوسبة إلا بعد اجتياز مقرر الإنجليزية للمستوى الثاني. ولا يُنشر اختبار التحديد المستخدم ولا معايير الخروج الرقمية."},
+ url:"https://www.utas.edu.om/Admission/Undergraduate1"},
+
+{id:"gutech", ct:"om",
+ inst:{en:"German University of Technology in Oman", ar:"الجامعة الألمانية للتكنولوجيا في عُمان"},
+ prog:{en:"Computer Science, Cyber Security, Artificial Intelligence", ar:"علوم الحاسوب والأمن السيبراني والذكاء الاصطناعي"},
+ nat:{min:75, tracks:["sci","lit","com","tech"]},
+ note:{en:"This is the most clearly published requirement in Oman, and it is by <b>subject</b>, not by overall average. Computing needs <b>75% in Advanced Mathematics and 75% in English</b> in grade 12. No science subject is required at all, which surprises people. Engineering and geoscience programmes add Physics at 60% and, for several of them, Chemistry at 60%. Business, logistics and architecture need 65% in Advanced Mathematics or 80% in Basic Mathematics, plus 75% English.",
+       ar:"هذا أوضح شرط منشور في عُمان، وهو محسوب <b>بالمواد</b> لا بالمعدل العام. فالحوسبة تحتاج <b>٧٥٪ في الرياضيات المتقدمة و٧٥٪ في الإنجليزية</b> في الصف الثاني عشر. ولا تُشترط أي مادة علمية إطلاقًا، وهو ما يفاجئ الناس. وتضيف برامج الهندسة وعلوم الأرض الفيزياء بنسبة ٦٠٪، وعدد منها الكيمياء بنسبة ٦٠٪. أما الأعمال واللوجستيات والعمارة فتحتاج ٦٥٪ في الرياضيات المتقدمة أو ٨٠٪ في الرياضيات الأساسية، مع ٧٥٪ في الإنجليزية."},
+ alevel:{en:"Two A-levels, four AS-levels and six O-levels, at grade C including Mathematics, or grade B with AS Mathematics. Physics or Chemistry at D or above at A-level, or C or above at IGCSE, where the programme requires it.",
+         ar:"مادتان في المستوى المتقدم وأربع في AS وست في المستوى العادي، بتقدير C شاملة الرياضيات، أو تقدير B مع رياضيات AS. والفيزياء أو الكيمياء بتقدير D فأعلى في المستوى المتقدم، أو C فأعلى في IGCSE، حيث يشترطها البرنامج."},
+ ib:{min:26, en:"Minimum 26 points, with Mathematics at Higher Level 5 or above, or Standard Level 6 or above.",
+     ar:"٢٦ نقطة على الأقل، مع الرياضيات في المستوى العالي بدرجة ٥ فأعلى أو المستوى العادي بدرجة ٦ فأعلى."},
+ us:{min:2.0, en:"GPA 2.0 or above with pre-calculus, plus SAT Maths 600 or ACT 24 for Computer Science, or SAT Maths 500 or ACT 22 for Applied Geosciences.",
+     ar:"معدل ٢٫٠ فأعلى مع مقرر ما قبل التفاضل، مع سات رياضيات ٦٠٠ أو أكت ٢٤ لعلوم الحاسوب، أو سات رياضيات ٥٠٠ أو أكت ٢٢ لعلوم الأرض التطبيقية."},
+ cbse:{min:75, en:"CBSE or ISBE: 75% overall with Advanced Mathematics, plus Physics or Chemistry for the geoscience and engineering routes.",
+       ar:"سي بي إس إي أو آي إس بي إي: ٧٥٪ عام مع الرياضيات المتقدمة، مع الفيزياء أو الكيمياء لمسارات علوم الأرض والهندسة."},
+ eng:{en:"IELTS Academic 6.0, or TOEFL iBT 76, or Duolingo 110, or Aptis Advanced 160, or Linguaskill 170. If you miss it, or fail the direct entry examination in Mathematics and IC3, there is the GUBridge foundation programme.",
+      ar:"آيلتس أكاديمي ٦٫٠، أو توفل إنترنت ٧٦، أو دولينغو ١١٠، أو أبتس المتقدم ١٦٠، أو لينغواسكِل ١٧٠. وإن لم تحققه، أو لم تجتز اختبار الدخول المباشر في الرياضيات وIC3، فهناك برنامج جي يو بريدج التأسيسي."},
+ test:{en:"All General Education Diploma applicants must pass the university's direct entry examination in Mathematics and IC3.",
+       ar:"على جميع المتقدمين بدبلوم التعليم العام اجتياز اختبار الدخول المباشر بالجامعة في الرياضيات وIC3."},
+ url:"https://www.gutech.edu.om/applicants-to-undergraduate-programmes/"}
+
+];
+
+/* ===== Entry checker, part 3: cross cutting rules ===== */
+
+/* Equivalency of a foreign certificate, per country */
+const EQUIV = {
+ bh:{en:"<p>The Ministry of Education validates foreign certificates. <b>No percentage conversion table is published.</b> Bahrain Polytechnic requires an equivalence letter from the Ministry's Examinations Directorate, and the University of Bahrain requires the certificate attested in the issuing country plus all attestations Bahrain requires.</p><p>The attestation chain depends on where the certificate came from. From a GCC country: the school signs and stamps it, then the Ministry of Education in that country stamps it. From a Hague Apostille country: school stamp, then an Apostille. From anywhere else: school stamp, then that country's Ministry of Foreign Affairs, then the Bahrain Embassy there, then that country's embassy in Bahrain, then the Bahraini Ministry of Foreign Affairs. British certificates can use an Apostille or the British Council in Bahrain.</p>",
+     ar:"<p>تصادق وزارة التربية والتعليم على الشهادات الأجنبية. و<b>لا يوجد جدول تحويل نسب منشور.</b> ويشترط بوليتكنك البحرين خطاب معادلة من إدارة الامتحانات بالوزارة، وتشترط جامعة البحرين تصديق الشهادة في بلد الإصدار مع كل التصديقات التي تطلبها البحرين.</p><p>وتعتمد سلسلة التصديق على مصدر الشهادة. من دولة خليجية: توقيع المدرسة وختمها ثم ختم وزارة التربية في تلك الدولة. ومن دولة موقّعة على اتفاقية لاهاي: ختم المدرسة ثم أبوستيل. ومن غير ذلك: ختم المدرسة، ثم وزارة خارجية تلك الدولة، ثم سفارة البحرين هناك، ثم سفارة تلك الدولة في البحرين، ثم وزارة الخارجية البحرينية. والشهادات البريطانية يمكن تصديقها بأبوستيل أو عبر المجلس الثقافي البريطاني في البحرين.</p>"},
+ sa:{en:"<p>Equivalency goes through your regional education directorate, not a central office. The published conditions are that the school is accredited by the education authority of that country, that the certificate is accepted by universities there, that it carries seals from that country's education ministry, its foreign ministry and the Saudi embassy, that it is certified translated if not in Arabic or English, and that it is free of alteration with the name matching across documents.</p><p><b>No conversion table, no fee and no processing time are published.</b> King Saud University requires the certificate to be equated before admission, and requires Qudurat and Tahsili from holders of foreign certificates too.</p>",
+     ar:"<p>تمر المعادلة عبر إدارة التعليم في منطقتك لا عبر مكتب مركزي. والشروط المنشورة أن تكون المدرسة معتمدة من الجهة التعليمية في تلك الدولة، وأن تكون الشهادة مقبولة في جامعاتها، وأن تحمل أختام وزارة التعليم ووزارة الخارجية فيها والسفارة السعودية، وأن تُترجم ترجمة معتمدة إن لم تكن بالعربية أو الإنجليزية، وأن تكون خالية من الكشط مع تطابق الاسم في كل الوثائق.</p><p><b>ولا يُنشر جدول تحويل ولا رسوم ولا مدة إنجاز.</b> وتشترط جامعة الملك سعود معادلة الشهادة قبل القبول، وتشترط القدرات والتحصيلي على حاملي الشهادات الأجنبية أيضًا.</p>"},
+ ae:{en:"<p>The UAE publishes the clearest rules in the Gulf, so read them carefully.</p><p><b>British:</b> one A-level at grade E or above, or two AS subjects at E or above, or five GCSE or IGCSE subjects at E or grade 3. Arabic and Islamic Education do not count towards the five but must still be evidenced.</p><p><b>American:</b> the diploma plus transcripts for grades 10, 11 and 12, five core subjects excluding Arabic and Islamic, plus an English score of IELTS Academic 5.0 or TOEFL iBT 61 or EmSAT 1100, plus a maths score of SAT Maths 450 or EmSAT 500. <b>These test scores must be held before you apply for equivalency</b>, not before you apply to a university. A student who books the test after starting the equivalency application is already late.</p><p><b>International Baccalaureate:</b> the full diploma, or six subjects at minimum 3 points each totalling 21 or more, and the six must include English, mathematics and one science.</p><p>Distance learning and open education are not eligible. Where requirements are unmet the ministry issues a limited equivalency rather than a full one.</p>",
+     ar:"<p>تنشر الإمارات أوضح القواعد في الخليج، فاقرأها بعناية.</p><p><b>البريطاني:</b> مادة واحدة في المستوى المتقدم بتقدير E فأعلى، أو مادتان AS بتقدير E فأعلى، أو خمس مواد GCSE أو IGCSE بتقدير E أو الدرجة ٣. ولا تُحتسب العربية والتربية الإسلامية ضمن الخمس لكن يجب إثبات دراستهما.</p><p><b>الأمريكي:</b> الدبلوم مع كشوف الصفوف ١٠ و١١ و١٢، وخمس مواد أساسية عدا العربية والإسلامية، مع درجة إنجليزية آيلتس أكاديمي ٥٫٠ أو توفل ٦١ أو إمسات ١١٠٠، ودرجة رياضيات سات ٤٥٠ أو إمسات ٥٠٠. و<b>يجب حيازة هذه الدرجات قبل التقديم على المعادلة</b> لا قبل التقديم للجامعة. ومن يحجز الاختبار بعد بدء طلب المعادلة يكون قد تأخر أصلًا.</p><p><b>البكالوريا الدولية:</b> الدبلوم الكامل، أو ست مواد بحد أدنى ٣ نقاط لكل منها بمجموع ٢١ فأكثر، على أن تشمل الست الإنجليزية والرياضيات ومادة علمية.</p><p>والتعليم عن بعد والتعليم المفتوح غير مؤهلين. وعند عدم استيفاء الشروط تصدر الوزارة معادلة محدودة بدل الكاملة.</p>"},
+ qa:{en:"<p>Equivalency for British certificates is <b>free and takes eight working days</b>, which is the fastest published service in the Gulf. Conditions: the student must be under 18, must have completed twelve academic years, and must hold a valid Qatari ID. The subject counts and minimum grades are not published on the public service card.</p><p>Qatar University's own table is the most concrete published equivalency in the country and is shown against that university in the results above. VCUarts Qatar requires a Ministry of Education certificate of equivalency, waived for graduates of Qatari schools.</p>",
+     ar:"<p>معادلة الشهادات البريطانية <b>مجانية وتستغرق ثمانية أيام عمل</b>، وهي أسرع خدمة منشورة في الخليج. والشروط: أن يكون الطالب دون الثامنة عشرة، وأن يكون قد أتم اثنتي عشرة سنة دراسية، وأن يحمل بطاقة قطرية سارية. ولا تُنشر أعداد المواد ولا حدود التقديرات على بطاقة الخدمة العامة.</p><p>وجدول جامعة قطر نفسه هو أوضح معادلة منشورة في الدولة، وهو معروض مع الجامعة في النتائج أعلاه. وتشترط جامعة فرجينيا كومنولث للفنون شهادة معادلة من وزارة التعليم، ويُعفى منها خريجو المدارس القطرية.</p>"},
+ kw:{en:"<p>Kuwait has the strictest published breadth rule in the Gulf. For a British certificate you need <b>at least six subjects at Ordinary Level, none below grade D</b>. A-level and AS subjects can count among the six. <b>Religion and Arabic are compulsory.</b> A student on a narrow international programme who dropped Arabic can fail Kuwaiti equivalency while passing the UAE's.</p><p>You also need a study sequence certificate for grades 9 to 11, and certificates authenticated by the British Council. The fee is a half dinar stamp per entity requiring the certificate. Home schooling, distance learning and inclusion systems are not accepted, except GCC home schooling.</p><p>Equivalency is handled by the Ministry of Education, not the Ministry of Higher Education. Kuwait University then applies its own reading of your certificate, which is shown against that university above.</p>",
+     ar:"<p>لدى الكويت أشد قاعدة اتساع منشورة في الخليج. فللشهادة البريطانية تحتاج <b>ست مواد على الأقل في المستوى العادي، لا تقل أي منها عن تقدير D</b>. ويمكن احتساب مواد المستوى المتقدم وAS ضمن الست. و<b>الدين والعربية إلزاميتان.</b> فالطالب في برنامج دولي ضيق ترك العربية قد ترفض معادلته في الكويت وتقبل في الإمارات.</p><p>وتحتاج أيضًا شهادة تسلسل دراسي للصفوف ٩ إلى ١١، وشهادات مصدقة من المجلس الثقافي البريطاني. والرسم نصف دينار طابعًا لكل جهة تطلب الشهادة. والتعليم المنزلي والتعليم عن بعد وأنظمة الدمج غير مقبولة، عدا التعليم المنزلي الخليجي.</p><p>والمعادلة من اختصاص وزارة التربية لا وزارة التعليم العالي. ثم تطبق جامعة الكويت قراءتها الخاصة لشهادتك، وهي معروضة مع الجامعة أعلاه.</p>"},
+ om:{en:"<p>Oman's rules are the most consequential in the Gulf and the least widely known.</p><p><b>IGCSE and O-level are equivalent to completing grade ten only</b>, not to a school leaving certificate. Five passes are needed and that still does not make you a school leaver in Omani terms.</p><p><b>A-level is equalised to the General Education Diploma</b>, with passes in four different subjects, or three A-level subjects if you already hold IGCSE or equivalent. Omani students additionally require Islamic Education and Social Studies.</p><p><b>The International Baccalaureate is equalised</b> at an average of not less than 24 points, with at least twelve years of study.</p><p><b>The American diploma</b> requires an academic accreditation certificate from an internationally recognised institution and not less than twelve academic years.</p><p>There is <b>no percentage conversion scale</b>. Since the admission centre sorts competitively on a numeric average, how an A-level or IB student is scored inside that system is not published anywhere. If that is you, ask the centre directly rather than assuming.</p>",
+     ar:"<p>قواعد عُمان أكثرها أثرًا في الخليج وأقلها شهرة.</p><p><b>شهادتا IGCSE والمستوى العادي تعادلان إتمام الصف العاشر فقط</b>، لا شهادة إنهاء الثانوية. وتُطلب خمس مواد ناجحة، ومع ذلك لا تجعلك خريج ثانوية بالمفهوم العُماني.</p><p>و<b>المستوى المتقدم يُعادَل بدبلوم التعليم العام</b>، بنجاح في أربع مواد مختلفة، أو ثلاث مواد متقدمة إن كنت تحمل IGCSE أو ما يعادلها. ويُطلب من الطلبة العُمانيين إضافة التربية الإسلامية والدراسات الاجتماعية.</p><p>و<b>البكالوريا الدولية تُعادَل</b> بمتوسط لا يقل عن ٢٤ نقطة، مع اثنتي عشرة سنة دراسية على الأقل.</p><p>و<b>الدبلوم الأمريكي</b> يتطلب شهادة اعتماد أكاديمي من مؤسسة معترف بها دوليًا، ولا تقل عن اثنتي عشرة سنة دراسية.</p><p>و<b>لا يوجد مقياس تحويل إلى نسبة مئوية</b>. ولأن مركز القبول يرتب تنافسيًا على معدل رقمي، فإن طريقة احتساب طالب المستوى المتقدم أو البكالوريا الدولية داخل ذلك النظام غير منشورة في أي مكان. فإن كان هذا وضعك فاسأل المركز مباشرة بدل الافتراض.</p>"}
+};
+
+/* Aptitude and placement tests, per country */
+const GATES = {
+ bh:{en:"<p>There is <b>no national admission test in Bahrain</b>. Testing is institutional.</p><ul><li>The University of Bahrain runs a <b>General Aptitude Test</b>, sat in Arabic for government school applicants and in English for private school applicants. Programme specific admission tests and interviews apply to the health, arts and architecture programmes.</li><li>Bahrain Polytechnic runs the <b>Oxford Online Placement Test</b> for English and the <b>Password</b> test for mathematics, and accepts neither IELTS nor internet based TOEFL as a substitute.</li><li>RCSI Bahrain has no aptitude test but selects by <b>structured interview</b>.</li></ul>",
+     ar:"<p><b>لا يوجد اختبار قبول وطني في البحرين.</b> والاختبارات مؤسسية.</p><ul><li>تجري جامعة البحرين <b>اختبار قدرات عامة</b>، بالعربية لطلبة المدارس الحكومية وبالإنجليزية لطلبة المدارس الخاصة. وتُطبَّق اختبارات ومقابلات قبول خاصة على برامج الصحة والفنون والعمارة.</li><li>ويجري بوليتكنك البحرين <b>اختبار أوكسفورد الإلكتروني</b> للإنجليزية واختبار <b>باسوورد</b> للرياضيات، ولا يقبل آيلتس ولا توفل الإنترنت بديلًا.</li><li>وليس للكلية الملكية للجراحين اختبار قدرات لكنها تختار عبر <b>مقابلة منظمة</b>.</li></ul>"},
+ sa:{en:"<p>Saudi Arabia has the most demanding testing regime in the Gulf, and it is <b>not optional</b>.</p><ul><li><b>Qudurat</b>, the General Aptitude Test, and <b>Tahsili</b>, the achievement test, are both required by King Saud University of every applicant regardless of school track and regardless of whether the certificate was earned inside or outside the Kingdom.</li><li>There are <b>two separate Tahsili tests</b>, one for the science track covering biology, chemistry, physics and mathematics, and one for the humanities track. Your school track decides which one you can sit, which is why the track choice you made at fifteen closes doors at eighteen.</li><li>Validity differs by university. King Saud takes the highest score within five years. King Fahd accepts Qudurat from the current or previous two years, and Tahsili from the current or previous year only.</li><li>The score scale, the number of attempts permitted and the sitting dates are set by the national assessment centre and were not retrievable for this tool. Check them at the source.</li></ul>",
+     ar:"<p>لدى السعودية أشد منظومة اختبارات في الخليج، وهي <b>ليست اختيارية</b>.</p><ul><li><b>القدرات العامة</b> و<b>التحصيلي</b> كلاهما مطلوب في جامعة الملك سعود من كل متقدم أيًا كان مساره المدرسي وسواء حصل على الشهادة داخل المملكة أو خارجها.</li><li>ويوجد <b>اختبارا تحصيلي منفصلان</b>، أحدهما للمسار العلمي ويشمل الأحياء والكيمياء والفيزياء والرياضيات، والآخر للمسار الأدبي. ومسارك المدرسي هو ما يحدد أيهما تستطيع أداءه، ولهذا فإن اختيار المسار في الخامسة عشرة يغلق أبوابًا في الثامنة عشرة.</li><li>وتختلف الصلاحية بين الجامعات. فالملك سعود تأخذ أعلى درجة خلال خمس سنوات. والملك فهد تقبل القدرات من السنة الحالية أو السنتين السابقتين، والتحصيلي من السنة الحالية أو السابقة فقط.</li><li>ومقياس الدرجات وعدد المحاولات المسموح بها ومواعيد الاختبارات يحددها المركز الوطني للقياس ولم يتيسر استرجاعها لهذه الأداة. راجعها من المصدر.</li></ul>"},
+ ae:{en:"<p><b>The single most important thing a UAE student needs to know: EmSAT was cancelled for Grade 12 students on 3 November 2024.</b> Universities now set their own criteria, with an explicit shift away from the overall average and towards subject grades relevant to the intended major.</p><p>Two live inconsistencies you will run into. The government portal still says that students applying through the national admissions office are required to take EmSAT. Higher Colleges of Technology still lists EmSAT English 1100 on its own site, while the ministry document for the same intake is built on secondary percentages and TOEFL. <b>Treat EmSAT as accepted where an institution still lists it, but never as required, and always ask about the alternative route.</b></p><p>The national admissions office processes applications only from Emiratis and children of Emirati mothers, and it is a routing channel, not a scoring body. It does not compute a composite score. The admitting institution sets the criteria.</p>",
+     ar:"<p><b>أهم ما يحتاج الطالب في الإمارات معرفته: أُلغي اختبار إمسات لطلبة الصف الثاني عشر في ٣ نوفمبر ٢٠٢٤.</b> وصارت الجامعات تضع معاييرها بنفسها، مع تحول صريح بعيدًا عن المعدل العام نحو درجات المواد المرتبطة بالتخصص المقصود.</p><p>وستواجه تناقضين قائمين. فالبوابة الحكومية ما زالت تقول إن المتقدمين عبر مكتب القبول الوطني مطالبون بأداء إمسات. وكليات التقنية العليا ما زالت تدرج إمسات الإنجليزية ١١٠٠ على موقعها، بينما وثيقة الوزارة للدفعة نفسها مبنية على نسب الثانوية وتوفل. <b>اعتبر إمسات مقبولًا حيث تدرجه المؤسسة، لكن لا تعتبره مطلوبًا أبدًا، واسأل دائمًا عن المسار البديل.</b></p><p>ويعالج مكتب القبول الوطني طلبات الإماراتيين وأبناء الأم الإماراتية فقط، وهو قناة توجيه لا جهة تقييم. فهو لا يحسب درجة مركبة، والمؤسسة القابلة هي التي تضع المعايير.</p>"},
+ qa:{en:"<p>There is no national admission test. Qatar University runs its own <b>Accuplacer ESL</b> placement test for English and the <b>QU Placer</b> test for mathematics, with TOEFL, IELTS, SAT and ACT accepted as alternatives.</p><p>A discrepancy to be aware of: the university's college requirements page gives a lower mathematics bar of SAT 530, ACT 21 or QU Placer 200, while its competency and foundation exemption pages give SAT 570, ACT 24 or QU Placer 235. Both are the university's own pages. The likely reading is that the lower set is an admission requirement and the higher set exempts you from foundation mathematics, but ask rather than assume.</p><p>At Education City the picture is different again. Carnegie Mellon <b>requires</b> SAT or ACT for artificial intelligence and computer science applicants. Georgetown and Northwestern are test optional.</p>",
+     ar:"<p>لا يوجد اختبار قبول وطني. وتجري جامعة قطر اختبار <b>أكيوبلاسر</b> لتحديد مستوى الإنجليزية واختبار <b>كيو يو بلايسر</b> للرياضيات، مع قبول توفل وآيلتس وسات وأكت بدائل.</p><p>وثمة تباين ينبغي الانتباه له: صفحة شروط الكليات تضع حدًا أدنى للرياضيات عند سات ٥٣٠ أو أكت ٢١ أو كيو يو بلايسر ٢٠٠، بينما صفحتا الكفاءة والإعفاء من التأسيسي تضعان سات ٥٧٠ أو أكت ٢٤ أو كيو يو بلايسر ٢٣٥. وكلاهما من صفحات الجامعة نفسها. والأرجح أن الأدنى شرط قبول والأعلى إعفاء من رياضيات التأسيسي، لكن اسأل ولا تفترض.</p><p>وفي المدينة التعليمية الصورة مختلفة. فكارنيجي ميلون <b>تشترط</b> سات أو أكت لمتقدمي الذكاء الاصطناعي وعلوم الحاسوب. أما جورجتاون ونورث وسترن فسات وأكت اختياريان لديهما.</p>"},
+ kw:{en:"<p>Kuwait has no separate national test, but Kuwait University's <b>academic aptitude tests in English and Mathematics are compulsory and are weighted directly into your admission score</b>, at between 10% and 20% of the total depending on the college. In practice this functions like a national test for anyone applying to the flagship.</p><p>TOEFL or IELTS may be submitted instead of the English aptitude test, but <b>the conversion scores are not published</b>, so you cannot know in advance what your IELTS band is worth. Ask the university before you rely on it.</p><p>The private universities each run their own placement tests: Accuplacer at the Gulf University for Science and Technology, an internal placement test at the American University of Kuwait, and an English entrance exam at the Kuwait College of Science and Technology.</p>",
+     ar:"<p>لا يوجد في الكويت اختبار وطني منفصل، لكن <b>اختبارات القدرات الأكاديمية في الإنجليزية والرياضيات بجامعة الكويت إلزامية وتدخل مباشرة في حساب درجة قبولك</b>، بنسبة تتراوح بين ١٠٪ و٢٠٪ من المجموع حسب الكلية. وعمليًا تعمل عمل اختبار وطني لكل من يتقدم للجامعة الأم.</p><p>ويمكن تقديم توفل أو آيلتس بدلًا من اختبار القدرات في الإنجليزية، لكن <b>درجات التحويل غير منشورة</b>، فلا تستطيع أن تعرف مسبقًا قيمة درجتك في آيلتس. اسأل الجامعة قبل الاعتماد عليها.</p><p>وتجري الجامعات الخاصة اختبارات تحديد خاصة بها: أكيوبلاسر في جامعة الخليج للعلوم والتكنولوجيا، واختبار تحديد داخلي في الجامعة الأمريكية في الكويت، واختبار قبول في الإنجليزية في كلية الكويت للعلوم والتكنولوجيا.</p>"},
+ om:{en:"<p>There is <b>no national admission test in Oman</b>. Testing is institutional. The German University of Technology runs a direct entry examination in mathematics and IC3. The University of Technology and Applied Sciences and other providers run placement testing into the General Foundation Programme, whose numerical standards are not published.</p><p>What matters far more in Oman is the <b>competitive average</b> computed by the admission centre from your General Education Diploma subject grades. That, not a test, is what decides your place.</p>",
+     ar:"<p><b>لا يوجد اختبار قبول وطني في عُمان.</b> والاختبارات مؤسسية. فالجامعة الألمانية للتكنولوجيا تجري اختبار دخول مباشر في الرياضيات وIC3. وتجري جامعة التقنية والعلوم التطبيقية وغيرها اختبارات تحديد للبرنامج التأسيسي العام، ومعاييره الرقمية غير منشورة.</p><p>والأهم بكثير في عُمان هو <b>المعدل التنافسي</b> الذي يحسبه مركز القبول من درجات مواد دبلوم التعليم العام. هذا، لا الاختبار، هو ما يحدد مقعدك.</p>"}
+};
+
+/* How students lose places */
+const LOSE = {
+ en:{t:"Nine ways students lose a place they had earned",
+     s:"Every one of these is documented in an institution's own rules. None of them is about being a weak student.",
+     items:[
+      ["Sitting the English or maths test too late","In the UAE the test scores are needed <b>before you apply for certificate equivalency</b>, not before you apply to a university. Booking the test once the equivalency application has started is already late."],
+      ["Assuming one deadline means one date","Qatar University's last cycle had the online application close on 25 March, documents due 2 April, and final documents for conditional admission due 25 June. Three separate deadlines for one entry point."],
+      ["Letting an English score expire between offer and enrolment","Qatar University measures the two year validity of IELTS and TOEFL <b>to the first day of class</b>, not to the application date. A score that is valid when you apply can be dead before term starts."],
+      ["Quoting the wrong TOEFL scale","TOEFL moved from the 0 to 120 scale to a 1 to 6 scale on 21 January 2026. Almost every published Gulf threshold still quotes the old numbers. Legacy scores stay valid until about January 2028, and score reports show both, but the mismatch causes real confusion."],
+      ["Dropping Arabic or Religion at an international school","Kuwait makes Religion and Arabic compulsory within the six subjects required for equivalency. The UAE excludes them from the counted five but still requires evidence they were studied."],
+      ["Choosing the wrong secondary track at fifteen","Saudi Arabia's two Tahsili tests, Kuwait's science only colleges, Qatar University's stream table and the University of Bahrain's track table all lock a literary track student out of health, engineering and most computing. This is the single biggest irreversible decision in this whole process, and it is made three years early."],
+      ["Not sitting the aptitude test before the weighting is applied","Kuwait University computes an equivalent average that includes the aptitude test. No aptitude score means no equivalent average, whatever your school percentage."],
+      ["An incomplete attestation chain","Bahrain requires a five step chain for certificates from non Apostille, non GCC countries. Saudi Arabia requires the origin education ministry, the origin foreign ministry and the Saudi embassy. One missing stamp voids the file."],
+      ["Reading a published minimum as a cut-off","Kuwait's medicine floor is 85% while the real cut-off has recently been in the mid nineties. King Saud University's medicine floor is a weighted 95 while the allocation average was 96.95 for female applicants. The floor tells you whether you may apply. It does not tell you whether you will get in."]
+     ]},
+ ar:{t:"تسع طرق يخسر بها الطلبة مقعدًا استحقوه",
+     s:"كل واحدة منها موثقة في لوائح مؤسسة بعينها. ولا علاقة لأي منها بضعف الطالب.",
+     items:[
+      ["أداء اختبار الإنجليزية أو الرياضيات متأخرًا","في الإمارات تُطلب درجات الاختبار <b>قبل التقديم على معادلة الشهادة</b>، لا قبل التقديم للجامعة. وحجز الاختبار بعد بدء طلب المعادلة تأخر أصلًا."],
+      ["افتراض أن الموعد النهائي واحد","في آخر دورة بجامعة قطر أُغلق الطلب الإلكتروني في ٢٥ مارس، والوثائق في ٢ أبريل، والوثائق النهائية للقبول المشروط في ٢٥ يونيو. ثلاثة مواعيد منفصلة لمدخل واحد."],
+      ["انتهاء صلاحية درجة الإنجليزية بين العرض والالتحاق","تحسب جامعة قطر صلاحية آيلتس وتوفل البالغة سنتين <b>حتى أول يوم دراسة</b>، لا حتى تاريخ التقديم. فالدرجة السارية وقت تقديمك قد تنتهي قبل بدء الفصل."],
+      ["الاستشهاد بمقياس توفل الخطأ","انتقل توفل من مقياس ٠ إلى ١٢٠ إلى مقياس ١ إلى ٦ في ٢١ يناير ٢٠٢٦. وما زالت أغلب الحدود المنشورة في الخليج تذكر الأرقام القديمة. وتبقى الدرجات السابقة سارية حتى نحو يناير ٢٠٢٨، وتعرض التقارير المقياسين، لكن التباين يسبب لبسًا حقيقيًا."],
+      ["ترك العربية أو الدين في مدرسة دولية","تجعل الكويت الدين والعربية إلزاميتين ضمن المواد الست المطلوبة للمعادلة. وتستثنيهما الإمارات من المواد الخمس المحتسبة لكنها تشترط إثبات دراستهما."],
+      ["اختيار المسار الثانوي الخطأ في الخامسة عشرة","اختبارا التحصيلي في السعودية، وكليات الكويت العلمية فقط، وجدول مسارات جامعة قطر، وجدول مسارات جامعة البحرين، كلها تغلق أمام طالب المسار الأدبي أبواب الصحة والهندسة ومعظم الحوسبة. وهذا أكبر قرار لا رجعة فيه في العملية كلها، ويُتخذ قبل ثلاث سنوات."],
+      ["عدم أداء اختبار القدرات قبل تطبيق الوزن","تحسب جامعة الكويت معدلًا مكافئًا يشمل اختبار القدرات. فلا درجة قدرات يعني لا معدل مكافئ، مهما كانت نسبتك المدرسية."],
+      ["سلسلة تصديق ناقصة","تشترط البحرين خمس خطوات للشهادات من دول غير موقّعة على أبوستيل وغير خليجية. وتشترط السعودية وزارة التعليم ووزارة الخارجية في بلد الإصدار والسفارة السعودية. وختم واحد ناقص يبطل الملف."],
+      ["قراءة الحد الأدنى المنشور على أنه حد القبول","الحد الأدنى للطب في الكويت ٨٥٪ بينما الحد الفعلي كان مؤخرًا في منتصف التسعينات. والحد الأدنى للطب في جامعة الملك سعود درجة موزونة ٩٥ بينما معدل التخصيص كان ٩٦٫٩٥ للطالبات. فالحد الأدنى يخبرك هل يجوز لك التقديم، ولا يخبرك هل ستُقبل."]
+     ]}
+};
+
+/* Calendar */
+const CAL = {
+ en:{t:"When things happen",
+     s:"The Gulf admission cycle is squeezed into March to August, and several of the windows are startlingly short. Confirm every date at the source, because they move each year.",
+     rows:[
+      ["Qatar","International applications to Qatar University open 1 March and close 25 March, with documents due about a week later. Qatari, GCC and resident applications open 3 May and close 5 July. Decisions are announced in early August. Education City universities run American style deadlines: Early Action or Early Decision 1 November, Regular Decision 15 January. Certificate equivalency takes eight working days and is free."],
+      ["Kuwait","The Kuwait University window is roughly <b>ten days in the second half of July</b>. In the last cycle it ran from 18 to 28 July, with in person applications for certificates earned outside Kuwait from 22 to 28 July. The applied education authority ran 5 to 18 August. If you are away for the summer, plan around this."],
+      ["Saudi Arabia","The unified admission portals in Riyadh have historically opened in late June or early July for a window of roughly <b>five days</b>, with separate windows for male and female applicants. Qudurat and Tahsili are sat well before that, and their dates are set by the national assessment centre."],
+      ["Oman","The unified admission centre has run roughly <b>1 April to 1 June</b>, followed by a trial screening, a wish modification phase after second semester results, and then three screening rounds."],
+      ["Bahrain and the UAE","Application windows and test dates were not published in a form that could be verified for this tool. Ask the institution directly."]
+     ]},
+ ar:{t:"متى تحدث الأمور",
+     s:"دورة القبول في الخليج مضغوطة بين مارس وأغسطس، وبعض فتراتها قصيرة على نحو مفاجئ. تأكد من كل تاريخ من مصدره لأنها تتغير سنويًا.",
+     rows:[
+      ["قطر","تفتح طلبات الدوليين لجامعة قطر في ١ مارس وتغلق في ٢٥ مارس، والوثائق بعدها بنحو أسبوع. وتفتح طلبات القطريين والخليجيين والمقيمين في ٣ مايو وتغلق في ٥ يوليو. وتُعلن النتائج في أوائل أغسطس. وتعمل جامعات المدينة التعليمية بمواعيد على النمط الأمريكي: القبول المبكر ١ نوفمبر، والقبول العادي ١٥ يناير. ومعادلة الشهادة تستغرق ثمانية أيام عمل وهي مجانية."],
+      ["الكويت","فترة جامعة الكويت نحو <b>عشرة أيام في النصف الثاني من يوليو</b>. وفي آخر دورة كانت من ١٨ إلى ٢٨ يوليو، مع تقديم حضوري لحاملي الشهادات من خارج الكويت من ٢٢ إلى ٢٨ يوليو. وكانت فترة التعليم التطبيقي من ٥ إلى ١٨ أغسطس. فإن كنت مسافرًا في الصيف فخطط لذلك."],
+      ["السعودية","فتحت بوابات القبول الموحد في الرياض تاريخيًا في أواخر يونيو أو أوائل يوليو لفترة نحو <b>خمسة أيام</b>، بفترتين منفصلتين للطلاب والطالبات. ويُؤدى اختبارا القدرات والتحصيلي قبل ذلك بوقت، وتحدد مواعيدهما هيئة تقويم التعليم."],
+      ["عُمان","عمل مركز القبول الموحد تقريبًا من <b>١ أبريل إلى ١ يونيو</b>، يليه فرز تجريبي، ثم مرحلة تعديل الرغبات بعد نتائج الفصل الثاني، ثم ثلاث جولات فرز."],
+      ["البحرين والإمارات","لم تُنشر فترات التقديم ومواعيد الاختبارات بصورة يمكن التحقق منها لهذه الأداة. اسأل المؤسسة مباشرة."]
+     ]}
+};
+
+/* English score reference */
+const ENGREF = {
+ en:{t:"The English gate, and a change that catches people out",
+     s:"On 21 January 2026 the TOEFL internet based test moved from the 0 to 120 total scale to a 1 to 6 banded scale, where the overall score is the average of the four sections rather than the sum. Legacy scores stay valid for two years, and score reports show both, but almost every published Gulf requirement still quotes the old numbers. These are the official comparisons from the test makers themselves.",
+     head:["IELTS Academic","TOEFL, new 1 to 6","TOEFL, old 0 to 120","PTE Academic"],
+     rows:[["8.0","6","114 and above","79"],["7.5","5.5","107 and above","73"],["7.0","5","95 and above","65"],["6.5","4.5","86 and above","58"],["6.0","4","72 and above","50"],["5.5","3.5","58 and above","42"],["5.0","2.5","44 and above","36"],["4.5","2","34 and above","30"]],
+     note:"The IELTS and TOEFL columns come from the official concordance published by the test maker. The PTE column comes from Pearson's own concordance report, which states an average difference of about 0.45 of an IELTS band, so treat that column as approximate."},
+ ar:{t:"بوابة اللغة الإنجليزية، وتغيير يفاجئ الناس",
+     s:"في ٢١ يناير ٢٠٢٦ انتقل اختبار توفل الإلكتروني من مقياس ٠ إلى ١٢٠ إلى مقياس مقسم من ١ إلى ٦، حيث تكون الدرجة الكلية متوسط الأقسام الأربعة لا مجموعها. وتبقى الدرجات السابقة سارية لسنتين، وتعرض التقارير المقياسين، لكن أغلب الشروط المنشورة في الخليج ما زالت تذكر الأرقام القديمة. وهذه هي المقارنات الرسمية من الجهات المصدرة للاختبارات نفسها.",
+     head:["آيلتس أكاديمي","توفل، الجديد ١ إلى ٦","توفل، القديم ٠ إلى ١٢٠","بي تي إي أكاديمي"],
+     rows:[["٨٫٠","٦","١١٤ فأعلى","٧٩"],["٧٫٥","٥٫٥","١٠٧ فأعلى","٧٣"],["٧٫٠","٥","٩٥ فأعلى","٦٥"],["٦٫٥","٤٫٥","٨٦ فأعلى","٥٨"],["٦٫٠","٤","٧٢ فأعلى","٥٠"],["٥٫٥","٣٫٥","٥٨ فأعلى","٤٢"],["٥٫٠","٢٫٥","٤٤ فأعلى","٣٦"],["٤٫٥","٢","٣٤ فأعلى","٣٠"]],
+     note:"عمودا آيلتس وتوفل من جدول المطابقة الرسمي المنشور من الجهة المصدرة. وعمود بي تي إي من تقرير المطابقة الخاص بشركة بيرسون، وهو يذكر فرقًا متوسطًا نحو ٠٫٤٥ من درجة آيلتس، فاعتبره تقريبيًا."}
+};
+
+/* ===== Entry checker: strings, matching and rendering ===== */
+const PROGS = P1.concat(P2);
+
+const CTY = {bh:{en:"Bahrain",ar:"البحرين"}, sa:{en:"Saudi Arabia",ar:"السعودية"},
+             ae:{en:"UAE",ar:"الإمارات"}, qa:{en:"Qatar",ar:"قطر"},
+             kw:{en:"Kuwait",ar:"الكويت"}, om:{en:"Oman",ar:"عُمان"}};
+const CTY_ORDER = ["bh","sa","ae","qa","kw","om"];
+
+const CURR = [
+ {id:"nat", en:"Gulf national secondary certificate", ar:"شهادة الثانوية العامة الخليجية"},
+ {id:"alevel", en:"IGCSE and A-levels", ar:"IGCSE والمستوى المتقدم"},
+ {id:"ib", en:"International Baccalaureate", ar:"البكالوريا الدولية"},
+ {id:"us", en:"American high school diploma", ar:"الدبلوم الأمريكي"},
+ {id:"cbse", en:"Indian curriculum, CBSE or ICSE", ar:"المنهج الهندي، سي بي إس إي أو آي سي إس إي"}
+];
+
+const TRACKS = [
+ {id:"sci", en:"Science", ar:"علمي"},
+ {id:"lit", en:"Literary or humanities", ar:"أدبي أو إنساني"},
+ {id:"com", en:"Commercial", ar:"تجاري"},
+ {id:"tech", en:"Technological or industrial", ar:"تقني أو صناعي"}
+];
+
+const UI = {
+ en:{
+  title:"Where do you stand?",
+  sub:"An honest look at what your grades open, what your school track has already closed, and what you still have to clear. Built from what universities and ministries publish, and explicit about what they do not.",
+  warnT:"Read this before you use it",
+  warn:"A published minimum is a <b>floor, not a cut-off</b>. Almost every Gulf university admits competitively against a fixed number of places, so meeting the minimum means you may apply, not that you will get in. Kuwait's medicine floor is 85% while the real cut-off has recently sat in the mid nineties. This tool shows you the floor, and the real figure wherever one has been published.",
+  warn2T:"And one thing nobody tells international school students",
+  warn2:"<b>No GCC ministry publishes a table that converts an IGCSE grade, an IB point score or an American GPA into a local percentage.</b> They publish threshold rules instead: pass this many subjects at this grade and you are recognised. So this tool will never tell you that your profile equals a percentage. That number does not officially exist. What it will tell you is whether you meet the published threshold, and what each university says about your specific curriculum.",
+  q1:"My qualification",
+  q2:"My school track",
+  q3:"My result",
+  q4:"Where I want to study",
+  hint:{nat:"Your cumulative secondary percentage", alevel:"Your grades are compared to each university's published requirement below", ib:"Your total IB points out of 45", us:"Your cumulative GPA out of 4.0", cbse:"Your grade 12 percentage"},
+  go:"Show me",
+  resT:"What this means for you",
+  none:"Choose a country above to see what is published there.",
+  gMeet:"You meet the published floor",
+  gMeetS:"You may apply. Whether you get in depends on how many other people apply and how many places there are.",
+  gClose:"Close, within five points",
+  gCloseS:"Worth watching. Floors move, and in some years a programme fills at the floor and takes everyone who qualified.",
+  gShort:"Below the published floor",
+  gShortS:"Not this year on this route. Look at the foundation and diploma routes, and at the institutions with lower floors.",
+  gBlocked:"Closed by your school track",
+  gBlockedS:"This is not about your grades. These programmes do not accept your track at all, at any percentage. It is the most important thing on this page.",
+  gInfo:"Read these whatever your grades",
+  gNo:"No published requirement for your qualification",
+  gNoS:"These institutions publish nothing about your curriculum in a form that could be verified. That does not mean you are not eligible. It means you have to ask them, and you should ask early.",
+  hWho:"What is published",
+  hEng:"English",
+  hTest:"Tests and interviews",
+  hFall:"If you fall short",
+  hAlt:"Your qualification specifically",
+  link:"Official page",
+  eqT:"Will your certificate be recognised?",
+  gateT:"The tests you must sit",
+  lastT:"Checked on 8 August 2026",
+  last:"Every figure on this page was taken from the institution's or ministry's own page on that date. Requirements change every year, several of the sources contradict each other, and some institutions publish nothing at all. Where a figure could not be verified this page says so instead of guessing. Confirm everything with the institution before you rely on it. This is a guide, not an admissions decision.",
+  disc:"This tool is not affiliated with any institution listed, does not process applications, and cannot tell you whether you will be admitted.",
+  foot:'Prepared by <a href="https://www.saqeralkhalifa.com">Dr. Saqer AlKhalifa</a> · Free for all students',
+  toggle:"عربي",
+  quizline:"<b>Not sure what to study yet?</b> Take the free 8-minute assessment and get your top 5 majors.",
+  quizbtn:"Take the quiz",
+  schline:"<b>Worried about the cost?</b> The scholarship guide shows what is open to your passport, and which programmes close while you are still in Grade 11.",
+  schbtn:"Scholarships",
+  parline:"<b>Are you a parent?</b> There is a guide for you on how to read all of this and what the research says about your role.",
+  parbtn:"Parent guide"
+ },
+ ar:{
+  title:"أين تقف؟",
+  sub:"نظرة صادقة إلى ما تفتحه درجاتك، وما أغلقه مسارك المدرسي أصلًا، وما بقي عليك اجتيازه. مبنية على ما تنشره الجامعات والوزارات، وصريحة فيما لا تنشره.",
+  warnT:"اقرأ هذا قبل الاستخدام",
+  warn:"الحد الأدنى المنشور <b>عتبة لا حد قبول</b>. فأغلب جامعات الخليج تقبل تنافسيًا ضمن عدد ثابت من المقاعد، ولذلك فاستيفاء الحد الأدنى يعني أنه يجوز لك التقديم، لا أنك ستُقبل. فالحد الأدنى للطب في الكويت ٨٥٪ بينما الحد الفعلي كان مؤخرًا في منتصف التسعينات. هذه الأداة تعرض لك العتبة، والرقم الفعلي حيثما نُشر.",
+  warn2T:"وأمر لا يخبر به أحدٌ طلبةَ المدارس الدولية",
+  warn2:"<b>لا تنشر أي وزارة خليجية جدولًا يحوّل تقدير IGCSE أو نقاط البكالوريا الدولية أو المعدل الأمريكي إلى نسبة محلية.</b> بل تنشر قواعد عتبة: انجح في هذا العدد من المواد بهذا التقدير فتُعترف بشهادتك. ولذلك لن تخبرك هذه الأداة أبدًا أن ملفك يعادل نسبة مئوية. فذلك الرقم غير موجود رسميًا. لكنها ستخبرك هل تستوفي العتبة المنشورة، وماذا تقول كل جامعة عن منهجك تحديدًا.",
+  q1:"مؤهلي",
+  q2:"مساري المدرسي",
+  q3:"نتيجتي",
+  q4:"أين أريد الدراسة",
+  hint:{nat:"معدلك التراكمي في الثانوية", alevel:"تُقارن تقديراتك بالشرط المنشور لكل جامعة أدناه", ib:"مجموع نقاطك في البكالوريا الدولية من ٤٥", us:"معدلك التراكمي من ٤٫٠", cbse:"نسبتك في الصف الثاني عشر"},
+  go:"اعرض النتيجة",
+  resT:"ماذا يعني هذا لك",
+  none:"اختر دولة أعلاه لترى ما هو منشور فيها.",
+  gMeet:"تستوفي العتبة المنشورة",
+  gMeetS:"يجوز لك التقديم. أما القبول فيعتمد على عدد المتقدمين وعدد المقاعد.",
+  gClose:"قريب، ضمن خمس نقاط",
+  gCloseS:"يستحق المتابعة. فالعتبات تتحرك، وفي بعض السنوات يمتلئ البرنامج عند العتبة فيقبل كل من استوفى الشروط.",
+  gShort:"دون العتبة المنشورة",
+  gShortS:"ليس هذا العام على هذا المسار. انظر في مسارات التأسيسي والدبلوم، وفي المؤسسات ذات العتبات الأدنى.",
+  gBlocked:"مغلقة بسبب مسارك المدرسي",
+  gBlockedS:"هذا لا علاقة له بدرجاتك. فهذه البرامج لا تقبل مسارك إطلاقًا، مهما كانت نسبتك. وهو أهم ما في هذه الصفحة.",
+  gInfo:"اقرأ هذه أيًا كانت درجاتك",
+  gNo:"لا يوجد شرط منشور لمؤهلك",
+  gNoS:"هذه المؤسسات لا تنشر عن منهجك شيئًا يمكن التحقق منه. وهذا لا يعني أنك غير مؤهل، بل يعني أن عليك سؤالها، وأن تسأل مبكرًا.",
+  hWho:"ما هو منشور",
+  hEng:"اللغة الإنجليزية",
+  hTest:"الاختبارات والمقابلات",
+  hFall:"إن لم تحقق المطلوب",
+  hAlt:"مؤهلك تحديدًا",
+  link:"الصفحة الرسمية",
+  eqT:"هل سيُعترف بشهادتك؟",
+  gateT:"الاختبارات التي عليك أداؤها",
+  lastT:"روجعت في ٨ أغسطس ٢٠٢٦",
+  last:"كل رقم في هذه الصفحة مأخوذ من صفحة المؤسسة أو الوزارة نفسها في ذلك التاريخ. والشروط تتغير كل سنة، وبعض المصادر يناقض بعضًا، وبعض المؤسسات لا تنشر شيئًا أصلًا. وحيثما تعذر التحقق من رقم تقول هذه الصفحة ذلك بدل التخمين. تأكد من كل شيء مع المؤسسة قبل الاعتماد عليه. هذا دليل لا قرار قبول.",
+  disc:"هذه الأداة لا تتبع أي مؤسسة مذكورة، ولا تعالج طلبات القبول، ولا تستطيع أن تخبرك هل ستُقبل.",
+  foot:'إعداد <a href="https://www.saqeralkhalifa.com">د. صقر آل خليفة</a> · مجاني لجميع الطلبة',
+  toggle:"English",
+  quizline:"<b>لم تحدد تخصصك بعد؟</b> جرّب الاختبار المجاني في ٨ دقائق واحصل على أفضل ٥ تخصصات لك.",
+  quizbtn:"ابدأ الاختبار",
+  schline:"<b>قلق من التكلفة؟</b> دليل المنح يوضح ما هو متاح لجوازك، وأي البرامج يُغلق وأنت في الصف الحادي عشر.",
+  schbtn:"المنح الدراسية",
+  parline:"<b>هل أنت ولي أمر؟</b> يوجد دليل لك عن كيفية قراءة هذا كله وما تقوله الأبحاث عن دورك.",
+  parbtn:"دليل أولياء الأمور"
+ }
+};
+
+let lang = "en", curr = "nat", track = "sci", score = null, ct = "bh";
+const $ = id => document.getElementById(id);
+
+function fieldFor(p){ return curr === "nat" ? p.nat : (p[curr] || null); }
+
+function verdict(p){
+  if(p.dead) return "info";
+  const f = fieldFor(p);
+  if(curr === "nat"){
+    const t = p.nat && p.nat.tracks || [];
+    if(!t.length) return "info";
+    if(t.indexOf(track) === -1) return "blocked";
+    if(p.nat.min == null || score == null) return "info";
+    if(score >= p.nat.min) return "meet";
+    if(score >= p.nat.min - 5) return "close";
+    return "short";
+  }
+  if(!f) return "nodata";
+  if(f.min == null || score == null) return "info";
+  const near = curr === "ib" ? 3 : (curr === "us" ? 0.25 : 5);
+  if(score >= f.min) return "meet";
+  if(score >= f.min - near) return "close";
+  return "short";
+}
+
+function altBlock(p, U){
+  if(curr === "nat") return "";
+  const f = p[curr];
+  if(!f || !f[lang]) return "";
+  return `<div class="sec"><h3>${U.hAlt}</h3><p>${f[lang]}</p></div>`;
+}
+
+function card(p, U, v){
+  let b = "";
+  if(curr === "nat" && p.nat && p.nat.min != null){
+    const label = p.wt ? (lang === "en" ? "Published minimum weighted score" : "الحد الأدنى المنشور للدرجة الموزونة")
+                       : (lang === "en" ? "Published minimum" : "الحد الأدنى المنشور");
+    b += `<div class="minrow"><span>${label}</span><b>${p.nat.min}%</b></div>`;
+  }
+  if(curr === "nat" && p.nat && p.nat[lang]) b += `<div class="sec"><h3>${U.hWho}</h3><p>${p.nat[lang]}</p></div>`;
+  b += altBlock(p, U);
+  if(p.note) b += `<div class="sec"><h3>${U.hWho}</h3><p>${p.note[lang]}</p></div>`;
+  if(p.note2) b += `<p class="extra">${p.note2[lang]}</p>`;
+  if(p.note3) b += `<p class="extra">${p.note3[lang]}</p>`;
+  if(p.eng) b += `<div class="sec"><h3>${U.hEng}</h3><p>${p.eng[lang]}</p></div>`;
+  if(p.test) b += `<div class="sec"><h3>${U.hTest}</h3><p>${p.test[lang]}</p></div>`;
+  if(p.fall) b += `<div class="sec"><h3>${U.hFall}</h3><p>${p.fall[lang]}</p></div>`;
+  b += `<a class="olink" href="${p.url}" target="_blank" rel="noopener">${U.link} &rsaquo;</a>`;
+  return `<div class="pcard v-${v}" id="p-${p.id}">
+    <button class="phead" data-id="${p.id}">
+      <span class="ptxt"><b>${p.prog[lang]}</b><span class="pinst">${p.inst[lang]}</span></span>
+      <span class="chev">&rsaquo;</span>
+    </button>
+    <div class="pbody">${b}</div>
+  </div>`;
+}
+
+const GROUPS = [
+ {k:"blocked", t:"gBlocked", s:"gBlockedS", c:"blocked"},
+ {k:"meet", t:"gMeet", s:"gMeetS", c:"meet"},
+ {k:"close", t:"gClose", s:"gCloseS", c:"close"},
+ {k:"short", t:"gShort", s:"gShortS", c:"short"},
+ {k:"info", t:"gInfo", s:null, c:"info"},
+ {k:"nodata", t:"gNo", s:"gNoS", c:"nodata"}
+];
+
+function render(){
+  const U = UI[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.title = lang === "ar" ? "هل تنطبق عليك الشروط؟ | د. صقر آل خليفة"
+                                 : "Entry Requirements Checker | Dr. Saqer AlKhalifa";
+  $("langToggle").textContent = U.toggle;
+  $("t-title").textContent = U.title;
+  $("t-sub").textContent = U.sub;
+  $("warnT").textContent = U.warnT; $("warn").innerHTML = U.warn;
+  $("warn2T").textContent = U.warn2T; $("warn2").innerHTML = U.warn2;
+  $("q1").textContent = U.q1; $("q2").textContent = U.q2;
+  $("q3").textContent = U.q3; $("q4").textContent = U.q4;
+  $("hint").textContent = U.hint[curr];
+  $("resT").textContent = U.resT;
+  $("eqT").textContent = U.eqT; $("eq").innerHTML = EQUIV[ct][lang];
+  $("gateT").textContent = U.gateT; $("gate").innerHTML = GATES[ct][lang];
+  $("lastT").textContent = U.lastT; $("last").textContent = U.last;
+  $("t-disc").textContent = U.disc; $("t-foot").innerHTML = U.foot;
+  $("t-quizline").innerHTML = U.quizline; $("t-quizbtn").textContent = U.quizbtn;
+  $("t-schline").innerHTML = U.schline; $("t-schbtn").textContent = U.schbtn;
+  $("t-parline").innerHTML = U.parline; $("t-parbtn").textContent = U.parbtn;
+
+  $("currs").innerHTML = CURR.map(c =>
+    `<button class="fbtn${c.id===curr?" on":""}" data-c="${c.id}">${c[lang]}</button>`).join("");
+  $("currs").querySelectorAll(".fbtn").forEach(b =>
+    b.addEventListener("click", () => { curr = b.dataset.c; render(); }));
+
+  $("trackrow").style.display = curr === "nat" ? "block" : "none";
+  $("tracks").innerHTML = TRACKS.map(t =>
+    `<button class="fbtn${t.id===track?" on":""}" data-t="${t.id}">${t[lang]}</button>`).join("");
+  $("tracks").querySelectorAll(".fbtn").forEach(b =>
+    b.addEventListener("click", () => { track = b.dataset.t; render(); }));
+
+  $("ctys").innerHTML = CTY_ORDER.map(c =>
+    `<button class="fbtn${c===ct?" on":""}" data-y="${c}">${CTY[c][lang]}</button>`).join("");
+  $("ctys").querySelectorAll(".fbtn").forEach(b =>
+    b.addEventListener("click", () => { ct = b.dataset.y; render(); }));
+
+  const list = PROGS.filter(p => p.ct === ct);
+  const buckets = {};
+  list.forEach(p => { const v = verdict(p); (buckets[v] = buckets[v] || []).push(p); });
+
+  $("list").innerHTML = GROUPS.map(g => {
+    const arr = buckets[g.k];
+    if(!arr || !arr.length) return "";
+    return `<section class="grp g-${g.c}">
+      <h2>${U[g.t]}<span class="cnt">${arr.length}</span></h2>
+      ${g.s ? `<p class="grp-s">${U[g.s]}</p>` : ""}
+      ${arr.map(p => card(p, U, g.c)).join("")}
+    </section>`;
+  }).join("");
+
+  $("list").querySelectorAll(".phead").forEach(b =>
+    b.addEventListener("click", () => {
+      const c = document.getElementById("p-" + b.dataset.id);
+      const opening = !c.classList.contains("open");
+      c.classList.toggle("open");
+      if(opening && window.goatcounter && window.goatcounter.count){
+        try{ window.goatcounter.count({path:"entry-" + b.dataset.id, event:true}); }catch(e){}
+      }
+    }));
+
+  const L = LOSE[lang];
+  $("loseT").textContent = L.t; $("loseS").textContent = L.s;
+  $("lose").innerHTML = L.items.map((it,i) =>
+    `<div class="lose-row"><b>${i+1}. ${it[0]}</b><p>${it[1]}</p></div>`).join("");
+
+  const C = CAL[lang];
+  $("calT").textContent = C.t; $("calS").textContent = C.s;
+  $("cal").innerHTML = C.rows.map(r =>
+    `<div class="cal-row"><b>${r[0]}</b><span>${r[1]}</span></div>`).join("");
+
+  const E = ENGREF[lang];
+  $("engT").textContent = E.t; $("engS").textContent = E.s;
+  $("engTable").innerHTML =
+    `<tr>${E.head.map(h=>`<th>${h}</th>`).join("")}</tr>` +
+    E.rows.map(r => `<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("");
+  $("engNote").textContent = E.note;
+}
+
+$("score").addEventListener("input", e => {
+  const v = parseFloat(e.target.value);
+  score = isNaN(v) ? null : v;
+  render();
+});
+$("langToggle").addEventListener("click", () => {
+  lang = lang === "en" ? "ar" : "en"; render();
+});
+
+(function guess(){
+  try{
+    const map = {"Asia/Bahrain":"bh","Asia/Qatar":"qa","Asia/Riyadh":"sa",
+                 "Asia/Kuwait":"kw","Asia/Dubai":"ae","Asia/Muscat":"om"};
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    if(map[tz]) ct = map[tz];
+  }catch(e){}
+})();
+render();
+
+</script>
+<script>
+(function(){
+  function sync(){
+    var l = document.documentElement.lang === "ar" ? "ar" : "en";
+    var n = document.querySelectorAll("[data-en]");
+    for(var i=0;i<n.length;i++){ n[i].textContent = n[i].getAttribute("data-"+l); }
+  }
+  try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
+  document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
+  sync();
+})();
+</script>
+<script>
+/* MCLANG boot: applies the resolved language by driving the page's own toggle,
+   then remembers whatever the visitor lands on. */
+(function(){
+  var b = document.getElementById("langToggle");
+  if(!b) return;
+  if(mcInitLang() === "ar" && document.documentElement.lang !== "ar") b.click();
+  document.addEventListener("click", function(e){
+    if(e.target && e.target.id === "langToggle"){
+      setTimeout(function(){
+        mcSaveLang(document.documentElement.lang === "ar" ? "ar" : "en");
+      }, 0);
+    }
+  }, true);
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>

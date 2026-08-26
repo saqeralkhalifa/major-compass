@@ -1,0 +1,232 @@
+{
+ "version": 1,
+ "checked": "2026-08-24",
+ "note": "Dated entries are verified. Month entries are the month to watch, not a promised deadline.",
+ "items": [
+  {
+   "id": "edb-grad",
+   "ct": "bh",
+   "kind": "opens",
+   "date": "2026-09-01",
+   "page": "internships.html",
+   "en": {
+    "t": "Bahrain EDB graduate window opens",
+    "b": "The EDB graduate programme window opens today. Check the listing before the intake fills."
+   },
+   "ar": {
+    "t": "فتح باب برنامج الخريجين في مجلس التنمية الاقتصادية",
+    "b": "يفتح اليوم باب التقديم لبرنامج الخريجين. راجع الإعلان قبل اكتمال الدفعة."
+   }
+  },
+  {
+   "id": "bain-mustaqbalak-2w",
+   "ct": "sa",
+   "kind": "closes",
+   "date": "2026-09-26",
+   "page": "internships.html",
+   "en": {
+    "t": "Bain Mustaqbalak closes in two weeks",
+    "b": "Applications for the Jan to Mar 2027 cycle close on 10 October. Saudi coop students only."
+   },
+   "ar": {
+    "t": "مستقبلك من بين آند كومباني يغلق بعد أسبوعين",
+    "b": "يغلق التقديم لدورة يناير إلى مارس 2027 في 10 أكتوبر. لطلبة التعاوني السعوديين فقط."
+   }
+  },
+  {
+   "id": "bain-mustaqbalak-1w",
+   "ct": "sa",
+   "kind": "closes",
+   "date": "2026-10-03",
+   "page": "internships.html",
+   "en": {
+    "t": "Bain Mustaqbalak closes in one week",
+    "b": "10 October is the deadline for the Jan to Mar 2027 cycle."
+   },
+   "ar": {
+    "t": "مستقبلك من بين آند كومباني يغلق بعد أسبوع",
+    "b": "10 أكتوبر آخر موعد لدورة يناير إلى مارس 2027."
+   }
+  },
+  {
+   "id": "pearson-toronto",
+   "ct": "all",
+   "kind": "watch",
+   "date": "2026-09-15",
+   "page": "scholarships.html",
+   "en": {
+    "t": "Lester B. Pearson nominations are due soon",
+    "b": "Your school must nominate you, one student per school, early October. Ask your counsellor this week."
+   },
+   "ar": {
+    "t": "اقترب موعد ترشيحات منحة ليستر بيرسون",
+    "b": "الترشيح يتم عبر مدرستك، طالب واحد لكل مدرسة، في أوائل أكتوبر. راجع المرشد الأكاديمي هذا الأسبوع."
+   }
+  },
+  {
+   "id": "turkiye-burslari",
+   "ct": "all",
+   "kind": "opens",
+   "date": "2027-01-10",
+   "page": "scholarships.html",
+   "en": {
+    "t": "Turkiye Burslari opens today",
+    "b": "The most accessible fully funded undergraduate route for Gulf students. Closes 20 February."
+   },
+   "ar": {
+    "t": "فتح باب المنح التركية اليوم",
+    "b": "أيسر مسار بكالوريوس ممول بالكامل لطلبة الخليج. يغلق في 20 فبراير."
+   }
+  },
+  {
+   "id": "hungaricum",
+   "ct": "bh,ae,om",
+   "kind": "watch",
+   "date": "2027-01-05",
+   "page": "scholarships.html",
+   "en": {
+    "t": "Stipendium Hungaricum is a January window",
+    "b": "Open to Bahrain, UAE and Oman nationals only among the Gulf states. Check the dates on the page."
+   },
+   "ar": {
+    "t": "منحة هنغاريا نافذتها في يناير",
+    "b": "متاحة لمواطني البحرين والإمارات وعُمان فقط بين دول الخليج. راجع المواعيد في الصفحة."
+   }
+  },
+  {
+   "id": "takatuf-eidaad",
+   "ct": "om",
+   "kind": "closes",
+   "date": "2027-02-01",
+   "page": "internships.html",
+   "en": {
+    "t": "Oman: two February closes",
+    "b": "Takatuf closes late February and Eidaad is nominated through your university. Everything else in Oman takes applications year round."
+   },
+   "ar": {
+    "t": "عُمان: موعدان يغلقان في فبراير",
+    "b": "تكاتف يغلق أواخر فبراير، وإعداد يتم ترشيحه عبر جامعتك. بقية الفرص في عُمان تستقبل الطلبات طوال العام."
+   }
+  },
+  {
+   "id": "aramco-winter",
+   "ct": "sa",
+   "kind": "watch",
+   "date": "2027-02-01",
+   "page": "internships.html",
+   "en": {
+    "t": "Aramco winter deadline is this month",
+    "b": "The Summer and Tomooh winter deadline falls around the middle of February. Check the page for this cycle's date."
+   },
+   "ar": {
+    "t": "الموعد الشتوي لأرامكو هذا الشهر",
+    "b": "الموعد الشتوي لبرنامجي الصيف وطموح يقع نحو منتصف فبراير. راجع الصفحة لمعرفة موعد هذه الدورة."
+   }
+  },
+  {
+   "id": "bh-spring",
+   "ct": "bh",
+   "kind": "season",
+   "date": "2027-03-01",
+   "page": "internships.html",
+   "en": {
+    "t": "Bahrain's internship season starts now",
+    "b": "The season is the spring, not the summer. Bapco, EDB, SICO and CPISP all sit between March and May."
+   },
+   "ar": {
+    "t": "موسم التدريب في البحرين يبدأ الآن",
+    "b": "الموسم في الربيع لا في الصيف. بابكو ومجلس التنمية وسيكو وبرنامج ولي العهد كلها بين مارس ومايو."
+   }
+  },
+  {
+   "id": "cpisp-grade11",
+   "ct": "bh",
+   "kind": "watch",
+   "date": "2027-03-01",
+   "page": "scholarships.html",
+   "en": {
+    "t": "CPISP is a Grade 11 application",
+    "b": "Around March, roughly 97 percent cumulative, about 20 places a year. If you are already in Grade 12 this one has passed."
+   },
+   "ar": {
+    "t": "برنامج ولي العهد يُقدَّم في الصف الحادي عشر",
+    "b": "نحو مارس، معدل تراكمي قرابة 97 بالمئة، وحوالي 20 مقعداً سنوياً. إن كنت في الثاني عشر فقد فات موعده."
+   }
+  },
+  {
+   "id": "bapco-nbh",
+   "ct": "bh",
+   "kind": "watch",
+   "date": "2027-06-01",
+   "page": "scholarships.html",
+   "en": {
+    "t": "Bapco and NBH windows are June to July",
+    "b": "Both close before you leave school, so apply from Grade 11."
+   },
+   "ar": {
+    "t": "نافذتا بابكو وبنك البحرين الوطني في يونيو ويوليو",
+    "b": "كلاهما يغلق قبل تخرجك، فالتقديم من الصف الحادي عشر."
+   }
+  },
+  {
+   "id": "sch-month-1",
+   "ct": "all",
+   "kind": "month",
+   "month": 1,
+   "page": "scholarships.html",
+   "en": {
+    "t": "4 scholarship windows to watch in January",
+    "b": "These are last cycle's months presented as the month to watch. Open the finder and confirm this year's dates."
+   },
+   "ar": {
+    "t": "4 نافذة منح تستحق المتابعة في يناير",
+    "b": "هذه مواعيد الدورة الماضية بوصفها الشهر الذي يُتابع. افتح الدليل وتأكد من مواعيد هذا العام."
+   }
+  },
+  {
+   "id": "sch-month-8",
+   "ct": "all",
+   "kind": "month",
+   "month": 8,
+   "page": "scholarships.html",
+   "en": {
+    "t": "2 scholarship windows to watch in August",
+    "b": "These are last cycle's months presented as the month to watch. Open the finder and confirm this year's dates."
+   },
+   "ar": {
+    "t": "2 نافذة منح تستحق المتابعة في أغسطس",
+    "b": "هذه مواعيد الدورة الماضية بوصفها الشهر الذي يُتابع. افتح الدليل وتأكد من مواعيد هذا العام."
+   }
+  },
+  {
+   "id": "sch-month-10",
+   "ct": "all",
+   "kind": "month",
+   "month": 10,
+   "page": "scholarships.html",
+   "en": {
+    "t": "3 scholarship windows to watch in October",
+    "b": "These are last cycle's months presented as the month to watch. Open the finder and confirm this year's dates."
+   },
+   "ar": {
+    "t": "3 نافذة منح تستحق المتابعة في أكتوبر",
+    "b": "هذه مواعيد الدورة الماضية بوصفها الشهر الذي يُتابع. افتح الدليل وتأكد من مواعيد هذا العام."
+   }
+  },
+  {
+   "id": "sch-month-11",
+   "ct": "all",
+   "kind": "month",
+   "month": 11,
+   "page": "scholarships.html",
+   "en": {
+    "t": "4 scholarship windows to watch in November",
+    "b": "These are last cycle's months presented as the month to watch. Open the finder and confirm this year's dates."
+   },
+   "ar": {
+    "t": "4 نافذة منح تستحق المتابعة في نوفمبر",
+    "b": "هذه مواعيد الدورة الماضية بوصفها الشهر الذي يُتابع. افتح الدليل وتأكد من مواعيد هذا العام."
+   }
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+/* Major Compass app chrome. Only applies when html carries .mcapp, so the same
+   files still render as ordinary web pages if they are ever served on the web. */
+:root{
+  --mc-navy:#152A55; --mc-navy-2:#2E4477; --mc-paper:#faf9f6; --mc-card:#fff;
+  --mc-line:#e6e3dc; --mc-ink:#101418; --mc-ink-2:#4a5158; --mc-ink-3:#8a9199;
+  --mc-accent:#1c5d99; --mc-gold:#b98c2f;
+  --mc-top:52px; --mc-tabs:58px;
+  --mc-safe-t:env(safe-area-inset-top,0px); --mc-safe-b:env(safe-area-inset-bottom,0px);
+}
+/* the website headers: the blue wpbar on the Major Compass pages and the
+   .mc-nav brand bar on the internships site. The app bar replaces both. */
+html.mcapp #wpbar, html.mcapp .mc-nav{display:none !important;}
+html.mcapp{-webkit-text-size-adjust:100%;}
+html.mcapp body{
+  padding-top:calc(var(--mc-top) + var(--mc-safe-t));
+  padding-bottom:calc(var(--mc-tabs) + var(--mc-safe-b));
+  overscroll-behavior-y:none;
+}
+html.mcapp.mcapp-nochrome body{padding-top:var(--mc-safe-t);}
+
+/* top bar */
+.mcapp-top{
+  position:fixed; top:0; inset-inline:0; z-index:9000; direction:ltr;
+  height:calc(var(--mc-top) + var(--mc-safe-t)); padding-top:var(--mc-safe-t);
+  background:var(--mc-navy); color:#fff; display:flex; align-items:center; gap:6px;
+  padding-inline:6px; box-shadow:0 1px 0 rgba(0,0,0,.18);
+  font-family:'EB Garamond',Georgia,'Times New Roman',serif;
+}
+.mcapp-top button{
+  appearance:none; border:0; background:transparent; color:#fff; cursor:pointer;
+  height:40px; min-width:40px; padding:0 10px; border-radius:10px;
+  font:inherit; font-size:15px; display:flex; align-items:center; justify-content:center;
+}
+.mcapp-top button:active{background:rgba(255,255,255,.14);}
+.mcapp-title{
+  flex:1; min-width:0; text-align:center; font-size:16px; font-weight:600;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; letter-spacing:.01em;
+}
+html[lang="ar"] .mcapp-title{font-family:'Noto Naskh Arabic','Geeza Pro',serif;}
+.mcapp-lang{font-weight:600; border:1px solid rgba(255,255,255,.35) !important; border-radius:999px !important; padding:0 12px !important; height:32px !important; font-size:14px !important;}
+.mcapp-star svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.7;}
+.mcapp-star.on svg{fill:var(--mc-gold); stroke:var(--mc-gold);}
+
+/* bottom tabs */
+.mcapp-tabs{
+  position:fixed; bottom:0; inset-inline:0; z-index:9000; direction:ltr;
+  height:calc(var(--mc-tabs) + var(--mc-safe-b)); padding-bottom:var(--mc-safe-b);
+  background:var(--mc-card); border-top:1px solid var(--mc-line);
+  display:flex; align-items:stretch;
+}
+.mcapp-tabs a{
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:2px; text-decoration:none; color:var(--mc-ink-3); font-size:11px; letter-spacing:.01em;
+  font-family:'EB Garamond',Georgia,serif; padding-top:4px;
+}
+html[lang="ar"] .mcapp-tabs a{font-family:'Noto Naskh Arabic','Geeza Pro',serif; font-size:12px;}
+.mcapp-tabs a svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.mcapp-tabs a.on{color:var(--mc-accent);}
+.mcapp-tabs a.on svg{stroke:var(--mc-accent);}
+
+/* toast */
+.mcapp-toast{
+  position:fixed; left:50%; transform:translateX(-50%);
+  bottom:calc(var(--mc-tabs) + var(--mc-safe-b) + 16px); z-index:9500;
+  background:var(--mc-navy); color:#fff; padding:10px 18px; border-radius:999px;
+  font-size:14px; opacity:0; pointer-events:none; transition:opacity .18s;
+  max-width:82vw; text-align:center;
+}
+.mcapp-toast.show{opacity:.96;}
+
+/* offline banner */
+.mcapp-offline{
+  position:fixed; top:calc(var(--mc-top) + var(--mc-safe-t)); inset-inline:0; z-index:8900;
+  background:#5a4a1e; color:#fff; font-size:13px; text-align:center; padding:6px 12px;
+  display:none;
+}
+html.mcapp-isoffline .mcapp-offline{display:block;}

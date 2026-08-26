@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<script src="app-early.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build a CV | Internship Opportunities</title>
+<meta name="description" content="A free CV builder for Gulf students with no experience yet. Fill the boxes, get a clean one page CV you can save as PDF and attach to an internship application. Arabic and English.">
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+
+<script>
+function mcInitLang(){
+  try{
+    var q = (location.search.match(/[?&]lang=(ar|en)\b/) || [])[1];
+    if(q) return q;
+    var s = window.localStorage && localStorage.getItem("mc-lang");
+    if(s === "ar" || s === "en") return s;
+    var n = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    if(/^ar/i.test(n)) return "ar";
+  }catch(e){}
+  return "en";
+}
+function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;border-radius:2px;}
+:root{
+  --paper:#FAF5EA; --paper-2:#EFE4CE; --card:#FFFBF2;
+  --line:#E2D5BB; --line-2:#D3C0A0;
+  --ink:#4A3728; --ink-2:#6B5B47; --ink-3:#6F5D4A; --band:#152A55; --gold:#C09A45; --gold-dark:#7D5F27; --on-band:#F3EADA;
+  --accent:#1E3A78; --deep:#152A55;
+  --serif:'EB Garamond', Georgia, serif; --mono:'IBM Plex Mono', ui-monospace, monospace;
+  --sans:'EB Garamond', Georgia, serif;
+  --ar:'Noto Naskh Arabic','EB Garamond', serif;
+}
+body{background:var(--paper); color:var(--ink-2); font-family:var(--sans);
+  font-size:19px; line-height:1.75; overflow-x:hidden;}
+[dir="rtl"] body{font-family:var(--ar);}
+.wrap{max-width:900px; margin:0 auto; padding:0 22px 90px;}
+
+/* nav */
+.nav{background:var(--band); border-bottom:1px solid #2E4477; padding:12px 0;}
+.nav-in{max-width:1160px; margin:0 auto; padding:0 22px; display:flex; align-items:center;
+  justify-content:space-between; gap:16px; flex-wrap:wrap;}
+.nav a.brand{font-family:var(--serif); font-weight:600; font-size:19px; color:var(--on-band); text-decoration:none;}
+[dir="rtl"] .nav a.brand{font-family:var(--ar);}
+.nav .right{display:flex; gap:10px; align-items:center;}
+.nav .right a{color:#D3DCEF; font-family:var(--mono); font-size:13px; text-decoration:none;}
+.nav .right a:hover{color:#fff;}
+.lang{background:var(--gold); border:1px solid var(--gold); color:var(--band); font-family:var(--mono); padding:5px 13px;
+  font-size:12px; font-weight:600; letter-spacing:.06em; cursor:pointer; font-family:inherit;}
+.lang:hover{background:var(--on-band); border-color:var(--on-band); color:var(--band);}
+
+h1{font-family:var(--serif); font-weight:400; font-size:60px; line-height:1.08; color:var(--band);
+  margin-top:20px; letter-spacing:-.015em;}
+[dir="rtl"] h1{font-family:var(--ar); font-size:48px; line-height:1.32;}
+.kicker{font-family:var(--mono); font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-dark); font-weight:500;}
+[dir="rtl"] .kicker{letter-spacing:.04em; font-size:15px;}
+.hero{padding:56px 0 28px; border-bottom:1px solid var(--line);}
+.lede{font-size:20px; line-height:1.7; color:var(--ink-2); margin-top:22px; max-width:660px;}
+
+.note{background:var(--card); border:1px solid var(--line); border-inline-start:4px solid var(--gold);
+  padding:24px 28px; margin-top:30px;}
+.note b{font-family:var(--serif); font-weight:500; font-size:23px; color:var(--band); display:block; margin-bottom:8px;}
+[dir="rtl"] .note b{font-family:var(--ar); font-size:21px;}
+.note p{font-size:18px; line-height:1.8;}
+
+section.blk{margin-top:40px; border-top:2px solid var(--ink); padding-top:22px;}
+section.blk h2{font-family:var(--serif); font-weight:400; font-size:28px; color:var(--band);}
+[dir="rtl"] section.blk h2{font-family:var(--ar); font-size:25px;}
+section.blk .hint{font-size:16px; color:var(--ink-3); margin-top:6px; line-height:1.7;}
+
+.f{margin-top:18px;}
+.f label{display:block; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; margin-bottom:7px;}
+[dir="rtl"] .f label{letter-spacing:.02em; font-size:14px;}
+.f input, .f textarea{width:100%; font-family:inherit; font-size:18px; line-height:1.65;
+  padding:13px 15px; border:1px solid var(--line-2); background:var(--card); color:var(--ink);
+  border-radius:0; min-height:50px;}
+.f textarea{min-height:110px; resize:vertical;}
+.f input:focus, .f textarea:focus{outline:2px solid var(--accent); outline-offset:-2px; border-color:var(--accent);}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+
+.entry{border:1px solid var(--line); background:var(--card); padding:20px; margin-top:16px;}
+.entry .top{display:flex; justify-content:space-between; align-items:center; gap:12px;}
+.entry .top b{font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);}
+[dir="rtl"] .entry .top b{letter-spacing:.02em; font-size:15px;}
+.rm{background:none; border:0; color:var(--accent); font-family:inherit; font-size:15px;
+  cursor:pointer; text-decoration:underline; padding:6px; min-height:38px;}
+.add{margin-top:14px; background:transparent; border:1px solid var(--line-2); color:var(--ink-2);
+  padding:12px 20px; font-family:inherit; font-size:16px; cursor:pointer; min-height:48px;}
+.add:hover{border-color:var(--accent); color:var(--accent);}
+
+.actions{margin-top:40px; display:flex; flex-wrap:wrap; gap:12px;}
+.btn{background:var(--band); color:var(--on-band); border:1px solid var(--band); padding:15px 28px;
+  font-family:inherit; font-size:17px; font-weight:600; cursor:pointer; text-decoration:none;
+  min-height:52px; display:inline-flex; align-items:center; justify-content:center;}
+.btn:hover{background:var(--accent); border-color:var(--accent);}
+.btn.ghost{background:transparent; color:var(--band);}
+.btn.ghost:hover{background:var(--band); color:var(--on-band);}
+.saved{font-size:15px; color:var(--ink-3); margin-top:12px;}
+
+/* the rendered CV */
+#out{display:none; margin-top:40px;}
+#out.on{display:block;}
+.cv{background:#fff; border:1px solid var(--line); padding:52px 56px; color:#16130f;}
+.cv h3{font-family:var(--serif); font-weight:700; font-size:36px; line-height:1.15; color:#16130f;}
+[dir="rtl"] .cv h3{font-family:var(--ar); font-size:32px;}
+.cv .contact{font-size:16px; color:#4a453c; margin-top:10px; line-height:1.7;}
+.cv .rule{height:2px; background:#16130f; margin:22px 0 0;}
+.cv h4{font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-dark); font-family:var(--mono);
+  font-weight:700; margin-top:26px; padding-bottom:7px; border-bottom:1px solid #ddd8ce;}
+[dir="rtl"] .cv h4{letter-spacing:.03em; font-size:15px;}
+.cv .item{margin-top:14px;}
+.cv .item .l1{display:flex; justify-content:space-between; gap:16px; align-items:baseline;}
+.cv .item .t{font-weight:600; font-size:18px; color:#16130f;}
+.cv .item .d{font-size:15px; color:#6f6a60; white-space:nowrap;}
+.cv .item .s{font-size:16px; color:#4a453c;}
+.cv .item p{font-size:16px; line-height:1.7; color:#3c372f; margin-top:5px; white-space:pre-line;}
+.cv .plain{font-size:16px; line-height:1.8; color:#3c372f; margin-top:12px; white-space:pre-line;}
+
+@media (max-width:760px){
+  body{font-size:18px;}
+  h1{font-size:38px;} [dir="rtl"] h1{font-size:33px;}
+  .hero{padding:34px 0 22px;}
+  .lede{font-size:18px;}
+  .two{grid-template-columns:1fr;}
+  .cv{padding:28px 22px;}
+  .cv h3{font-size:28px;}
+  .cv .item .l1{flex-direction:column; gap:2px;}
+  .cv .item .d{white-space:normal;}
+  .btn{width:100%;}
+  .lang{min-height:42px; padding:9px 16px; font-size:13px;}
+  .nav .right a{padding-block:9px;}
+  .rm{min-height:44px;}
+  .actions{gap:10px;}
+  section.blk h2{font-size:24px;}
+}
+
+@media print{
+  .nav, .hero, .note, section.blk, .actions, .saved, .noprint{display:none !important;}
+  body{background:#fff; font-size:12pt;}
+  .wrap{padding:0; max-width:none;}
+  #out{display:block !important; margin:0;}
+  .cv{border:0; padding:0;}
+  .cv h3{font-size:26pt;}
+  .cv h4{margin-top:16pt;}
+  @page{margin:16mm;}
+}
+</style>
+<style id="wpbar-css">
+/* WPBAR: the exact site header from saqeralkhalifa.com, replicated for the tool sites. */
+.wpbar{background:#152A55;font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
+.wpbar-in{margin-left:40px;margin-right:40px;padding-top:14px;padding-bottom:14px;padding-left:min(104px,8vw);padding-right:min(104px,8vw);}
+.wpbar-row{width:100%;max-width:1280px;margin-left:auto;margin-right:auto;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;direction:ltr;}
+.wpright{display:flex;align-items:flex-start;gap:20px;}
+html[lang="ar"] .wpright{direction:rtl;}
+.wpbrand{font-size:20px;line-height:33px;margin-top:-1px;margin-bottom:1px;font-weight:500;color:#F3EADA;text-decoration:none;letter-spacing:.2px;white-space:nowrap;border:0;}
+.wpnav{display:flex;align-items:flex-start;gap:20px;flex-wrap:nowrap;margin-top:4px;line-height:19px;}
+.wpdd{line-height:19px;}
+.wpnav-ar{direction:rtl;font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+html[lang="ar"] .wpnav-en{display:none;}
+html:not([lang="ar"]) .wpnav-ar{display:none;}
+.wpitem{display:flex;align-items:center;font-size:15px;font-weight:500;color:#F3EADA;text-decoration:none;white-space:nowrap;border:0;line-height:19px;}
+.wpnav-ar .wpitem{font-size:15px;font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+.wpitem:hover{color:#C09A45;}
+.wplang{background:none;border:0;cursor:pointer;padding:0;margin-top:4px;font-family:'EB Garamond',Georgia,'Times New Roman',serif !important;line-height:19px;}
+.wpcaret{width:10.8px;height:10.8px;margin:0 0 0 4.5px;position:relative;top:3px;flex:none;}
+.wpcaret path{stroke:#F3EADA;}
+.wpitem:hover .wpcaret path{stroke:#C09A45;}
+.wpnav-ar .wpcaret{margin:0 4.5px 0 0;}
+.wpdd{position:relative;}
+.wpmenu{display:none;position:absolute;top:100%;left:-14px;padding-top:10px;min-width:250px;z-index:300;}
+.wpnav-ar .wpmenu{left:auto;right:-14px;text-align:right;}
+.wpdd:hover .wpmenu,.wpdd:focus-within .wpmenu{display:block;}
+.wpmenu > a{display:block;background:#152A55;border:1px solid rgba(0,0,0,.15);border-top:0;padding:9px 16px;font-size:18px;line-height:1.65;color:#F3EADA;text-decoration:none;white-space:nowrap;font-weight:500;}
+.wpmenu > a:first-child{border-top:1px solid #2E4477;border-radius:2px 2px 0 0;}
+.wpmenu > a:last-child{border-radius:0 0 2px 2px;}
+.wpmenu > a:hover{color:#C09A45;}
+.wpburger{display:none;background:none;border:0;padding:0;color:#F3EADA;font-size:20px;line-height:24px;cursor:pointer;}
+.wpburger:hover{color:#C09A45;}
+.wpmob{display:none;}
+.wpmob-nav a{display:block;color:#F3EADA;text-decoration:none;font-weight:500;font-family:'EB Garamond',Georgia,serif;}
+.wpmob-nav a.wpmob-top{font-size:19px;padding:12px 20px 12px 20px;border-top:1px solid #2E4477;margin-top:10px;}
+.wpmob-nav a.wpmob-top:first-child{border-top:0;margin-top:0;}
+.wpmob-nav a.wpmob-sub{font-size:16px;padding:7px 20px 7px 38px;color:#CBD5EA;}
+.wpmob-nav a:hover{color:#C09A45;}
+.wpmob-ar{direction:rtl;text-align:right;}
+.wpmob-ar a{font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+.wpmob-ar a.wpmob-sub{padding:8px 38px 8px 20px;}
+html[lang="ar"] .wpmob-en{display:none;}
+html:not([lang="ar"]) .wpmob-ar{display:none;}
+@media (max-width:1149px){
+.wpbar-in{margin-left:0;margin-right:0;padding:9px 18px;}
+.wpbar-row{max-width:none;align-items:center;gap:14px;}
+.wpright{align-items:center;gap:14px;}
+.wpnav{display:none !important;}
+.wpbrand{margin-right:auto;}
+html[lang="ar"] .wpbrand{margin-right:0;margin-left:auto;}
+.wplang{margin-top:0;}
+.wpburger{display:block;}
+.wpbar.open .wpmob{display:block;background:#152A55;border-top:1px solid #2E4477;max-height:calc(100vh - 51px);overflow-y:auto;}
+}
+
+</style>
+</head>
+<body>
+<div class="wpbar" id="wpbar"><div class="wpbar-in"><div class="wpbar-row"><a class="wpbrand" href="https://saqeralkhalifa.com/">Dr. Saqer AlKhalifa</a><div class="wpright"><nav class="wpnav wpnav-en"><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/major-compass/">For Students<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="quiz.html">Major Compass Quiz</a><a href="explore.html">Every Major Explained</a><a href="entry.html">Entry Requirements</a><a href="scholarships.html">Scholarships and Funding</a><a href="parents.html">Parent Guide</a><a href="ai.html">AI and Your Major</a><a href="routes.html">What a Dealbreaker Closes</a><a href="alternatives.html">Routes Without a Degree</a><a href="internships.html?lang=en">Internships</a><a href="cv.html?lang=en">Build a CV</a></div></div><div class="wpdd"><a class="wpitem" href="https://gigs.saqeralkhalifa.com/?lang=en">For Job Seekers<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://gigs.saqeralkhalifa.com/?lang=en">Gigs Board</a><a href="https://gigs.saqeralkhalifa.com/?lang=en#jobs">Full-time Jobs</a><a href="internships.html?lang=en">Internships</a><a href="cv.html?lang=en">Build a CV</a><a href="https://saqeralkhalifa.com/post-a-gig/">Post a Gig</a><a href="https://saqeralkhalifa.com/find-work/">Find Work</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/#book">Shackles of Democracy<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/#book">The Book</a><a href="https://saqeralkhalifa.com/first-chapter/">First Chapter Free</a><a href="https://saqeralkhalifa.com/#formats">Choose Your Format</a><a href="https://saqeralkhalifa.com/#stores">Where to Buy</a><a href="https://saqeralkhalifa.com/check/">The Data</a><a href="https://saqeralkhalifa.com/arabic/">Arabic Edition</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/the-trust-trap/">The Trust Trap<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/the-trust-trap/">About the Book</a><a href="https://saqeralkhalifa.com/the-trust-trap/#chapters">Inside the Book</a><a href="https://saqeralkhalifa.com/the-trust-trap/#resources">Free Resources</a><a href="https://saqeralkhalifa.com/the-trust-trap/#faq">Questions</a><a href="https://saqeralkhalifa.com/the-trust-trap/#buy">Where to Buy</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/#author">About</a><a class="wpitem" href="https://saqeralkhalifa.com/#contact">Contact</a><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/blog/">Blog<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/blog/">All Articles</a><a href="https://saqeralkhalifa.com/category/trust-by-design/">Trust by Design</a><a href="https://saqeralkhalifa.com/category/reform-theater/">Reform Theater</a><a href="https://saqeralkhalifa.com/category/country-cases/">Country Cases</a><a href="https://saqeralkhalifa.com/category/institutional-memory/">Institutional Memory</a><a href="https://saqeralkhalifa.com/category/politics/">Politics</a><a href="https://saqeralkhalifa.com/category/economics/">Economics</a><a href="https://saqeralkhalifa.com/category/social/">Social</a><a href="https://saqeralkhalifa.com/category/published-and-mentions/">Published & Mentions</a><a href="https://saqeralkhalifa.com/category/interesting/">Interesting</a></div></div></nav><nav class="wpnav wpnav-ar"><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/major-compass/#ar">للطلبة<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="quiz.html?lang=ar">بوصلة التخصص</a><a href="explore.html?lang=ar">استكشف التخصصات</a><a href="entry.html?lang=ar">شروط القبول</a><a href="scholarships.html?lang=ar">المنح والتمويل</a><a href="parents.html?lang=ar">دليل أولياء الأمور</a><a href="ai.html?lang=ar">الذكاء الاصطناعي وتخصصك</a><a href="routes.html?lang=ar">ماذا يغلق كل شرط</a><a href="alternatives.html?lang=ar">مسارات بدون شهادة</a><a href="internships.html?lang=ar">فرص التدريب</a><a href="cv.html?lang=ar">السيرة الذاتية</a></div></div><div class="wpdd"><a class="wpitem" href="https://gigs.saqeralkhalifa.com/?lang=ar">للباحثين عن عمل<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://gigs.saqeralkhalifa.com/?lang=ar">لوحة الأعمال القصيرة</a><a href="https://gigs.saqeralkhalifa.com/?lang=ar#jobs">الوظائف الدائمة</a><a href="internships.html?lang=ar">فرص التدريب</a><a href="cv.html?lang=ar">السيرة الذاتية</a><a href="https://saqeralkhalifa.com/post-a-gig/">انشر فرصة</a><a href="https://saqeralkhalifa.com/find-work/">سجّل بياناتك</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/arabic/#book">أغلال الديمقراطية<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/arabic/#book">الكتاب</a><a href="https://saqeralkhalifa.com/readers/">الفصل الأول مجانا</a><a href="https://saqeralkhalifa.com/arabic/#buy">الشراء</a><a href="https://saqeralkhalifa.com/check-ar/">البيانات</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/the-trust-trap-ar/">مصيدة الثقة</a><a class="wpitem" href="https://saqeralkhalifa.com/arabic/#author">نبذة</a><a class="wpitem" href="https://saqeralkhalifa.com/#contact">تواصل</a><a class="wpitem" href="https://saqeralkhalifa.com/blog/">المدونة</a></nav><button class="wpitem wplang" id="langToggle" type="button">العربية</button><button class="wpburger" id="wpburger" type="button" aria-label="Open menu">☰</button></div></div></div><div class="wpmob"><div class="wpmob-nav wpmob-en"><a class="wpmob-top" href="https://saqeralkhalifa.com/major-compass/">For Students</a><a class="wpmob-sub" href="quiz.html">Major Compass Quiz</a><a class="wpmob-sub" href="explore.html">Every Major Explained</a><a class="wpmob-sub" href="entry.html">Entry Requirements</a><a class="wpmob-sub" href="scholarships.html">Scholarships and Funding</a><a class="wpmob-sub" href="parents.html">Parent Guide</a><a class="wpmob-sub" href="ai.html">AI and Your Major</a><a class="wpmob-sub" href="routes.html">What a Dealbreaker Closes</a><a class="wpmob-sub" href="alternatives.html">Routes Without a Degree</a><a class="wpmob-sub" href="internships.html?lang=en">Internships</a><a class="wpmob-sub" href="cv.html?lang=en">Build a CV</a><a class="wpmob-top" href="https://gigs.saqeralkhalifa.com/?lang=en">For Job Seekers</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=en">Gigs Board</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=en#jobs">Full-time Jobs</a><a class="wpmob-sub" href="internships.html?lang=en">Internships</a><a class="wpmob-sub" href="cv.html?lang=en">Build a CV</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/post-a-gig/">Post a Gig</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-work/">Find Work</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#book">Shackles of Democracy</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#book">The Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/first-chapter/">First Chapter Free</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#formats">Choose Your Format</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#stores">Where to Buy</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/check/">The Data</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/">Arabic Edition</a><a class="wpmob-top" href="https://saqeralkhalifa.com/the-trust-trap/">The Trust Trap</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/">About the Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#chapters">Inside the Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#resources">Free Resources</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#faq">Questions</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#buy">Where to Buy</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#author">About</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#contact">Contact</a><a class="wpmob-top" href="https://saqeralkhalifa.com/blog/">Blog</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/blog/">All Articles</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/trust-by-design/">Trust by Design</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/reform-theater/">Reform Theater</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/country-cases/">Country Cases</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/institutional-memory/">Institutional Memory</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/politics/">Politics</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/economics/">Economics</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/social/">Social</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/published-and-mentions/">Published & Mentions</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/interesting/">Interesting</a></div><div class="wpmob-nav wpmob-ar"><a class="wpmob-top" href="https://saqeralkhalifa.com/major-compass/#ar">للطلبة</a><a class="wpmob-sub" href="quiz.html?lang=ar">بوصلة التخصص</a><a class="wpmob-sub" href="explore.html?lang=ar">استكشف التخصصات</a><a class="wpmob-sub" href="entry.html?lang=ar">شروط القبول</a><a class="wpmob-sub" href="scholarships.html?lang=ar">المنح والتمويل</a><a class="wpmob-sub" href="parents.html?lang=ar">دليل أولياء الأمور</a><a class="wpmob-sub" href="ai.html?lang=ar">الذكاء الاصطناعي وتخصصك</a><a class="wpmob-sub" href="routes.html?lang=ar">ماذا يغلق كل شرط</a><a class="wpmob-sub" href="alternatives.html?lang=ar">مسارات بدون شهادة</a><a class="wpmob-sub" href="internships.html?lang=ar">فرص التدريب</a><a class="wpmob-sub" href="cv.html?lang=ar">السيرة الذاتية</a><a class="wpmob-top" href="https://gigs.saqeralkhalifa.com/?lang=ar">للباحثين عن عمل</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=ar">لوحة الأعمال القصيرة</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=ar#jobs">الوظائف الدائمة</a><a class="wpmob-sub" href="internships.html?lang=ar">فرص التدريب</a><a class="wpmob-sub" href="cv.html?lang=ar">السيرة الذاتية</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/post-a-gig/">انشر فرصة</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-work/">سجّل بياناتك</a><a class="wpmob-top" href="https://saqeralkhalifa.com/arabic/#book">أغلال الديمقراطية</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/#book">الكتاب</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/readers/">الفصل الأول مجانا</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/#buy">الشراء</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/check-ar/">البيانات</a><a class="wpmob-top" href="https://saqeralkhalifa.com/the-trust-trap-ar/">مصيدة الثقة</a><a class="wpmob-top" href="https://saqeralkhalifa.com/arabic/#author">نبذة</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#contact">تواصل</a><a class="wpmob-top" href="https://saqeralkhalifa.com/blog/">المدونة</a></div></div><script>(function(){var b=document.getElementById("wpburger"),w=document.getElementById("wpbar");if(b&&w){b.addEventListener("click",function(){var o=w.classList.toggle("open");b.textContent=o?"✕":"☰";b.setAttribute("aria-label",o?"Close menu":"Open menu");});}var t=document.getElementById("langToggle");if(!t)return;function fix(){var ar=document.documentElement.lang==="ar";var want=ar?"English":"العربية";if(t.textContent.trim()!==want){t.textContent=want;}}fix();new MutationObserver(fix).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});new MutationObserver(fix).observe(t,{childList:true,characterData:true,subtree:true});})();</script></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="kicker" id="k"></div>
+    <h1 id="h1"></h1>
+    <p class="lede" id="lede"></p>
+  </div>
+
+  <div class="note"><b id="nb"></b><p id="np"></p></div>
+
+  <section class="blk">
+    <h2 id="s1"></h2>
+    <p class="hint" id="s1h"></p>
+    <div class="two">
+      <div class="f"><label id="l-name"></label><input id="i-name" autocomplete="name"></div>
+      <div class="f"><label id="l-phone"></label><input id="i-phone" inputmode="tel" autocomplete="tel"></div>
+    </div>
+    <div class="two">
+      <div class="f"><label id="l-email"></label><input id="i-email" inputmode="email" autocomplete="email"></div>
+      <div class="f"><label id="l-city"></label><input id="i-city"></div>
+    </div>
+    <div class="f"><label id="l-about"></label><textarea id="i-about"></textarea></div>
+  </section>
+
+  <section class="blk">
+    <h2 id="s2"></h2>
+    <p class="hint" id="s2h"></p>
+    <div id="edu"></div>
+    <button class="add" id="add-edu"></button>
+  </section>
+
+  <section class="blk">
+    <h2 id="s3"></h2>
+    <p class="hint" id="s3h"></p>
+    <div id="exp"></div>
+    <button class="add" id="add-exp"></button>
+  </section>
+
+  <section class="blk">
+    <h2 id="s4"></h2>
+    <p class="hint" id="s4h"></p>
+    <div class="f"><label id="l-skills"></label><textarea id="i-skills"></textarea></div>
+    <div class="f"><label id="l-langs"></label><input id="i-langs"></div>
+    <div class="f"><label id="l-extra"></label><textarea id="i-extra"></textarea></div>
+  </section>
+
+  <div class="actions">
+    <button class="btn" id="build"></button>
+    <button class="btn ghost" id="print"></button>
+    <button class="btn ghost" id="copy"></button>
+  </div>
+  <p class="saved" id="saved"></p>
+
+  <div id="out"><div class="cv" id="cv"></div></div>
+</div>
+
+<script>
+var LANG = "en";
+var T = {
+en:{
+  kicker:"Free CV builder",
+  h1:"Build a CV",
+  lede:"Most students applying for a first internship have no CV, and freeze at the blank page. Fill these boxes and you will get a clean one page CV you can save as a PDF and attach.",
+  nb:"You have more to put on it than you think.",
+  np:"You do not need work experience. School and university projects, volunteering, a part time job, a club you ran, a language you speak, a course you finished. Employers hiring interns expect a short CV. One page is correct, two is too many.",
+  s1:"About you", s1h:"Use your name exactly as it appears on your CPR, because that is what they will check it against.",
+  lName:"Full name", lPhone:"Phone", lEmail:"Email", lCity:"Where you live",
+  lAbout:"One short paragraph about you",
+  aboutPH:"Two or three lines. What you study, what you are looking for, and one thing you are genuinely good at. Write it plainly, no slogans.",
+  s2:"Education", s2h:"Start with the most recent. If you are still studying, say so and give your expected year.",
+  s3:"Experience and activities", s3h:"Anything counts here. A summer job, volunteering, a university project, a club, a competition. Describe your own part in the work, rather than the group's.",
+  s4:"Skills and languages", s4h:"Be honest. Anything you list here can be tested in an interview.",
+  lSkills:"Skills", skillsPH:"For example: Excel, data entry, customer service, Canva, basic Python, cash handling. One line each or separated by commas.",
+  lLangs:"Languages", langsPH:"For example: Arabic native, English fluent, French basic",
+  lExtra:"Anything else worth knowing", extraPH:"Awards, certificates, a driving licence, availability dates. Leave blank if there is nothing.",
+  eInst:"School or university", eQual:"What you are studying or studied", eDates:"Years", eNote:"Grade or anything worth noting",
+  xOrg:"Where", xRole:"What you were", xDates:"When", xNote:"What you did",
+  addEdu:"Add another school or university", addExp:"Add another experience",
+  remove:"Remove",
+  build:"Build my CV", print:"Save as PDF", copy:"Copy as text",
+  copied:"Copied. Paste it into an email.",
+  saved:"Saved on this device automatically. Nothing is sent anywhere.",
+  secEdu:"Education", secExp:"Experience and activities", secSkills:"Skills", secLangs:"Languages", secExtra:"Other",
+  empty:"Fill in at least your name, then press Build my CV."
+},
+ar:{
+  kicker:"صانع السيرة الذاتية، مجانًا",
+  h1:"اصنع سيرتك الذاتية",
+  lede:"أغلب الطلبة المتقدمين لأول تدريب ليس لديهم سيرة ذاتية، ويتجمدون أمام الصفحة الفارغة. املأ هذه الحقول وستحصل على سيرة ذاتية نظيفة من صفحة واحدة، تحفظها ملف PDF وترفقها بطلبك.",
+  nb:"لديك ما تكتبه أكثر مما تظن.",
+  np:"لا تحتاج خبرة عمل. مشاريع المدرسة والجامعة، والعمل التطوعي، ووظيفة بدوام جزئي، ونادٍ أدرته، ولغة تتحدثها، ودورة أتممتها. فمن يوظّف متدربين يتوقع سيرة قصيرة. صفحة واحدة هي الصواب، وصفحتان كثير.",
+  s1:"عنك", s1h:"اكتب اسمك كما هو في البطاقة الذكية تمامًا، فهذا ما سيقارنونه به.",
+  lName:"الاسم الكامل", lPhone:"رقم الهاتف", lEmail:"البريد الإلكتروني", lCity:"مكان السكن",
+  lAbout:"فقرة قصيرة عنك",
+  aboutPH:"سطران أو ثلاثة. ماذا تدرس، وما الذي تبحث عنه، وشيء واحد تجيده. اكتبها ببساطة وبلا شعارات.",
+  s2:"التعليم", s2h:"ابدأ بالأحدث. وإن كنت ما تزال تدرس فاذكر ذلك مع سنة التخرج المتوقعة.",
+  s3:"الخبرات والأنشطة", s3h:"كل شيء يُحتسب هنا. عمل صيفي، أو تطوع، أو مشروع جامعي، أو نادٍ، أو مسابقة. اذكر ما فعلته أنت، لا ما فعلته المجموعة.",
+  s4:"المهارات واللغات", s4h:"كن صادقًا. فكل ما تذكره هنا قد يُختبر في المقابلة.",
+  lSkills:"المهارات", skillsPH:"مثال: الإكسل، إدخال البيانات، خدمة العملاء، كانفا، أساسيات بايثون، التعامل مع النقد. سطر لكل مهارة أو افصل بينها بفواصل.",
+  lLangs:"اللغات", langsPH:"مثال: العربية لغة أم، الإنجليزية بطلاقة، الفرنسية أساسيات",
+  lExtra:"أي شيء آخر يستحق الذكر", extraPH:"جوائز، أو شهادات، أو رخصة قيادة، أو تواريخ تفرغك. اتركه فارغًا إن لم يوجد.",
+  eInst:"المدرسة أو الجامعة", eQual:"ما تدرسه أو درسته", eDates:"السنوات", eNote:"المعدل أو ما يستحق الذكر",
+  xOrg:"أين", xRole:"ماذا كنت", xDates:"متى", xNote:"ما الذي فعلته",
+  addEdu:"أضف مدرسة أو جامعة أخرى", addExp:"أضف خبرة أخرى",
+  remove:"احذف",
+  build:"اصنع سيرتي الذاتية", print:"احفظها ملف PDF", copy:"انسخها نصًا",
+  copied:"نُسخت. الصقها في رسالتك.",
+  saved:"تُحفظ تلقائيًا على جهازك. ولا يُرسَل منها شيء إلى أي مكان.",
+  secEdu:"التعليم", secExp:"الخبرات والأنشطة", secSkills:"المهارات", secLangs:"اللغات", secExtra:"أخرى",
+  empty:"اكتب اسمك على الأقل، ثم اضغط اصنع سيرتي الذاتية."
+}
+};
+function L(){ return T[LANG]; }
+var $ = function(id){ return document.getElementById(id); };
+var eduN = 0, expN = 0;
+
+function eduRow(v){
+  v = v || {};
+  var t = L(), i = ++eduN;
+  var d = document.createElement("div");
+  d.className = "entry"; d.dataset.kind = "edu";
+  d.innerHTML =
+    '<div class="top"><b>'+t.secEdu+' '+i+'</b><button class="rm" type="button">'+t.remove+'</button></div>'+
+    '<div class="f"><label>'+t.eInst+'</label><input class="e-inst" value="'+(v.inst||"")+'"></div>'+
+    '<div class="two">'+
+      '<div class="f"><label>'+t.eQual+'</label><input class="e-qual" value="'+(v.qual||"")+'"></div>'+
+      '<div class="f"><label>'+t.eDates+'</label><input class="e-dates" value="'+(v.dates||"")+'"></div>'+
+    '</div>'+
+    '<div class="f"><label>'+t.eNote+'</label><input class="e-note" value="'+(v.note||"")+'"></div>';
+  $("edu").appendChild(d);
+}
+function expRow(v){
+  v = v || {};
+  var t = L(), i = ++expN;
+  var d = document.createElement("div");
+  d.className = "entry"; d.dataset.kind = "exp";
+  d.innerHTML =
+    '<div class="top"><b>'+t.secExp+' '+i+'</b><button class="rm" type="button">'+t.remove+'</button></div>'+
+    '<div class="two">'+
+      '<div class="f"><label>'+t.xOrg+'</label><input class="x-org" value="'+(v.org||"")+'"></div>'+
+      '<div class="f"><label>'+t.xRole+'</label><input class="x-role" value="'+(v.role||"")+'"></div>'+
+    '</div>'+
+    '<div class="f"><label>'+t.xDates+'</label><input class="x-dates" value="'+(v.dates||"")+'"></div>'+
+    '<div class="f"><label>'+t.xNote+'</label><textarea class="x-note">'+(v.note||"")+'</textarea></div>';
+  $("exp").appendChild(d);
+}
+
+function chrome(){
+  var t = L();
+  $("k").textContent = t.kicker; $("h1").textContent = t.h1; $("lede").textContent = t.lede;
+  $("nb").textContent = t.nb; $("np").textContent = t.np;
+  $("s1").textContent = t.s1; $("s1h").textContent = t.s1h;
+  $("s2").textContent = t.s2; $("s2h").textContent = t.s2h;
+  $("s3").textContent = t.s3; $("s3h").textContent = t.s3h;
+  $("s4").textContent = t.s4; $("s4h").textContent = t.s4h;
+  $("l-name").textContent = t.lName; $("l-phone").textContent = t.lPhone;
+  $("l-email").textContent = t.lEmail; $("l-city").textContent = t.lCity;
+  $("l-about").textContent = t.lAbout; $("i-about").placeholder = t.aboutPH;
+  $("l-skills").textContent = t.lSkills; $("i-skills").placeholder = t.skillsPH;
+  $("l-langs").textContent = t.lLangs; $("i-langs").placeholder = t.langsPH;
+  $("l-extra").textContent = t.lExtra; $("i-extra").placeholder = t.extraPH;
+  $("add-edu").textContent = t.addEdu; $("add-exp").textContent = t.addExp;
+  $("build").textContent = t.build; $("print").textContent = t.print; $("copy").textContent = t.copy;
+  $("saved").textContent = t.saved;
+  var n = document.querySelectorAll("[data-en]");
+  for(var i=0;i<n.length;i++){ n[i].textContent = n[i].getAttribute("data-"+LANG);
+    var h = n[i].getAttribute("data-href-"+LANG); if(h) n[i].setAttribute("href", h); }
+}
+
+function collect(){
+  var g = function(id){ return ($(id).value || "").trim(); };
+  var edu = [], exp = [];
+  document.querySelectorAll('.entry[data-kind="edu"]').forEach(function(d){
+    var o = {inst:d.querySelector(".e-inst").value.trim(), qual:d.querySelector(".e-qual").value.trim(),
+             dates:d.querySelector(".e-dates").value.trim(), note:d.querySelector(".e-note").value.trim()};
+    if(o.inst || o.qual) edu.push(o);
+  });
+  document.querySelectorAll('.entry[data-kind="exp"]').forEach(function(d){
+    var o = {org:d.querySelector(".x-org").value.trim(), role:d.querySelector(".x-role").value.trim(),
+             dates:d.querySelector(".x-dates").value.trim(), note:d.querySelector(".x-note").value.trim()};
+    if(o.org || o.role) exp.push(o);
+  });
+  return {name:g("i-name"), phone:g("i-phone"), email:g("i-email"), city:g("i-city"),
+          about:g("i-about"), skills:g("i-skills"), langs:g("i-langs"), extra:g("i-extra"),
+          edu:edu, exp:exp};
+}
+function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function render(){
+  var t = L(), d = collect();
+  if(!d.name){ alert(t.empty); return; }
+  var contact = [d.phone, d.email, d.city].filter(Boolean).join("  ·  ");
+  var h = '<h3>'+esc(d.name)+'</h3>';
+  if(contact) h += '<div class="contact">'+esc(contact)+'</div>';
+  h += '<div class="rule"></div>';
+  if(d.about) h += '<div class="plain">'+esc(d.about)+'</div>';
+  if(d.edu.length){
+    h += '<h4>'+t.secEdu+'</h4>';
+    d.edu.forEach(function(e){
+      h += '<div class="item"><div class="l1"><span class="t">'+esc(e.inst)+'</span>'+
+           (e.dates?'<span class="d">'+esc(e.dates)+'</span>':'')+'</div>'+
+           (e.qual?'<div class="s">'+esc(e.qual)+'</div>':'')+
+           (e.note?'<p>'+esc(e.note)+'</p>':'')+'</div>';
+    });
+  }
+  if(d.exp.length){
+    h += '<h4>'+t.secExp+'</h4>';
+    d.exp.forEach(function(e){
+      h += '<div class="item"><div class="l1"><span class="t">'+esc(e.role||e.org)+'</span>'+
+           (e.dates?'<span class="d">'+esc(e.dates)+'</span>':'')+'</div>'+
+           (e.role&&e.org?'<div class="s">'+esc(e.org)+'</div>':'')+
+           (e.note?'<p>'+esc(e.note)+'</p>':'')+'</div>';
+    });
+  }
+  if(d.skills) h += '<h4>'+t.secSkills+'</h4><div class="plain">'+esc(d.skills)+'</div>';
+  if(d.langs)  h += '<h4>'+t.secLangs+'</h4><div class="plain">'+esc(d.langs)+'</div>';
+  if(d.extra)  h += '<h4>'+t.secExtra+'</h4><div class="plain">'+esc(d.extra)+'</div>';
+  $("cv").innerHTML = h;
+  $("out").classList.add("on");
+  $("out").scrollIntoView({block:"start"});
+  try{ if(window.goatcounter&&goatcounter.count) goatcounter.count({path:"cv-built", title:"CV built", event:true}); }catch(e){}
+}
+
+function asText(){
+  var t = L(), d = collect(), L2 = [];
+  L2.push(d.name);
+  var c = [d.phone, d.email, d.city].filter(Boolean).join("  |  ");
+  if(c) L2.push(c);
+  if(d.about){ L2.push(""); L2.push(d.about); }
+  if(d.edu.length){ L2.push(""); L2.push(t.secEdu.toUpperCase());
+    d.edu.forEach(function(e){ L2.push([e.inst, e.qual, e.dates].filter(Boolean).join(", ") + (e.note?" ("+e.note+")":"")); }); }
+  if(d.exp.length){ L2.push(""); L2.push(t.secExp.toUpperCase());
+    d.exp.forEach(function(e){ L2.push([e.role, e.org, e.dates].filter(Boolean).join(", ")); if(e.note) L2.push("  " + e.note); }); }
+  if(d.skills){ L2.push(""); L2.push(t.secSkills.toUpperCase()); L2.push(d.skills); }
+  if(d.langs){ L2.push(""); L2.push(t.secLangs.toUpperCase()); L2.push(d.langs); }
+  if(d.extra){ L2.push(""); L2.push(t.secExtra.toUpperCase()); L2.push(d.extra); }
+  return L2.join("\n");
+}
+
+var KEY = "io-cv-v1";
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(collect())); }catch(e){} }
+function load(){
+  var raw; try{ raw = localStorage.getItem(KEY); }catch(e){}
+  var d = raw ? JSON.parse(raw) : null;
+  if(d){
+    ["name","phone","email","city","about","skills","langs","extra"].forEach(function(k){
+      if(d[k]) $("i-"+k).value = d[k];
+    });
+    (d.edu||[]).forEach(eduRow); (d.exp||[]).forEach(expRow);
+  }
+  if(!document.querySelector('.entry[data-kind="edu"]')) eduRow();
+  if(!document.querySelector('.entry[data-kind="exp"]')) expRow();
+}
+
+document.addEventListener("input", save);
+document.addEventListener("click", function(e){
+  if(e.target.classList && e.target.classList.contains("rm")){ e.target.closest(".entry").remove(); save(); }
+});
+$("add-edu").addEventListener("click", function(){ eduRow(); });
+$("add-exp").addEventListener("click", function(){ expRow(); });
+$("build").addEventListener("click", render);
+$("print").addEventListener("click", function(){ render(); setTimeout(function(){ window.print(); }, 250); });
+$("copy").addEventListener("click", async function(){
+  var t = L();
+  try{ await navigator.clipboard.writeText(asText()); $("copy").textContent = t.copied;
+       setTimeout(function(){ $("copy").textContent = t.copy; }, 2600); }catch(e){}
+});
+$("langToggle").addEventListener("click", function(){
+  LANG = (LANG === "en") ? "ar" : "en";
+  document.documentElement.lang = LANG;
+  document.documentElement.dir = (LANG === "ar") ? "rtl" : "ltr";
+  this.textContent = (LANG === "ar") ? "English" : "عربي";
+  mcSaveLang(LANG);
+  var eduVals = [], expVals = [];
+  document.querySelectorAll('.entry[data-kind="edu"]').forEach(function(d){
+    eduVals.push({inst:d.querySelector(".e-inst").value, qual:d.querySelector(".e-qual").value,
+                  dates:d.querySelector(".e-dates").value, note:d.querySelector(".e-note").value});});
+  document.querySelectorAll('.entry[data-kind="exp"]').forEach(function(d){
+    expVals.push({org:d.querySelector(".x-org").value, role:d.querySelector(".x-role").value,
+                  dates:d.querySelector(".x-dates").value, note:d.querySelector(".x-note").value});});
+  $("edu").innerHTML = ""; $("exp").innerHTML = ""; eduN = 0; expN = 0;
+  eduVals.forEach(eduRow); expVals.forEach(expRow);
+  chrome();
+  if($("out").classList.contains("on")) render();
+});
+
+load();
+chrome();
+if(mcInitLang() === "ar"){ $("langToggle").click(); }
+</script>
+<script src="app.js"></script>
+</body>
+</html>

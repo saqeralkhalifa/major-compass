@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Major Compass</title>
+<meta name="theme-color" content="#152A55">
+<link rel="icon" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<script src="app-early.js"></script>
+<style>
+  :root{
+    --ink:#101418; --ink-2:#4a5158; --ink-3:#8a9199; --paper:#faf9f6; --card:#fff;
+    --line:#e6e3dc; --accent:#1c5d99; --accent-soft:#e8f0f8; --gold:#b98c2f; --navy:#152A55;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);line-height:1.6;
+       font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
+  [dir="rtl"] body{font-family:'Noto Naskh Arabic','Geeza Pro',serif;}
+  .wrap{max-width:620px;margin:0 auto;padding:0 18px 28px;}
+
+  .hero{background:var(--navy);color:#fff;padding:26px 18px 22px;margin-bottom:18px;
+        padding-top:calc(26px + env(safe-area-inset-top,0px));}
+  .hero-in{max-width:620px;margin:0 auto;display:flex;align-items:flex-start;gap:14px;}
+  .hero h1{font-size:1.65rem;font-weight:600;letter-spacing:.01em;line-height:1.2;}
+  .hero p{color:#c9d3e6;font-size:.98rem;margin-top:6px;}
+  .hero-lang{margin-inline-start:auto;flex:none;background:transparent;color:#fff;cursor:pointer;
+    border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:6px 14px;font:inherit;font-size:.9rem;font-weight:600;}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:12px;
+        display:block;text-decoration:none;color:inherit;}
+  .card h3{font-size:1.05rem;font-weight:600;color:var(--ink);}
+  .card p{font-size:.92rem;color:var(--ink-2);margin-top:3px;}
+  .card .meta{font-size:.82rem;color:var(--ink-3);margin-top:6px;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+
+  .flag{border-inline-start:3px solid var(--gold);background:#fdf8ee;}
+  .flag .kicker{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);font-weight:600;
+    font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  [dir="rtl"] .flag .kicker{letter-spacing:0;text-transform:none;}
+  .resume{border-inline-start:3px solid var(--accent);background:var(--accent-soft);}
+  .resume .kicker{color:var(--accent);}
+
+  h2.sec{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+    margin:22px 0 9px;font-weight:600;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  [dir="rtl"] h2.sec{letter-spacing:0;text-transform:none;font-size:.9rem;}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:10px;}
+  @media(min-width:520px){.grid{grid-template-columns:1fr 1fr;}}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;
+        text-decoration:none;color:inherit;display:block;}
+  .tile:active{background:#f4f1ea;}
+  .tile h3{font-size:1.02rem;font-weight:600;}
+  .tile p{font-size:.88rem;color:var(--ink-2);margin-top:2px;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 4px;}
+  .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 13px;
+        font:inherit;font-size:.9rem;cursor:pointer;color:var(--ink-2);}
+  .chip.on{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:600;}
+  .btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:10px;
+       padding:11px 20px;font:inherit;font-size:.98rem;font-weight:600;cursor:pointer;text-decoration:none;}
+  .note{font-size:.85rem;color:var(--ink-3);margin-top:8px;}
+  footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:.86rem;color:var(--ink-3);}
+  footer a{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<div class="hero"><div class="hero-in">
+  <div>
+    <h1 data-en="Major Compass" data-ar="بوصلة التخصص"></h1>
+    <p data-en="Choosing a university major in the Gulf, without the guesswork." data-ar="اختيار التخصص الجامعي في الخليج، دون تخمين."></p>
+  </div>
+  <button class="hero-lang" id="heroLang" type="button">ع</button>
+</div></div>
+
+<div class="wrap">
+
+  <a class="card resume" id="resume" href="saved.html" style="display:none">
+    <div class="kicker" data-en="Your last result" data-ar="نتيجتك الأخيرة"></div>
+    <h3 id="resumeTop"></h3>
+    <p id="resumeSub"></p>
+  </a>
+
+  <a class="card flag" id="nextDeadline" href="internships.html" style="display:none">
+    <div class="kicker" data-en="Coming up" data-ar="قريبًا"></div>
+    <h3 id="dlTitle"></h3>
+    <p id="dlBody"></p>
+    <div class="meta" id="dlWhen"></div>
+  </a>
+
+  <h2 class="sec" data-en="Start here" data-ar="ابدأ من هنا"></h2>
+  <div class="grid">
+    <a class="tile" href="quiz.html">
+      <h3 data-en="The quiz" data-ar="الاختبار"></h3>
+      <p data-en="34 questions. Your top five majors, with the reasons." data-ar="34 سؤالاً. أفضل خمسة تخصصات لك، مع الأسباب."></p>
+    </a>
+    <a class="tile" href="explore.html">
+      <h3 data-en="Every major explained" data-ar="كل التخصصات مشروحة"></h3>
+      <p data-en="82 majors. What you study, what the work is really like." data-ar="82 تخصصاً. ماذا تدرس، وكيف يبدو العمل فعلاً."></p>
+    </a>
+  </div>
+
+  <h2 class="sec" data-en="Before you apply" data-ar="قبل أن تقدّم"></h2>
+  <div class="grid">
+    <a class="tile" href="entry.html">
+      <h3 data-en="Entry requirements" data-ar="شروط القبول"></h3>
+      <p data-en="The published floors, track gates and equivalency rules." data-ar="الحدود المعلنة وشروط المسار وقواعد المعادلة."></p>
+    </a>
+    <a class="tile" href="scholarships.html">
+      <h3 data-en="Scholarships and funding" data-ar="المنح والتمويل"></h3>
+      <p data-en="Who will actually fund you, and who quietly will not." data-ar="من سيموّلك فعلاً، ومن لا يفعل دون أن يقول."></p>
+    </a>
+    <a class="tile" href="internships.html">
+      <h3 data-en="Internships" data-ar="فرص التدريب"></h3>
+      <p data-en="266 verified openings across four Gulf countries." data-ar="266 فرصة موثقة في أربع دول خليجية."></p>
+    </a>
+    <a class="tile" href="cv.html">
+      <h3 data-en="Build a CV" data-ar="اصنع سيرتك الذاتية"></h3>
+      <p data-en="A first CV when you have no work history yet." data-ar="سيرة ذاتية أولى حين لا يكون لديك تاريخ عمل بعد."></p>
+    </a>
+  </div>
+
+  <h2 class="sec" data-en="Think it through" data-ar="فكّر جيداً"></h2>
+  <div class="grid">
+    <a class="tile" href="ai.html">
+      <h3 data-en="AI and your major" data-ar="الذكاء الاصطناعي وتخصصك"></h3>
+      <p data-en="Which majors the evidence says are exposed, and how much." data-ar="أي التخصصات تقول الأدلة إنها معرّضة، وإلى أي مدى."></p>
+    </a>
+    <a class="tile" href="routes.html">
+      <h3 data-en="What a dealbreaker closes" data-ar="ماذا يغلق كل شرط"></h3>
+      <p data-en="Say no to blood or maths and see what it really costs." data-ar="ارفض الدم أو الرياضيات، وانظر ماذا يكلفك ذلك فعلاً."></p>
+    </a>
+    <a class="tile" href="alternatives.html">
+      <h3 data-en="Routes without a degree" data-ar="مسارات بدون شهادة"></h3>
+      <p data-en="13 real routes, sorted by nationality and visa status." data-ar="13 مساراً حقيقياً، مرتبة حسب الجنسية ووضع الإقامة."></p>
+    </a>
+    <a class="tile" href="parents.html">
+      <h3 data-en="For parents" data-ar="لأولياء الأمور"></h3>
+      <p data-en="Arabic first. Written for the conversation at home." data-ar="بالعربية أولاً. مكتوب للحوار داخل البيت."></p>
+    </a>
+  </div>
+
+  <h2 class="sec" data-en="Deadline reminders" data-ar="تنبيهات المواعيد"></h2>
+  <div class="card">
+    <p data-en="Pick where you are applying and the app will remind you before the windows that matter." data-ar="اختر مكان تقديمك وسينبّهك التطبيق قبل المواعيد المهمة."></p>
+    <div class="chips" id="ctChips"></div>
+    <button class="btn" id="notifyBtn" type="button"></button>
+    <div class="note" id="notifyNote"></div>
+  </div>
+
+  <footer>
+    <p data-en="Free, and built by Dr. Saqer AlKhalifa. Nothing here is an admissions decision. Always confirm dates with the university or employer." data-ar="مجاني، من إعداد د. صقر آل خليفة. لا شيء هنا قرار قبول. تأكد دائماً من المواعيد لدى الجامعة أو جهة العمل."></p>
+    <p style="margin-top:8px"><a href="https://www.saqeralkhalifa.com" data-en="saqeralkhalifa.com" data-ar="saqeralkhalifa.com"></a></p>
+  </footer>
+</div>
+
+<script src="home.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

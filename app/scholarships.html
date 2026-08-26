@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<script src="app-early.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scholarships and Funding | Dr. Saqer AlKhalifa</title>
+<meta name="description" content="A free bilingual scholarship and funding guide for students in Bahrain and the Gulf: national scholarships, foreign government scholarships, university funding abroad, and an honest list of the schemes that are not open to Gulf students.">
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="en" href="scholarships.html?lang=en">
+<link rel="alternate" hreflang="ar" href="scholarships.html?lang=ar">
+<link rel="alternate" hreflang="x-default" href="scholarships.html">
+<script>
+/* MCLANG: one language resolver shared by every Major Compass page.
+   Order: ?lang= in the URL, then the visitor's saved choice, then the browser. */
+function mcInitLang(){
+  try{
+    var q = (location.search.match(/[?&]lang=(ar|en)\b/) || [])[1];
+    if(q) return q;
+    var s = window.localStorage && localStorage.getItem("mc-lang");
+    if(s === "ar" || s === "en") return s;
+    var n = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    if(/^ar/i.test(n)) return "ar";
+  }catch(e){}
+  return "en";
+}
+function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
+</script>
+
+<link rel="stylesheet" href="theme.css">
+<style>
+  :root{
+    --ink:#101418; --ink-2:#4a5158; --ink-3:#8a9199;
+    --paper:#faf9f6; --card:#ffffff; --line:#e6e3dc;
+    --accent:#1c5d99; --accent-soft:#e8f0f8; --gold:#b98c2f; --good:#0e7a4d;
+    --warn:#8a5a12; --warn-soft:#fdf4e3; --bad:#a3413a; --bad-soft:#fbeceb;
+    --radius:14px; --shadow:0 1px 3px rgba(16,20,24,.06), 0 8px 24px rgba(16,20,24,.07);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); line-height:1.6; min-height:100vh;
+    font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif;}
+  [dir="rtl"] body{font-family:'Segoe UI', Tahoma, 'Noto Naskh Arabic', 'Geeza Pro', Arial, sans-serif;}
+  .serif{font-family:Georgia, 'Times New Roman', serif;}
+  [dir="rtl"] .serif{font-family:'Noto Naskh Arabic', 'Geeza Pro', 'Traditional Arabic', Georgia, serif;}
+  .wrap{max-width:820px; margin:0 auto; padding:0 20px 80px;}
+
+  header.site{display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0 14px; border-bottom:1px solid var(--line); margin-bottom:8px;}
+  .brand{font-size:.95rem; color:var(--ink-2); text-decoration:none;}
+  .brand strong{color:var(--ink); font-weight:600;}
+  .lang-toggle{border:1px solid var(--line); background:var(--card); border-radius:999px;
+    padding:7px 16px; font-size:.95rem; cursor:pointer; color:var(--accent); font-weight:600;
+    font-family:inherit; transition:all .15s;}
+  .lang-toggle:hover{background:var(--accent-soft);}
+
+  .hero{text-align:center; padding:40px 0 6px;}
+  .hero h1{font-size:2.1rem; line-height:1.25; margin-bottom:8px;}
+  .hero p{color:var(--ink-2); font-size:1.08rem; max-width:640px; margin:0 auto;}
+
+  .rules{margin:26px 0 8px; display:grid; gap:12px;}
+  .rule{border-radius:var(--radius); padding:16px 20px; border:1px solid;}
+  .rule h3{font-size:1rem; font-weight:800; margin-bottom:5px;}
+  .rule p{font-size:.95rem; line-height:1.55;}
+  .rule.w{background:var(--warn-soft); border-color:#efdcb6; color:#5c4415;}
+  .rule.w h3{color:var(--warn);}
+  .rule.b{background:var(--bad-soft); border-color:#f0cfcc; color:#6b3630;}
+  .rule.b h3{color:var(--bad);}
+  .rule.n{background:var(--accent-soft); border-color:#cfe0ef; color:#204660;}
+  .rule.n h3{color:var(--accent);}
+
+  .quizbar{background:var(--accent-soft); border:1px solid #cfe0ef; border-radius:var(--radius);
+    padding:16px 20px; margin:12px 0 0; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+  .quizbar p{flex:1 1 260px; font-size:.98rem; color:var(--ink-2); margin:0;}
+  .quizbar b{color:var(--ink);}
+  .btn{display:inline-block; border:none; cursor:pointer; text-decoration:none; text-align:center;
+    background:var(--accent); color:#fff; font-size:.98rem; font-weight:600; font-family:inherit;
+    padding:11px 24px; border-radius:999px; transition:transform .12s;
+    box-shadow:0 4px 14px rgba(28,93,153,.28); white-space:nowrap;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn.ghost{background:var(--card); color:var(--accent); border:1.5px solid #cfe0ef; box-shadow:none;}
+
+  .tools{position:sticky; top:0; background:var(--paper); padding:14px 0 12px; z-index:5;
+    border-bottom:1px solid var(--line); margin:24px 0 18px;}
+  .picker{margin-bottom:10px;}
+  .picker .lbl{font-size:.8rem; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--ink-3); font-weight:700; margin-bottom:6px; display:block;}
+  [dir="rtl"] .picker .lbl{letter-spacing:0; text-transform:none; font-size:.9rem;}
+  .filters{display:flex; gap:7px; flex-wrap:wrap;}
+  .fbtn{background:var(--card); border:1.5px solid var(--line); border-radius:999px;
+    padding:7px 15px; font-size:.9rem; font-family:inherit; color:var(--ink-2); cursor:pointer;}
+  .fbtn:hover{border-color:var(--accent);}
+  .fbtn.on{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600;}
+  .search{width:100%; font-family:inherit; font-size:1rem; padding:12px 18px; margin-top:4px;
+    border:1.5px solid var(--line); border-radius:12px; background:var(--card); color:var(--ink);}
+  .search:focus{outline:none; border-color:var(--accent);}
+  .count{font-size:.85rem; color:var(--ink-3); margin-top:9px;}
+
+  .grp{margin-bottom:34px;}
+  .grp-t{font-size:1.35rem; font-weight:800; margin-bottom:4px;}
+  .grp-s{font-size:.95rem; color:var(--ink-2); margin-bottom:14px;}
+
+  .mcard{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); margin-bottom:12px; overflow:hidden;}
+  .mcard.dead{background:#fdfbfa; border-color:#f0e2e0;}
+  .mhead{display:flex; align-items:center; gap:14px; padding:18px 22px; cursor:pointer; width:100%;
+    background:none; border:none; text-align:start; font-family:inherit; color:var(--ink);}
+  .mhead:hover{background:var(--accent-soft);}
+  .mhead h2{font-size:1.1rem; font-weight:700; flex:1; line-height:1.4;}
+  .chev{color:var(--accent); font-size:1.1rem; flex:0 0 auto; transition:transform .2s;}
+  .mcard.open .chev{transform:rotate(90deg);}
+  [dir="rtl"] .chev{transform:rotate(180deg);}
+  [dir="rtl"] .mcard.open .chev{transform:rotate(90deg);}
+  .badge{display:inline-block; font-size:.72rem; font-weight:700; border-radius:999px;
+    padding:3px 11px; margin-inline-start:9px; vertical-align:middle; white-space:nowrap;}
+  .badge.g{background:#e4f4ec; color:var(--good);}
+  .badge.a{background:var(--warn-soft); color:var(--warn);}
+  .badge.b{background:var(--accent-soft); color:var(--accent);}
+  .badge.n{background:#eeecea; color:var(--ink-3);}
+  .badge.r{background:var(--bad-soft); color:var(--bad);}
+
+  .mbody{display:none; padding:0 22px 20px; border-top:1px solid var(--line);}
+  .mcard.open .mbody{display:block;}
+  .sec{margin-top:16px;}
+  .sec h3{font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold);
+    font-weight:800; margin-bottom:5px;}
+  [dir="rtl"] .sec h3{letter-spacing:0; text-transform:none; font-size:.93rem;}
+  .sec p{color:var(--ink-2); font-size:.98rem;}
+  .sec p b{color:var(--ink);}
+  .flag{margin-top:16px; background:var(--warn-soft); border:1px solid #efdcb6;
+    border-radius:10px; padding:12px 16px;}
+  .flag b{display:block; font-size:.8rem; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--warn); margin-bottom:4px;}
+  [dir="rtl"] .flag b{letter-spacing:0; text-transform:none; font-size:.93rem;}
+  .flag p{font-size:.95rem; color:#5c4415;}
+  .flag p b{display:inline; font-size:inherit; letter-spacing:0; text-transform:none; color:#3f2f0e;}
+  .olink{display:inline-block; margin-top:16px; color:var(--accent); font-weight:600;
+    font-size:.95rem; text-decoration:none;}
+  .olink:hover{text-decoration:underline;}
+  .empty{text-align:center; color:var(--ink-3); padding:40px 0;}
+
+  .panel{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:24px; margin-bottom:24px;}
+  .panel h2{font-size:1.25rem; font-weight:800; margin-bottom:4px;}
+  .panel .sub{font-size:.93rem; color:var(--ink-2); margin-bottom:14px;}
+  .cal-row{display:grid; grid-template-columns:110px 1fr; gap:12px; padding:9px 0;
+    border-bottom:1px dashed var(--line); font-size:.94rem;}
+  .cal-row:last-child{border-bottom:none;}
+  .cal-row b{color:var(--accent); font-weight:700;}
+  .cal-row span{color:var(--ink-2);}
+  .checked{background:var(--warn-soft); border:1px solid #efdcb6; border-radius:var(--radius);
+    padding:16px 20px; margin-bottom:24px; color:#5c4415;}
+  .checked b{display:block; color:var(--warn); font-weight:800; margin-bottom:4px;}
+  .checked p{font-size:.93rem; line-height:1.55;}
+
+  footer.site{margin-top:40px; padding-top:20px; border-top:1px solid var(--line);
+    text-align:center; font-size:.85rem; color:var(--ink-3);}
+  footer.site a{color:var(--accent); text-decoration:none;}
+  .disc{font-size:.84rem; color:var(--ink-3); max-width:660px; margin:0 auto 14px; line-height:1.55;}
+
+  @media (max-width:560px){
+    .hero h1{font-size:1.6rem;}
+    .mhead{padding:15px 16px;} .mbody{padding:0 16px 16px;}
+    .mhead h2{font-size:1rem;}
+    .badge{display:inline-block; margin:5px 0 0; margin-inline-start:0;}
+    .cal-row{grid-template-columns:1fr; gap:2px;}
+    .panel{padding:18px;}
+  }
+  @media print{ .tools, .quizbar, .lang-toggle{display:none;} .mbody{display:block!important;} }
+
+/* ============================================================
+   Major Compass shared theme, option 2A
+   Ink and paper editorial, Newsreader display, brass accent.
+   Tokens mirror theme.css from the design handoff.
+   Square corners everywhere except the language pill.
+   No shadows, no gradients, no icons.
+   ============================================================ */
+:root{
+  --font-display:Newsreader, Georgia, 'Times New Roman', serif;
+  --font-body:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-ar:'IBM Plex Sans Arabic', 'IBM Plex Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+
+  --paper:#f6f3ec;
+  --paper-2:#efece4;
+  --card:#fbf9f4;
+  --line:#ddd7cb;
+  --line-2:#cfc9bd;
+
+  --ink:#14161a;
+  --ink-2:#33363c;
+  --ink-3:#6b6e74;
+
+  --navy:#14161a;
+  --navy-deep:#8a5a1e;
+  --accent:#8a5a1e;
+  --accent-soft:#efece4;
+  --accent-line:#cfc9bd;
+
+  --gold:#8a5a1e;
+  --gold-soft:#f0ebdf;
+  --gold-line:#ddd7cb;
+  --gold-bright:#d8b98a;
+
+  --good:#3f6b4f;  --good-soft:#eaefe9;  --good-line:#cfdbd0;
+  --warn:#8a5a1e;  --warn-soft:#f0ebdf;  --warn-line:#e2d9c6;
+  --bad:#8c3a30;   --bad-soft:#f4e9e5;   --bad-line:#e2cfc8;
+
+  --radius:0; --radius-sm:0;
+  --shadow:none; --shadow-lift:none;
+}
+
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+[dir="rtl"] body{font-family:var(--font-ar); line-height:1.95;}
+body::before{display:none !important;}
+
+/* ---------- display type: Newsreader 400, never bold serif ---------- */
+.serif, .chap h2, .cn, .stat-n, .minrow b, .grp-t, .grp h2, .panel h2,
+.srcbox h2, .majors-title, .hero h1, h1, h2, h3{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-variation-settings:normal;
+  letter-spacing:-.02em;
+}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .cn, [dir="rtl"] .stat-n,
+[dir="rtl"] .minrow b, [dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2,
+[dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title, [dir="rtl"] .hero h1,
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3{
+  font-family:var(--font-ar); letter-spacing:0; font-weight:600; line-height:1.35;
+}
+.stat-n, .minrow b, .cnt, td, th, .cal-row b{font-variant-numeric:tabular-nums;}
+::selection{background:var(--paper-2); color:var(--ink);}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px; border-radius:0;
+}
+
+/* ---------- the shared dark nav ---------- */
+.mc-nav{
+  background:var(--ink); color:var(--paper);
+  position:sticky; top:0; z-index:40;
+}
+.mc-nav-inner{
+  max-width:880px; margin:0 auto; padding:13px 22px;
+  display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+}
+.mc-brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; color:var(--paper); min-width:0;}
+.mc-brand b{font-family:var(--font-display); font-size:17px; font-weight:400; letter-spacing:-.01em; white-space:nowrap;}
+[dir="rtl"] .mc-brand b{font-family:var(--font-ar); font-weight:600; letter-spacing:0;}
+.mc-brand span{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#9a9da3; white-space:nowrap;}
+[dir="rtl"] .mc-brand span{letter-spacing:0; text-transform:none; font-size:12px;}
+.mc-nav-links{
+  display:flex; gap:20px; font-size:12px; letter-spacing:.06em; align-items:center;
+  overflow-x:auto; scrollbar-width:none; flex:1 1 auto; justify-content:center;
+}
+.mc-nav-links::-webkit-scrollbar{display:none;}
+[dir="rtl"] .mc-nav-links{letter-spacing:0; font-size:13px;}
+.mc-nav-links a{
+  color:#c9ccd2; text-decoration:none; white-space:nowrap; padding-bottom:2px;
+  border-bottom:1px solid transparent; transition:color .15s, border-color .15s;
+}
+.mc-nav-links a:hover{color:var(--paper);}
+.mc-nav-links a[aria-current="page"]{color:var(--paper); border-bottom-color:var(--accent);}
+.mc-nav .lang-toggle{
+  flex:0 0 auto; border:1px solid var(--accent); background:var(--accent); border-radius:999px;
+  padding:6px 17px; font-size:13px; letter-spacing:.04em; font-weight:600;
+  color:#fbf9f4; cursor:pointer; font-family:var(--font-body);
+  transition:background .15s, color .15s, border-color .15s;
+}
+.mc-nav .lang-toggle:hover{background:var(--paper); color:var(--ink); border-color:var(--paper);}
+@media (max-width:640px){
+  .mc-nav-inner{padding:11px 18px; gap:10px;}
+  .mc-nav-links{justify-content:flex-start; order:3; width:100%; gap:16px; padding-bottom:2px;}
+}
+@media print{ .mc-nav{display:none;} }
+
+/* the old in-page masthead and pill switcher are replaced by .mc-nav */
+header.site, nav.toolnav{display:none !important;}
+
+/* ---------- page header ---------- */
+.hero, .res-head{position:relative;}
+.hero::before{display:none !important;}
+.hero{padding-top:52px;}
+.hero h1{font-size:clamp(34px, 5.4vw, 52px); line-height:1.04; font-weight:400;}
+[dir="rtl"] .hero h1{line-height:1.35; font-weight:600;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+.kicker, .eyebrow{
+  color:var(--accent); font-weight:600; font-size:11px;
+  letter-spacing:.18em; text-transform:uppercase;
+}
+[dir="rtl"] .kicker, [dir="rtl"] .eyebrow{letter-spacing:0; text-transform:none; font-size:13px;}
+
+/* ---------- surfaces: square, flat, ruled ---------- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .lede, .stat, .nextbox,
+.m, .fact, .pt, .bar, .quizbar, .cta-inline, .rule, .checked, .hedge, .extra, .flag,
+.note, .card, .grp{
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .stat, .nextbox, .m, .fact{
+  background:var(--card); border:1px solid var(--line-2);
+}
+.mcard:hover, .pcard:hover, .m:hover{border-color:var(--ink-3);}
+.pcard{border-inline-start-width:2px; border-inline-start-color:var(--accent);}
+.lede{background:var(--card); border:1px solid var(--line-2);
+  border-inline-start:2px solid var(--accent) !important; border-inline-end:1px solid var(--line-2) !important;}
+
+/* ---------- buttons ---------- */
+.btn{
+  background:var(--ink); border:1px solid var(--ink); border-radius:0;
+  font-weight:500; letter-spacing:0; color:var(--paper); box-shadow:none;
+  transition:background .15s, border-color .15s, color .15s;
+}
+.btn:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:none; filter:none; box-shadow:none;}
+.btn.ghost, .btn.secondary{
+  background:transparent; color:var(--ink); border:1px solid var(--ink); box-shadow:none;
+}
+.btn.ghost:hover, .btn.secondary:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+.printbtn{border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);}
+.printbtn:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+
+/* filter chips and pickers: square, ruled */
+.fbtn, .chip, .navbtn, .picker button, .filters button{
+  border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);
+  box-shadow:none; transition:background .15s, color .15s, border-color .15s;
+}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--ink); color:var(--ink); background:transparent; transform:none;}
+.fbtn.on, .chip.on, .navbtn.on{
+  background:var(--ink); border-color:var(--ink); color:var(--paper); font-weight:500; box-shadow:none;
+}
+input[type="text"], input[type="search"], select, textarea, .srch{
+  border-radius:0 !important; border:1px solid var(--line-2); background:var(--card);
+  font-family:var(--font-body); color:var(--ink);
+}
+[dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
+
+/* ---------- bars and callouts: flat bands, no gradients ---------- */
+.bar, .quizbar, .cta-inline{
+  background:var(--paper-2); border:1px solid var(--line); border-radius:0;
+}
+.rule, .checked, .hedge, .extra, .flag{border-radius:0;}
+.rule.w, .checked, .hedge, .extra, .flag{background:var(--warn-soft); border-color:var(--warn-line);}
+.rule.b{background:var(--bad-soft); border-color:var(--bad-line);}
+.rule.n{background:var(--paper-2); border-color:var(--line);}
+.row.act{background:var(--paper-2) !important; border-color:var(--line) !important;}
+
+/* ---------- band chips and verdict pills keep meaning, lose gloss ---------- */
+.band{border-radius:0; font-weight:600;}
+
+/* ---------- section labels ---------- */
+.sec h3, .lbl, .toc h2, .row h4{
+  letter-spacing:.14em; font-weight:600; text-transform:uppercase; font-size:11px; color:var(--ink-3);
+}
+[dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2, [dir="rtl"] .row h4{
+  letter-spacing:0; text-transform:none; font-size:13px;
+}
+
+/* ---------- tables ---------- */
+table{border-collapse:collapse;}
+th{
+  text-align:start; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; padding:12px 14px; border-bottom:1px solid var(--ink);
+}
+[dir="rtl"] th{letter-spacing:0; text-transform:none; font-size:13px;}
+td{padding:14px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top; font-size:14px;}
+
+/* ---------- footer ---------- */
+footer.site{
+  margin-top:56px; padding:26px 0 0; border-top:1px solid var(--line); color:var(--ink-3); font-size:13px;
+}
+footer.site a{color:var(--accent); font-weight:500;}
+
+@media (max-width:520px){
+  .hero h1{font-size:clamp(28px, 8vw, 36px);}
+}
+
+/* ---- 2A refinements ---- */
+input, button, select, textarea{border-radius:0;}
+.lang-toggle, .mc-nav .lang-toggle{border-radius:999px;}
+.pt{border-inline-start-width:2px !important;}
+.compass{display:none !important;}
+.emoji{display:none !important;}
+.mcard, .m, .panel, .qcard, .fact, .stat, .srcbox, .toc, .nextbox, .viz-root{border-color:var(--line-2);}
+.opt{border-radius:0 !important;}
+.opt.selected{background:var(--paper-2); border-color:var(--ink);}
+.band{border-radius:0 !important;}
+.crosslinks .bar, .bar{border-radius:0 !important;}
+hr{border:0; border-top:1px solid var(--line);}
+
+/* ---- 2A: square the remaining pills, protect quiz progress ---- */
+.section-chip, .progress-bar, .progress-fill, .bar-fill, .chip, .meta-chips .chip,
+.tag, .pill, .badge, .cta, .startbtn{border-radius:0 !important;}
+.section-chip{background:var(--paper-2); color:var(--accent); border:1px solid var(--line);
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:5px 12px;}
+[dir="rtl"] .section-chip{letter-spacing:0; text-transform:none; font-size:13px;}
+body:has(#screen-quiz.active) .mc-nav-links{display:none;}
+body:has(#screen-quiz.active) .mc-nav-inner{justify-content:space-between;}
+
+/* ---- 2A: square corners everywhere except the language pill ---- */
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:0 !important;}
+.lang-toggle{border-radius:999px !important;}
+
+/* subject and topic chips become ruled tags, per the handoff */
+.subj, .tag, .chip{
+  background:transparent !important; border:1px solid var(--line-2) !important;
+  color:var(--ink-2) !important; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  padding:4px 9px !important; font-weight:500;
+}
+[dir="rtl"] .subj, [dir="rtl"] .tag, [dir="rtl"] .chip{letter-spacing:0; text-transform:none; font-size:13px;}
+
+/* the ranked numeral on the results screen: Newsreader, brass, no disc */
+.mrank{
+  background:transparent !important; border:0 !important; width:auto !important; height:auto !important;
+  font-family:var(--font-display); font-size:22px; font-weight:400; color:var(--accent) !important;
+  box-shadow:none !important; min-width:28px;
+}
+[dir="rtl"] .mrank{font-family:var(--font-ar); font-weight:600;}
+
+/* the sticky nav must not cover anything scrolled into view */
+html{scroll-padding-top:76px;}
+.wrap [id], .m, .mcard{scroll-margin-top:76px;}
+
+
+/* ---- nav: links back to the main site and the book ---- */
+.mc-nav-inner{max-width:1160px !important; gap:14px; flex-wrap:nowrap;}
+.mc-nav-links{gap:17px; justify-content:center; min-width:0;}
+@media (max-width:1100px){ .mc-brand span{display:none;} }
+@media (max-width:760px){
+  .mc-nav-inner{flex-wrap:wrap;}
+  .mc-nav-links{order:3; width:100%; justify-content:flex-start;}
+}
+.mc-nav-right{display:flex; align-items:center; gap:14px; flex:0 0 auto;}
+.mc-site{
+  color:#9a9da3; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;
+}
+.mc-site:hover{color:var(--paper); border-bottom-color:#3a3d43;}
+[dir="rtl"] .mc-site{letter-spacing:0; font-size:13px;}
+.mc-book{
+  color:#d8b98a; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border:1px solid rgba(216,185,138,.45); padding:6px 13px; transition:background .15s, color .15s, border-color .15s;
+}
+.mc-book:hover{background:#d8b98a; color:var(--ink); border-color:#d8b98a;}
+[dir="rtl"] .mc-book{letter-spacing:0; font-size:13px;}
+@media (max-width:860px){ .mc-site{display:none;} }
+@media (max-width:640px){
+  .mc-nav-right{gap:9px;}
+  .mc-book{padding:5px 10px;}
+}
+</style>
+
+<style>
+/* ================= THEME 2a MAJLIS, BLUE BAND =================
+   The same look as saqeralkhalifa.com, internships and gigs: cream
+   paper, one deep blue band, gold for emphasis, EB Garamond.
+   Radius 2px. No shadows, no gradients. Palette is the contrast
+   corrected one of 14 August 2026. This block is last in <head>
+   on purpose: it overrides the older 2A block above it. */
+:root{
+  --font-display:'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-body:'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-ar:'Noto Naskh Arabic', 'EB Garamond', Georgia, serif;
+  --font-label:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --paper:#FAF5EA; --paper-2:#EFE4CE; --card:#FFFBF2;
+  --line:#E2D5BB; --line-2:#D3C0A0;
+  --ink:#4A3728; --ink-2:#6B5B47; --ink-3:#6F5D4A;
+  --band:#152A55; --band-line:#2E4477; --royal:#1E3A78;
+  --on-band:#F3EADA; --on-band-muted:#9AAAD0; --on-band-link:#D3DCEF;
+  --gold:#C09A45; --gold-dark:#7D5F27;
+
+  --navy:#152A55; --navy-deep:#1E3A78;
+  --accent:#1E3A78; --accent-soft:#EFE4CE; --accent-line:#D3C0A0;
+  --gold-soft:#EFE4CE; --gold-line:#E2D5BB; --gold-bright:#C09A45;
+  --good:#3F6B4F; --good-soft:#EAEFE3; --good-line:#C9D6C2;
+  --warn:#7D5F27; --warn-soft:#F5ECDA; --warn-line:#E2D5BB;
+  --bad:#8C3A30; --bad-soft:#F4E7E1; --bad-line:#E2CBC1;
+  --radius:2px; --radius-sm:2px; --shadow:none; --shadow-lift:none;
+
+  --mc-paper:#FAF5EA; --mc-band:#EFE4CE; --mc-card:#FFFBF2;
+  --mc-ink:#4A3728; --mc-ink-2:#6B5B47; --mc-ink-3:#6F5D4A; --mc-muted:#6F5D4A;
+  --mc-rule:#E2D5BB; --mc-border:#D3C0A0;
+  --mc-accent:#1E3A78; --mc-accent-dim:#C09A45;
+  --mc-on-dark:#F3EADA; --mc-on-dark-2:#9AAAD0; --mc-dark-rule:#2E4477;
+  --mc-serif:'EB Garamond', Georgia, serif;
+  --mc-sans:'EB Garamond', Georgia, serif;
+  --mc-arabic:'Noto Naskh Arabic', 'EB Garamond', serif;
+}
+body{background:var(--paper); color:var(--ink); font-family:var(--font-body); font-size:18px; line-height:1.7;}
+[dir="rtl"] body{font-family:var(--font-ar); line-height:1.9;}
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:2px !important;}
+.lang-toggle, .mc-nav .lang-toggle{border-radius:2px !important;}
+.serif, .chap h2, .cn, .stat-n, .minrow b, .grp-t, .grp h2, .panel h2, .srcbox h2, .majors-title,
+.hero h1, h1, h2, h3, .mc-brand b{font-family:var(--font-display); font-weight:400; letter-spacing:0; color:var(--band);}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .cn, [dir="rtl"] .stat-n, [dir="rtl"] .minrow b,
+[dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2, [dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title,
+[dir="rtl"] .hero h1, [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] .mc-brand b{
+  font-family:var(--font-ar); font-weight:600; letter-spacing:0; line-height:1.35;}
+a{color:var(--accent);}
+::selection{background:var(--paper-2); color:var(--band);}
+:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{outline:2px solid var(--gold-dark); outline-offset:2px;}
+button, input, select, textarea{font-family:var(--font-body);}
+[dir="rtl"] button, [dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
+
+/* ---- labels: IBM Plex Mono uppercase, like the main site ---- */
+.kicker, .eyebrow, .sec h3, .lbl, .toc h2, .row h4, th, .controls h2, .section-chip, .subj, .tag,
+.mc-brand span, .mc-site, .mc-book, .ml, .wl, .count, .badge, .pill{font-family:var(--font-label);}
+[dir="rtl"] .kicker, [dir="rtl"] .eyebrow, [dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2,
+[dir="rtl"] .row h4, [dir="rtl"] th, [dir="rtl"] .controls h2, [dir="rtl"] .section-chip, [dir="rtl"] .subj,
+[dir="rtl"] .tag, [dir="rtl"] .mc-site, [dir="rtl"] .mc-book, [dir="rtl"] .ml, [dir="rtl"] .wl,
+[dir="rtl"] .count, [dir="rtl"] .badge, [dir="rtl"] .pill{font-family:var(--font-ar);}
+.kicker, .eyebrow{color:var(--gold-dark); font-weight:500; font-size:12px; letter-spacing:.2em;}
+.sec h3, .lbl, .toc h2, .row h4, .controls h2{color:var(--gold-dark); font-weight:500;}
+.section-chip{background:var(--paper-2); color:var(--gold-dark); border:1px solid var(--line);}
+
+/* ---- masthead: the blue band ---- */
+.mc-nav{background:var(--band); color:var(--on-band); border-bottom:1px solid var(--band-line);}
+.mc-brand, .mc-brand b{color:var(--on-band);}
+.mc-brand b{font-weight:600; font-size:21px;}
+.mc-brand span{color:var(--gold); font-size:10.5px; letter-spacing:.12em;}
+.mc-brand{gap:12px; flex:0 0 auto;}
+.mc-nav-links{font-family:var(--font-body); font-size:15px; letter-spacing:0; gap:15px;}
+[dir="rtl"] .mc-nav-links{font-family:var(--font-ar); font-size:15px;}
+.mc-nav-links a{color:var(--on-band-link); border-bottom:1px solid transparent;}
+.mc-nav-links a:hover{color:var(--on-band);}
+.mc-nav-links a[aria-current="page"]{color:var(--gold); border-bottom-color:var(--gold);}
+.mc-site{color:var(--on-band-muted); font-size:12px;}
+.mc-site:hover{color:var(--on-band); border-bottom-color:var(--band-line);}
+.mc-book{color:var(--gold); border:1px solid var(--gold); font-size:12px; padding:6px 12px;}
+.mc-book:hover{background:var(--gold); color:var(--band); border-color:var(--gold);}
+.mc-nav .lang-toggle{background:var(--gold); border:1px solid var(--gold); color:var(--band);
+  font-family:var(--font-label); font-weight:600; letter-spacing:.06em; padding:6px 14px;}
+.mc-nav .lang-toggle:hover{background:var(--on-band); border-color:var(--on-band); color:var(--band);}
+@media (max-width:1560px){ .mc-brand span{display:none;} }
+@media (max-width:1360px){ .mc-site{display:none;} }
+
+/* ---- page header ---- */
+.hero h1{color:var(--band); font-weight:400;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+
+/* ---- surfaces ---- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .stat, .nextbox, .m, .fact, .pt, .card, .grp,
+.rt, .opp, .lede, .parentbox, .crossbox{background:var(--card); border-color:var(--line-2);}
+.mcard:hover, .pcard:hover, .m:hover, .rt:hover, .card:hover{border-color:var(--gold);}
+.pcard, .lede, .pt{border-inline-start-color:var(--gold) !important;}
+.bar, .quizbar, .cta-inline, .found, .wh, .evnote, .gaps{background:var(--paper-2); border-color:var(--line);}
+.rule.w, .checked, .hedge, .extra, .flag{background:var(--warn-soft); border-color:var(--warn-line);}
+.rule.b{background:var(--bad-soft); border-color:var(--bad-line);}
+.rule.n, .row.act{background:var(--paper-2) !important; border-color:var(--line) !important;}
+hr{border-top-color:var(--line);}
+
+/* ---- buttons ---- */
+.btn, .startbtn, .cta, button.primary, .navbtn.next{
+  background:var(--band); border:1px solid var(--band); color:var(--on-band); font-weight:500; letter-spacing:0;
+  font-family:var(--font-body); text-transform:none;}
+.btn:hover, .startbtn:hover, .cta:hover, .navbtn.next:hover{background:var(--royal); border-color:var(--royal); color:var(--on-band);}
+.btn.ghost, .btn.secondary, .printbtn{background:transparent; color:var(--band); border:1px solid var(--band);}
+.btn.ghost:hover, .btn.secondary:hover, .printbtn:hover{background:var(--band); border-color:var(--band); color:var(--on-band);}
+[dir="rtl"] .btn, [dir="rtl"] .startbtn, [dir="rtl"] .cta{font-family:var(--font-ar);}
+
+/* ---- chips, filters, quiz options ---- */
+.fbtn, .chip, .navbtn, .picker button, .filters button{
+  border:1px solid var(--line-2) !important; background:transparent !important; color:var(--ink) !important;
+  font-family:var(--font-body); font-size:15px; letter-spacing:0; text-transform:none;}
+[dir="rtl"] .fbtn, [dir="rtl"] .chip, [dir="rtl"] .navbtn{font-family:var(--font-ar);}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--band) !important; color:var(--band) !important;}
+.fbtn.on, .chip.on, .navbtn.on{background:var(--band) !important; border-color:var(--band) !important; color:var(--on-band) !important;}
+.subj, .tag{background:transparent !important; border:1px solid var(--line-2) !important; color:var(--ink-3) !important;
+  font-size:10.5px; letter-spacing:.14em;}
+[dir="rtl"] .subj, [dir="rtl"] .tag{font-size:13px; letter-spacing:0;}
+.opt{background:var(--card); border-color:var(--line-2); color:var(--ink);}
+.opt:hover{border-color:var(--band);}
+.opt.selected{background:var(--paper-2); border-color:var(--band); color:var(--band);}
+.progress-bar, .bar-track{background:var(--paper-2);}
+.progress-fill, .bar-fill{background:var(--band);}
+input[type="text"], input[type="search"], select, textarea, .srch{border:1px solid var(--line-2); background:var(--card); color:var(--ink);}
+.mrank{color:var(--gold-dark) !important; font-family:var(--font-display);}
+[dir="rtl"] .mrank{font-family:var(--font-ar);}
+
+/* ---- tables ---- */
+th{color:var(--gold-dark); border-bottom:1px solid var(--band); font-weight:500;}
+td{border-bottom:1px solid var(--line); color:var(--ink);}
+
+/* ---- footer ---- */
+footer.site{border-top:1px solid var(--line); color:var(--ink-3);}
+footer.site a{color:var(--accent);}
+
+@media (max-width:760px){ .mc-brand b{font-size:18px;} }
+</style>
+<style id="wpbar-css">
+/* WPBAR: the exact site header from saqeralkhalifa.com, replicated for the tool sites. */
+.wpbar{background:#152A55;font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
+.wpbar-in{margin-left:40px;margin-right:40px;padding-top:14px;padding-bottom:14px;padding-left:min(104px,8vw);padding-right:min(104px,8vw);}
+.wpbar-row{width:100%;max-width:1280px;margin-left:auto;margin-right:auto;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;direction:ltr;}
+.wpright{display:flex;align-items:flex-start;gap:20px;}
+html[lang="ar"] .wpright{direction:rtl;}
+.wpbrand{font-size:20px;line-height:33px;margin-top:-1px;margin-bottom:1px;font-weight:500;color:#F3EADA;text-decoration:none;letter-spacing:.2px;white-space:nowrap;border:0;}
+.wpnav{display:flex;align-items:flex-start;gap:20px;flex-wrap:nowrap;margin-top:4px;line-height:19px;}
+.wpdd{line-height:19px;}
+.wpnav-ar{direction:rtl;font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+html[lang="ar"] .wpnav-en{display:none;}
+html:not([lang="ar"]) .wpnav-ar{display:none;}
+.wpitem{display:flex;align-items:center;font-size:15px;font-weight:500;color:#F3EADA;text-decoration:none;white-space:nowrap;border:0;line-height:19px;}
+.wpnav-ar .wpitem{font-size:15px;font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+.wpitem:hover{color:#C09A45;}
+.wplang{background:none;border:0;cursor:pointer;padding:0;margin-top:4px;font-family:'EB Garamond',Georgia,'Times New Roman',serif !important;line-height:19px;}
+.wpcaret{width:10.8px;height:10.8px;margin:0 0 0 4.5px;position:relative;top:3px;flex:none;}
+.wpcaret path{stroke:#F3EADA;}
+.wpitem:hover .wpcaret path{stroke:#C09A45;}
+.wpnav-ar .wpcaret{margin:0 4.5px 0 0;}
+.wpdd{position:relative;}
+.wpmenu{display:none;position:absolute;top:100%;left:-14px;padding-top:10px;min-width:250px;z-index:300;}
+.wpnav-ar .wpmenu{left:auto;right:-14px;text-align:right;}
+.wpdd:hover .wpmenu,.wpdd:focus-within .wpmenu{display:block;}
+.wpmenu > a{display:block;background:#152A55;border:1px solid rgba(0,0,0,.15);border-top:0;padding:9px 16px;font-size:18px;line-height:1.65;color:#F3EADA;text-decoration:none;white-space:nowrap;font-weight:500;}
+.wpmenu > a:first-child{border-top:1px solid #2E4477;border-radius:2px 2px 0 0;}
+.wpmenu > a:last-child{border-radius:0 0 2px 2px;}
+.wpmenu > a:hover{color:#C09A45;}
+.wpburger{display:none;background:none;border:0;padding:0;color:#F3EADA;font-size:20px;line-height:24px;cursor:pointer;}
+.wpburger:hover{color:#C09A45;}
+.wpmob{display:none;}
+.wpmob-nav a{display:block;color:#F3EADA;text-decoration:none;font-weight:500;font-family:'EB Garamond',Georgia,serif;}
+.wpmob-nav a.wpmob-top{font-size:19px;padding:12px 20px 12px 20px;border-top:1px solid #2E4477;margin-top:10px;}
+.wpmob-nav a.wpmob-top:first-child{border-top:0;margin-top:0;}
+.wpmob-nav a.wpmob-sub{font-size:16px;padding:7px 20px 7px 38px;color:#CBD5EA;}
+.wpmob-nav a:hover{color:#C09A45;}
+.wpmob-ar{direction:rtl;text-align:right;}
+.wpmob-ar a{font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+.wpmob-ar a.wpmob-sub{padding:8px 38px 8px 20px;}
+html[lang="ar"] .wpmob-en{display:none;}
+html:not([lang="ar"]) .wpmob-ar{display:none;}
+@media (max-width:1149px){
+.wpbar-in{margin-left:0;margin-right:0;padding:9px 18px;}
+.wpbar-row{max-width:none;align-items:center;gap:14px;}
+.wpright{align-items:center;gap:14px;}
+.wpnav{display:none !important;}
+.wpbrand{margin-right:auto;}
+html[lang="ar"] .wpbrand{margin-right:0;margin-left:auto;}
+.wplang{margin-top:0;}
+.wpburger{display:block;}
+.wpbar.open .wpmob{display:block;background:#152A55;border-top:1px solid #2E4477;max-height:calc(100vh - 51px);overflow-y:auto;}
+}
+
+</style>
+</head>
+<body>
+<div class="wpbar" id="wpbar"><div class="wpbar-in"><div class="wpbar-row"><a class="wpbrand" href="https://saqeralkhalifa.com/">Dr. Saqer AlKhalifa</a><div class="wpright"><nav class="wpnav wpnav-en"><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/major-compass/">For Students<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="quiz.html">Major Compass Quiz</a><a href="explore.html">Every Major Explained</a><a href="entry.html">Entry Requirements</a><a href="scholarships.html">Scholarships and Funding</a><a href="parents.html">Parent Guide</a><a href="ai.html">AI and Your Major</a><a href="routes.html">What a Dealbreaker Closes</a><a href="alternatives.html">Routes Without a Degree</a><a href="internships.html?lang=en">Internships</a><a href="cv.html?lang=en">Build a CV</a></div></div><div class="wpdd"><a class="wpitem" href="https://gigs.saqeralkhalifa.com/?lang=en">For Job Seekers<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://gigs.saqeralkhalifa.com/?lang=en">Gigs Board</a><a href="https://gigs.saqeralkhalifa.com/?lang=en#jobs">Full-time Jobs</a><a href="internships.html?lang=en">Internships</a><a href="cv.html?lang=en">Build a CV</a><a href="https://saqeralkhalifa.com/post-a-gig/">Post a Gig</a><a href="https://saqeralkhalifa.com/find-work/">Find Work</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/#book">Shackles of Democracy<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/#book">The Book</a><a href="https://saqeralkhalifa.com/first-chapter/">First Chapter Free</a><a href="https://saqeralkhalifa.com/#formats">Choose Your Format</a><a href="https://saqeralkhalifa.com/#stores">Where to Buy</a><a href="https://saqeralkhalifa.com/check/">The Data</a><a href="https://saqeralkhalifa.com/arabic/">Arabic Edition</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/the-trust-trap/">The Trust Trap<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/the-trust-trap/">About the Book</a><a href="https://saqeralkhalifa.com/the-trust-trap/#chapters">Inside the Book</a><a href="https://saqeralkhalifa.com/the-trust-trap/#resources">Free Resources</a><a href="https://saqeralkhalifa.com/the-trust-trap/#faq">Questions</a><a href="https://saqeralkhalifa.com/the-trust-trap/#buy">Where to Buy</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/#author">About</a><a class="wpitem" href="https://saqeralkhalifa.com/#contact">Contact</a><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/blog/">Blog<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/blog/">All Articles</a><a href="https://saqeralkhalifa.com/category/trust-by-design/">Trust by Design</a><a href="https://saqeralkhalifa.com/category/reform-theater/">Reform Theater</a><a href="https://saqeralkhalifa.com/category/country-cases/">Country Cases</a><a href="https://saqeralkhalifa.com/category/institutional-memory/">Institutional Memory</a><a href="https://saqeralkhalifa.com/category/politics/">Politics</a><a href="https://saqeralkhalifa.com/category/economics/">Economics</a><a href="https://saqeralkhalifa.com/category/social/">Social</a><a href="https://saqeralkhalifa.com/category/published-and-mentions/">Published & Mentions</a><a href="https://saqeralkhalifa.com/category/interesting/">Interesting</a></div></div></nav><nav class="wpnav wpnav-ar"><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/major-compass/#ar">للطلبة<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="quiz.html?lang=ar">بوصلة التخصص</a><a href="explore.html?lang=ar">استكشف التخصصات</a><a href="entry.html?lang=ar">شروط القبول</a><a href="scholarships.html?lang=ar">المنح والتمويل</a><a href="parents.html?lang=ar">دليل أولياء الأمور</a><a href="ai.html?lang=ar">الذكاء الاصطناعي وتخصصك</a><a href="routes.html?lang=ar">ماذا يغلق كل شرط</a><a href="alternatives.html?lang=ar">مسارات بدون شهادة</a><a href="internships.html?lang=ar">فرص التدريب</a><a href="cv.html?lang=ar">السيرة الذاتية</a></div></div><div class="wpdd"><a class="wpitem" href="https://gigs.saqeralkhalifa.com/?lang=ar">للباحثين عن عمل<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://gigs.saqeralkhalifa.com/?lang=ar">لوحة الأعمال القصيرة</a><a href="https://gigs.saqeralkhalifa.com/?lang=ar#jobs">الوظائف الدائمة</a><a href="internships.html?lang=ar">فرص التدريب</a><a href="cv.html?lang=ar">السيرة الذاتية</a><a href="https://saqeralkhalifa.com/post-a-gig/">انشر فرصة</a><a href="https://saqeralkhalifa.com/find-work/">سجّل بياناتك</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/arabic/#book">أغلال الديمقراطية<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/arabic/#book">الكتاب</a><a href="https://saqeralkhalifa.com/readers/">الفصل الأول مجانا</a><a href="https://saqeralkhalifa.com/arabic/#buy">الشراء</a><a href="https://saqeralkhalifa.com/check-ar/">البيانات</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/the-trust-trap-ar/">مصيدة الثقة</a><a class="wpitem" href="https://saqeralkhalifa.com/arabic/#author">نبذة</a><a class="wpitem" href="https://saqeralkhalifa.com/#contact">تواصل</a><a class="wpitem" href="https://saqeralkhalifa.com/blog/">المدونة</a></nav><button class="wpitem wplang" id="langToggle" type="button">العربية</button><button class="wpburger" id="wpburger" type="button" aria-label="Open menu">☰</button></div></div></div><div class="wpmob"><div class="wpmob-nav wpmob-en"><a class="wpmob-top" href="https://saqeralkhalifa.com/major-compass/">For Students</a><a class="wpmob-sub" href="quiz.html">Major Compass Quiz</a><a class="wpmob-sub" href="explore.html">Every Major Explained</a><a class="wpmob-sub" href="entry.html">Entry Requirements</a><a class="wpmob-sub" href="scholarships.html">Scholarships and Funding</a><a class="wpmob-sub" href="parents.html">Parent Guide</a><a class="wpmob-sub" href="ai.html">AI and Your Major</a><a class="wpmob-sub" href="routes.html">What a Dealbreaker Closes</a><a class="wpmob-sub" href="alternatives.html">Routes Without a Degree</a><a class="wpmob-sub" href="internships.html?lang=en">Internships</a><a class="wpmob-sub" href="cv.html?lang=en">Build a CV</a><a class="wpmob-top" href="https://gigs.saqeralkhalifa.com/?lang=en">For Job Seekers</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=en">Gigs Board</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=en#jobs">Full-time Jobs</a><a class="wpmob-sub" href="internships.html?lang=en">Internships</a><a class="wpmob-sub" href="cv.html?lang=en">Build a CV</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/post-a-gig/">Post a Gig</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-work/">Find Work</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#book">Shackles of Democracy</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#book">The Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/first-chapter/">First Chapter Free</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#formats">Choose Your Format</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#stores">Where to Buy</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/check/">The Data</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/">Arabic Edition</a><a class="wpmob-top" href="https://saqeralkhalifa.com/the-trust-trap/">The Trust Trap</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/">About the Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#chapters">Inside the Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#resources">Free Resources</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#faq">Questions</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#buy">Where to Buy</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#author">About</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#contact">Contact</a><a class="wpmob-top" href="https://saqeralkhalifa.com/blog/">Blog</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/blog/">All Articles</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/trust-by-design/">Trust by Design</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/reform-theater/">Reform Theater</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/country-cases/">Country Cases</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/institutional-memory/">Institutional Memory</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/politics/">Politics</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/economics/">Economics</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/social/">Social</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/published-and-mentions/">Published & Mentions</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/interesting/">Interesting</a></div><div class="wpmob-nav wpmob-ar"><a class="wpmob-top" href="https://saqeralkhalifa.com/major-compass/#ar">للطلبة</a><a class="wpmob-sub" href="quiz.html?lang=ar">بوصلة التخصص</a><a class="wpmob-sub" href="explore.html?lang=ar">استكشف التخصصات</a><a class="wpmob-sub" href="entry.html?lang=ar">شروط القبول</a><a class="wpmob-sub" href="scholarships.html?lang=ar">المنح والتمويل</a><a class="wpmob-sub" href="parents.html?lang=ar">دليل أولياء الأمور</a><a class="wpmob-sub" href="ai.html?lang=ar">الذكاء الاصطناعي وتخصصك</a><a class="wpmob-sub" href="routes.html?lang=ar">ماذا يغلق كل شرط</a><a class="wpmob-sub" href="alternatives.html?lang=ar">مسارات بدون شهادة</a><a class="wpmob-sub" href="internships.html?lang=ar">فرص التدريب</a><a class="wpmob-sub" href="cv.html?lang=ar">السيرة الذاتية</a><a class="wpmob-top" href="https://gigs.saqeralkhalifa.com/?lang=ar">للباحثين عن عمل</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=ar">لوحة الأعمال القصيرة</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=ar#jobs">الوظائف الدائمة</a><a class="wpmob-sub" href="internships.html?lang=ar">فرص التدريب</a><a class="wpmob-sub" href="cv.html?lang=ar">السيرة الذاتية</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/post-a-gig/">انشر فرصة</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-work/">سجّل بياناتك</a><a class="wpmob-top" href="https://saqeralkhalifa.com/arabic/#book">أغلال الديمقراطية</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/#book">الكتاب</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/readers/">الفصل الأول مجانا</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/#buy">الشراء</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/check-ar/">البيانات</a><a class="wpmob-top" href="https://saqeralkhalifa.com/the-trust-trap-ar/">مصيدة الثقة</a><a class="wpmob-top" href="https://saqeralkhalifa.com/arabic/#author">نبذة</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#contact">تواصل</a><a class="wpmob-top" href="https://saqeralkhalifa.com/blog/">المدونة</a></div></div><script>(function(){var b=document.getElementById("wpburger"),w=document.getElementById("wpbar");if(b&&w){b.addEventListener("click",function(){var o=w.classList.toggle("open");b.textContent=o?"✕":"☰";b.setAttribute("aria-label",o?"Close menu":"Open menu");});}var t=document.getElementById("langToggle");if(!t)return;function fix(){var ar=document.documentElement.lang==="ar";var want=ar?"English":"العربية";if(t.textContent.trim()!==want){t.textContent=want;}}fix();new MutationObserver(fix).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});new MutationObserver(fix).observe(t,{childList:true,characterData:true,subtree:true});})();</script></div>
+<div class="wrap">
+<div class="hero">
+    <h1 class="serif" id="t-title"></h1>
+    <p id="t-sub"></p>
+  </div>
+
+  <div class="rules">
+    <div class="rule w"><h3 id="r1t"></h3><p id="r1"></p></div>
+    <div class="rule b"><h3 id="r2t"></h3><p id="r2"></p></div>
+    <div class="rule n" id="r3box"><h3 id="r3t"></h3><p id="r3"></p></div>
+  </div>
+
+  <div class="quizbar">
+    <p id="t-quizline"></p>
+    <a class="btn" id="t-quizbtn" href="quiz.html"></a>
+  </div>
+
+  <div class="tools">
+    <div class="picker">
+      <span class="lbl" id="t-pickC"></span>
+      <div class="filters" id="countries"></div>
+    </div>
+    <div class="picker">
+      <span class="lbl" id="t-pickL"></span>
+      <div class="filters" id="levels"></div>
+    </div>
+    <input class="search" id="search" type="search" autocomplete="off">
+    <div class="count" id="count"></div>
+  </div>
+
+  <div id="list"></div>
+  <div class="empty" id="empty" style="display:none;"></div>
+
+  <div class="panel">
+    <h2 id="calT"></h2>
+    <p class="sub" id="calS"></p>
+    <div id="cal"></div>
+  </div>
+
+  <div class="checked">
+    <b id="lastT"></b>
+    <p id="last"></p>
+  </div>
+
+  <div class="crosslinks">
+  <div class="quizbar" style="margin-top:10px;">
+    <p id="t-exploreline"></p>
+    <a class="btn ghost" id="t-explorebtn" href="explore.html"></a>
+  </div>
+  <div class="quizbar" style="margin-top:10px;">
+    <p id="t-parline"></p>
+    <a class="btn ghost" id="t-parbtn" href="parents.html"></a>
+  </div>
+  <div class="quizbar" style="margin-top:10px;">
+    <p id="t-entline"></p>
+    <a class="btn ghost" id="t-entbtn" href="entry.html"></a>
+  </div>
+  </div>
+
+  <footer class="site">
+    <p class="disc" id="t-disc"></p>
+    <p id="t-foot"></p>
+  </footer>
+</div>
+<script>
+/* ===== Part 1: national and government schemes inside the GCC ===== */
+const S1 = [
+
+/* ---------- BAHRAIN ---------- */
+{id:"cpisp", cat:"nat", ct:"bh", who:["bh"], lvl:"ug", st:"grade11",
+ n:{en:"Crown Prince's International Scholarship Programme (CPISP)", ar:"برنامج ولي العهد للمنح الدراسية العالمية"},
+ el:{en:"Bahraini citizens who are <b>currently in Grade 11</b>, with a cumulative average of <b>97% or above</b> across Grade 10 and the first semester of Grade 11.",
+     ar:"المواطنون البحرينيون الذين هم <b>في الصف الحادي عشر حاليًا</b>، بمعدل تراكمي <b>٩٧٪ فأعلى</b> عبر الصف العاشر والفصل الأول من الحادي عشر."},
+ cv:{en:"Full university costs, plus internships, career guidance and job placement. Public school scholars first complete a two year American High School Diploma or A Levels at a boarding school. Around 20 scholarships a year.",
+     ar:"تكاليف الدراسة الجامعية كاملة، مع تدريب عملي وإرشاد مهني وتوظيف. طلبة المدارس الحكومية يكملون أولًا دبلومًا ثانويًا أمريكيًا أو مستوى A لمدة سنتين في مدرسة داخلية. نحو ٢٠ منحة سنويًا."},
+ wn:{en:"Opens every year in <b>March</b>. The 2026 round has closed, so the next one is expected in March 2027.",
+     ar:"يفتح سنويًا في <b>مارس</b>. أُغلقت دورة ٢٠٢٦، والدورة القادمة متوقعة في مارس ٢٠٢٧."},
+ fl:{en:"This is the most important timing message for any Bahraini student. You apply a year and a half before you leave school. If you wait for your final results you have already missed it.",
+     ar:"هذه أهم رسالة توقيت لأي طالب بحريني. التقديم يتم قبل مغادرة المدرسة بسنة ونصف. إذا انتظرت نتيجتك النهائية تكون قد فاتتك."},
+ url:"https://www.cpisp.bh/CPISPapplication"},
+
+{id:"bhmoe", cat:"nat", ct:"bh", who:["bh"], lvl:"ug", st:"check",
+ n:{en:"Ministry of Education scholarships and grants", ar:"بعثات ومنح وزارة التربية والتعليم"},
+ el:{en:"Bahraini secondary school leavers. In the 2025/26 plan: full scholarships for <b>95% and above</b>, grants for <b>90 to 94.9%</b>.",
+     ar:"خريجو الثانوية البحرينيون. في خطة ٢٠٢٥/٢٠٢٦: بعثات كاملة لمن حصل على <b>٩٥٪ فأعلى</b>، ومنح لمن حصل على <b>٩٠ إلى ٩٤٫٩٪</b>."},
+ cv:{en:"Over 4,000 awards in the last published plan: about 1,900 full scholarships and 2,300 grants, plus 300 nursing scholarships, 12 international scholarships in the US and UK, and 5 at Al Azhar. Mostly at University of Bahrain, Bahrain Polytechnic and other local institutions.",
+     ar:"أكثر من ٤٠٠٠ مقعد في آخر خطة منشورة: نحو ١٩٠٠ بعثة كاملة و٢٣٠٠ منحة، إضافة إلى ٣٠٠ بعثة تمريض، و١٢ بعثة دولية في أمريكا وبريطانيا، و٥ في الأزهر. معظمها في جامعة البحرين وبوليتكنك البحرين ومؤسسات محلية أخرى."},
+ wn:{en:"The 2025 window ran <b>8 to 14 July</b>. The Ministry has announced registration for 2026/27 but the exact dates were not confirmed at the time of writing, so treat July as the likely month and check the portal.",
+     ar:"دورة ٢٠٢٥ كانت من <b>٨ إلى ١٤ يوليو</b>. أعلنت الوزارة فتح التسجيل لعام ٢٠٢٦/٢٠٢٧ لكن التواريخ الدقيقة لم تتأكد وقت الكتابة، فاعتبر يوليو الشهر المرجح وراجع البوابة."},
+ fl:{en:"Grant holders apply <b>after</b> securing a university place, within two months of admission. Scholarship holders are placed by the Ministry.",
+     ar:"أصحاب المنح يقدّمون <b>بعد</b> الحصول على مقعد جامعي، خلال شهرين من القبول. أما أصحاب البعثات فتوزعهم الوزارة."},
+ url:"https://scholarship.moe.gov.bh/"},
+
+{id:"nbh", cat:"nat", ct:"bh", who:["bh"], lvl:"ug", st:"grade11",
+ n:{en:"Bapco Energies, NBH Future Energy Leaders (undergraduate track)", ar:"بابكو للطاقة، برنامج قادة الطاقة المستقبليين (المسار الجامعي)"},
+ el:{en:"Bahraini nationals <b>in Grade 11</b> at the time of applying, with a minimum <b>95% cumulative average and 97% in core subjects</b>, and active extracurricular involvement.",
+     ar:"مواطنون بحرينيون <b>في الصف الحادي عشر</b> وقت التقديم، بمعدل تراكمي لا يقل عن <b>٩٥٪ و٩٧٪ في المواد الأساسية</b>، مع مشاركة فاعلة في الأنشطة."},
+ cv:{en:"Full tuition and academic fees at approved international universities, skills workshops, internships and mentoring. Fields: engineering, business, IT and cybersecurity, sustainability and energy, law and governance.",
+     ar:"الرسوم الدراسية والأكاديمية كاملة في جامعات دولية معتمدة، مع ورش مهارات وتدريب وإرشاد. المجالات: الهندسة، الأعمال، تقنية المعلومات والأمن السيبراني، الاستدامة والطاقة، القانون والحوكمة."},
+ wn:{en:"The 2026 round ran <b>15 June to 16 July</b> and has closed. Expect a similar window in 2027.",
+     ar:"دورة ٢٠٢٦ كانت من <b>١٥ يونيو إلى ١٦ يوليو</b> وقد أُغلقت. توقع فترة مشابهة في ٢٠٢٧."},
+ fl:{en:"There is an employment bond. You must join Bapco Energies within 60 days of an offer or repay the scholarship. A separate postgraduate track exists but it requires three years of work experience, so school leavers cannot use it.",
+     ar:"يوجد التزام وظيفي. عليك الالتحاق ببابكو للطاقة خلال ٦٠ يومًا من العرض أو إعادة قيمة البعثة. يوجد مسار دراسات عليا منفصل لكنه يشترط ثلاث سنوات خبرة عمل، فلا يصلح لخريجي الثانوية."},
+ url:"https://www.bapcoenergies.com/nbh-future-energy-leaders/undergraduate"},
+
+{id:"waqfisa", cat:"nat", ct:"bh", who:["bh"], lvl:"ug", st:"check",
+ n:{en:"Isa bin Salman Education Charitable Trust (Waqf Isa)", ar:"وقف عيسى بن سلمان التعليمي الخيري"},
+ el:{en:"Bahraini students. There are separate bachelor's and master's rounds, so a school leaver applies to the <b>bachelor's round</b> only.",
+     ar:"الطلبة البحرينيون. توجد دورتان منفصلتان للبكالوريوس والماجستير، وخريج الثانوية يقدّم على <b>دورة البكالوريوس</b> فقط."},
+ cv:{en:"Study support through a partner network of 15 local and 4 international universities.",
+     ar:"دعم دراسي عبر شبكة شركاء تضم ١٥ جامعة محلية و٤ جامعات دولية."},
+ wn:{en:"The 2025/26 bachelor's round ran <b>29 May to 12 June</b>. The 2026 dates were not published at the time of writing, so check the portal in May and June.",
+     ar:"دورة بكالوريوس ٢٠٢٥/٢٠٢٦ كانت من <b>٢٩ مايو إلى ١٢ يونيو</b>. لم تُنشر تواريخ ٢٠٢٦ وقت الكتابة، فراجع البوابة في مايو ويونيو."},
+ url:"https://waqfisa.bh/"},
+
+{id:"rayaat", cat:"nat", ct:"bh", who:["bh"], lvl:"ug", st:"check",
+ n:{en:"AlMabarrah Al Khalifia Foundation, Rayaat Scholarship Programme", ar:"مؤسسة المبرة الخليفية، برنامج رايات للمنح الدراسية"},
+ el:{en:"Bahraini nationals studying <b>inside Bahrain</b>. Minimum <b>85%</b> high school average for government universities and <b>95%</b> for Euro University of Bahrain. You must not already hold any other grant, scholarship or financial assistance, and must not already hold a bachelor's degree. Evidence of achievement and volunteering is required.",
+     ar:"مواطنون بحرينيون يدرسون <b>داخل البحرين</b>. الحد الأدنى <b>٨٥٪</b> في الثانوية للجامعات الحكومية و<b>٩٥٪</b> للجامعة الأوروبية بالبحرين. يجب ألا تكون حاصلًا على أي منحة أو بعثة أو دعم مالي آخر، وألا تكون حاصلًا على بكالوريوس. يُطلب إثبات التميز والعمل التطوعي."},
+ cv:{en:"Fully sponsored university fees, book allowance, monthly incentives for high achievers, enrichment workshops and internships. Partners include University of Bahrain, Bahrain Polytechnic, RCSI Bahrain for medicine, Ahlia, AUBH, British University of Bahrain, University of Technology Bahrain, Euro University and University of London degrees through BIBF.",
+     ar:"رسوم جامعية مدفوعة بالكامل، وبدل كتب، وحوافز شهرية للمتفوقين، وورش إثرائية وتدريب عملي. من الشركاء: جامعة البحرين، بوليتكنك البحرين، الكلية الملكية للجراحين في البحرين للطب، الأهلية، الجامعة الأمريكية بالبحرين، الجامعة البريطانية بالبحرين، جامعة البحرين التقنية، الجامعة الأوروبية، وشهادات جامعة لندن عبر بيبف."},
+ wn:{en:"Around <b>late March and April</b>. The foundation published two different date ranges for 2026, so confirm with the foundation rather than relying on one of them. Results in July.",
+     ar:"نحو <b>أواخر مارس وأبريل</b>. نشرت المؤسسة فترتين مختلفتين لعام ٢٠٢٦، لذا تأكد منها مباشرة بدل الاعتماد على إحداهما. النتائج في يوليو."},
+ url:"https://mkfbh.org/rayaat"},
+
+/* ---------- SAUDI ARABIA ---------- */
+{id:"sa2holy", cat:"nat", ct:"sa", who:["sa"], lvl:"ug", st:"check",
+ n:{en:"Custodian of the Two Holy Mosques Scholarship Programme", ar:"برنامج خادم الحرمين الشريفين للابتعاث الخارجي"},
+ el:{en:"Saudi citizens with admission to an approved institution, in a designated field, aged <b>not more than 30 for a bachelor's degree</b>. From 2025/26, bachelor's applicants entering through the preparatory year need <b>90% or above</b> in high school and <b>IELTS 5.5</b>. The China track needs 85% and IELTS 4.5, and Germany needs a German A2 certificate.",
+     ar:"مواطنون سعوديون لديهم قبول في مؤسسة معتمدة وفي تخصص محدد، بعمر <b>لا يتجاوز ٣٠ سنة للبكالوريوس</b>. من عام ٢٠٢٥/٢٠٢٦، من يدخل عبر السنة التحضيرية يحتاج <b>٩٠٪ فأعلى</b> في الثانوية و<b>آيلتس ٥٫٥</b>. مسار الصين يتطلب ٨٥٪ وآيلتس ٤٫٥، وألمانيا تتطلب شهادة ألمانية A2."},
+ cv:{en:"Four tracks. <b>Pioneers</b> covers bachelor's and master's at the top 30 global institutions with the age cap waived. <b>Imdad</b> covers bachelor's and master's at the top 200 in labour market priority fields. <b>Waaid</b> is employment linked and covers diplomas, bachelor's degrees, master's degrees and professional certificates. The <b>Research and Development</b> track is master's and doctoral only, so it is not for school leavers. Destinations include the USA, UK, Australia, Switzerland, Spain, France, Germany and China.",
+     ar:"أربعة مسارات. <b>الرواد</b> يغطي البكالوريوس والماجستير في أفضل ٣٠ مؤسسة عالمية مع إعفاء من حد العمر. <b>إمداد</b> يغطي البكالوريوس والماجستير في أفضل ٢٠٠ جامعة في تخصصات أولويات سوق العمل. <b>واعد</b> مرتبط بالتوظيف ويشمل الدبلومات والبكالوريوس والماجستير والشهادات المهنية. مسار <b>البحث والتطوير</b> للماجستير والدكتوراه فقط، فلا يناسب خريجي الثانوية. الوجهات تشمل أمريكا وبريطانيا وأستراليا وسويسرا وإسبانيا وفرنسا وألمانيا والصين."},
+ wn:{en:"Individual Waaid opportunities open several times a year for short windows, sometimes only two weeks. Watch the Safeer portal continuously rather than waiting for one annual date.",
+     ar:"فرص واعد تُفتح عدة مرات في السنة لفترات قصيرة، أحيانًا أسبوعين فقط. تابع بوابة سفير باستمرار بدل انتظار موعد سنوي واحد."},
+ fl:{en:"This is the successor to the King Abdullah Scholarship Programme. It has not been discontinued, but it is far smaller and more selective than it was at its peak in the 2010s. The official pages do not itemise tuition, stipend, flights or insurance, so do not assume a specific allowance.",
+     ar:"هذا امتداد لبرنامج الملك عبدالله للابتعاث. لم يتوقف، لكنه أصغر وأكثر انتقائية بكثير مما كان في ذروته خلال العقد الماضي. الصفحات الرسمية لا تفصّل الرسوم أو المكافأة أو التذاكر أو التأمين، فلا تفترض مبلغًا محددًا."},
+ url:"https://sites.moe.gov.sa/scholarship-program/"},
+
+{id:"aramco", cat:"nat", ct:"sa", who:["sa"], lvl:"ug", st:"check",
+ n:{en:"Saudi Aramco College Degree Programme for Non Employees", ar:"أرامكو السعودية، برنامج الابتعاث الجامعي لغير الموظفين"},
+ el:{en:"Saudi nationals aged <b>22 or under</b> (Hijri), in the second semester of Grade 12, with a cumulative high school average of <b>85% or above</b> and <b>85% or above in maths and science</b>, plus a <b>Qudurat score of 90 or above</b>. Open to male and female students.",
+     ar:"مواطنون سعوديون بعمر <b>٢٢ سنة فأقل</b> هجريًا، في الفصل الثاني من الصف الثاني عشر، بمعدل تراكمي <b>٨٥٪ فأعلى</b> و<b>٨٥٪ فأعلى في الرياضيات والعلوم</b>، مع درجة <b>قدرات ٩٠ فأعلى</b>. متاح للطلاب والطالبات."},
+ cv:{en:"One year of the College Preparatory Programme in Dhahran, then a bachelor's degree at a university outside the Kingdom. During the preparatory year: SR 4,000 a month, housing, transport, medical care, university application support and academic counselling.",
+     ar:"سنة في البرنامج التحضيري الجامعي في الظهران، ثم بكالوريوس في جامعة خارج المملكة. خلال السنة التحضيرية: ٤٠٠٠ ريال شهريًا، وسكن، ومواصلات، ورعاية طبية، ودعم في التقديم الجامعي، وإرشاد أكاديمي."},
+ wn:{en:"Registration is currently closed and Aramco states the next period will be announced later. Check the page regularly during Grade 12.",
+     ar:"التسجيل مغلق حاليًا وتذكر أرامكو أن الفترة القادمة ستُعلن لاحقًا. راجع الصفحة بانتظام خلال الصف الثاني عشر."},
+ url:"https://www.aramco.com/en/careers/for-saudi-applicants/student-opportunities/college-degree-program"},
+
+{id:"sabic", cat:"nat", ct:"sa", who:["sa"], lvl:"ug", st:"check",
+ n:{en:"SABIC University Scholarship for fresh high school graduates", ar:"منحة سابك الجامعية لخريجي الثانوية الجدد"},
+ el:{en:"Saudi nationals aged <b>20 or under</b>, with a high school average of <b>90% or above</b> and a General Aptitude Test score of <b>85 or above</b>.",
+     ar:"مواطنون سعوديون بعمر <b>٢٠ سنة فأقل</b>، بمعدل ثانوي <b>٩٠٪ فأعلى</b> ودرجة قدرات <b>٨٥ فأعلى</b>."},
+ cv:{en:"Tuition, monthly stipend, housing allowance, book allowance, medical insurance and an annual air ticket, while studying <b>inside Saudi Arabia</b> at King Saud University, King Abdulaziz University, KFUPM or Princess Nourah bint Abdulrahman University.",
+     ar:"الرسوم الدراسية، ومكافأة شهرية، وبدل سكن، وبدل كتب، وتأمين طبي، وتذكرة سنوية، مع الدراسة <b>داخل السعودية</b> في جامعة الملك سعود أو جامعة الملك عبدالعزيز أو جامعة الملك فهد للبترول والمعادن أو جامعة الأميرة نورة."},
+ wn:{en:"You cannot apply cold. Invitations are sent by SMS <b>after</b> you enrol at one of the four universities.",
+     ar:"لا يمكن التقديم مباشرة. تُرسل الدعوات برسالة نصية <b>بعد</b> التحاقك بإحدى الجامعات الأربع."},
+ url:"https://www.sabic.com/en/careers/middle-east-africa/students-and-fresh-graduates"},
+
+{id:"sanonsaudi", cat:"nat", ct:"sa", who:["exp","bh","ae","qa","kw","om"], lvl:"ug", st:"check",
+ n:{en:"Saudi Arabia, scholarships in public universities for non Saudis", ar:"السعودية، منح الجامعات الحكومية لغير السعوديين"},
+ el:{en:"Non Saudi students from over 200 countries, aged <b>17 to 25</b> for undergraduate and Arabic language programmes. You must pass medical and security clearance, must not hold another scholarship in the Kingdom, and need home government approval where that applies. Health and medical specialties are excluded.",
+     ar:"طلبة غير سعوديين من أكثر من ٢٠٠ دولة، بعمر <b>١٧ إلى ٢٥</b> للبكالوريوس وبرامج اللغة العربية. يجب اجتياز الفحص الطبي والأمني، وعدم الحصول على منحة أخرى في المملكة، والحصول على موافقة الدولة الأم حيث ينطبق ذلك. التخصصات الصحية والطبية مستثناة."},
+ cv:{en:"Three types: <b>full</b> (all benefits including healthcare, housing, an arrival reward and annual travel tickets), <b>partial</b> (a seat only, or a seat with housing), and <b>paid grants</b>.",
+     ar:"ثلاثة أنواع: <b>كاملة</b> (جميع المزايا من رعاية صحية وسكن ومكافأة قدوم وتذاكر سنوية)، و<b>جزئية</b> (مقعد فقط أو مقعد مع سكن)، و<b>منح مدفوعة</b>."},
+ wn:{en:"Apply through individual university websites during their announced periods, or through Saudi Cultural Attachés and embassies.",
+     ar:"التقديم عبر مواقع الجامعات في فتراتها المعلنة، أو عبر الملحقيات الثقافية والسفارات السعودية."},
+ fl:{en:"This is one of the very few government routes in the Gulf that is open by design to people who are not nationals of that country.",
+     ar:"هذا أحد المسارات الحكومية القليلة جدًا في الخليج المفتوحة بحكم تصميمها لغير مواطني الدولة."},
+ url:"https://www.moe.gov.sa/en/education/ResidentsAndvisitors/Pages/PublicUniversitiesScholarships.aspx"},
+
+/* ---------- UAE ---------- */
+{id:"uaemoe", cat:"nat", ct:"ae", who:["ae"], lvl:"ug", st:"check",
+ n:{en:"UAE Ministry of Education scholarships", ar:"بعثات وزارة التربية والتعليم الإماراتية"},
+ el:{en:"Emirati nationals and students whose mothers are Emirati, applying through the <b>National Admissions and Placement Office</b>. You need the General School Certificate plus <b>EmSAT</b> in English, maths, science and Arabic at the score set by the institution, a unified online application and a medical check.",
+     ar:"المواطنون الإماراتيون وأبناء الأم الإماراتية، عبر <b>مكتب القبول والتنسيق الوطني</b>. تحتاج شهادة الثانوية العامة مع <b>إمسات</b> في الإنجليزية والرياضيات والعلوم والعربية بالدرجة التي تحددها المؤسسة، وطلبًا إلكترونيًا موحدًا، وفحصًا طبيًا."},
+ cv:{en:"Undergraduate and postgraduate study <b>abroad</b>, at ministry recognised universities.",
+     ar:"دراسة بكالوريوس ودراسات عليا <b>في الخارج</b>، في جامعات معترف بها من الوزارة."},
+ wn:{en:"There is a Fall window and a Spring window, run through the ministry portal using UAE Pass. The Fall 2025 confirmation deadline was 11 August. Exact 2026/27 dates were not published at the time of writing.",
+     ar:"توجد فترة للفصل الأول وأخرى للفصل الثاني، عبر بوابة الوزارة باستخدام الهوية الرقمية. كان آخر موعد لتأكيد خريف ٢٠٢٥ في ١١ أغسطس. لم تُنشر تواريخ ٢٠٢٦/٢٠٢٧ وقت الكتابة."},
+ fl:{en:"The official page does not publish grade thresholds, EmSAT scores or age limits. Do not rely on figures you find on scholarship blogs. Ask the ministry.",
+     ar:"الصفحة الرسمية لا تنشر حدود المعدلات ولا درجات إمسات ولا حدود العمر. لا تعتمد على الأرقام في مدونات المنح. اسأل الوزارة."},
+ url:"https://u.ae/en/information-and-services/education/higher-education/joining-higher-education-institutions-/scholarships-for-uae-nationals/scholarships-from-ministry-of-education"},
+
+{id:"sco", cat:"nat", ct:"ae", who:["ae"], lvl:"ug", st:"check",
+ n:{en:"The Scholarships Office, Ministry of Presidential Affairs", ar:"مكتب البعثات الدراسية، وزارة شؤون الرئاسة"},
+ el:{en:"Outstanding Emirati students, from an accredited list of universities and majors.",
+     ar:"الطلبة الإماراتيون المتميزون، ضمن قائمة معتمدة من الجامعات والتخصصات."},
+ cv:{en:"Bachelor's degree scholarships both <b>inside and outside the UAE</b>, plus graduate scholarships, at prestigious international universities.",
+     ar:"بعثات بكالوريوس <b>داخل الإمارات وخارجها</b>، إضافة إلى بعثات دراسات عليا، في جامعات دولية مرموقة."},
+ wn:{en:"Not published in a form that could be verified. Contact the office directly on +971 2 222 8391 or info@sco.ae.",
+     ar:"غير منشورة بصورة يمكن التحقق منها. تواصل مع المكتب مباشرة على ٩٧١٢٢٢٢٨٣٩١+ أو info@sco.ae."},
+ url:"https://www.sco.ae/"},
+
+{id:"adek", cat:"nat", ct:"ae", who:["ae"], lvl:"ug", st:"check",
+ n:{en:"Abu Dhabi Scholarships (ADEK)", ar:"منح أبوظبي الدراسية (دائرة التعليم والمعرفة)"},
+ el:{en:"UAE nationals aged <b>17 to 24</b>, in Grade 12 or Year 13, or already at university. The <b>Elite</b> track needs 85% or above in Grade 11 and 90% or above in Grade 12 Term 1. The <b>Creative</b> track needs 80 to 85%. English proficiency: IELTS Academic 6.0 or TOEFL iBT 67.",
+     ar:"مواطنون إماراتيون بعمر <b>١٧ إلى ٢٤</b>، في الصف الثاني عشر أو السنة ١٣، أو طلبة جامعيون حاليون. مسار <b>النخبة</b> يتطلب ٨٥٪ فأعلى في الحادي عشر و٩٠٪ فأعلى في الفصل الأول من الثاني عشر. مسار <b>الإبداع</b> يتطلب ٨٠ إلى ٨٥٪. إتقان الإنجليزية: آيلتس أكاديمي ٦٫٠ أو توفل ٦٧."},
+ cv:{en:"Tuition fees and book allowance, health insurance, travel costs, a monthly stipend including a housing allowance, and a bonus for high performers. Around 150 universities across the UK, USA, Europe, Scandinavia, Australia, New Zealand, the Middle East, the Far East and the Americas. Fast track for students admitted to a world top 20 university.",
+     ar:"الرسوم الدراسية وبدل الكتب، وتأمين صحي، وتكاليف السفر، ومكافأة شهرية تشمل بدل سكن، ومكافأة للمتفوقين. نحو ١٥٠ جامعة في بريطانيا وأمريكا وأوروبا والدول الإسكندنافية وأستراليا ونيوزيلندا والشرق الأوسط والشرق الأقصى والأمريكتين. مسار سريع لمن يُقبل في جامعة ضمن أفضل ٢٠ عالميًا."},
+ wn:{en:"Historically <b>March and April</b>. The exact 2026 dates were not confirmed on an official page at the time of writing.",
+     ar:"تاريخيًا في <b>مارس وأبريل</b>. لم تتأكد تواريخ ٢٠٢٦ الدقيقة من صفحة رسمية وقت الكتابة."},
+ url:"https://ads.adek.ae/"},
+
+{id:"hbm", cat:"nat", ct:"ae", who:["ae"], lvl:"ug", st:"closed",
+ n:{en:"Hamdan bin Mohammed Scholarship Programme (Dubai)", ar:"برنامج حمدان بن محمد للمنح الدراسية (دبي)"},
+ el:{en:"Emiratis <b>holding a Dubai family book</b>, who graduated high school in 2023/24, 2024/25 or 2025/26, and who hold a conditional or unconditional university admission. You must not have accepted another scholarship offer.",
+     ar:"إماراتيون <b>يحملون خلاصة قيد دبي</b>، تخرجوا من الثانوية في ٢٠٢٣/٢٠٢٤ أو ٢٠٢٤/٢٠٢٥ أو ٢٠٢٥/٢٠٢٦، ولديهم قبول جامعي مشروط أو غير مشروط. ويشترط عدم قبول عرض منحة أخرى."},
+ cv:{en:"100 fully funded scholarships a year under a programme worth AED 1.1 billion. Around 70% of current scholars are at universities ranked in the world top 100. Fields: computer science, artificial intelligence, digital technologies, business, finance, medicine, law and social sciences.",
+     ar:"١٠٠ منحة ممولة بالكامل سنويًا ضمن برنامج بقيمة ١٫١ مليار درهم. نحو ٧٠٪ من المبتعثين الحاليين في جامعات ضمن أفضل ١٠٠ عالميًا. المجالات: علوم الحاسوب، والذكاء الاصطناعي، والتقنيات الرقمية، والأعمال، والمالية، والطب، والقانون، والعلوم الاجتماعية."},
+ wn:{en:"The third cohort was announced on 23 March 2026 and closed on <b>30 June 2026</b>. Applications go through the Emirati section of the Dubai Now app.",
+     ar:"أُعلنت الدفعة الثالثة في ٢٣ مارس ٢٠٢٦ وأُغلقت في <b>٣٠ يونيو ٢٠٢٦</b>. التقديم عبر قسم الإماراتيين في تطبيق دبي الآن."},
+ url:"https://www.khda.gov.ae/"},
+
+{id:"mofa", cat:"nat", ct:"ae", who:["ae"], lvl:"ug", st:"check",
+ n:{en:"UAE Ministry of Foreign Affairs Scholarship", ar:"بعثة وزارة الخارجية الإماراتية"},
+ el:{en:"UAE nationals with a valid passport and family book, aged <b>17 to 21</b> with guardian approval, holding a high school diploma meeting minimum grades of roughly <b>80 to 90% depending on the stream</b>, with <b>IELTS Academic 6.5</b>, a good conduct certificate, and for males a completed or exempted national service.",
+     ar:"مواطنون إماراتيون بجواز ساري وخلاصة قيد، بعمر <b>١٧ إلى ٢١</b> بموافقة ولي الأمر، بشهادة ثانوية تحقق الحد الأدنى نحو <b>٨٠ إلى ٩٠٪ حسب المسار</b>، مع <b>آيلتس أكاديمي ٦٫٥</b>، وشهادة حسن سيرة، وللذكور إتمام الخدمة الوطنية أو الإعفاء منها."},
+ cv:{en:"All tuition costs at ministry approved universities, followed by a compulsory diploma at the Anwar Gargash Diplomatic Academy. Undergraduate only.",
+     ar:"جميع الرسوم الدراسية في جامعات معتمدة من الوزارة، يليها دبلوم إلزامي في أكاديمية أنور قرقاش الدبلوماسية. للبكالوريوس فقط."},
+ wn:{en:"Not published on the official page. Contact the ministry.",
+     ar:"غير منشورة على الصفحة الرسمية. تواصل مع الوزارة."},
+ fl:{en:"There is a service bond. You must serve in the UAE diplomatic corps for a period equal to the length of the scholarship.",
+     ar:"يوجد التزام خدمة. عليك العمل في السلك الدبلوماسي الإماراتي لمدة تعادل مدة البعثة."},
+ url:"https://www.mofa.gov.ae/en/scholarship"},
+
+{id:"adnoc", cat:"nat", ct:"ae", who:["ae"], lvl:"ug", st:"check",
+ n:{en:"ADNOC Scholarship Programme", ar:"برنامج منح أدنوك"},
+ el:{en:"UAE nationals who <b>already hold a conditional acceptance</b> from an ADNOC approved university, with a medical assessment and a military release letter where applicable.",
+     ar:"مواطنون إماراتيون <b>لديهم قبول مشروط</b> من جامعة معتمدة لدى أدنوك، مع تقييم طبي وخطاب إخلاء طرف عسكري حيث ينطبق."},
+ cv:{en:"Support with tuition fees and living expenses, application assistance, and rewards for excellent performance. Note the official wording is support rather than full coverage. Study is at <b>leading institutions inside the UAE</b>, not abroad. Fields: energy and sustainability, chemical, petroleum, mechanical and electrical engineering, geoscience, project management, law, finance, economics, data science, artificial intelligence and machine learning, materials science and computer science.",
+     ar:"دعم في الرسوم الدراسية ونفقات المعيشة، ومساعدة في التقديم، ومكافآت للأداء المتميز. لاحظ أن الصياغة الرسمية دعم وليس تغطية كاملة. الدراسة في <b>مؤسسات رائدة داخل الإمارات</b>، لا في الخارج. المجالات: الطاقة والاستدامة، والهندسة الكيميائية والبترولية والميكانيكية والكهربائية، وعلوم الأرض، وإدارة المشاريع، والقانون، والمالية، والاقتصاد، وعلم البيانات، والذكاء الاصطناعي وتعلم الآلة، وعلوم المواد، وعلوم الحاسوب."},
+ wn:{en:"Not published. Watch the ADNOC careers page.",
+     ar:"غير منشورة. تابع صفحة التوظيف في أدنوك."},
+ url:"https://jobs.adnoc.ae/us/en/ADNOC-Scholarship-Program-r"},
+
+{id:"uaeother", cat:"nat", ct:"ae", who:["ae"], lvl:"ug", st:"check",
+ n:{en:"Other UAE government routes: Betha, Masar and Emirates Group", ar:"مسارات إماراتية أخرى: بعثة، ومسار، ومجموعة الإمارات"},
+ el:{en:"Emirati high school graduates. Each programme sets its own thresholds, and most are not published in detail.",
+     ar:"خريجو الثانوية الإماراتيون. لكل برنامج شروطه، ومعظمها غير منشور بالتفصيل."},
+ cv:{en:"<b>Betha</b> (ICT Fund at TDRA) covers undergraduate and master's study in information and communications technology, in the UAE, USA, Australia or Japan. <b>Masar</b> (Ministry of Finance) covers undergraduate finance and accounting and other disciplines at accredited UAE universities. <b>Emirates Group</b> supports Emirati school leavers in aviation management, IT, artificial intelligence, logistics and supply chain, finance, cadet pilot training and aircraft maintenance engineering, with a career start in the group.",
+     ar:"<b>بعثة</b> (صندوق تقنية المعلومات في هيئة التنظيم الرقمي) تغطي البكالوريوس والماجستير في تقنية المعلومات والاتصالات، في الإمارات أو أمريكا أو أستراليا أو اليابان. <b>مسار</b> (وزارة المالية) تغطي البكالوريوس في المالية والمحاسبة وتخصصات أخرى في جامعات إماراتية معتمدة. <b>مجموعة الإمارات</b> تدعم خريجي الثانوية الإماراتيين في إدارة الطيران وتقنية المعلومات والذكاء الاصطناعي والخدمات اللوجستية وسلاسل الإمداد والمالية وتدريب الطيارين وهندسة صيانة الطائرات، مع بداية مهنية داخل المجموعة."},
+ wn:{en:"Varies by programme, and not published centrally.",
+     ar:"تختلف حسب البرنامج، وغير منشورة مركزيًا."},
+ fl:{en:"A correction worth knowing: the Mohammed Bin Rashid Distinguished Students Programme is <b>not</b> a university scholarship. It covers 50% of annual tuition at Dubai private schools, meaning school fees, not university fees. Scholarship websites list it wrongly.",
+     ar:"تصحيح يستحق المعرفة: برنامج محمد بن راشد للطلبة المتميزين <b>ليس</b> منحة جامعية. يغطي ٥٠٪ من الرسوم السنوية في مدارس دبي الخاصة، أي رسوم المدرسة لا الجامعة. مواقع المنح تدرجه بشكل خاطئ."},
+ url:"https://u.ae/en/information-and-services/education/higher-education/joining-higher-education-institutions-/scholarships-for-uae-nationals"},
+
+/* ---------- QATAR ---------- */
+{id:"qf", cat:"nat", ct:"qa", who:["all"], lvl:"ug", st:"open",
+ n:{en:"Qatar Foundation financial aid, Education City", ar:"المساعدة المالية من مؤسسة قطر، المدينة التعليمية"},
+ el:{en:"<b>Not restricted by nationality.</b> You must be admitted to an Education City university (Georgetown, Northwestern, Carnegie Mellon, VCUarts, Weill Cornell or HBKU), enrolled full time in a bachelor's programme, with no prior loan default. <b>Note that Texas A&amp;M at Qatar is no longer admitting undergraduates</b>, having announced in 2024 that it will close its Qatar campus by 2028, so ignore it on any list that still includes it.",
+     ar:"<b>غير مقيّدة بالجنسية.</b> يجب أن تكون مقبولًا في إحدى جامعات المدينة التعليمية (جورجتاون، نورث وسترن، كارنيجي ميلون، فرجينيا كومنولث للفنون، وايل كورنيل، أو حمد بن خليفة)، ومسجلًا بدوام كامل في برنامج بكالوريوس، وليس عليك تعثر في قرض سابق. <b>ولاحظ أن تكساس إيه آند إم في قطر لم تعد تقبل طلبة بكالوريوس</b>، إذ أعلنت في ٢٠٢٤ أنها ستغلق حرمها في قطر بحلول ٢٠٢٨، فتجاهلها في أي قائمة ما زالت تدرجها."},
+ cv:{en:"An <b>interest free, need based loan</b> covering up to 100% of the annual cost of attendance. On graduation you either repay on a plan or enter a paid service programme at an approved organisation in Qatar. There is <b>partial debt forgiveness over one to six years</b> depending on the size of the loan, while employed at an approved company, organisation or government office, for students who signed financial aid contracts from Fall 2024 onwards.",
+     ar:"<b>قرض بدون فوائد قائم على الحاجة</b> يغطي حتى ١٠٠٪ من التكلفة السنوية للدراسة. عند التخرج إما تسدد وفق خطة أو تلتحق ببرنامج خدمة مدفوع في جهة معتمدة في قطر. ويوجد <b>إعفاء جزئي من الدين خلال سنة إلى ست سنوات</b> بحسب حجم القرض، أثناء العمل في شركة أو جهة أو مؤسسة حكومية معتمدة، لمن وقّع عقود المساعدة المالية من خريف ٢٠٢٤ فصاعدًا."},
+ wn:{en:"Applied for alongside admission to an Education City university, through the financial aid portal.",
+     ar:"يُقدَّم عليها مع طلب القبول في جامعات المدينة التعليمية، عبر بوابة المساعدة المالية."},
+ fl:{en:"This is the most substantial funding mechanism in the entire Gulf that is open regardless of nationality. If you are an expatriate school leaver in the region, read this one carefully. Note that the separate <b>merit scholarship</b> requires two completed semesters in Education City with an outstanding grade average, so it is not available to an incoming school leaver.",
+     ar:"هذه أهم آلية تمويل في الخليج كله وهي مفتوحة بغض النظر عن الجنسية. إن كنت طالبًا وافدًا في المنطقة فاقرأ هذه بعناية. لاحظ أن <b>منحة التفوق</b> المنفصلة تشترط إكمال فصلين في المدينة التعليمية بمعدل متميز، فلا تتاح للطالب الجديد."},
+ url:"https://www.qf.org.qa/education/higher-education/financial-aid"},
+
+{id:"qamoe", cat:"nat", ct:"qa", who:["qa"], lvl:"ug", st:"check",
+ n:{en:"Qatar Ministry of Education and Higher Education scholarships", ar:"بعثات وزارة التعليم والتعليم العالي القطرية"},
+ el:{en:"Qatari high school graduates. Three programmes: the <b>Amiri Scholarship Programme</b> covering 24 top ranked universities worldwide plus 5 local, the <b>Abroad Scholarship Programme</b>, and the <b>Local Scholarship Programme</b> including Tomouh. There are also Academic Bridge, Diploma, Inclusion and language programmes.",
+     ar:"خريجو الثانوية القطريون. ثلاثة برامج: <b>البعثة الأميرية</b> وتشمل ٢٤ جامعة عالمية مرموقة و٥ جامعات محلية، و<b>بعثة الدراسة في الخارج</b>، و<b>بعثة الدراسة في الداخل</b> بما فيها طموح. وتوجد أيضًا برامج الجسر الأكاديمي والدبلوم والدمج واللغة."},
+ cv:{en:"Study inside or outside Qatar. The ministry does not publish coverage detail on its public pages.",
+     ar:"الدراسة داخل قطر أو خارجها. الوزارة لا تنشر تفاصيل التغطية على صفحاتها العامة."},
+ wn:{en:"Registration ran <b>1 July to 30 September</b> in the most recent announced cycle. Call 44044444 or 155 to confirm the current dates.",
+     ar:"جرى التسجيل من <b>١ يوليو إلى ٣٠ سبتمبر</b> في آخر دورة معلنة. اتصل على ٤٤٠٤٤٤٤٤ أو ١٥٥ لتأكيد التواريخ الحالية."},
+ url:"https://scholarship.edu.gov.qa"},
+
+{id:"quqa", cat:"nat", ct:"qa", who:["qa","bh","sa","ae","kw","om"], lvl:"ug", st:"open",
+ n:{en:"Qatar University scholarships for Qataris and GCC nationals", ar:"منح جامعة قطر للقطريين ومواطني دول الخليج"},
+ el:{en:"The <b>Emir's Scholarship for Academic Excellence</b> is for outstanding Qatari Secondary Certificate holders with a <b>95% average or above</b>, graduating in the same year, and is awarded automatically from the admission application. The <b>Student Recruitment and Excellence Scholarship</b> is for newly admitted, academically outstanding Qatari residents. <b>GCC States Scholarships</b> go to GCC nationals with an embassy nomination. The <b>GCC Qatari Certificate Scholarship</b> is non competitive and goes to GCC nationals holding the Qatari Secondary Certificate.",
+     ar:"<b>منحة سمو الأمير للتفوق الأكاديمي</b> لحاملي الشهادة الثانوية القطرية المتفوقين بمعدل <b>٩٥٪ فأعلى</b> من خريجي السنة نفسها، وتُمنح تلقائيًا من طلب القبول. و<b>منحة استقطاب الطلبة والتفوق</b> للمقبولين الجدد المتفوقين من المقيمين في قطر. و<b>منح دول مجلس التعاون</b> لمواطني الخليج بترشيح من السفارة. و<b>منحة الشهادة الثانوية القطرية لدول المجلس</b> غير تنافسية وتُمنح لمواطني الخليج الحاصلين على الشهادة الثانوية القطرية."},
+ cv:{en:"Tuition and textbook exemption. The Emir's Scholarship adds <b>QAR 1,000 a month for nine months</b>. GCC States Scholarships add housing and campus transport.",
+     ar:"إعفاء من الرسوم الدراسية والكتب. وتضيف منحة سمو الأمير <b>١٠٠٠ ريال قطري شهريًا لتسعة أشهر</b>. ومنح دول المجلس تضيف السكن والمواصلات داخل الحرم."},
+ wn:{en:"Applied for with the university admission application, in line with Qatar University's admission calendar.",
+     ar:"يُقدَّم عليها مع طلب القبول الجامعي، وفق تقويم القبول في جامعة قطر."},
+ url:"https://www.qu.edu.qa/en-us/students/admission/scholarships/Pages/types.aspx"},
+
+{id:"quintl", cat:"nat", ct:"qa", who:["all"], lvl:"ug", st:"open",
+ n:{en:"Qatar University scholarships for non Qatari students", ar:"منح جامعة قطر للطلبة غير القطريين"},
+ el:{en:"The <b>International Students Scholarship</b> is for international undergraduate applicants with a high school average of <b>95% or above</b>. The <b>Talent Scholarship</b> is explicitly for <b>non Qatari</b> undergraduates with a high school average of <b>80% or above</b> who are talented in research, technology, literature, acting (males), media or athletics.",
+     ar:"<b>منحة الطلبة الدوليين</b> للمتقدمين الدوليين للبكالوريوس بمعدل ثانوي <b>٩٥٪ فأعلى</b>. و<b>منحة الموهوبين</b> مخصصة صراحة <b>لغير القطريين</b> في البكالوريوس بمعدل ثانوي <b>٨٠٪ فأعلى</b> من الموهوبين في البحث أو التقنية أو الأدب أو التمثيل (للذكور) أو الإعلام أو الرياضة."},
+ cv:{en:"Tuition and textbooks, plus a monthly allowance of <b>QAR 500</b> (International Students) or <b>QAR 1,000</b> (Talent), with housing, campus transport, airfare and a residence permit for international students.",
+     ar:"الرسوم الدراسية والكتب، مع بدل شهري <b>٥٠٠ ريال قطري</b> (الطلبة الدوليين) أو <b>١٠٠٠ ريال قطري</b> (الموهوبين)، مع السكن والمواصلات وتذكرة السفر والإقامة للطلبة الدوليين."},
+ wn:{en:"Applied for with the university admission application.",
+     ar:"يُقدَّم عليها مع طلب القبول الجامعي."},
+ fl:{en:"Along with Qatar Foundation, these are among the very few funded routes in the Gulf that are open to students who are not nationals of the host country.",
+     ar:"إلى جانب مؤسسة قطر، هذه من المسارات الممولة القليلة جدًا في الخليج المفتوحة لغير مواطني الدولة المضيفة."},
+ url:"https://www.qu.edu.qa/en-us/students/admission/scholarships/Pages/types.aspx"},
+
+{id:"qe", cat:"nat", ct:"qa", who:["qa"], lvl:"ug", st:"check",
+ n:{en:"QatarEnergy University Programme", ar:"برنامج قطر للطاقة الجامعي"},
+ el:{en:"<b>Qatari nationals only.</b> The official FAQ answers the question about international students with a plain no. Grade and age thresholds are not published.",
+     ar:"<b>للمواطنين القطريين فقط.</b> تجيب الأسئلة الشائعة الرسمية عن سؤال الطلبة الدوليين بلا صراحة. حدود المعدل والعمر غير منشورة."},
+ cv:{en:"Undergraduate study with academic counselling, global healthcare, relocation support, incentives and a secured job placement after graduation.",
+     ar:"دراسة بكالوريوس مع إرشاد أكاديمي، ورعاية صحية عالمية، ودعم في الانتقال، وحوافز، ووظيفة مضمونة بعد التخرج."},
+ wn:{en:"Multiple cycles a year. Applications are accepted only on the dates posted on the QatarEnergy careers page.",
+     ar:"عدة دورات في السنة. لا تُقبل الطلبات إلا في التواريخ المنشورة على صفحة التوظيف."},
+ url:"https://careerportal.qatarenergy.qa/scholarship-programs"},
+
+{id:"qr", cat:"nat", ct:"qa", who:["qa"], lvl:"ug", st:"check",
+ n:{en:"Qatar Airways University Scholarship for high school graduates", ar:"منحة الخطوط الجوية القطرية الجامعية لخريجي الثانوية"},
+ el:{en:"Qatari nationals, or students whose mother is a Qatari national, aged <b>17 to 24</b>, who graduated high school within the past three years. Qatari nationals need <b>85% or above</b> and IELTS 5.5. Children of Qatari mothers need <b>90% or above</b> and IELTS 6.0, taken within 24 months.",
+     ar:"مواطنون قطريون أو أبناء الأم القطرية، بعمر <b>١٧ إلى ٢٤</b>، تخرجوا من الثانوية خلال السنوات الثلاث الماضية. المواطنون القطريون يحتاجون <b>٨٥٪ فأعلى</b> وآيلتس ٥٫٥. وأبناء الأم القطرية يحتاجون <b>٩٠٪ فأعلى</b> وآيلتس ٦٫٠، خلال ٢٤ شهرًا."},
+ cv:{en:"Undergraduate only, up to four years, taught in English, at universities accredited by Qatar's Ministry of Education in Qatar, the UK, USA, Canada, New Zealand or Australia. Postgraduate degrees are not covered.",
+     ar:"للبكالوريوس فقط، حتى أربع سنوات، بالإنجليزية، في جامعات معتمدة من وزارة التعليم القطرية في قطر أو بريطانيا أو أمريكا أو كندا أو نيوزيلندا أو أستراليا. الدراسات العليا غير مشمولة."},
+ wn:{en:"The last published cycle ran <b>1 July to 30 September</b>, applied for through the Ministry of Education and Higher Education website. Confirm current dates on aldarbrecruitment@qatarairways.com.qa or +974 4022 2096.",
+     ar:"آخر دورة منشورة كانت من <b>١ يوليو إلى ٣٠ سبتمبر</b>، عبر موقع وزارة التعليم والتعليم العالي. تأكد من التواريخ الحالية على aldarbrecruitment@qatarairways.com.qa أو ٩٧٤٤٠٢٢٢٠٩٦+."},
+ url:"https://www.qatarairways.com/en-us/nationalisation/university-scholarship-high-school.html"},
+
+/* ---------- KUWAIT ---------- */
+{id:"kwext", cat:"nat", ct:"kw", who:["kw"], lvl:"ug", st:"closed",
+ n:{en:"Kuwait Ministry of Higher Education, external scholarships", ar:"وزارة التعليم العالي الكويتية، البعثات الخارجية"},
+ el:{en:"Kuwaiti nationals who graduated from public, private or international schools in the 2024/25 or 2025/26 academic years. A separate stream exists for <b>children of diplomats</b>. Selection uses the equivalent grade average for medicine and engineering, the high school percentage for other fields, your ranked preferences (up to eight) and seat availability.",
+     ar:"مواطنون كويتيون تخرجوا من مدارس حكومية أو خاصة أو دولية في العامين ٢٠٢٤/٢٠٢٥ أو ٢٠٢٥/٢٠٢٦. ويوجد مسار منفصل <b>لأبناء الدبلوماسيين</b>. الاختيار يعتمد على المعدل المكافئ للطب والهندسة، والنسبة الثانوية لبقية التخصصات، وترتيب رغباتك (حتى ثماني رغبات)، وتوفر المقاعد."},
+ cv:{en:"Four years of undergraduate study abroad plus one year of English language study, fully funded: tuition, monthly housing and living allowance, annual return airfare and an annual clothing, books and supplies allowance. <b>2,704 scholarships</b> were approved for 2026/27. Priority fields are artificial intelligence, cybersecurity and advanced technologies, alongside medical and allied health disciplines.",
+     ar:"أربع سنوات دراسة جامعية في الخارج مع سنة لدراسة الإنجليزية، بتمويل كامل: الرسوم الدراسية، وبدل سكن ومعيشة شهري، وتذكرة سنوية ذهابًا وإيابًا، وبدل سنوي للملابس والكتب واللوازم. اعتُمدت <b>٢٧٠٤ بعثات</b> لعام ٢٠٢٦/٢٠٢٧. التخصصات ذات الأولوية هي الذكاء الاصطناعي والأمن السيبراني والتقنيات المتقدمة، إلى جانب التخصصات الطبية والصحية المساندة."},
+ wn:{en:"Registration for 2026/27 closed on <b>7 July 2026</b>, results were announced on 11 July and orientation ran on 13 and 14 July. Students then have 60 days from the results announcement to complete post acceptance procedures. Expect a similar window next year.",
+     ar:"أُغلق التسجيل لعام ٢٠٢٦/٢٠٢٧ في <b>٧ يوليو ٢٠٢٦</b>، وأُعلنت النتائج في ١١ يوليو، وأُقيمت اللقاءات التعريفية في ١٣ و١٤ يوليو. ثم أمام الطلبة ٦٠ يومًا من إعلان النتائج لإكمال إجراءات ما بعد القبول. توقع فترة مشابهة العام القادم."},
+ url:"https://www.mohe.edu.kw/site/en/EServices?PageID=3"},
+
+{id:"kwint", cat:"nat", ct:"kw", who:["kw"], lvl:"ug", st:"check",
+ n:{en:"Kuwait internal scholarships, Private Universities Council", ar:"البعثات الداخلية الكويتية، مجلس الجامعات الخاصة"},
+ el:{en:"Kuwaiti citizens who meet the admission requirements of the participating private institution. There are three separate plans: general secondary graduates, secondary graduates with special needs, and children of diplomats.",
+     ar:"مواطنون كويتيون يستوفون شروط القبول في المؤسسة الخاصة المشاركة. وتوجد ثلاث خطط منفصلة: خريجو الثانوية العامة، وخريجو الثانوية من ذوي الاحتياجات الخاصة، وأبناء الدبلوماسيين."},
+ cv:{en:"Undergraduate study at Kuwaiti private universities and colleges, in specialisations aligned with labour market needs under Kuwait Vision 2035.",
+     ar:"دراسة جامعية في الجامعات والكليات الخاصة الكويتية، في تخصصات متوافقة مع احتياجات سوق العمل ضمن رؤية الكويت ٢٠٣٥."},
+ wn:{en:"Registration for 2026/27 ran <b>3 to 13 August 2026</b>. This is a very short window, only ten days, so watch the portal in late July.",
+     ar:"جرى التسجيل لعام ٢٠٢٦/٢٠٢٧ من <b>٣ إلى ١٣ أغسطس ٢٠٢٦</b>. هذه فترة قصيرة جدًا، عشرة أيام فقط، فتابع البوابة في أواخر يوليو."},
+ url:"https://registration.puc.edu.kw/"},
+
+/* ---------- OMAN ---------- */
+{id:"heac", cat:"nat", ct:"om", who:["om"], lvl:"ug", st:"closed",
+ n:{en:"Higher Education Admission Centre (HEAC), the single gateway", ar:"مركز القبول الموحد، البوابة الوحيدة"},
+ el:{en:"You must be an <b>Omani national</b> (or entitled to Omani nationality, or exempted under specific conditions), hold the General Education Diploma or equivalent, be <b>not older than 25 and not younger than 16</b> as at 1 October, and meet programme prerequisites.",
+     ar:"يجب أن تكون <b>عُمانيًا</b> (أو مستحقًا للجنسية العُمانية أو معفى وفق شروط محددة)، وحاصلًا على دبلوم التعليم العام أو ما يعادله، وألا يزيد عمرك على <b>٢٥</b> ولا يقل عن <b>١٦</b> في ١ أكتوبر، وأن تستوفي متطلبات البرنامج."},
+ cv:{en:"Everything government funded in Oman flows through this one centre, in four categories: <b>public seats</b> which are tuition free at Sultan Qaboos University and public colleges, <b>internal scholarships</b> which cover tuition only at private institutions, <b>internal grants</b> which are partial and awarded on social security criteria, and <b>external scholarships and grants</b> for study abroad. New for 2026/27: full scholarships from Ooredoo Oman in priority employment linked fields, direct admission to selected Sultan Qaboos University specialisations, internal scholarships at private institutions for students with autism, and inclusive options including art education for students with hearing disabilities.",
+     ar:"كل ما هو ممول حكوميًا في عُمان يمر عبر هذا المركز، ضمن أربع فئات: <b>مقاعد حكومية</b> مجانية في جامعة السلطان قابوس والكليات الحكومية، و<b>بعثات داخلية</b> تغطي الرسوم فقط في المؤسسات الخاصة، و<b>منح داخلية</b> جزئية تُمنح وفق معايير الضمان الاجتماعي، و<b>بعثات ومنح خارجية</b> للدراسة في الخارج. الجديد في ٢٠٢٦/٢٠٢٧: بعثات كاملة من أوريدو عُمان في مجالات مرتبطة بالتوظيف، وقبول مباشر في تخصصات مختارة بجامعة السلطان قابوس، وبعثات داخلية في مؤسسات خاصة للطلبة ذوي التوحد، وخيارات دامجة تشمل التربية الفنية للطلبة ذوي الإعاقة السمعية."},
+ wn:{en:"Registration for 2026/27 opened in April and closed on <b>4 June 2026</b>. The previous cycle ran 13 April to 1 June with 535 programmes. Expect April to early June again.",
+     ar:"فُتح التسجيل لعام ٢٠٢٦/٢٠٢٧ في أبريل وأُغلق في <b>٤ يونيو ٢٠٢٦</b>. الدورة السابقة كانت من ١٣ أبريل إلى ١ يونيو بـ٥٣٥ برنامجًا. توقع أبريل إلى أوائل يونيو مجددًا."},
+ url:"https://www.heac.gov.om/"},
+
+{id:"moheri", cat:"nat", ct:"om", who:["om"], lvl:"ug", st:"check",
+ n:{en:"MoHERI external scholarships", ar:"البعثات الخارجية بوزارة التعليم العالي والبحث والابتكار"},
+ el:{en:"Omani nationals. Detailed undergraduate eligibility is not published in English on the ministry site.",
+     ar:"مواطنون عُمانيون. شروط البكالوريوس التفصيلية غير منشورة بالإنجليزية على موقع الوزارة."},
+ cv:{en:"Undergraduate study abroad in Malaysia, Australia, New Zealand, Europe and Arab states, in fields relevant to the Sultanate's job market. There is a separate postgraduate department.",
+     ar:"دراسة بكالوريوس في الخارج في ماليزيا وأستراليا ونيوزيلندا وأوروبا والدول العربية، في مجالات مرتبطة بسوق العمل في السلطنة. وتوجد دائرة منفصلة للدراسات العليا."},
+ wn:{en:"Deadlines were not published in a retrievable form. Go through MoHERI and the relevant cultural attaché.",
+     ar:"لم تُنشر المواعيد بصورة يمكن الوصول إليها. راجع الوزارة والملحقية الثقافية المعنية."},
+ url:"https://www.moheri.gov.om/"},
+
+{id:"omsubsidy", cat:"nat", ct:"om", who:["om"], lvl:"ug", st:"open",
+ n:{en:"Oman internal scholarship subsidy (National Subsidy System)", ar:"إعانة البعثة الداخلية (النظام الوطني للإعانات)"},
+ el:{en:"Omani nationals with an active Civil ID in the ministry database, holding an internal scholarship, and meeting household income thresholds: up to OMR 500 a month, up to OMR 750 with five or more household members, up to OMR 1,000 with seven or more, and up to OMR 1,250 with nine or more. Above OMR 1,250 you are not eligible. Eligibility is reviewed every four months.",
+     ar:"مواطنون عُمانيون ببطاقة شخصية فعّالة في قاعدة بيانات الوزارة، لديهم بعثة داخلية، ويستوفون حدود دخل الأسرة: حتى ٥٠٠ ريال شهريًا، وحتى ٧٥٠ ريالًا لأسرة من خمسة أفراد فأكثر، وحتى ١٠٠٠ ريال لسبعة فأكثر، وحتى ١٢٥٠ ريالًا لتسعة فأكثر. وفوق ١٢٥٠ ريالًا لا تكون مستحقًا. وتُراجع الأحقية كل أربعة أشهر."},
+ cv:{en:"A monthly allowance paid directly into the student's bank account: <b>OMR 45 a month</b> if the institution is within 50 km, and <b>OMR 90 a month</b> if it is further away.",
+     ar:"بدل شهري يُصرف مباشرة إلى حساب الطالب: <b>٤٥ ريالًا شهريًا</b> إذا كانت المؤسسة ضمن ٥٠ كم، و<b>٩٠ ريالًا شهريًا</b> إذا كانت أبعد."},
+ wn:{en:"Applied for alongside an internal scholarship, through the National Subsidy System.",
+     ar:"يُقدَّم عليه مع البعثة الداخلية عبر النظام الوطني للإعانات."},
+ fl:{en:"This is a real and under publicised living cost benefit. Many eligible Omani students never claim it.",
+     ar:"هذه إعانة معيشية حقيقية وقليلة الشهرة. كثير من الطلبة العُمانيين المستحقين لا يطالبون بها."},
+ url:"https://nss.gov.om/site/education_subsidy?ln=en"},
+
+{id:"takatuf", cat:"nat", ct:"om", who:["om"], lvl:"ug", st:"grade11",
+ n:{en:"Takatuf Scholars Programme", ar:"برنامج تكاتف للمنح الدراسية"},
+ el:{en:"Omani students <b>in Grade 11</b> or equivalent. One application per student.",
+     ar:"طلبة عُمانيون <b>في الصف الحادي عشر</b> أو ما يعادله. طلب واحد لكل طالب."},
+ cv:{en:"A two year international boarding school placement followed by undergraduate study at a leading international university. Selection runs through a three phase enrichment programme: a summer residential programme, an independent learning phase and a winter workshop.",
+     ar:"سنتان في مدرسة داخلية دولية يليهما دراسة جامعية في جامعة دولية مرموقة. ويتم الاختيار عبر برنامج إثرائي من ثلاث مراحل: برنامج صيفي داخلي، ومرحلة تعلم ذاتي، وورشة شتوية."},
+ wn:{en:"The 2026 cohort closed on <b>25 February 2026</b>. Expect a similar window for the 2027 cohort.",
+     ar:"أُغلقت دفعة ٢٠٢٦ في <b>٢٥ فبراير ٢٠٢٦</b>. توقع فترة مشابهة لدفعة ٢٠٢٧."},
+ fl:{en:"Like CPISP in Bahrain, this closes while you are still in school. Grade 11 is the year to act.",
+     ar:"مثل برنامج ولي العهد في البحرين، يُغلق هذا وأنت ما زلت في المدرسة. الصف الحادي عشر هو سنة التحرك."},
+ url:"https://www.takatufscholars.om/oman-scholars-apply/"}
+
+];
+
+/* ===== Part 2: foreign government scholarships and university funding abroad ===== */
+const S2 = [
+
+/* ---------- FOREIGN GOVERNMENT, OPEN TO SCHOOL LEAVERS ---------- */
+{id:"turkiye", cat:"fgov", ct:"tr", who:["all"], lvl:"ug", st:"jan",
+ n:{en:"Türkiye Bursları (Türkiye Scholarships)", ar:"المنح التركية"},
+ el:{en:"Citizens of any country except Türkiye. Undergraduate applicants must be <b>under 21</b> with <b>70% or above</b> in secondary school, rising to <b>90%</b> for medicine and health sciences. You cannot already be enrolled at a Turkish university at the same level.",
+     ar:"مواطنو أي دولة عدا تركيا. متقدمو البكالوريوس يجب أن يكونوا <b>دون ٢١ سنة</b> بمعدل <b>٧٠٪ فأعلى</b> في الثانوية، ويرتفع إلى <b>٩٠٪</b> للطب والعلوم الصحية. ولا يجوز أن تكون مسجلًا في جامعة تركية بالمستوى نفسه."},
+ cv:{en:"Full tuition, a monthly stipend, free state dormitory accommodation, one year of Turkish language preparation, return airfare and health insurance.",
+     ar:"الرسوم الدراسية كاملة، ومكافأة شهرية، وسكن جامعي حكومي مجاني، وسنة تحضيرية لتعلم التركية، وتذكرة سفر ذهابًا وإيابًا، وتأمين صحي."},
+ wn:{en:"Opens <b>10 January</b> and closes <b>20 February</b>. Results in July and August, study starts in September.",
+     ar:"يفتح في <b>١٠ يناير</b> ويغلق في <b>٢٠ فبراير</b>. النتائج في يوليو وأغسطس، والدراسة تبدأ في سبتمبر."},
+ fl:{en:"This is probably the single most accessible fully funded undergraduate government scholarship for Gulf school leavers, because there is no income restriction and no developing country restriction.",
+     ar:"هذه على الأرجح أسهل منحة حكومية جامعية ممولة بالكامل متاحة لخريجي الثانوية في الخليج، لأنها لا تشترط مستوى دخل ولا تقتصر على الدول النامية."},
+ url:"https://www.turkiyeburslari.gov.tr/"},
+
+{id:"gks", cat:"fgov", ct:"kr", who:["all"], lvl:"ug", st:"sep",
+ n:{en:"Global Korea Scholarship, undergraduate track", ar:"المنحة الكورية العالمية، مسار البكالوريوس"},
+ el:{en:"Under <b>25</b> years old. You and <b>both</b> of your parents must not hold Korean citizenship. High school graduate or graduating by the following February, with a minimum <b>80% grade average or a place in the top 20% of your class</b>.",
+     ar:"دون <b>٢٥</b> سنة. ويجب ألا تحمل أنت <b>ولا كلا والديك</b> الجنسية الكورية. خريج ثانوية أو متخرج بحلول فبراير التالي، بمعدل <b>٨٠٪ فأعلى</b> أو ضمن أفضل ٢٠٪ من دفعتك."},
+ cv:{en:"Full tuition, a monthly stipend, one year of compulsory Korean language training, return airfare, health insurance, a settlement allowance and a monthly bonus for reaching TOPIK level 5 or 6.",
+     ar:"الرسوم الدراسية كاملة، ومكافأة شهرية، وسنة إلزامية لتعلم الكورية، وتذكرة سفر ذهابًا وإيابًا، وتأمين صحي، وبدل استقرار، ومكافأة شهرية إضافية عند بلوغ المستوى ٥ أو ٦ في اختبار توبيك."},
+ wn:{en:"Opens <b>mid to late September</b>, results in early January, study begins the following March.",
+     ar:"يفتح في <b>منتصف إلى أواخر سبتمبر</b>، والنتائج في أوائل يناير، والدراسة تبدأ في مارس التالي."},
+ fl:{en:"There are two routes: the embassy track, where you apply through the Korean embassy and choose up to three universities, and the university track, where you apply directly to one university. Reported embassy quotas for Gulf countries are very small or zero, so most Gulf students should plan on the <b>university track</b>. Confirm with the Korean embassy before you decide.",
+     ar:"يوجد مساران: مسار السفارة حيث تقدّم عبر السفارة الكورية وتختار حتى ثلاث جامعات، ومسار الجامعة حيث تقدّم مباشرة إلى جامعة واحدة. الحصص المذكورة لمسار السفارة في دول الخليج صغيرة جدًا أو صفر، لذا على معظم طلبة الخليج التخطيط لـ<b>مسار الجامعة</b>. تأكد من السفارة الكورية قبل أن تقرر."},
+ url:"https://www.studyinkorea.go.kr"},
+
+{id:"mext", cat:"fgov", ct:"jp", who:["all"], lvl:"ug", st:"apr",
+ n:{en:"Japanese Government (MEXT) Scholarship, undergraduate", ar:"منحة الحكومة اليابانية (مونبوكاغاكوشو) للبكالوريوس"},
+ el:{en:"Nationals of countries with diplomatic relations with Japan, which includes all Gulf states. There is a strict date of birth cut off, roughly meaning you must be under 25 at entry. You must have completed twelve years of schooling by the March of your entry year, and must not hold Japanese nationality.",
+     ar:"مواطنو الدول التي تربطها علاقات دبلوماسية باليابان، وتشمل جميع دول الخليج. ويوجد حد صارم لتاريخ الميلاد يعني عمليًا أن تكون دون ٢٥ سنة عند الالتحاق. ويجب إتمام اثنتي عشرة سنة دراسية بحلول مارس من سنة الالتحاق، وألا تحمل الجنسية اليابانية."},
+ cv:{en:"A monthly stipend of about 117,000 yen with a regional supplement, tuition and entrance fees, and economy return airfare. The award runs for <b>five years including one preparatory year</b>, or seven years for medicine, dentistry and veterinary science and six for pharmacy.",
+     ar:"مكافأة شهرية نحو ١١٧٠٠٠ ين مع بدل إقليمي، والرسوم الدراسية ورسوم القبول، وتذكرة سفر اقتصادية ذهابًا وإيابًا. مدة المنحة <b>خمس سنوات تشمل سنة تحضيرية</b>، أو سبع سنوات للطب وطب الأسنان والطب البيطري، وست سنوات للصيدلة."},
+ wn:{en:"Applications go through the <b>Japanese Embassy</b> in your country, typically around <b>April and May</b>, with written exams and an interview mid year.",
+     ar:"التقديم عبر <b>السفارة اليابانية</b> في بلدك، غالبًا في <b>أبريل ومايو</b>، مع اختبارات تحريرية ومقابلة في منتصف السنة."},
+ fl:{en:"Not every embassy recruits at undergraduate level every year. Contact the Japanese Embassy in Manama, Riyadh, Abu Dhabi, Doha, Kuwait or Muscat directly rather than assuming.",
+     ar:"ليست كل سفارة تستقبل طلبات البكالوريوس كل سنة. تواصل مباشرة مع السفارة اليابانية في المنامة أو الرياض أو أبوظبي أو الدوحة أو الكويت أو مسقط بدل الافتراض."},
+ url:"https://www.studyinjapan.go.jp/en/"},
+
+{id:"csc", cat:"fgov", ct:"cn", who:["all"], lvl:"ug", st:"dec",
+ n:{en:"Chinese Government Scholarship (CSC)", ar:"منحة الحكومة الصينية"},
+ el:{en:"Non Chinese citizens. Bachelor's applicants are generally <b>under 25</b>, high school graduates, in good health.",
+     ar:"غير الصينيين. متقدمو البكالوريوس عادة <b>دون ٢٥ سنة</b>، خريجو ثانوية، بصحة جيدة."},
+ cv:{en:"Full tuition, campus accommodation or a housing subsidy, a monthly stipend of CNY 2,500 for undergraduates, and comprehensive medical insurance.",
+     ar:"الرسوم الدراسية كاملة، وسكن جامعي أو بدل سكن، ومكافأة شهرية ٢٥٠٠ يوان للبكالوريوس، وتأمين طبي شامل."},
+ wn:{en:"Roughly <b>December to early April</b>, varying by university.",
+     ar:"تقريبًا من <b>ديسمبر إلى أوائل أبريل</b>، وتختلف حسب الجامعة."},
+ fl:{en:"There are two channels. Type A goes through your government under a bilateral agreement, and availability for individual Gulf states varies. <b>Type B, applying directly to a Chinese university, is the reliable route for Gulf students.</b> Many bachelor's programmes are taught in Chinese and include a preparatory language year.",
+     ar:"يوجد مساران. النوع أ يمر عبر حكومتك ضمن اتفاقية ثنائية، وتوفره يختلف بين دول الخليج. و<b>النوع ب، بالتقديم مباشرة إلى جامعة صينية، هو المسار الموثوق لطلبة الخليج.</b> وكثير من برامج البكالوريوس تُدرّس بالصينية وتشمل سنة لغة تحضيرية."},
+ url:"https://www.campuschina.org"},
+
+{id:"hungaricum", cat:"fgov", ct:"hu", who:["bh","ae","om","exp"], lvl:"ug", st:"jan",
+ n:{en:"Stipendium Hungaricum (Hungary)", ar:"منحة ستيبنديوم هونغاريكوم (المجر)"},
+ el:{en:"Only nationals of <b>partner sending countries</b>. In the Gulf that means <b>Bahrain, the UAE and Oman only</b>. Nationals of <b>Saudi Arabia, Qatar and Kuwait cannot apply</b>. Other Arab partners include Jordan, Egypt, Iraq, Lebanon, Palestine, Tunisia, Morocco, Algeria, Libya, Sudan and Yemen. There is also an age floor based on date of birth.",
+     ar:"لمواطني <b>الدول الشريكة المرسِلة</b> فقط. وفي الخليج ذلك يعني <b>البحرين والإمارات وعُمان فقط</b>. ولا يمكن لمواطني <b>السعودية وقطر والكويت التقديم</b>. ومن الشركاء العرب الآخرين الأردن ومصر والعراق ولبنان وفلسطين وتونس والمغرب والجزائر وليبيا والسودان واليمن. ويوجد أيضًا حد أدنى للعمر بحسب تاريخ الميلاد."},
+ cv:{en:"Free tuition, a monthly stipend of roughly 110 euro, a free dormitory place or a housing contribution of about 100 euro a month, and medical insurance. <b>This is partial support, not full funding.</b> Budget your own additional living money.",
+     ar:"دراسة مجانية، ومكافأة شهرية نحو ١١٠ يورو، وسكن جامعي مجاني أو مساهمة سكن نحو ١٠٠ يورو شهريًا، وتأمين طبي. <b>هذا دعم جزئي وليس تمويلًا كاملًا.</b> خطط لمصروف معيشة إضافي من عندك."},
+ wn:{en:"Closes <b>15 January</b>.",
+     ar:"يغلق في <b>١٥ يناير</b>."},
+ fl:{en:"You must also be nominated by your home country's sending partner authority, usually the Ministry of Education. Applying online alone is not enough.",
+     ar:"يجب أيضًا ترشيحك من الجهة الشريكة المرسِلة في بلدك، وهي عادة وزارة التعليم. التقديم الإلكتروني وحده لا يكفي."},
+ url:"https://stipendiumhungaricum.hu"},
+
+{id:"opendoors", cat:"fgov", ct:"ru", who:["all"], lvl:"ug", st:"aug",
+ n:{en:"Russia, Open Doors International Olympiad", ar:"روسيا، أولمبياد الأبواب المفتوحة الدولي"},
+ el:{en:"Foreign citizens aged <b>16 to 23</b> for the bachelor's track, holding qualifying secondary education, with no existing bachelor's or master's degree.",
+     ar:"مواطنون أجانب بعمر <b>١٦ إلى ٢٣</b> لمسار البكالوريوس، حاصلون على تعليم ثانوي مؤهل، وليس لديهم بكالوريوس أو ماجستير."},
+ cv:{en:"Tuition free study at a Russian university funded from the federal budget. Winners are the top 5% and award winners the top 25%. <b>Living costs and travel are generally not covered.</b>",
+     ar:"دراسة مجانية في جامعة روسية بتمويل من الميزانية الاتحادية. الفائزون هم أفضل ٥٪ والحاصلون على جوائز أفضل ٢٥٪. <b>نفقات المعيشة والسفر غير مغطاة عمومًا.</b>"},
+ wn:{en:"Registration <b>20 August to 1 November</b>, portfolio stage to mid November, task stage to late December, interviews from late December to late February.",
+     ar:"التسجيل من <b>٢٠ أغسطس إلى ١ نوفمبر</b>، ومرحلة الملف حتى منتصف نوفمبر، ومرحلة المهام حتى أواخر ديسمبر، والمقابلات من أواخر ديسمبر إلى أواخر فبراير."},
+ url:"https://od.globaluni.ru"},
+
+{id:"ruquota", cat:"fgov", ct:"ru", who:["all"], lvl:"ug", st:"nov",
+ n:{en:"Russia government quota (Rossotrudnichestvo)", ar:"الحصة الحكومية الروسية (روس سوترودنيتشستفو)"},
+ el:{en:"Foreign nationals, applying through the Russian House or Russian Embassy in your country against a country specific quota. Quota sizes for individual Gulf states are not published, so ask locally.",
+     ar:"مواطنون أجانب، بالتقديم عبر البيت الروسي أو السفارة الروسية في بلدك ضمن حصة خاصة بكل دولة. أحجام الحصص لدول الخليج غير منشورة، فاسأل محليًا."},
+ cv:{en:"Tuition, a modest state stipend and a dormitory place. <b>Airfare and living costs are not covered.</b>",
+     ar:"الرسوم الدراسية، ومكافأة حكومية متواضعة، ومقعد في السكن الجامعي. <b>تذاكر السفر ونفقات المعيشة غير مغطاة.</b>"},
+ wn:{en:"Typically opens around <b>November to February</b>, but each Russian House sets its own dates.",
+     ar:"يفتح عادة نحو <b>نوفمبر إلى فبراير</b>، لكن كل بيت روسي يحدد تواريخه."},
+ url:"https://education-in-russia.com"},
+
+{id:"boutmy", cat:"fgov", ct:"fr", who:["all"], lvl:"ug", st:"jan",
+ n:{en:"Sciences Po Émile Boutmy Scholarship (France)", ar:"منحة إميل بوتمي في معهد العلوم السياسية بباريس"},
+ el:{en:"Non EU citizens whose household does not pay tax in the EU, applying for the first time. Not available to Swiss or Norwegian nationals or dual EU citizens. Gulf nationals are eligible.",
+     ar:"غير مواطني الاتحاد الأوروبي ممن لا تدفع أسرهم ضرائب داخل الاتحاد، ويتقدمون لأول مرة. وغير متاحة لمواطني سويسرا والنرويج أو مزدوجي جنسية الاتحاد. ومواطنو الخليج مؤهلون."},
+ cv:{en:"For the three year bachelor's degree: either a <b>full tuition exemption</b> or a reduction of 9,500 euro a year. Merit based, awarded through the admissions application.",
+     ar:"لبرنامج البكالوريوس ذي السنوات الثلاث: إما <b>إعفاء كامل من الرسوم</b> أو تخفيض ٩٥٠٠ يورو سنويًا. تُمنح على أساس الجدارة عبر طلب القبول."},
+ wn:{en:"Deadline <b>20 January</b> for international school applicants. You tick the Émile Boutmy box inside the admissions application, there is no separate form.",
+     ar:"آخر موعد <b>٢٠ يناير</b> لطلبة المدارس الدولية. تؤشر على خانة إميل بوتمي داخل طلب القبول، ولا يوجد نموذج منفصل."},
+ fl:{en:"This is one of very few genuinely undergraduate French awards. Most French national schemes are master's level.",
+     ar:"هذه من الجوائز الفرنسية القليلة جدًا المتاحة لمرحلة البكالوريوس. معظم البرامج الفرنسية الوطنية للماجستير."},
+ url:"https://www.sciencespo.fr/students/en/fees-funding/bursaries-financial-aid/emile-boutmy-scholarship/"},
+
+{id:"iccr", cat:"fgov", ct:"in", who:["all"], lvl:"ug", st:"feb",
+ n:{en:"India, ICCR A2A Scholarship Scheme", ar:"الهند، منحة المجلس الهندي للعلاقات الثقافية"},
+ el:{en:"Foreign nationals aged <b>18 to 40</b> for undergraduate and postgraduate study. Only one application per academic year. Multiple applications mean all of them are rejected.",
+     ar:"مواطنون أجانب بعمر <b>١٨ إلى ٤٠</b> للبكالوريوس والدراسات العليا. طلب واحد فقط في السنة الدراسية. وتقديم أكثر من طلب يعني رفضها جميعًا."},
+ cv:{en:"Tuition, a living stipend, an accommodation allowance and a contingency grant. You choose up to five university preferences from more than 131 participating institutions.",
+     ar:"الرسوم الدراسية، ومكافأة معيشة، وبدل سكن، ومنحة طوارئ. وتختار حتى خمس رغبات جامعية من أكثر من ١٣١ مؤسسة مشاركة."},
+ wn:{en:"<b>27 February to 22 April</b>. Courses start between June and August.",
+     ar:"من <b>٢٧ فبراير إلى ٢٢ أبريل</b>. والدراسة تبدأ بين يونيو وأغسطس."},
+ url:"https://a2ascholarships.iccr.gov.in/"},
+
+{id:"nlschol", cat:"fgov", ct:"nl", who:["all"], lvl:"ug", st:"nov",
+ n:{en:"Netherlands, NL Scholarship", ar:"هولندا، المنحة الهولندية"},
+ el:{en:"Non EEA nationals, which includes Gulf nationals, starting a full time degree at a participating Dutch institution, who do not already hold a Dutch degree.",
+     ar:"مواطنو الدول خارج المنطقة الاقتصادية الأوروبية، ومنهم مواطنو الخليج، ممن يبدأون درجة بدوام كامل في مؤسسة هولندية مشاركة، ولا يحملون شهادة هولندية سابقة."},
+ cv:{en:"<b>5,000 euro, first year only.</b> This is a partial award, not full funding.",
+     ar:"<b>٥٠٠٠ يورو، للسنة الأولى فقط.</b> وهي جائزة جزئية لا تمويل كامل."},
+ wn:{en:"Opens 1 November. <b>Deadlines are set by each university</b>, commonly 1 February or 1 May.",
+     ar:"يفتح في ١ نوفمبر. و<b>المواعيد النهائية تحددها كل جامعة</b>، وغالبًا ١ فبراير أو ١ مايو."},
+ url:"https://www.studyinnl.org/finances/nl-scholarship"},
+
+{id:"deutschland", cat:"fgov", ct:"de", who:["all"], lvl:"ug", st:"varies",
+ n:{en:"Germany, Deutschlandstipendium", ar:"ألمانيا، المنحة الألمانية (دويتشلاند شتيبنديوم)"},
+ el:{en:"Students admitted to or enrolled at a participating German university. <b>No nationality restriction.</b> Applications go to the university, not to a central body.",
+     ar:"الطلبة المقبولون أو المسجلون في جامعة ألمانية مشاركة. <b>لا يوجد قيد على الجنسية.</b> والتقديم يكون إلى الجامعة لا إلى جهة مركزية."},
+ cv:{en:"<b>300 euro a month.</b> This is a supplement, not a full scholarship.",
+     ar:"<b>٣٠٠ يورو شهريًا.</b> وهي إضافة داعمة لا منحة كاملة."},
+ wn:{en:"Set by each university, commonly a summer or autumn deadline.",
+     ar:"تحددها كل جامعة، وغالبًا في الصيف أو الخريف."},
+ fl:{en:"If someone tells you DAAD funds bachelor's degrees, they are mistaken. DAAD's flagship awards are all master's and doctoral. Deutschlandstipendium is the undergraduate route in Germany.",
+     ar:"إذا قال لك أحد إن الهيئة الألمانية للتبادل العلمي تموّل البكالوريوس فهو مخطئ. جوائزها الرئيسية كلها للماجستير والدكتوراه. والمنحة الألمانية هي المسار الجامعي في ألمانيا."},
+ url:"https://www.deutschlandstipendium.de"},
+
+/* ---------- UNIVERSITY LEVEL FUNDING ABROAD ---------- */
+{id:"pearson", cat:"uni", ct:"ca", who:["all"], lvl:"ug", st:"jul",
+ n:{en:"University of Toronto, Lester B. Pearson International Scholarship", ar:"جامعة تورنتو، منحة ليستر بي بيرسون الدولية"},
+ el:{en:"International students requiring a study permit, in the <b>final year of secondary school</b> or graduated no earlier than June of the preceding year, who <b>have not already begun post secondary study elsewhere</b>. Gulf nationals are eligible.",
+     ar:"طلبة دوليون يحتاجون تصريح دراسة، في <b>السنة الأخيرة من الثانوية</b> أو تخرجوا في يونيو من السنة السابقة على أبعد تقدير، و<b>لم يبدأوا دراسة جامعية في مكان آخر</b>. ومواطنو الخليج مؤهلون."},
+ cv:{en:"Tuition, books, incidental fees and <b>full residence support for four years</b>. About 37 scholars a year from 188 countries.",
+     ar:"الرسوم الدراسية، والكتب، والرسوم الفرعية، و<b>سكن كامل لأربع سنوات</b>. نحو ٣٧ طالبًا سنويًا من ١٨٨ دولة."},
+ wn:{en:"For 2027 entry: the school nomination portal opens <b>6 July 2026</b>, the school nomination deadline is <b>9 October 2026</b>, the admission application deadline is <b>16 October 2026</b>, and the scholarship application and documents are due <b>6 November 2026</b>.",
+     ar:"لدخول ٢٠٢٧: تفتح بوابة ترشيح المدارس في <b>٦ يوليو ٢٠٢٦</b>، وآخر موعد لترشيح المدرسة <b>٩ أكتوبر ٢٠٢٦</b>، وآخر موعد لطلب القبول <b>١٦ أكتوبر ٢٠٢٦</b>، وطلب المنحة ووثائقها في <b>٦ نوفمبر ٢٠٢٦</b>."},
+ fl:{en:"The critical mechanic: <b>you must be nominated by your high school, and each school may nominate only one student a year.</b> Speak to your counsellor in Grade 11 or the first weeks of Grade 12, not in November.",
+     ar:"النقطة الحاسمة: <b>يجب أن ترشحك مدرستك، ولكل مدرسة ترشيح طالب واحد فقط سنويًا.</b> تحدث مع المرشد في الصف الحادي عشر أو الأسابيع الأولى من الثاني عشر، لا في نوفمبر."},
+ url:"https://future.utoronto.ca/pearson-scholarships"},
+
+{id:"usneed", cat:"uni", ct:"us", who:["all"], lvl:"ug", st:"nov",
+ n:{en:"United States, need based aid at need blind universities", ar:"الولايات المتحدة، المساعدة القائمة على الحاجة في جامعات القبول غير المرتبط بالقدرة المالية"},
+ el:{en:"International undergraduate applicants. A small group of universities is <b>need blind for international students and also meets 100% of demonstrated need</b>: Harvard, Yale, Princeton, MIT, Amherst College, Bowdoin College and Dartmouth College. Some others have recently been reported as joining this group, so verify on each university's own admissions page.",
+     ar:"المتقدمون الدوليون للبكالوريوس. مجموعة صغيرة من الجامعات <b>لا تنظر إلى القدرة المالية عند القبول وتغطي ١٠٠٪ من الحاجة المثبتة</b>: هارفارد، ييل، برنستون، معهد ماساتشوستس للتقنية، كلية أمهرست، كلية باودوين، وكلية دارتموث. وذُكر أن جامعات أخرى انضمت مؤخرًا، فتأكد من صفحة القبول في كل جامعة."},
+ cv:{en:"Aid is calculated from your family's assessed ability to pay, and can reach the full cost of attendance. A much larger group of universities, including Stanford, Caltech, Chicago, Penn, Columbia, Johns Hopkins, Cornell, Tufts, NYU and Rice, is <b>need aware but still meets full need</b>, meaning asking for aid can affect your admission chances but you will be funded if admitted.",
+     ar:"تُحسب المساعدة من قدرة أسرتك المقدّرة على الدفع، وقد تصل إلى كامل تكلفة الدراسة. ومجموعة أكبر بكثير، منها ستانفورد وكالتك وشيكاغو وبنسلفانيا وكولومبيا وجونز هوبكنز وكورنيل وتافتس ونيويورك ورايس، <b>تنظر إلى القدرة المالية لكنها تغطي الحاجة كاملة</b>، أي أن طلب المساعدة قد يؤثر على فرصة قبولك لكنك ستُموَّل إن قُبلت."},
+ wn:{en:"Early Action and Early Decision around <b>1 November</b>, Regular Decision <b>1 to 15 January</b>, with the CSS Profile financial aid forms due alongside.",
+     ar:"القبول المبكر نحو <b>١ نوفمبر</b>، والقبول العادي من <b>١ إلى ١٥ يناير</b>، مع نماذج المساعدة المالية في الموعد نفسه."},
+ fl:{en:"Read this carefully if your family is comfortable financially. This aid is <b>need based</b>, so a Gulf family with a good income may be assessed as able to pay in full and receive nothing. Target <b>merit</b> scholarships instead, and check each one individually because some are restricted to US citizens. The most dangerous category is universities that are need aware and do <b>not</b> meet full need: students get admitted, receive a partial award, and then cannot afford to go.",
+     ar:"اقرأ هذا بعناية إذا كان وضع أسرتك المادي مريحًا. هذه المساعدة <b>قائمة على الحاجة</b>، وقد تُقدَّر أسرة خليجية ذات دخل جيد على أنها قادرة على الدفع كاملًا فلا تحصل على شيء. استهدف بدلًا من ذلك منح <b>الجدارة</b>، وتحقق من كل منها على حدة لأن بعضها مقصور على الأمريكيين. وأخطر فئة هي الجامعات التي تنظر إلى القدرة المالية و<b>لا</b> تغطي الحاجة كاملة: يُقبل الطالب، ويحصل على دعم جزئي، ثم لا يستطيع تحمل التكلفة."},
+ url:"https://bigfuture.collegeboard.org/pay-for-college"},
+
+{id:"ukug", cat:"uni", ct:"uk", who:["all"], lvl:"ug", st:"jan",
+ n:{en:"United Kingdom, undergraduate awards from universities", ar:"المملكة المتحدة، جوائز الجامعات لمرحلة البكالوريوس"},
+ el:{en:"International undergraduate applicants holding an offer. Warwick's <b>Undergraduate Global Excellence Scholarship</b> is one of the larger schemes, open to self funded overseas fee status students who apply through UCAS by the January deadline.",
+     ar:"المتقدمون الدوليون للبكالوريوس ممن لديهم عرض قبول. و<b>منحة التميز العالمي للبكالوريوس</b> في جامعة وارِك من أكبر البرامج، وهي متاحة للطلبة الممولين ذاتيًا بوضع الرسوم الدولية ممن يقدّمون عبر نظام يوكاس قبل موعد يناير."},
+ cv:{en:"Be realistic. <b>The UK has very little full undergraduate funding for international students.</b> Most awards are fee discounts of roughly 2,000 to 10,000 pounds a year, or 25% to 50% off tuition, and almost none cover living costs. Warwick's 2025 round awarded 6 full fee, 148 half fee, 103 quarter fee and 6 smaller awards.",
+     ar:"كن واقعيًا. <b>بريطانيا تقدّم تمويلًا كاملًا قليلًا جدًا لمرحلة البكالوريوس للطلبة الدوليين.</b> ومعظم الجوائز خصومات على الرسوم بنحو ٢٠٠٠ إلى ١٠٠٠٠ جنيه سنويًا، أو خصم ٢٥٪ إلى ٥٠٪، ولا يكاد أي منها يغطي المعيشة. ومنحت وارِك في دورة ٢٠٢٥ ست منح كاملة الرسوم، و١٤٨ بنصف الرسوم، و١٠٣ بربع الرسوم، وست جوائز أصغر."},
+ wn:{en:"UCAS application by <b>14 January</b>, then scholarship applications typically <b>February to May</b> after you receive an offer.",
+     ar:"طلب يوكاس بحلول <b>١٤ يناير</b>، ثم طلبات المنح غالبًا من <b>فبراير إلى مايو</b> بعد استلام العرض."},
+ url:"https://warwick.ac.uk/study/scholarships-and-bursaries/"},
+
+{id:"canada", cat:"uni", ct:"ca", who:["all"], lvl:"ug", st:"varies",
+ n:{en:"Canada, entrance awards and the UBC International Scholars Programme", ar:"كندا، جوائز القبول وبرنامج علماء كولومبيا البريطانية الدوليين"},
+ el:{en:"International undergraduate applicants. The UBC International Scholars Programme combines need and merit. Most Canadian universities award entrance scholarships automatically on admission.",
+     ar:"المتقدمون الدوليون للبكالوريوس. ويجمع برنامج علماء كولومبيا البريطانية بين الحاجة والجدارة. ومعظم الجامعات الكندية تمنح جوائز القبول تلقائيًا عند القبول."},
+ cv:{en:"Entrance awards typically range from CAD 5,000 to CAD 40,000. The UBC programme can be substantially larger for students with high financial need.",
+     ar:"جوائز القبول تتراوح عادة بين ٥٠٠٠ و٤٠٠٠٠ دولار كندي. وبرنامج كولومبيا البريطانية قد يكون أكبر بكثير للطلبة ذوي الحاجة المالية العالية."},
+ wn:{en:"Varies by university, usually alongside the admission application in the autumn and winter before entry.",
+     ar:"تختلف حسب الجامعة، وعادة مع طلب القبول في الخريف والشتاء السابقين للالتحاق."},
+ url:"https://you.ubc.ca/financial-planning/scholarships-awards-international-students/"},
+
+{id:"aus", cat:"uni", ct:"au", who:["all"], lvl:"ug", st:"varies",
+ n:{en:"Australia, university international undergraduate awards", ar:"أستراليا، جوائز الجامعات الدولية لمرحلة البكالوريوس"},
+ el:{en:"International undergraduate applicants. Examples include the UWA Global Excellence Scholarship and equivalents at Melbourne, Sydney, ANU, Monash, UNSW, Queensland and Adelaide.",
+     ar:"المتقدمون الدوليون للبكالوريوس. من الأمثلة منحة التميز العالمي في جامعة غرب أستراليا وما يعادلها في ملبورن وسيدني والجامعة الوطنية الأسترالية وموناش ونيو ساوث ويلز وكوينزلاند وأديلايد."},
+ cv:{en:"Typically <b>20% to 50% tuition reductions</b>, occasionally full fee for exceptional candidates.",
+     ar:"عادة <b>تخفيض ٢٠٪ إلى ٥٠٪ من الرسوم</b>، وأحيانًا الرسوم كاملة للمتقدمين الاستثنائيين."},
+ wn:{en:"Intakes are in February and July, with scholarship deadlines usually three to six months before.",
+     ar:"الالتحاق في فبراير ويوليو، والمواعيد النهائية للمنح عادة قبل ذلك بثلاثة إلى ستة أشهر."},
+ fl:{en:"Australia Awards Scholarships are a separate government scheme and Gulf states are not partner countries, so GCC nationals are not eligible for those.",
+     ar:"منح أستراليا الحكومية برنامج منفصل ودول الخليج ليست دولًا شريكة فيه، فمواطنو الخليج غير مؤهلين له."},
+ url:"https://www.uwa.edu.au/study/scholarships"}
+
+];
+
+/* ===== Part 3: postgraduate only, and schemes that are not open to Gulf students ===== */
+const S3 = [
+
+/* ---------- POSTGRADUATE ONLY ---------- */
+{id:"chevening", cat:"pg", ct:"uk", who:["all"], lvl:"pg", st:"aug",
+ n:{en:"Chevening (UK)", ar:"شيفنينغ (بريطانيا)"},
+ el:{en:"A one year taught master's only. You must hold an undergraduate degree completed <b>at least two years before the deadline</b>, and have <b>two years, or 2,800 hours, of work experience acquired after</b> that degree. Gulf countries including Saudi Arabia, the UAE and Kuwait are eligible countries, but only for graduates.",
+     ar:"للماجستير التدريسي لمدة سنة فقط. يجب أن تحمل بكالوريوس أُكمل <b>قبل الموعد النهائي بسنتين على الأقل</b>، وأن يكون لديك <b>سنتان أو ٢٨٠٠ ساعة خبرة عمل بعد</b> تلك الشهادة. ودول خليجية منها السعودية والإمارات والكويت مؤهلة، لكن للخريجين فقط."},
+ cv:{en:"Full tuition, a living allowance, flights and other allowances.",
+     ar:"الرسوم كاملة، وبدل معيشة، وتذاكر سفر، وبدلات أخرى."},
+ wn:{en:"Opens around <b>August</b>, closes in <b>early November</b>.",
+     ar:"يفتح نحو <b>أغسطس</b> ويغلق في <b>أوائل نوفمبر</b>."},
+ url:"https://www.chevening.org"},
+
+{id:"fulbright", cat:"pg", ct:"us", who:["all"], lvl:"pg", st:"varies",
+ n:{en:"Fulbright Foreign Student Programme (USA)", ar:"برنامج فولبرايت للطلبة الأجانب (أمريكا)"},
+ el:{en:"Graduate students, young professionals and artists. Requires a <b>completed bachelor's degree</b>. Criteria and deadlines vary by country because it is administered by binational commissions or US embassies.",
+     ar:"لطلبة الدراسات العليا والمهنيين الشباب والفنانين. ويشترط <b>بكالوريوس مكتملًا</b>. وتختلف الشروط والمواعيد حسب الدولة لأن إدارته عبر لجان ثنائية أو سفارات أمريكية."},
+ cv:{en:"Master's or doctoral study and research in the United States.",
+     ar:"دراسة ماجستير أو دكتوراه وبحث في الولايات المتحدة."},
+ wn:{en:"Varies by country, typically spring and summer, around fifteen months before you would start.",
+     ar:"تختلف حسب الدولة، وغالبًا في الربيع والصيف، قبل موعد البدء بنحو خمسة عشر شهرًا."},
+ url:"https://foreign.fulbrightonline.org"},
+
+{id:"rhodes", cat:"pg", ct:"uk", who:["all"], lvl:"pg", st:"jun",
+ n:{en:"Rhodes Scholarship (Oxford)", ar:"منحة رودس (أكسفورد)"},
+ el:{en:"Postgraduate study at Oxford only, requiring a completed undergraduate degree. There is a dedicated <b>UAE constituency with two scholarships a year</b>. Other Gulf nationals would apply through the Global constituency. Detailed UAE eligibility, including whether it covers residents as well as nationals, is set out in a separate candidate document that you should read before applying.",
+     ar:"للدراسات العليا في أكسفورد فقط، وتشترط بكالوريوس مكتملًا. وتوجد <b>دائرة مخصصة للإمارات بمنحتين سنويًا</b>. ويتقدم بقية مواطني الخليج عبر الدائرة العالمية. وشروط الإمارات التفصيلية، بما فيها ما إذا كانت تشمل المقيمين إلى جانب المواطنين، مذكورة في وثيقة مرشحين منفصلة يجب قراءتها قبل التقديم."},
+ cv:{en:"Full university and college fees, a stipend, and travel.",
+     ar:"رسوم الجامعة والكلية كاملة، ومكافأة، وسفر."},
+ wn:{en:"The UAE constituency runs <b>1 June to 23 September</b>.",
+     ar:"دائرة الإمارات من <b>١ يونيو إلى ٢٣ سبتمبر</b>."},
+ url:"https://www.rhodeshouse.ox.ac.uk"},
+
+{id:"gates", cat:"pg", ct:"uk", who:["all"], lvl:"pg", st:"oct",
+ n:{en:"Gates Cambridge", ar:"غيتس كامبريدج"},
+ el:{en:"Postgraduate only, meaning PhD, MPhil, MBA and similar. Requires a completed first degree. Open to non UK citizens.",
+     ar:"للدراسات العليا فقط، أي الدكتوراه والماجستير البحثي وماجستير إدارة الأعمال وما شابه. وتشترط شهادة جامعية أولى مكتملة. ومتاحة لغير البريطانيين."},
+ cv:{en:"Full cost of study at Cambridge plus a maintenance allowance.",
+     ar:"تكلفة الدراسة كاملة في كامبريدج مع بدل معيشة."},
+ wn:{en:"The US round is around <b>October</b> and the international round around <b>December and January</b>.",
+     ar:"الدورة الأمريكية نحو <b>أكتوبر</b> والدورة الدولية نحو <b>ديسمبر ويناير</b>."},
+ url:"https://www.gatescambridge.org"},
+
+{id:"erasmus", cat:"pg", ct:"eu", who:["all"], lvl:"pg", st:"oct",
+ n:{en:"Erasmus Mundus Joint Masters", ar:"إيراسموس موندوس للماجستير المشترك"},
+ el:{en:"Master's only. You must hold a bachelor's degree or be in the final year of one. <b>There is no Erasmus Mundus undergraduate scholarship.</b>",
+     ar:"للماجستير فقط. يجب أن تحمل بكالوريوس أو تكون في سنته الأخيرة. <b>ولا توجد منحة إيراسموس موندوس لمرحلة البكالوريوس.</b>"},
+ cv:{en:"Tuition, travel and installation costs and a monthly allowance across two or more European countries.",
+     ar:"الرسوم الدراسية، وتكاليف السفر والاستقرار، وبدل شهري، عبر دولتين أوروبيتين أو أكثر."},
+ wn:{en:"Typically <b>October to January</b>, set by each consortium.",
+     ar:"غالبًا من <b>أكتوبر إلى يناير</b>، ويحددها كل تحالف جامعي."},
+ fl:{en:"Erasmus+ credit mobility is a different thing. An undergraduate can spend a semester in Europe through it, but only if already enrolled at a home university that holds an agreement with a European partner. It is a second or third year option, not an entry route from school.",
+     ar:"التنقل الائتماني ضمن إيراسموس بلس شيء مختلف. يمكن لطالب البكالوريوس قضاء فصل في أوروبا عبره، لكن فقط إذا كان مسجلًا في جامعة لديها اتفاقية مع شريك أوروبي. وهو خيار للسنة الثانية أو الثالثة، لا مسار دخول من المدرسة."},
+ url:"https://erasmus-plus.ec.europa.eu"},
+
+{id:"eiffel", cat:"pg", ct:"fr", who:["all"], lvl:"pg", st:"oct",
+ n:{en:"France Excellence Eiffel", ar:"منحة إيفل للتميز الفرنسي"},
+ el:{en:"Master's and doctoral only, with undergraduate explicitly excluded. Age limits are 29 for master's and 35 for doctoral. <b>Students cannot apply themselves.</b> Only a French higher education institution may submit an application on your behalf.",
+     ar:"للماجستير والدكتوراه فقط، والبكالوريوس مستثنى صراحة. وحدود العمر ٢٩ للماجستير و٣٥ للدكتوراه. <b>ولا يمكن للطالب التقديم بنفسه.</b> فقط مؤسسة تعليم عالٍ فرنسية يمكنها تقديم الطلب نيابة عنك."},
+ cv:{en:"A monthly allowance plus international travel and cultural activities.",
+     ar:"بدل شهري إضافة إلى السفر الدولي والأنشطة الثقافية."},
+ wn:{en:"<b>1 October to 8 January</b>.",
+     ar:"من <b>١ أكتوبر إلى ٨ يناير</b>."},
+ url:"https://www.campusfrance.org/en/france-excellence-eiffel-scholarship-program"},
+
+{id:"daad", cat:"pg", ct:"de", who:["all"], lvl:"pg", st:"varies",
+ n:{en:"DAAD flagship awards (Germany)", ar:"الجوائز الرئيسية للهيئة الألمانية للتبادل العلمي"},
+ el:{en:"Study Scholarships, EPOS development related postgraduate courses and Research Grants all require a <b>completed first degree</b>. There is no DAAD full bachelor's degree scholarship for Gulf students.",
+     ar:"منح الدراسة، وبرامج إيبوس للدراسات العليا المرتبطة بالتنمية، والمنح البحثية، جميعها تشترط <b>شهادة جامعية أولى مكتملة</b>. ولا توجد منحة من الهيئة تغطي بكالوريوس كاملًا لطلبة الخليج."},
+ cv:{en:"Monthly stipends, travel and insurance, depending on the programme.",
+     ar:"مكافآت شهرية وسفر وتأمين، بحسب البرنامج."},
+ wn:{en:"Varies, mostly in the autumn.",
+     ar:"تختلف، ومعظمها في الخريف."},
+ url:"https://www.daad.de"},
+
+{id:"mtcp", cat:"pg", ct:"my", who:["all"], lvl:"pg", st:"varies",
+ n:{en:"Malaysia International Scholarship (MTCP)", ar:"المنحة الماليزية الدولية"},
+ el:{en:"Master's only, 24 to 36 months, age under 45, requiring a bachelor's with a grade average of 3.00 or an upper second class degree.",
+     ar:"للماجستير فقط، من ٢٤ إلى ٣٦ شهرًا، بعمر دون ٤٥ سنة، وتشترط بكالوريوس بمعدل ٣٫٠٠ أو تقدير جيد جدًا."},
+ cv:{en:"Tuition, RM 3,500 a month and return airfare.",
+     ar:"الرسوم الدراسية، و٣٥٠٠ رينغيت شهريًا، وتذكرة سفر ذهابًا وإيابًا."},
+ wn:{en:"Varies by cycle.",
+     ar:"تختلف حسب الدورة."},
+ fl:{en:"Undergraduate students from the Gulf should look at Malaysian universities' own merit discounts instead.",
+     ar:"على طلبة البكالوريوس من الخليج النظر بدلًا من ذلك في خصومات الجدارة التي تقدمها الجامعات الماليزية نفسها."},
+ url:"https://mtcp.kln.gov.my/scholarship"},
+
+{id:"arabfund", cat:"pg", ct:"ar", who:["all"], lvl:"pg", st:"varies",
+ n:{en:"Arab Fund for Economic and Social Development Fellowships", ar:"زمالات الصندوق العربي للإنماء الاقتصادي والاجتماعي"},
+ el:{en:"<b>PhD holders only.</b> For outstanding Arab doctorate holders to lecture or research at leading universities abroad. Around 191 have been awarded since 1997.",
+     ar:"<b>لحاملي الدكتوراه فقط.</b> للمتميزين من حملة الدكتوراه العرب للتدريس أو البحث في جامعات رائدة بالخارج. مُنحت نحو ١٩١ زمالة منذ ١٩٩٧."},
+ cv:{en:"A maintenance allowance, return airfare for the fellow and eligible family members, and insurance, typically for twelve months.",
+     ar:"بدل معيشة، وتذاكر سفر للزميل وأفراد أسرته المستحقين، وتأمين، عادة لمدة اثني عشر شهرًا."},
+ wn:{en:"Applications must be submitted at least a year before the intended start.",
+     ar:"تُقدَّم الطلبات قبل موعد البدء المقصود بسنة على الأقل."},
+ url:"https://www.arabfund.org/overview/fellowships-program/"},
+
+{id:"vanier", cat:"pg", ct:"ca", who:["all"], lvl:"pg", st:"nov",
+ n:{en:"Vanier Canada Graduate Scholarships", ar:"منح فانييه الكندية للدراسات العليا"},
+ el:{en:"Doctoral only, requiring a completed master's degree.",
+     ar:"للدكتوراه فقط، وتشترط ماجستيرًا مكتملًا."},
+ cv:{en:"CAD 50,000 a year for three years.",
+     ar:"٥٠٠٠٠ دولار كندي سنويًا لثلاث سنوات."},
+ wn:{en:"Around <b>November</b>.",
+     ar:"نحو <b>نوفمبر</b>."},
+ url:"https://vanier.gc.ca"},
+
+/* ---------- COMMONLY LISTED BUT NOT OPEN TO GULF SCHOOL LEAVERS ---------- */
+{id:"reachoxford", cat:"no", ct:"uk", who:["all"], lvl:"ug", st:"na",
+ n:{en:"Reach Oxford Scholarship", ar:"منحة ريتش أكسفورد"},
+ el:{en:"It really is undergraduate and really is fully funded, which is why it appears on every list. <b>But it is restricted to nationals of countries on the official development assistance recipient list, and Bahrain, Saudi Arabia, the UAE, Qatar, Kuwait and Oman are all excluded.</b> Gulf nationals cannot apply.",
+     ar:"هي لمرحلة البكالوريوس وممولة بالكامل، ولهذا تظهر في كل قائمة. <b>لكنها مقصورة على مواطني الدول المدرجة في قائمة المساعدات الإنمائية الرسمية، والبحرين والسعودية والإمارات وقطر والكويت وعُمان جميعها مستثناة.</b> فلا يمكن لمواطني الخليج التقديم."},
+ url:"https://www.ox.ac.uk/admissions/undergraduate/fees-and-funding"},
+
+{id:"great", cat:"no", ct:"uk", who:["all"], lvl:"pg", st:"na",
+ n:{en:"GREAT Scholarships (British Council)", ar:"منح غريت (المجلس الثقافي البريطاني)"},
+ el:{en:"Two reasons it does not apply. It is <b>postgraduate only</b>, worth 10,000 pounds towards a one year taught master's, and the eligible country list of eighteen countries <b>contains no Gulf state</b>.",
+     ar:"سببان لعدم انطباقها. فهي <b>للدراسات العليا فقط</b>، بقيمة ١٠٠٠٠ جنيه لماجستير تدريسي لمدة سنة، وقائمة الدول المؤهلة البالغة ثماني عشرة دولة <b>لا تضم أي دولة خليجية</b>."},
+ url:"https://study-uk.britishcouncil.org/scholarships-funding/great-scholarships"},
+
+{id:"commonwealth", cat:"no", ct:"uk", who:["all"], lvl:"pg", st:"na",
+ n:{en:"Commonwealth Scholarships", ar:"منح الكومنولث"},
+ el:{en:"Master's and doctoral, and the applicant must be a citizen of an eligible <b>developing Commonwealth country</b>. <b>No GCC state is a Commonwealth member</b>, so Gulf nationals are ineligible regardless of level.",
+     ar:"للماجستير والدكتوراه، ويجب أن يكون المتقدم من مواطني <b>دولة كومنولث نامية مؤهلة</b>. و<b>لا توجد دولة خليجية عضو في الكومنولث</b>، فمواطنو الخليج غير مؤهلين بغض النظر عن المرحلة."},
+ url:"https://cscuk.fcdo.gov.uk"},
+
+{id:"ausawards", cat:"no", ct:"au", who:["all"], lvl:"ug", st:"na",
+ n:{en:"Australia Awards Scholarships", ar:"منح أستراليا الحكومية"},
+ el:{en:"These do cover undergraduate as well as postgraduate study, but only for citizens of <b>participating developing partner countries</b> in Asia, the Pacific, Africa and parts of the Middle East. <b>Gulf states are not partner countries.</b> Look at Australian universities' own awards instead.",
+     ar:"تشمل البكالوريوس إضافة إلى الدراسات العليا، لكن فقط لمواطني <b>الدول الشريكة النامية المشاركة</b> في آسيا والمحيط الهادئ وأفريقيا وأجزاء من الشرق الأوسط. و<b>دول الخليج ليست دولًا شريكة.</b> انظر بدلًا من ذلك إلى جوائز الجامعات الأسترالية نفسها."},
+ url:"https://www.dfat.gov.au/people-to-people/australia-awards"},
+
+{id:"isdb", cat:"no", ct:"isdb", who:["all"], lvl:"ug", st:"na",
+ n:{en:"Islamic Development Bank scholarships", ar:"منح البنك الإسلامي للتنمية"},
+ el:{en:"Arabic language scholarship blogs list this constantly as a scholarship for Muslim students. It is not an option for a Gulf school leaver. The <b>ISFD bachelor's programme</b> is for citizens of 21 least developed member countries, and among Arab states only Sudan and Yemen qualify. The <b>Scholarship Programme for Muslim Communities</b> is for Muslim <b>minority</b> communities in non member countries. The <b>Merit Scholarship Programme</b> is doctoral and post doctoral only. Note also that the ISFD bachelor's scheme is structured as an interest free loan repayable after graduation, not a grant.",
+     ar:"مدونات المنح العربية تدرج هذه باستمرار كمنحة للطلبة المسلمين. وهي ليست خيارًا لخريج ثانوية خليجي. فبرنامج <b>الصندوق للبكالوريوس</b> لمواطني ٢١ دولة عضو من أقل الدول نموًا، ومن الدول العربية تتأهل السودان واليمن فقط. و<b>برنامج المجتمعات المسلمة</b> للأقليات المسلمة في دول غير أعضاء. و<b>برنامج منح التميز</b> للدكتوراه وما بعدها فقط. ولاحظ أيضًا أن برنامج البكالوريوس مصمم كقرض حسن يُسدَّد بعد التخرج لا كمنحة."},
+ url:"https://www.isdb.org/scholarships"},
+
+{id:"opec", cat:"no", ct:"opec", who:["all"], lvl:"pg", st:"na",
+ n:{en:"OPEC Fund (OFID) Scholarship Award", ar:"منحة صندوق أوبك للتنمية الدولية"},
+ el:{en:"Master's only, requiring a bachelor's with a grade average of 3.0 and an age of 23 to 32. It is for nationals of developing countries <b>excluding OPEC Fund member states</b>, and the excluded list contains Saudi Arabia, the UAE, Qatar and Kuwait. The fund has also stated that the programme is being restructured and applications are not being accepted at present.",
+     ar:"للماجستير فقط، وتشترط بكالوريوس بمعدل ٣٫٠ وعمرًا بين ٢٣ و٣٢. وهي لمواطني الدول النامية <b>باستثناء الدول الأعضاء في الصندوق</b>، والقائمة المستثناة تشمل السعودية والإمارات وقطر والكويت. كما ذكر الصندوق أن البرنامج قيد إعادة الهيكلة وأن الطلبات غير مقبولة حاليًا."},
+ url:"https://opecfund.org/what-we-offer/special-initiatives/scholarship"},
+
+{id:"alghurair", cat:"no", ct:"ae", who:["all"], lvl:"ug", st:"na",
+ n:{en:"Abdulla Al Ghurair Foundation STEM Scholars", ar:"مؤسسة عبدالله الغرير، برنامج علماء العلوم والتقنية"},
+ el:{en:"Still listed as open on scholarship websites, but it has been <b>closed to new enrolment since the end of 2019</b>. Existing scholars are supported to graduation. The Open Learning Scholars Programme is also closed to new scholarships. What is still active is the <b>Young Thinkers Programme</b>, which is a free bilingual skills and career guidance platform for ages 15 to 35 rather than a scholarship, and it is genuinely worth using.",
+     ar:"ما زالت مواقع المنح تدرجه كمفتوح، لكنه <b>مغلق أمام الالتحاق الجديد منذ نهاية ٢٠١٩</b>. والمبتعثون الحاليون مدعومون حتى التخرج. وبرنامج التعلم المفتوح مغلق أيضًا أمام منح جديدة. أما ما هو نشط فهو <b>برنامج المفكرون الشباب</b>، وهو منصة مجانية ثنائية اللغة للمهارات والإرشاد المهني لأعمار ١٥ إلى ٣٥، وليس منحة، وهو يستحق الاستفادة منه."},
+ url:"https://www.alghurairfoundation.org"},
+
+{id:"refugeefund", cat:"no", ct:"ae", who:["all"], lvl:"ug", st:"na",
+ n:{en:"Abdul Aziz Al Ghurair Refugee Education Fund", ar:"صندوق عبدالعزيز الغرير لتعليم اللاجئين"},
+ el:{en:"<b>Students cannot apply to this directly.</b> It awards grants to organisations, which then support students. It covers Jordan, Lebanon and the UAE, for Syrian and Palestinian refugees and vulnerable host community youth aged 12 to 30. It is not a route for Gulf nationals.",
+     ar:"<b>لا يمكن للطلبة التقديم عليه مباشرة.</b> فهو يمنح جهات ومنظمات، وهي بدورها تدعم الطلبة. ويغطي الأردن ولبنان والإمارات، للاجئين السوريين والفلسطينيين وشباب المجتمعات المضيفة الأكثر حاجة بعمر ١٢ إلى ٣٠. وهو ليس مسارًا لمواطني الخليج."},
+ url:"https://refugee-educationfund.org"},
+
+{id:"ugrad", cat:"no", ct:"us", who:["all"], lvl:"ug", st:"na",
+ n:{en:"Global UGRAD (US State Department)", ar:"برنامج التبادل الجامعي العالمي (وزارة الخارجية الأمريكية)"},
+ el:{en:"This one is undergraduate level, which is why it looks promising, but it is a <b>one semester non degree exchange for students already enrolled and in good standing at a university</b>, with at least one year of study remaining afterwards. A school leaver cannot apply. Keep it in mind for your second year. Participating Gulf countries have been reported as Bahrain, Kuwait and Saudi Arabia, so confirm with the US Embassy public affairs section locally.",
+     ar:"هذا البرنامج لمرحلة البكالوريوس، ولهذا يبدو واعدًا، لكنه <b>تبادل لفصل دراسي واحد دون درجة علمية، لطلبة مسجلين وبوضع أكاديمي جيد في جامعة</b>، وأمامهم سنة دراسية على الأقل بعده. فلا يمكن لخريج الثانوية التقديم. احتفظ به لسنتك الثانية. وذُكر أن الدول الخليجية المشاركة هي البحرين والكويت والسعودية، فتأكد من قسم الشؤون العامة في السفارة الأمريكية محليًا."},
+ url:"https://exchanges.state.gov/non-us/program/global-undergraduate-exchange-program-global-ugrad"},
+
+{id:"tamkeen", cat:"no", ct:"bh", who:["all"], lvl:"ug", st:"na",
+ n:{en:"Tamkeen (Bahrain) and HRDF Hadaf (Saudi Arabia)", ar:"تمكين (البحرين) وصندوق تنمية الموارد البشرية هدف (السعودية)"},
+ el:{en:"Both are often suggested to school leavers and neither funds an undergraduate degree. Tamkeen's remit is training, professional certification, wage support and enterprise support for Bahrainis already in or entering the labour market. Hadaf's mandate is training, employability and private sector employment support. They are useful later, after you graduate, not now.",
+     ar:"يُقترحان كثيرًا على خريجي الثانوية ولا يموّل أي منهما درجة بكالوريوس. فمهمة تمكين هي التدريب والشهادات المهنية ودعم الأجور ودعم المنشآت للبحرينيين الملتحقين بسوق العمل أو المقبلين عليه. ومهمة هدف هي التدريب والتوظيف ودعم العمل في القطاع الخاص. وهما مفيدان لاحقًا بعد التخرج، لا الآن."},
+ url:"https://www.tamkeen.bh/en/"}
+
+];
+
+/* ===== Scholarships and Funding Finder: strings, filtering and rendering ===== */
+const ALL = S1.concat(S2, S3);
+
+const CTY = {
+  bh:{en:"Bahrain", ar:"البحرين"}, sa:{en:"Saudi Arabia", ar:"السعودية"},
+  ae:{en:"UAE", ar:"الإمارات"}, qa:{en:"Qatar", ar:"قطر"},
+  kw:{en:"Kuwait", ar:"الكويت"}, om:{en:"Oman", ar:"عُمان"},
+  exp:{en:"Another passport", ar:"جواز آخر"}
+};
+const CTY_ORDER = ["bh","sa","ae","qa","kw","om","exp"];
+
+const BADGE = {
+  open:    {en:"Open or rolling",            ar:"مفتوحة أو مستمرة",        c:"g"},
+  check:   {en:"Dates vary, check now",      ar:"التواريخ متغيرة، تحقق الآن", c:"a"},
+  closed:  {en:"Closed for this cycle",      ar:"مغلقة لهذه الدورة",        c:"n"},
+  grade11: {en:"Apply in Grade 11",          ar:"التقديم في الصف الحادي عشر", c:"r"},
+  varies:  {en:"Set by each university",     ar:"تحددها كل جامعة",          c:"a"},
+  na:      {en:"Not open to Gulf students",  ar:"غير متاحة لطلبة الخليج",    c:"r"},
+  jan:{en:"Opens January", ar:"تفتح في يناير", c:"b"},
+  feb:{en:"Opens February", ar:"تفتح في فبراير", c:"b"},
+  apr:{en:"Opens April", ar:"تفتح في أبريل", c:"b"},
+  jun:{en:"Opens June", ar:"تفتح في يونيو", c:"b"},
+  jul:{en:"Opens July", ar:"تفتح في يوليو", c:"b"},
+  aug:{en:"Opens August", ar:"تفتح في أغسطس", c:"b"},
+  sep:{en:"Opens September", ar:"تفتح في سبتمبر", c:"b"},
+  oct:{en:"Opens October", ar:"تفتح في أكتوبر", c:"b"},
+  nov:{en:"Opens November", ar:"تفتح في نوفمبر", c:"b"},
+  dec:{en:"Opens December", ar:"تفتح في ديسمبر", c:"b"}
+};
+
+const SECTIONS = [
+  {id:"home", cat:"nat", own:true,
+   en:{t:"Scholarships from your own country", s:"For most Gulf nationals this is the best funded and most winnable route there is. Read these before you look anywhere else."},
+   ar:{t:"البعثات من بلدك", s:"بالنسبة لمعظم مواطني الخليج هذا هو المسار الأفضل تمويلًا والأسهل نيلًا. اقرأها قبل أن تنظر إلى أي مكان آخر."}},
+  {id:"region", cat:"nat", own:false,
+   en:{t:"Open to you elsewhere in the Gulf", s:"Schemes in other Gulf countries that do not restrict themselves to their own nationals."},
+   ar:{t:"متاحة لك في أماكن أخرى بالخليج", s:"برامج في دول خليجية أخرى لا تقتصر على مواطنيها."}},
+  {id:"fgov", cat:"fgov",
+   en:{t:"Foreign government scholarships", s:"Full or partial funding offered by other countries to attract international students. These are the ones a school leaver can genuinely apply to."},
+   ar:{t:"منح الحكومات الأجنبية", s:"تمويل كامل أو جزئي تقدمه دول أخرى لاستقطاب الطلبة الدوليين. وهذه ما يمكن لخريج الثانوية التقديم عليه."}},
+  {id:"uni", cat:"uni",
+   en:{t:"Funding from universities abroad", s:"Money that comes from the university itself rather than from a government. This is where most international undergraduate funding lives."},
+   ar:{t:"تمويل من الجامعات في الخارج", s:"تمويل يأتي من الجامعة نفسها لا من حكومة. وهنا يوجد فعليًا معظم التمويل الجامعي الدولي."}},
+  {id:"pg", cat:"pg",
+   en:{t:"Postgraduate only, plan for these later", s:"These are the famous names, and none of them will accept you now. Note the timing so you are ready when you graduate."},
+   ar:{t:"للدراسات العليا فقط، خطط لها لاحقًا", s:"هذه هي الأسماء المشهورة، ولن يقبلك أي منها الآن. لاحظ التوقيت لتكون جاهزًا عند تخرجك."}},
+  {id:"no", cat:"no",
+   en:{t:"Commonly listed, but not open to you", s:"Every one of these appears on scholarship websites aimed at Gulf students. Each is a dead end, for the reason given. Knowing this saves you weeks."},
+   ar:{t:"مدرجة كثيرًا، لكنها غير متاحة لك", s:"كل واحدة من هذه تظهر في مواقع المنح الموجهة لطلبة الخليج. وكل واحدة طريق مسدود، للسبب المذكور. ومعرفة ذلك توفر عليك أسابيع."}}
+];
+
+const UI = {
+  en:{
+    title:"Scholarships and funding",
+    sub:"An honest guide to who will pay for your degree. Filtered by your passport, checked against the official source in each case, and clear about what you cannot apply to.",
+    quizline:"<b>Not sure what to study yet?</b> Take the free 8-minute assessment and get your top 5 majors, then come back and look at how to pay for them.",
+    quizbtn:"Take the quiz",
+    exploreline:"<b>Want to know what a major is like?</b> Read the honest guide to every major, including what you study and what the work is really like.",
+    explorebtn:"Explore majors",
+    parline:"<b>Are you the parent here?</b> Read the guide on timing, on what to say, and on why the degrees that feel safest are no longer the safest.",
+    parbtn:"Parent guide",
+    entline:"<b>Will they even take you?</b> The entry requirements checker shows the published minimums, what your school track closes, and the tests you have to sit.",
+    entbtn:"Entry requirements",
+    r1t:"Rule one: most famous scholarships are for master's degrees",
+    r1:"Chevening, Fulbright, Commonwealth, Rhodes, Gates Cambridge, Erasmus Mundus, the DAAD flagship awards and Eiffel all require a completed bachelor's degree, and several also require two or more years of work experience. If you are in Grade 12 you cannot apply to any of them. They are listed at the bottom of this page so you know when to come back.",
+    r2t:"Rule two: many scholarships exclude Gulf students on purpose",
+    r2:"A large number of international scholarships are restricted to citizens of developing countries. Because the Gulf states are classified as high income, Bahraini, Saudi, Emirati, Qatari, Kuwaiti and Omani students are excluded by design from Reach Oxford, GREAT Scholarships, Commonwealth, Australia Awards and the Islamic Development Bank programmes. This catches students out constantly.",
+    r3t:"If you hold a passport from outside the Gulf",
+    r3:"Be prepared for a hard truth. Almost every government and major employer scholarship in the GCC is restricted to nationals of that country, which excludes the majority of school leavers in Bahrain, the UAE, Qatar and Kuwait. There are real exceptions and they are shown to you when you select another passport: Qatar Foundation's interest free loan in Education City, Qatar University's international and talent scholarships, and Saudi Arabia's scholarships in public universities for non Saudis. Beyond those, your realistic routes are foreign government scholarships, university funding abroad, and any scheme run by your own country of citizenship.",
+    pickC:"My passport is from",
+    pickL:"I am",
+    lvlUg:"Leaving school, looking for a bachelor's",
+    lvlPg:"A graduate, looking for a master's or doctorate",
+    search:"Search by name, country or subject",
+    count:(n)=> n===1 ? "1 scheme shown" : `${n} schemes shown`,
+    empty:"Nothing matches that search. Try a different word, or clear the search box.",
+    hEl:"Who can apply",
+    hCv:"What it covers",
+    hWn:"When to apply",
+    hFl:"Worth knowing",
+    link:"Official page",
+    calT:"The year at a glance",
+    calS:"Roughly when the main routes open. Use it to plan, then confirm every date with the official source, because they move.",
+    cal:[
+      ["January","Türkiye Bursları opens on 10 January and closes 20 February. Stipendium Hungaricum closes 15 January. Sciences Po Émile Boutmy closes 20 January. UK UCAS applications close 14 January. US regular decision closes 1 to 15 January."],
+      ["February","Türkiye closes 20 February. Takatuf in Oman closed late February. ICCR India opens 27 February."],
+      ["March","CPISP in Bahrain opens, and this is the single most important month for a Bahraini in Grade 11. Rayaat opens in Bahrain. ADEK opens in Abu Dhabi. Italy's MAECI call closes late March."],
+      ["April","MEXT Japan runs through the embassies. Oman's HEAC unified admission opens. ICCR India closes 22 April."],
+      ["May","Waqf Isa in Bahrain has opened in late May. UK university scholarship rounds are closing."],
+      ["June","Oman's HEAC closes in early June. Bapco NBH in Bahrain opens mid June. Kuwait's external scholarships close in early July so the work happens now. Rhodes UAE opens 1 June."],
+      ["July","Bahrain's Ministry of Education scholarships and grants window. Kuwait's external scholarship results. Qatar's ministry and Qatar Airways registration opens 1 July. The Toronto Pearson school nomination portal opens."],
+      ["August","Kuwait's internal scholarships at private universities, a very short window. Chevening opens for graduates. Russia's Open Doors registration opens 20 August."],
+      ["September","Global Korea Scholarship opens mid to late September. Qatar's registration closes 30 September. Rhodes UAE closes 23 September."],
+      ["October","Toronto Pearson school nomination deadline in early October and the admission deadline in mid October. Erasmus Mundus and Eiffel open for graduates."],
+      ["November","Chevening closes in early November. The Toronto Pearson scholarship application is due. US early action and early decision close around 1 November. NL Scholarship opens."],
+      ["December","Chinese Government Scholarship applications begin to open. Gates Cambridge international round. Prepare everything for the January rush."]
+    ],
+    lastT:"Checked on 8 August 2026",
+    last:"Every entry here was checked against the official source on that date. Scholarship windows move every year and rules change without notice, so treat the dates as the month to watch rather than a promise, and confirm on the official page before you rely on anything. Where a provider does not publish a detail, this page says so instead of guessing.",
+    disc:"This is a guide, not an application service and not advice on your individual case. Nothing here is affiliated with any of the providers listed. If a page here disagrees with an official source, the official source is right.",
+    foot:'Prepared by <a href="https://www.saqeralkhalifa.com">Dr. Saqer AlKhalifa</a> · Free for all students',
+    toggle:"عربي"
+  },
+  ar:{
+    title:"المنح والتمويل الدراسي",
+    sub:"دليل صادق لمن سيدفع تكاليف دراستك. مرتب بحسب جوازك، ومراجَع مع المصدر الرسمي في كل حالة، وواضح فيما لا يمكنك التقديم عليه.",
+    quizline:"<b>لم تحدد تخصصك بعد؟</b> جرّب الاختبار المجاني في ٨ دقائق واحصل على أفضل ٥ تخصصات لك، ثم عد لتنظر في كيفية تمويلها.",
+    quizbtn:"ابدأ الاختبار",
+    exploreline:"<b>تريد معرفة حقيقة التخصص؟</b> اقرأ الدليل الصادق لاثنين وثمانين تخصصًا، بما في ذلك ما تدرسه وكيف يبدو العمل.",
+    explorebtn:"استكشف التخصصات",
+    parline:"<b>هل أنت ولي الأمر؟</b> اقرأ الدليل عن التوقيت، وعمّا تقوله، وعن سبب أن الشهادات التي تبدو الأكثر أمانًا لم تعد كذلك.",
+    parbtn:"دليل أولياء الأمور",
+    entline:"<b>هل سيقبلونك أصلًا؟</b> أداة شروط القبول تعرض الحدود الدنيا المنشورة، وما يغلقه مسارك المدرسي، والاختبارات التي عليك أداؤها.",
+    entbtn:"شروط القبول",
+    r1t:"القاعدة الأولى: معظم المنح المشهورة للماجستير",
+    r1:"شيفنينغ وفولبرايت والكومنولث ورودس وغيتس كامبريدج وإيراسموس موندوس والجوائز الرئيسية للهيئة الألمانية وإيفل، جميعها تشترط بكالوريوس مكتملًا، وبعضها يشترط سنتين خبرة عمل أو أكثر. فإن كنت في الصف الثاني عشر فلا يمكنك التقديم على أي منها. وهي مدرجة في أسفل الصفحة لتعرف متى تعود إليها.",
+    r2t:"القاعدة الثانية: كثير من المنح تستثني طلبة الخليج عمدًا",
+    r2:"عدد كبير من المنح الدولية مقصور على مواطني الدول النامية. ولأن دول الخليج مصنفة ضمن الدخل المرتفع، فإن الطلبة البحرينيين والسعوديين والإماراتيين والقطريين والكويتيين والعُمانيين مستثنون بحكم التصميم من ريتش أكسفورد ومنح غريت والكومنولث ومنح أستراليا وبرامج البنك الإسلامي للتنمية. وهذا يفاجئ الطلبة باستمرار.",
+    r3t:"إذا كنت تحمل جوازًا من خارج الخليج",
+    r3:"استعد لحقيقة صعبة. فكل بعثة حكومية أو من جهات التوظيف الكبرى في دول الخليج تقريبًا مقصورة على مواطني تلك الدولة، وهذا يستثني أغلب خريجي الثانوية في البحرين والإمارات وقطر والكويت. لكن توجد استثناءات حقيقية تظهر لك عند اختيار جواز آخر: قرض مؤسسة قطر بدون فوائد في المدينة التعليمية، ومنح جامعة قطر للطلبة الدوليين والموهوبين، ومنح الجامعات الحكومية السعودية لغير السعوديين. وما عدا ذلك، مساراتك الواقعية هي منح الحكومات الأجنبية، وتمويل الجامعات في الخارج، وأي برنامج تديره دولة جنسيتك.",
+    pickC:"جوازي من",
+    pickL:"أنا",
+    lvlUg:"خريج ثانوية أبحث عن بكالوريوس",
+    lvlPg:"خريج جامعي أبحث عن ماجستير أو دكتوراه",
+    search:"ابحث بالاسم أو الدولة أو التخصص",
+    count:(n)=> `عدد البرامج المعروضة: ${n}`,
+    empty:"لا توجد نتائج مطابقة. جرّب كلمة أخرى أو امسح خانة البحث.",
+    hEl:"من يستطيع التقديم",
+    hCv:"ماذا تغطي",
+    hWn:"متى تقدّم",
+    hFl:"ما يستحق أن تعرفه",
+    link:"الصفحة الرسمية",
+    calT:"السنة في لمحة",
+    calS:"تقريبًا متى تفتح المسارات الرئيسية. استخدمه للتخطيط، ثم تأكد من كل تاريخ مع المصدر الرسمي لأنها تتغير.",
+    cal:[
+      ["يناير","المنح التركية تفتح في ١٠ يناير وتغلق في ٢٠ فبراير. ستيبنديوم هونغاريكوم تغلق في ١٥ يناير. إميل بوتمي تغلق في ٢٠ يناير. طلبات يوكاس البريطانية تغلق في ١٤ يناير. القبول العادي الأمريكي يغلق من ١ إلى ١٥ يناير."],
+      ["فبراير","المنح التركية تغلق في ٢٠ فبراير. تكاتف في عُمان أغلقت أواخر فبراير. منحة المجلس الهندي تفتح في ٢٧ فبراير."],
+      ["مارس","برنامج ولي العهد في البحرين يفتح، وهذا أهم شهر لأي بحريني في الصف الحادي عشر. رايات تفتح في البحرين. منح أبوظبي تفتح. دعوة المنح الإيطالية تغلق أواخر مارس."],
+      ["أبريل","منحة مونبوكاغاكوشو اليابانية عبر السفارات. القبول الموحد في عُمان يفتح. منحة المجلس الهندي تغلق في ٢٢ أبريل."],
+      ["مايو","وقف عيسى في البحرين فتح في أواخر مايو. جولات منح الجامعات البريطانية تغلق."],
+      ["يونيو","القبول الموحد في عُمان يغلق في أوائل يونيو. بابكو للطاقة في البحرين تفتح في منتصف يونيو. البعثات الخارجية الكويتية تغلق في أوائل يوليو فالعمل يبدأ الآن. رودس الإمارات تفتح في ١ يونيو."],
+      ["يوليو","فترة بعثات ومنح وزارة التربية في البحرين. نتائج البعثات الخارجية الكويتية. تسجيل وزارة التعليم القطرية والخطوط القطرية يفتح في ١ يوليو. بوابة ترشيح المدارس لمنحة بيرسون في تورنتو تفتح."],
+      ["أغسطس","البعثات الداخلية الكويتية في الجامعات الخاصة، وفترتها قصيرة جدًا. شيفنينغ تفتح للخريجين. تسجيل الأبواب المفتوحة الروسية يفتح في ٢٠ أغسطس."],
+      ["سبتمبر","المنحة الكورية العالمية تفتح من منتصف إلى أواخر سبتمبر. التسجيل في قطر يغلق في ٣٠ سبتمبر. رودس الإمارات تغلق في ٢٣ سبتمبر."],
+      ["أكتوبر","آخر موعد لترشيح المدارس لمنحة بيرسون في أوائل أكتوبر وموعد طلب القبول في منتصف أكتوبر. إيراسموس موندوس وإيفل تفتحان للخريجين."],
+      ["نوفمبر","شيفنينغ تغلق في أوائل نوفمبر. طلب منحة بيرسون مستحق. القبول المبكر الأمريكي يغلق نحو ١ نوفمبر. المنحة الهولندية تفتح."],
+      ["ديسمبر","طلبات منحة الحكومة الصينية تبدأ بالفتح. الجولة الدولية لغيتس كامبريدج. جهّز كل شيء لزحمة يناير."]
+    ],
+    lastT:"روجعت في ٨ أغسطس ٢٠٢٦",
+    last:"روجع كل مدخل هنا مع المصدر الرسمي في ذلك التاريخ. ومواعيد المنح تتغير كل سنة وقواعدها تتبدل دون إشعار، فاعتبر التواريخ الشهر الذي تراقبه لا وعدًا، وتأكد من الصفحة الرسمية قبل أن تعتمد على أي شيء. وحيثما لا تنشر الجهة تفصيلًا، تقول هذه الصفحة ذلك بدل التخمين.",
+    disc:"هذا دليل، وليس خدمة تقديم ولا استشارة لحالتك الشخصية. ولا صلة لأي مما ورد هنا بالجهات المذكورة. وإذا اختلفت هذه الصفحة مع مصدر رسمي فالمصدر الرسمي هو الصحيح.",
+    foot:'إعداد <a href="https://www.saqeralkhalifa.com">د. صقر آل خليفة</a> · مجاني لجميع الطلبة',
+    toggle:"English"
+  }
+};
+
+let lang = "en", pass = "bh", level = "ug", query = "";
+const $ = id => document.getElementById(id);
+
+function eligible(s){
+  if(s.cat === "no" || s.cat === "pg") return true;
+  return s.who.indexOf("all") !== -1 || s.who.indexOf(pass) !== -1;
+}
+
+function matchQuery(s){
+  if(!query) return true;
+  const q = query.toLowerCase();
+  const parts = [s.n.en, s.n.ar, s.el.en, s.el.ar];
+  if(s.cv){ parts.push(s.cv.en, s.cv.ar); }
+  if(s.fl){ parts.push(s.fl.en, s.fl.ar); }
+  return parts.join(" ").toLowerCase().indexOf(q) !== -1;
+}
+
+function forSection(sec){
+  return ALL.filter(s => {
+    if(s.cat !== sec.cat) return false;
+    if(sec.cat === "nat"){
+      const own = s.ct === pass;
+      if(sec.own !== own) return false;
+    }
+    if(level === "pg" && (s.cat === "nat" || s.cat === "fgov" || s.cat === "uni")) return false;
+    if(level === "pg" && s.cat === "no" && s.lvl !== "pg") return false;
+    if(!eligible(s)) return false;
+    return matchQuery(s);
+  });
+}
+
+function badge(s){
+  const b = BADGE[s.st] || BADGE.check;
+  return `<span class="badge ${b.c}">${b[lang]}</span>`;
+}
+
+function card(s, U){
+  let body = `<div class="sec"><h3>${U.hEl}</h3><p>${s.el[lang]}</p></div>`;
+  if(s.cv) body += `<div class="sec"><h3>${U.hCv}</h3><p>${s.cv[lang]}</p></div>`;
+  if(s.wn) body += `<div class="sec"><h3>${U.hWn}</h3><p>${s.wn[lang]}</p></div>`;
+  if(s.fl) body += `<div class="flag"><b>${U.hFl}</b><p>${s.fl[lang]}</p></div>`;
+  body += `<a class="olink" href="${s.url}" target="_blank" rel="noopener">${U.link} &rsaquo;</a>`;
+  return `<div class="mcard${s.cat==="no"?" dead":""}" id="s-${s.id}">
+    <button class="mhead" data-id="${s.id}">
+      <h2>${s.n[lang]}${badge(s)}</h2><span class="chev">&rsaquo;</span>
+    </button>
+    <div class="mbody">${body}</div>
+  </div>`;
+}
+
+function applyChrome(){
+  const U = UI[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.title = lang === "ar"
+    ? "المنح والتمويل الدراسي | د. صقر آل خليفة"
+    : "Scholarships and Funding | Dr. Saqer AlKhalifa";
+  $("langToggle").textContent = U.toggle;
+  $("t-title").textContent = U.title;
+  $("t-sub").textContent = U.sub;
+  $("t-quizline").innerHTML = U.quizline;
+  $("t-quizbtn").textContent = U.quizbtn;
+  $("t-exploreline").innerHTML = U.exploreline;
+  $("t-explorebtn").textContent = U.explorebtn;
+  $("t-parline").innerHTML = U.parline;
+  $("t-parbtn").textContent = U.parbtn;
+  $("t-entline").innerHTML = U.entline;
+  $("t-entbtn").textContent = U.entbtn;
+  $("r1t").textContent = U.r1t; $("r1").textContent = U.r1;
+  $("r2t").textContent = U.r2t; $("r2").textContent = U.r2;
+  $("r3t").textContent = U.r3t; $("r3").textContent = U.r3;
+  $("t-pickC").textContent = U.pickC;
+  $("t-pickL").textContent = U.pickL;
+  $("search").placeholder = U.search;
+  $("empty").textContent = U.empty;
+  $("calT").textContent = U.calT;
+  $("calS").textContent = U.calS;
+  $("cal").innerHTML = U.cal.map(r =>
+    `<div class="cal-row"><b>${r[0]}</b><span>${r[1]}</span></div>`).join("");
+  $("lastT").textContent = U.lastT;
+  $("last").textContent = U.last;
+  $("t-disc").textContent = U.disc;
+  $("t-foot").innerHTML = U.foot;
+
+  $("countries").innerHTML = CTY_ORDER.map(c =>
+    `<button class="fbtn${c===pass?" on":""}" data-c="${c}">${CTY[c][lang]}</button>`).join("");
+  $("countries").querySelectorAll(".fbtn").forEach(b =>
+    b.addEventListener("click", () => { pass = b.dataset.c; applyChrome(); render(); }));
+
+  $("levels").innerHTML =
+    `<button class="fbtn${level==="ug"?" on":""}" data-l="ug">${U.lvlUg}</button>` +
+    `<button class="fbtn${level==="pg"?" on":""}" data-l="pg">${U.lvlPg}</button>`;
+  $("levels").querySelectorAll(".fbtn").forEach(b =>
+    b.addEventListener("click", () => { level = b.dataset.l; applyChrome(); render(); }));
+
+  $("r3box").style.display = (pass === "exp") ? "block" : "none";
+}
+
+function render(){
+  const U = UI[lang];
+  let html = "", total = 0;
+  SECTIONS.forEach(sec => {
+    const list = forSection(sec);
+    if(!list.length) return;
+    total += list.length;
+    html += `<section class="grp"><h2 class="grp-t">${sec[lang].t}</h2>
+      <p class="grp-s">${sec[lang].s}</p>` +
+      list.map(s => card(s, U)).join("") + `</section>`;
+  });
+  $("list").innerHTML = html;
+  $("count").textContent = U.count(total);
+  $("empty").style.display = total ? "none" : "block";
+  $("list").querySelectorAll(".mhead").forEach(b =>
+    b.addEventListener("click", () => {
+      const c = document.getElementById("s-" + b.dataset.id);
+      const opening = !c.classList.contains("open");
+      c.classList.toggle("open");
+      if(opening && window.goatcounter && window.goatcounter.count){
+        try{ window.goatcounter.count({path:"sch-" + b.dataset.id, event:true}); }catch(e){}
+      }
+    }));
+  openFromHash();
+}
+
+function openFromHash(){
+  const h = (location.hash || "").replace("#", "");
+  if(!h) return;
+  const c = document.getElementById("s-" + h);
+  if(c && !c.classList.contains("open")){
+    c.classList.add("open");
+    setTimeout(()=>c.scrollIntoView({behavior:"smooth", block:"start"}), 60);
+  }
+}
+
+function guessPassport(){
+  try{
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    const map = {"Asia/Bahrain":"bh","Asia/Qatar":"qa","Asia/Riyadh":"sa",
+                 "Asia/Kuwait":"kw","Asia/Dubai":"ae","Asia/Muscat":"om"};
+    if(map[tz]) pass = map[tz];
+  }catch(e){}
+}
+
+$("langToggle").addEventListener("click", () => {
+  lang = lang === "en" ? "ar" : "en";
+  applyChrome(); render();
+});
+$("search").addEventListener("input", e => { query = e.target.value.trim(); render(); });
+window.addEventListener("hashchange", openFromHash);
+
+guessPassport();
+applyChrome();
+render();
+
+</script>
+<script>
+(function(){
+  function sync(){
+    var l = document.documentElement.lang === "ar" ? "ar" : "en";
+    var n = document.querySelectorAll("[data-en]");
+    for(var i=0;i<n.length;i++){ n[i].textContent = n[i].getAttribute("data-"+l); }
+  }
+  try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
+  document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
+  sync();
+})();
+</script>
+<script>
+/* MCLANG boot: applies the resolved language by driving the page's own toggle,
+   then remembers whatever the visitor lands on. */
+(function(){
+  var b = document.getElementById("langToggle");
+  if(!b) return;
+  if(mcInitLang() === "ar" && document.documentElement.lang !== "ar") b.click();
+  document.addEventListener("click", function(e){
+    if(e.target && e.target.id === "langToggle"){
+      setTimeout(function(){
+        mcSaveLang(document.documentElement.lang === "ar" ? "ar" : "en");
+      }, 0);
+    }
+  }, true);
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>

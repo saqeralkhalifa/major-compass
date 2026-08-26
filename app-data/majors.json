@@ -1,0 +1,412 @@
+{
+"med": {
+"en": "Medicine",
+"ar": "الطب البشري",
+"g": "health"
+},
+"dent": {
+"en": "Dentistry",
+"ar": "طب الأسنان",
+"g": "health"
+},
+"pharm": {
+"en": "Pharmacy",
+"ar": "الصيدلة",
+"g": "health"
+},
+"nurs": {
+"en": "Nursing",
+"ar": "التمريض",
+"g": "health"
+},
+"biomed": {
+"en": "Biomedical & Lab Science",
+"ar": "العلوم الطبية المخبرية",
+"g": "health"
+},
+"physio": {
+"en": "Physiotherapy & Sports Science",
+"ar": "العلاج الطبيعي وعلوم الرياضة",
+"g": "health"
+},
+"psych": {
+"en": "Psychology",
+"ar": "علم النفس",
+"g": "health"
+},
+"cs": {
+"en": "Computer Science & Software Engineering",
+"ar": "علوم الحاسوب وهندسة البرمجيات",
+"g": "tech"
+},
+"cyber": {
+"en": "Cybersecurity",
+"ar": "الأمن السيبراني",
+"g": "tech"
+},
+"data": {
+"en": "Data Science & Artificial Intelligence",
+"ar": "علوم البيانات والذكاء الاصطناعي",
+"g": "tech"
+},
+"netw": {
+"en": "Computer & Network Engineering",
+"ar": "هندسة الحاسوب والشبكات",
+"g": "tech"
+},
+"mech": {
+"en": "Mechanical Engineering",
+"ar": "الهندسة الميكانيكية",
+"g": "eng"
+},
+"elec": {
+"en": "Electrical & Electronics Engineering",
+"ar": "الهندسة الكهربائية والإلكترونية",
+"g": "eng"
+},
+"civil": {
+"en": "Civil Engineering",
+"ar": "الهندسة المدنية",
+"g": "eng"
+},
+"chem": {
+"en": "Chemical & Process Engineering",
+"ar": "الهندسة الكيميائية وهندسة العمليات",
+"g": "eng"
+},
+"indus": {
+"en": "Industrial Engineering",
+"ar": "الهندسة الصناعية",
+"g": "eng"
+},
+"renew": {
+"en": "Renewable Energy & Environmental Engineering",
+"ar": "الطاقة المتجددة وهندسة البيئة",
+"g": "eng"
+},
+"arch": {
+"en": "Architecture & Interior Design",
+"ar": "العمارة والتصميم الداخلي",
+"g": "eng"
+},
+"acct": {
+"en": "Accounting",
+"ar": "المحاسبة",
+"g": "biz"
+},
+"fin": {
+"en": "Banking & Finance (incl. Islamic Finance)",
+"ar": "المصارف والتمويل (ومنه التمويل الإسلامي)",
+"g": "biz"
+},
+"fintech": {
+"en": "Financial Technology (FinTech)",
+"ar": "التقنية المالية (فنتك)",
+"g": "biz"
+},
+"math": {
+"en": "Mathematics, Statistics & Actuarial Science",
+"ar": "الرياضيات والإحصاء والعلوم الاكتوارية",
+"g": "biz"
+},
+"bus": {
+"en": "Business Management",
+"ar": "إدارة الأعمال",
+"g": "biz"
+},
+"mkt": {
+"en": "Marketing & Digital Marketing",
+"ar": "التسويق والتسويق الرقمي",
+"g": "biz"
+},
+"logi": {
+"en": "Logistics & Supply Chain Management",
+"ar": "اللوجستيات وإدارة سلاسل الإمداد",
+"g": "biz"
+},
+"avia": {
+"en": "Aviation Management & Piloting",
+"ar": "إدارة الطيران وقيادة الطائرات",
+"g": "biz"
+},
+"law": {
+"en": "Law",
+"ar": "القانون",
+"g": "soc"
+},
+"media": {
+"en": "Mass Communication & Media",
+"ar": "الإعلام والاتصال الجماهيري",
+"g": "soc"
+},
+"design": {
+"en": "Graphic & Multimedia Design",
+"ar": "التصميم الجرافيكي والوسائط المتعددة",
+"g": "soc"
+},
+"edu": {
+"en": "Education (Teaching)",
+"ar": "التربية والتعليم",
+"g": "soc"
+},
+"tour": {
+"en": "Tourism & Hospitality Management",
+"ar": "إدارة السياحة والضيافة",
+"g": "soc"
+},
+"econ": {
+"en": "Economics",
+"ar": "الاقتصاد",
+"g": "biz"
+},
+"polsci": {
+"en": "Political Science",
+"ar": "العلوم السياسية",
+"g": "hum"
+},
+"intrel": {
+"en": "International Relations and Diplomacy",
+"ar": "العلاقات الدولية والدبلوماسية",
+"g": "hum"
+},
+"pubadmin": {
+"en": "Public Administration and Public Policy",
+"ar": "الإدارة العامة والسياسات العامة",
+"g": "hum"
+},
+"socio": {
+"en": "Sociology and Social Work",
+"ar": "علم الاجتماع والخدمة الاجتماعية",
+"g": "hum"
+},
+"history": {
+"en": "History and Archaeology",
+"ar": "التاريخ والآثار",
+"g": "hum"
+},
+"geog": {
+"en": "Geography and GIS",
+"ar": "الجغرافيا ونظم المعلومات الجغرافية",
+"g": "hum"
+},
+"philo": {
+"en": "Philosophy",
+"ar": "الفلسفة",
+"g": "hum"
+},
+"arabic": {
+"en": "Arabic Language and Literature",
+"ar": "اللغة العربية وآدابها",
+"g": "hum"
+},
+"english": {
+"en": "English Language, Literature and Translation",
+"ar": "اللغة الإنجليزية والأدب والترجمة",
+"g": "hum"
+},
+"islamic": {
+"en": "Islamic Studies and Sharia",
+"ar": "الدراسات الإسلامية والشريعة",
+"g": "hum"
+},
+"libinfo": {
+"en": "Library and Information Science",
+"ar": "علم المكتبات والمعلومات",
+"g": "hum"
+},
+"pubhealth": {
+"en": "Public Health",
+"ar": "الصحة العامة",
+"g": "health"
+},
+"nutrition": {
+"en": "Nutrition and Dietetics",
+"ar": "التغذية والحميات",
+"g": "health"
+},
+"radiology": {
+"en": "Radiology and Medical Imaging",
+"ar": "الأشعة والتصوير الطبي",
+"g": "health"
+},
+"speech": {
+"en": "Speech and Hearing Sciences",
+"ar": "علوم النطق والسمع",
+"g": "health"
+},
+"occtherapy": {
+"en": "Occupational Therapy",
+"ar": "العلاج الوظيفي",
+"g": "health"
+},
+"resptherapy": {
+"en": "Respiratory Therapy",
+"ar": "العلاج التنفسي",
+"g": "health"
+},
+"physics": {
+"en": "Physics",
+"ar": "الفيزياء",
+"g": "sci"
+},
+"chemistry": {
+"en": "Chemistry",
+"ar": "الكيمياء",
+"g": "sci"
+},
+"biology": {
+"en": "Biology and Life Sciences",
+"ar": "الأحياء وعلوم الحياة",
+"g": "sci"
+},
+"biotech": {
+"en": "Biotechnology",
+"ar": "التقنية الحيوية",
+"g": "sci"
+},
+"envsci": {
+"en": "Environmental Science",
+"ar": "علوم البيئة",
+"g": "sci"
+},
+"geology": {
+"en": "Geology and Earth Sciences",
+"ar": "الجيولوجيا وعلوم الأرض",
+"g": "sci"
+},
+"marinesci": {
+"en": "Marine Science and Fisheries",
+"ar": "علوم البحار والثروة السمكية",
+"g": "sci"
+},
+"petroleum": {
+"en": "Petroleum and Natural Gas Engineering",
+"ar": "هندسة البترول والغاز الطبيعي",
+"g": "eng"
+},
+"aero": {
+"en": "Aerospace and Aeronautical Engineering",
+"ar": "هندسة الطيران والفضاء",
+"g": "eng"
+},
+"robotics": {
+"en": "Robotics and Mechatronics Engineering",
+"ar": "هندسة الروبوتات والميكاترونكس",
+"g": "eng"
+},
+"biomedeng": {
+"en": "Biomedical Engineering",
+"ar": "الهندسة الطبية الحيوية",
+"g": "eng"
+},
+"marineeng": {
+"en": "Marine and Maritime Engineering",
+"ar": "الهندسة البحرية",
+"g": "eng"
+},
+"urbanplan": {
+"en": "Urban Planning",
+"ar": "التخطيط العمراني",
+"g": "eng"
+},
+"hr": {
+"en": "Human Resources Management",
+"ar": "إدارة الموارد البشرية",
+"g": "biz"
+},
+"mis": {
+"en": "Management Information Systems",
+"ar": "نظم المعلومات الإدارية",
+"g": "biz"
+},
+"entrep": {
+"en": "Entrepreneurship",
+"ar": "ريادة الأعمال",
+"g": "biz"
+},
+"insurance": {
+"en": "Insurance and Risk Management",
+"ar": "التأمين وإدارة المخاطر",
+"g": "biz"
+},
+"healthmgmt": {
+"en": "Healthcare Management",
+"ar": "إدارة الرعاية الصحية",
+"g": "biz"
+},
+"fashion": {
+"en": "Fashion Design",
+"ar": "تصميم الأزياء",
+"g": "soc"
+},
+"finearts": {
+"en": "Fine Arts and Visual Arts",
+"ar": "الفنون الجميلة والبصرية",
+"g": "soc"
+},
+"animation": {
+"en": "Animation and Game Design",
+"ar": "الرسوم المتحركة وتصميم الألعاب",
+"g": "soc"
+},
+"journalism": {
+"en": "Journalism",
+"ar": "الصحافة",
+"g": "soc"
+},
+"pr": {
+"en": "Advertising and Public Relations",
+"ar": "الإعلان والعلاقات العامة",
+"g": "soc"
+},
+"sportmgmt": {
+"en": "Sport Management",
+"ar": "إدارة الرياضة",
+"g": "soc"
+},
+"music": {
+"en": "Music and Performing Arts",
+"ar": "الموسيقى والفنون الأدائية",
+"g": "soc"
+},
+"vet": {
+"en": "Veterinary Medicine",
+"ar": "الطب البيطري",
+"g": "health"
+},
+"optometry": {
+"en": "Optometry",
+"ar": "البصريات",
+"g": "health"
+},
+"ems": {
+"en": "Emergency Medical Services and Paramedic Science",
+"ar": "الخدمات الطبية الطارئة والإسعاف",
+"g": "health"
+},
+"healthinfo": {
+"en": "Health Information Management and Health Informatics",
+"ar": "إدارة المعلومات الصحية والمعلوماتية الصحية",
+"g": "health"
+},
+"agri": {
+"en": "Agriculture and Food Science",
+"ar": "العلوم الزراعية والغذائية",
+"g": "sci"
+},
+"mining": {
+"en": "Mining and Geo-engineering",
+"ar": "هندسة التعدين والجيوتقنية",
+"g": "eng"
+},
+"nuclear": {
+"en": "Nuclear Engineering",
+"ar": "الهندسة النووية",
+"g": "eng"
+},
+"quantsurv": {
+"en": "Quantity Surveying and Construction Management",
+"ar": "مسح الكميات وإدارة التشييد",
+"g": "eng"
+}
+}

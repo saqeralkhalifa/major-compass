@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<script src="app-early.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The thing you want to avoid | Major Compass</title>
+<meta name="description" content="Blood, mathematics, public speaking, routine desk work or physical work: what each one closes, what it does not, and which routes are still open to a student in Bahrain and the Gulf.">
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="alternate" hreflang="en" href="routes.html?lang=en">
+<link rel="alternate" hreflang="ar" href="routes.html?lang=ar">
+<link rel="alternate" hreflang="x-default" href="routes.html">
+<script>
+/* MCLANG: one language resolver shared by every Major Compass page.
+   Order: ?lang= in the URL, then the visitor's saved choice, then the browser. */
+function mcInitLang(){
+  try{
+    var q = (location.search.match(/[?&]lang=(ar|en)\b/) || [])[1];
+    if(q) return q;
+    var s = window.localStorage && localStorage.getItem("mc-lang");
+    if(s === "ar" || s === "en") return s;
+    var n = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    if(/^ar/i.test(n)) return "ar";
+  }catch(e){}
+  return "en";
+}
+function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
+</script>
+
+<link rel="stylesheet" href="theme.css">
+<style>
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{line-height:1.8; min-height:100vh;}
+  .wrap{max-width:840px; margin:0 auto; padding:0 22px 80px;}
+  .serif{font-family:Georgia,'Times New Roman',serif;}
+
+  header.site{display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0 14px; border-bottom:1px solid var(--line);}
+  .brand{font-size:.95rem; color:var(--ink-2); text-decoration:none;}
+  .lang-toggle{border:1px solid var(--line); background:var(--card); border-radius:999px;
+    padding:7px 16px; font-size:.95rem; cursor:pointer; color:var(--accent); font-weight:600; font-family:inherit;}
+
+  .hero{text-align:center; padding:44px 0 6px;}
+  .kicker{font-size:.8rem; letter-spacing:.16em; text-transform:uppercase; font-weight:800; margin-bottom:12px;}
+  .hero h1{font-size:2.2rem; line-height:1.28; margin-bottom:12px;}
+  .hero p.sub{color:var(--ink-2); font-size:1.1rem; max-width:660px; margin:0 auto;}
+
+  .lede{font-size:1.06rem; line-height:1.8; color:var(--ink); margin:32px 0 6px;
+    padding:22px 26px; background:var(--card); border:1px solid var(--line);}
+
+  .chap{margin-top:44px; padding-top:26px; border-top:2px solid var(--line);}
+  .chap h2{font-size:1.5rem; line-height:1.3; margin-bottom:8px;}
+  .chap p.sub{color:var(--ink-2); margin-bottom:16px;}
+  .pt{background:var(--card); border:1px solid var(--line); padding:18px 22px; margin-bottom:10px;}
+  .pt b{display:block; font-size:1.02rem; margin-bottom:5px;}
+  .pt span{color:var(--ink-2); font-size:.97rem; line-height:1.8; display:block;}
+
+  /* ---- picker ---- */
+  .picker{margin-top:42px; padding-top:24px; border-top:2px solid var(--line);}
+  .picker h2{font-size:1.2rem; margin-bottom:12px;}
+  .chips{display:flex; gap:8px; flex-wrap:wrap;}
+  .chip{border:1px solid var(--line-2); background:var(--card); color:var(--ink-2);
+    padding:9px 15px; font-size:.92rem; font-weight:500; cursor:pointer; font-family:inherit; text-align:start;}
+
+  /* ---- panel ---- */
+  .lead-note{font-size:1.05rem; line-height:1.8; color:var(--ink); margin:22px 0 18px;
+    padding:18px 22px; background:var(--paper-2); border:1px solid var(--line);}
+  .blk{padding:16px 0; border-top:1px solid var(--line);}
+  .blk h3{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+    font-weight:700; margin-bottom:6px;}
+  .blk p{color:var(--ink-2); font-size:1rem; line-height:1.8;}
+  .sech{font-size:1.15rem; margin:34px 0 12px; padding-top:20px; border-top:2px solid var(--line);}
+  .sech.warn{color:var(--bad);}
+  .rt{background:var(--card); border:1px solid var(--line); padding:18px 22px; margin-bottom:10px;}
+  .rt b{display:block; font-size:1.05rem; margin-bottom:5px;}
+  .rt p{color:var(--ink-2); font-size:.97rem; line-height:1.8;}
+  .rt.trap{background:var(--bad-soft); border-color:var(--bad-line);}
+  .wh{margin-top:10px; padding-top:10px; border-top:1px dashed var(--line); font-size:.9rem; color:var(--ink-3); line-height:1.7;}
+  .wl{display:block; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent);
+    font-weight:700; margin-bottom:3px;}
+  .olink{display:inline-block; margin-top:10px; font-size:.9rem; font-weight:600; color:var(--accent);
+    border-bottom:1px solid var(--accent-line); text-decoration:none;}
+
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    background:var(--card); border:1px solid var(--line); padding:18px 22px; margin-top:12px;}
+  .bar p{color:var(--ink-2); font-size:.98rem; flex:1; min-width:230px;}
+  .btn{display:inline-block; background:var(--navy); color:#fff; text-decoration:none;
+    padding:11px 22px; font-weight:600; font-size:.95rem; white-space:nowrap;}
+  .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent-line);}
+
+  .srcbox{margin-top:40px; padding:22px 24px; background:var(--card); border:1px solid var(--line);}
+  .srcbox h2{font-size:1.05rem; margin-bottom:4px;}
+  .srcbox p.sub{font-size:.9rem; color:var(--ink-3); margin-bottom:12px;}
+  .srcbox ol{padding-inline-start:20px;}
+  .srcbox li{font-size:.9rem; color:var(--ink-2); margin-bottom:8px; line-height:1.7;}
+  .srcbox a{color:var(--accent); word-break:break-word;}
+
+  footer.site{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
+    font-size:.9rem; color:var(--ink-3); text-align:center;}
+  .disc{margin-bottom:8px;}
+/* ============================================================
+   Major Compass shared theme, option 2A
+   Ink and paper editorial, Newsreader display, brass accent.
+   Tokens mirror theme.css from the design handoff.
+   Square corners everywhere except the language pill.
+   No shadows, no gradients, no icons.
+   ============================================================ */
+:root{
+  --font-display:Newsreader, Georgia, 'Times New Roman', serif;
+  --font-body:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-ar:'IBM Plex Sans Arabic', 'IBM Plex Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+
+  --paper:#f6f3ec;
+  --paper-2:#efece4;
+  --card:#fbf9f4;
+  --line:#ddd7cb;
+  --line-2:#cfc9bd;
+
+  --ink:#14161a;
+  --ink-2:#33363c;
+  --ink-3:#6b6e74;
+
+  --navy:#14161a;
+  --navy-deep:#8a5a1e;
+  --accent:#8a5a1e;
+  --accent-soft:#efece4;
+  --accent-line:#cfc9bd;
+
+  --gold:#8a5a1e;
+  --gold-soft:#f0ebdf;
+  --gold-line:#ddd7cb;
+  --gold-bright:#d8b98a;
+
+  --good:#3f6b4f;  --good-soft:#eaefe9;  --good-line:#cfdbd0;
+  --warn:#8a5a1e;  --warn-soft:#f0ebdf;  --warn-line:#e2d9c6;
+  --bad:#8c3a30;   --bad-soft:#f4e9e5;   --bad-line:#e2cfc8;
+
+  --radius:0; --radius-sm:0;
+  --shadow:none; --shadow-lift:none;
+}
+
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+[dir="rtl"] body{font-family:var(--font-ar); line-height:1.95;}
+body::before{display:none !important;}
+
+/* ---------- display type: Newsreader 400, never bold serif ---------- */
+.serif, .chap h2, .cn, .stat-n, .minrow b, .grp-t, .grp h2, .panel h2,
+.srcbox h2, .majors-title, .hero h1, h1, h2, h3{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-variation-settings:normal;
+  letter-spacing:-.02em;
+}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .cn, [dir="rtl"] .stat-n,
+[dir="rtl"] .minrow b, [dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2,
+[dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title, [dir="rtl"] .hero h1,
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3{
+  font-family:var(--font-ar); letter-spacing:0; font-weight:600; line-height:1.35;
+}
+.stat-n, .minrow b, .cnt, td, th, .cal-row b{font-variant-numeric:tabular-nums;}
+::selection{background:var(--paper-2); color:var(--ink);}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px; border-radius:0;
+}
+
+/* ---------- the shared dark nav ---------- */
+.mc-nav{
+  background:var(--ink); color:var(--paper);
+  position:sticky; top:0; z-index:40;
+}
+.mc-nav-inner{
+  max-width:900px; margin:0 auto; padding:13px 22px;
+  display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+}
+.mc-brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; color:var(--paper); min-width:0;}
+.mc-brand b{font-family:var(--font-display); font-size:17px; font-weight:400; letter-spacing:-.01em; white-space:nowrap;}
+[dir="rtl"] .mc-brand b{font-family:var(--font-ar); font-weight:600; letter-spacing:0;}
+.mc-brand span{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#9a9da3; white-space:nowrap;}
+[dir="rtl"] .mc-brand span{letter-spacing:0; text-transform:none; font-size:12px;}
+.mc-nav-links{
+  display:flex; gap:20px; font-size:12px; letter-spacing:.06em; align-items:center;
+  overflow-x:auto; scrollbar-width:none; flex:1 1 auto; justify-content:center;
+}
+.mc-nav-links::-webkit-scrollbar{display:none;}
+[dir="rtl"] .mc-nav-links{letter-spacing:0; font-size:13px;}
+.mc-nav-links a{
+  color:#c9ccd2; text-decoration:none; white-space:nowrap; padding-bottom:2px;
+  border-bottom:1px solid transparent; transition:color .15s, border-color .15s;
+}
+.mc-nav-links a:hover{color:var(--paper);}
+.mc-nav-links a[aria-current="page"]{color:var(--paper); border-bottom-color:var(--accent);}
+.mc-nav .lang-toggle{
+  flex:0 0 auto; border:1px solid var(--accent); background:var(--accent); border-radius:999px;
+  padding:6px 17px; font-size:13px; letter-spacing:.04em; font-weight:600;
+  color:#fbf9f4; cursor:pointer; font-family:var(--font-body);
+  transition:background .15s, color .15s, border-color .15s;
+}
+.mc-nav .lang-toggle:hover{background:var(--paper); color:var(--ink); border-color:var(--paper);}
+@media (max-width:640px){
+  .mc-nav-inner{padding:11px 18px; gap:10px;}
+  .mc-nav-links{justify-content:flex-start; order:3; width:100%; gap:16px; padding-bottom:2px;}
+}
+@media print{ .mc-nav{display:none;} }
+
+/* the old in-page masthead and pill switcher are replaced by .mc-nav */
+header.site, nav.toolnav{display:none !important;}
+
+/* ---------- page header ---------- */
+.hero, .res-head{position:relative;}
+.hero::before{display:none !important;}
+.hero{padding-top:52px;}
+.hero h1{font-size:clamp(34px, 5.4vw, 52px); line-height:1.04; font-weight:400;}
+[dir="rtl"] .hero h1{line-height:1.35; font-weight:600;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+.kicker, .eyebrow{
+  color:var(--accent); font-weight:600; font-size:11px;
+  letter-spacing:.18em; text-transform:uppercase;
+}
+[dir="rtl"] .kicker, [dir="rtl"] .eyebrow{letter-spacing:0; text-transform:none; font-size:13px;}
+
+/* ---------- surfaces: square, flat, ruled ---------- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .lede, .stat, .nextbox,
+.m, .fact, .pt, .bar, .quizbar, .cta-inline, .rule, .checked, .hedge, .extra, .flag,
+.note, .card, .grp{
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .stat, .nextbox, .m, .fact{
+  background:var(--card); border:1px solid var(--line-2);
+}
+.mcard:hover, .pcard:hover, .m:hover{border-color:var(--ink-3);}
+.pcard{border-inline-start-width:2px; border-inline-start-color:var(--accent);}
+.lede{background:var(--card); border:1px solid var(--line-2);
+  border-inline-start:2px solid var(--accent) !important; border-inline-end:1px solid var(--line-2) !important;}
+
+/* ---------- buttons ---------- */
+.btn{
+  background:var(--ink); border:1px solid var(--ink); border-radius:0;
+  font-weight:500; letter-spacing:0; color:var(--paper); box-shadow:none;
+  transition:background .15s, border-color .15s, color .15s;
+}
+.btn:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:none; filter:none; box-shadow:none;}
+.btn.ghost, .btn.secondary{
+  background:transparent; color:var(--ink); border:1px solid var(--ink); box-shadow:none;
+}
+.btn.ghost:hover, .btn.secondary:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+.printbtn{border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);}
+.printbtn:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+
+/* filter chips and pickers: square, ruled */
+.fbtn, .chip, .navbtn, .picker button, .filters button{
+  border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);
+  box-shadow:none; transition:background .15s, color .15s, border-color .15s;
+}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--ink); color:var(--ink); background:transparent; transform:none;}
+.fbtn.on, .chip.on, .navbtn.on{
+  background:var(--ink); border-color:var(--ink); color:var(--paper); font-weight:500; box-shadow:none;
+}
+input[type="text"], input[type="search"], select, textarea, .srch{
+  border-radius:0 !important; border:1px solid var(--line-2); background:var(--card);
+  font-family:var(--font-body); color:var(--ink);
+}
+[dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
+
+/* ---------- bars and callouts: flat bands, no gradients ---------- */
+.bar, .quizbar, .cta-inline{
+  background:var(--paper-2); border:1px solid var(--line); border-radius:0;
+}
+.rule, .checked, .hedge, .extra, .flag{border-radius:0;}
+.rule.w, .checked, .hedge, .extra, .flag{background:var(--warn-soft); border-color:var(--warn-line);}
+.rule.b{background:var(--bad-soft); border-color:var(--bad-line);}
+.rule.n{background:var(--paper-2); border-color:var(--line);}
+.row.act{background:var(--paper-2) !important; border-color:var(--line) !important;}
+
+/* ---------- band chips and verdict pills keep meaning, lose gloss ---------- */
+.band{border-radius:0; font-weight:600;}
+
+/* ---------- section labels ---------- */
+.sec h3, .lbl, .toc h2, .row h4{
+  letter-spacing:.14em; font-weight:600; text-transform:uppercase; font-size:11px; color:var(--ink-3);
+}
+[dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2, [dir="rtl"] .row h4{
+  letter-spacing:0; text-transform:none; font-size:13px;
+}
+
+/* ---------- tables ---------- */
+table{border-collapse:collapse;}
+th{
+  text-align:start; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:600; padding:12px 14px; border-bottom:1px solid var(--ink);
+}
+[dir="rtl"] th{letter-spacing:0; text-transform:none; font-size:13px;}
+td{padding:14px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top; font-size:14px;}
+
+/* ---------- footer ---------- */
+footer.site{
+  margin-top:56px; padding:26px 0 0; border-top:1px solid var(--line); color:var(--ink-3); font-size:13px;
+}
+footer.site a{color:var(--accent); font-weight:500;}
+
+
+/* ---- 2A refinements ---- */
+input, button, select, textarea{border-radius:0;}
+.lang-toggle, .mc-nav .lang-toggle{border-radius:999px;}
+.pt{border-inline-start-width:2px !important;}
+.compass, .emoji{display:none !important;}
+.opt{border-radius:0 !important;}
+.opt.selected{background:var(--paper-2); border-color:var(--ink);}
+.band{border-radius:0 !important;}
+hr{border:0; border-top:1px solid var(--line);}
+
+/* ---- 2A: square the remaining pills, protect quiz progress ---- */
+.section-chip, .progress-bar, .progress-fill, .bar-fill, .chip, .meta-chips .chip,
+.tag, .pill, .badge, .cta, .startbtn{border-radius:0 !important;}
+.section-chip{background:var(--paper-2); color:var(--accent); border:1px solid var(--line);
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:5px 12px;}
+[dir="rtl"] .section-chip{letter-spacing:0; text-transform:none; font-size:13px;}
+body:has(#screen-quiz.active) .mc-nav-links{display:none;}
+
+/* ---- 2A: square corners everywhere except the language pill ---- */
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:0 !important;}
+.lang-toggle{border-radius:999px !important;}
+.subj, .tag, .chip{
+  background:transparent !important; border:1px solid var(--line-2) !important;
+  color:var(--ink-2) !important; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  padding:4px 9px !important; font-weight:500;
+}
+[dir="rtl"] .subj, [dir="rtl"] .tag, [dir="rtl"] .chip{letter-spacing:0; text-transform:none; font-size:13px;}
+.mrank{
+  background:transparent !important; border:0 !important; width:auto !important; height:auto !important;
+  font-family:var(--font-display); font-size:22px; font-weight:400; color:var(--accent) !important;
+  box-shadow:none !important; min-width:28px;
+}
+[dir="rtl"] .mrank{font-family:var(--font-ar); font-weight:600;}
+html{scroll-padding-top:76px;}
+.wrap [id], .m, .mcard{scroll-margin-top:76px;}
+
+@media (max-width:520px){
+  .hero h1{font-size:clamp(28px, 8vw, 36px);}
+}
+
+/* ---- nav: links back to the main site and the book ---- */
+.mc-nav-inner{max-width:1160px !important; gap:14px; flex-wrap:nowrap;}
+.mc-nav-links{gap:17px; justify-content:center; min-width:0;}
+@media (max-width:1100px){ .mc-brand span{display:none;} }
+@media (max-width:760px){
+  .mc-nav-inner{flex-wrap:wrap;}
+  .mc-nav-links{order:3; width:100%; justify-content:flex-start;}
+}
+.mc-nav-right{display:flex; align-items:center; gap:14px; flex:0 0 auto;}
+.mc-site{
+  color:#9a9da3; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;
+}
+.mc-site:hover{color:var(--paper); border-bottom-color:#3a3d43;}
+[dir="rtl"] .mc-site{letter-spacing:0; font-size:13px;}
+.mc-book{
+  color:#d8b98a; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  border:1px solid rgba(216,185,138,.45); padding:6px 13px; transition:background .15s, color .15s, border-color .15s;
+}
+.mc-book:hover{background:#d8b98a; color:var(--ink); border-color:#d8b98a;}
+[dir="rtl"] .mc-book{letter-spacing:0; font-size:13px;}
+@media (max-width:860px){ .mc-site{display:none;} }
+@media (max-width:640px){
+  .mc-nav-right{gap:9px;}
+  .mc-book{padding:5px 10px;}
+}
+</style>
+
+<style>
+/* ================= THEME 2a MAJLIS, BLUE BAND =================
+   The same look as saqeralkhalifa.com, internships and gigs: cream
+   paper, one deep blue band, gold for emphasis, EB Garamond.
+   Radius 2px. No shadows, no gradients. Palette is the contrast
+   corrected one of 14 August 2026. This block is last in <head>
+   on purpose: it overrides the older 2A block above it. */
+:root{
+  --font-display:'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-body:'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-ar:'Noto Naskh Arabic', 'EB Garamond', Georgia, serif;
+  --font-label:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --paper:#FAF5EA; --paper-2:#EFE4CE; --card:#FFFBF2;
+  --line:#E2D5BB; --line-2:#D3C0A0;
+  --ink:#4A3728; --ink-2:#6B5B47; --ink-3:#6F5D4A;
+  --band:#152A55; --band-line:#2E4477; --royal:#1E3A78;
+  --on-band:#F3EADA; --on-band-muted:#9AAAD0; --on-band-link:#D3DCEF;
+  --gold:#C09A45; --gold-dark:#7D5F27;
+
+  --navy:#152A55; --navy-deep:#1E3A78;
+  --accent:#1E3A78; --accent-soft:#EFE4CE; --accent-line:#D3C0A0;
+  --gold-soft:#EFE4CE; --gold-line:#E2D5BB; --gold-bright:#C09A45;
+  --good:#3F6B4F; --good-soft:#EAEFE3; --good-line:#C9D6C2;
+  --warn:#7D5F27; --warn-soft:#F5ECDA; --warn-line:#E2D5BB;
+  --bad:#8C3A30; --bad-soft:#F4E7E1; --bad-line:#E2CBC1;
+  --radius:2px; --radius-sm:2px; --shadow:none; --shadow-lift:none;
+
+  --mc-paper:#FAF5EA; --mc-band:#EFE4CE; --mc-card:#FFFBF2;
+  --mc-ink:#4A3728; --mc-ink-2:#6B5B47; --mc-ink-3:#6F5D4A; --mc-muted:#6F5D4A;
+  --mc-rule:#E2D5BB; --mc-border:#D3C0A0;
+  --mc-accent:#1E3A78; --mc-accent-dim:#C09A45;
+  --mc-on-dark:#F3EADA; --mc-on-dark-2:#9AAAD0; --mc-dark-rule:#2E4477;
+  --mc-serif:'EB Garamond', Georgia, serif;
+  --mc-sans:'EB Garamond', Georgia, serif;
+  --mc-arabic:'Noto Naskh Arabic', 'EB Garamond', serif;
+}
+body{background:var(--paper); color:var(--ink); font-family:var(--font-body); font-size:18px; line-height:1.7;}
+[dir="rtl"] body{font-family:var(--font-ar); line-height:1.9;}
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:2px !important;}
+.lang-toggle, .mc-nav .lang-toggle{border-radius:2px !important;}
+.serif, .chap h2, .cn, .stat-n, .minrow b, .grp-t, .grp h2, .panel h2, .srcbox h2, .majors-title,
+.hero h1, h1, h2, h3, .mc-brand b{font-family:var(--font-display); font-weight:400; letter-spacing:0; color:var(--band);}
+[dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .cn, [dir="rtl"] .stat-n, [dir="rtl"] .minrow b,
+[dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2, [dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title,
+[dir="rtl"] .hero h1, [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] .mc-brand b{
+  font-family:var(--font-ar); font-weight:600; letter-spacing:0; line-height:1.35;}
+a{color:var(--accent);}
+::selection{background:var(--paper-2); color:var(--band);}
+:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{outline:2px solid var(--gold-dark); outline-offset:2px;}
+button, input, select, textarea{font-family:var(--font-body);}
+[dir="rtl"] button, [dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
+
+/* ---- labels: IBM Plex Mono uppercase, like the main site ---- */
+.kicker, .eyebrow, .sec h3, .lbl, .toc h2, .row h4, th, .controls h2, .section-chip, .subj, .tag,
+.mc-brand span, .mc-site, .mc-book, .ml, .wl, .count, .badge, .pill{font-family:var(--font-label);}
+[dir="rtl"] .kicker, [dir="rtl"] .eyebrow, [dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2,
+[dir="rtl"] .row h4, [dir="rtl"] th, [dir="rtl"] .controls h2, [dir="rtl"] .section-chip, [dir="rtl"] .subj,
+[dir="rtl"] .tag, [dir="rtl"] .mc-site, [dir="rtl"] .mc-book, [dir="rtl"] .ml, [dir="rtl"] .wl,
+[dir="rtl"] .count, [dir="rtl"] .badge, [dir="rtl"] .pill{font-family:var(--font-ar);}
+.kicker, .eyebrow{color:var(--gold-dark); font-weight:500; font-size:12px; letter-spacing:.2em;}
+.sec h3, .lbl, .toc h2, .row h4, .controls h2{color:var(--gold-dark); font-weight:500;}
+.section-chip{background:var(--paper-2); color:var(--gold-dark); border:1px solid var(--line);}
+
+/* ---- masthead: the blue band ---- */
+.mc-nav{background:var(--band); color:var(--on-band); border-bottom:1px solid var(--band-line);}
+.mc-brand, .mc-brand b{color:var(--on-band);}
+.mc-brand b{font-weight:600; font-size:21px;}
+.mc-brand span{color:var(--gold); font-size:10.5px; letter-spacing:.12em;}
+.mc-brand{gap:12px; flex:0 0 auto;}
+.mc-nav-links{font-family:var(--font-body); font-size:15px; letter-spacing:0; gap:15px;}
+[dir="rtl"] .mc-nav-links{font-family:var(--font-ar); font-size:15px;}
+.mc-nav-links a{color:var(--on-band-link); border-bottom:1px solid transparent;}
+.mc-nav-links a:hover{color:var(--on-band);}
+.mc-nav-links a[aria-current="page"]{color:var(--gold); border-bottom-color:var(--gold);}
+.mc-site{color:var(--on-band-muted); font-size:12px;}
+.mc-site:hover{color:var(--on-band); border-bottom-color:var(--band-line);}
+.mc-book{color:var(--gold); border:1px solid var(--gold); font-size:12px; padding:6px 12px;}
+.mc-book:hover{background:var(--gold); color:var(--band); border-color:var(--gold);}
+.mc-nav .lang-toggle{background:var(--gold); border:1px solid var(--gold); color:var(--band);
+  font-family:var(--font-label); font-weight:600; letter-spacing:.06em; padding:6px 14px;}
+.mc-nav .lang-toggle:hover{background:var(--on-band); border-color:var(--on-band); color:var(--band);}
+@media (max-width:1560px){ .mc-brand span{display:none;} }
+@media (max-width:1360px){ .mc-site{display:none;} }
+
+/* ---- page header ---- */
+.hero h1{color:var(--band); font-weight:400;}
+.hero p, .hero p.sub{color:var(--ink-2);}
+
+/* ---- surfaces ---- */
+.panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .stat, .nextbox, .m, .fact, .pt, .card, .grp,
+.rt, .opp, .lede, .parentbox, .crossbox{background:var(--card); border-color:var(--line-2);}
+.mcard:hover, .pcard:hover, .m:hover, .rt:hover, .card:hover{border-color:var(--gold);}
+.pcard, .lede, .pt{border-inline-start-color:var(--gold) !important;}
+.bar, .quizbar, .cta-inline, .found, .wh, .evnote, .gaps{background:var(--paper-2); border-color:var(--line);}
+.rule.w, .checked, .hedge, .extra, .flag{background:var(--warn-soft); border-color:var(--warn-line);}
+.rule.b{background:var(--bad-soft); border-color:var(--bad-line);}
+.rule.n, .row.act{background:var(--paper-2) !important; border-color:var(--line) !important;}
+hr{border-top-color:var(--line);}
+
+/* ---- buttons ---- */
+.btn, .startbtn, .cta, button.primary, .navbtn.next{
+  background:var(--band); border:1px solid var(--band); color:var(--on-band); font-weight:500; letter-spacing:0;
+  font-family:var(--font-body); text-transform:none;}
+.btn:hover, .startbtn:hover, .cta:hover, .navbtn.next:hover{background:var(--royal); border-color:var(--royal); color:var(--on-band);}
+.btn.ghost, .btn.secondary, .printbtn{background:transparent; color:var(--band); border:1px solid var(--band);}
+.btn.ghost:hover, .btn.secondary:hover, .printbtn:hover{background:var(--band); border-color:var(--band); color:var(--on-band);}
+[dir="rtl"] .btn, [dir="rtl"] .startbtn, [dir="rtl"] .cta{font-family:var(--font-ar);}
+
+/* ---- chips, filters, quiz options ---- */
+.fbtn, .chip, .navbtn, .picker button, .filters button{
+  border:1px solid var(--line-2) !important; background:transparent !important; color:var(--ink) !important;
+  font-family:var(--font-body); font-size:15px; letter-spacing:0; text-transform:none;}
+[dir="rtl"] .fbtn, [dir="rtl"] .chip, [dir="rtl"] .navbtn{font-family:var(--font-ar);}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--band) !important; color:var(--band) !important;}
+.fbtn.on, .chip.on, .navbtn.on{background:var(--band) !important; border-color:var(--band) !important; color:var(--on-band) !important;}
+.subj, .tag{background:transparent !important; border:1px solid var(--line-2) !important; color:var(--ink-3) !important;
+  font-size:10.5px; letter-spacing:.14em;}
+[dir="rtl"] .subj, [dir="rtl"] .tag{font-size:13px; letter-spacing:0;}
+.opt{background:var(--card); border-color:var(--line-2); color:var(--ink);}
+.opt:hover{border-color:var(--band);}
+.opt.selected{background:var(--paper-2); border-color:var(--band); color:var(--band);}
+.progress-bar, .bar-track{background:var(--paper-2);}
+.progress-fill, .bar-fill{background:var(--band);}
+input[type="text"], input[type="search"], select, textarea, .srch{border:1px solid var(--line-2); background:var(--card); color:var(--ink);}
+.mrank{color:var(--gold-dark) !important; font-family:var(--font-display);}
+[dir="rtl"] .mrank{font-family:var(--font-ar);}
+
+/* ---- tables ---- */
+th{color:var(--gold-dark); border-bottom:1px solid var(--band); font-weight:500;}
+td{border-bottom:1px solid var(--line); color:var(--ink);}
+
+/* ---- footer ---- */
+footer.site{border-top:1px solid var(--line); color:var(--ink-3);}
+footer.site a{color:var(--accent);}
+
+@media (max-width:760px){ .mc-brand b{font-size:18px;} }
+</style>
+<style id="wpbar-css">
+/* WPBAR: the exact site header from saqeralkhalifa.com, replicated for the tool sites. */
+.wpbar{background:#152A55;font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
+.wpbar-in{margin-left:40px;margin-right:40px;padding-top:14px;padding-bottom:14px;padding-left:min(104px,8vw);padding-right:min(104px,8vw);}
+.wpbar-row{width:100%;max-width:1280px;margin-left:auto;margin-right:auto;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;direction:ltr;}
+.wpright{display:flex;align-items:flex-start;gap:20px;}
+html[lang="ar"] .wpright{direction:rtl;}
+.wpbrand{font-size:20px;line-height:33px;margin-top:-1px;margin-bottom:1px;font-weight:500;color:#F3EADA;text-decoration:none;letter-spacing:.2px;white-space:nowrap;border:0;}
+.wpnav{display:flex;align-items:flex-start;gap:20px;flex-wrap:nowrap;margin-top:4px;line-height:19px;}
+.wpdd{line-height:19px;}
+.wpnav-ar{direction:rtl;font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+html[lang="ar"] .wpnav-en{display:none;}
+html:not([lang="ar"]) .wpnav-ar{display:none;}
+.wpitem{display:flex;align-items:center;font-size:15px;font-weight:500;color:#F3EADA;text-decoration:none;white-space:nowrap;border:0;line-height:19px;}
+.wpnav-ar .wpitem{font-size:15px;font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+.wpitem:hover{color:#C09A45;}
+.wplang{background:none;border:0;cursor:pointer;padding:0;margin-top:4px;font-family:'EB Garamond',Georgia,'Times New Roman',serif !important;line-height:19px;}
+.wpcaret{width:10.8px;height:10.8px;margin:0 0 0 4.5px;position:relative;top:3px;flex:none;}
+.wpcaret path{stroke:#F3EADA;}
+.wpitem:hover .wpcaret path{stroke:#C09A45;}
+.wpnav-ar .wpcaret{margin:0 4.5px 0 0;}
+.wpdd{position:relative;}
+.wpmenu{display:none;position:absolute;top:100%;left:-14px;padding-top:10px;min-width:250px;z-index:300;}
+.wpnav-ar .wpmenu{left:auto;right:-14px;text-align:right;}
+.wpdd:hover .wpmenu,.wpdd:focus-within .wpmenu{display:block;}
+.wpmenu > a{display:block;background:#152A55;border:1px solid rgba(0,0,0,.15);border-top:0;padding:9px 16px;font-size:18px;line-height:1.65;color:#F3EADA;text-decoration:none;white-space:nowrap;font-weight:500;}
+.wpmenu > a:first-child{border-top:1px solid #2E4477;border-radius:2px 2px 0 0;}
+.wpmenu > a:last-child{border-radius:0 0 2px 2px;}
+.wpmenu > a:hover{color:#C09A45;}
+.wpburger{display:none;background:none;border:0;padding:0;color:#F3EADA;font-size:20px;line-height:24px;cursor:pointer;}
+.wpburger:hover{color:#C09A45;}
+.wpmob{display:none;}
+.wpmob-nav a{display:block;color:#F3EADA;text-decoration:none;font-weight:500;font-family:'EB Garamond',Georgia,serif;}
+.wpmob-nav a.wpmob-top{font-size:19px;padding:12px 20px 12px 20px;border-top:1px solid #2E4477;margin-top:10px;}
+.wpmob-nav a.wpmob-top:first-child{border-top:0;margin-top:0;}
+.wpmob-nav a.wpmob-sub{font-size:16px;padding:7px 20px 7px 38px;color:#CBD5EA;}
+.wpmob-nav a:hover{color:#C09A45;}
+.wpmob-ar{direction:rtl;text-align:right;}
+.wpmob-ar a{font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
+.wpmob-ar a.wpmob-sub{padding:8px 38px 8px 20px;}
+html[lang="ar"] .wpmob-en{display:none;}
+html:not([lang="ar"]) .wpmob-ar{display:none;}
+@media (max-width:1149px){
+.wpbar-in{margin-left:0;margin-right:0;padding:9px 18px;}
+.wpbar-row{max-width:none;align-items:center;gap:14px;}
+.wpright{align-items:center;gap:14px;}
+.wpnav{display:none !important;}
+.wpbrand{margin-right:auto;}
+html[lang="ar"] .wpbrand{margin-right:0;margin-left:auto;}
+.wplang{margin-top:0;}
+.wpburger{display:block;}
+.wpbar.open .wpmob{display:block;background:#152A55;border-top:1px solid #2E4477;max-height:calc(100vh - 51px);overflow-y:auto;}
+}
+
+</style>
+</head>
+<body>
+<div class="wpbar" id="wpbar"><div class="wpbar-in"><div class="wpbar-row"><a class="wpbrand" href="https://saqeralkhalifa.com/">Dr. Saqer AlKhalifa</a><div class="wpright"><nav class="wpnav wpnav-en"><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/major-compass/">For Students<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="quiz.html">Major Compass Quiz</a><a href="explore.html">Every Major Explained</a><a href="entry.html">Entry Requirements</a><a href="scholarships.html">Scholarships and Funding</a><a href="parents.html">Parent Guide</a><a href="ai.html">AI and Your Major</a><a href="routes.html">What a Dealbreaker Closes</a><a href="alternatives.html">Routes Without a Degree</a><a href="internships.html?lang=en">Internships</a><a href="cv.html?lang=en">Build a CV</a></div></div><div class="wpdd"><a class="wpitem" href="https://gigs.saqeralkhalifa.com/?lang=en">For Job Seekers<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://gigs.saqeralkhalifa.com/?lang=en">Gigs Board</a><a href="https://gigs.saqeralkhalifa.com/?lang=en#jobs">Full-time Jobs</a><a href="internships.html?lang=en">Internships</a><a href="cv.html?lang=en">Build a CV</a><a href="https://saqeralkhalifa.com/post-a-gig/">Post a Gig</a><a href="https://saqeralkhalifa.com/find-work/">Find Work</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/#book">Shackles of Democracy<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/#book">The Book</a><a href="https://saqeralkhalifa.com/first-chapter/">First Chapter Free</a><a href="https://saqeralkhalifa.com/#formats">Choose Your Format</a><a href="https://saqeralkhalifa.com/#stores">Where to Buy</a><a href="https://saqeralkhalifa.com/check/">The Data</a><a href="https://saqeralkhalifa.com/arabic/">Arabic Edition</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/the-trust-trap/">The Trust Trap<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/the-trust-trap/">About the Book</a><a href="https://saqeralkhalifa.com/the-trust-trap/#chapters">Inside the Book</a><a href="https://saqeralkhalifa.com/the-trust-trap/#resources">Free Resources</a><a href="https://saqeralkhalifa.com/the-trust-trap/#faq">Questions</a><a href="https://saqeralkhalifa.com/the-trust-trap/#buy">Where to Buy</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/#author">About</a><a class="wpitem" href="https://saqeralkhalifa.com/#contact">Contact</a><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/blog/">Blog<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/blog/">All Articles</a><a href="https://saqeralkhalifa.com/category/trust-by-design/">Trust by Design</a><a href="https://saqeralkhalifa.com/category/reform-theater/">Reform Theater</a><a href="https://saqeralkhalifa.com/category/country-cases/">Country Cases</a><a href="https://saqeralkhalifa.com/category/institutional-memory/">Institutional Memory</a><a href="https://saqeralkhalifa.com/category/politics/">Politics</a><a href="https://saqeralkhalifa.com/category/economics/">Economics</a><a href="https://saqeralkhalifa.com/category/social/">Social</a><a href="https://saqeralkhalifa.com/category/published-and-mentions/">Published & Mentions</a><a href="https://saqeralkhalifa.com/category/interesting/">Interesting</a></div></div></nav><nav class="wpnav wpnav-ar"><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/major-compass/#ar">للطلبة<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="quiz.html?lang=ar">بوصلة التخصص</a><a href="explore.html?lang=ar">استكشف التخصصات</a><a href="entry.html?lang=ar">شروط القبول</a><a href="scholarships.html?lang=ar">المنح والتمويل</a><a href="parents.html?lang=ar">دليل أولياء الأمور</a><a href="ai.html?lang=ar">الذكاء الاصطناعي وتخصصك</a><a href="routes.html?lang=ar">ماذا يغلق كل شرط</a><a href="alternatives.html?lang=ar">مسارات بدون شهادة</a><a href="internships.html?lang=ar">فرص التدريب</a><a href="cv.html?lang=ar">السيرة الذاتية</a></div></div><div class="wpdd"><a class="wpitem" href="https://gigs.saqeralkhalifa.com/?lang=ar">للباحثين عن عمل<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://gigs.saqeralkhalifa.com/?lang=ar">لوحة الأعمال القصيرة</a><a href="https://gigs.saqeralkhalifa.com/?lang=ar#jobs">الوظائف الدائمة</a><a href="internships.html?lang=ar">فرص التدريب</a><a href="cv.html?lang=ar">السيرة الذاتية</a><a href="https://saqeralkhalifa.com/post-a-gig/">انشر فرصة</a><a href="https://saqeralkhalifa.com/find-work/">سجّل بياناتك</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/arabic/#book">أغلال الديمقراطية<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/arabic/#book">الكتاب</a><a href="https://saqeralkhalifa.com/readers/">الفصل الأول مجانا</a><a href="https://saqeralkhalifa.com/arabic/#buy">الشراء</a><a href="https://saqeralkhalifa.com/check-ar/">البيانات</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/the-trust-trap-ar/">مصيدة الثقة</a><a class="wpitem" href="https://saqeralkhalifa.com/arabic/#author">نبذة</a><a class="wpitem" href="https://saqeralkhalifa.com/#contact">تواصل</a><a class="wpitem" href="https://saqeralkhalifa.com/blog/">المدونة</a></nav><button class="wpitem wplang" id="langToggle" type="button">العربية</button><button class="wpburger" id="wpburger" type="button" aria-label="Open menu">☰</button></div></div></div><div class="wpmob"><div class="wpmob-nav wpmob-en"><a class="wpmob-top" href="https://saqeralkhalifa.com/major-compass/">For Students</a><a class="wpmob-sub" href="quiz.html">Major Compass Quiz</a><a class="wpmob-sub" href="explore.html">Every Major Explained</a><a class="wpmob-sub" href="entry.html">Entry Requirements</a><a class="wpmob-sub" href="scholarships.html">Scholarships and Funding</a><a class="wpmob-sub" href="parents.html">Parent Guide</a><a class="wpmob-sub" href="ai.html">AI and Your Major</a><a class="wpmob-sub" href="routes.html">What a Dealbreaker Closes</a><a class="wpmob-sub" href="alternatives.html">Routes Without a Degree</a><a class="wpmob-sub" href="internships.html?lang=en">Internships</a><a class="wpmob-sub" href="cv.html?lang=en">Build a CV</a><a class="wpmob-top" href="https://gigs.saqeralkhalifa.com/?lang=en">For Job Seekers</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=en">Gigs Board</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=en#jobs">Full-time Jobs</a><a class="wpmob-sub" href="internships.html?lang=en">Internships</a><a class="wpmob-sub" href="cv.html?lang=en">Build a CV</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/post-a-gig/">Post a Gig</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-work/">Find Work</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#book">Shackles of Democracy</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#book">The Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/first-chapter/">First Chapter Free</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#formats">Choose Your Format</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#stores">Where to Buy</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/check/">The Data</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/">Arabic Edition</a><a class="wpmob-top" href="https://saqeralkhalifa.com/the-trust-trap/">The Trust Trap</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/">About the Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#chapters">Inside the Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#resources">Free Resources</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#faq">Questions</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#buy">Where to Buy</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#author">About</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#contact">Contact</a><a class="wpmob-top" href="https://saqeralkhalifa.com/blog/">Blog</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/blog/">All Articles</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/trust-by-design/">Trust by Design</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/reform-theater/">Reform Theater</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/country-cases/">Country Cases</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/institutional-memory/">Institutional Memory</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/politics/">Politics</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/economics/">Economics</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/social/">Social</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/published-and-mentions/">Published & Mentions</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/interesting/">Interesting</a></div><div class="wpmob-nav wpmob-ar"><a class="wpmob-top" href="https://saqeralkhalifa.com/major-compass/#ar">للطلبة</a><a class="wpmob-sub" href="quiz.html?lang=ar">بوصلة التخصص</a><a class="wpmob-sub" href="explore.html?lang=ar">استكشف التخصصات</a><a class="wpmob-sub" href="entry.html?lang=ar">شروط القبول</a><a class="wpmob-sub" href="scholarships.html?lang=ar">المنح والتمويل</a><a class="wpmob-sub" href="parents.html?lang=ar">دليل أولياء الأمور</a><a class="wpmob-sub" href="ai.html?lang=ar">الذكاء الاصطناعي وتخصصك</a><a class="wpmob-sub" href="routes.html?lang=ar">ماذا يغلق كل شرط</a><a class="wpmob-sub" href="alternatives.html?lang=ar">مسارات بدون شهادة</a><a class="wpmob-sub" href="internships.html?lang=ar">فرص التدريب</a><a class="wpmob-sub" href="cv.html?lang=ar">السيرة الذاتية</a><a class="wpmob-top" href="https://gigs.saqeralkhalifa.com/?lang=ar">للباحثين عن عمل</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=ar">لوحة الأعمال القصيرة</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=ar#jobs">الوظائف الدائمة</a><a class="wpmob-sub" href="internships.html?lang=ar">فرص التدريب</a><a class="wpmob-sub" href="cv.html?lang=ar">السيرة الذاتية</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/post-a-gig/">انشر فرصة</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-work/">سجّل بياناتك</a><a class="wpmob-top" href="https://saqeralkhalifa.com/arabic/#book">أغلال الديمقراطية</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/#book">الكتاب</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/readers/">الفصل الأول مجانا</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/#buy">الشراء</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/check-ar/">البيانات</a><a class="wpmob-top" href="https://saqeralkhalifa.com/the-trust-trap-ar/">مصيدة الثقة</a><a class="wpmob-top" href="https://saqeralkhalifa.com/arabic/#author">نبذة</a><a class="wpmob-top" href="https://saqeralkhalifa.com/#contact">تواصل</a><a class="wpmob-top" href="https://saqeralkhalifa.com/blog/">المدونة</a></div></div><script>(function(){var b=document.getElementById("wpburger"),w=document.getElementById("wpbar");if(b&&w){b.addEventListener("click",function(){var o=w.classList.toggle("open");b.textContent=o?"✕":"☰";b.setAttribute("aria-label",o?"Close menu":"Open menu");});}var t=document.getElementById("langToggle");if(!t)return;function fix(){var ar=document.documentElement.lang==="ar";var want=ar?"English":"العربية";if(t.textContent.trim()!==want){t.textContent=want;}}fix();new MutationObserver(fix).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});new MutationObserver(fix).observe(t,{childList:true,characterData:true,subtree:true});})();</script></div>
+<div class="wrap">
+
+<div class="hero">
+    <div class="kicker" id="kicker"></div>
+    <h1 class="serif" id="t-title"></h1>
+    <p class="sub" id="t-sub"></p>
+  </div>
+
+  <p class="lede" id="lede"></p>
+
+  <div class="picker">
+    <h2 class="serif" id="t-pick"></h2>
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <div id="panel"></div>
+
+  <div class="chap" id="notes-sec">
+    <h2 class="serif" id="t-noteT"></h2>
+    <p class="sub" id="t-noteS"></p>
+    <div id="notes"></div>
+  </div>
+
+  <div class="crosslinks">
+    <div class="bar" style="margin-top:34px;">
+      <p id="t-quizline"></p>
+      <a class="btn" id="t-quizbtn" href="./"></a>
+    </div>
+    <div class="bar">
+      <p id="t-expline"></p>
+      <a class="btn ghost" id="t-expbtn" href="explore.html"></a>
+    </div>
+    <div class="bar">
+      <p id="t-altline"></p>
+      <a class="btn ghost" id="t-altbtn" href="alternatives.html"></a>
+    </div>
+  </div>
+
+  <div class="srcbox">
+    <h2 id="srcT"></h2>
+    <p class="sub" id="srcS"></p>
+    <ol id="srcList"></ol>
+  </div>
+
+  <footer class="site">
+    <p class="disc" id="t-disc"></p>
+    <p id="t-foot"></p>
+  </footer>
+</div>
+<script>
+/* ===== Dealbreakers: what each one really closes, and what it does not ===== */
+const DB = [
+
+{id:"medical", n:{en:"Blood, hospitals and sick people", ar:"الدم والمستشفيات والمرضى"},
+ lead:{en:"This is the answer that gets the worst advice. Almost everyone who picks it is told the same three things, and two of them are wrong.",
+       ar:"هذه هي الإجابة التي تتلقى أسوأ نصيحة. فمن يختارها يُقال له الشيء نفسه تقريبًا، واثنان من ثلاثة منه خطأ."},
+ closes:{en:"Medicine, dentistry, nursing, and every allied health role that puts you at a bedside or over a specimen. Also veterinary medicine, which involves surgery, wounds and euthanasia as routine duties, and forensic biology, where the work is blood, semen and saliva stains alongside case photographs.",
+         ar:"الطب وطب الأسنان والتمريض وكل مهنة صحية مساندة تضعك عند سرير مريض أو فوق عيّنة. وكذلك الطب البيطري، فالجراحة والجروح والقتل الرحيم واجبات يومية فيه، وعلم الأحياء الجنائي، حيث العمل بقع دم ومني ولعاب مع صور الجرائم."},
+ not:{en:"It does not close health as a field. Separate two things that students always merge: patient contact and body fluids. A job can be full of one and empty of the other. A genetic counsellor never sees blood; a hospital administrator never touches a patient; a pharmacovigilance officer reads about harm and never witnesses it.",
+      ar:"لكنه لا يغلق المجال الصحي. افصل بين أمرين يخلط الطلبة بينهما دائمًا: التعامل مع المرضى، والتعرض لسوائل الجسم. قد تمتلئ الوظيفة بأحدهما وتخلو من الآخر. مستشار الوراثة لا يرى دمًا أبدًا، ومدير المستشفى لا يلمس مريضًا، وموظف اليقظة الدوائية يقرأ عن الضرر ولا يشهده."},
+ open:[
+  {n:{en:"Public health and epidemiology", ar:"الصحة العامة وعلم الأوبئة"},
+   d:{en:"Surveillance, data, policy and campaigns. Outbreak work can put you in a clinic, but you observe rather than take samples.",
+      ar:"الترصد والبيانات والسياسات والحملات. قد يضعك عمل تفشي الأمراض في عيادة، لكنك تراقب ولا تأخذ عيّنات."},
+   w:{en:"University of Bahrain; Imam Abdulrahman Bin Faisal University and KSAU-HS in Saudi Arabia; Abu Dhabi University; Qatar University and UDST; Kuwait University. No bachelor's found in Oman.",
+      ar:"جامعة البحرين؛ جامعة الإمام عبدالرحمن بن فيصل وجامعة الملك سعود بن عبدالعزيز للعلوم الصحية في السعودية؛ جامعة أبوظبي؛ جامعة قطر وجامعة الدوحة للعلوم والتكنولوجيا؛ جامعة الكويت. لم نجد بكالوريوس في عُمان."}},
+  {n:{en:"Health informatics and clinical data", ar:"المعلوماتية الصحية والبيانات السريرية"},
+   d:{en:"The most genuinely desk-based route in health: electronic records, coding, data quality, clinical trial databases. Zero patients, zero fluids.",
+      ar:"أكثر المسارات الصحية مكتبية بحق: السجلات الإلكترونية والترميز وجودة البيانات وقواعد بيانات التجارب السريرية. لا مرضى ولا سوائل."},
+   w:{en:"KSAU-HS and Imam Abdulrahman Bin Faisal University in Saudi Arabia; Kuwait University; Higher Colleges of Technology and Liwa University in the UAE. Qatar has a master's only. No bachelor's found in Bahrain or Oman.",
+      ar:"جامعة الملك سعود بن عبدالعزيز للعلوم الصحية وجامعة الإمام عبدالرحمن بن فيصل في السعودية؛ جامعة الكويت؛ كليات التقنية العليا وجامعة ليوا في الإمارات. وفي قطر ماجستير فقط. لم نجد بكالوريوس في البحرين أو عُمان."}},
+  {n:{en:"Biomedical engineering", ar:"الهندسة الطبية الحيوية"},
+   d:{en:"Devices, imaging systems, prosthetics. Industry and design work has no clinical exposure at all. Be aware that hospital-based clinical engineering does: equipment comes back contaminated from theatres and dialysis units.",
+      ar:"الأجهزة وأنظمة التصوير والأطراف الصناعية. عمل الصناعة والتصميم لا تعرض فيه إطلاقًا. لكن انتبه: هندسة الأجهزة داخل المستشفى فيها تعرض، فالأجهزة تعود ملوثة من غرف العمليات وأقسام الغسيل الكلوي."},
+   w:{en:"Khalifa University and Abu Dhabi University in the UAE; King Saud University; Australian University Kuwait. Not offered at bachelor's level in Bahrain, Qatar or Oman.",
+      ar:"جامعة خليفة وجامعة أبوظبي في الإمارات؛ جامعة الملك سعود؛ الجامعة الأسترالية في الكويت. غير متاحة في مرحلة البكالوريوس في البحرين أو قطر أو عُمان."}},
+  {n:{en:"Audiology", ar:"السمعيات"},
+   d:{en:"Probably the single best fit if you still want patients but not blood. Hearing tests, hearing aids, balance testing, newborn screening. The one exposure is earwax management, which can occasionally cause minor bleeding in the ear canal.",
+      ar:"ربما الأنسب على الإطلاق إن كنت تريد التعامل مع المرضى دون دم. فحوص السمع والسماعات واختبارات التوازن وفحص حديثي الولادة. التعرض الوحيد هو إزالة الصملاخ، وقد تسبب أحيانًا نزيفًا بسيطًا في قناة الأذن."},
+   w:{en:"University of Sharjah and Gulf Medical University in the UAE; Kuwait University; King Abdulaziz University and Dar Al Uloom in Saudi Arabia. Usually bundled with speech pathology in one degree. None found in Bahrain, Qatar or Oman. Note that Dubai licenses an audiologist only at master's level; a bachelor's licenses you as an assistant.",
+      ar:"جامعة الشارقة وجامعة الخليج الطبية في الإمارات؛ جامعة الكويت؛ جامعة الملك عبدالعزيز وجامعة دار العلوم في السعودية. وغالبًا تُدمج مع أمراض النطق في شهادة واحدة. لم نجدها في البحرين أو قطر أو عُمان. ولاحظ أن دبي ترخّص أخصائي السمعيات في مستوى الماجستير فقط، والبكالوريوس يرخّصك مساعدًا."}},
+  {n:{en:"Optometry", ar:"البصريات"},
+   d:{en:"Refraction, eye health screening, contact lenses, detecting glaucoma and diabetic damage. You get close to faces and handle tears and drops. No systemic body fluids.",
+      ar:"قياس النظر وفحص صحة العين والعدسات اللاصقة واكتشاف المياه الزرقاء وأضرار السكري. تقترب من الوجوه وتتعامل مع الدموع والقطرات، دون سوائل جسم أخرى."},
+   w:{en:"King Saud University and Qassim University in Saudi Arabia, both as a Doctor of Optometry entered from school; Gulf Medical University in the UAE; University of Buraimi in Oman. None found in Bahrain, Qatar or Kuwait.",
+      ar:"جامعة الملك سعود وجامعة القصيم في السعودية، وكلتاهما دكتور بصريات يُدخل إليه من الثانوية؛ جامعة الخليج الطبية في الإمارات؛ جامعة البريمي في عُمان. لم نجدها في البحرين أو قطر أو الكويت."}},
+  {n:{en:"Pharmacy, but the industry side", ar:"الصيدلة، لكن في جانب الصناعة"},
+   d:{en:"Regulatory affairs, pharmacovigilance and pharmaceutical industry work involve no patients at all. The honest catch: the degree itself includes compulsory hospital and community placements, so you cannot skip the clinical years to reach the desk.",
+      ar:"الشؤون التنظيمية واليقظة الدوائية والعمل في صناعة الدواء لا مرضى فيها إطلاقًا. لكن الصدق يقتضي القول إن الشهادة نفسها تتضمن تدريبًا إلزاميًا في المستشفى والصيدلية، فلا يمكنك تخطي السنوات السريرية للوصول إلى المكتب."},
+   w:{en:"Widely available across the Gulf. See the pharmacy entry in the majors guide.",
+      ar:"متاحة على نطاق واسع في الخليج. انظر مدخل الصيدلة في دليل التخصصات."},
+   href:"explore.html#pharm"},
+  {n:{en:"Nutrition, on the food science side", ar:"التغذية، في جانب علوم الأغذية"},
+   d:{en:"Food science, public health nutrition and sports nutrition are clean. Clinical dietetics is not: a hospital dietitian works at bedsides in intensive care, oncology and renal wards, with feeding tubes and dying patients.",
+      ar:"علوم الأغذية والتغذية المجتمعية وتغذية الرياضيين نظيفة. أما التغذية السريرية فلا: أخصائي التغذية في المستشفى يعمل عند الأسرّة في العناية المركزة والأورام والكلى، مع أنابيب التغذية والمرضى المحتضرين."},
+   w:{en:"Ahlia University in Bahrain; UAE University and Abu Dhabi University; Qatar University; Sultan Qaboos University and A'Sharqiyah University in Oman; Kuwait University; several Saudi universities.",
+      ar:"جامعة أهلية في البحرين؛ جامعة الإمارات وجامعة أبوظبي؛ جامعة قطر؛ جامعة السلطان قابوس وجامعة الشرقية في عُمان؛ جامعة الكويت؛ وعدة جامعات سعودية."}},
+  {n:{en:"Health administration and health economics", ar:"إدارة الصحة واقتصاديات الصحة"},
+   d:{en:"Budgets, procurement, quality, accreditation, operations. You walk clinical corridors and do no clinical work.",
+      ar:"الميزانيات والمشتريات والجودة والاعتماد والتشغيل. تمشي في ممرات المستشفى دون أن تؤدي أي عمل سريري."},
+   w:{en:"Kuwait University; University of Sharjah, Hamdan Bin Mohammed Smart University and American University in the Emirates; King Abdulaziz University in Saudi Arabia. In Bahrain, Qatar and Oman this is usually a master's rather than a bachelor's.",
+      ar:"جامعة الكويت؛ جامعة الشارقة وجامعة حمدان بن محمد الذكية والجامعة الأمريكية في الإمارات؛ جامعة الملك عبدالعزيز في السعودية. وفي البحرين وقطر وعُمان تكون غالبًا ماجستيرًا لا بكالوريوس."}},
+  {n:{en:"Biotechnology and pharmaceutical science", ar:"التقنية الحيوية وعلوم الصيدلة"},
+   d:{en:"Molecular biology, formulation, bioinformatics. No patients. If you want zero exposure of any kind, choose bioinformatics or analytical chemistry rather than a lab that handles animal tissue.",
+      ar:"البيولوجيا الجزيئية وتركيب الأدوية والمعلوماتية الحيوية. لا مرضى. وإن أردت انعدام التعرض تمامًا فاختر المعلوماتية الحيوية أو الكيمياء التحليلية بدل مختبر يتعامل مع أنسجة حيوانية."},
+   w:{en:"University of Sharjah and American University of Ras Al Khaimah; Taif University and King Abdulaziz University in Saudi Arabia. Elsewhere the route is a biology or biochemistry degree followed by a specialist master's.",
+      ar:"جامعة الشارقة والجامعة الأمريكية في رأس الخيمة؛ جامعة الطائف وجامعة الملك عبدالعزيز في السعودية. وفي غيرها يكون المسار شهادة أحياء أو كيمياء حيوية ثم ماجستير تخصصي."}},
+  {n:{en:"Medical physics", ar:"الفيزياء الطبية"},
+   d:{en:"Radiation dosimetry, machine quality assurance, radiation protection. Essentially no blood, although radiotherapy work means being around cancer patients.",
+      ar:"قياس الجرعات الإشعاعية وضمان جودة الأجهزة والوقاية من الإشعاع. لا دم تقريبًا، وإن كان العمل في العلاج الإشعاعي يعني وجودك بين مرضى السرطان."},
+   w:{en:"King Khalid University in Saudi Arabia is the only bachelor's we could verify in the Gulf. Everywhere else the route is a physics degree then a master's, including Khalifa University in the UAE. Note that the profession is licensed at master's level, not bachelor's.",
+      ar:"جامعة الملك خالد في السعودية هي البكالوريوس الوحيد الذي تحققنا منه في الخليج. وفي غيرها المسار شهادة فيزياء ثم ماجستير، ومنها جامعة خليفة في الإمارات. ولاحظ أن المهنة تُرخّص في مستوى الماجستير لا البكالوريوس."}}
+ ],
+ traps:[
+  {n:{en:"Medical laboratory science, sometimes called biomedical science", ar:"العلوم الطبية المخبرية، وتسمى أحيانًا العلوم الطبية الحيوية"},
+   d:{en:"The friendliest-sounding name on the list, and the worst fit. You spend your working life with blood, urine, sputum, spinal fluid and tissue. Qatar University's and Sultan Qaboos University's biomedical science degrees both include a compulsory laboratory internship.",
+      ar:"أجمل الأسماء وقعًا في القائمة وأسوأها ملاءمة. تقضي حياتك المهنية مع الدم والبول والبلغم والسائل الشوكي والأنسجة. وشهادتا العلوم الطبية الحيوية في جامعة قطر وجامعة السلطان قابوس تتضمنان تدريبًا مخبريًا إلزاميًا."}},
+  {n:{en:"Respiratory therapy", ar:"العلاج التنفسي"},
+   d:{en:"Marketed as machines and breathing. In practice: arterial blood gas punctures, airway suctioning, sputum and intensive care.",
+      ar:"يُسوَّق على أنه أجهزة وتنفس. وفي الواقع: وخز الشرايين لغازات الدم، وشفط الإفرازات، والبلغم، والعناية المركزة."}},
+  {n:{en:"Anaesthesia technology", ar:"تقنية التخدير"},
+   d:{en:"Sounds technical. It is operating theatre work with cannulation, airways, blood loss and unconscious patients.",
+      ar:"يبدو تقنيًا. لكنه عمل في غرفة العمليات مع تركيب القسطرات ومجاري الهواء وفقدان الدم ومرضى فاقدي الوعي."}},
+  {n:{en:"Dental hygiene", ar:"صحة الأسنان"},
+   d:{en:"Pitched as the clean dental option. Scaling inflamed gums bleeds routinely, plus saliva and aerosol.",
+      ar:"يُقدَّم على أنه الخيار النظيف في طب الأسنان. لكن تنظيف اللثة الملتهبة ينزف عادةً، إضافة إلى اللعاب والرذاذ."}},
+  {n:{en:"Radiography, partly", ar:"الأشعة، جزئيًا"},
+   d:{en:"Plain imaging in an outpatient clinic is low-blood. The same qualification puts you in accident and emergency with trauma, in theatre with a mobile machine, and in CT where radiographers routinely insert cannulas and inject contrast. Interventional radiography involves arterial punctures. Do not choose radiography because someone told you it is blood-free.",
+      ar:"التصوير البسيط في العيادات الخارجية قليل الدم. لكن الشهادة نفسها تضعك في الطوارئ مع الإصابات، وفي غرفة العمليات مع جهاز متنقل، وفي الأشعة المقطعية حيث يركّب فنيو الأشعة القسطرات ويحقنون الصبغة. أما الأشعة التداخلية ففيها وخز شرياني. لا تختر الأشعة لأن أحدهم قال لك إنها خالية من الدم."}},
+  {n:{en:"Speech and language therapy", ar:"علاج النطق واللغة"},
+   d:{en:"Blood is rare, secretions are not. Half the profession is swallowing disorders: you sit close to patients while they eat and deal with saliva, coughing, choking and tracheostomies. School-based and clinic work is much cleaner.",
+      ar:"الدم نادر، أما الإفرازات فلا. نصف المهنة اضطرابات البلع: تجلس قريبًا من المريض وهو يأكل وتتعامل مع اللعاب والسعال والاختناق وفتحات القصبة الهوائية. أما العمل في المدارس والعيادات فأنظف بكثير."}},
+  {n:{en:"Paramedicine, nursing and clinical dietetics", ar:"الإسعاف والتمريض والتغذية السريرية"},
+   d:{en:"Obvious once said, but all three are still recommended to squeamish students because they are available everywhere. All three involve wounds, fluids and death.",
+      ar:"واضح بمجرد قوله، لكن الثلاثة ما زالت تُقترح على الطلبة الحساسين لأنها متاحة في كل مكان. وثلاثتها فيها جروح وسوائل وموت."}}
+ ,
+ {n:{en:"Occupational therapy", ar:"العلاج الوظيفي"},
+  d:{en:"Sold as the gentle rehabilitation option. It is gentle in temperament, not in contact: you handle patients physically for most of the working day, including after strokes and amputations.",
+     ar:"يُسوَّق على أنه خيار إعادة التأهيل اللطيف. وهو لطيف في الطبع لا في التلامس: تتعامل جسديًا مع المرضى معظم ساعات العمل، بمن فيهم بعد الجلطات وبتر الأطراف."}},
+ {n:{en:"Veterinary medicine", ar:"الطب البيطري"},
+  d:{en:"Chosen by students who love animals and want to avoid human bodies. It is surgery, birthing, wounds and euthanasia, on patients who cannot be told to hold still.",
+     ar:"يختاره من يحب الحيوانات ويريد تجنب الأجساد البشرية. وهو جراحة وتوليد وجروح وإنهاء رحيم للحياة، على مرضى لا يمكن إخبارهم بالثبات."}}]},
+
+{id:"math", n:{en:"Lots of advanced mathematics", ar:"الكثير من الرياضيات المتقدمة"},
+ lead:{en:"Be precise about what you are avoiding. Arithmetic, statistics and advanced mathematics are three different things, and students who say they hate maths usually mean one of them.",
+       ar:"كن دقيقًا فيما تتجنبه. الحساب والإحصاء والرياضيات المتقدمة ثلاثة أشياء مختلفة، ومن يقول إنه يكره الرياضيات يقصد عادةً واحدًا منها فقط."},
+ closes:{en:"All branches of engineering, physics, actuarial science, data science and artificial intelligence, and the theoretical half of computer science. Architecture also carries real structural mathematics. These are not negotiable: the mathematics is the subject, not a hurdle placed in front of it.",
+         ar:"كل فروع الهندسة، والفيزياء، والعلوم الاكتوارية، وعلوم البيانات والذكاء الاصطناعي، والنصف النظري من علوم الحاسوب. وفي العمارة رياضيات إنشائية حقيقية أيضًا. وهذه غير قابلة للتفاوض: الرياضيات هي المادة نفسها لا عقبة موضوعة أمامها."},
+ not:{en:"It does not close science, health or technology. It does not close accounting either, and this is the most common mistake: accounting is arithmetic and rules, not calculus. What you should expect almost everywhere now is one compulsory statistics course. Psychology, nursing, education and business all have one. A statistics course is not advanced mathematics.",
+      ar:"لكنه لا يغلق العلوم ولا الصحة ولا التقنية. ولا يغلق المحاسبة، وهذا أشيع خطأ: المحاسبة حساب وقواعد لا تفاضل وتكامل. وما ينبغي أن تتوقعه في كل مكان تقريبًا اليوم هو مقرر إحصاء إجباري واحد. علم النفس والتمريض والتربية وإدارة الأعمال فيها جميعًا واحد. ومقرر الإحصاء ليس رياضيات متقدمة."},
+ open:[
+  {n:{en:"Health and life sciences", ar:"العلوم الصحية والحياتية"},
+   d:{en:"Nursing, physiotherapy, radiography, speech therapy, nutrition, biology and biotechnology are memory, pattern and practice subjects. Nursing has drug calculations, which are arithmetic done carefully, not mathematics.",
+      ar:"التمريض والعلاج الطبيعي والأشعة وعلاج النطق والتغذية والأحياء والتقنية الحيوية مواد ذاكرة وأنماط وممارسة. وفي التمريض حسابات جرعات، وهي حساب يُؤدى بعناية لا رياضيات."},
+   w:{en:"Available in every Gulf country in some form. See the majors guide for who offers what.",
+      ar:"متاحة بشكل ما في كل دول الخليج. انظر دليل التخصصات لمعرفة من يقدم ماذا."},
+   href:"explore.html"},
+  {n:{en:"Cybersecurity, on the governance side", ar:"الأمن السيبراني، في جانب الحوكمة"},
+   d:{en:"Cryptography is mathematics. Security operations, governance, risk and compliance, incident response and digital forensics are procedure, judgement and attention to detail. The certifications route in particular is almost maths-free.",
+      ar:"التشفير رياضيات. أما عمليات الأمن والحوكمة والمخاطر والامتثال والاستجابة للحوادث والأدلة الرقمية فإجراءات وحكم ودقة ملاحظة. ومسار الشهادات المهنية تحديدًا يكاد يخلو من الرياضيات."},
+   href:"explore.html#cyber"},
+  {n:{en:"Law", ar:"القانون"},
+   d:{en:"The most maths-free protected profession there is, and it is licensed in all six Gulf states. It is also reading-heavy in a way students underestimate.",
+      ar:"أكثر المهن المحمية خلوًا من الرياضيات، وهي مرخصة في دول الخليج الست. لكنها كثيرة القراءة بقدر يستهين به الطلبة."},
+   href:"explore.html#law"},
+  {n:{en:"Education and teaching", ar:"التربية والتعليم"},
+   d:{en:"Licensed in all six states, growing in absolute demand worldwide, and outside primary maths teaching it asks almost nothing mathematical of you.",
+      ar:"مرخصة في الدول الست، ويزداد الطلب عليها عالميًا بالأعداد المطلقة، وخارج تدريس الرياضيات الابتدائية لا تطلب منك شيئًا رياضيًا تقريبًا."},
+   href:"explore.html#edu"},
+  {n:{en:"Design, media and languages", ar:"التصميم والإعلام واللغات"},
+   d:{en:"No mathematics beyond a statistics course. Read the AI page before committing to these, because they are the most exposed fields on the site.",
+      ar:"لا رياضيات فيها سوى مقرر إحصاء. لكن اقرأ صفحة الذكاء الاصطناعي قبل أن تلتزم بها، فهي أكثر المجالات تعرضًا في هذا الموقع."},
+   href:"ai.html"},
+  {n:{en:"Tourism, hospitality and logistics operations", ar:"السياحة والضيافة وعمليات اللوجستيات"},
+   d:{en:"Operational rather than analytical. Gulf governments are expanding both sectors deliberately. The analytical end of supply chain does use mathematics; the operations end does not.",
+      ar:"تشغيلية لا تحليلية. وحكومات الخليج توسّع القطاعين عن قصد. أما الطرف التحليلي في سلاسل الإمداد فيستخدم الرياضيات، والطرف التشغيلي لا."},
+   href:"explore.html#tour"}
+ ],
+ traps:[
+  {n:{en:"Psychology", ar:"علم النفس"},
+   d:{en:"Chosen by maths-averse students constantly, and it contains more statistics than most business degrees. Research methods and statistics are usually compulsory across several semesters.",
+      ar:"يختاره الطلبة النافرون من الرياضيات باستمرار، وفيه إحصاء أكثر مما في معظم شهادات الأعمال. ومناهج البحث والإحصاء إجبارية عادةً على عدة فصول."}},
+  {n:{en:"Economics and finance", ar:"الاقتصاد والتمويل"},
+   d:{en:"Often confused with accounting. Economics is mathematical, and quantitative finance is very mathematical. Banking operations are not.",
+      ar:"يُخلط بينهما وبين المحاسبة كثيرًا. الاقتصاد رياضي، والتمويل الكمي شديد الرياضية. أما العمليات المصرفية فلا."}},
+  {n:{en:"Architecture", ar:"العمارة"},
+   d:{en:"Chosen as the artistic option. Structures, environmental analysis and quantities are real mathematics, and the degree is one of the longest and heaviest in workload.",
+      ar:"تُختار على أنها الخيار الفني. لكن الإنشاءات والتحليل البيئي والكميات رياضيات حقيقية، والشهادة من أطول الشهادات وأثقلها عبئًا."}},
+  {n:{en:"Computer science, in general", ar:"علوم الحاسوب، عمومًا"},
+   d:{en:"Programming is not mathematics, but the degree is. Discrete mathematics, algorithms, linear algebra and probability are all compulsory in a proper computer science programme. If you want the work without the degree mathematics, read the page on routes that are not a four-year degree.",
+      ar:"البرمجة ليست رياضيات، لكن الشهادة كذلك. الرياضيات المتقطعة والخوارزميات والجبر الخطي والاحتمالات كلها إجبارية في برنامج علوم حاسوب حقيقي. وإن أردت العمل دون رياضيات الشهادة، فاقرأ صفحة الطرق غير الجامعية."}}
+ ]},
+
+{id:"speaking", n:{en:"Speaking in front of people all the time", ar:"التحدث أمام الناس طوال الوقت"},
+ lead:{en:"One honest warning first. Fear of speaking at seventeen is a poor reason to close a whole field, because it is the dealbreaker that most reliably disappears with practice. Treat this as a preference about how you want to spend your days, not as a permanent limit.",
+       ar:"تحذير صادق أولًا. الخوف من الحديث في السابعة عشرة سبب ضعيف لإغلاق مجال كامل، لأنه أكثر المنفّرات زوالًا مع الممارسة. تعامل معه على أنه تفضيل في كيفية قضاء يومك لا حدًّا دائمًا."},
+ closes:{en:"Teaching, courtroom advocacy, media presenting, sales, front-of-house hospitality, and most of management. Medicine and dentistry too, since consultation is the job. Marketing and public relations are constant persuasion.",
+         ar:"التدريس والمرافعة أمام المحاكم وتقديم البرامج والمبيعات والعمل الأمامي في الضيافة ومعظم الإدارة. والطب وطب الأسنان أيضًا، فالاستشارة هي الوظيفة. والتسويق والعلاقات العامة إقناع متواصل."},
+ not:{en:"It does not close any field entirely, because every field has a back office. What you can avoid is performing to a room. What you cannot avoid anywhere is a meeting, a phone call and explaining your work to a colleague. Anyone who tells you a career requires no talking at all is selling you something.",
+      ar:"لكنه لا يغلق أي مجال كليًا، لأن لكل مجال مكتبًا خلفيًا. ما يمكنك تجنبه هو الأداء أمام قاعة. أما ما لا يمكنك تجنبه في أي مكان فهو الاجتماع والمكالمة وشرح عملك لزميل. ومن يخبرك بمهنة بلا كلام إطلاقًا فهو يبيعك شيئًا."},
+ open:[
+  {n:{en:"Laboratory and technical work", ar:"العمل المخبري والتقني"},
+   d:{en:"Laboratory science, biotechnology, radiography, pharmacy dispensing, quality control. Short exchanges, no audiences.",
+      ar:"العلوم المخبرية والتقنية الحيوية والأشعة وصرف الأدوية وضبط الجودة. تبادلات قصيرة بلا جمهور."}},
+  {n:{en:"Software, data and infrastructure", ar:"البرمجيات والبيانات والبنية التحتية"},
+   d:{en:"Long stretches of solitary work are normal. Be aware that senior technical roles become progressively more about persuading people, which is a good thing to know at eighteen rather than at thirty.",
+      ar:"فترات طويلة من العمل المنفرد أمر طبيعي. لكن انتبه إلى أن الوظائف التقنية العليا تتحول تدريجيًا إلى إقناع الناس، ومن الأفضل أن تعرف ذلك في الثامنة عشرة لا في الثلاثين."}},
+  {n:{en:"Audit, accounting and actuarial work", ar:"التدقيق والمحاسبة والعمل الاكتواري"},
+   d:{en:"Client meetings exist, but the work itself is documents and numbers. Licensed, and among the more protected office routes in the Gulf.",
+      ar:"توجد اجتماعات مع العملاء، لكن العمل نفسه وثائق وأرقام. وهي مرخصة ومن أكثر المسارات المكتبية حماية في الخليج."}},
+  {n:{en:"Engineering design and drafting", ar:"التصميم والرسم الهندسي"},
+   d:{en:"The design office is quieter than the site. Site supervision and client work are not.",
+      ar:"مكتب التصميم أهدأ من الموقع. أما الإشراف الميداني والعمل مع العملاء فلا."}},
+  {n:{en:"Writing, editing and archives", ar:"الكتابة والتحرير والأرشفة"},
+   d:{en:"Genuinely quiet. Read the AI page first, because written production is the most substituted category of work in the economy.",
+      ar:"هادئة. لكن اقرأ صفحة الذكاء الاصطناعي أولًا، فإنتاج الكلمة المكتوبة أكثر فئات العمل استبدالًا في الاقتصاد."},
+   href:"ai.html"}
+ ],
+ traps:[
+  {n:{en:"Teaching", ar:"التدريس"},
+   d:{en:"Sometimes recommended as a safe, structured job. It is thirty people looking at you, five times a day, every day.",
+      ar:"يُقترح أحيانًا على أنه وظيفة آمنة منظمة. لكنه ثلاثون شخصًا ينظرون إليك خمس مرات يوميًا كل يوم."}},
+  {n:{en:"Pharmacy in the community", ar:"الصيدلة في المجتمع"},
+   d:{en:"Chosen as the quiet health option. A community pharmacist counsels every customer who walks in, all day.",
+      ar:"تُختار على أنها الخيار الصحي الهادئ. لكن صيدلي المجتمع ينصح كل زبون يدخل، طوال اليوم."}},
+  {n:{en:"Law", ar:"القانون"},
+   d:{en:"Corporate and contract law is desk work. Litigation is performance. The degree does not tell you which one you will end up in.",
+      ar:"قانون الشركات والعقود عمل مكتبي. أما التقاضي فأداء. والشهادة لا تخبرك في أيهما ستنتهي."}}
+ ]},
+
+{id:"routine", n:{en:"Sitting at a desk doing routine tasks", ar:"الجلوس المكتبي والمهام الروتينية"},
+ lead:{en:"This is the dealbreaker that has changed most in the last three years, and it now points in a useful direction. The routine desk work you want to avoid is exactly the work that is being automated fastest.",
+       ar:"هذا هو المنفّر الأكثر تغيرًا في السنوات الثلاث الأخيرة، وهو يشير الآن إلى اتجاه مفيد. فالعمل المكتبي الروتيني الذي تريد تجنبه هو بالضبط العمل الذي يُؤتمت أسرع من غيره."},
+ closes:{en:"Bookkeeping, transaction processing, banking operations, insurance administration, procurement clerking and general administration. Note that these are also the occupations on the fastest declining lists, so avoiding them is not only a preference.",
+         ar:"مسك الدفاتر ومعالجة القيود والعمليات المصرفية وإدارة التأمين وكتابة المشتريات والأعمال الإدارية العامة. ولاحظ أن هذه أيضًا على قوائم أسرع المهن انحسارًا، فتجنبها ليس مجرد تفضيل."},
+ not:{en:"It does not close business or finance. It closes the bottom rung of them. Every job on earth has administration in it; what varies is the ratio and whether the admin is the point or the residue.",
+      ar:"لكنه لا يغلق الأعمال ولا التمويل. إنما يغلق الدرجة الأولى منهما. كل وظيفة على الأرض فيها أعمال إدارية؛ وما يختلف هو النسبة، وهل الإدارة هي الغاية أم الفضلة."},
+ open:[
+  {n:{en:"Clinical and allied health work", ar:"العمل السريري والصحي المساند"},
+   d:{en:"Nursing, physiotherapy, radiography, emergency medicine. No two days are the same and almost none of it happens at a desk.",
+      ar:"التمريض والعلاج الطبيعي والأشعة وطب الطوارئ. لا يتشابه يومان، ولا يحدث شيء منها تقريبًا خلف مكتب."}},
+  {n:{en:"Site and field engineering", ar:"الهندسة الميدانية وفي المواقع"},
+   d:{en:"Civil, mechanical, electrical and renewable energy work in commissioning, supervision and maintenance. The Gulf is still building, and this work cannot be done remotely.",
+      ar:"العمل المدني والميكانيكي والكهربائي والطاقة المتجددة في التشغيل والإشراف والصيانة. الخليج ما زال يبني، وهذا العمل لا يمكن أداؤه عن بُعد."}},
+  {n:{en:"Teaching", ar:"التدريس"},
+   d:{en:"Repetitive in structure, never repetitive in content, because the people change every hour.",
+      ar:"متكرر في بنيته، غير متكرر أبدًا في مضمونه، لأن الأشخاص يتغيرون كل ساعة."}},
+  {n:{en:"Aviation, ports and operations", ar:"الطيران والموانئ والعمليات"},
+   d:{en:"Air traffic control, airport and airline operations, terminal and port operations. Shift-based, event-driven, and expanding across the Gulf.",
+      ar:"المراقبة الجوية وعمليات المطارات وشركات الطيران وعمليات المحطات والموانئ. عمل بالورديات تقوده الأحداث، ويتوسع في الخليج."}},
+  {n:{en:"Tourism and hospitality operations", ar:"عمليات السياحة والضيافة"},
+   d:{en:"One of the fastest growing sectors in the region. Aim at operations and management rather than the information desk, which is the exposed part.",
+      ar:"من أسرع القطاعات نموًا في المنطقة. اتجه إلى التشغيل والإدارة لا إلى مكتب الاستعلامات، فهو الجزء المعرّض."}}
+ ],
+ traps:[
+  {n:{en:"Business management", ar:"إدارة الأعمال"},
+   d:{en:"Chosen precisely by students who want variety, and the entry-level job it leads to is coordination, reporting and administration. The variety arrives later, if it arrives.",
+      ar:"يختارها الطلبة الذين يريدون التنوع تحديدًا، والوظيفة المبتدئة التي تقود إليها تنسيق وتقارير وأعمال إدارية. أما التنوع فيأتي لاحقًا، إن أتى."}},
+  {n:{en:"Marketing", ar:"التسويق"},
+   d:{en:"Sold as creative. The junior job is scheduling posts, building reports and producing content to a brief.",
+      ar:"يُباع على أنه إبداعي. والوظيفة المبتدئة جدولة منشورات وبناء تقارير وإنتاج محتوى وفق موجز."}},
+  {n:{en:"Any role whose title contains coordinator, officer or administrator", ar:"أي وظيفة يحمل مسماها كلمة منسق أو موظف أو إداري"},
+   d:{en:"Worth saying plainly, because these are the titles most Gulf graduates are hired into.",
+      ar:"يستحق أن يُقال، فهذه هي المسميات التي يُوظَّف فيها أكثر خريجي الخليج."}}
+ ]},
+
+{id:"physical", n:{en:"Physical or outdoor work", ar:"العمل البدني أو الميداني"},
+ lead:{en:"In the Gulf this is a more serious constraint than it is anywhere else, and you are right to take it seriously. All six states legally ban outdoor work in the middle of the day through the summer, which tells you how hard the conditions are.",
+       ar:"في الخليج هذا قيد أخطر منه في أي مكان آخر، وأنت محق في أخذه بجدية. فالدول الست جميعًا تحظر قانونًا العمل في الهواء الطلق في منتصف النهار طوال الصيف، وهذا يخبرك بقسوة الظروف."},
+ closes:{en:"Site-based civil and mechanical engineering, plant and process operations, renewable energy field work, aircraft maintenance, and the skilled trades. Also, less obviously, nursing and physiotherapy, which are twelve-hour shifts on your feet, and dentistry, which is a posture problem for a career.",
+         ar:"الهندسة المدنية والميكانيكية في المواقع، وتشغيل المصانع والعمليات، والعمل الميداني في الطاقة المتجددة، وصيانة الطائرات، والحرف الماهرة. وأقل وضوحًا: التمريض والعلاج الطبيعي، فهما ورديات من اثنتي عشرة ساعة وأنت واقف، وطب الأسنان، فهو مشكلة وضعية جسم على امتداد مهنة."},
+ not:{en:"It does not close engineering. Design, analysis, planning, safety case work, procurement and project management are office roles inside engineering, and they are licensed in the same way as the site roles. It also does not close any of computing, finance, law, media or health administration.",
+      ar:"لكنه لا يغلق الهندسة. فالتصميم والتحليل والتخطيط وملفات السلامة والمشتريات وإدارة المشاريع وظائف مكتبية داخل الهندسة، وهي مرخصة كما تُرخّص الوظائف الميدانية. ولا يغلق شيئًا من الحوسبة أو التمويل أو القانون أو الإعلام أو إدارة الصحة."},
+ open:[
+  {n:{en:"Engineering, from the design office", ar:"الهندسة، من مكتب التصميم"},
+   d:{en:"You still get the licence, which four Gulf states now tie to your work permit, and you still get the protection. You simply spend your day at a workstation rather than on a site.",
+      ar:"تحصل على الترخيص نفسه، الذي تربطه أربع دول خليجية الآن بتصريح عملك، وتحصل على الحماية نفسها. لكنك تقضي يومك أمام محطة عمل لا في موقع."}},
+  {n:{en:"Computing, data and cybersecurity", ar:"الحوسبة والبيانات والأمن السيبراني"},
+   d:{en:"Entirely indoor and entirely seated. Read the AI page for the entry-level picture before choosing.",
+      ar:"داخلية بالكامل وجالسة بالكامل. اقرأ صفحة الذكاء الاصطناعي لصورة الدرجة الأولى قبل أن تختار."},
+   href:"ai.html"},
+  {n:{en:"Law, accounting and finance", ar:"القانون والمحاسبة والتمويل"},
+   d:{en:"Office professions, licensed, and protected in the Gulf by both licensing and nationality rules in the case of law.",
+      ar:"مهن مكتبية مرخصة، ومحمية في الخليج بالترخيص وبقواعد الجنسية أيضًا في حالة القانون."}},
+  {n:{en:"Health, without the ward", ar:"الصحة، دون الأقسام"},
+   d:{en:"Health informatics, public health, health administration, pharmacy in industry, medical physics. All of the field, none of the standing.",
+      ar:"المعلوماتية الصحية والصحة العامة وإدارة الصحة والصيدلة في الصناعة والفيزياء الطبية. المجال كله دون وقوف."}}
+ ],
+ traps:[
+  {n:{en:"Architecture", ar:"العمارة"},
+   d:{en:"Chosen as a studio profession. Site visits, surveys and construction supervision are part of the job, and the studio years themselves are famous for their hours.",
+      ar:"تُختار على أنها مهنة استوديو. لكن زيارات الموقع والمسوحات والإشراف على التنفيذ جزء من العمل، وسنوات الاستوديو نفسها مشهورة بساعاتها."}},
+  {n:{en:"Tourism and hospitality management", ar:"إدارة السياحة والضيافة"},
+   d:{en:"The word management is doing a lot of work in that title. Hotel and event operations means being on your feet through long shifts, often at night.",
+      ar:"كلمة إدارة تحمل عبئًا كبيرًا في هذا المسمى. فعمليات الفنادق والفعاليات تعني الوقوف طوال ورديات طويلة، وكثيرًا في الليل."}},
+  {n:{en:"Physiotherapy", ar:"العلاج الطبيعي"},
+   d:{en:"Recommended to students who like sport. It is manual work: you are lifting, resisting and supporting other people's bodies all day.",
+      ar:"يُقترح على من يحب الرياضة. لكنه عمل يدوي: ترفع وتقاوم وتسند أجساد الآخرين طوال اليوم."}}
+ ]}
+
+];
+
+
+/* ===== Dealbreakers: UI strings and rendering ===== */
+var SEL = "medical";
+var LANG = "en";
+/* MCDEEP: arrive from the quiz results already on the student's own answer */
+var MCFROM = false;
+try{
+  var _d = (location.search.match(/[?&]d=([a-z]+)/) || [])[1];
+  if(_d && DB.some(function(x){ return x.id === _d; })){ SEL = _d; MCFROM = true; }
+}catch(e){}
+
+const T = {
+en:{
+  kicker:"Free · for students in Bahrain and the Gulf",
+  title:"The thing you said you want to avoid",
+  sub:"The assessment asks you one blunt question: what would you most want to avoid in your daily work? This page takes each answer seriously and tells you what it closes, what it does not, and what is still open.",
+  lede:"Dealbreakers eliminate options faster than attractions choose them, which is why the question is worth asking. But a dealbreaker only helps you if the advice that follows it is accurate, and most of the advice students are given here is wrong. People are told that laboratory science is the clean option in health, that accounting is for people who like maths, and that architecture is the artistic escape from calculation. All three are false. Pick your answer below.",
+
+  pick:"Which one is yours?",
+  h1:"What this genuinely closes",
+  h2:"What it does not close",
+  h3:"What is still open to you",
+  h4:"Do not let anyone recommend you these",
+  where:"Where in the Gulf",
+  more:"Read more",
+
+  noteT:"Two words that are not the same thing",
+  noteS:"Almost every mistake on this page comes from merging two ideas that should stay apart.",
+  notes:[
+    ["Patient contact is not the same as body fluids.",
+     "A genetic counsellor spends the whole day with frightened families and never sees a drop of blood. A laboratory scientist sees blood all day and never meets a patient. If you know which of the two bothers you, half the health sector opens back up."],
+    ["Arithmetic is not the same as mathematics.",
+     "Accounting is arithmetic and rules. Engineering is mathematics. Nursing drug calculations are arithmetic done carefully. If what you hate is calculus, say so, because it closes far fewer doors than hating numbers."],
+    ["A dealbreaker about the work is not a dealbreaker about the degree.",
+     "Pharmacy has no blood in industry but compulsory clinical placements in the degree. Radiography is calm in an outpatient clinic and bloody in accident and emergency. Ask what the first five years look like, not just the job title."],
+    ["Some of these fade, and some do not.",
+     "Fear of speaking in front of people usually disappears with practice, and closing a field over it at seventeen is a mistake. Squeamishness about blood usually does not fade, and people who force it end up leaving the profession later at much greater cost."]
+  ],
+
+  quizline:"Have not taken the assessment yet? It asks this question and thirty three others.",
+  quizbtn:"Take the assessment",
+  expline:"Every route named here is explained in full in the majors guide, with the Gulf universities that offer it.",
+  expbtn:"Explore the majors",
+  altline:"If none of this appeals, there are routes that are not a four-year degree at all.",
+  altbtn:"Routes without a degree",
+
+  srcT:"Where this comes from",
+  srcS:"Programme availability was checked university by university in August 2026. Where we could not verify a programme we say so on the card rather than leaving it out.",
+  src:[
+    ["Occupational descriptions: NHS Health Careers, the US Bureau of Labor Statistics Occupational Outlook Handbook, and the professional bodies for each field.","https://www.healthcareers.nhs.uk/"],
+    ["Radiographers and contrast administration: International Society of Radiographers and Radiological Technologists position statement.","https://www.isrrt.org/proffesional-practice/position-statements/usage-of-contrast-media/"],
+    ["Earwax management within audiology scope: American Academy of Audiology policy statement.","https://www.audiology.org/wp-content/uploads/2024/07/Cerumen-Mgmt-Public-Policy-Statement_7.2024.pdf"],
+    ["Euthanasia as a routine veterinary duty: American Veterinary Medical Association guidelines.","https://www.avma.org/resources-tools/avma-policies/avma-guidelines-euthanasia-animals"],
+    ["Laboratory staff and biohazard exposure: US Bureau of Labor Statistics.","https://www.bls.gov/ooh/healthcare/clinical-laboratory-technologists-and-technicians.htm"],
+    ["Allied health licensing levels, including audiology and medical physics at master's level: Dubai Healthcare City licensure requirements for allied health professionals.","https://dhcc.ae/gallery/Licensure%20Requirements%20for%20Allied%20Health%20Professionals%20Guidance%20for%20Applicants.pdf"],
+    ["Gulf programme availability: checked directly on each university's own programme pages, including University of Bahrain, Kuwait University, Qatar University, UDST, Sultan Qaboos University, King Saud University, King Abdulaziz University, Khalifa University, University of Sharjah and Gulf Medical University.",""]
+  ],
+
+  disc:"This page describes what the work involves and where programmes exist. It cannot tell you what you will be able to tolerate. If you are unsure about blood, arrange to spend a morning in a hospital before you apply, not after.",
+  foot:"Prepared by Dr. Saqer AlKhalifa · saqeralkhalifa.com"
+},
+ar:{
+  kicker:"مجاني · لطلبة البحرين والخليج",
+  title:"الشيء الذي قلت إنك تريد تجنّبه",
+  sub:"يطرح عليك الاختبار سؤالًا صريحًا واحدًا: ما الذي تريد تجنّبه أكثر شيء في عملك اليومي؟ هذه الصفحة تأخذ كل إجابة على محمل الجد وتخبرك بما تغلقه، وما لا تغلقه، وما يبقى مفتوحًا أمامك.",
+  lede:"المنفّرات تستبعد الخيارات أسرع مما تجذبها المحفزات، ولهذا يستحق السؤال أن يُطرح. لكن المنفّر لا ينفعك إلا إذا كانت النصيحة التي تليه صحيحة، وأكثر ما يُقال للطلبة هنا خطأ. يُقال لهم إن العلوم المخبرية هي الخيار النظيف في المجال الصحي، وإن المحاسبة لمن يحب الرياضيات، وإن العمارة هي المهرب الفني من الحساب. والثلاثة غير صحيحة. اختر إجابتك أدناه.",
+
+  pick:"أيّها إجابتك؟",
+  h1:"ما الذي يغلقه",
+  h2:"ما الذي لا يغلقه",
+  h3:"ما الذي يبقى مفتوحًا أمامك",
+  h4:"لا تدع أحدًا يرشّح لك هذه",
+  where:"أين في الخليج",
+  more:"اقرأ المزيد",
+
+  noteT:"كلمتان ليستا شيئًا واحدًا",
+  noteS:"كل خطأ تقريبًا في هذه الصفحة ينشأ من دمج فكرتين يجب أن تبقيا منفصلتين.",
+  notes:[
+    ["التعامل مع المرضى ليس هو التعرض لسوائل الجسم.",
+     "مستشار الوراثة يقضي يومه كله مع عائلات خائفة ولا يرى قطرة دم. وعالم المختبر يرى الدم طوال اليوم ولا يقابل مريضًا. فإذا عرفت أيّهما يزعجك، انفتح لك نصف القطاع الصحي من جديد."],
+    ["الحساب ليس هو الرياضيات.",
+     "المحاسبة حساب وقواعد. والهندسة رياضيات. وحسابات الجرعات في التمريض حساب يُؤدى بعناية. فإن كان ما تكرهه هو التفاضل والتكامل فقُل ذلك، لأنه يغلق أبوابًا أقل بكثير من كراهية الأرقام."],
+    ["المنفّر من العمل ليس منفّرًا من الدراسة.",
+     "الصيدلة لا دم فيها في الصناعة، لكن في الشهادة تدريب سريري إجباري. والأشعة هادئة في العيادات الخارجية ودموية في الطوارئ. اسأل كيف تبدو السنوات الخمس الأولى، لا عن المسمى الوظيفي فقط."],
+    ["بعض هذه المنفّرات يزول وبعضها لا.",
+     "الخوف من الحديث أمام الناس يزول عادةً بالممارسة، وإغلاق مجال كامل بسببه في السابعة عشرة خطأ. أما الحساسية من الدم فلا تزول عادةً، ومن يجبر نفسه عليها يترك المهنة لاحقًا بكلفة أكبر بكثير."]
+  ],
+
+  quizline:"لم تخض الاختبار بعد؟ فيه هذا السؤال وثلاثة وثلاثون غيره.",
+  quizbtn:"ابدأ الاختبار",
+  expline:"كل مسار ذُكر هنا مشروح بالكامل في دليل التخصصات، مع جامعات الخليج التي تقدّمه.",
+  expbtn:"استكشف التخصصات",
+  altline:"إن لم يعجبك شيء من هذا، فهناك طرق ليست شهادة جامعية من أربع سنوات أصلًا.",
+  altbtn:"طرق بدون شهادة",
+
+  srcT:"من أين جاء هذا",
+  srcS:"جرى التحقق من توفر البرامج جامعةً جامعة في أغسطس 2026. وحيث لم نستطع التحقق قلنا ذلك على البطاقة بدل حذفه.",
+  src:null,
+
+  disc:"هذه الصفحة تصف طبيعة العمل وأين توجد البرامج. لكنها لا تستطيع أن تخبرك بما ستحتمله أنت. وإن كنت غير متأكد من موقفك من الدم، فرتّب صباحًا واحدًا في مستشفى قبل أن تتقدم لا بعده.",
+  foot:"إعداد د. صقر آل خليفة · saqeralkhalifa.com"
+}
+};
+
+function L(){ return T[LANG]; }
+function tx(o){ return o ? o[LANG] : ""; }
+
+function renderChrome(){
+  var t = L();
+  document.getElementById("kicker").textContent = t.kicker;
+  document.getElementById("t-title").textContent = t.title;
+  document.getElementById("t-sub").textContent = t.sub;
+  document.getElementById("lede").textContent = t.lede;
+
+  document.getElementById("t-noteT").textContent = t.noteT;
+  document.getElementById("t-noteS").textContent = t.noteS;
+  document.getElementById("notes").innerHTML = t.notes.map(function(k){
+    return '<div class="pt"><b>'+k[0]+'</b><span>'+k[1]+'</span></div>'; }).join("");
+
+  document.getElementById("t-pick").textContent = t.pick;
+  document.getElementById("chips").innerHTML = DB.map(function(d){
+    return '<button class="chip'+(SEL===d.id?' on':'')+'" data-d="'+d.id+'">'+tx(d.n)+'</button>'; }).join("");
+
+  document.getElementById("t-quizline").textContent = t.quizline;
+  document.getElementById("t-quizbtn").textContent = t.quizbtn;
+  document.getElementById("t-expline").textContent = t.expline;
+  document.getElementById("t-expbtn").textContent = t.expbtn;
+  document.getElementById("t-altline").textContent = t.altline;
+  document.getElementById("t-altbtn").textContent = t.altbtn;
+
+  document.getElementById("srcT").textContent = t.srcT;
+  document.getElementById("srcS").textContent = t.srcS;
+  document.getElementById("srcList").innerHTML = T.en.src.map(function(s){
+    return '<li>'+s[0]+(s[1] ? ' <a href="'+s[1]+'" target="_blank" rel="noopener">'+s[1]+'</a>' : '')+'</li>'; }).join("");
+
+  document.getElementById("t-disc").textContent = t.disc;
+  document.getElementById("t-foot").textContent = t.foot;
+}
+
+function renderPanel(){
+  var t = L();
+  var d = DB.filter(function(x){ return x.id === SEL; })[0];
+  var h = '';
+  h += '<div class="lead-note">'+tx(d.lead)+'</div>';
+  h += '<div class="blk"><h3>'+t.h1+'</h3><p>'+tx(d.closes)+'</p></div>';
+  h += '<div class="blk open"><h3>'+t.h2+'</h3><p>'+tx(d.not)+'</p></div>';
+
+  h += '<h3 class="sech">'+t.h3+'</h3>';
+  h += d.open.map(function(o){
+    var w = o.w ? '<div class="wh"><span class="wl">'+t.where+'</span>'+tx(o.w)+'</div>' : '';
+    var a = o.href ? '<a class="olink" href="'+o.href+'">'+t.more+'</a>' : '';
+    return '<div class="rt"><b>'+tx(o.n)+'</b><p>'+tx(o.d)+'</p>'+w+a+'</div>';
+  }).join("");
+
+  h += '<h3 class="sech warn">'+t.h4+'</h3>';
+  h += d.traps.map(function(o){
+    return '<div class="rt trap"><b>'+tx(o.n)+'</b><p>'+tx(o.d)+'</p></div>';
+  }).join("");
+
+  document.getElementById("panel").innerHTML = h;
+}
+
+function renderAll(){ renderChrome(); renderPanel(); }
+
+document.addEventListener("click", function(e){
+  var c = e.target.closest ? e.target.closest(".chip") : null;
+  if(c && c.hasAttribute("data-d")){
+    SEL = c.getAttribute("data-d");
+    renderAll();
+    if(window.goatcounter && window.goatcounter.count){
+      try{ window.goatcounter.count({path:"rt-"+SEL, title:"Dealbreaker "+SEL, event:true}); }catch(err){}
+    }
+  }
+});
+
+document.getElementById("langToggle").addEventListener("click", function(){
+  LANG = (LANG === "en") ? "ar" : "en";
+  document.documentElement.lang = LANG;
+  document.documentElement.dir = (LANG === "ar") ? "rtl" : "ltr";
+  this.textContent = (LANG === "ar") ? "English" : "عربي";
+  renderAll();
+});
+
+renderAll();
+if(MCFROM){ try{ document.getElementById("t-pick").scrollIntoView({block:"start"}); }catch(e){} }
+
+</script>
+<script>
+(function(){
+  function sync(){
+    var l = document.documentElement.lang === "ar" ? "ar" : "en";
+    var n = document.querySelectorAll("[data-en]");
+    for(var i=0;i<n.length;i++){ n[i].textContent = n[i].getAttribute("data-"+l); }
+  }
+  try{ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
+  document.addEventListener("click", function(e){ if(e.target && e.target.id === "langToggle") setTimeout(sync, 0); }, true);
+  sync();
+})();
+</script>
+<script>
+/* MCLANG boot: applies the resolved language by driving the page's own toggle,
+   then remembers whatever the visitor lands on. */
+(function(){
+  var b = document.getElementById("langToggle");
+  if(!b) return;
+  if(mcInitLang() === "ar" && document.documentElement.lang !== "ar") b.click();
+  document.addEventListener("click", function(e){
+    if(e.target && e.target.id === "langToggle"){
+      setTimeout(function(){
+        mcSaveLang(document.documentElement.lang === "ar" ? "ar" : "en");
+      }, 0);
+    }
+  }, true);
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>

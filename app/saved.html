@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Saved</title>
+<meta name="theme-color" content="#152A55">
+<link rel="icon" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<script src="app-early.js"></script>
+<style>
+  :root{--ink:#101418;--ink-2:#4a5158;--ink-3:#8a9199;--paper:#faf9f6;--card:#fff;
+        --line:#e6e3dc;--accent:#1c5d99;--accent-soft:#e8f0f8;--gold:#b98c2f;--navy:#152A55;color-scheme:light;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);line-height:1.6;
+       font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
+  [dir="rtl"] body{font-family:'Noto Naskh Arabic','Geeza Pro',serif;}
+  .wrap{max-width:620px;margin:0 auto;padding:16px 18px 28px;}
+  h2.sec{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+    margin:20px 0 9px;font-weight:600;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  [dir="rtl"] h2.sec{letter-spacing:0;text-transform:none;font-size:.9rem;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:12px;}
+  .when{font-size:.82rem;color:var(--ink-3);font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  .row{display:flex;align-items:center;gap:10px;margin-top:9px;}
+  .row .nm{flex:1;min-width:0;font-size:.98rem;}
+  .row .nm a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line);}
+  .bar{flex:none;width:72px;height:7px;border-radius:99px;background:#eee9df;overflow:hidden;}
+  .bar i{display:block;height:100%;background:var(--accent);}
+  .pct{flex:none;width:40px;text-align:end;font-size:.85rem;color:var(--ink-2);
+       font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px;}
+  .btn{background:var(--accent);color:#fff;border:0;border-radius:9px;padding:9px 15px;
+       font:inherit;font-size:.92rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;}
+  .btn.ghost{background:transparent;color:var(--ink-2);border:1px solid var(--line);font-weight:400;}
+  .empty{color:var(--ink-2);font-size:.95rem;}
+  .empty a{color:var(--accent);}
+  .item{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);}
+  .item:last-child{border-bottom:0;}
+  .item .lb{flex:1;min-width:0;}
+  .item .lb a{color:inherit;text-decoration:none;font-size:.98rem;}
+  .item .lb small{display:block;color:var(--ink-3);font-size:.8rem;
+                  font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  .x{background:transparent;border:0;color:var(--ink-3);font:inherit;font-size:1.2rem;cursor:pointer;padding:4px 8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h2 class="sec" data-en="Your results" data-ar="نتائجك"></h2>
+  <div id="results"></div>
+  <h2 class="sec" data-en="Your shortlist" data-ar="قائمتك المختصرة"></h2>
+  <div id="shortlist"></div>
+</div>
+<script src="saved.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
