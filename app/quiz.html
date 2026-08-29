@@ -128,6 +128,27 @@
   .explorelink{display:block; margin:18px auto 0; font-size:1rem; color:var(--accent); text-decoration:none; font-weight:600;}
   .explorelink:hover{text-decoration:underline;}
   .mread{display:inline-block; margin-top:10px; font-size:.92rem; color:var(--accent); font-weight:600; text-decoration:none;}
+  .mailrow{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+    max-width:460px; margin:0 auto 12px;}
+  .mailrow[hidden], .mailconsent[hidden], #mailbox[hidden]{display:none !important;}
+  .mailrow input[type="email"]{flex:1 1 240px; min-width:0; padding:12px 14px;
+    font-size:1rem; border-radius:0; border:1px solid var(--line-2);
+    background:var(--card); color:var(--ink); font-family:var(--font-body);}
+  .mailrow input[type="email"]:focus{outline:2px solid var(--band); outline-offset:1px;}
+  .mailrow .btn{flex:0 0 auto;}
+  [dir="rtl"] .mailrow input[type="email"]{font-family:var(--font-ar);}
+  .mailconsent{display:flex; gap:8px; align-items:flex-start; justify-content:center;
+    max-width:460px; margin:0 auto; font-size:.95rem; color:var(--ink-2);
+    text-align:start; cursor:pointer;}
+  .mailconsent input{margin-top:3px; flex:0 0 auto;}
+  .mailmsg{min-height:1.2em; margin:10px auto 0; font-size:.95rem; font-weight:600;}
+  .mailmsg.ok{color:var(--band);}
+  .mailmsg.bad{color:var(--gold-dark);}
+  @media (max-width:420px){
+    .mailrow{flex-direction:column; align-items:stretch;}
+    .mailrow input[type="email"]{flex:0 0 auto; width:100%;}
+    .mailrow .btn{width:100%; flex:0 0 auto;}
+  }
   .mread:hover{text-decoration:underline;}
 
   /* ---------- results ---------- */
@@ -787,6 +808,22 @@ html[lang="ar"] .wpbrand{margin-right:0;margin-left:auto;}
 
     <div id="majorCards"></div>
 
+    <div class="nextbox" id="mailbox" hidden>
+      <h2 id="r-mail-title"></h2>
+      <p id="r-mail-sub"></p>
+      <form class="mailrow" id="mailForm" novalidate>
+        <input type="email" id="mailInput" name="email" autocomplete="email"
+               inputmode="email" spellcheck="false" required>
+        <button class="btn" type="submit" id="mailBtn"></button>
+      </form>
+      <label class="mailconsent" for="mailConsent">
+        <input type="checkbox" id="mailConsent">
+        <span id="r-mail-consent"></span>
+      </label>
+      <p class="mailmsg" id="r-mail-msg" role="status" aria-live="polite"></p>
+      <p class="nextpar" id="r-mail-note"></p>
+    </div>
+
     <div class="nextbox">
       <h2 id="r-next-title"></h2>
       <p id="r-next-sub"></p>
@@ -880,6 +917,17 @@ const UI = {
     parSend: "Send the result to a parent, in Arabic",
     parRead: "Open the parents guide",
     parNote: "The message opens in whatever you normally share with, WhatsApp, Messages or anything else. Nothing is stored and nothing is sent to us.",
+    mailTitle: "Deadline alerts for your majors",
+    mailSub: "Scholarship and application deadlines for these five majors, sent to you before they close. A few messages a term, and you can stop them whenever you want.",
+    mailPlaceholder: "your name@example.com",
+    mailBtn: "Send me the alerts",
+    mailConsent: "Yes, email me the deadlines for these majors.",
+    mailNote: "Your address is used for these alerts only and is never passed to anyone else. If you are under 18, ask a parent before you enter it.",
+    mailOk: "Thank you. Your first alert will arrive before the next deadline.",
+    mailSending: "Sending\u2026",
+    mailErrMail: "That address does not look right, please check it.",
+    mailErrConsent: "Please tick the box first, so we know you want the alerts.",
+    mailErrSend: "That did not go through, please try again in a moment.",
     parCopied: "Message copied. Paste it wherever you like.",
     readMore: "Read more about this major →",
     mktLabel: "Job market shown:",
@@ -946,6 +994,17 @@ const UI = {
     parSend: "أرسل النتيجة لولي الأمر",
     parRead: "افتح دليل أولياء الأمور",
     parNote: "ستفتح الرسالة في التطبيق الذي تشارك به عادةً، واتساب أو الرسائل أو غيرهما. ولا يُحفظ منها شيء ولا يصلنا منها شيء.",
+    mailTitle: "\u062a\u0646\u0628\u064a\u0647\u0627\u062a \u0627\u0644\u0645\u0648\u0627\u0639\u064a\u062f \u0644\u062a\u062e\u0635\u0635\u0627\u062a\u0643",
+    mailSub: "\u0645\u0648\u0627\u0639\u064a\u062f \u0627\u0644\u0645\u0646\u062d \u0648\u0627\u0644\u062a\u0642\u062f\u064a\u0645 \u0644\u0647\u0630\u0647 \u0627\u0644\u062a\u062e\u0635\u0635\u0627\u062a \u0627\u0644\u062e\u0645\u0633\u0629 \u062a\u0635\u0644\u0643 \u0642\u0628\u0644 \u0623\u0646 \u062a\u064f\u063a\u0644\u0642. \u0631\u0633\u0627\u0626\u0644 \u0642\u0644\u064a\u0644\u0629 \u0641\u064a \u0627\u0644\u0641\u0635\u0644 \u0627\u0644\u062f\u0631\u0627\u0633\u064a\u060c \u0648\u064a\u0645\u0643\u0646\u0643 \u0625\u064a\u0642\u0627\u0641\u0647\u0627 \u0645\u062a\u0649 \u0634\u0626\u062a.",
+    mailPlaceholder: "\u0628\u0631\u064a\u062f\u0643 \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a",
+    mailBtn: "\u0623\u0631\u0633\u0644\u0648\u0627 \u0644\u064a \u0627\u0644\u062a\u0646\u0628\u064a\u0647\u0627\u062a",
+    mailConsent: "\u0646\u0639\u0645\u060c \u0623\u0631\u0633\u0644\u0648\u0627 \u0644\u064a \u0645\u0648\u0627\u0639\u064a\u062f \u0647\u0630\u0647 \u0627\u0644\u062a\u062e\u0635\u0635\u0627\u062a.",
+    mailNote: "\u064a\u064f\u0633\u062a\u062e\u062f\u0645 \u0628\u0631\u064a\u062f\u0643 \u0644\u0647\u0630\u0647 \u0627\u0644\u062a\u0646\u0628\u064a\u0647\u0627\u062a \u0641\u0642\u0637 \u0648\u0644\u0627 \u064a\u064f\u0634\u0627\u0631\u0643 \u0645\u0639 \u0623\u064a \u062c\u0647\u0629 \u0623\u062e\u0631\u0649. \u0625\u0646 \u0643\u0627\u0646 \u0639\u0645\u0631\u0643 \u0623\u0642\u0644 \u0645\u0646 18 \u0639\u0627\u0645\u064b\u0627 \u0641\u0627\u0633\u062a\u0623\u0630\u0646 \u0648\u0644\u064a \u0623\u0645\u0631\u0643 \u0642\u0628\u0644 \u0625\u062f\u062e\u0627\u0644\u0647.",
+    mailOk: "\u0634\u0643\u0631\u064b\u0627 \u0644\u0643. \u0633\u064a\u0635\u0644\u0643 \u0623\u0648\u0644 \u062a\u0646\u0628\u064a\u0647 \u0642\u0628\u0644 \u0627\u0644\u0645\u0648\u0639\u062f \u0627\u0644\u0642\u0627\u062f\u0645.",
+    mailSending: "\u062c\u0627\u0631\u064d \u0627\u0644\u0625\u0631\u0633\u0627\u0644\u2026",
+    mailErrMail: "\u064a\u0628\u062f\u0648 \u0623\u0646 \u0627\u0644\u0628\u0631\u064a\u062f \u063a\u064a\u0631 \u0635\u062d\u064a\u062d\u060c \u062a\u062d\u0642\u0642 \u0645\u0646\u0647 \u0645\u0646 \u0641\u0636\u0644\u0643.",
+    mailErrConsent: "\u0641\u0636\u0644\u064b\u0627 \u0636\u0639 \u0639\u0644\u0627\u0645\u0629 \u0641\u064a \u0627\u0644\u0645\u0631\u0628\u0639 \u0644\u0646\u0639\u0631\u0641 \u0623\u0646\u0643 \u062a\u0631\u064a\u062f \u0627\u0644\u062a\u0646\u0628\u064a\u0647\u0627\u062a.",
+    mailErrSend: "\u0644\u0645 \u062a\u062a\u0645 \u0627\u0644\u0639\u0645\u0644\u064a\u0629\u060c \u062d\u0627\u0648\u0644 \u0645\u0631\u0629 \u0623\u062e\u0631\u0649 \u0628\u0639\u062f \u0642\u0644\u064a\u0644.",
     parCopied: "نُسخت الرسالة. الصقها حيث تشاء.",
     readMore: "اقرأ المزيد عن هذا التخصص ←",
     mktLabel: "سوق العمل المعروض:",
@@ -1599,6 +1658,7 @@ if (typeof document !== "undefined") (function(){
   let startTime = null;
   let resultsSent = false;
   let lastProfile = null;
+  let lastRanked = null;
   const answers = new Array(QUESTIONS.length).fill(null);
   const $ = (id)=>document.getElementById(id);
 
@@ -1643,6 +1703,43 @@ if (typeof document !== "undefined") (function(){
   detectMarket();
   const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfAebWbx8udVD_Ug2kKHvQ8F0SUuNeZ_uIDrkmtlRcEs7Z-IA/formResponse";
   const FORM_ENTRY = "entry.156577286";
+
+  /* ---- MCOPT: email opt-in -------------------------------------------
+     Paste the three values below and the box appears on the results
+     screen. Leave OPTIN_FORM_URL empty and the box stays hidden, so
+     the page is safe to deploy before the form exists.
+       1. Make a Google Form with two short-answer questions:
+            Q1 "Email"   Q2 "Context"
+       2. Open the live form, view source, find the two entry.NNNNNNN ids.
+       3. Form URL is the /viewform link with viewform swapped for
+          formResponse.
+     Keep this form separate from the results form. Student addresses
+     then live apart from the answer data, and the completions count
+     that the tracker reads stays one row per finished quiz.
+  --------------------------------------------------------------------- */
+  const OPTIN_FORM_URL   = "https://docs.google.com/forms/d/e/1FAIpQLSdtcboAE_yfk9HA4vInFUWZHxjwN10J-v6d3sGN6MyKM7ilOQ/formResponse";
+  const OPTIN_ENTRY_MAIL = "entry.568702226";
+  const OPTIN_ENTRY_CTX  = "entry.631485467";
+  let optinSent = false;
+
+  function validMail(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  }
+
+  function sendOptin(mail, p, ranked){
+    if(!OPTIN_FORM_URL || !OPTIN_ENTRY_MAIL) return Promise.reject("unconfigured");
+    const ctx = JSON.stringify({
+      lang: lang,
+      code: p && p.code ? p.code.join("") : "",
+      top: ranked ? ranked.slice(0,5).map(r=>r.major.id) : [],
+      market: market || "",
+      at: new Date().toISOString()
+    });
+    const body = new URLSearchParams();
+    body.append(OPTIN_ENTRY_MAIL, mail);
+    if(OPTIN_ENTRY_CTX) body.append(OPTIN_ENTRY_CTX, ctx);
+    return fetch(OPTIN_FORM_URL, {method:"POST", mode:"no-cors", body: body});
+  }
   function track(path){
     if(NOTRACK) return;
     try{
@@ -1753,6 +1850,7 @@ if (typeof document !== "undefined") (function(){
     track("complete");
     track("lang-" + lang);
     if(ranked.length) track("top-" + ranked[0].major.id);
+    lastRanked = ranked;
     sendResults(p, ranked);
     renderResults(p);
     show("results");
@@ -1790,6 +1888,24 @@ if (typeof document !== "undefined") (function(){
     $("r-par-send").textContent  = U.parSend;
     $("r-par-read").textContent  = U.parRead;
     $("r-par-note").textContent  = U.parNote;
+
+    /* MCOPT: opt-in box, shown only once the form constants are set */
+    if(OPTIN_FORM_URL && OPTIN_ENTRY_MAIL && !NOTRACK){
+      $("mailbox").hidden = false;
+      $("r-mail-title").textContent   = U.mailTitle;
+      $("r-mail-sub").textContent     = U.mailSub;
+      $("r-mail-consent").textContent = U.mailConsent;
+      $("r-mail-note").textContent    = U.mailNote;
+      $("mailInput").placeholder      = U.mailPlaceholder;
+      if(optinSent){
+        const m = $("r-mail-msg");
+        m.className = "mailmsg ok"; m.textContent = U.mailOk;
+      } else {
+        $("mailBtn").textContent = U.mailBtn;
+      }
+    } else {
+      $("mailbox").hidden = true;
+    }
     $("r-disclaimer").textContent = U.disclaimer;
     $("r-refs").textContent = U.refs;
 
@@ -1907,6 +2023,30 @@ if (typeof document !== "undefined") (function(){
       setTimeout(()=>{ b.textContent = U.parSend; }, 3000);
     }catch(e){/* user cancelled */}
   });
+  $("mailForm").addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    const U = UI[lang];
+    const msg = $("r-mail-msg");
+    const btn = $("mailBtn");
+    const mail = $("mailInput").value.trim();
+    msg.className = "mailmsg bad";
+    if(!validMail(mail)){ msg.textContent = U.mailErrMail; $("mailInput").focus(); return; }
+    if(!$("mailConsent").checked){ msg.textContent = U.mailErrConsent; return; }
+    btn.disabled = true; btn.textContent = U.mailSending;
+    msg.className = "mailmsg"; msg.textContent = "";
+    try{
+      await sendOptin(mail, lastProfile, lastRanked);
+      optinSent = true;
+      track("mc-optin");
+      $("mailForm").hidden = true;
+      $("mailConsent").parentElement.hidden = true;
+      msg.className = "mailmsg ok"; msg.textContent = U.mailOk;
+    }catch(err){
+      btn.disabled = false; btn.textContent = U.mailBtn;
+      msg.className = "mailmsg bad"; msg.textContent = U.mailErrSend;
+    }
+  });
+  $("mailInput").addEventListener("focus", ()=>{ track("mc-optin-open"); }, {once:true});
   $("printBtn").addEventListener("click", ()=>window.print());
   $("shareBtn").addEventListener("click", async ()=>{
     const url = location.href.split("#")[0];
