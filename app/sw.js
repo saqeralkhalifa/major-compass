@@ -1,10 +1,13 @@
 /* Major Compass service worker.
    The whole app is precached so it opens with no network. Content under data/
    is network-first, so a corrected deadline reaches the phone without a release. */
-const CACHE = 'mc-app-e350120664';
+const CACHE = 'mc-app-yc20260831a';
 const SHELL = [
   "ai.html",
   "alternatives.html",
+  "gigs.html",
+  "investors.html",
+  "work.html",
   "app-early.js",
   "app.css",
   "app.js",

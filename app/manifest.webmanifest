@@ -1,7 +1,7 @@
 {
-  "name": "Major Compass",
-  "short_name": "Major Compass",
-  "description": "Choosing a university major in the Gulf. 82 majors, entry requirements, scholarships, internships and routes without a degree, in English and Arabic.",
+  "name": "Youth Compass",
+  "short_name": "Youth Compass",
+  "description": "One free app for young people in the Gulf: choosing a university major, verified internships, gigs and flexible work in Bahrain, a first CV, and a public board for ideas seeking investors. In English and Arabic.",
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",

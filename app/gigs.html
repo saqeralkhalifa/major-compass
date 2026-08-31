@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Gigs and Flexible Work</title>
+<meta name="theme-color" content="#152A55">
+<link rel="icon" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<script src="app-early.js"></script>
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<style>
+  :root{
+    --ink:#101418; --ink-2:#4a5158; --ink-3:#8a9199; --paper:#faf9f6; --card:#fff;
+    --line:#e6e3dc; --accent:#1c5d99; --accent-soft:#e8f0f8; --gold:#b98c2f; --navy:#152A55;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);line-height:1.6;
+       font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
+  [dir="rtl"] body{font-family:'Noto Naskh Arabic','Geeza Pro',serif;line-height:1.8;}
+  .wrap{max-width:620px;margin:0 auto;padding:14px 18px 28px;}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:12px;
+        display:block;text-decoration:none;color:inherit;}
+  .card h3{font-size:1.05rem;font-weight:600;color:var(--ink);}
+  .card p{font-size:.92rem;color:var(--ink-2);margin-top:3px;}
+  .flag{border-inline-start:3px solid var(--gold);background:#fdf8ee;}
+  .flag .kicker{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);font-weight:600;
+    font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  [dir="rtl"] .flag .kicker{letter-spacing:0;text-transform:none;}
+
+  h2.sec{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+    margin:22px 0 9px;font-weight:600;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  [dir="rtl"] h2.sec{letter-spacing:0;text-transform:none;font-size:.9rem;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 14px;}
+  .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 16px;
+        font:inherit;font-size:.95rem;cursor:pointer;color:var(--ink-2);}
+  .chip.on{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:600;}
+
+  .f{margin-top:14px;}
+  .f label{display:block;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+    font-weight:600;margin-bottom:5px;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  [dir="rtl"] .f label{letter-spacing:0;text-transform:none;font-size:.88rem;font-family:inherit;}
+  .f .req{color:var(--gold);}
+  .f input[type=text],.f input[type=email],.f input[type=url],.f textarea{
+    width:100%;font-family:inherit;font-size:1rem;line-height:1.55;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;}
+  .f textarea{min-height:96px;resize:vertical;}
+  .f input:focus,.f textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent);}
+  .opts{display:flex;flex-direction:column;gap:6px;}
+  .opt{display:flex;align-items:flex-start;gap:9px;font-size:.98rem;color:var(--ink);cursor:pointer;
+       border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 12px;}
+  .opt input{margin-top:5px;accent-color:var(--navy);width:16px;height:16px;flex:none;}
+  .opt.on{border-color:var(--navy);background:var(--accent-soft);}
+  .btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:10px;
+       padding:12px 22px;font:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;}
+  .btn2{display:inline-block;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:10px;
+       padding:11px 18px;font:inherit;font-size:.95rem;font-weight:600;cursor:pointer;text-decoration:none;}
+  .row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:16px;}
+  .note{font-size:.85rem;color:var(--ink-3);margin-top:8px;}
+  .err{display:none;font-size:.92rem;color:#8a2b1d;background:#fbeeea;border:1px solid #ecd2cb;
+       border-radius:10px;padding:10px 12px;margin-top:12px;}
+  .err.show{display:block;}
+  .panel{display:none;}
+  .panel.on{display:block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p style="font-size:.98rem;color:var(--ink-2);"
+     data-en="A free noticeboard for gigs, part-time work, freelance tasks and temporary roles in Bahrain. Every listing is reviewed before it is published, and nothing here costs anything."
+     data-ar="لوحة مجانية للأعمال القصيرة والعمل الجزئي والمهام الحرة والأدوار المؤقتة في البحرين. تُراجع كل فرصة قبل نشرها، ولا شيء هنا مقابل رسوم."></p>
+
+  <h2 class="sec" data-en="The board" data-ar="اللوحة"></h2>
+  <a class="card flag" href="https://gigs.saqeralkhalifa.com">
+    <div class="kicker" data-en="Live now" data-ar="مباشر الآن"></div>
+    <h3 data-en="Browse open gigs" data-ar="تصفح الفرص المتاحة"></h3>
+    <p data-en="Opens the live board with every published opportunity." data-ar="تفتح اللوحة المباشرة وفيها كل الفرص المنشورة."></p>
+  </a>
+
+  <h2 class="sec" data-en="Take part" data-ar="شارك"></h2>
+  <div class="chips" role="tablist">
+    <button class="chip on" id="chipSeek" type="button" data-en="I am looking for work" data-ar="أبحث عن عمل"></button>
+    <button class="chip" id="chipPost" type="button" data-en="I am offering work" data-ar="أعرض عملاً"></button>
+  </div>
+
+  <!-- ============ FIND WORK ============ -->
+  <form class="panel card on" id="pSeek" novalidate>
+    <p style="font-size:.92rem;color:var(--ink-2);"
+       data-en="Register your details and the kind of work that suits you. When a suitable opportunity is posted, you will be contacted. Your details are not shared without your consent."
+       data-ar="سجّل بياناتك ونوع العمل الذي يناسبك. عندما تُنشر فرصة مناسبة سيتم التواصل معك. لا تُشارك بياناتك دون موافقتك."></p>
+
+    <div class="f"><label for="sName"><span data-en="Your name" data-ar="الاسم"></span> <span class="req">*</span></label>
+      <input type="text" id="sName" autocomplete="name"></div>
+    <div class="f"><label for="sEmail"><span data-en="Email" data-ar="البريد الإلكتروني"></span> <span class="req">*</span></label>
+      <input type="email" id="sEmail" autocomplete="email"></div>
+    <div class="f"><label for="sPhone"><span data-en="Phone or WhatsApp" data-ar="الهاتف أو واتساب"></span> <span class="req">*</span></label>
+      <input type="text" id="sPhone" autocomplete="tel"></div>
+    <div class="f"><label for="sLive" data-en="Where you live" data-ar="مكان السكن"></label>
+      <input type="text" id="sLive"></div>
+
+    <div class="f"><label><span data-en="What type of work suits you?" data-ar="ما نوع العمل الذي يناسبك؟"></span> <span class="req">*</span></label>
+      <div class="opts" id="sTypes">
+        <label class="opt"><input type="checkbox" value="One-off gigs|أعمال قصيرة"><span data-en="One-off gigs" data-ar="أعمال قصيرة"></span></label>
+        <label class="opt"><input type="checkbox" value="Part-time|دوام جزئي"><span data-en="Part-time" data-ar="دوام جزئي"></span></label>
+        <label class="opt"><input type="checkbox" value="Temporary|مؤقت"><span data-en="Temporary" data-ar="مؤقت"></span></label>
+        <label class="opt"><input type="checkbox" value="Freelance or remote|عمل حر أو عن بُعد"><span data-en="Freelance or remote" data-ar="عمل حر أو عن بُعد"></span></label>
+      </div></div>
+
+    <div class="f"><label data-en="Sectors you can work in" data-ar="القطاعات التي تستطيع العمل فيها"></label>
+      <div class="opts" id="sSectors">
+        <label class="opt"><input type="checkbox" value="Events|الفعاليات"><span data-en="Events" data-ar="الفعاليات"></span></label>
+        <label class="opt"><input type="checkbox" value="Hospitality|الضيافة"><span data-en="Hospitality" data-ar="الضيافة"></span></label>
+        <label class="opt"><input type="checkbox" value="Retail|التجزئة"><span data-en="Retail" data-ar="التجزئة"></span></label>
+        <label class="opt"><input type="checkbox" value="Delivery|التوصيل"><span data-en="Delivery" data-ar="التوصيل"></span></label>
+        <label class="opt"><input type="checkbox" value="Office|أعمال مكتبية"><span data-en="Office" data-ar="أعمال مكتبية"></span></label>
+        <label class="opt"><input type="checkbox" value="Media|الإعلام"><span data-en="Media" data-ar="الإعلام"></span></label>
+        <label class="opt"><input type="checkbox" value="Tech|التقنية"><span data-en="Tech" data-ar="التقنية"></span></label>
+        <label class="opt"><input type="checkbox" value="Teaching|التدريس"><span data-en="Teaching" data-ar="التدريس"></span></label>
+        <label class="opt"><input type="checkbox" value="Other|أخرى"><span data-en="Other" data-ar="أخرى"></span></label>
+      </div></div>
+
+    <div class="f"><label for="sFree" data-en="When you are free" data-ar="أوقات تفرغك"></label>
+      <input type="text" id="sFree" data-en-ph="for example: evenings and weekends" data-ar-ph="مثال: المساء وعطلة الأسبوع"></div>
+    <div class="f"><label for="sCV" data-en="Link to your CV or profile" data-ar="رابط سيرتك الذاتية"></label>
+      <input type="url" id="sCV"></div>
+    <div class="f"><label for="sElse" data-en="Anything else we should know" data-ar="أي شيء آخر"></label>
+      <textarea id="sElse"></textarea></div>
+
+    <div class="f"><div class="opts">
+      <label class="opt"><input type="checkbox" id="sConsent">
+        <span data-en="I agree that my details are kept and used to match me with opportunities."
+              data-ar="أوافق على حفظ بياناتي واستخدامها لمطابقتي مع الفرص المناسبة."></span></label>
+    </div></div>
+
+    <div class="err" id="sErr"></div>
+    <div class="row">
+      <button class="btn" type="submit" data-en="Send my registration" data-ar="أرسل تسجيلي"></button>
+      <button class="btn2" type="button" id="sCopy" data-en="Copy instead" data-ar="انسخ بدلاً من ذلك"></button>
+    </div>
+    <p class="note" data-en="Send opens your email app with everything filled in. Review it, then press send. If you prefer, use the form on the website:"
+       data-ar="زر الإرسال يفتح تطبيق البريد لديك وقد مُلئت الرسالة. راجعها ثم أرسلها. وإن شئت، استخدم النموذج على الموقع:"></p>
+    <p class="note"><a href="https://www.saqeralkhalifa.com/find-work/" style="color:var(--accent);" data-en="saqeralkhalifa.com/find-work" data-ar="saqeralkhalifa.com/find-work"></a></p>
+  </form>
+
+  <!-- ============ POST A GIG ============ -->
+  <form class="panel card" id="pPost" novalidate>
+    <p style="font-size:.92rem;color:var(--ink-2);"
+       data-en="Post a gig, a short job, a part-time role or a temporary position. The listing is reviewed and published on the board, and applications reach you by email. There is no charge."
+       data-ar="انشر عملاً قصيراً أو وظيفة قصيرة أو دواماً جزئياً أو دوراً مؤقتاً. تُراجع الفرصة وتُنشر على اللوحة، وتصلك الطلبات عبر البريد. لا توجد رسوم."></p>
+
+    <div class="f"><label for="gCo"><span data-en="Company or organisation" data-ar="اسم الشركة أو الجهة"></span> <span class="req">*</span></label>
+      <input type="text" id="gCo" autocomplete="organization"></div>
+    <div class="f"><label for="gContact"><span data-en="Contact person" data-ar="الشخص المسؤول"></span> <span class="req">*</span></label>
+      <input type="text" id="gContact" autocomplete="name"></div>
+    <div class="f"><label for="gEmail"><span data-en="Email" data-ar="البريد الإلكتروني"></span> <span class="req">*</span></label>
+      <input type="email" id="gEmail" autocomplete="email"></div>
+    <div class="f"><label for="gPhone" data-en="Phone or WhatsApp" data-ar="الهاتف أو واتساب"></label>
+      <input type="text" id="gPhone" autocomplete="tel"></div>
+    <div class="f"><label for="gRole"><span data-en="Role title" data-ar="مسمى الفرصة"></span> <span class="req">*</span></label>
+      <input type="text" id="gRole"></div>
+
+    <div class="f"><label><span data-en="Type of work" data-ar="نوع العمل"></span> <span class="req">*</span></label>
+      <div class="opts" id="gType">
+        <label class="opt"><input type="radio" name="gType" value="One-off gig|عمل قصير"><span data-en="One-off gig" data-ar="عمل قصير"></span></label>
+        <label class="opt"><input type="radio" name="gType" value="Part-time|دوام جزئي"><span data-en="Part-time" data-ar="دوام جزئي"></span></label>
+        <label class="opt"><input type="radio" name="gType" value="Temporary|مؤقت"><span data-en="Temporary" data-ar="مؤقت"></span></label>
+        <label class="opt"><input type="radio" name="gType" value="Freelance or remote|عمل حر أو عن بُعد"><span data-en="Freelance or remote" data-ar="عمل حر أو عن بُعد"></span></label>
+        <label class="opt"><input type="radio" name="gType" value="Internship|تدريب"><span data-en="Internship" data-ar="تدريب"></span></label>
+      </div></div>
+
+    <div class="f"><label for="gPay" data-en="Pay" data-ar="الأجر"></label>
+      <input type="text" id="gPay" data-en-ph="for example: BD 25 per day" data-ar-ph="مثال: 25 ديناراً في اليوم"></div>
+    <div class="f"><label for="gHours" data-en="Hours and duration" data-ar="الساعات والمدة"></label>
+      <input type="text" id="gHours"></div>
+    <div class="f"><label for="gLoc" data-en="Location" data-ar="المكان"></label>
+      <input type="text" id="gLoc"></div>
+    <div class="f"><label for="gDead" data-en="Deadline to apply" data-ar="آخر موعد للتقديم"></label>
+      <input type="text" id="gDead"></div>
+    <div class="f"><label for="gDetails"><span data-en="Details" data-ar="التفاصيل"></span> <span class="req">*</span></label>
+      <textarea id="gDetails"></textarea></div>
+
+    <div class="f"><label><span data-en="How should applications reach you?" data-ar="كيف تصلك الطلبات؟"></span> <span class="req">*</span></label>
+      <div class="opts" id="gRoute">
+        <label class="opt"><input type="radio" name="gRoute" value="Screened through the board|مصفّاة عبر اللوحة"><span data-en="Screened through the board" data-ar="مصفّاة عبر اللوحة"></span></label>
+        <label class="opt"><input type="radio" name="gRoute" value="Directly to us|مباشرة إلينا"><span data-en="Directly to us" data-ar="مباشرة إلينا"></span></label>
+      </div></div>
+
+    <div class="err" id="gErr"></div>
+    <div class="row">
+      <button class="btn" type="submit" data-en="Send the listing" data-ar="أرسل الفرصة"></button>
+      <button class="btn2" type="button" id="gCopy" data-en="Copy instead" data-ar="انسخ بدلاً من ذلك"></button>
+    </div>
+    <p class="note" data-en="Send opens your email app with everything filled in. Review it, then press send. If you prefer, use the form on the website:"
+       data-ar="زر الإرسال يفتح تطبيق البريد لديك وقد مُلئت الرسالة. راجعها ثم أرسلها. وإن شئت، استخدم النموذج على الموقع:"></p>
+    <p class="note"><a href="https://www.saqeralkhalifa.com/post-a-gig/" style="color:var(--accent);" data-en="saqeralkhalifa.com/post-a-gig" data-ar="saqeralkhalifa.com/post-a-gig"></a></p>
+  </form>
+
+</div>
+
+<script>
+(function () {
+  var TO = 'alkhalifa.sager@gmail.com';
+
+  /* ---------- language ---------- */
+  function resolveLang() {
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'ar' || q === 'en') return q;
+      var s = localStorage.getItem('mc-lang');
+      if (s === 'ar' || s === 'en') return s;
+    } catch (e) {}
+    return (navigator.language || '').slice(0, 2) === 'ar' ? 'ar' : 'en';
+  }
+  function setLang(l) {
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+    try { localStorage.setItem('mc-lang', l); } catch (e) {}
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      var v = el.getAttribute(l === 'ar' ? 'data-ar' : 'data-en');
+      if (v !== null) el.textContent = v;
+    });
+    document.querySelectorAll('[data-en-ph]').forEach(function (el) {
+      el.placeholder = el.getAttribute(l === 'ar' ? 'data-ar-ph' : 'data-en-ph') || '';
+    });
+    document.title = l === 'ar' ? 'الأعمال القصيرة والعمل المرن' : 'Gigs and Flexible Work';
+  }
+  window.mcAppSetLang = setLang;
+  function L() { return document.documentElement.lang === 'ar' ? 'ar' : 'en'; }
+  function t(en, ar) { return L() === 'ar' ? ar : en; }
+
+  /* ---------- panels ---------- */
+  var chipSeek = document.getElementById('chipSeek'), chipPost = document.getElementById('chipPost');
+  var pSeek = document.getElementById('pSeek'), pPost = document.getElementById('pPost');
+  function show(which) {
+    chipSeek.classList.toggle('on', which === 'seek');
+    chipPost.classList.toggle('on', which === 'post');
+    pSeek.classList.toggle('on', which === 'seek');
+    pPost.classList.toggle('on', which === 'post');
+    try { localStorage.setItem('mc-gigs-mode', which); } catch (e) {}
+  }
+  chipSeek.addEventListener('click', function () { show('seek'); });
+  chipPost.addEventListener('click', function () { show('post'); });
+
+  /* ---------- option highlight ---------- */
+  document.querySelectorAll('.opt input').forEach(function (i) {
+    i.addEventListener('change', function () {
+      if (i.type === 'radio') {
+        document.querySelectorAll('input[name="' + i.name + '"]').forEach(function (r) {
+          r.closest('.opt').classList.toggle('on', r.checked);
+        });
+      } else {
+        i.closest('.opt').classList.toggle('on', i.checked);
+      }
+    });
+  });
+
+  /* ---------- drafts ---------- */
+  var DKEY = 'mc-gigs-draft';
+  function fields(form) { return form.querySelectorAll('input[type=text],input[type=email],input[type=url],textarea'); }
+  function saveDraft() {
+    var d = {};
+    [pSeek, pPost].forEach(function (f) { fields(f).forEach(function (i) { if (i.value) d[i.id] = i.value; }); });
+    try { localStorage.setItem(DKEY, JSON.stringify(d)); } catch (e) {}
+  }
+  function loadDraft() {
+    try {
+      var d = JSON.parse(localStorage.getItem(DKEY) || '{}');
+      Object.keys(d).forEach(function (k) { var el = document.getElementById(k); if (el) el.value = d[k]; });
+    } catch (e) {}
+  }
+  document.addEventListener('input', saveDraft);
+
+  /* ---------- compose ---------- */
+  function val(id) { return (document.getElementById(id).value || '').trim(); }
+  function checked(boxId) {
+    return Array.prototype.slice.call(document.querySelectorAll('#' + boxId + ' input:checked'))
+      .map(function (i) { return i.value.split('|')[L() === 'ar' ? 1 : 0]; });
+  }
+  function radio(name) {
+    var r = document.querySelector('input[name="' + name + '"]:checked');
+    return r ? r.value.split('|')[L() === 'ar' ? 1 : 0] : '';
+  }
+  function lines(rows) {
+    return rows.filter(function (r) { return r[1]; })
+      .map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
+  }
+  function fail(errId, msg) {
+    var e = document.getElementById(errId);
+    e.textContent = msg; e.classList.add('show');
+    e.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return null;
+  }
+  function seekBody() {
+    document.getElementById('sErr').classList.remove('show');
+    if (!val('sName') || !val('sEmail') || !val('sPhone'))
+      return fail('sErr', t('Name, email and phone are required.', 'الاسم والبريد والهاتف حقول مطلوبة.'));
+    if (!checked('sTypes').length)
+      return fail('sErr', t('Choose at least one type of work.', 'اختر نوعاً واحداً من العمل على الأقل.'));
+    if (!document.getElementById('sConsent').checked)
+      return fail('sErr', t('Please tick the consent box.', 'يرجى تأشير خانة الموافقة.'));
+    return lines([
+      [t('Name', 'الاسم'), val('sName')],
+      [t('Email', 'البريد'), val('sEmail')],
+      [t('Phone or WhatsApp', 'الهاتف أو واتساب'), val('sPhone')],
+      [t('Where they live', 'مكان السكن'), val('sLive')],
+      [t('Type of work', 'نوع العمل'), checked('sTypes').join(t(', ', '، '))],
+      [t('Sectors', 'القطاعات'), checked('sSectors').join(t(', ', '، '))],
+      [t('Availability', 'أوقات التفرغ'), val('sFree')],
+      [t('CV or profile', 'السيرة الذاتية'), val('sCV')],
+      [t('Anything else', 'أي شيء آخر'), val('sElse')],
+      [t('Consent', 'الموافقة'), t('Given', 'تمت الموافقة')],
+      [t('Sent from', 'أُرسل من'), t('the app', 'التطبيق')]
+    ]);
+  }
+  function postBody() {
+    document.getElementById('gErr').classList.remove('show');
+    if (!val('gCo') || !val('gContact') || !val('gEmail') || !val('gRole') || !val('gDetails'))
+      return fail('gErr', t('Company, contact person, email, role title and details are required.',
+                            'اسم الجهة والشخص المسؤول والبريد ومسمى الفرصة والتفاصيل حقول مطلوبة.'));
+    if (!radio('gType')) return fail('gErr', t('Choose the type of work.', 'اختر نوع العمل.'));
+    if (!radio('gRoute')) return fail('gErr', t('Choose how applications should reach you.', 'اختر كيف تصلك الطلبات.'));
+    return lines([
+      [t('Company or organisation', 'اسم الشركة أو الجهة'), val('gCo')],
+      [t('Contact person', 'الشخص المسؤول'), val('gContact')],
+      [t('Email', 'البريد'), val('gEmail')],
+      [t('Phone or WhatsApp', 'الهاتف أو واتساب'), val('gPhone')],
+      [t('Role title', 'مسمى الفرصة'), val('gRole')],
+      [t('Type of work', 'نوع العمل'), radio('gType')],
+      [t('Pay', 'الأجر'), val('gPay')],
+      [t('Hours and duration', 'الساعات والمدة'), val('gHours')],
+      [t('Location', 'المكان'), val('gLoc')],
+      [t('Deadline to apply', 'آخر موعد للتقديم'), val('gDead')],
+      [t('Details', 'التفاصيل'), val('gDetails')],
+      [t('Applications', 'الطلبات'), radio('gRoute')],
+      [t('Sent from', 'أُرسل من'), t('the app', 'التطبيق')]
+    ]);
+  }
+  function send(subject, body) {
+    location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+  function copy(text, btn) {
+    var done = function () {
+      var old = btn.textContent;
+      btn.textContent = t('Copied', 'نُسخ');
+      setTimeout(function () { btn.textContent = old; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, done);
+    } else { done(); }
+  }
+
+  pSeek.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var b = seekBody(); if (!b) return;
+    send(t('Find work registration (app) - ', 'تسجيل باحث عن عمل (التطبيق) - ') + val('sName'), b);
+  });
+  document.getElementById('sCopy').addEventListener('click', function () {
+    var b = seekBody(); if (!b) return;
+    copy(t('To: ', 'إلى: ') + TO + '\n\n' + b, this);
+  });
+  pPost.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var b = postBody(); if (!b) return;
+    send(t('Gig listing (app) - ', 'فرصة عمل (التطبيق) - ') + val('gRole'), b);
+  });
+  document.getElementById('gCopy').addEventListener('click', function () {
+    var b = postBody(); if (!b) return;
+    copy(t('To: ', 'إلى: ') + TO + '\n\n' + b, this);
+  });
+
+  /* ---------- go ---------- */
+  loadDraft();
+  try { if (localStorage.getItem('mc-gigs-mode') === 'post') show('post'); } catch (e) {}
+  var q = new URLSearchParams(location.search).get('mode');
+  if (q === 'post') show('post'); else if (q === 'seek') show('seek');
+  setLang(resolveLang());
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>

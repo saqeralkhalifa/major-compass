@@ -21,7 +21,7 @@
       var v = el.getAttribute(l === 'ar' ? 'data-ar' : 'data-en');
       if (v !== null) el.textContent = v;
     });
-    document.title = l === 'ar' ? 'بوصلة التخصص' : 'Major Compass';
+    document.title = l === 'ar' ? 'بوصلة الشباب' : 'Youth Compass';
     var hl = document.getElementById('heroLang');
     if (hl) hl.textContent = l === 'ar' ? 'EN' : 'ع';
     paintResume(); paintDeadline(); paintChips(); paintNotify();

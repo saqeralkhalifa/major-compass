@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Work and Funding</title>
+<meta name="theme-color" content="#152A55">
+<link rel="icon" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<script src="app-early.js"></script>
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<style>
+  :root{
+    --ink:#101418; --ink-2:#4a5158; --ink-3:#8a9199; --paper:#faf9f6; --card:#fff;
+    --line:#e6e3dc; --accent:#1c5d99; --accent-soft:#e8f0f8; --gold:#b98c2f; --navy:#152A55;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);line-height:1.6;
+       font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
+  [dir="rtl"] body{font-family:'Noto Naskh Arabic','Geeza Pro',serif;line-height:1.8;}
+  .wrap{max-width:620px;margin:0 auto;padding:14px 18px 28px;}
+
+  h2.sec{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+    margin:22px 0 9px;font-weight:600;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  [dir="rtl"] h2.sec{letter-spacing:0;text-transform:none;font-size:.9rem;}
+  .grid{display:grid;grid-template-columns:1fr;gap:10px;}
+  @media(min-width:520px){.grid{grid-template-columns:1fr 1fr;}}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;
+        text-decoration:none;color:inherit;display:block;}
+  .tile:active{background:#f4f1ea;}
+  .tile h3{font-size:1.02rem;font-weight:600;}
+  .tile p{font-size:.88rem;color:var(--ink-2);margin-top:2px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p style="font-size:.98rem;color:var(--ink-2);"
+     data-en="Real opportunities, all free: verified internships, short jobs and flexible work, a first CV, and a public board for ideas that need funding."
+     data-ar="فرص حقيقية، وكلها مجانية: فرص تدريب موثقة، وأعمال قصيرة وعمل مرن، وسيرة ذاتية أولى، ولوحة عامة للأفكار التي تحتاج تمويلاً."></p>
+
+  <h2 class="sec" data-en="Experience" data-ar="الخبرة"></h2>
+  <div class="grid">
+    <a class="tile" href="internships.html">
+      <h3 data-en="Internships" data-ar="فرص التدريب"></h3>
+      <p data-en="266 verified openings across four Gulf countries." data-ar="266 فرصة موثقة في أربع دول خليجية."></p>
+    </a>
+    <a class="tile" href="cv.html">
+      <h3 data-en="Build a CV" data-ar="اصنع سيرتك الذاتية"></h3>
+      <p data-en="A first CV when you have no work history yet." data-ar="سيرة ذاتية أولى حين لا يكون لديك تاريخ عمل بعد."></p>
+    </a>
+  </div>
+
+  <h2 class="sec" data-en="Earn" data-ar="اكسب"></h2>
+  <div class="grid">
+    <a class="tile" href="gigs.html">
+      <h3 data-en="Gigs and flexible work" data-ar="الأعمال القصيرة والعمل المرن"></h3>
+      <p data-en="Find short jobs in Bahrain, or post one. Reviewed, and free." data-ar="اعثر على أعمال قصيرة في البحرين أو انشر واحدة. بمراجعة، ومجاناً."></p>
+    </a>
+    <a class="tile" href="gigs.html?mode=post">
+      <h3 data-en="Post an opportunity" data-ar="انشر فرصة"></h3>
+      <p data-en="For companies: a gig, part-time role or temporary position." data-ar="للشركات: عمل قصير أو دوام جزئي أو دور مؤقت."></p>
+    </a>
+  </div>
+
+  <h2 class="sec" data-en="Fund your idea" data-ar="موّل فكرتك"></h2>
+  <div class="grid">
+    <a class="tile" href="investors.html">
+      <h3 data-en="Ideas seeking investors" data-ar="أفكار تبحث عن مستثمرين"></h3>
+      <p data-en="Post your idea to a public board that investors browse." data-ar="انشر فكرتك في لوحة عامة يتصفحها المستثمرون."></p>
+    </a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  function resolveLang() {
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'ar' || q === 'en') return q;
+      var s = localStorage.getItem('mc-lang');
+      if (s === 'ar' || s === 'en') return s;
+    } catch (e) {}
+    return (navigator.language || '').slice(0, 2) === 'ar' ? 'ar' : 'en';
+  }
+  function setLang(l) {
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+    try { localStorage.setItem('mc-lang', l); } catch (e) {}
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      var v = el.getAttribute(l === 'ar' ? 'data-ar' : 'data-en');
+      if (v !== null) el.textContent = v;
+    });
+    document.title = l === 'ar' ? 'العمل والتمويل' : 'Work and Funding';
+  }
+  window.mcAppSetLang = setLang;
+  setLang(resolveLang());
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>

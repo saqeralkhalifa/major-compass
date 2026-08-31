@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ideas Seeking Investors</title>
+<meta name="theme-color" content="#152A55">
+<link rel="icon" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<script src="app-early.js"></script>
+<script data-goatcounter="https://majorcompass.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<style>
+  :root{
+    --ink:#101418; --ink-2:#4a5158; --ink-3:#8a9199; --paper:#faf9f6; --card:#fff;
+    --line:#e6e3dc; --accent:#1c5d99; --accent-soft:#e8f0f8; --gold:#b98c2f; --navy:#152A55;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);line-height:1.6;
+       font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
+  [dir="rtl"] body{font-family:'Noto Naskh Arabic','Geeza Pro',serif;line-height:1.8;}
+  .wrap{max-width:620px;margin:0 auto;padding:14px 18px 28px;}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:12px;
+        display:block;text-decoration:none;color:inherit;}
+  .card h3{font-size:1.05rem;font-weight:600;color:var(--ink);}
+  .card p{font-size:.92rem;color:var(--ink-2);margin-top:3px;}
+  .flag{border-inline-start:3px solid var(--gold);background:#fdf8ee;}
+  .flag .kicker{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);font-weight:600;
+    font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  [dir="rtl"] .flag .kicker{letter-spacing:0;text-transform:none;}
+
+  h2.sec{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+    margin:22px 0 9px;font-weight:600;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  [dir="rtl"] h2.sec{letter-spacing:0;text-transform:none;font-size:.9rem;}
+
+  .f{margin-top:14px;}
+  .f label{display:block;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+    font-weight:600;margin-bottom:5px;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  [dir="rtl"] .f label{letter-spacing:0;text-transform:none;font-size:.88rem;font-family:inherit;}
+  .f .req{color:var(--gold);}
+  .f input[type=text],.f input[type=email],.f textarea{
+    width:100%;font-family:inherit;font-size:1rem;line-height:1.55;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;}
+  .f textarea{min-height:96px;resize:vertical;}
+  .f input:focus,.f textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent);}
+  .opts{display:flex;flex-direction:column;gap:6px;}
+  .opt{display:flex;align-items:flex-start;gap:9px;font-size:.98rem;color:var(--ink);cursor:pointer;
+       border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 12px;}
+  .opt input{margin-top:5px;accent-color:var(--navy);width:16px;height:16px;flex:none;}
+  .opt.on{border-color:var(--navy);background:var(--accent-soft);}
+  .btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:10px;
+       padding:12px 22px;font:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;}
+  .btn2{display:inline-block;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:10px;
+       padding:11px 18px;font:inherit;font-size:.95rem;font-weight:600;cursor:pointer;text-decoration:none;}
+  .row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:16px;}
+  .note{font-size:.85rem;color:var(--ink-3);margin-top:8px;}
+  .err{display:none;font-size:.92rem;color:#8a2b1d;background:#fbeeea;border:1px solid #ecd2cb;
+       border-radius:10px;padding:10px 12px;margin-top:12px;}
+  .err.show{display:block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p style="font-size:.98rem;color:var(--ink-2);"
+     data-en="A public noticeboard for ideas from Bahrain and the Gulf that are looking for funding. Free to post, free to browse, and open to anyone with an idea or the means to back one."
+     data-ar="لوحة عامة لأفكارٍ من البحرين والخليج تبحث عن تمويل. النشر مجاني والتصفح مجاني، وهي مفتوحة لكل من لديه فكرة أو القدرة على دعم فكرة."></p>
+
+  <h2 class="sec" data-en="The board" data-ar="اللوحة"></h2>
+  <a class="card flag" href="https://www.saqeralkhalifa.com/find-investors/">
+    <div class="kicker" data-en="Live now" data-ar="مباشر الآن"></div>
+    <h3 data-en="Browse the posted ideas" data-ar="تصفح الأفكار المنشورة"></h3>
+    <p data-en="Opens the public board. Investors reply to the contact each poster chose to show."
+       data-ar="تفتح اللوحة العامة. يتواصل المستثمرون عبر وسيلة التواصل التي اختار صاحب الفكرة إظهارها."></p>
+  </a>
+
+  <h2 class="sec" data-en="Post your idea" data-ar="انشر فكرتك"></h2>
+  <form class="card" id="pIdea" novalidate>
+    <p style="font-size:.92rem;color:var(--ink-2);"
+       data-en="Ideas that are clear and complete are screened and posted in both languages, usually within a day."
+       data-ar="الأفكار الواضحة والمكتملة تُراجع وتُنشر باللغتين، خلال يوم غالباً."></p>
+
+    <div class="f"><label for="iName"><span data-en="Your name" data-ar="الاسم"></span> <span class="req">*</span></label>
+      <input type="text" id="iName" autocomplete="name"></div>
+    <div class="f"><label for="iEmail"><span data-en="Email address" data-ar="البريد الإلكتروني"></span> <span class="req">*</span></label>
+      <input type="email" id="iEmail" autocomplete="email"></div>
+    <div class="f"><label for="iWa" data-en="WhatsApp number" data-ar="رقم واتساب"></label>
+      <input type="text" id="iWa" autocomplete="tel"></div>
+
+    <div class="f"><label><span data-en="Show my contact publicly as" data-ar="أظهر وسيلة تواصلي للعامة عبر"></span> <span class="req">*</span></label>
+      <div class="opts" id="iShow">
+        <label class="opt"><input type="radio" name="iShow" value="Email|البريد الإلكتروني"><span data-en="Email" data-ar="البريد الإلكتروني"></span></label>
+        <label class="opt"><input type="radio" name="iShow" value="WhatsApp|واتساب"><span data-en="WhatsApp" data-ar="واتساب"></span></label>
+        <label class="opt"><input type="radio" name="iShow" value="Both|كلاهما"><span data-en="Both" data-ar="كلاهما"></span></label>
+      </div></div>
+
+    <div class="f"><label for="iTitle"><span data-en="Idea title" data-ar="عنوان الفكرة"></span> <span class="req">*</span></label>
+      <input type="text" id="iTitle"></div>
+    <div class="f"><label for="iConcept"><span data-en="The concept" data-ar="الفكرة"></span> <span class="req">*</span></label>
+      <textarea id="iConcept" data-en-ph="What it is, who it serves, and why it will work." data-ar-ph="ما هي، ولمن تُقدَّم، ولماذا ستنجح."></textarea></div>
+    <div class="f"><label for="iAmount"><span data-en="Amount you are looking for" data-ar="المبلغ المطلوب"></span> <span class="req">*</span></label>
+      <input type="text" id="iAmount" data-en-ph="for example: BD 15,000" data-ar-ph="مثال: 15,000 دينار"></div>
+    <div class="f"><label for="iSpend" data-en="How the money will be spent" data-ar="كيف سيُصرف المبلغ"></label>
+      <textarea id="iSpend"></textarea></div>
+    <div class="f"><label for="iReturn" data-en="Expected return" data-ar="العائد المتوقع"></label>
+      <textarea id="iReturn"></textarea></div>
+    <div class="f"><label for="iMarket" data-en="Market demand today" data-ar="الطلب في السوق اليوم"></label>
+      <textarea id="iMarket"></textarea></div>
+
+    <div class="f"><label><span data-en="What you offer investors" data-ar="ما الذي تعرضه على المستثمر"></span> <span class="req">*</span></label>
+      <div class="opts" id="iOffer">
+        <label class="opt"><input type="radio" name="iOffer" value="Support only|الدعم فقط"><span data-en="Support only" data-ar="الدعم فقط"></span></label>
+        <label class="opt"><input type="radio" name="iOffer" value="Equity|حصة ملكية"><span data-en="Equity" data-ar="حصة ملكية"></span></label>
+        <label class="opt"><input type="radio" name="iOffer" value="Either|أي منهما"><span data-en="Either" data-ar="أي منهما"></span></label>
+      </div></div>
+
+    <div class="f"><label for="iElse" data-en="Anything else" data-ar="أي شيء آخر"></label>
+      <textarea id="iElse"></textarea></div>
+
+    <div class="f"><div class="opts">
+      <label class="opt"><input type="checkbox" id="iConsent">
+        <span data-en="I agree that my idea and the contact details I chose above are posted publicly."
+              data-ar="أوافق على نشر فكرتي وبيانات التواصل التي اخترتها أعلاه للعامة."></span></label>
+    </div></div>
+
+    <div class="err" id="iErr"></div>
+    <div class="row">
+      <button class="btn" type="submit" data-en="Send my idea" data-ar="أرسل فكرتي"></button>
+      <button class="btn2" type="button" id="iCopy" data-en="Copy instead" data-ar="انسخ بدلاً من ذلك"></button>
+    </div>
+    <p class="note" data-en="Send opens your email app with everything filled in, addressed to findinvestors@saqeralkhalifa.com. Review it, then press send. If you prefer, use the form on the website:"
+       data-ar="زر الإرسال يفتح تطبيق البريد لديك وقد مُلئت الرسالة، موجهةً إلى findinvestors@saqeralkhalifa.com. راجعها ثم أرسلها. وإن شئت، استخدم النموذج على الموقع:"></p>
+    <p class="note"><a href="https://www.saqeralkhalifa.com/find-investors/" style="color:var(--accent);" data-en="saqeralkhalifa.com/find-investors" data-ar="saqeralkhalifa.com/find-investors"></a></p>
+  </form>
+
+</div>
+
+<script>
+(function () {
+  var TO = 'findinvestors@saqeralkhalifa.com';
+
+  function resolveLang() {
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'ar' || q === 'en') return q;
+      var s = localStorage.getItem('mc-lang');
+      if (s === 'ar' || s === 'en') return s;
+    } catch (e) {}
+    return (navigator.language || '').slice(0, 2) === 'ar' ? 'ar' : 'en';
+  }
+  function setLang(l) {
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+    try { localStorage.setItem('mc-lang', l); } catch (e) {}
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      var v = el.getAttribute(l === 'ar' ? 'data-ar' : 'data-en');
+      if (v !== null) el.textContent = v;
+    });
+    document.querySelectorAll('[data-en-ph]').forEach(function (el) {
+      el.placeholder = el.getAttribute(l === 'ar' ? 'data-ar-ph' : 'data-en-ph') || '';
+    });
+    document.title = l === 'ar' ? 'أفكار تبحث عن مستثمرين' : 'Ideas Seeking Investors';
+  }
+  window.mcAppSetLang = setLang;
+  function L() { return document.documentElement.lang === 'ar' ? 'ar' : 'en'; }
+  function t(en, ar) { return L() === 'ar' ? ar : en; }
+
+  document.querySelectorAll('.opt input').forEach(function (i) {
+    i.addEventListener('change', function () {
+      if (i.type === 'radio') {
+        document.querySelectorAll('input[name="' + i.name + '"]').forEach(function (r) {
+          r.closest('.opt').classList.toggle('on', r.checked);
+        });
+      } else {
+        i.closest('.opt').classList.toggle('on', i.checked);
+      }
+    });
+  });
+
+  /* drafts */
+  var DKEY = 'mc-investors-draft';
+  var form = document.getElementById('pIdea');
+  function saveDraft() {
+    var d = {};
+    form.querySelectorAll('input[type=text],input[type=email],textarea').forEach(function (i) { if (i.value) d[i.id] = i.value; });
+    try { localStorage.setItem(DKEY, JSON.stringify(d)); } catch (e) {}
+  }
+  function loadDraft() {
+    try {
+      var d = JSON.parse(localStorage.getItem(DKEY) || '{}');
+      Object.keys(d).forEach(function (k) { var el = document.getElementById(k); if (el) el.value = d[k]; });
+    } catch (e) {}
+  }
+  document.addEventListener('input', saveDraft);
+
+  function val(id) { return (document.getElementById(id).value || '').trim(); }
+  function radio(name) {
+    var r = document.querySelector('input[name="' + name + '"]:checked');
+    return r ? r.value.split('|')[L() === 'ar' ? 1 : 0] : '';
+  }
+  function fail(msg) {
+    var e = document.getElementById('iErr');
+    e.textContent = msg; e.classList.add('show');
+    e.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return null;
+  }
+  function body() {
+    document.getElementById('iErr').classList.remove('show');
+    if (!val('iName') || !val('iEmail'))
+      return fail(t('Name and email are required.', 'الاسم والبريد حقلان مطلوبان.'));
+    if (!radio('iShow'))
+      return fail(t('Choose how your contact is shown publicly.', 'اختر كيف تُعرض وسيلة تواصلك للعامة.'));
+    if (!val('iTitle') || !val('iConcept') || !val('iAmount'))
+      return fail(t('Idea title, the concept and the amount are required.', 'عنوان الفكرة والفكرة والمبلغ حقول مطلوبة.'));
+    if (!radio('iOffer'))
+      return fail(t('Choose what you offer investors.', 'اختر ما الذي تعرضه على المستثمر.'));
+    if (!document.getElementById('iConsent').checked)
+      return fail(t('Please tick the agreement box.', 'يرجى تأشير خانة الموافقة.'));
+    var rows = [
+      [t('Name', 'الاسم'), val('iName')],
+      [t('Email', 'البريد'), val('iEmail')],
+      [t('WhatsApp', 'واتساب'), val('iWa')],
+      [t('Show contact publicly as', 'إظهار التواصل عبر'), radio('iShow')],
+      [t('Idea title', 'عنوان الفكرة'), val('iTitle')],
+      [t('The concept', 'الفكرة'), val('iConcept')],
+      [t('Amount sought', 'المبلغ المطلوب'), val('iAmount')],
+      [t('How the money will be spent', 'كيف سيُصرف المبلغ'), val('iSpend')],
+      [t('Expected return', 'العائد المتوقع'), val('iReturn')],
+      [t('Market demand today', 'الطلب في السوق اليوم'), val('iMarket')],
+      [t('Offering investors', 'المعروض على المستثمر'), radio('iOffer')],
+      [t('Anything else', 'أي شيء آخر'), val('iElse')],
+      [t('Agreement to public posting', 'الموافقة على النشر العام'), t('Given', 'تمت الموافقة')],
+      [t('Sent from', 'أُرسل من'), t('the app', 'التطبيق')]
+    ];
+    return rows.filter(function (r) { return r[1]; })
+      .map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var b = body(); if (!b) return;
+    location.href = 'mailto:' + TO +
+      '?subject=' + encodeURIComponent(t('Idea seeking investors (app) - ', 'فكرة تبحث عن مستثمرين (التطبيق) - ') + val('iTitle')) +
+      '&body=' + encodeURIComponent(b);
+  });
+  document.getElementById('iCopy').addEventListener('click', function () {
+    var b = body(); if (!b) return;
+    var btn = this;
+    var done = function () {
+      var old = btn.textContent;
+      btn.textContent = t('Copied', 'نُسخ');
+      setTimeout(function () { btn.textContent = old; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t('To: ', 'إلى: ') + TO + '\n\n' + b).then(done, done);
+    } else { done(); }
+  });
+
+  loadDraft();
+  setLang(resolveLang());
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>

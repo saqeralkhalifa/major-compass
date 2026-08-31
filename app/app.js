@@ -6,7 +6,7 @@
   var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
 
   var PAGES = {
-    'index.html':        { en: 'Major Compass',          ar: 'بوصلة التخصص',            tab: 'home',  chrome: false },
+    'index.html':        { en: 'Youth Compass',          ar: 'بوصلة الشباب',            tab: 'home',  chrome: false },
     'saved.html':        { en: 'Saved',                   ar: 'المحفوظات',              tab: 'saved', star: false },
     'quiz.html':         { en: 'The Quiz',                ar: 'الاختبار',                tab: 'quiz'  },
     'explore.html':      { en: 'Every Major',             ar: 'كل التخصصات',            tab: 'explore' },
@@ -17,7 +17,10 @@
     'routes.html':       { en: 'Dealbreakers',            ar: 'ماذا يغلق كل شرط',       tab: 'explore' },
     'alternatives.html': { en: 'Without a Degree',        ar: 'بدون شهادة',              tab: 'explore' },
     'internships.html':  { en: 'Internships',             ar: 'فرص التدريب',            tab: 'jobs'  },
-    'cv.html':           { en: 'Build a CV',              ar: 'السيرة الذاتية',          tab: 'jobs'  }
+    'cv.html':           { en: 'Build a CV',              ar: 'السيرة الذاتية',          tab: 'jobs'  },
+    'work.html':         { en: 'Work and Funding',        ar: 'العمل والتمويل',          tab: 'jobs'  },
+    'gigs.html':         { en: 'Gigs and Flexible Work',  ar: 'الأعمال القصيرة',         tab: 'jobs'  },
+    'investors.html':    { en: 'Ideas Seeking Investors', ar: 'أفكار تبحث عن مستثمرين',  tab: 'jobs'  }
   };
   var meta = PAGES[here] || { en: document.title, ar: document.title, tab: '' };
 
@@ -152,7 +155,7 @@
       { k: 'home',    href: 'index.html',       en: 'Home',        ar: 'الرئيسية', i: ICON.home },
       { k: 'quiz',    href: 'quiz.html',        en: 'Quiz',        ar: 'الاختبار', i: ICON.quiz },
       { k: 'explore', href: 'explore.html',     en: 'Explore',     ar: 'استكشف',  i: ICON.explore },
-      { k: 'jobs',    href: 'internships.html', en: 'Internships', ar: 'التدريب',  i: ICON.jobs },
+      { k: 'jobs',    href: 'work.html',        en: 'Work',        ar: 'العمل',   i: ICON.jobs },
       { k: 'saved',   href: 'saved.html',       en: 'Saved',       ar: 'المحفوظات', i: ICON.saved }
     ];
     tabsEl.innerHTML = TABS.map(function (x) {
