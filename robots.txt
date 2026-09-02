@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saqeralkhalifa.github.io/major-compass/sitemap.xml
