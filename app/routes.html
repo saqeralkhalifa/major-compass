@@ -937,7 +937,7 @@ en:{
   ],
 
   disc:"This page describes what the work involves and where programmes exist. It cannot tell you what you will be able to tolerate. If you are unsure about blood, arrange to spend a morning in a hospital before you apply, not after.",
-  foot:"Prepared by Dr. Saqer AlKhalifa · saqeralkhalifa.com"
+  foot:"Prepared by Dr. Saqer AlKhalifa · saqeralkhalifa.com · <a href='https://saqeralkhalifa.com/privacy/'>Privacy</a>"
 },
 ar:{
   kicker:"مجاني · لطلبة البحرين والخليج",
@@ -978,7 +978,7 @@ ar:{
   src:null,
 
   disc:"هذه الصفحة تصف طبيعة العمل وأين توجد البرامج. لكنها لا تستطيع أن تخبرك بما ستحتمله أنت. وإن كنت غير متأكد من موقفك من الدم، فرتّب صباحًا واحدًا في مستشفى قبل أن تتقدم لا بعده.",
-  foot:"إعداد د. صقر آل خليفة · saqeralkhalifa.com"
+  foot:"إعداد د. صقر آل خليفة · saqeralkhalifa.com · <a href='https://saqeralkhalifa.com/privacy/'>الخصوصية</a>"
 }
 };
 
@@ -1014,7 +1014,7 @@ function renderChrome(){
     return '<li>'+s[0]+(s[1] ? ' <a href="'+s[1]+'" target="_blank" rel="noopener">'+s[1]+'</a>' : '')+'</li>'; }).join("");
 
   document.getElementById("t-disc").textContent = t.disc;
-  document.getElementById("t-foot").textContent = t.foot;
+  document.getElementById("t-foot").innerHTML = t.foot;
 }
 
 function renderPanel(){

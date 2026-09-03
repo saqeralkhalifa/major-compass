@@ -1254,7 +1254,7 @@ en:{
   ],
 
   disc:"This page describes what has been measured about the work, not what will happen to you. No one can tell you that. It is offered free and carries no advertising.",
-  foot:"Prepared by Dr. Saqer AlKhalifa · saqeralkhalifa.com"
+  foot:"Prepared by Dr. Saqer AlKhalifa · saqeralkhalifa.com · <a href='https://saqeralkhalifa.com/privacy/'>Privacy</a>"
 },
 ar:{
   kicker:"مجاني · محدّث في أغسطس 2026",
@@ -1328,7 +1328,7 @@ ar:{
   src:null,
 
   disc:"هذه الصفحة تصف ما قيس عن العمل، لا ما سيحدث لك أنت. لا أحد يستطيع أن يخبرك بذلك. وهي مجانية ولا تحمل أي إعلانات.",
-  foot:"إعداد د. صقر آل خليفة · saqeralkhalifa.com"
+  foot:"إعداد د. صقر آل خليفة · saqeralkhalifa.com · <a href='https://saqeralkhalifa.com/privacy/'>الخصوصية</a>"
 }
 };
 
@@ -1385,7 +1385,7 @@ function renderChrome(){
     return '<li>'+s[0]+' <a href="'+s[1]+'" target="_blank" rel="noopener">'+s[1]+'</a></li>'; }).join("");
 
   document.getElementById("t-disc").textContent = t.disc;
-  document.getElementById("t-foot").textContent = t.foot;
+  document.getElementById("t-foot").innerHTML = t.foot;
 
   var chips = GROUPS.map(function(g){
     return '<button class="chip'+(FILTER===g.k?' on':'')+'" data-g="'+g.k+'">'+tx(g)+'</button>'; })

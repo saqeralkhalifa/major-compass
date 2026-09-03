@@ -1017,7 +1017,7 @@ en:{
   ],
 
   disc:"This page lists routes and named providers. It is not an endorsement of any provider, and fees and eligibility change constantly. Confirm everything with the institution before you pay anything.",
-  foot:"Prepared by Dr. Saqer AlKhalifa · saqeralkhalifa.com"
+  foot:"Prepared by Dr. Saqer AlKhalifa · saqeralkhalifa.com · <a href='https://saqeralkhalifa.com/privacy/'>Privacy</a>"
 },
 ar:{
   kicker:"مجاني · لخريجي الثانوية في البحرين والخليج",
@@ -1080,7 +1080,7 @@ ar:{
   ],
 
   disc:"هذه الصفحة تسرد الطرق والمزودين بالاسم. وليست تزكية لأي مزوّد، والرسوم وشروط القبول تتغير باستمرار. تحقق من كل شيء مع الجهة قبل أن تدفع أي مبلغ.",
-  foot:"إعداد د. صقر آل خليفة · saqeralkhalifa.com"
+  foot:"إعداد د. صقر آل خليفة · saqeralkhalifa.com · <a href='https://saqeralkhalifa.com/privacy/'>الخصوصية</a>"
 }
 };
 
@@ -1128,7 +1128,7 @@ function renderChrome(){
     return '<li>'+s[0]+' <a href="'+s[1]+'" target="_blank" rel="noopener">'+s[1]+'</a></li>'; }).join("");
 
   document.getElementById("t-disc").textContent = t.disc;
-  document.getElementById("t-foot").textContent = t.foot;
+  document.getElementById("t-foot").innerHTML = t.foot;
 }
 
 function renderList(){

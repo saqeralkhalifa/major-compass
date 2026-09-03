@@ -3836,7 +3836,7 @@ en:{
   srcT:"How this list is made",
   srcS:"Every entry was checked by opening the organisation's own page. Where a programme clearly runs but the organisation publishes no dates or no application route, we say so rather than filling the gap. Nothing here is invented, and no organisation pays to be listed.",
   disc:"Programmes change, close early and sometimes quietly stop running. Always check the organisation's own page before you rely on anything here, and tell us if you find something out of date.",
-  foot:"Internship Opportunities · Dr. Saqer AlKhalifa · saqeralkhalifa.com"
+  foot:"Internship Opportunities · Dr. Saqer AlKhalifa · saqeralkhalifa.com · <a href='https://saqeralkhalifa.com/privacy/'>Privacy</a>"
 },
 ar:{
   kicker:"فرص التدريب",
@@ -3874,7 +3874,7 @@ ar:{
   srcT:"كيف أُعدّت هذه القائمة",
   srcS:"جرى التحقق من كل فرصة بفتح صفحة الجهة نفسها. وحيث يوجد البرنامج فعلًا دون أن تنشر الجهة مواعيد أو آلية تقديم، نقول ذلك بدل ملء الفراغ. ولا شيء هنا مُختلق، ولا تدفع أي جهة مقابل الإدراج.",
   disc:"البرامج تتغير، وتُغلق مبكرًا، وقد تتوقف بهدوء. تحقق دائمًا من صفحة الجهة نفسها قبل أن تعتمد على شيء هنا، وأخبرنا إن وجدت معلومة قديمة.",
-  foot:"فرص التدريب · د. صقر آل خليفة · saqeralkhalifa.com"
+  foot:"فرص التدريب · د. صقر آل خليفة · saqeralkhalifa.com · <a href='https://saqeralkhalifa.com/privacy/'>الخصوصية</a>"
 }
 };
 
@@ -4050,7 +4050,7 @@ function render(){
   document.getElementById("srcT").textContent = t.srcT;
   document.getElementById("srcS").textContent = t.srcS;
   document.getElementById("t-disc").textContent = t.disc;
-  document.getElementById("t-foot").textContent = t.foot;
+  document.getElementById("t-foot").innerHTML = t.foot;
 }
 
 function applyBlock(o, t){
