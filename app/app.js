@@ -1,4 +1,4 @@
-/* Major Compass app chrome: top bar, bottom tabs, shortlist, external links,
+/* Youth Compass app chrome: top bar, bottom tabs, shortlist, external links,
    offline banner, service worker. Loaded at the end of <body> on every page,
    after the page's own scripts have defined their language toggle. */
 (function () {
