@@ -1142,7 +1142,7 @@ function renderChrome(){
     return '<li>'+s[0]+' <a href="'+s[1]+'" target="_blank" rel="noopener">'+s[1]+'</a></li>'; }).join("");
 
   document.getElementById("t-disc").textContent = t.disc;
-  document.getElementById("t-foot").textContent = t.foot;
+  document.getElementById("t-foot").innerHTML = t.foot;
 }
 
 function renderList(){
