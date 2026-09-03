@@ -822,6 +822,15 @@ html[lang="ar"] .wpbrand{margin-right:0;margin-left:auto;}
       <p class="nextpar" id="r-par-note"></p>
     </div>
 
+    <div class="nextbox" id="alertbox">
+      <h2 id="r-al-title"></h2>
+      <p id="r-al-sub"></p>
+      <div class="nextlinks">
+        <a class="btn" id="r-al-join" href="https://saqeralkhalifa.com/alerts/"></a>
+      </div>
+      <p class="nextpar" id="r-al-note"></p>
+    </div>
+
     <div class="res-actions">
       <button class="btn secondary" id="retakeBtn"></button>
       <button class="btn secondary" id="printBtn"></button>
@@ -895,6 +904,10 @@ const UI = {
     parRead: "Open the parents guide",
     parNote: "The message opens in whatever you normally share with, WhatsApp, Messages or anything else. Nothing is stored and nothing is sent to us.",
     parCopied: "Message copied. Paste it wherever you like.",
+    alTitle: "Do not let a deadline pass you",
+    alSub: "Scholarship and internship deadlines pass quietly. Leave your email and a short alert will reach you before each verified deadline for your country, in your language.",
+    alJoin: "Get deadline alerts",
+    alNote: "Free, no spam, and every alert names its source and the date it was checked.",
     readMore: "Read more about this major →",
     mktLabel: "Job market shown:",
     demandIn: (c)=>`High demand in ${c}`,
@@ -961,6 +974,10 @@ const UI = {
     parRead: "افتح دليل أولياء الأمور",
     parNote: "ستفتح الرسالة في التطبيق الذي تشارك به عادةً، واتساب أو الرسائل أو غيرهما. ولا يُحفظ منها شيء ولا يصلنا منها شيء.",
     parCopied: "نُسخت الرسالة. الصقها حيث تشاء.",
+    alTitle: "لا تدع موعدًا نهائيًا يفوتك",
+    alSub: "مواعيد المنح وفرص التدريب تمر بهدوء. اترك بريدك الإلكتروني ليصلك تنبيه قصير قبل كل موعد موثّق يخص بلدك وبلغتك.",
+    alJoin: "اشترك في تنبيهات المواعيد",
+    alNote: "مجاني، من دون رسائل مزعجة، وكل تنبيه يذكر مصدره وتاريخ التحقق منه.",
     readMore: "اقرأ المزيد عن هذا التخصص ←",
     mktLabel: "سوق العمل المعروض:",
     demandIn: (c)=>`طلب مرتفع في ${c}`,
@@ -1804,6 +1821,13 @@ if (typeof document !== "undefined") (function(){
     $("r-par-send").textContent  = U.parSend;
     $("r-par-read").textContent  = U.parRead;
     $("r-par-note").textContent  = U.parNote;
+
+    /* MCAL: deadline alert opt-in */
+    $("r-al-title").textContent = U.alTitle;
+    $("r-al-sub").textContent   = U.alSub;
+    $("r-al-join").textContent  = U.alJoin;
+    $("r-al-join").href = "https://saqeralkhalifa.com/alerts/?lang=" + lang;
+    $("r-al-note").textContent  = U.alNote;
     $("r-disclaimer").textContent = U.disclaimer;
     $("r-refs").textContent = U.refs;
 
@@ -1922,6 +1946,7 @@ if (typeof document !== "undefined") (function(){
     }catch(e){/* user cancelled */}
   });
   $("printBtn").addEventListener("click", ()=>window.print());
+  $("r-al-join").addEventListener("click", ()=>track("alerts-out"));
   $("shareBtn").addEventListener("click", async ()=>{
     const url = location.href.split("#")[0];
     const U = UI[lang];
