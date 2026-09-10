@@ -808,6 +808,7 @@ html[lang="ar"] .wpbrand{margin-right:0;margin-left:auto;}
         <a class="btn" id="r-next-sch" href="https://saqeralkhalifa.github.io/major-compass/scholarships.html"></a>
         <a class="btn secondary" id="r-next-exp" href="https://saqeralkhalifa.github.io/major-compass/explore.html"></a>
         <a class="btn secondary" id="r-next-db" href="https://saqeralkhalifa.github.io/major-compass/routes.html" style="display:none"></a>
+        <a class="btn secondary" id="r-next-int" href="https://internships.saqeralkhalifa.com/" style="display:none"></a>
       </div>
       <p class="nextpar" id="r-next-par"></p>
     </div>
@@ -892,6 +893,8 @@ const UI = {
     scholLink: "Or see who will fund your degree →",
     nextTitle: "What to do next",
     nextSub: "Find out who will pay for the major, and read what studying it involves before you commit.",
+    groupWord: {health:"health and medicine", tech:"computing and technology", eng:"engineering", biz:"business and finance", soc:"law and society", hum:"humanities and education", sci:"the sciences"},
+    nextInt: function(g){ return "See internships in " + g; },
     nextSch: "Find scholarships and funding",
     nextExp: "Read about these majors",
     nextPar: 'The <a href="https://saqeralkhalifa.github.io/major-compass/entry.html">entry requirements checker</a> shows the published grade floors and track rules for these majors.',
@@ -962,6 +965,8 @@ const UI = {
     scholLink: "أو اطّلع على من سيموّل دراستك ←",
     nextTitle: "الخطوات التالية",
     nextSub: "اعرف من سيدفع تكاليف التخصص، واقرأ ما تتضمنه دراسته قبل أن تلتزم به.",
+    groupWord: {health:"الصحة والطب", tech:"الحاسوب والتقنية", eng:"الهندسة", biz:"الأعمال والمال", soc:"القانون والمجتمع", hum:"العلوم الإنسانية والتعليم", sci:"العلوم"},
+    nextInt: function(g){ return "تصفح فرص التدريب في " + g; },
     nextSch: "ابحث عن المنح والتمويل",
     nextExp: "اقرأ عن هذه التخصصات",
     nextPar: 'تعرض <a href="https://saqeralkhalifa.github.io/major-compass/entry.html">أداة شروط القبول</a> الحدود المعلنة للمعدلات وشروط المسار لهذه التخصصات.',
@@ -1500,6 +1505,17 @@ const MAJORS = [
 ];
 
 /* ---------------- Scoring engine (pure, DOM-free, testable) ---------------- */
+/* MCIO: which internship group in the directory each major hands off to. */
+const MAJOR_GROUP = {
+  med:"health", dent:"health", pharm:"health", nurs:"health", biomed:"health", physio:"health", psych:"health", pubhealth:"health", nutrition:"health", radiology:"health", speech:"health", occtherapy:"health", resptherapy:"health", vet:"health", optometry:"health", ems:"health", healthinfo:"health", healthmgmt:"health", biomedeng:"health",
+  cs:"tech", cyber:"tech", data:"tech", netw:"tech", mis:"tech", fintech:"tech", math:"tech", design:"tech", animation:"tech",
+  mech:"eng", elec:"eng", civil:"eng", chem:"eng", indus:"eng", renew:"eng", arch:"eng", avia:"eng", petroleum:"eng", aero:"eng", robotics:"eng", marineeng:"eng", mining:"eng", nuclear:"eng", quantsurv:"eng", urbanplan:"eng",
+  acct:"biz", fin:"biz", bus:"biz", mkt:"biz", logi:"biz", tour:"biz", econ:"biz", hr:"biz", entrep:"biz", insurance:"biz", media:"biz", journalism:"biz", pr:"biz", sportmgmt:"biz", fashion:"biz",
+  law:"soc", polsci:"soc", intrel:"soc", pubadmin:"soc", socio:"soc",
+  history:"hum", philo:"hum", arabic:"hum", english:"hum", islamic:"hum", libinfo:"hum", finearts:"hum", music:"hum", edu:"hum",
+  physics:"sci", chemistry:"sci", biology:"sci", biotech:"sci", envsci:"sci", geology:"sci", marinesci:"sci", agri:"sci", geog:"sci"
+};
+
 function computeProfile(answers){
   // answers: array (same length as QUESTIONS) of selected option indexes (0-based)
   const riasec = {R:0,I:0,A:0,S:0,E:0,C:0};
@@ -1813,6 +1829,18 @@ if (typeof document !== "undefined") (function(){
       db.style.display = "";
     } else {
       db.style.display = "none";
+    }
+
+    /* MCIO: hand off into the internships directory on the top ranked major's group */
+    var io_btn = $("r-next-int");
+    var io_top = rankMajors(p)[0];
+    var io_g = io_top && MAJOR_GROUP[io_top.major.id];
+    if(io_g){
+      io_btn.textContent = U.nextInt(U.groupWord[io_g]);
+      io_btn.href = "https://internships.saqeralkhalifa.com/?g=" + io_g + "&lang=" + lang;
+      io_btn.style.display = "";
+    } else {
+      io_btn.style.display = "none";
     }
 
     /* MCPAR: parent hand-off */
