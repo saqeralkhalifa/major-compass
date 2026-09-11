@@ -213,10 +213,57 @@
     .qcard{padding:22px 18px;}
     .prow{grid-template-columns:minmax(88px,110px) 1fr 40px; gap:8px;}
   }
+  .printhead, .printfoot{display:none;}
+
+  /* MCSHEET: the results screen prints as a one page sheet a student can take
+     to a parent evening. Nothing here sends data anywhere; it is the same page. */
   @media print{
-    header.site, .res-actions, .lang-toggle, footer.site{display:none;}
-    body{background:#fff;}
-    .mcard,.viz-root{box-shadow:none; break-inside:avoid;}
+    @page{ margin:14mm; }
+    header.site, .mc-nav, .res-actions, .lang-toggle, footer.site,
+    .mktbar, .nextbox, .mread, .toc, .screen:not(#screen-results){display:none !important;}
+    body{background:#fff; font-size:10.5pt; line-height:1.4;}
+    #screen-results{display:block !important;}
+    .printhead{display:flex; align-items:baseline; justify-content:space-between;
+      border-bottom:1px solid var(--ink); padding-bottom:6px; margin-bottom:14px;}
+    .ph-brand{font-family:var(--font-display); font-size:15pt;}
+    [dir="rtl"] .ph-brand{font-family:var(--font-ar);}
+    .ph-meta{font-family:var(--font-label); font-size:9pt; letter-spacing:.10em;
+      text-transform:uppercase;}
+    .ph-meta span + span::before{content:" · ";}
+    .res-head{margin:0 0 6px;}
+    .res-head .kicker{font-size:8.5pt;}
+    #r-headline{font-size:16pt; margin:2px 0 3px;}
+    #r-desc{font-size:10pt; margin:0 0 8px;}
+    /* the profile block is the fat part of the sheet, so it prints compact */
+    .viz-root{box-shadow:none; break-inside:avoid; padding:5px 0; margin:0 0 6px;
+      border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+    #r-viz-title{font-size:10.5pt; margin:0 0 2px;}
+    .viz-sub{font-size:8.5pt; margin:0 0 6px;}
+    .prow{margin-bottom:2px; gap:8px; grid-template-columns:minmax(96px,124px) 1fr 36px;}
+    .prow .plabel{font-size:8.5pt; line-height:1.25;}
+    .prow .plabel small{font-size:7.5pt; line-height:1.15;}
+    .prow .pval{font-size:8pt;}
+    /* the headline already names the archetype, so the long description comes off */
+    #r-desc{display:none;}
+    .code-line{font-size:9.5pt;}
+    .majors-title{font-size:12.5pt; margin:8px 0 2px;}
+    .majors-sub{font-size:8.5pt; margin:0 0 6px;}
+    .mcard{box-shadow:none; break-inside:avoid; page-break-inside:avoid;
+      padding:5px 0; margin:0; border-top:1px solid var(--line); border-bottom:none;}
+    /* a sheet carries the top three, not all five */
+    #majorCards .mcard:nth-child(n+4){display:none;}
+    .mname{font-size:12pt;}
+    .mwhy, .mcareers{font-size:9pt; margin:2px 0; line-height:1.4;}
+    .badge{font-size:8.5pt;}
+    .printfoot{display:block; border-top:1px solid var(--ink); margin-top:8px;
+      padding-top:5px; font-size:8pt;}
+    .printfoot p{margin:1px 0; line-height:1.35;}
+    /* a parent should still see that this is an exploration tool, so the
+       disclaimer prints. The full method paragraph does not fit and the
+       footer names the basis instead. */
+    .disclaimer{font-size:7.5pt; line-height:1.3; margin:6px 0 0;}
+    .refs{display:none;}
+    a{text-decoration:none; color:inherit;}
   }
 
 /* ============================================================
@@ -777,6 +824,10 @@ html[lang="ar"] .wpbrand{margin-right:0;margin-left:auto;}
 
   <!-- RESULTS -->
   <section class="screen" id="screen-results">
+    <div class="printhead" id="printhead" aria-hidden="true">
+      <div class="ph-brand" id="ph-brand"></div>
+      <div class="ph-meta"><span id="ph-date"></span><span id="ph-class"></span></div>
+    </div>
     <div class="res-head">
       <p class="kicker" id="r-kicker"></p>
       <h1 class="serif" id="r-headline"></h1>
@@ -800,6 +851,11 @@ html[lang="ar"] .wpbrand{margin-right:0;margin-left:auto;}
     </div>
 
     <div id="majorCards"></div>
+
+    <div class="printfoot" id="printfoot" aria-hidden="true">
+      <p id="pf-next"></p>
+      <p id="pf-note"></p>
+    </div>
 
     <div class="nextbox">
       <h2 id="r-next-title"></h2>
@@ -893,6 +949,10 @@ const UI = {
     scholLink: "Or see who will fund your degree →",
     nextTitle: "What to do next",
     nextSub: "Find out who will pay for the major, and read what studying it involves before you commit.",
+    sheetBrand: "Youth Compass",
+    sheetClass: function(c){ return "Class " + c; },
+    sheetNext: "Entry requirements for these majors: saqeralkhalifa.github.io/major-compass/entry.html   Internships in this field: internships.saqeralkhalifa.com",
+    sheetNote: "Based on the Holland RIASEC framework and O*NET Interest Profiler items. The full method and sources are on the results page. This sheet reflects the answers given on the date above, it is a starting point for a conversation rather than a recommendation, and nothing on it was sent anywhere.",
     groupWord: {health:"health and medicine", tech:"computing and technology", eng:"engineering", biz:"business and finance", soc:"law and society", hum:"humanities and education", sci:"the sciences"},
     nextInt: function(g){ return "See internships in " + g; },
     nextSch: "Find scholarships and funding",
@@ -965,6 +1025,10 @@ const UI = {
     scholLink: "أو اطّلع على من سيموّل دراستك ←",
     nextTitle: "الخطوات التالية",
     nextSub: "اعرف من سيدفع تكاليف التخصص، واقرأ ما تتضمنه دراسته قبل أن تلتزم به.",
+    sheetBrand: "بوصلة الشباب",
+    sheetClass: function(c){ return "الصف " + c; },
+    sheetNext: "شروط القبول لهذه التخصصات: saqeralkhalifa.github.io/major-compass/entry.html   فرص التدريب في هذا المجال: internships.saqeralkhalifa.com",
+    sheetNote: "تستند إلى إطار هولاند RIASEC وبنود O*NET Interest Profiler، والمنهجية والمصادر كاملة في صفحة النتائج. وتعكس هذه الورقة الإجابات المعطاة في التاريخ أعلاه، وهي نقطة بداية لحوار لا توصية، ولم يُرسل أي شيء منها إلى أي جهة.",
     groupWord: {health:"الصحة والطب", tech:"الحاسوب والتقنية", eng:"الهندسة", biz:"الأعمال والمال", soc:"القانون والمجتمع", hum:"العلوم الإنسانية والتعليم", sci:"العلوم"},
     nextInt: function(g){ return "تصفح فرص التدريب في " + g; },
     nextSch: "ابحث عن المنح والتمويل",
@@ -1830,6 +1894,18 @@ if (typeof document !== "undefined") (function(){
     } else {
       db.style.display = "none";
     }
+
+    /* MCSHEET: fill the print only header and footer. Nothing here leaves the browser. */
+    $("ph-brand").textContent = U.sheetBrand;
+    try{
+      $("ph-date").textContent = new Date().toLocaleDateString(lang==="ar"?"ar-BH":"en-GB",
+        {day:"numeric", month:"long", year:"numeric"});
+    }catch(e){ $("ph-date").textContent = ""; }
+    var sh_cls = "";
+    try{ sh_cls = (new URLSearchParams(location.search).get("class")||"").trim().slice(0,16); }catch(e){}
+    $("ph-class").textContent = sh_cls ? U.sheetClass(sh_cls) : "";
+    $("pf-next").textContent = U.sheetNext;
+    $("pf-note").textContent = U.sheetNote;
 
     /* MCIO: hand off into the internships directory on the top ranked major's group */
     var io_btn = $("r-next-int");
