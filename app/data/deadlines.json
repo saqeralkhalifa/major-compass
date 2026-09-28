@@ -1,36 +1,21 @@
 {
  "version": 1,
- "checked": "2026-08-24",
+ "checked": "2026-09-28",
  "note": "Dated entries are verified. Month entries are the month to watch, not a promised deadline.",
  "items": [
   {
-   "id": "edb-grad",
-   "ct": "bh",
-   "kind": "opens",
-   "date": "2026-09-01",
-   "page": "internships.html",
-   "en": {
-    "t": "Bahrain EDB graduate window opens",
-    "b": "The EDB graduate programme window opens today. Check the listing before the intake fills."
-   },
-   "ar": {
-    "t": "فتح باب برنامج الخريجين في مجلس التنمية الاقتصادية",
-    "b": "يفتح اليوم باب التقديم لبرنامج الخريجين. راجع الإعلان قبل اكتمال الدفعة."
-   }
-  },
-  {
-   "id": "bain-mustaqbalak-2w",
-   "ct": "sa",
+   "id": "guq-spring-close",
+   "ct": "qa",
    "kind": "closes",
-   "date": "2026-09-26",
+   "date": "2026-10-02",
    "page": "internships.html",
    "en": {
-    "t": "Bain Mustaqbalak closes in two weeks",
-    "b": "Applications for the Jan to Mar 2027 cycle close on 10 October. Saudi coop students only."
+    "t": "Georgetown Qatar internship closes",
+    "b": "The spring internship course closes on 2 October. Open to students at Georgetown University in Qatar only, and the placements are unpaid."
    },
    "ar": {
-    "t": "مستقبلك من بين آند كومباني يغلق بعد أسبوعين",
-    "b": "يغلق التقديم لدورة يناير إلى مارس 2027 في 10 أكتوبر. لطلبة التعاوني السعوديين فقط."
+    "t": "إغلاق التدريب في جامعة جورجتاون في قطر",
+    "b": "يغلق مساق تدريب الربيع في 2 أكتوبر. وهو لطلبة جامعة جورجتاون في قطر وحدهم، والتدريب بلا أجر."
    }
   },
   {
@@ -49,18 +34,48 @@
    }
   },
   {
-   "id": "pearson-toronto",
-   "ct": "all",
-   "kind": "watch",
-   "date": "2026-09-15",
-   "page": "scholarships.html",
+   "id": "bain-mustaqbalak-close",
+   "ct": "sa",
+   "kind": "closes",
+   "date": "2026-10-10",
+   "page": "internships.html",
    "en": {
-    "t": "Lester B. Pearson nominations are due soon",
-    "b": "Your school must nominate you, one student per school, early October. Ask your counsellor this week."
+    "t": "Bain Mustaqbalak closes today",
+    "b": "Applications for the January to March 2027 cycle close today. Saudi nationals enrolled at schools inside the Kingdom."
    },
    "ar": {
-    "t": "اقترب موعد ترشيحات منحة ليستر بيرسون",
-    "b": "الترشيح يتم عبر مدرستك، طالب واحد لكل مدرسة، في أوائل أكتوبر. راجع المرشد الأكاديمي هذا الأسبوع."
+    "t": "إغلاق برنامج مستقبلك من بين آند كومباني اليوم",
+    "b": "يغلق التقديم لدورة يناير إلى مارس 2027 اليوم. للسعوديين المقيدين في مؤسسات تعليمية داخل المملكة."
+   }
+  },
+  {
+   "id": "hmc-internship-close",
+   "ct": "qa",
+   "kind": "closes",
+   "date": "2026-11-15",
+   "page": "internships.html",
+   "en": {
+    "t": "Hamad medical internship closes",
+    "b": "Applications for the 1 January start close on 15 November. Qatari citizens, GCC citizens, or a Qatar residency under first degree family sponsorship."
+   },
+   "ar": {
+    "t": "إغلاق برنامج الامتياز الطبي في حمد",
+    "b": "يغلق التقديم لبداية 1 يناير في 15 نوفمبر. للمواطنين القطريين والخليجيين أو من يحمل إقامة قطرية بكفالة عائلية من الدرجة الأولى."
+   }
+  },
+  {
+   "id": "hungaricum",
+   "ct": "bh,ae,om",
+   "kind": "watch",
+   "date": "2027-01-05",
+   "page": "scholarships.html",
+   "en": {
+    "t": "Stipendium Hungaricum is a January window",
+    "b": "Open to Bahrain, UAE and Oman nationals only among the Gulf states. Check the dates on the page."
+   },
+   "ar": {
+    "t": "منحة هنغاريا نافذتها في يناير",
+    "b": "متاحة لمواطني البحرين والإمارات وعُمان فقط بين دول الخليج. راجع المواعيد في الصفحة."
    }
   },
   {
@@ -79,18 +94,18 @@
    }
   },
   {
-   "id": "hungaricum",
-   "ct": "bh,ae,om",
-   "kind": "watch",
-   "date": "2027-01-05",
-   "page": "scholarships.html",
+   "id": "qstp-winter-open",
+   "ct": "qa",
+   "kind": "opens",
+   "date": "2027-01-29",
+   "page": "internships.html",
    "en": {
-    "t": "Stipendium Hungaricum is a January window",
-    "b": "Open to Bahrain, UAE and Oman nationals only among the Gulf states. Check the dates on the page."
+    "t": "QSTP winter internship opens",
+    "b": "The winter cycle runs from 29 January to 21 April. Seniors and recent graduates enrolled at a university in Qatar."
    },
    "ar": {
-    "t": "منحة هنغاريا نافذتها في يناير",
-    "b": "متاحة لمواطني البحرين والإمارات وعُمان فقط بين دول الخليج. راجع المواعيد في الصفحة."
+    "t": "فتح تدريب واحة العلوم والتكنولوجيا لفصل الشتاء",
+    "b": "تمتد دورة الشتاء من 29 يناير إلى 21 أبريل. لطلبة السنة الأخيرة والخريجين الجدد المقيدين في جامعة في قطر."
    }
   },
   {
