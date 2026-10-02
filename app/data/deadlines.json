@@ -1,23 +1,8 @@
 {
  "version": 1,
- "checked": "2026-09-28",
- "note": "Dated entries are verified. Month entries are the month to watch, not a promised deadline.",
+ "checked": "2026-10-02",
+ "note": "Dated entries are verified against the employer's own page on the date shown. Month entries are the month to watch, not a promised deadline.",
  "items": [
-  {
-   "id": "guq-spring-close",
-   "ct": "qa",
-   "kind": "closes",
-   "date": "2026-10-02",
-   "page": "internships.html",
-   "en": {
-    "t": "Georgetown Qatar internship closes",
-    "b": "The spring internship course closes on 2 October. Open to students at Georgetown University in Qatar only, and the placements are unpaid."
-   },
-   "ar": {
-    "t": "إغلاق التدريب في جامعة جورجتاون في قطر",
-    "b": "يغلق مساق تدريب الربيع في 2 أكتوبر. وهو لطلبة جامعة جورجتاون في قطر وحدهم، والتدريب بلا أجر."
-   }
-  },
   {
    "id": "bain-mustaqbalak-1w",
    "ct": "sa",
@@ -34,6 +19,21 @@
    }
   },
   {
+   "id": "zain-bh-earliest",
+   "ct": "bh",
+   "kind": "closes",
+   "date": "2026-10-05",
+   "page": "gigs.html",
+   "en": {
+    "t": "Zain Bahrain, the earliest of ten vacancies closes",
+    "b": "Ten vacancies were live on the Zain portal on 1 October 2026, all in Manama, and the earliest closes on 5 October. The postings print no nationality rule."
+   },
+   "ar": {
+    "t": "زين البحرين، أقرب الشواغر العشرة يغلق",
+    "b": "كانت عشرة شواغر معروضة في بوابة زين في ١ أكتوبر ٢٠٢٦، كلها في المنامة، وأقربها يغلق في ٥ أكتوبر. ولا تطبع الإعلانات أي شرط جنسية."
+   }
+  },
+  {
    "id": "bain-mustaqbalak-close",
    "ct": "sa",
    "kind": "closes",
@@ -46,6 +46,51 @@
    "ar": {
     "t": "إغلاق برنامج مستقبلك من بين آند كومباني اليوم",
     "b": "يغلق التقديم لدورة يناير إلى مارس 2027 اليوم. للسعوديين المقيدين في مؤسسات تعليمية داخل المملكة."
+   }
+  },
+  {
+   "id": "tamuq-texas-close",
+   "ct": "qa",
+   "kind": "closes",
+   "date": "2026-10-15",
+   "page": "internships.html",
+   "en": {
+    "t": "Texas A and M at Qatar, summer research in Texas closes",
+    "b": "The page prints a closing day of 15 October and a withdrawal deadline of 31 October, both without a year. It is open to the university's own undergraduates with thirty or more credit hours and a grade point ratio of 2.5 or above."
+   },
+   "ar": {
+    "t": "جامعة تكساس إي أند إم في قطر، إغلاق البحث الصيفي في تكساس",
+    "b": "تطبع الصفحة يوم إغلاق في ١٥ أكتوبر وموعد انسحاب في ٣١ أكتوبر، كليهما دون سنة. وهو لطلبة البكالوريوس في الجامعة نفسها ممن أتموا ثلاثين ساعة معتمدة فأكثر بمعدل ٢٫٥ فأعلى."
+   }
+  },
+  {
+   "id": "bapco-idt-close",
+   "ct": "bh",
+   "kind": "closes",
+   "date": "2026-10-23",
+   "page": "internships.html",
+   "en": {
+    "t": "Bapco Energies graduate trainee programme closes",
+    "b": "The application window printed on the page is 1 to 23 October, and it opened on 1 October 2026. It is for Bahraini nationals who graduated in the past three years, aged 20 to 25 on the date of application, with a grade point average of 3.0 and above or a British upper second. The page still dates the intake to January 2026, which has passed, so confirm the cycle with the company."
+   },
+   "ar": {
+    "t": "إغلاق برنامج تدريب الخريجين في بابكو للطاقة",
+    "b": "فترة التقديم المطبوعة في الصفحة من ١ إلى ٢٣ أكتوبر، وقد فُتحت في ١ أكتوبر ٢٠٢٦. وهو للمواطنين البحرينيين الذين تخرجوا خلال السنوات الثلاث الماضية، بعمر ٢٠ إلى ٢٥ عامًا يوم التقديم، بمعدل ٣٫٠ فأعلى أو تقدير جيد جدًا في النظام البريطاني. وما تزال الصفحة تذكر أن الدفعة تبدأ في يناير ٢٠٢٦ وهو تاريخ مضى، فتأكد من الدورة مع الشركة."
+   }
+  },
+  {
+   "id": "edb-winter-open",
+   "ct": "bh",
+   "kind": "opens",
+   "date": "2026-11-01",
+   "page": "internships.html",
+   "en": {
+    "t": "Bahrain Economic Development Board, winter internship opens",
+    "b": "Applications for the winter round run 1 to 23 November, with interviews and selection from 24 November, for four weeks from 11 January. It is for Bahraini students enrolled at universities anywhere, aged 18 or older, with a grade point average of 3.0 and above or 2.2 on the British system. The page prints that graduates are not eligible."
+   },
+   "ar": {
+    "t": "مجلس التنمية الاقتصادية، فتح التدريب الشتوي",
+    "b": "التقديم للدورة الشتوية من ١ إلى ٢٣ نوفمبر، والمقابلات والاختيار من ٢٤ نوفمبر، لأربعة أسابيع تبدأ في ١١ يناير. وهو للطلبة البحرينيين المقيدين في جامعات في أي مكان، بعمر ١٨ عامًا فأكثر، بمعدل ٣٫٠ فأعلى أو ٢٫٢ في النظام البريطاني. وتطبع الصفحة أن الخريجين غير مؤهلين."
    }
   },
   {
