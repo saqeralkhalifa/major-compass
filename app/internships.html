@@ -722,6 +722,10 @@ html, body{overflow-x:hidden;}
   .wrap{padding-inline:18px;}
   .opp{padding:20px 16px;}
   .evnote{padding:14px 16px;}
+  /* The gate tags carry a full sentence, and the longest of them,
+     "Needs study or residence in Saudi Arabia", runs past a 390px
+     screen while nowrap holds. Let them wrap on a phone. */
+  .tag.g-open, .tag.g-res, .tag.g-gcc, .tag.g-nat, .tag.g-un{white-space:normal;}
 }
 
 
@@ -1068,11 +1072,11 @@ const OPPS = [
 {id:"nbb-evolve", ct:"bh", sector:"finance", level:["grad"], paid:"yes", status:"open", gate:"nationals",
  org:{en:"National Bank of Bahrain", ar:"بنك البحرين الوطني"},
  prog:{en:"Thrive Programme", ar:"برنامج ثرايف"},
- apply:{en:"Open. The application form was live on 10 September 2026 and prints no window. The internship is paid and runs six to twelve months.", ar:"مفتوح. كان نموذج التقديم متاحًا في ١٠ سبتمبر ٢٠٢٦ ولا يذكر فترة محددة. والتدريب بأجر ويمتد من ستة إلى اثني عشر شهرًا."},
+ apply:{en:"Open. The application form was live on 2 October 2026 and prints no window. The internship is paid and runs six to twelve months.", ar:"مفتوح. كان نموذج التقديم متاحًا في ٢ أكتوبر ٢٠٢٦ ولا يذكر فترة محددة. والتدريب بأجر ويمتد من ستة إلى اثني عشر شهرًا."},
  duration:{en:"Six to twelve months, full time from day one.", ar:"من ستة إلى اثني عشر شهرًا، بدوام كامل منذ اليوم الأول."},
  elig:{en:"Bahraini graduates.", ar:"الخريجون البحرينيون."},
  how:{en:"Online form on the Thrive page: education level, major, GPA and a CV. A paid internship with a full time job role.", ar:"نموذج إلكتروني في صفحة ثرايف: المستوى التعليمي والتخصص والمعدل والسيرة الذاتية. تدريب بأجر ضمن دور وظيفي بدوام كامل."},
- url:"https://nbbonline.com/thrive-application/", checked:"2026-09-10"},
+ url:"https://nbbonline.com/thrive-application/", checked:"2026-10-02"},
 
 {id:"alsalam-summer", ct:"bh", sector:"finance", level:["uni"], paid:"unknown", status:"annual", gate:"unstated",
  org:{en:"Al Salam Bank", ar:"مصرف السلام"},
@@ -3066,14 +3070,14 @@ const OPPS = [
  how:{en:"Apply via the recruitment portal.", ar:"قدّم عبر بوابة التوظيف."},
  url:"https://elm.sa/en/recruitment/Jobs/Pages/coop-trainee-and-training-program.aspx", checked:"2026-08-24"},
 
-{id:"tuwaiq-bootcamps", ct:"sa", sector:"tech", level:["uni","grad"], paid:"no", status:"open", gate:"unstated",
+{id:"tuwaiq-bootcamps", ct:"sa", sector:"tech", level:["grad"], paid:"no", status:"open", gate:"nationals",
  org:{en:"Tuwaiq Academy", ar:"أكاديمية طويق"},
  prog:{en:"Employment linked technology bootcamps", ar:"معسكرات التقنية المرتبطة بالتوظيف"},
- apply:{en:"Could not be verified. tuwaiq.edu.sa returns the page shell to cloud fetchers without the bootcamp listings, so neither the current registration state nor any start date could be read on 21 September 2026. Check the bootcamps page directly before relying on this entry.", ar:"تعذّر التحقق. يعيد موقع طويق هيكل الصفحة دون قوائم المعسكرات للجالبين السحابيين، فلم يتسنَّ قراءة حالة التسجيل ولا أي تاريخ بدء في ٢١ سبتمبر ٢٠٢٦. راجع صفحة المعسكرات مباشرة قبل الاعتماد على هذا المدخل."},
+ apply:{en:"Open. Nine adult bootcamps were listed as taking registrations on 2 October 2026, the nearest starting 11 October and 1 November 2026, and the page loads more beyond those nine. Every one of the nine carries a fee notice.", ar:"مفتوح. تسعة معسكرات للكبار كانت مدرجة بوصفها تستقبل التسجيل في ٢ أكتوبر ٢٠٢٦، وأقربها يبدأ في ١١ أكتوبر و١ نوفمبر ٢٠٢٦، وتحمّل الصفحة مزيدًا بعد التسعة. وكل واحد من التسعة يحمل إشارة إلى وجود رسوم."},
  duration:{en:"Four to forty one weeks depending on the bootcamp. The offer is the training itself and there is no wage.", ar:"من أربعة إلى واحد وأربعين أسبوعًا بحسب المعسكر. والمعروض هو التدريب نفسه دون أجر."},
- elig:{en:"Platform registration is for those eighteen or older, and acceptance into any bootcamp is at the academy's discretion. Some cohorts are marked for employees rather than open entry, and some carry a fee. No nationality rule appears on the readable pages.", ar:"التسجيل في المنصة لمن بلغ الثامنة عشرة، والقبول في أي معسكر تقديري للأكاديمية. وبعض الدفعات مخصصة للموظفين لا للالتحاق المفتوح، وبعضها عليه رسوم. ولا يظهر شرط جنسية في الصفحات المقروءة."},
- how:{en:"Register on the platform and apply per bootcamp.", ar:"سجّل في المنصة وقدّم على كل معسكر."},
- url:"https://tuwaiq.edu.sa/bootcamps", checked:"2026-09-11"},
+ elig:{en:"Four of the nine bootcamp pages were read in full on 2 October 2026 and each one prints that the applicant must be a Saudi national. Each also requires a bachelor degree in a technical field, a good level of English and a personal laptop, and one of the four requires passing an entrance test. Acceptance stays at the academy's discretion.", ar:"قُرئت أربع من صفحات المعسكرات التسعة كاملة في ٢ أكتوبر ٢٠٢٦، وكل واحدة تطبع أن يكون المتقدم سعودي الجنسية. وتشترط كل منها كذلك درجة البكالوريوس في تخصص تقني، ومستوى جيدًا في اللغة الإنجليزية، وجهاز حاسب محمول شخصيًا، وتشترط واحدة منها اجتياز اختبار قبول. ويبقى القبول تقديريًا للأكاديمية."},
+ how:{en:"Register on the platform and apply per bootcamp. The four pages read were all in person at the Riyadh headquarters.", ar:"سجّل في المنصة وقدّم على كل معسكر. والصفحات الأربع المقروءة كلها حضورية في المقر الرئيسي بالرياض."},
+ url:"https://tuwaiq.edu.sa/bootcamps", checked:"2026-10-02"},
 
 {id:"apple-academy-riyadh", ct:"sa", sector:"tech", level:["uni","grad"], paid:"unknown", status:"annual", gate:"unstated",
  org:{en:"Apple Developer Academy at Tuwaiq", ar:"أكاديمية آبل للمطورين في طويق"},
