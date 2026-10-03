@@ -1764,6 +1764,13 @@ if (typeof document !== "undefined") (function(){
     if(NOTRACK || resultsSent) return;
     resultsSent = true;
     try{
+      /* MCCLASS: the class label a counsellor put on the link, so a class can be
+         read back as one picture. It is a label the school chose, never a student
+         identifier, and nothing that could name a student is added here or anywhere
+         else in this payload. The student can see and edit it in the address bar,
+         so it is a convenience and not proof of which class a row came from. */
+      var cls = "";
+      try{ cls = (new URLSearchParams(location.search).get("class")||"").trim().slice(0,16); }catch(e){}
       const payload = {
         lang: lang,
         code: p.code.join(""),
@@ -1773,6 +1780,7 @@ if (typeof document !== "undefined") (function(){
         avoid: p.avoid,
         market: market || "",
         marketAuto: marketDetected,
+        cls: cls,
         seconds: startTime ? Math.round((Date.now()-startTime)/1000) : null
       };
       const body = new URLSearchParams();
