@@ -4,6 +4,21 @@
  "note": "Dated entries are verified against the employer's own page on the date shown. Month entries are the month to watch, not a promised deadline.",
  "items": [
   {
+   "id": "pearson-admission-close",
+   "ct": "all",
+   "kind": "closes",
+   "date": "2026-10-16",
+   "page": "scholarships.html",
+   "en": {
+    "t": "Toronto Pearson admission deadline",
+    "b": "The University of Toronto page prints 16 October 2026 as the deadline to apply for admission and be considered for the Lester B. Pearson International Scholarship, for 2027 entry. The award runs through a school nomination whose own deadline passed on 9 October 2026, so this date matters only if your school nominated you."
+   },
+   "ar": {
+    "t": "آخر موعد لطلب القبول في منحة بيرسون بتورنتو",
+    "b": "تطبع صفحة جامعة تورنتو ١٦ أكتوبر ٢٠٢٦ آخر موعد لطلب القبول وللنظر في منحة ليستر بي بيرسون الدولية، لدخول ٢٠٢٧. والمنحة تمر بترشيح من المدرسة مضى موعده في ٩ أكتوبر ٢٠٢٦، فهذا التاريخ لا يعنيك إلا إذا رشّحتك مدرستك."
+   }
+  },
+  {
    "id": "bapco-idt-close",
    "ct": "bh",
    "kind": "closes",
@@ -61,6 +76,21 @@
    "ar": {
     "t": "إغلاق التدريب الجامعي في أرامكو السعودية",
     "b": "الفترة المطبوعة في الصفحة تغلق في الثالثة عصرًا من ٢ نوفمبر ٢٠٢٦، وقد فُتحت في الثامنة صباحًا من ٢٦ أكتوبر ٢٠٢٦. والتقديم عبر موقع التوظيف في أرامكو، وتطلب قائمة المستندات صورة من الهوية الوطنية السعودية."
+   }
+  },
+  {
+   "id": "pearson-docs-close",
+   "ct": "all",
+   "kind": "closes",
+   "date": "2026-11-06",
+   "page": "scholarships.html",
+   "en": {
+    "t": "Toronto Pearson scholarship documents due",
+    "b": "The page prints 6 November 2026 as the student scholarship application and documentation submission deadline for 2027 entry. It follows the 16 October admission deadline and the school nomination deadline of 9 October."
+   },
+   "ar": {
+    "t": "آخر موعد لوثائق منحة بيرسون بتورنتو",
+    "b": "تطبع الصفحة ٦ نوفمبر ٢٠٢٦ آخر موعد لتقديم طلب المنحة ووثائقه لدخول ٢٠٢٧. وهو يلي موعد طلب القبول في ١٦ أكتوبر وموعد ترشيح المدرسة في ٩ أكتوبر."
    }
   },
   {
