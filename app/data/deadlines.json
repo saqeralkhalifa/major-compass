@@ -1,68 +1,8 @@
 {
  "version": 1,
- "checked": "2026-10-02",
+ "checked": "2026-10-15",
  "note": "Dated entries are verified against the employer's own page on the date shown. Month entries are the month to watch, not a promised deadline.",
  "items": [
-  {
-   "id": "bain-mustaqbalak-1w",
-   "ct": "sa",
-   "kind": "closes",
-   "date": "2026-10-03",
-   "page": "internships.html",
-   "en": {
-    "t": "Bain Mustaqbalak closes in one week",
-    "b": "10 October is the deadline for the Jan to Mar 2027 cycle."
-   },
-   "ar": {
-    "t": "مستقبلك من بين آند كومباني يغلق بعد أسبوع",
-    "b": "10 أكتوبر آخر موعد لدورة يناير إلى مارس 2027."
-   }
-  },
-  {
-   "id": "zain-bh-earliest",
-   "ct": "bh",
-   "kind": "closes",
-   "date": "2026-10-05",
-   "page": "gigs.html",
-   "en": {
-    "t": "Zain Bahrain, the earliest of ten vacancies closes",
-    "b": "Ten vacancies were live on the Zain portal on 1 October 2026, all in Manama, and the earliest closes on 5 October. The postings print no nationality rule."
-   },
-   "ar": {
-    "t": "زين البحرين، أقرب الشواغر العشرة يغلق",
-    "b": "كانت عشرة شواغر معروضة في بوابة زين في ١ أكتوبر ٢٠٢٦، كلها في المنامة، وأقربها يغلق في ٥ أكتوبر. ولا تطبع الإعلانات أي شرط جنسية."
-   }
-  },
-  {
-   "id": "bain-mustaqbalak-close",
-   "ct": "sa",
-   "kind": "closes",
-   "date": "2026-10-10",
-   "page": "internships.html",
-   "en": {
-    "t": "Bain Mustaqbalak closes today",
-    "b": "Applications for the January to March 2027 cycle close today. Saudi nationals enrolled at schools inside the Kingdom."
-   },
-   "ar": {
-    "t": "إغلاق برنامج مستقبلك من بين آند كومباني اليوم",
-    "b": "يغلق التقديم لدورة يناير إلى مارس 2027 اليوم. للسعوديين المقيدين في مؤسسات تعليمية داخل المملكة."
-   }
-  },
-  {
-   "id": "tamuq-texas-close",
-   "ct": "qa",
-   "kind": "closes",
-   "date": "2026-10-15",
-   "page": "internships.html",
-   "en": {
-    "t": "Texas A and M at Qatar, summer research in Texas closes",
-    "b": "The page prints a closing day of 15 October and a withdrawal deadline of 31 October, both without a year. It is open to the university's own undergraduates with thirty or more credit hours and a grade point ratio of 2.5 or above."
-   },
-   "ar": {
-    "t": "جامعة تكساس إي أند إم في قطر، إغلاق البحث الصيفي في تكساس",
-    "b": "تطبع الصفحة يوم إغلاق في ١٥ أكتوبر وموعد انسحاب في ٣١ أكتوبر، كليهما دون سنة. وهو لطلبة البكالوريوس في الجامعة نفسها ممن أتموا ثلاثين ساعة معتمدة فأكثر بمعدل ٢٫٥ فأعلى."
-   }
-  },
   {
    "id": "bapco-idt-close",
    "ct": "bh",
@@ -76,6 +16,21 @@
    "ar": {
     "t": "إغلاق برنامج تدريب الخريجين في بابكو للطاقة",
     "b": "فترة التقديم المطبوعة في الصفحة من ١ إلى ٢٣ أكتوبر، وقد فُتحت في ١ أكتوبر ٢٠٢٦. وهو للمواطنين البحرينيين الذين تخرجوا خلال السنوات الثلاث الماضية، بعمر ٢٠ إلى ٢٥ عامًا يوم التقديم، بمعدل ٣٫٠ فأعلى أو تقدير جيد جدًا في النظام البريطاني. وما تزال الصفحة تذكر أن الدفعة تبدأ في يناير ٢٠٢٦ وهو تاريخ مضى، فتأكد من الدورة مع الشركة."
+   }
+  },
+  {
+   "id": "aramco-uni-open",
+   "ct": "sa",
+   "kind": "opens",
+   "date": "2026-10-26",
+   "page": "internships.html",
+   "en": {
+    "t": "Saudi Aramco university internship opens",
+    "b": "The page prints that the application opens at eight in the morning on 26 October 2026 and closes at three in the afternoon on 2 November 2026, so the window is seven days. It is for students whose university requires practical training before graduation, with a cumulative grade point average of 2.00 out of 4 for technical majors or 2.50 for non technical ones, and a training period of at least eight weeks. The document checklist asks for a copy of a Saudi national identity card."
+   },
+   "ar": {
+    "t": "فتح التدريب الجامعي في أرامكو السعودية",
+    "b": "تطبع الصفحة أن التقديم يفتح في الثامنة صباحًا من ٢٦ أكتوبر ٢٠٢٦ ويغلق في الثالثة عصرًا من ٢ نوفمبر ٢٠٢٦، فالفترة سبعة أيام. وهو للطلبة الذين تطلب جامعاتهم تدريبًا عمليًا قبل التخرج، بمعدل تراكمي ٢٫٠٠ من ٤ للتخصصات التقنية أو ٢٫٥٠ لغير التقنية، وبمدة تدريب لا تقل عن ثمانية أسابيع. وتطلب قائمة المستندات صورة من الهوية الوطنية السعودية."
    }
   },
   {
@@ -94,6 +49,21 @@
    }
   },
   {
+   "id": "aramco-uni-close",
+   "ct": "sa",
+   "kind": "closes",
+   "date": "2026-11-02",
+   "page": "internships.html",
+   "en": {
+    "t": "Saudi Aramco university internship closes",
+    "b": "The window printed on the page closes at three in the afternoon on 2 November 2026, having opened at eight in the morning on 26 October 2026. Applications go through the Aramco careers site, and the document checklist asks for a copy of a Saudi national identity card."
+   },
+   "ar": {
+    "t": "إغلاق التدريب الجامعي في أرامكو السعودية",
+    "b": "الفترة المطبوعة في الصفحة تغلق في الثالثة عصرًا من ٢ نوفمبر ٢٠٢٦، وقد فُتحت في الثامنة صباحًا من ٢٦ أكتوبر ٢٠٢٦. والتقديم عبر موقع التوظيف في أرامكو، وتطلب قائمة المستندات صورة من الهوية الوطنية السعودية."
+   }
+  },
+  {
    "id": "hmc-internship-close",
    "ct": "qa",
    "kind": "closes",
@@ -106,6 +76,21 @@
    "ar": {
     "t": "إغلاق برنامج الامتياز الطبي في حمد",
     "b": "يغلق التقديم لبداية 1 يناير في 15 نوفمبر. للمواطنين القطريين والخليجيين أو من يحمل إقامة قطرية بكفالة عائلية من الدرجة الأولى."
+   }
+  },
+  {
+   "id": "misk-local-close",
+   "ct": "sa",
+   "kind": "closes",
+   "date": "2026-11-30",
+   "page": "internships.html",
+   "en": {
+    "t": "Misk local traineeship closes",
+    "b": "The page prints an application close of 30 November 2026, applications having opened on 11 June 2026, and its enrollment status reads applications open. The criteria print Saudi nationality, and the frequently asked questions say the programme is provided to Saudi nationals only."
+   },
+   "ar": {
+    "t": "إغلاق التدريب المحلي في مؤسسة مسك",
+    "b": "تطبع الصفحة إغلاق التقديم في ٣٠ نوفمبر ٢٠٢٦، وقد فُتح التقديم في ١١ يونيو ٢٠٢٦، وحالة التسجيل المعروضة أن التقديم مفتوح. وتطبع الشروط الجنسية السعودية، وتذكر الأسئلة الشائعة أن البرنامج للسعوديين فقط."
    }
   },
   {
@@ -181,6 +166,21 @@
    "ar": {
     "t": "الموعد الشتوي لأرامكو هذا الشهر",
     "b": "الموعد الشتوي لبرنامجي الصيف وطموح يقع نحو منتصف فبراير. راجع الصفحة لمعرفة موعد هذه الدورة."
+   }
+  },
+  {
+   "id": "bain-spring2027-close",
+   "ct": "sa",
+   "kind": "closes",
+   "date": "2027-02-07",
+   "page": "internships.html",
+   "en": {
+    "t": "Bain Mustaqbalak spring 2027 cycle closes",
+    "b": "The page prints that the application cycle for spring 2027 start dates is now open and will close on 7 February 2027, with a live apply control. It is for Saudi bachelor's students enrolled at schools inside the Kingdom who are required to complete a cooperative training before graduation."
+   },
+   "ar": {
+    "t": "إغلاق دورة ربيع ٢٠٢٧ لبرنامج مستقبلك من بين آند كومباني",
+    "b": "تطبع الصفحة أن دورة التقديم لبدايات ربيع ٢٠٢٧ مفتوحة الآن وتغلق في ٧ فبراير ٢٠٢٧، مع زر تقديم فعّال. وهي لطلبة البكالوريوس السعوديين المقيدين في مؤسسات تعليمية داخل المملكة الذين يُطلب منهم إكمال تدريب تعاوني قبل التخرج."
    }
   },
   {
