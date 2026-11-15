@@ -1,98 +1,8 @@
 {
  "version": 1,
- "checked": "2026-10-15",
+ "checked": "2026-11-15",
  "note": "Dated entries are verified against the employer's own page on the date shown. Month entries are the month to watch, not a promised deadline.",
  "items": [
-  {
-   "id": "pearson-admission-close",
-   "ct": "all",
-   "kind": "closes",
-   "date": "2026-10-16",
-   "page": "scholarships.html",
-   "en": {
-    "t": "Toronto Pearson admission deadline",
-    "b": "The University of Toronto page prints 16 October 2026 as the deadline to apply for admission and be considered for the Lester B. Pearson International Scholarship, for 2027 entry. The award runs through a school nomination whose own deadline passed on 9 October 2026, so this date matters only if your school nominated you."
-   },
-   "ar": {
-    "t": "آخر موعد لطلب القبول في منحة بيرسون بتورنتو",
-    "b": "تطبع صفحة جامعة تورنتو ١٦ أكتوبر ٢٠٢٦ آخر موعد لطلب القبول وللنظر في منحة ليستر بي بيرسون الدولية، لدخول ٢٠٢٧. والمنحة تمر بترشيح من المدرسة مضى موعده في ٩ أكتوبر ٢٠٢٦، فهذا التاريخ لا يعنيك إلا إذا رشّحتك مدرستك."
-   }
-  },
-  {
-   "id": "bapco-idt-close",
-   "ct": "bh",
-   "kind": "closes",
-   "date": "2026-10-23",
-   "page": "internships.html",
-   "en": {
-    "t": "Bapco Energies graduate trainee programme closes",
-    "b": "The application window printed on the page is 1 to 23 October, and it opened on 1 October 2026. It is for Bahraini nationals who graduated in the past three years, aged 20 to 25 on the date of application, with a grade point average of 3.0 and above or a British upper second. The page still dates the intake to January 2026, which has passed, so confirm the cycle with the company."
-   },
-   "ar": {
-    "t": "إغلاق برنامج تدريب الخريجين في بابكو للطاقة",
-    "b": "فترة التقديم المطبوعة في الصفحة من ١ إلى ٢٣ أكتوبر، وقد فُتحت في ١ أكتوبر ٢٠٢٦. وهو للمواطنين البحرينيين الذين تخرجوا خلال السنوات الثلاث الماضية، بعمر ٢٠ إلى ٢٥ عامًا يوم التقديم، بمعدل ٣٫٠ فأعلى أو تقدير جيد جدًا في النظام البريطاني. وما تزال الصفحة تذكر أن الدفعة تبدأ في يناير ٢٠٢٦ وهو تاريخ مضى، فتأكد من الدورة مع الشركة."
-   }
-  },
-  {
-   "id": "aramco-uni-open",
-   "ct": "sa",
-   "kind": "opens",
-   "date": "2026-10-26",
-   "page": "internships.html",
-   "en": {
-    "t": "Saudi Aramco university internship opens",
-    "b": "The page prints that the application opens at eight in the morning on 26 October 2026 and closes at three in the afternoon on 2 November 2026, so the window is seven days. It is for students whose university requires practical training before graduation, with a cumulative grade point average of 2.00 out of 4 for technical majors or 2.50 for non technical ones, and a training period of at least eight weeks. The document checklist asks for a copy of a Saudi national identity card."
-   },
-   "ar": {
-    "t": "فتح التدريب الجامعي في أرامكو السعودية",
-    "b": "تطبع الصفحة أن التقديم يفتح في الثامنة صباحًا من ٢٦ أكتوبر ٢٠٢٦ ويغلق في الثالثة عصرًا من ٢ نوفمبر ٢٠٢٦، فالفترة سبعة أيام. وهو للطلبة الذين تطلب جامعاتهم تدريبًا عمليًا قبل التخرج، بمعدل تراكمي ٢٫٠٠ من ٤ للتخصصات التقنية أو ٢٫٥٠ لغير التقنية، وبمدة تدريب لا تقل عن ثمانية أسابيع. وتطلب قائمة المستندات صورة من الهوية الوطنية السعودية."
-   }
-  },
-  {
-   "id": "edb-winter-open",
-   "ct": "bh",
-   "kind": "opens",
-   "date": "2026-11-01",
-   "page": "internships.html",
-   "en": {
-    "t": "Bahrain Economic Development Board, winter internship opens",
-    "b": "Applications for the winter round run 1 to 23 November, with interviews and selection from 24 November, for four weeks from 11 January. It is for Bahraini students enrolled at universities anywhere, aged 18 or older, with a grade point average of 3.0 and above or 2.2 on the British system. The page prints that graduates are not eligible."
-   },
-   "ar": {
-    "t": "مجلس التنمية الاقتصادية، فتح التدريب الشتوي",
-    "b": "التقديم للدورة الشتوية من ١ إلى ٢٣ نوفمبر، والمقابلات والاختيار من ٢٤ نوفمبر، لأربعة أسابيع تبدأ في ١١ يناير. وهو للطلبة البحرينيين المقيدين في جامعات في أي مكان، بعمر ١٨ عامًا فأكثر، بمعدل ٣٫٠ فأعلى أو ٢٫٢ في النظام البريطاني. وتطبع الصفحة أن الخريجين غير مؤهلين."
-   }
-  },
-  {
-   "id": "aramco-uni-close",
-   "ct": "sa",
-   "kind": "closes",
-   "date": "2026-11-02",
-   "page": "internships.html",
-   "en": {
-    "t": "Saudi Aramco university internship closes",
-    "b": "The window printed on the page closes at three in the afternoon on 2 November 2026, having opened at eight in the morning on 26 October 2026. Applications go through the Aramco careers site, and the document checklist asks for a copy of a Saudi national identity card."
-   },
-   "ar": {
-    "t": "إغلاق التدريب الجامعي في أرامكو السعودية",
-    "b": "الفترة المطبوعة في الصفحة تغلق في الثالثة عصرًا من ٢ نوفمبر ٢٠٢٦، وقد فُتحت في الثامنة صباحًا من ٢٦ أكتوبر ٢٠٢٦. والتقديم عبر موقع التوظيف في أرامكو، وتطلب قائمة المستندات صورة من الهوية الوطنية السعودية."
-   }
-  },
-  {
-   "id": "pearson-docs-close",
-   "ct": "all",
-   "kind": "closes",
-   "date": "2026-11-06",
-   "page": "scholarships.html",
-   "en": {
-    "t": "Toronto Pearson scholarship documents due",
-    "b": "The page prints 6 November 2026 as the student scholarship application and documentation submission deadline for 2027 entry. It follows the 16 October admission deadline and the school nomination deadline of 9 October."
-   },
-   "ar": {
-    "t": "آخر موعد لوثائق منحة بيرسون بتورنتو",
-    "b": "تطبع الصفحة ٦ نوفمبر ٢٠٢٦ آخر موعد لتقديم طلب المنحة ووثائقه لدخول ٢٠٢٧. وهو يلي موعد طلب القبول في ١٦ أكتوبر وموعد ترشيح المدرسة في ٩ أكتوبر."
-   }
-  },
   {
    "id": "hmc-internship-close",
    "ct": "qa",
@@ -100,12 +10,42 @@
    "date": "2026-11-15",
    "page": "internships.html",
    "en": {
-    "t": "Hamad medical internship closes",
-    "b": "Applications for the 1 January start close on 15 November. Qatari citizens, GCC citizens, or a Qatar residency under first degree family sponsorship."
+    "t": "Hamad medical internship, first submission date",
+    "b": "The page prints 15 November as the submission date for a 1 January start, and prints a second window of 16 November to 15 May for a 1 July start, with no year against either. It also prints that the intake remains open year round and that start dates are assigned by submission date, so missing 15 November moves you to July rather than shutting you out. Qatari citizens, GCC citizens, or a Qatar residency under first degree family sponsorship."
    },
    "ar": {
-    "t": "إغلاق برنامج الامتياز الطبي في حمد",
-    "b": "يغلق التقديم لبداية 1 يناير في 15 نوفمبر. للمواطنين القطريين والخليجيين أو من يحمل إقامة قطرية بكفالة عائلية من الدرجة الأولى."
+    "t": "برنامج الامتياز الطبي في حمد، أول موعد تقديم",
+    "b": "تطبع الصفحة ١٥ نوفمبر موعدًا للتقديم لبداية ١ يناير، وتطبع فترة ثانية من ١٦ نوفمبر إلى ١٥ مايو لبداية ١ يوليو، دون سنة مقابل أي منهما. وتطبع كذلك أن الاستقبال يبقى مفتوحًا على مدار السنة وأن تواريخ البدء تُحدَّد بحسب تاريخ التقديم، ففوات ١٥ نوفمبر ينقلك إلى يوليو ولا يغلق الباب أمامك. للمواطنين القطريين والخليجيين أو من يحمل إقامة قطرية بكفالة عائلية من الدرجة الأولى."
+   }
+  },
+  {
+   "id": "bapco-idt-close",
+   "ct": "bh",
+   "kind": "closes",
+   "date": "2026-11-18",
+   "page": "internships.html",
+   "en": {
+    "t": "Bapco Energies graduate trainee applications close",
+    "b": "The page prints an application window of 9 to 18 November, with no year against those dates, and prints the programme start as January 2027. For Bahraini nationals who graduated in the past three years, aged 20 to 25 on the date of application, with a grade point average equivalent to 3.0 or an upper second class degree."
+   },
+   "ar": {
+    "t": "إغلاق التقديم لتدريب الخريجين في بابكو للطاقة",
+    "b": "تطبع الصفحة فترة تقديم من ٩ إلى ١٨ نوفمبر، دون سنة مقابل هذين التاريخين، وتطبع بداية البرنامج في يناير ٢٠٢٧. وهو للبحرينيين الذين تخرجوا في السنوات الثلاث الماضية، بعمر من ٢٠ إلى ٢٥ عامًا في تاريخ التقديم، بمعدل يعادل ٣٫٠ أو بتقدير جيد جدًا في النطاق البريطاني."
+   }
+  },
+  {
+   "id": "qf-almeydan-close",
+   "ct": "qa",
+   "kind": "closes",
+   "date": "2026-11-19",
+   "page": "internships.html",
+   "en": {
+    "t": "Qatar Foundation Al Meydan places close",
+    "b": "Two unpaid Al Meydan research assistant places at the Qatar Biomedical Research Institute both print a deadline to apply of 19 November 2026. Enrolment at one of the foundation's own universities, with a grade point average of 2.0 or higher."
+   },
+   "ar": {
+    "t": "إغلاق مقاعد الميدان في مؤسسة قطر",
+    "b": "مقعدان غير مدفوعين لمساعد باحث من الميدان في معهد قطر لبحوث الطب الحيوي، وكلاهما يطبع موعدًا للتقديم في ١٩ نوفمبر ٢٠٢٦. ويُشترط الانتظام في إحدى جامعات المؤسسة بمعدل لا يقل عن ٢٫٠."
    }
   },
   {
@@ -116,11 +56,26 @@
    "page": "internships.html",
    "en": {
     "t": "Misk local traineeship closes",
-    "b": "The page prints an application close of 30 November 2026, applications having opened on 11 June 2026, and its enrollment status reads applications open. The criteria print Saudi nationality, and the frequently asked questions say the programme is provided to Saudi nationals only."
+    "b": "The page prints an application close of 30 November 2026, applications having opened on 11 June 2026, and its enrollment status reads applications open. The criteria print Saudi nationality, and the page prints that a participant has to complete the Career Essentials Program before a placement is offered."
    },
    "ar": {
     "t": "إغلاق التدريب المحلي في مؤسسة مسك",
-    "b": "تطبع الصفحة إغلاق التقديم في ٣٠ نوفمبر ٢٠٢٦، وقد فُتح التقديم في ١١ يونيو ٢٠٢٦، وحالة التسجيل المعروضة أن التقديم مفتوح. وتطبع الشروط الجنسية السعودية، وتذكر الأسئلة الشائعة أن البرنامج للسعوديين فقط."
+    "b": "تطبع الصفحة إغلاق التقديم في ٣٠ نوفمبر ٢٠٢٦، وقد فُتح التقديم في ١١ يونيو ٢٠٢٦، وحالة التسجيل المعروضة أن التقديم مفتوح. وتطبع الشروط الجنسية السعودية، وتطبع الصفحة أن على المشارك إتمام برنامج المهارات المهنية الأساسية قبل أن يُعرض عليه مقعد."
+   }
+  },
+  {
+   "id": "aoshearman-sa-close",
+   "ct": "sa",
+   "kind": "closes",
+   "date": "2026-11-30",
+   "page": "internships.html",
+   "en": {
+    "t": "A and O Shearman Riyadh cooperative scheme closes",
+    "b": "The posting prints that applications open 14 September 2026 and close on 30 November 2026 at 5pm. For students currently enrolled in an undergraduate law degree, with a national identity card or an iqama accepted."
+   },
+   "ar": {
+    "t": "إغلاق التدريب التعاوني في إيه آند أو شيرمان بالرياض",
+    "b": "يطبع الإعلان أن التقديم فُتح في ١٤ سبتمبر ٢٠٢٦ ويغلق في ٣٠ نوفمبر ٢٠٢٦ الساعة الخامسة مساءً. وهو لطلبة البكالوريوس المنتظمين في القانون، ويُقبل فيه إما الهوية الوطنية أو الإقامة."
    }
   },
   {
@@ -145,12 +100,12 @@
    "date": "2027-01-10",
    "page": "scholarships.html",
    "en": {
-    "t": "Turkiye Burslari opens today",
-    "b": "The most accessible fully funded undergraduate route for Gulf students. Closes 20 February."
+    "t": "Turkiye Burslari opens",
+    "b": "One of the more accessible fully funded undergraduate routes for Gulf students. The published window closes 20 February."
    },
    "ar": {
-    "t": "فتح باب المنح التركية اليوم",
-    "b": "أيسر مسار بكالوريوس ممول بالكامل لطلبة الخليج. يغلق في 20 فبراير."
+    "t": "فتح باب المنح التركية",
+    "b": "من أيسر مسارات البكالوريوس الممولة بالكامل لطلبة الخليج. والفترة المنشورة تغلق في ٢٠ فبراير."
    }
   },
   {
@@ -160,12 +115,27 @@
    "date": "2027-01-29",
    "page": "internships.html",
    "en": {
-    "t": "QSTP winter internship opens",
-    "b": "The winter cycle runs from 29 January to 21 April. Seniors and recent graduates enrolled at a university in Qatar."
+    "t": "QSTP winter internship cycle begins",
+    "b": "The winter cycle runs from 29 January to 21 April. Seniors and recent graduates enrolled at a university in Qatar. The page prints an application period of 4 to 18 September with no year against it, so confirm the window before the cycle starts."
    },
    "ar": {
-    "t": "فتح تدريب واحة العلوم والتكنولوجيا لفصل الشتاء",
-    "b": "تمتد دورة الشتاء من 29 يناير إلى 21 أبريل. لطلبة السنة الأخيرة والخريجين الجدد المقيدين في جامعة في قطر."
+    "t": "بداية دورة الشتاء لتدريب واحة العلوم والتقنية",
+    "b": "تمتد دورة الشتاء من ٢٩ يناير إلى ٢١ أبريل. وهي لطلبة السنة الأخيرة والخريجين الجدد المنتظمين في جامعة في قطر. وتطبع الصفحة فترة تقديم من ٤ إلى ١٨ سبتمبر دون سنة مقابلها، فتأكد من الفترة قبل بداية الدورة."
+   }
+  },
+  {
+   "id": "rcsi-bahrain-close",
+   "ct": "bh",
+   "kind": "closes",
+   "date": "2027-01-31",
+   "page": "entry.html",
+   "en": {
+    "t": "RCSI Bahrain medicine applications close",
+    "b": "The entry requirements page prints an admissions deadline of 31 January 2027 for both the five year direct entry route and the six year route with a Foundation Year, for a September 2027 start. The Casper situational judgement test is required and its printed sittings are 17 January and 12 February 2027, so the later sitting falls after the deadline."
+   },
+   "ar": {
+    "t": "إغلاق طلبات الطب بالكلية الملكية في البحرين",
+    "b": "تطبع صفحة شروط القبول موعدًا نهائيًا للقبول في ٣١ يناير ٢٠٢٧ لمسار الخمس سنوات بالدخول المباشر ومسار الست سنوات مع السنة التأسيسية، لبداية في سبتمبر ٢٠٢٧. ويُشترط اختبار كاسبر للحكم في المواقف، وجلستاه المطبوعتان في ١٧ يناير و١٢ فبراير ٢٠٢٧، أي أن الجلسة الأخيرة تأتي بعد الموعد النهائي."
    }
   },
   {
@@ -176,11 +146,11 @@
    "page": "internships.html",
    "en": {
     "t": "Oman: two February closes",
-    "b": "Takatuf closes late February and Eidaad is nominated through your university. Everything else in Oman takes applications year round."
+    "b": "Takatuf closes late February and Eidaad is nominated through your university. Several other Oman employers keep an application route up with no closing date printed."
    },
    "ar": {
     "t": "عُمان: موعدان يغلقان في فبراير",
-    "b": "تكاتف يغلق أواخر فبراير، وإعداد يتم ترشيحه عبر جامعتك. بقية الفرص في عُمان تستقبل الطلبات طوال العام."
+    "b": "تكاتف يغلق أواخر فبراير، وإعداد يتم ترشيحه عبر جامعتك. وعدد من جهات التوظيف الأخرى في عُمان يُبقي طريق التقديم قائمًا دون موعد إغلاق مطبوع."
    }
   },
   {
@@ -190,12 +160,12 @@
    "date": "2027-02-01",
    "page": "internships.html",
    "en": {
-    "t": "Aramco winter deadline is this month",
-    "b": "The Summer and Tomooh winter deadline falls around the middle of February. Check the page for this cycle's date."
+    "t": "Aramco winter deadline falls in February",
+    "b": "The Summer and Tomooh winter deadline has fallen around the middle of February. Check the page for this cycle's date, because on 15 November 2026 the page printed only that registration is closed and that the next period will be announced later."
    },
    "ar": {
-    "t": "الموعد الشتوي لأرامكو هذا الشهر",
-    "b": "الموعد الشتوي لبرنامجي الصيف وطموح يقع نحو منتصف فبراير. راجع الصفحة لمعرفة موعد هذه الدورة."
+    "t": "الموعد الشتوي لأرامكو يقع في فبراير",
+    "b": "كان الموعد الشتوي لبرنامجي الصيف وطموح يقع نحو منتصف فبراير. راجع الصفحة لمعرفة موعد هذه الدورة، فقد طبعت الصفحة في ١٥ نوفمبر ٢٠٢٦ أن التسجيل مغلق وأن الفترة القادمة ستعلن لاحقًا."
    }
   },
   {
@@ -206,11 +176,11 @@
    "page": "internships.html",
    "en": {
     "t": "Bain Mustaqbalak spring 2027 cycle closes",
-    "b": "The page prints that the application cycle for spring 2027 start dates is now open and will close on 7 February 2027, with a live apply control. It is for Saudi bachelor's students enrolled at schools inside the Kingdom who are required to complete a cooperative training before graduation."
+    "b": "The page prints that the application cycle for spring 2027 start dates is open and will close on 7 February 2027, with a live apply control. It is for Saudi bachelor's students enrolled at schools inside the Kingdom who are required to complete a cooperative training before graduation."
    },
    "ar": {
     "t": "إغلاق دورة ربيع ٢٠٢٧ لبرنامج مستقبلك من بين آند كومباني",
-    "b": "تطبع الصفحة أن دورة التقديم لبدايات ربيع ٢٠٢٧ مفتوحة الآن وتغلق في ٧ فبراير ٢٠٢٧، مع زر تقديم فعّال. وهي لطلبة البكالوريوس السعوديين المقيدين في مؤسسات تعليمية داخل المملكة الذين يُطلب منهم إكمال تدريب تعاوني قبل التخرج."
+    "b": "تطبع الصفحة أن دورة التقديم لبدايات ربيع ٢٠٢٧ مفتوحة وتغلق في ٧ فبراير ٢٠٢٧، مع أداة تقديم فعّالة. وهي لطلبة البكالوريوس السعوديين المنتظمين في مؤسسات تعليمية داخل المملكة الذين يُطلب منهم إكمال تدريب تعاوني قبل التخرج."
    }
   },
   {
@@ -220,12 +190,12 @@
    "date": "2027-03-01",
    "page": "internships.html",
    "en": {
-    "t": "Bahrain's internship season starts now",
-    "b": "The season is the spring, not the summer. Bapco, EDB, SICO and CPISP all sit between March and May."
+    "t": "Bahrain's internship windows open from March",
+    "b": "Most Bahrain internship windows close in April and May. Bapco Energies, the Economic Development Board, SICO and the Crown Prince's scholarship all sit between March and May, so a student who waits for the summer has already missed them."
    },
    "ar": {
-    "t": "موسم التدريب في البحرين يبدأ الآن",
-    "b": "الموسم في الربيع لا في الصيف. بابكو ومجلس التنمية وسيكو وبرنامج ولي العهد كلها بين مارس ومايو."
+    "t": "تُفتح مواعيد التدريب في البحرين من مارس",
+    "b": "أغلب مواعيد التدريب في البحرين تُغلق في أبريل ومايو. فبابكو للطاقة ومجلس التنمية الاقتصادية وسيكو وبرنامج ولي العهد كلها بين مارس ومايو، ومن ينتظر الصيف يكون قد فاتته."
    }
   },
   {
@@ -236,11 +206,11 @@
    "page": "scholarships.html",
    "en": {
     "t": "CPISP is a Grade 11 application",
-    "b": "Around March, roughly 97 percent cumulative, about 20 places a year. If you are already in Grade 12 this one has passed."
+    "b": "The page prints March as the annual submission period, a cumulative average of 97 percent or above for Grade 10 and the first semester of Grade 11, and Bahraini citizenship. If you are already in Grade 12 this one has passed."
    },
    "ar": {
     "t": "برنامج ولي العهد يُقدَّم في الصف الحادي عشر",
-    "b": "نحو مارس، معدل تراكمي قرابة 97 بالمئة، وحوالي 20 مقعداً سنوياً. إن كنت في الثاني عشر فقد فات موعده."
+    "b": "تطبع الصفحة مارس فترة التقديم السنوية، ومعدلًا تراكميًا ٩٧ بالمئة فأعلى للصف العاشر والفصل الأول من الحادي عشر، والجنسية البحرينية. وإن كنت في الثاني عشر فقد فات موعده."
    }
   },
   {
@@ -269,7 +239,7 @@
     "b": "These are last cycle's months presented as the month to watch. Open the finder and confirm this year's dates."
    },
    "ar": {
-    "t": "4 نافذة منح تستحق المتابعة في يناير",
+    "t": "٤ نوافذ منح تستحق المتابعة في يناير",
     "b": "هذه مواعيد الدورة الماضية بوصفها الشهر الذي يُتابع. افتح الدليل وتأكد من مواعيد هذا العام."
    }
   },
@@ -284,7 +254,7 @@
     "b": "These are last cycle's months presented as the month to watch. Open the finder and confirm this year's dates."
    },
    "ar": {
-    "t": "2 نافذة منح تستحق المتابعة في أغسطس",
+    "t": "نافذتا منح تستحقان المتابعة في أغسطس",
     "b": "هذه مواعيد الدورة الماضية بوصفها الشهر الذي يُتابع. افتح الدليل وتأكد من مواعيد هذا العام."
    }
   },
@@ -299,7 +269,7 @@
     "b": "These are last cycle's months presented as the month to watch. Open the finder and confirm this year's dates."
    },
    "ar": {
-    "t": "4 نوافذ منح تستحق المتابعة في أكتوبر",
+    "t": "٤ نوافذ منح تستحق المتابعة في أكتوبر",
     "b": "هذه مواعيد الدورة الماضية بوصفها الشهر الذي يُتابع. افتح الدليل وتأكد من مواعيد هذا العام."
    }
   },
@@ -314,7 +284,7 @@
     "b": "These are last cycle's months presented as the month to watch. Open the finder and confirm this year's dates."
    },
    "ar": {
-    "t": "3 نوافذ منح تستحق المتابعة في نوفمبر",
+    "t": "٣ نوافذ منح تستحق المتابعة في نوفمبر",
     "b": "هذه مواعيد الدورة الماضية بوصفها الشهر الذي يُتابع. افتح الدليل وتأكد من مواعيد هذا العام."
    }
   }
