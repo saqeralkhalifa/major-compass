@@ -1,9 +1,9 @@
 /* Major Compass app chrome. Only applies when html carries .mcapp, so the same
    files still render as ordinary web pages if they are ever served on the web. */
 :root{
-  --mc-navy:#152A55; --mc-navy-2:#2E4477; --mc-paper:#faf9f6; --mc-card:#fff;
-  --mc-line:#e6e3dc; --mc-ink:#101418; --mc-ink-2:#4a5158; --mc-ink-3:#8a9199;
-  --mc-accent:#1c5d99; --mc-gold:#b98c2f;
+  --mc-navy:#152A55; --mc-navy-2:#2E4477; --mc-paper:#FAF5EA; --mc-card:#fff;
+  --mc-line:#E2D5BB; --mc-ink:#152A55; --mc-ink-2:#4A3728; --mc-ink-3:#6F5D4A;
+  --mc-accent:#7D5F27; --mc-gold:#7D5F27;
   --mc-top:52px; --mc-tabs:58px;
   --mc-safe-t:env(safe-area-inset-top,0px); --mc-safe-b:env(safe-area-inset-bottom,0px);
 }

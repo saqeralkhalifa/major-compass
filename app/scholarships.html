@@ -33,9 +33,9 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
 <link rel="stylesheet" href="theme.css">
 <style>
   :root{
-    --ink:#101418; --ink-2:#4a5158; --ink-3:#8a9199;
-    --paper:#faf9f6; --card:#ffffff; --line:#e6e3dc;
-    --accent:#1c5d99; --accent-soft:#e8f0f8; --gold:#b98c2f; --good:#0e7a4d;
+    --ink:#152A55; --ink-2:#4A3728; --ink-3:#6F5D4A;
+    --paper:#FAF5EA; --card:#ffffff; --line:#E2D5BB;
+    --accent:#7D5F27; --accent-soft:#F3EADA; --gold:#7D5F27; --good:#0e7a4d;
     --warn:#8a5a12; --warn-soft:#fdf4e3; --bad:#a3413a; --bad-soft:#fbeceb;
     --radius:14px; --shadow:0 1px 3px rgba(16,20,24,.06), 0 8px 24px rgba(16,20,24,.07);
     color-scheme: light;
@@ -70,10 +70,10 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   .rule.w h3{color:var(--warn);}
   .rule.b{background:var(--bad-soft); border-color:#f0cfcc; color:#6b3630;}
   .rule.b h3{color:var(--bad);}
-  .rule.n{background:var(--accent-soft); border-color:#cfe0ef; color:#204660;}
+  .rule.n{background:var(--accent-soft); border-color:#D3C0A0; color:#204660;}
   .rule.n h3{color:var(--accent);}
 
-  .quizbar{background:var(--accent-soft); border:1px solid #cfe0ef; border-radius:var(--radius);
+  .quizbar{background:var(--accent-soft); border:1px solid #D3C0A0; border-radius:var(--radius);
     padding:16px 20px; margin:12px 0 0; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
   .quizbar p{flex:1 1 260px; font-size:.98rem; color:var(--ink-2); margin:0;}
   .quizbar b{color:var(--ink);}
@@ -82,7 +82,7 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
     padding:11px 24px; border-radius:999px; transition:transform .12s;
     box-shadow:0 4px 14px rgba(28,93,153,.28); white-space:nowrap;}
   .btn:hover{transform:translateY(-1px);}
-  .btn.ghost{background:var(--card); color:var(--accent); border:1.5px solid #cfe0ef; box-shadow:none;}
+  .btn.ghost{background:var(--card); color:var(--accent); border:1.5px solid #D3C0A0; box-shadow:none;}
 
   .tools{position:sticky; top:0; background:var(--paper); padding:14px 0 12px; z-index:5;
     border-bottom:1px solid var(--line); margin:24px 0 18px;}

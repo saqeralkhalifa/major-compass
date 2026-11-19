@@ -33,9 +33,9 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
 <link rel="stylesheet" href="theme.css">
 <style>
   :root{
-    --ink:#101418; --ink-2:#4a5158; --ink-3:#8a9199;
-    --paper:#faf9f6; --card:#ffffff; --line:#e6e3dc;
-    --accent:#1c5d99; --accent-soft:#e8f0f8; --gold:#b98c2f;
+    --ink:#152A55; --ink-2:#4A3728; --ink-3:#6F5D4A;
+    --paper:#FAF5EA; --card:#ffffff; --line:#E2D5BB;
+    --accent:#7D5F27; --accent-soft:#F3EADA; --gold:#7D5F27;
     --good:#0e7a4d; --good-soft:#e9f5ef; --good-line:#c9e6d8;
     --warn:#8a5a12; --warn-soft:#fdf4e3; --warn-line:#efdcb6;
     --bad:#a3413a; --bad-soft:#fbeceb; --bad-line:#f0cfcc;
@@ -69,7 +69,7 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   .rule p{font-size:.95rem; line-height:1.6;}
   .rule.w{background:var(--warn-soft); border-color:var(--warn-line); color:#5c4415;}
   .rule.w h3{color:var(--warn);}
-  .rule.n{background:var(--accent-soft); border-color:#cfe0ef; color:#204660;}
+  .rule.n{background:var(--accent-soft); border-color:#D3C0A0; color:#204660;}
   .rule.n h3{color:var(--accent);}
 
   .panel{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
@@ -164,14 +164,14 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   .checked b{display:block; color:var(--warn); font-weight:800; margin-bottom:4px;}
   .checked p{font-size:.93rem; line-height:1.6;}
 
-  .bar{background:var(--accent-soft); border:1px solid #cfe0ef; border-radius:var(--radius);
+  .bar{background:var(--accent-soft); border:1px solid #D3C0A0; border-radius:var(--radius);
     padding:15px 20px; margin-top:10px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
   .bar p{flex:1 1 240px; font-size:.96rem; color:var(--ink-2); margin:0;}
   .bar b{color:var(--ink);}
   .btn{display:inline-block; border:none; cursor:pointer; text-decoration:none; text-align:center;
     background:var(--accent); color:#fff; font-size:.96rem; font-weight:600; font-family:inherit;
     padding:10px 22px; border-radius:999px; white-space:nowrap; box-shadow:0 4px 14px rgba(28,93,153,.28);}
-  .btn.ghost{background:var(--card); color:var(--accent); border:1.5px solid #cfe0ef; box-shadow:none;}
+  .btn.ghost{background:var(--card); color:var(--accent); border:1.5px solid #D3C0A0; box-shadow:none;}
 
   footer.site{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
     text-align:center; font-size:.85rem; color:var(--ink-3);}
