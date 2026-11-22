@@ -1,51 +1,21 @@
 {
  "version": 1,
- "checked": "2026-11-15",
- "note": "Dated entries are verified against the employer's own page on the date shown. Month entries are the month to watch, not a promised deadline.",
+ "checked": "2026-11-22",
+ "note": "Dated entries are verified against the employer's own page on the date shown. Month entries are the month to watch and never a promised deadline.",
  "items": [
-  {
-   "id": "hmc-internship-close",
-   "ct": "qa",
-   "kind": "closes",
-   "date": "2026-11-15",
-   "page": "internships.html",
-   "en": {
-    "t": "Hamad medical internship, first submission date",
-    "b": "The page prints 15 November as the submission date for a 1 January start, and prints a second window of 16 November to 15 May for a 1 July start, with no year against either. It also prints that the intake remains open year round and that start dates are assigned by submission date, so missing 15 November moves you to July rather than shutting you out. Qatari citizens, GCC citizens, or a Qatar residency under first degree family sponsorship."
-   },
-   "ar": {
-    "t": "برنامج الامتياز الطبي في حمد، أول موعد تقديم",
-    "b": "تطبع الصفحة ١٥ نوفمبر موعدًا للتقديم لبداية ١ يناير، وتطبع فترة ثانية من ١٦ نوفمبر إلى ١٥ مايو لبداية ١ يوليو، دون سنة مقابل أي منهما. وتطبع كذلك أن الاستقبال يبقى مفتوحًا على مدار السنة وأن تواريخ البدء تُحدَّد بحسب تاريخ التقديم، ففوات ١٥ نوفمبر ينقلك إلى يوليو ولا يغلق الباب أمامك. للمواطنين القطريين والخليجيين أو من يحمل إقامة قطرية بكفالة عائلية من الدرجة الأولى."
-   }
-  },
-  {
-   "id": "bapco-idt-close",
-   "ct": "bh",
-   "kind": "closes",
-   "date": "2026-11-18",
-   "page": "internships.html",
-   "en": {
-    "t": "Bapco Energies graduate trainee applications close",
-    "b": "The page prints an application window of 9 to 18 November, with no year against those dates, and prints the programme start as January 2027. For Bahraini nationals who graduated in the past three years, aged 20 to 25 on the date of application, with a grade point average equivalent to 3.0 or an upper second class degree."
-   },
-   "ar": {
-    "t": "إغلاق التقديم لتدريب الخريجين في بابكو للطاقة",
-    "b": "تطبع الصفحة فترة تقديم من ٩ إلى ١٨ نوفمبر، دون سنة مقابل هذين التاريخين، وتطبع بداية البرنامج في يناير ٢٠٢٧. وهو للبحرينيين الذين تخرجوا في السنوات الثلاث الماضية، بعمر من ٢٠ إلى ٢٥ عامًا في تاريخ التقديم، بمعدل يعادل ٣٫٠ أو بتقدير جيد جدًا في النطاق البريطاني."
-   }
-  },
   {
    "id": "qf-almeydan-close",
    "ct": "qa",
    "kind": "closes",
-   "date": "2026-11-19",
+   "date": "2026-11-28",
    "page": "internships.html",
    "en": {
-    "t": "Qatar Foundation Al Meydan places close",
-    "b": "Two unpaid Al Meydan research assistant places at the Qatar Biomedical Research Institute both print a deadline to apply of 19 November 2026. Enrolment at one of the foundation's own universities, with a grade point average of 2.0 or higher."
+    "t": "Qatar Foundation Al Meydan place closes",
+    "b": "The internships portal header read on 22 November 2026 printed browse 1 current opportunities and apply, and the single listing was a Research Assistant (intern) place with QEERI as the hiring entity, listed under Al Meydan, printing a deadline to apply of 28 November 2026. The printed rules are enrollment at one of the foundation's own universities, priority for juniors and sophomores, a grade point average of 2.0 or higher, and up to 20 hours a week in the semester or up to 40 in breaks without classes. The place is unpaid and the printed contact is almeydan@qf.org.qa. The deadline printed on the posting itself is the date that governs."
    },
    "ar": {
-    "t": "إغلاق مقاعد الميدان في مؤسسة قطر",
-    "b": "مقعدان غير مدفوعين لمساعد باحث من الميدان في معهد قطر لبحوث الطب الحيوي، وكلاهما يطبع موعدًا للتقديم في ١٩ نوفمبر ٢٠٢٦. ويُشترط الانتظام في إحدى جامعات المؤسسة بمعدل لا يقل عن ٢٫٠."
+    "t": "إغلاق مقعد الميدان في مؤسسة قطر",
+    "b": "طبعت ترويسة بوابة التدريب، المقروءة في ٢٢ نوفمبر ٢٠٢٦، عبارة تصفح ١ فرصة متاحة وتقدم، والإعلان الوحيد كان مقعد مساعد باحث (متدرب) وجهة التوظيف فيه QEERI، مدرجًا تحت الميدان، ويطبع موعدًا للتقديم في ٢٨ نوفمبر ٢٠٢٦. والشروط المطبوعة هي الانتظام في إحدى جامعات المؤسسة، وأولوية لطلبة السنة الثالثة والسنة الثانية، ومعدل تراكمي ٢٫٠ أو أعلى، وحتى ٢٠ ساعة أسبوعيًا في الفصل الدراسي أو حتى ٤٠ ساعة في فترات الانقطاع عن الدراسة. والمقعد غير مدفوع، وجهة الاتصال المطبوعة almeydan@qf.org.qa. والموعد النهائي المطبوع على الإعلان نفسه هو التاريخ الحاكم."
    }
   },
   {
@@ -76,6 +46,36 @@
    "ar": {
     "t": "إغلاق التدريب التعاوني في إيه آند أو شيرمان بالرياض",
     "b": "يطبع الإعلان أن التقديم فُتح في ١٤ سبتمبر ٢٠٢٦ ويغلق في ٣٠ نوفمبر ٢٠٢٦ الساعة الخامسة مساءً. وهو لطلبة البكالوريوس المنتظمين في القانون، ويُقبل فيه إما الهوية الوطنية أو الإقامة."
+   }
+  },
+  {
+   "id": "zain-bahrain-close",
+   "ct": "bh",
+   "kind": "closes",
+   "date": "2026-12-03",
+   "page": "internships.html",
+   "en": {
+    "t": "Zain Bahrain vacancies close through December",
+    "b": "The careers board read on 22 November 2026 listed six vacancies, every one printed with the location Bahrain, Manama, and none of them described as an internship or a training program. The nearest printed closing date is 3 December 2026 for a cyber security manager, then 11 December 2026 for a security operations center associate, 28 December 2026 for a business to business telesales associate, and 31 December 2026 for two Zain Youth roles in consumer sales and the contact center and for an outdoor sales role. The board prints no eligibility rule. The listed set changes between readings, so check the board before applying."
+   },
+   "ar": {
+    "t": "إغلاق وظائف زين البحرين خلال ديسمبر",
+    "b": "طبعت لوحة الوظائف، المقروءة في ٢٢ نوفمبر ٢٠٢٦، ست وظائف، كل واحدة منها بموقع البحرين، المنامة، ولم تُوصف أي منها بأنها تدريب أو برنامج تدريبي. وأقرب موعد إغلاق مطبوع هو ٣ ديسمبر ٢٠٢٦ لوظيفة مدير أمن سيبراني، ثم ١١ ديسمبر ٢٠٢٦ لوظيفة مشارك في مركز عمليات الأمن، و٢٨ ديسمبر ٢٠٢٦ لوظيفة مشارك في البيع الهاتفي للشركات، و٣١ ديسمبر ٢٠٢٦ لوظيفتي زين الشباب في بيع الأفراد ومركز الاتصال ولوظيفة بيع ميداني. ولا تطبع اللوحة أي شرط أهلية. وتتغير قائمة الوظائف المعروضة بين قراءة وأخرى، فراجع اللوحة قبل التقديم."
+   }
+  },
+  {
+   "id": "snb-rowad-close",
+   "ct": "sa",
+   "kind": "closes",
+   "date": "2026-12-31",
+   "page": "internships.html",
+   "en": {
+    "t": "SNB Rowad graduate program closes",
+    "b": "The program page read on 22 November 2026 prints that applications are accepted from 1 January 2026 to 31 December 2026. It prints a twelve month learning journey that includes a blended learning program for eight months, and prints that the bank offers a competitive salary along with medical insurance. It prints no eligibility rule at all. It also prints no apply control, no application link and no application instructions, so a reader has to ask the bank directly or watch its careers pages."
+   },
+   "ar": {
+    "t": "إغلاق برنامج رواد للخريجين في البنك الأهلي السعودي",
+    "b": "تطبع صفحة البرنامج، المقروءة في ٢٢ نوفمبر ٢٠٢٦، أن الطلبات تُقبل من ١ يناير ٢٠٢٦ إلى ٣١ ديسمبر ٢٠٢٦. وتطبع أن البرنامج رحلة تعلم مدتها اثنا عشر شهرًا تتضمن برنامج تعلم مدمج لمدة ثمانية أشهر، وتطبع أن البنك يقدم راتبًا تنافسيًا مع تأمين طبي. ولا تطبع أي شرط أهلية على الإطلاق. ولا تطبع كذلك أي أداة تقديم ولا رابط تقديم ولا تعليمات تقديم، فعلى القارئ أن يسأل البنك مباشرة أو يتابع صفحات الوظائف لديه."
    }
   },
   {
@@ -211,6 +211,21 @@
    "ar": {
     "t": "برنامج ولي العهد يُقدَّم في الصف الحادي عشر",
     "b": "تطبع الصفحة مارس فترة التقديم السنوية، ومعدلًا تراكميًا ٩٧ بالمئة فأعلى للصف العاشر والفصل الأول من الحادي عشر، والجنسية البحرينية. وإن كنت في الثاني عشر فقد فات موعده."
+   }
+  },
+  {
+   "id": "hmc-internship-close",
+   "ct": "qa",
+   "kind": "closes",
+   "date": "2027-05-15",
+   "page": "internships.html",
+   "en": {
+    "t": "Hamad medical internship, second submission window",
+    "b": "The page prints a second submission window of 16 November to 15 May for a 1 July start, with no year against either date. It also prints that the intake remains open year round, and prints that the graduation date is calculated based on the final medical school exam dates. The printed eligibility covers Qatari citizens, GCC citizens, or a Qatar residency under first degree family sponsorship."
+   },
+   "ar": {
+    "t": "برنامج الامتياز الطبي في حمد، فترة التقديم الثانية",
+    "b": "تطبع الصفحة فترة تقديم ثانية من ١٦ نوفمبر إلى ١٥ مايو لبداية ١ يوليو، دون سنة مقابل أي من التاريخين. وتطبع كذلك أن الاستقبال مفتوح على مدار السنة، وتطبع أن تاريخ التخرج يُحسب بناءً على تواريخ امتحانات كلية الطب النهائية. وتشمل الشروط المطبوعة المواطنين القطريين ومواطني دول مجلس التعاون الخليجي أو من يحمل إقامة قطرية بكفالة عائلية من الدرجة الأولى."
    }
   },
   {
