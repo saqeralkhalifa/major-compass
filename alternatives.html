@@ -50,7 +50,7 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   html{scroll-behavior:smooth;}
   body{line-height:1.8; min-height:100vh;}
   .wrap{max-width:860px; margin:0 auto; padding:0 22px 80px;}
-  .serif{font-family:Georgia,'Times New Roman',serif;}
+  .serif{font-family:var(--qm-font-head);}
 
   header.site{display:flex; align-items:center; justify-content:space-between;
     padding:18px 0 14px; border-bottom:1px solid var(--line);}
@@ -59,7 +59,7 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
     padding:7px 16px; font-size:.95rem; cursor:pointer; color:var(--accent); font-weight:600; font-family:inherit;}
 
   .hero{text-align:center; padding:44px 0 6px;}
-  .kicker{font-size:.8rem; letter-spacing:.16em; text-transform:uppercase; font-weight:800; margin-bottom:12px;}
+  .kicker{font-size:.8rem; letter-spacing:0; text-transform:none; font-weight:800; margin-bottom:12px;}
   .hero h1{font-size:2.2rem; line-height:1.28; margin-bottom:12px;}
   .hero p.sub{color:var(--ink-2); font-size:1.1rem; max-width:680px; margin:0 auto;}
 
@@ -75,7 +75,7 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
 
   /* ---- pickers ---- */
   .controls{margin-top:40px; padding-top:24px; border-top:2px solid var(--line);}
-  .controls h2{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+  .controls h2{font-size:.78rem; letter-spacing:0; text-transform:none; color:var(--ink-3);
     font-weight:700; margin:0 0 8px;}
   .chips{display:flex; gap:7px; flex-wrap:wrap; margin-bottom:16px;}
   .chip{border:1px solid var(--line-2); background:var(--card); color:var(--ink-2);
@@ -86,7 +86,7 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   .rt{background:var(--card); border:1px solid var(--line); padding:20px 24px; margin-bottom:12px;}
   .rh{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px;}
   .rh b{font-size:1.12rem; flex:1; min-width:200px;}
-  .tag{font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+  .tag{font-size:.72rem; letter-spacing:0; text-transform:none; font-weight:700;
     padding:4px 9px; border:1px solid var(--line-2); color:var(--ink-3); white-space:nowrap;}
   .tag.all{color:var(--good); border-color:var(--good-line); background:var(--good-soft);}
   .tag.nationals{color:var(--bad); border-color:var(--bad-line); background:var(--bad-soft);}
@@ -96,7 +96,7 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   .meta{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; padding-top:12px;
     border-top:1px dashed var(--line);}
   .meta div{font-size:.92rem; color:var(--ink-2); line-height:1.7;}
-  .ml, .wl{display:block; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+  .ml, .wl{display:block; font-size:.7rem; letter-spacing:0; text-transform:none;
     color:var(--accent); font-weight:700; margin-bottom:3px;}
   @media(max-width:640px){ .meta{grid-template-columns:1fr;} }
   .wh{margin-top:14px; padding:14px 16px; background:var(--paper-2); border:1px solid var(--line);
@@ -119,7 +119,7 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
     background:var(--card); border:1px solid var(--line); padding:18px 22px; margin-top:12px;}
   .bar p{color:var(--ink-2); font-size:.98rem; flex:1; min-width:230px;}
-  .btn{display:inline-block; background:var(--navy); color:#fff; text-decoration:none;
+  .btn{display:inline-block; background:var(--qm-accent); color:#FFFFFF; text-decoration:none;
     padding:11px 22px; font-weight:600; font-size:.95rem; white-space:nowrap;}
   .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent-line);}
 
@@ -198,28 +198,28 @@ body::before{display:none !important;}
 [dir="rtl"] .minrow b, [dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2,
 [dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title, [dir="rtl"] .hero h1,
 [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3{
-  font-family:var(--font-ar); letter-spacing:0; font-weight:600; line-height:1.35;
+  font-family:var(--qm-font-ar-head); letter-spacing:0; font-weight:600; line-height:1.35;
 }
 .stat-n, .minrow b, .cnt, td, th, .cal-row b{font-variant-numeric:tabular-nums;}
 ::selection{background:var(--paper-2); color:var(--ink);}
 :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
 a:focus-visible, button:focus-visible, input:focus-visible{
-  outline:2px solid var(--accent); outline-offset:2px; border-radius:0;
+  outline:2px solid var(--accent); outline-offset:2px;
 }
 
 /* ---------- the shared dark nav ---------- */
 .mc-nav{
-  background:var(--ink); color:var(--paper);
+  background:var(--qm-tint); color:var(--qm-ink);
   position:sticky; top:0; z-index:40;
 }
 .mc-nav-inner{
   max-width:920px; margin:0 auto; padding:13px 22px;
   display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
 }
-.mc-brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; color:var(--paper); min-width:0;}
+.mc-brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; color:var(--qm-head); min-width:0;}
 .mc-brand b{font-family:var(--font-display); font-size:17px; font-weight:400; letter-spacing:-.01em; white-space:nowrap;}
-[dir="rtl"] .mc-brand b{font-family:var(--font-ar); font-weight:600; letter-spacing:0;}
-.mc-brand span{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#9a9da3; white-space:nowrap;}
+[dir="rtl"] .mc-brand b{font-family:var(--qm-font-ar-head); font-weight:600; letter-spacing:0;}
+.mc-brand span{font-size:10px; letter-spacing:0; text-transform:none; color:var(--qm-muted); white-space:nowrap;}
 [dir="rtl"] .mc-brand span{letter-spacing:0; text-transform:none; font-size:12px;}
 .mc-nav-links{
   display:flex; gap:20px; font-size:12px; letter-spacing:.06em; align-items:center;
@@ -228,18 +228,18 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .mc-nav-links::-webkit-scrollbar{display:none;}
 [dir="rtl"] .mc-nav-links{letter-spacing:0; font-size:13px;}
 .mc-nav-links a{
-  color:#c9ccd2; text-decoration:none; white-space:nowrap; padding-bottom:2px;
+  color:var(--qm-accent); text-decoration:none; white-space:nowrap; padding-bottom:2px;
   border-bottom:1px solid transparent; transition:color .15s, border-color .15s;
 }
-.mc-nav-links a:hover{color:var(--paper);}
-.mc-nav-links a[aria-current="page"]{color:var(--paper); border-bottom-color:var(--accent);}
+.mc-nav-links a:hover{color:var(--qm-accent);}
+.mc-nav-links a[aria-current="page"]{color:var(--qm-accent); border-bottom-color:var(--accent);}
 .mc-nav .lang-toggle{
   flex:0 0 auto; border:1px solid var(--accent); background:var(--accent); border-radius:999px;
-  padding:6px 17px; font-size:13px; letter-spacing:.04em; font-weight:600;
-  color:#fbf9f4; cursor:pointer; font-family:var(--font-body);
+  padding:6px 17px; font-size:13px; letter-spacing:0; font-weight:600;
+  color:#FFFFFF; cursor:pointer; font-family:var(--font-body);
   transition:background .15s, color .15s, border-color .15s;
 }
-.mc-nav .lang-toggle:hover{background:var(--paper); color:var(--ink); border-color:var(--paper);}
+.mc-nav .lang-toggle:hover{background:var(--paper); color:var(--ink); border-color:var(--qm-accent);}
 @media (max-width:640px){
   .mc-nav-inner{padding:11px 18px; gap:10px;}
   .mc-nav-links{justify-content:flex-start; order:3; width:100%; gap:16px; padding-bottom:2px;}
@@ -258,7 +258,7 @@ header.site, nav.toolnav{display:none !important;}
 .hero p, .hero p.sub{color:var(--ink-2);}
 .kicker, .eyebrow{
   color:var(--accent); font-weight:600; font-size:11px;
-  letter-spacing:.18em; text-transform:uppercase;
+  letter-spacing:0; text-transform:none;
 }
 [dir="rtl"] .kicker, [dir="rtl"] .eyebrow{letter-spacing:0; text-transform:none; font-size:13px;}
 
@@ -266,7 +266,7 @@ header.site, nav.toolnav{display:none !important;}
 .panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .lede, .stat, .nextbox,
 .m, .fact, .pt, .bar, .quizbar, .cta-inline, .rule, .checked, .hedge, .extra, .flag,
 .note, .card, .grp{
-  border-radius:0 !important;
+  ;
   box-shadow:none !important;
 }
 .panel, .mcard, .pcard, .qcard, .viz-root, .srcbox, .toc, .stat, .nextbox, .m, .fact{
@@ -279,49 +279,49 @@ header.site, nav.toolnav{display:none !important;}
 
 /* ---------- buttons ---------- */
 .btn{
-  background:var(--ink); border:1px solid var(--ink); border-radius:0;
-  font-weight:500; letter-spacing:0; color:var(--paper); box-shadow:none;
+  background:var(--qm-accent); border:1px solid var(--qm-accent);
+  font-weight:500; letter-spacing:0; color:#FFFFFF; box-shadow:none;
   transition:background .15s, border-color .15s, color .15s;
 }
-.btn:hover{background:var(--accent); border-color:var(--accent); color:#fff; transform:none; filter:none; box-shadow:none;}
+.btn:hover{background:var(--qm-accent-hover); border-color:var(--accent); color:#FFFFFF; transform:none; filter:none; box-shadow:none;}
 .btn.ghost, .btn.secondary{
-  background:transparent; color:var(--ink); border:1px solid var(--ink); box-shadow:none;
+  background:transparent; color:var(--ink); border:1px solid var(--qm-accent); box-shadow:none;
 }
-.btn.ghost:hover, .btn.secondary:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
-.printbtn{border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);}
-.printbtn:hover{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+.btn.ghost:hover, .btn.secondary:hover{background:var(--qm-accent-hover); border-color:var(--qm-accent); color:#FFFFFF;}
+.printbtn{border:1px solid var(--line-2); background:transparent; color:var(--ink-2);}
+.printbtn:hover{background:var(--qm-accent-hover); border-color:var(--qm-accent); color:#FFFFFF;}
 
 /* filter chips and pickers: square, ruled */
 .fbtn, .chip, .navbtn, .picker button, .filters button{
-  border:1px solid var(--line-2); border-radius:0; background:transparent; color:var(--ink-2);
+  border:1px solid var(--line-2); background:transparent; color:var(--ink-2);
   box-shadow:none; transition:background .15s, color .15s, border-color .15s;
 }
-.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--ink); color:var(--ink); background:transparent; transform:none;}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--qm-accent); color:var(--ink); background:transparent; transform:none;}
 .fbtn.on, .chip.on, .navbtn.on{
-  background:var(--ink); border-color:var(--ink); color:var(--paper); font-weight:500; box-shadow:none;
+  background:var(--qm-accent); border-color:var(--qm-accent); color:#FFFFFF; font-weight:500; box-shadow:none;
 }
 input[type="text"], input[type="search"], select, textarea, .srch{
-  border-radius:0 !important; border:1px solid var(--line-2); background:var(--card);
+  ; border:1px solid var(--line-2); background:var(--card);
   font-family:var(--font-body); color:var(--ink);
 }
 [dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
 
 /* ---------- bars and callouts: flat bands, no gradients ---------- */
 .bar, .quizbar, .cta-inline{
-  background:var(--paper-2); border:1px solid var(--line); border-radius:0;
+  background:var(--paper-2); border:1px solid var(--line);
 }
-.rule, .checked, .hedge, .extra, .flag{border-radius:0;}
+.rule, .checked, .hedge, .extra, .flag{;}
 .rule.w, .checked, .hedge, .extra, .flag{background:var(--warn-soft); border-color:var(--warn-line);}
 .rule.b{background:var(--bad-soft); border-color:var(--bad-line);}
 .rule.n{background:var(--paper-2); border-color:var(--line);}
 .row.act{background:var(--paper-2) !important; border-color:var(--line) !important;}
 
 /* ---------- band chips and verdict pills keep meaning, lose gloss ---------- */
-.band{border-radius:0; font-weight:600;}
+.band{; font-weight:600;}
 
 /* ---------- section labels ---------- */
 .sec h3, .lbl, .toc h2, .row h4{
-  letter-spacing:.14em; font-weight:600; text-transform:uppercase; font-size:11px; color:var(--ink-3);
+  letter-spacing:0; font-weight:600; text-transform:none; font-size:11px; color:var(--ink-3);
 }
 [dir="rtl"] .sec h3, [dir="rtl"] .lbl, [dir="rtl"] .toc h2, [dir="rtl"] .row h4{
   letter-spacing:0; text-transform:none; font-size:13px;
@@ -330,8 +330,8 @@ input[type="text"], input[type="search"], select, textarea, .srch{
 /* ---------- tables ---------- */
 table{border-collapse:collapse;}
 th{
-  text-align:start; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--ink-3); font-weight:600; padding:12px 14px; border-bottom:1px solid var(--ink);
+  text-align:start; font-size:11px; letter-spacing:0; text-transform:none;
+  color:var(--ink-3); font-weight:600; padding:12px 14px; border-bottom:1px solid var(--qm-line2);
 }
 [dir="rtl"] th{letter-spacing:0; text-transform:none; font-size:13px;}
 td{padding:14px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top; font-size:14px;}
@@ -344,29 +344,29 @@ footer.site a{color:var(--accent); font-weight:500;}
 
 
 /* ---- 2A refinements ---- */
-input, button, select, textarea{border-radius:0;}
+input, button, select, textarea{;}
 .lang-toggle, .mc-nav .lang-toggle{border-radius:999px;}
 .pt{border-inline-start-width:2px !important;}
 .compass, .emoji{display:none !important;}
-.opt{border-radius:0 !important;}
-.opt.selected{background:var(--paper-2); border-color:var(--ink);}
-.band{border-radius:0 !important;}
+.opt{;}
+.opt.selected{background:var(--paper-2); border-color:var(--qm-accent);}
+.band{;}
 hr{border:0; border-top:1px solid var(--line);}
 
 /* ---- 2A: square the remaining pills, protect quiz progress ---- */
 .section-chip, .progress-bar, .progress-fill, .bar-fill, .chip, .meta-chips .chip,
-.tag, .pill, .badge, .cta, .startbtn{border-radius:0 !important;}
+.tag, .pill, .badge, .cta, .startbtn{;}
 .section-chip{background:var(--paper-2); color:var(--accent); border:1px solid var(--line);
-  font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:5px 12px;}
+  font-size:11px; letter-spacing:0; text-transform:none; font-weight:600; padding:5px 12px;}
 [dir="rtl"] .section-chip{letter-spacing:0; text-transform:none; font-size:13px;}
 body:has(#screen-quiz.active) .mc-nav-links{display:none;}
 
 /* ---- 2A: square corners everywhere except the language pill ---- */
-.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:0 !important;}
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){;}
 .lang-toggle{border-radius:999px !important;}
 .subj, .tag, .chip{
   background:transparent !important; border:1px solid var(--line-2) !important;
-  color:var(--ink-2) !important; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-2) !important; font-size:11px; letter-spacing:0; text-transform:none;
   padding:4px 9px !important; font-weight:500;
 }
 [dir="rtl"] .subj, [dir="rtl"] .tag, [dir="rtl"] .chip{letter-spacing:0; text-transform:none; font-size:13px;}
@@ -393,16 +393,16 @@ html{scroll-padding-top:76px;}
 }
 .mc-nav-right{display:flex; align-items:center; gap:14px; flex:0 0 auto;}
 .mc-site{
-  color:#9a9da3; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
+  color:var(--qm-muted); text-decoration:none; font-size:12px; letter-spacing:0; white-space:nowrap;
   border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;
 }
-.mc-site:hover{color:var(--paper); border-bottom-color:#3a3d43;}
+.mc-site:hover{color:var(--qm-ink); border-bottom-color:var(--qm-line);}
 [dir="rtl"] .mc-site{letter-spacing:0; font-size:13px;}
 .mc-book{
-  color:#d8b98a; text-decoration:none; font-size:12px; letter-spacing:.06em; white-space:nowrap;
-  border:1px solid rgba(216,185,138,.45); padding:6px 13px; transition:background .15s, color .15s, border-color .15s;
+  color:var(--qm-accent); text-decoration:none; font-size:12px; letter-spacing:0; white-space:nowrap;
+  border:1px solid rgba(14,92,87,.45); padding:6px 13px; transition:background .15s, color .15s, border-color .15s;
 }
-.mc-book:hover{background:#d8b98a; color:var(--ink); border-color:#d8b98a;}
+.mc-book:hover{background:var(--qm-accent-hover); color:var(--ink); border-color:var(--qm-accent);}
 [dir="rtl"] .mc-book{letter-spacing:0; font-size:13px;}
 @media (max-width:860px){ .mc-site{display:none;} }
 @media (max-width:640px){
@@ -450,16 +450,16 @@ html{scroll-padding-top:76px;}
 }
 body{background:var(--paper); color:var(--ink); font-family:var(--font-body); font-size:19px; line-height:1.7;}
 [dir="rtl"] body{font-family:var(--font-ar); line-height:1.9;}
-.wrap, .wrap *, .mc-nav *:not(.lang-toggle){border-radius:2px !important;}
-.lang-toggle, .mc-nav .lang-toggle{border-radius:2px !important;}
+.wrap, .wrap *, .mc-nav *:not(.lang-toggle){;}
+.lang-toggle, .mc-nav .lang-toggle{;}
 .serif, .chap h2, .cn, .stat-n, .minrow b, .grp-t, .grp h2, .panel h2, .srcbox h2, .majors-title,
-.hero h1, h1, h2, h3, .mc-brand b{font-family:var(--font-display); font-weight:400; letter-spacing:0; color:var(--band);}
+.hero h1, h1, h2, h3, .mc-brand b{font-family:var(--font-display); font-weight:400; letter-spacing:0; color:var(--qm-head);}
 [dir="rtl"] .serif, [dir="rtl"] .chap h2, [dir="rtl"] .cn, [dir="rtl"] .stat-n, [dir="rtl"] .minrow b,
 [dir="rtl"] .grp-t, [dir="rtl"] .grp h2, [dir="rtl"] .panel h2, [dir="rtl"] .srcbox h2, [dir="rtl"] .majors-title,
 [dir="rtl"] .hero h1, [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] .mc-brand b{
-  font-family:var(--font-ar); font-weight:600; letter-spacing:0; line-height:1.35;}
+  font-family:var(--qm-font-ar-head); font-weight:600; letter-spacing:0; line-height:1.35;}
 a{color:var(--accent);}
-::selection{background:var(--paper-2); color:var(--band);}
+::selection{background:var(--paper-2); color:var(--qm-head);}
 :focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{outline:2px solid var(--gold-dark); outline-offset:2px;}
 button, input, select, textarea{font-family:var(--font-body);}
 [dir="rtl"] button, [dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{font-family:var(--font-ar);}
@@ -471,33 +471,33 @@ button, input, select, textarea{font-family:var(--font-body);}
 [dir="rtl"] .row h4, [dir="rtl"] th, [dir="rtl"] .controls h2, [dir="rtl"] .section-chip, [dir="rtl"] .subj,
 [dir="rtl"] .tag, [dir="rtl"] .mc-site, [dir="rtl"] .mc-book, [dir="rtl"] .ml, [dir="rtl"] .wl,
 [dir="rtl"] .count, [dir="rtl"] .badge, [dir="rtl"] .pill{font-family:var(--font-ar);}
-.kicker, .eyebrow{color:var(--gold-dark); font-weight:500; font-size:12px; letter-spacing:.2em;}
+.kicker, .eyebrow{color:var(--gold-dark); font-weight:500; font-size:12px; letter-spacing:0;}
 .sec h3, .lbl, .toc h2, .row h4, .controls h2{color:var(--gold-dark); font-weight:500;}
 .section-chip{background:var(--paper-2); color:var(--gold-dark); border:1px solid var(--line);}
 
 /* ---- masthead: the blue band ---- */
-.mc-nav{background:var(--band); color:var(--on-band); border-bottom:1px solid var(--band-line);}
-.mc-brand, .mc-brand b{color:var(--on-band);}
+.mc-nav{background:var(--qm-tint); color:var(--qm-ink); border-bottom:1px solid var(--band-line);}
+.mc-brand, .mc-brand b{color:var(--qm-head);}
 .mc-brand b{font-weight:600; font-size:21px;}
 .mc-brand span{color:var(--gold); font-size:10.5px; letter-spacing:.12em;}
 .mc-brand{gap:12px; flex:0 0 auto;}
 .mc-nav-links{font-family:var(--font-body); font-size:15px; letter-spacing:0; gap:15px;}
 [dir="rtl"] .mc-nav-links{font-family:var(--font-ar); font-size:15px;}
-.mc-nav-links a{color:var(--on-band-link); border-bottom:1px solid transparent;}
-.mc-nav-links a:hover{color:var(--on-band);}
+.mc-nav-links a{color:var(--qm-accent); border-bottom:1px solid transparent;}
+.mc-nav-links a:hover{color:var(--qm-accent);}
 .mc-nav-links a[aria-current="page"]{color:var(--gold); border-bottom-color:var(--gold);}
-.mc-site{color:var(--on-band-muted); font-size:12px;}
-.mc-site:hover{color:var(--on-band); border-bottom-color:var(--band-line);}
+.mc-site{color:var(--qm-muted); font-size:12px;}
+.mc-site:hover{color:var(--qm-ink); border-bottom-color:var(--band-line);}
 .mc-book{color:var(--gold); border:1px solid var(--gold); font-size:12px; padding:6px 12px;}
-.mc-book:hover{background:var(--gold); color:var(--band); border-color:var(--gold);}
-.mc-nav .lang-toggle{background:var(--gold); border:1px solid var(--gold); color:var(--band);
-  font-family:var(--font-label); font-weight:600; letter-spacing:.06em; padding:6px 14px;}
-.mc-nav .lang-toggle:hover{background:var(--on-band); border-color:var(--on-band); color:var(--band);}
+.mc-book:hover{background:var(--qm-accent-hover); color:#FFFFFF; border-color:var(--gold);}
+.mc-nav .lang-toggle{background:var(--gold); border:1px solid var(--gold); color:#FFFFFF;
+  font-family:var(--font-label); font-weight:600; letter-spacing:0; padding:6px 14px;}
+.mc-nav .lang-toggle:hover{background:var(--qm-tint); border-color:var(--qm-accent); color:var(--qm-accent);}
 @media (max-width:1560px){ .mc-brand span{display:none;} }
 @media (max-width:1360px){ .mc-site{display:none;} }
 
 /* ---- page header ---- */
-.hero h1{color:var(--band); font-weight:400;}
+.hero h1{color:var(--qm-head); font-weight:400;}
 .hero p, .hero p.sub{color:var(--ink-2);}
 
 /* ---- surfaces ---- */
@@ -513,11 +513,11 @@ hr{border-top-color:var(--line);}
 
 /* ---- buttons ---- */
 .btn, .startbtn, .cta, button.primary, .navbtn.next{
-  background:var(--band); border:1px solid var(--band); color:var(--on-band); font-weight:500; letter-spacing:0;
+  background:var(--qm-accent); border:1px solid var(--qm-accent); color:#FFFFFF; font-weight:500; letter-spacing:0;
   font-family:var(--font-body); text-transform:none;}
-.btn:hover, .startbtn:hover, .cta:hover, .navbtn.next:hover{background:var(--royal); border-color:var(--royal); color:var(--on-band);}
-.btn.ghost, .btn.secondary, .printbtn{background:transparent; color:var(--band); border:1px solid var(--band);}
-.btn.ghost:hover, .btn.secondary:hover, .printbtn:hover{background:var(--band); border-color:var(--band); color:var(--on-band);}
+.btn:hover, .startbtn:hover, .cta:hover, .navbtn.next:hover{background:var(--qm-accent-hover); border-color:var(--qm-accent-hover); color:#FFFFFF;}
+.btn.ghost, .btn.secondary, .printbtn{background:transparent; color:var(--qm-accent); border:1px solid var(--qm-accent);}
+.btn.ghost:hover, .btn.secondary:hover, .printbtn:hover{background:var(--qm-accent-hover); border-color:var(--qm-accent); color:#FFFFFF;}
 [dir="rtl"] .btn, [dir="rtl"] .startbtn, [dir="rtl"] .cta{font-family:var(--font-ar);}
 
 /* ---- chips, filters, quiz options ---- */
@@ -525,22 +525,22 @@ hr{border-top-color:var(--line);}
   border:1px solid var(--line-2) !important; background:transparent !important; color:var(--ink) !important;
   font-family:var(--font-body); font-size:15px; letter-spacing:0; text-transform:none;}
 [dir="rtl"] .fbtn, [dir="rtl"] .chip, [dir="rtl"] .navbtn{font-family:var(--font-ar);}
-.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--band) !important; color:var(--band) !important;}
-.fbtn.on, .chip.on, .navbtn.on{background:var(--band) !important; border-color:var(--band) !important; color:var(--on-band) !important;}
+.fbtn:hover, .chip:hover, .navbtn:hover{border-color:var(--qm-accent) !important; color:var(--qm-accent) !important;}
+.fbtn.on, .chip.on, .navbtn.on{background:var(--qm-accent) !important; border-color:var(--qm-accent) !important; color:#FFFFFF !important;}
 .subj, .tag{background:transparent !important; border:1px solid var(--line-2) !important; color:var(--ink-3) !important;
-  font-size:10.5px; letter-spacing:.14em;}
+  font-size:10.5px; letter-spacing:0;}
 [dir="rtl"] .subj, [dir="rtl"] .tag{font-size:13px; letter-spacing:0;}
 .opt{background:var(--card); border-color:var(--line-2); color:var(--ink);}
-.opt:hover{border-color:var(--band);}
-.opt.selected{background:var(--paper-2); border-color:var(--band); color:var(--band);}
+.opt:hover{border-color:var(--qm-accent);}
+.opt.selected{background:var(--paper-2); border-color:var(--qm-accent); color:var(--qm-accent);}
 .progress-bar, .bar-track{background:var(--paper-2);}
-.progress-fill, .bar-fill{background:var(--band);}
+.progress-fill, .bar-fill{background:var(--qm-accent);}
 input[type="text"], input[type="search"], select, textarea, .srch{border:1px solid var(--line-2); background:var(--card); color:var(--ink);}
 .mrank{color:var(--gold-dark) !important; font-family:var(--font-display);}
 [dir="rtl"] .mrank{font-family:var(--font-ar);}
 
 /* ---- tables ---- */
-th{color:var(--gold-dark); border-bottom:1px solid var(--band); font-weight:500;}
+th{color:var(--gold-dark); border-bottom:1px solid var(--qm-line2); font-weight:500;}
 td{border-bottom:1px solid var(--line); color:var(--ink);}
 
 /* ---- footer ---- */
@@ -548,89 +548,6 @@ footer.site{border-top:1px solid var(--line); color:var(--ink-3);}
 footer.site a{color:var(--accent);}
 
 @media (max-width:760px){ .mc-brand b{font-size:18px;} }
-</style>
-<style id="wpbar-css">
-/* WPBAR: the exact site header from saqeralkhalifa.com, replicated for the tool sites. */
-.wpbar{background:#152A55;font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
-.wpbar-in{margin-left:40px;margin-right:40px;padding-top:14px;padding-bottom:14px;padding-left:min(104px,8vw);padding-right:min(104px,8vw);}
-.wpbar-row{width:100%;max-width:1280px;margin-left:auto;margin-right:auto;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;direction:ltr;}
-.wpright{display:flex;align-items:flex-start;gap:20px;}
-html[lang="ar"] .wpright{direction:rtl;}
-.wpbrand{font-size:20px;line-height:33px;margin-top:-1px;margin-bottom:1px;font-weight:500;color:#F3EADA;text-decoration:none;letter-spacing:.2px;white-space:nowrap;border:0;}
-.wpnav{display:flex;align-items:flex-start;gap:20px;flex-wrap:nowrap;margin-top:4px;line-height:19px;}
-.wpdd{line-height:19px;}
-.wpnav-ar{direction:rtl;font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
-html[lang="ar"] .wpnav-en{display:none;}
-html:not([lang="ar"]) .wpnav-ar{display:none;}
-.wpitem{display:flex;align-items:center;font-size:15px;font-weight:500;color:#F3EADA;text-decoration:none;white-space:nowrap;border:0;line-height:19px;}
-.wpnav-ar .wpitem{font-size:15px;font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
-.wpitem:hover{color:#C09A45;}
-.wplang{background:none;border:0;cursor:pointer;padding:0;margin-top:4px;font-family:'EB Garamond',Georgia,'Times New Roman',serif !important;line-height:19px;}
-.wpcaret{width:10.8px;height:10.8px;margin:0 0 0 4.5px;position:relative;top:3px;flex:none;}
-.wpcaret path{stroke:#F3EADA;}
-.wpitem:hover .wpcaret path{stroke:#C09A45;}
-.wpnav-ar .wpcaret{margin:0 4.5px 0 0;}
-.wpdd{position:relative;}
-.wpmenu{display:none;position:absolute;top:100%;left:-14px;padding-top:10px;min-width:250px;z-index:300;}
-.wpnav-ar .wpmenu{left:auto;right:-14px;text-align:right;}
-.wpdd:hover .wpmenu,.wpdd:focus-within .wpmenu{display:block;}
-.wpmenu > a{display:block;background:#152A55;border:1px solid rgba(0,0,0,.15);border-top:0;padding:9px 16px;font-size:18px;line-height:1.65;color:#F3EADA;text-decoration:none;white-space:nowrap;font-weight:500;}
-.wpmenu > a:first-child{border-top:1px solid #2E4477;border-radius:2px 2px 0 0;}
-.wpmenu > a:last-child{border-radius:0 0 2px 2px;}
-.wpmenu > a:hover{color:#C09A45;}
-.wpburger{display:none;background:none;border:0;padding:0;color:#F3EADA;font-size:20px;line-height:24px;cursor:pointer;}
-.wpburger:hover{color:#C09A45;}
-.wpmob{display:none;}
-.wpmob-nav a{display:block;color:#F3EADA;text-decoration:none;font-weight:500;font-family:'EB Garamond',Georgia,serif;}
-.wpmob-nav a.wpmob-top{font-size:19px;padding:12px 20px 12px 20px;border-top:1px solid #2E4477;margin-top:10px;}
-.wpmob-nav a.wpmob-top:first-child{border-top:0;margin-top:0;}
-.wpmob-nav a.wpmob-sub{font-size:16px;padding:7px 20px 7px 38px;color:#D3DCEF;}
-.wpmob-nav a:hover{color:#C09A45;}
-.wpmob-ar{direction:rtl;text-align:right;}
-.wpmob-ar a{font-family:'Noto Naskh Arabic','Amiri',Georgia,serif;}
-.wpmob-ar a.wpmob-sub{padding:8px 38px 8px 20px;}
-html[lang="ar"] .wpmob-en{display:none;}
-html:not([lang="ar"]) .wpmob-ar{display:none;}
-@media (max-width:1149px){
-.wpbar-in{margin-left:0;margin-right:0;padding:9px 18px;}
-.wpbar-row{max-width:none;align-items:center;gap:14px;}
-.wpright{align-items:center;gap:14px;}
-.wpnav{display:none !important;}
-.wpbrand{margin-right:auto;}
-html[lang="ar"] .wpbrand{margin-right:0;margin-left:auto;}
-.wplang{margin-top:0;}
-.wpburger{display:block;}
-.wpbar.open .wpmob{display:block;background:#152A55;border-top:1px solid #2E4477;max-height:calc(100vh - 51px);overflow-y:auto;}
-}
-
-
-/* MAJLIS BAR, 28 OCT 2026, matched to saqeralkhalifa.com by measuring both bars from 360 to 1920 wide. Side inset clamp(20px,4vw,40px) plus min(104px,8vw) as on the main site, 68px tall below 1280 and 69px from 1280, menu labels 15px from 1440 and 14px from 1280 to 1439, the menu button from 1279 down with the main site icon, every control 44px. */
-.wpbar-in{margin-left:clamp(20px,4vw,40px);margin-right:clamp(20px,4vw,40px);padding:12px min(104px,8vw);}
-.wpbar-row{align-items:center;}
-.wpright{align-items:center;}
-.wpbrand{display:inline-flex;align-items:center;min-height:44px;margin-top:0;margin-bottom:0;font-size:20px;line-height:34px;}
-.wpnav{margin-top:2px;margin-bottom:-2px;align-items:center;}
-.wpitem{min-height:44px;font-size:15px;}
-.wplang{display:inline-flex;align-items:center;min-height:44px;margin-top:0;font-size:15px;}
-.wpmenu > a{font-size:19px;}
-.wpmob-nav a.wpmob-sub{color:#D3DCEF;padding-top:10px;padding-bottom:10px;}
-.wpmob-nav a.wpmob-top{min-height:44px;box-sizing:border-box;}
-.wpburger svg{width:24px;height:24px;fill:currentColor;display:block;}
-.wpcaret{width:11.4px;height:44px;margin:0 0 0 4.75px;top:0;}
-.wpnav-ar .wpcaret{margin:0 4.75px 0 0;}
-@media (min-width:1280px){.wpbar-in{padding-top:13px;}}
-@media (min-width:1280px) and (max-width:1439px){.wpnav{gap:8px;}.wpright{gap:8px;}.wpitem,.wpnav-ar .wpitem{font-size:14px;}}
-@media (max-width:1279px){
-.wpbar-row{max-width:none;align-items:center;gap:14px;}
-.wpright{align-items:center;gap:6px;}
-.wpnav{display:none !important;}
-.wpbrand{margin-right:auto;}
-html[lang="ar"] .wpbrand{margin-left:0;margin-right:auto;}
-html[lang="ar"] .wpright{direction:ltr;}
-.wpburger{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0;}
-.wplang{padding:0 8px;}
-.wpbar.open .wpmob{display:block;background:#152A55;border-top:1px solid #2E4477;max-height:calc(100vh - 68px);overflow-y:auto;}
-}
 </style>
 <style id="majlis-targets">
 /* MAJLIS TARGETS, 28 OCT 2026. Filter chips, chapter links and inline action links are at least 44px tall, as anything a finger touches must be. */
@@ -790,9 +707,10 @@ html[lang="ar"] .hero h1{font-size:46px}
 
 </style>
 <script src="monitoring.js" defer></script>
+<link rel="stylesheet" href="qm/qm.css">
 </head>
 <body>
-<div class="wpbar" id="wpbar"><div class="wpbar-in"><div class="wpbar-row"><a class="wpbrand" href="https://saqeralkhalifa.com/">Dr. Saqer AlKhalifa</a><div class="wpright"><nav class="wpnav wpnav-en"><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/mentorship/">Work with me<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/mentorship/">Mentorship</a><a href="https://saqeralkhalifa.com/speaking/">Speaking &amp; Media</a><a href="https://saqeralkhalifa.com/contact-me/">Contact</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/major-compass/">For Students<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.github.io/major-compass/">Youth Compass Quiz</a><a href="https://saqeralkhalifa.github.io/major-compass/explore.html">Every Major Explained</a><a href="https://saqeralkhalifa.github.io/major-compass/entry.html">Entry Requirements</a><a href="https://saqeralkhalifa.github.io/major-compass/scholarships.html">Scholarships and Funding</a><a href="https://saqeralkhalifa.github.io/major-compass/parents.html">Parent Guide</a><a href="https://saqeralkhalifa.github.io/major-compass/ai.html">AI and Your Major</a><a href="https://saqeralkhalifa.github.io/major-compass/routes.html">What a Dealbreaker Closes</a><a href="https://saqeralkhalifa.github.io/major-compass/alternatives.html">Routes Without a Degree</a><a href="https://saqeralkhalifa.github.io/major-compass/pay.html">Pay Data by Country</a><a href="https://internships.saqeralkhalifa.com/?lang=en">Internships</a><a href="https://internships.saqeralkhalifa.com/cv.html?lang=en">Build a CV</a></div></div><div class="wpdd"><a class="wpitem" href="https://gigs.saqeralkhalifa.com/?lang=en">For Job Seekers<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://gigs.saqeralkhalifa.com/?lang=en">Gigs Board</a><a href="https://gigs.saqeralkhalifa.com/?lang=en#jobs">Full-time Jobs</a><a href="https://internships.saqeralkhalifa.com/?lang=en">Internships</a><a href="https://internships.saqeralkhalifa.com/cv.html?lang=en">Build a CV</a><a href="https://saqeralkhalifa.com/post-a-gig/">Post a Gig</a><a href="https://saqeralkhalifa.com/find-work/">Find Work</a><a href="https://saqeralkhalifa.com/find-investors/">Find Investors</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/">Shackles of Democracy<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/">The Book</a><a href="https://saqeralkhalifa.com/first-chapter/">First Chapter Free</a><a href="https://saqeralkhalifa.com/#formats">Choose Your Format</a><a href="https://saqeralkhalifa.com/#stores">Where to Buy</a><a href="https://saqeralkhalifa.com/check/">The Data</a><a href="https://saqeralkhalifa.com/arabic/">Arabic Edition</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/the-trust-trap/">The Trust Trap<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/the-trust-trap/">About the Book</a><a href="https://saqeralkhalifa.com/the-trust-trap/#chapters">Inside the Book</a><a href="https://saqeralkhalifa.com/the-trust-trap/#resources">Free Resources</a><a href="https://saqeralkhalifa.com/the-trust-trap/#faq">Questions</a><a href="https://saqeralkhalifa.com/the-trust-trap/#buy">Where to Buy</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/about/">About</a><div class="wpdd"><a class="wpitem" href="https://market.saqeralkhalifa.com/?lang=en">Sports<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://market.saqeralkhalifa.com/?lang=en">Market</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/blog/">Blog<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/blog/">All Articles</a><a href="https://saqeralkhalifa.com/category/trust-by-design/">Trust by Design</a><a href="https://saqeralkhalifa.com/category/reform-theater/">Reform Theater</a><a href="https://saqeralkhalifa.com/category/country-cases/">Country Cases</a><a href="https://saqeralkhalifa.com/category/institutional-memory/">Institutional Memory</a><a href="https://saqeralkhalifa.com/category/politics/">Politics</a><a href="https://saqeralkhalifa.com/category/economics/">Economics</a><a href="https://saqeralkhalifa.com/category/social/">Social</a><a href="https://saqeralkhalifa.com/category/published-and-mentions/">Published & Mentions</a><a href="https://saqeralkhalifa.com/category/interesting/">Interesting</a></div></div></nav><nav class="wpnav wpnav-ar"><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/mentorship-ar/">العمل معي<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/mentorship-ar/">الإرشاد والتوجيه</a><a href="https://saqeralkhalifa.com/contact-ar/">تواصل</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/major-compass/#ar">للطلبة<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.github.io/major-compass/?lang=ar">بوصلة الشباب</a><a href="https://saqeralkhalifa.github.io/major-compass/explore.html?lang=ar">استكشف التخصصات</a><a href="https://saqeralkhalifa.github.io/major-compass/entry.html?lang=ar">شروط القبول</a><a href="https://saqeralkhalifa.github.io/major-compass/scholarships.html?lang=ar">المنح والتمويل</a><a href="https://saqeralkhalifa.github.io/major-compass/parents.html?lang=ar">دليل أولياء الأمور</a><a href="https://saqeralkhalifa.github.io/major-compass/ai.html?lang=ar">الذكاء الاصطناعي وتخصصك</a><a href="https://saqeralkhalifa.github.io/major-compass/routes.html?lang=ar">ماذا يغلق كل شرط</a><a href="https://saqeralkhalifa.github.io/major-compass/alternatives.html?lang=ar">مسارات بدون شهادة</a><a href="https://saqeralkhalifa.github.io/major-compass/pay.html?lang=ar">بيانات الأجور حسب الدولة</a><a href="https://internships.saqeralkhalifa.com/?lang=ar">فرص التدريب</a><a href="https://internships.saqeralkhalifa.com/cv.html?lang=ar">السيرة الذاتية</a></div></div><div class="wpdd"><a class="wpitem" href="https://gigs.saqeralkhalifa.com/?lang=ar">للباحثين عن عمل<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://gigs.saqeralkhalifa.com/?lang=ar">لوحة الأعمال القصيرة</a><a href="https://gigs.saqeralkhalifa.com/?lang=ar#jobs">الوظائف الدائمة</a><a href="https://internships.saqeralkhalifa.com/?lang=ar">فرص التدريب</a><a href="https://internships.saqeralkhalifa.com/cv.html?lang=ar">السيرة الذاتية</a><a href="https://saqeralkhalifa.com/post-a-gig/">انشر فرصة</a><a href="https://saqeralkhalifa.com/find-work/">سجّل بياناتك</a><a href="https://saqeralkhalifa.com/find-investors-ar/">أفكار تبحث عن مستثمر</a></div></div><div class="wpdd"><a class="wpitem" href="https://saqeralkhalifa.com/arabic/">أغلال الديمقراطية<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://saqeralkhalifa.com/arabic/">الكتاب</a><a href="https://saqeralkhalifa.com/arabic-first-chapter/">الفصل الأول مجانا</a><a href="https://saqeralkhalifa.com/arabic/#buy">الشراء</a><a href="https://saqeralkhalifa.com/check-ar/">البيانات</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/the-trust-trap-ar/">مصيدة الثقة</a><a class="wpitem" href="https://saqeralkhalifa.com/about-ar/">نبذة</a><div class="wpdd"><a class="wpitem" href="https://market.saqeralkhalifa.com/?lang=ar">الرياضة<svg class="wpcaret" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg></a><div class="wpmenu"><a href="https://market.saqeralkhalifa.com/?lang=ar">السوق</a></div></div><a class="wpitem" href="https://saqeralkhalifa.com/blog/">المدونة</a></nav><button class="wpitem wplang" id="langToggle" type="button">العربية</button><button class="wpburger" id="wpburger" type="button" aria-label="Open menu"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7.5h16v1.5H4z"></path><path d="M4 15h16v1.5H4z"></path></svg></button></div></div></div><div class="wpmob"><div class="wpmob-nav wpmob-en"><a class="wpmob-top" href="https://saqeralkhalifa.com/mentorship/">Work with me</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/mentorship/">Mentorship</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/speaking/">Speaking &amp; Media</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/contact-me/">Contact</a><a class="wpmob-top" href="https://saqeralkhalifa.com/major-compass/">For Students</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/">Youth Compass Quiz</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/explore.html">Every Major Explained</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/entry.html">Entry Requirements</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/scholarships.html">Scholarships and Funding</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/parents.html">Parent Guide</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/ai.html">AI and Your Major</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/routes.html">What a Dealbreaker Closes</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/alternatives.html">Routes Without a Degree</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/pay.html">Pay Data by Country</a><a class="wpmob-sub" href="https://internships.saqeralkhalifa.com/?lang=en">Internships</a><a class="wpmob-sub" href="https://internships.saqeralkhalifa.com/cv.html?lang=en">Build a CV</a><a class="wpmob-top" href="https://gigs.saqeralkhalifa.com/?lang=en">For Job Seekers</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=en">Gigs Board</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=en#jobs">Full-time Jobs</a><a class="wpmob-sub" href="https://internships.saqeralkhalifa.com/?lang=en">Internships</a><a class="wpmob-sub" href="https://internships.saqeralkhalifa.com/cv.html?lang=en">Build a CV</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/post-a-gig/">Post a Gig</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-work/">Find Work</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-investors/">Find Investors</a><a class="wpmob-top" href="https://saqeralkhalifa.com/">Shackles of Democracy</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/">The Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/first-chapter/">First Chapter Free</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#formats">Choose Your Format</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/#stores">Where to Buy</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/check/">The Data</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/">Arabic Edition</a><a class="wpmob-top" href="https://saqeralkhalifa.com/the-trust-trap/">The Trust Trap</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/">About the Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#chapters">Inside the Book</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#resources">Free Resources</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#faq">Questions</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/the-trust-trap/#buy">Where to Buy</a><a class="wpmob-top" href="https://saqeralkhalifa.com/about/">About</a><a class="wpmob-top" href="https://market.saqeralkhalifa.com/?lang=en">Sports</a><a class="wpmob-sub" href="https://market.saqeralkhalifa.com/?lang=en">Market</a><a class="wpmob-top" href="https://saqeralkhalifa.com/blog/">Blog</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/blog/">All Articles</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/trust-by-design/">Trust by Design</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/reform-theater/">Reform Theater</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/country-cases/">Country Cases</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/institutional-memory/">Institutional Memory</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/politics/">Politics</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/economics/">Economics</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/social/">Social</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/published-and-mentions/">Published & Mentions</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/category/interesting/">Interesting</a></div><div class="wpmob-nav wpmob-ar"><a class="wpmob-top" href="https://saqeralkhalifa.com/mentorship-ar/">العمل معي</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/mentorship-ar/">الإرشاد والتوجيه</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/contact-ar/">تواصل</a><a class="wpmob-top" href="https://saqeralkhalifa.com/major-compass/#ar">للطلبة</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/?lang=ar">بوصلة الشباب</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/explore.html?lang=ar">استكشف التخصصات</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/entry.html?lang=ar">شروط القبول</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/scholarships.html?lang=ar">المنح والتمويل</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/parents.html?lang=ar">دليل أولياء الأمور</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/ai.html?lang=ar">الذكاء الاصطناعي وتخصصك</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/routes.html?lang=ar">ماذا يغلق كل شرط</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/alternatives.html?lang=ar">مسارات بدون شهادة</a><a class="wpmob-sub" href="https://saqeralkhalifa.github.io/major-compass/pay.html?lang=ar">بيانات الأجور حسب الدولة</a><a class="wpmob-sub" href="https://internships.saqeralkhalifa.com/?lang=ar">فرص التدريب</a><a class="wpmob-sub" href="https://internships.saqeralkhalifa.com/cv.html?lang=ar">السيرة الذاتية</a><a class="wpmob-top" href="https://gigs.saqeralkhalifa.com/?lang=ar">للباحثين عن عمل</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=ar">لوحة الأعمال القصيرة</a><a class="wpmob-sub" href="https://gigs.saqeralkhalifa.com/?lang=ar#jobs">الوظائف الدائمة</a><a class="wpmob-sub" href="https://internships.saqeralkhalifa.com/?lang=ar">فرص التدريب</a><a class="wpmob-sub" href="https://internships.saqeralkhalifa.com/cv.html?lang=ar">السيرة الذاتية</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/post-a-gig/">انشر فرصة</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-work/">سجّل بياناتك</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/find-investors-ar/">أفكار تبحث عن مستثمر</a><a class="wpmob-top" href="https://saqeralkhalifa.com/arabic/">أغلال الديمقراطية</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/">الكتاب</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic-first-chapter/">الفصل الأول مجانا</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/arabic/#buy">الشراء</a><a class="wpmob-sub" href="https://saqeralkhalifa.com/check-ar/">البيانات</a><a class="wpmob-top" href="https://saqeralkhalifa.com/the-trust-trap-ar/">مصيدة الثقة</a><a class="wpmob-top" href="https://saqeralkhalifa.com/about-ar/">نبذة</a><a class="wpmob-top" href="https://market.saqeralkhalifa.com/?lang=ar">الرياضة</a><a class="wpmob-sub" href="https://market.saqeralkhalifa.com/?lang=ar">السوق</a><a class="wpmob-top" href="https://saqeralkhalifa.com/blog/">المدونة</a></div></div><script>(function(){var b=document.getElementById("wpburger"),w=document.getElementById("wpbar");if(b&&w){b.addEventListener("click",function(){var o=w.classList.toggle("open");b.innerHTML=o?'<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 11.8l6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z"></path></svg>':'<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7.5h16v1.5H4z"></path><path d="M4 15h16v1.5H4z"></path></svg>';b.setAttribute("aria-label",o?"Close menu":"Open menu");});}var t=document.getElementById("langToggle");if(!t)return;function fix(){var ar=document.documentElement.lang==="ar";var want=ar?"English":"العربية";if(t.textContent.trim()!==want){t.textContent=want;}}fix();new MutationObserver(fix).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});new MutationObserver(fix).observe(t,{childList:true,characterData:true,subtree:true});})();</script></div>
+<script src="qm/qm-bar.js"></script>
 <div class="wrap">
 
 <div class="hero">

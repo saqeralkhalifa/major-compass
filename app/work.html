@@ -20,22 +20,23 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--paper);color:var(--ink);line-height:1.6;
-       font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
-  [dir="rtl"] body{font-family:'Noto Naskh Arabic','Geeza Pro',serif;line-height:1.8;}
+       font-family:var(--qm-font-body);}
+  [dir="rtl"] body{font-family:var(--qm-font-ar);line-height:1.8;}
   .wrap{max-width:620px;margin:0 auto;padding:14px 18px 28px;}
 
-  h2.sec{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
-    margin:22px 0 9px;font-weight:600;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  h2.sec{font-size:.78rem;letter-spacing:0;text-transform:none;color:var(--ink-3);
+    margin:22px 0 9px;font-weight:600;font-family:var(--qm-font-body);}
   [dir="rtl"] h2.sec{letter-spacing:0;text-transform:none;font-size:.9rem;}
   .grid{display:grid;grid-template-columns:1fr;gap:10px;}
   @media(min-width:520px){.grid{grid-template-columns:1fr 1fr;}}
   .tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;
         text-decoration:none;color:inherit;display:block;}
-  .tile:active{background:#f4f1ea;}
+  .tile:active{background:var(--qm-tint);}
   .tile h3{font-size:1.02rem;font-weight:600;}
   .tile p{font-size:.88rem;color:var(--ink-2);margin-top:2px;}
 </style>
 <script src="../monitoring.js" defer></script>
+<link rel="stylesheet" href="qm/qm.css">
 </head>
 <body>
 <div class="wrap">

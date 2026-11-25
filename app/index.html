@@ -19,54 +19,55 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--paper);color:var(--ink);line-height:1.6;
-       font-family:'EB Garamond',Georgia,'Times New Roman',serif;}
-  [dir="rtl"] body{font-family:'Noto Naskh Arabic','Geeza Pro',serif;}
+       font-family:var(--qm-font-body);}
+  [dir="rtl"] body{font-family:var(--qm-font-ar);}
   .wrap{max-width:620px;margin:0 auto;padding:0 18px 28px;}
 
-  .hero{background:var(--navy);color:#fff;padding:26px 18px 22px;margin-bottom:18px;
+  .hero{background:var(--qm-tint);color:var(--qm-ink);padding:26px 18px 22px;margin-bottom:18px;
         padding-top:calc(26px + env(safe-area-inset-top,0px));}
   .hero-in{max-width:620px;margin:0 auto;display:flex;align-items:flex-start;gap:14px;}
   .hero h1{font-size:1.65rem;font-weight:600;letter-spacing:.01em;line-height:1.2;}
-  .hero p{color:#D3DCEF;font-size:.98rem;margin-top:6px;}
-  .hero-lang{margin-inline-start:auto;flex:none;background:transparent;color:#fff;cursor:pointer;
-    border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:6px 14px;font:inherit;font-size:.9rem;font-weight:600;}
+  .hero p{color:var(--qm-ink);font-size:.98rem;margin-top:6px;}
+  .hero-lang{margin-inline-start:auto;flex:none;background:transparent;color:var(--qm-ink);cursor:pointer;
+    border:1px solid var(--qm-input);border-radius:999px;padding:6px 14px;font:inherit;font-size:.9rem;font-weight:600;}
 
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:12px;
         display:block;text-decoration:none;color:inherit;}
   .card h3{font-size:1.05rem;font-weight:600;color:var(--ink);}
   .card p{font-size:.92rem;color:var(--ink-2);margin-top:3px;}
-  .card .meta{font-size:.82rem;color:var(--ink-3);margin-top:6px;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  .card .meta{font-size:.82rem;color:var(--ink-3);margin-top:6px;font-family:var(--qm-font-body);}
 
-  .flag{border-inline-start:3px solid var(--gold);background:#F3EADA;}
-  .flag .kicker{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);font-weight:600;
-    font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  .flag{border-inline-start:3px solid var(--gold);background:var(--qm-tint);}
+  .flag .kicker{font-size:.76rem;letter-spacing:0;text-transform:none;color:var(--gold);font-weight:600;
+    font-family:var(--qm-font-body);}
   [dir="rtl"] .flag .kicker{letter-spacing:0;text-transform:none;}
   .resume{border-inline-start:3px solid var(--accent);background:var(--accent-soft);}
   .resume .kicker{color:var(--accent);}
 
-  h2.sec{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
-    margin:22px 0 9px;font-weight:600;font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  h2.sec{font-size:.78rem;letter-spacing:0;text-transform:none;color:var(--ink-3);
+    margin:22px 0 9px;font-weight:600;font-family:var(--qm-font-body);}
   [dir="rtl"] h2.sec{letter-spacing:0;text-transform:none;font-size:.9rem;}
 
   .grid{display:grid;grid-template-columns:1fr;gap:10px;}
   @media(min-width:520px){.grid{grid-template-columns:1fr 1fr;}}
   .tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;
         text-decoration:none;color:inherit;display:block;}
-  .tile:active{background:#f4f1ea;}
+  .tile:active{background:var(--qm-tint);}
   .tile h3{font-size:1.02rem;font-weight:600;}
   .tile p{font-size:.88rem;color:var(--ink-2);margin-top:2px;}
 
   .chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 4px;}
   .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 13px;
         font:inherit;font-size:.9rem;cursor:pointer;color:var(--ink-2);}
-  .chip.on{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:600;}
-  .btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:10px;
+  .chip.on{background:var(--qm-accent);border-color:var(--qm-accent);color:#FFFFFF;font-weight:600;}
+  .btn{display:inline-block;background:var(--accent);color:#FFFFFF;border:0;border-radius:10px;
        padding:11px 20px;font:inherit;font-size:.98rem;font-weight:600;cursor:pointer;text-decoration:none;}
   .note{font-size:.85rem;color:var(--ink-3);margin-top:8px;}
   footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:.86rem;color:var(--ink-3);}
   footer a{color:var(--accent);}
 </style>
 <script src="../monitoring.js" defer></script>
+<link rel="stylesheet" href="qm/qm.css">
 </head>
 <body>
 

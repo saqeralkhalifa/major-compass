@@ -1,8 +1,18 @@
 /* Major Compass service worker.
    The whole app is precached so it opens with no network. Content under data/
    is network-first, so a corrected deadline reaches the phone without a release. */
-const CACHE = 'mc-app-yc20261122a';
+const CACHE = 'mc-app-yc20261125a';
 const SHELL = [
+  "qm/qm.css",
+  "qm/qm-bar.js",
+  "fonts/newsreader-latin-500-normal.woff2",
+  "fonts/newsreader-latin-500-italic.woff2",
+  "fonts/ibm-plex-sans-latin-400-normal.woff2",
+  "fonts/ibm-plex-sans-latin-400-italic.woff2",
+  "fonts/ibm-plex-sans-latin-500-normal.woff2",
+  "fonts/ibm-plex-sans-latin-600-normal.woff2",
+  "fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2",
+  "fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2",
   "ai.html",
   "alternatives.html",
   "gigs.html",
