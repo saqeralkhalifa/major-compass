@@ -59,7 +59,7 @@ html[lang="ar"] button,html[lang="ar"] input,html[lang="ar"] select,html[lang="a
 h1,h2,h3,h4,.serif,.hero h1{font-family:var(--qm-font-head) !important;font-weight:500 !important;color:var(--qm-head);letter-spacing:-0.01em;}
 html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,html[lang="ar"] h4,html[lang="ar"] .serif,html[lang="ar"] .hero h1,[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] h4,[dir="rtl"] .serif,[dir="rtl"] .hero h1{font-family:var(--qm-font-ar-head) !important;font-weight:600 !important;letter-spacing:0;line-height:1.35;}
 h1,.hero h1,.mk-hero h1,.mk-item h1,.rr-hero h1,.head h1{font-size:clamp(40px,2.6vw + 22px,60px);line-height:1.08;}
-html[lang="ar"] h1,html[lang="ar"] .hero h1,html[lang="ar"] .mk-hero h1,html[lang="ar"] .mk-item h1,html[lang="ar"] .rr-hero h1,html[lang="ar"] .head h1,[dir="rtl"] h1,[dir="rtl"] .hero h1,[dir="rtl"] .mk-hero h1,[dir="rtl"] .mk-item h1,[dir="rtl"] .rr-hero h1,[dir="rtl"] .head h1{font-size:clamp(34px,1.8vw + 26px,46px);line-height:1.3;}
+html[lang="ar"] h1,html[lang="ar"] .hero h1,html[lang="ar"] .mk-hero h1,html[lang="ar"] .mk-item h1,html[lang="ar"] .rr-hero h1,html[lang="ar"] .head h1,[dir="rtl"] h1,[dir="rtl"] .hero h1,[dir="rtl"] .mk-hero h1,[dir="rtl"] .mk-item h1,[dir="rtl"] .rr-hero h1,[dir="rtl"] .head h1{font-size:clamp(34px,1.4vw + 26px,46px);line-height:1.3;}
 
 /* section labels: sentence case, 15px, 600, teal */
 .kicker,.eyebrow,.lbl,.sec h3,.toc h2,.row h4,.controls h2,.res-head .kicker,.flag .kicker,.resume .kicker,.mk-hero .kicker,.mk-seller .lbl,.sread dt,.orows dt,.ctrow h3,.fgroup h3,.cv h4{font-family:var(--qm-font-body) !important;font-size:15px !important;font-weight:600 !important;letter-spacing:0 !important;text-transform:none !important;color:var(--qm-accent);line-height:1.4;}
@@ -91,6 +91,21 @@ html[lang="ar"] h1 .grp,html[lang="ar"] h2 .grp,html[lang="ar"] h3 .grp,html[lan
 .foot-home{display:none !important;}
 html.mcapp .qmfoot{display:none !important;}
 footer.site{color:var(--qm-muted);}
+
+/* the Market on the type ramp of the main site: buttons at the main site's button size, the page tabs,
+   card titles and running text at the body size, the lead at the lead size, small text at 15px, tags at 13px */
+.mk-btn{font-size:16px;}
+html[lang="ar"] .mk-btn,[dir="rtl"] .mk-btn{font-size:17px;}
+.mk-hero .sub,.mk-form p.lead{font-size:clamp(19px,0.5vw + 17px,22px);line-height:1.5;}
+.mk-tabs a,.mk-ct,.mk-price,.mk-wb,.mk-find,.mk-empty,.mk-desc,.mk-seller .nm,.mk-seller .ph,.mk-reply .nm,.mk-reply .pr,.mk-reply p,.mk-reply .ph,.mk-ok,html[lang="ar"] .mk-tabs a,html[lang="ar"] .mk-ct,html[lang="ar"] .mk-price,html[lang="ar"] .mk-wb,html[lang="ar"] .mk-find,html[lang="ar"] .mk-empty,html[lang="ar"] .mk-desc,html[lang="ar"] .mk-seller .nm,html[lang="ar"] .mk-seller .ph,html[lang="ar"] .mk-reply .nm,html[lang="ar"] .mk-reply .pr,html[lang="ar"] .mk-reply p,html[lang="ar"] .mk-reply .ph,html[lang="ar"] .mk-ok,[dir="rtl"] .mk-tabs a,[dir="rtl"] .mk-ct,[dir="rtl"] .mk-price,[dir="rtl"] .mk-wb,[dir="rtl"] .mk-find,[dir="rtl"] .mk-empty,[dir="rtl"] .mk-desc,[dir="rtl"] .mk-seller .nm,[dir="rtl"] .mk-seller .ph,[dir="rtl"] .mk-reply .nm,[dir="rtl"] .mk-reply .pr,[dir="rtl"] .mk-reply p,[dir="rtl"] .mk-reply .ph,[dir="rtl"] .mk-ok{font-size:17px;}
+@media (min-width:768px){.mk-tabs a,.mk-ct,.mk-price,.mk-wb,.mk-find,.mk-empty,.mk-desc,.mk-seller .nm,.mk-seller .ph,.mk-reply .nm,.mk-reply .pr,.mk-reply p,.mk-reply .ph,.mk-ok,html[lang="ar"] .mk-tabs a,html[lang="ar"] .mk-ct,html[lang="ar"] .mk-price,html[lang="ar"] .mk-wb,html[lang="ar"] .mk-find,html[lang="ar"] .mk-empty,html[lang="ar"] .mk-desc,html[lang="ar"] .mk-seller .nm,html[lang="ar"] .mk-seller .ph,html[lang="ar"] .mk-reply .nm,html[lang="ar"] .mk-reply .pr,html[lang="ar"] .mk-reply p,html[lang="ar"] .mk-reply .ph,html[lang="ar"] .mk-ok,[dir="rtl"] .mk-tabs a,[dir="rtl"] .mk-ct,[dir="rtl"] .mk-price,[dir="rtl"] .mk-wb,[dir="rtl"] .mk-find,[dir="rtl"] .mk-empty,[dir="rtl"] .mk-desc,[dir="rtl"] .mk-seller .nm,[dir="rtl"] .mk-seller .ph,[dir="rtl"] .mk-reply .nm,[dir="rtl"] .mk-reply .pr,[dir="rtl"] .mk-reply p,[dir="rtl"] .mk-reply .ph,[dir="rtl"] .mk-ok{font-size:18px;}}
+.mk-ct{line-height:1.35;}
+.mk-price,.mk-wb,.mk-reply .pr{font-weight:600;}
+.mk-count,.mk-smp,.mk-reply .dt{font-size:15px;}
+.mk-badge,.mk-shop,.mk-wst{font-size:13px;font-weight:500;letter-spacing:0;}
+html[lang="ar"] .mk-badge,html[lang="ar"] .mk-shop,html[lang="ar"] .mk-wst,[dir="rtl"] .mk-badge,[dir="rtl"] .mk-shop,[dir="rtl"] .mk-wst{font-size:14px;}
+.mk-h2,.mk-form h2{font-size:clamp(28px,1.2vw + 22px,36px);line-height:1.15;}
+html[lang="ar"] .mk-h2,html[lang="ar"] .mk-form h2,[dir="rtl"] .mk-h2,[dir="rtl"] .mk-form h2{font-size:clamp(26px,0.7vw + 22px,32px);line-height:1.5;}
 
 /* reduced motion */
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}}
