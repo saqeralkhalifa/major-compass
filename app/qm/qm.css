@@ -147,6 +147,8 @@ html[lang="ar"] .qmlang{font-family:var(--qm-font-body);font-size:15px;}
 @media (min-width:1024px){.qmburger{display:none;}}
 @media (max-width:1023px){.qmright{gap:6px;}}
 .qmbrand,.qmlang,.qmburger{flex:none;}
+/* Phones narrower than 380px: the Arabic wordmark is the longest item in the bar, so the bar tightens and the wordmark steps down to 17px. */
+@media (max-width:379px){.qmbar-in{gap:12px;padding:0 6px 0 14px;}.qmbrand{font-size:17px;}.qmlang{padding:0 10px;}}
 @media (min-width:1024px) and (max-width:1279px){.qmright,.qmnav{gap:16px;}.qmitem{font-size:14px;}.qmnav-ar .qmitem{font-size:15px;}}
 html.qm-lock,html.qm-lock body{overflow:hidden;}
 .qmmob[hidden]{display:none !important;}
