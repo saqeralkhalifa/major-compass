@@ -10,7 +10,7 @@ var CLOSE='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d
 function desk(l){var h='';D.M[l].forEach(function(it){if(it[2].length){h+='<div class="qmdd"><a class="qmitem" href="'+e(it[1])+'">'+e(it[0])+CARET+'</a><div class="qmmenu"><div class="qmpanel">';it[2].forEach(function(s){h+='<a href="'+e(s[1])+'">'+e(s[0])+'</a>';});h+='</div></div></div>';}else{h+='<a class="qmitem" href="'+e(it[1])+'">'+e(it[0])+'</a>';}});return h;}
 function mob(l){var h='';D.M[l].forEach(function(it){h+='<div class="qmgroup"><a class="qmtop" href="'+e(it[1])+'">'+e(it[0])+'</a>';it[2].forEach(function(s){h+='<a class="qmsub" href="'+e(s[1])+'">'+e(s[0])+'</a>';});h+='</div>';});return h;}
 var html='<div class="qmbar" id="wpbar" role="banner"><div class="qmbar-in">'
-+'<a class="qmbrand" href="'+e(D.H.en)+'"><span class="qm-en">'+e(D.W.en)+'</span><span class="qm-ar" lang="ar" dir="rtl">'+e(D.W.ar)+'</span></a>'
++'<a class="qmbrand" href="'+e(D.H.en)+'"><svg class="qmmark" viewBox="10 32 80 42" width="40" height="21" aria-hidden="true" focusable="false"><path d="M20 72 A30 30 0 0 1 80 72" fill="none" stroke="#2C333D" stroke-width="16" stroke-dasharray="16.45 3"/><path d="M20 72 A30 30 0 0 1 80 72" fill="none" stroke="#0E5C57" stroke-width="16" stroke-dasharray="0 38.9 16.45 200"/></svg><span class="qm-en">'+e(D.W.en)+'</span><span class="qm-ar" lang="ar" dir="rtl">'+e(D.W.ar)+'</span></a>'
 +'<div class="qmright">'
 +'<div class="qmnav qmnav-en" role="navigation" aria-label="Main menu">'+desk('en')+'</div>'
 +'<div class="qmnav qmnav-ar" role="navigation" aria-label="\u0627\u0644\u0642\u0627\u0626\u0645\u0629" dir="rtl" lang="ar">'+desk('ar')+'</div>'
