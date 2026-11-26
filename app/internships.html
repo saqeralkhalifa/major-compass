@@ -616,6 +616,8 @@ body{background:var(--paper); color:var(--ink-2); font-size:19px; line-height:1.
 .orows dd{font-size:18px; line-height:1.7; color:var(--ink-2); padding:13px 0;
   border-bottom:1px solid var(--line);}
 .orows dt{padding-bottom:13px;}
+/* A long email address or link inside a card wraps at the card edge instead of widening the card past the screen (Qatar and Kuwait cards at 390px, 26 Nov 2026). */
+.orows dd,.sread dd{min-width:0; overflow-wrap:break-word; overflow-wrap:anywhere;}
 .olink{font-size:16px; color:var(--accent); border-bottom:1px solid var(--accent);}
 .ometa{font-size:13px; color:var(--ink-3); letter-spacing:.03em;}
 

@@ -195,3 +195,6 @@ html[lang="ar"] .qmfoot-ar{display:block;}
 .qmbrand{gap:10px;}
 .qmmark{display:block;flex:none;width:40px;height:21px;}
 @media (max-width:379px){.qmmark{display:none;}}
+
+/* Arabic pages from 380px to 429px wide, 26 Nov 2026: the Arabic name beside the keystone mark needs the same tightening as narrower phones, or the menu button sits past the right edge of a 390px to 413px screen. */
+@media (min-width:380px) and (max-width:429px){html[lang="ar"] .qmbar-in{gap:12px;padding:0 6px 0 14px;}html[lang="ar"] .qmbrand{font-size:17px;}html[lang="ar"] .qmlang{padding:0 10px;}}

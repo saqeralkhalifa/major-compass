@@ -95,6 +95,13 @@ function mcSaveLang(v){ try{ localStorage.setItem("mc-lang", v); }catch(e){} }
   .caret{color:var(--ink-3); font-size:.9rem; transition:transform .18s;}
   .m.open .caret{transform:rotate(90deg);}
   [dir="rtl"] .m.open .caret{transform:rotate(-90deg);}
+  /* Phones, 26 Nov 2026: the exposure label sits under the major's name, so the arrow stays inside the card on screens under 440px wide. */
+  @media (max-width:640px){
+    .mhead{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 14px;}
+    .mname{grid-column:1; grid-row:1;}
+    .caret{grid-column:2; grid-row:1;}
+    .band{grid-column:1; grid-row:2; justify-self:start;}
+  }
   .mbody{display:none; padding:2px 20px 20px;}
   .m.open .mbody{display:block;}
   .row{padding:14px 0; border-top:1px dashed var(--line);}
