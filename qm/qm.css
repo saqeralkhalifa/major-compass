@@ -190,3 +190,8 @@ html[lang="ar"] .qmfoot-ar{display:block;}
 .qmfoot-bottom a:hover,.qmfoot-bottom button:hover{color:var(--qm-head) !important;}
 .qmfoot-en .qmfoot-lang{font-family:var(--qm-font-ar);}
 .qmfoot-ar .qmfoot-lang{font-family:var(--qm-font-body);}
+
+/* Keystone mark, 26 Nov 2026: the logo before the name, 40px wide and 10px from it, measured to match saqeralkhalifa.com; hidden on phones narrower than 380px so the Arabic name still fits. */
+.qmbrand{gap:10px;}
+.qmmark{display:block;flex:none;width:40px;height:21px;}
+@media (max-width:379px){.qmmark{display:none;}}
