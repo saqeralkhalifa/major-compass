@@ -3,6 +3,8 @@
   var A = window.MCAPP, MAJORS = {};
   function L() { return document.documentElement.lang === 'ar' ? 'ar' : 'en'; }
   function t(en, ar) { return L() === 'ar' ? ar : en; }
+  /* Arabic text uses Arabic-Indic digits. */
+  function arNum(x) { return String(x).replace(/[0-9]/g, function (d) { return '٠١٢٣٤٥٦٧٨٩'.charAt(+d); }); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
 
   function setLang(l) {
@@ -52,12 +54,12 @@
         return '<div class="row">' +
           '<div class="nm"><a href="explore.html#' + esc(x.id) + '">' + esc(name(x.id)) + '</a></div>' +
           '<div class="bar"><i style="width:' + Math.max(4, Math.min(100, x.pct)) + '%"></i></div>' +
-          '<div class="pct">' + x.pct + '%</div></div>';
+          '<div class="pct">' + (L() === 'ar' ? arNum(x.pct) + '٪' : x.pct + '%') + '</div></div>';
       }).join('');
       var avoid = r.avoid && r.avoid !== 'none' && DB[r.avoid]
         ? '<div class="when" style="margin-top:10px">' + t('You ruled out: ', 'استبعدت: ') + DB[r.avoid][L()] + '</div>' : '';
       return '<div class="card">' +
-        '<div class="when">' + d.toLocaleDateString(L() === 'ar' ? 'ar' : 'en-GB',
+        '<div class="when">' + d.toLocaleDateString(L() === 'ar' ? 'ar-BH-u-nu-arab' : 'en-GB',
           { day: 'numeric', month: 'long', year: 'numeric' }) +
         (r.code ? '  ·  ' + esc(r.code) : '') + '</div>' +
         rows + avoid +

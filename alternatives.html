@@ -776,6 +776,8 @@ html[lang="ar"] .hero h1{font-size:46px}
   </footer>
 </div>
 <script>
+/* Arabic text uses Arabic-Indic digits, so numbers the page prints in Arabic go through arNum. */
+function arNum(x){ return String(x).replace(/[0-9]/g, function(d){ return "٠١٢٣٤٥٦٧٨٩".charAt(+d); }); }
 /* ===== Routes that are not a four-year degree ===== */
 const NONE_EN = "No provider verified in this country.";
 const NONE_AR = "لم نتحقق من وجود مزوّد في هذه الدولة.";
@@ -787,7 +789,7 @@ const ALT = [
  d:{en:"The single most useful fact on this page: you can start ACCA straight from school. The Foundation level has no academic entry requirements at all, and the full qualification can be entered directly with strong A-levels. You work and study at the same time, which is the point.",
     ar:"أهم معلومة في هذه الصفحة: يمكنك بدء ACCA مباشرة من الثانوية. فمستوى الأساس لا يشترط أي مؤهل أكاديمي إطلاقًا، ويمكن دخول الشهادة الكاملة مباشرة بمستوى متقدم قوي. تعمل وتدرس في الوقت نفسه، وهذا هو المقصود."},
  t:{en:"Foundation level in 12 to 18 months. Full membership needs 13 exams plus 36 months of relevant work experience, so realistically 3 to 5 years from school while employed.",
-    ar:"مستوى الأساس في 12 إلى 18 شهرًا. والعضوية الكاملة تحتاج 13 اختبارًا و36 شهرًا من الخبرة العملية، أي 3 إلى 5 سنوات واقعيًا من الثانوية أثناء العمل."},
+    ar:"مستوى الأساس في ١٢ إلى ١٨ شهرًا. والعضوية الكاملة تحتاج ١٣ اختبارًا و٣٦ شهرًا من الخبرة العملية، أي ٣ إلى ٥ سنوات واقعيًا من الثانوية أثناء العمل."},
  c:{en:"Registration about 89 pounds, annual subscription about 137, exams from about 98 to 278 pounds each. Tuition is the larger cost. Budget roughly 8,000 to 15,000 US dollars over three to four years, far below a private university degree.",
     ar:"التسجيل نحو 89 جنيهًا، والاشتراك السنوي نحو 137، والاختبارات من نحو 98 إلى 278 جنيهًا للاختبار. والرسوم الدراسية هي الكلفة الأكبر. قدّر نحو 8,000 إلى 15,000 دولار على ثلاث إلى أربع سنوات، أي أقل بكثير من شهادة جامعية خاصة."},
  w:{bh:{en:"Al Nada Training Center, Bahrain Financial Harbour, is both a licensed exam center and a tuition provider. BIBF in Juffair delivers professional qualifications and carries Tamkeen funding. Exam venues also at the British University of Bahrain and the University of Technology Bahrain.",
@@ -837,7 +839,7 @@ const ALT = [
 
 {id:"cpa", f:"prof", open:"degree", n:{en:"US CPA and CMA", ar:"شهادتا CPA وCMA الأمريكيتان"},
  d:{en:"Named here so you know where the walls are. CPA effectively requires a bachelor's plus about 150 semester hours. CMA requires a bachelor's or an accepted professional certification, which is the back door: finish ACCA first, then CMA.",
-    ar:"مذكورتان هنا لتعرف أين تقف الجدران. فـCPA تتطلب عمليًا بكالوريوس ونحو 150 ساعة فصلية. وCMA تتطلب بكالوريوس أو شهادة مهنية معتمدة، وهذا هو الباب الخلفي: أكمل ACCA أولًا ثم CMA."},
+    ar:"مذكورتان هنا لتعرف أين تقف الجدران. فـCPA تتطلب عمليًا بكالوريوس ونحو ١٥٠ ساعة فصلية. وCMA تتطلب بكالوريوس أو شهادة مهنية معتمدة، وهذا هو الباب الخلفي: أكمل ACCA أولًا ثم CMA."},
  t:{en:"Four CPA sections; two CMA parts plus two years of experience.",
     ar:"أربعة أقسام في CPA؛ وجزآن في CMA مع سنتي خبرة."},
  c:{en:"CPA about 390 US dollars per section internationally, plus jurisdiction fees. CMA about 545 dollars per part, with lower student rates.",
@@ -855,7 +857,7 @@ const ALT = [
  d:{en:"No degree, no prerequisites, no minimum age in practice. The cheapest credible first rung in technology. AWS Certified Cloud Practitioner and Google Associate Cloud Engineer are the two usual starting points.",
     ar:"لا شهادة جامعية ولا متطلبات سابقة ولا حد أدنى للعمر عمليًا. أرخص درجة أولى معتبرة في التقنية. وشهادتا AWS Cloud Practitioner وGoogle Associate Cloud Engineer هما نقطتا البداية المعتادتان."},
  t:{en:"90 minutes to two hours per exam. Study time is what you make it, typically weeks not years.",
-    ar:"من 90 دقيقة إلى ساعتين للاختبار. أما وقت الدراسة فبيدك، وعادةً أسابيع لا سنوات."},
+    ar:"من ٩٠ دقيقة إلى ساعتين للاختبار. أما وقت الدراسة فبيدك، وعادةً أسابيع لا سنوات."},
  c:{en:"AWS Cloud Practitioner about 100 US dollars. Google Associate Cloud Engineer about 125. Microsoft AZ-900 varies by region. Valid three years.",
     ar:"AWS Cloud Practitioner نحو 100 دولار. وGoogle Associate Cloud Engineer نحو 125. وMicrosoft AZ-900 يختلف بحسب المنطقة. وصلاحيتها ثلاث سنوات."},
  w:{bh:{en:"BIBF in Juffair is a Pearson VUE center. Exams can also be taken online under proctoring from home.",
@@ -870,13 +872,13 @@ const ALT = [
         ar:"نيو هورايزونز في مدينة الكويت يقدّم مسارات سيسكو وCompTIA ويستضيف الاختبارات."},
     om:{en:"Pearson VUE centers in Muscat.", ar:"مراكز Pearson VUE في مسقط."}}},
 
-{id:"comptia", f:"cert", open:"all", n:{en:"CompTIA and Cisco: A+, Network+, Security+, CCNA", ar:"شهادات CompTIA وسيسكو: ‏A+ وNetwork+ وSecurity+ وCCNA"},
+{id:"comptia", f:"cert", open:"all", n:{en:"CompTIA and Cisco: A+, Network+, Security+, CCNA", ar:"شهادات CompTIA وسيسكو: ‏A+‎ وNetwork+‎ وSecurity+‎ وCCNA"},
  d:{en:"The standard hardware, networking and security ladder. No degree required at any point. Security+ in particular is a common minimum for cybersecurity roles and for some government contracts.",
-    ar:"السلم المعياري للأجهزة والشبكات والأمن. لا تشترط شهادة جامعية في أي مرحلة. وSecurity+ تحديدًا حد أدنى شائع لوظائف الأمن السيبراني ولبعض العقود الحكومية."},
+    ar:"السلم المعياري للأجهزة والشبكات والأمن. لا تشترط شهادة جامعية في أي مرحلة. وSecurity+‎ تحديدًا حد أدنى شائع لوظائف الأمن السيبراني ولبعض العقود الحكومية."},
  t:{en:"Each exam is a single sitting. A+ is two exams.",
-    ar:"كل اختبار جلسة واحدة. وA+ اختباران."},
+    ar:"كل اختبار جلسة واحدة. وA+‎ اختباران."},
  c:{en:"A+ about 274 US dollars per exam and there are two, so about 548 in total. Network+ about 399. Security+ about 439. Cisco CCNA about 300. Most are valid three years.",
-    ar:"A+ نحو 274 دولارًا للاختبار وهما اثنان، أي نحو 548 دولارًا. وNetwork+ نحو 399. وSecurity+ نحو 439. وسيسكو CCNA نحو 300. ومعظمها صالح ثلاث سنوات."},
+    ar:"A+‎ نحو 274 دولارًا للاختبار وهما اثنان، أي نحو 548 دولارًا. وNetwork+‎ نحو 399. وSecurity+‎ نحو 439. وسيسكو CCNA نحو 300. ومعظمها صالح ثلاث سنوات."},
  w:{bh:{en:"BIBF delivers Cisco, CompTIA, Oracle, VMware and other vendor exams as a Pearson VUE center.",
         ar:"معهد البحرين للدراسات المصرفية والمالية يقدّم اختبارات سيسكو وCompTIA وأوراكل وVMware وغيرها بصفته مركز Pearson VUE."},
     sa:{en:"Pearson VUE centers across the Kingdom.", ar:"مراكز Pearson VUE في أنحاء المملكة."},
@@ -888,7 +890,7 @@ const ALT = [
 {id:"free", f:"cert", open:"mixed", n:{en:"Free and state-funded technology training", ar:"التدريب التقني المجاني والممول من الدولة"},
  d:{en:"The best value in the region, and the place where nationality matters most. Read the country line carefully.",
     ar:"أفضل قيمة في المنطقة، وأكثر موضع تهم فيه الجنسية. اقرأ سطر دولتك بعناية."},
- t:{en:"Typically 8 to 16 weeks full time.", ar:"عادةً من 8 إلى 16 أسبوعًا بدوام كامل."},
+ t:{en:"Typically 8 to 16 weeks full time.", ar:"عادةً من ٨ إلى ١٦ أسبوعًا بدوام كامل."},
  c:{en:"Free where you qualify.", ar:"مجاني لمن ينطبق عليه الشرط."},
  w:{bh:{en:"AWS re/Start, delivered by ThinkSmart: free, full time, twelve weeks, Sunday to Thursday, and it pays for your AWS Cloud Practitioner exam. Eligibility is residency in Bahrain plus a high school diploma and the right to work, NOT nationality, which makes it the most accessible free technology route in the Gulf for an expatriate school leaver. Tamkeen funds training and on-the-job placements for Bahrainis.",
         ar:"برنامج AWS re/Start عبر ThinkSmart: مجاني بدوام كامل لاثني عشر أسبوعًا من الأحد إلى الخميس، ويدفع رسوم اختبار AWS Cloud Practitioner. والشرط الإقامة في البحرين وشهادة ثانوية وحق العمل، لا الجنسية، وهذا يجعله أكثر مسار تقني مجاني إتاحةً في الخليج للخريج الوافد. وتمكين تموّل التدريب والتوظيف على رأس العمل للبحرينيين."},
@@ -912,15 +914,15 @@ const ALT = [
  c:{en:"Heavily subsidised for nationals, and often not for anyone else. See your country.",
     ar:"مدعوم بقوة للمواطنين، وغالبًا غير مدعوم لغيرهم. انظر دولتك."},
  w:{bh:{en:"Bahrain Polytechnic in Isa Town takes a 70 per cent cumulative secondary average from any curriculum, and offers diplomas alongside degrees in engineering technology, ICT, logistics and business. Fees are BHD 2 per credit for Bahrainis and BHD 20 for non-Bahrainis, a tenfold difference. Bahrain Training Institute awards BTEC first, national and higher national diplomas, and importantly it offers craft certificates to learners who did not complete secondary school, which is the lowest formal barrier we found anywhere in the Gulf.",
-        ar:"بوليتكنك البحرين في مدينة عيسى يقبل معدلًا تراكميًا ثانويًا 70 بالمئة من أي منهج، ويقدّم دبلومات إلى جانب البكالوريوس في تقنية الهندسة وتقنية المعلومات واللوجستيات والأعمال. والرسوم ديناران للساعة للبحرينيين وعشرون لغيرهم، أي عشرة أضعاف. ومعهد البحرين للتدريب يمنح دبلومات BTEC الأولى والوطنية والعليا، والأهم أنه يقدّم شهادات حرفية لمن لم يكمل الثانوية، وهو أدنى حاجز رسمي وجدناه في الخليج."},
+        ar:"بوليتكنك البحرين في مدينة عيسى يقبل معدلًا تراكميًا ثانويًا ٧٠ بالمئة من أي منهج، ويقدّم دبلومات إلى جانب البكالوريوس في تقنية الهندسة وتقنية المعلومات واللوجستيات والأعمال. والرسوم ديناران للساعة للبحرينيين وعشرون لغيرهم، أي عشرة أضعاف. ومعهد البحرين للتدريب يمنح دبلومات BTEC الأولى والوطنية والعليا، والأهم أنه يقدّم شهادات حرفية لمن لم يكمل الثانوية، وهو أدنى حاجز رسمي وجدناه في الخليج."},
     sa:{en:"The Technical and Vocational Training Corporation runs about 138 technical colleges and accredits more than 1,285 private institutes, with over 250 specializations. Evening diploma programs pay trainees a monthly stipend plus an accredited certificate. Named colleges include Riyadh, Jeddah, Dammam, Madinah and the Saudi Mining Polytechnic. Government college admission appears to be for citizens; the private accredited institutes are the likely route for others.",
-        ar:"المؤسسة العامة للتدريب التقني والمهني تدير نحو 138 كلية تقنية وتعتمد أكثر من 1,285 معهدًا خاصًا، بأكثر من 250 تخصصًا. وبرامج الدبلوم المسائية تدفع للمتدرب مكافأة شهرية مع شهادة معتمدة. ومن الكليات: الرياض وجدة والدمام والمدينة والبوليتكنك السعودي للتعدين. ويبدو أن القبول في الكليات الحكومية للمواطنين، وأن المعاهد الخاصة المعتمدة هي المسار المرجح لغيرهم."},
+        ar:"المؤسسة العامة للتدريب التقني والمهني تدير نحو ١٣٨ كلية تقنية وتعتمد أكثر من ١٬٢٨٥ معهدًا خاصًا، بأكثر من ٢٥٠ تخصصًا. وبرامج الدبلوم المسائية تدفع للمتدرب مكافأة شهرية مع شهادة معتمدة. ومن الكليات: الرياض وجدة والدمام والمدينة والبوليتكنك السعودي للتعدين. ويبدو أن القبول في الكليات الحكومية للمواطنين، وأن المعاهد الخاصة المعتمدة هي المسار المرجح لغيرهم."},
     ae:{en:"Abu Dhabi Polytechnic accepts both UAE nationals and international students, although its national qualification programs are for Emiratis only; entry is 75 to 85 per cent in maths and physics depending on track, with a maximum age of 25. Higher Colleges of Technology is for Emiratis and children of Emirati mothers only, at 60 per cent minimum. Also the Institute of Applied Technology, ADVETI and the National Institute for Vocational Education.",
-        ar:"بوليتكنك أبوظبي يقبل المواطنين والطلبة الدوليين، وإن كانت برامج المؤهلات الوطنية للإماراتيين فقط؛ والقبول من 75 إلى 85 بالمئة في الرياضيات والفيزياء بحسب المسار، بحد أقصى للعمر 25 سنة. أما كليات التقنية العليا فللإماراتيين وأبناء الأم الإماراتية فقط، بحد أدنى 60 بالمئة. وهناك أيضًا معهد التكنولوجيا التطبيقية وأدفيتي والمعهد الوطني للتعليم المهني."},
+        ar:"بوليتكنك أبوظبي يقبل المواطنين والطلبة الدوليين، وإن كانت برامج المؤهلات الوطنية للإماراتيين فقط؛ والقبول من ٧٥ إلى ٨٥ بالمئة في الرياضيات والفيزياء بحسب المسار، بحد أقصى للعمر ٢٥ سنة. أما كليات التقنية العليا فللإماراتيين وأبناء الأم الإماراتية فقط، بحد أدنى ٦٠ بالمئة. وهناك أيضًا معهد التكنولوجيا التطبيقية وأدفيتي والمعهد الوطني للتعليم المهني."},
     qa:{en:"The University of Doha for Science and Technology offers more than seventy diploma, bachelor's and master's programs and explicitly welcomes international students. Diploma fees are QAR 12,500 per semester for Qatar residents and QAR 18,750 for international students, with a full tuition waiver for Qataris and children of Qatari mothers.",
         ar:"جامعة الدوحة للعلوم والتكنولوجيا تقدّم أكثر من سبعين برنامج دبلوم وبكالوريوس وماجستير وترحّب صراحةً بالطلبة الدوليين. ورسوم الدبلوم 12,500 ريال قطري للفصل للمقيمين و18,750 للطلبة الدوليين، مع إعفاء كامل للقطريين وأبناء الأم القطرية."},
     kw:{en:"The Public Authority for Applied Education and Training runs five colleges and several institutes, including the Higher Institute of Energy, the Industrial Training Institute and the Constructional Training Institute. For 2025 and 2026 PAAET announced admission limited to Kuwaiti nationals, while a standing government service for non-Kuwaitis sets a 70 per cent science requirement and opens only General Nursing within health sciences. The two are contradictory, so ask the registrar directly.",
-        ar:"الهيئة العامة للتعليم التطبيقي والتدريب تدير خمس كليات وعدة معاهد، منها المعهد العالي للطاقة ومعهد التدريب الصناعي ومعهد التدريب الإنشائي. وأعلنت الهيئة لعامي 2025 و2026 قصر القبول على الكويتيين، بينما تحدد خدمة حكومية قائمة لغير الكويتيين شرط 70 بالمئة في القسم العلمي وتفتح التمريض العام فقط ضمن العلوم الصحية. والأمران متناقضان، فاسأل التسجيل مباشرة."},
+        ar:"الهيئة العامة للتعليم التطبيقي والتدريب تدير خمس كليات وعدة معاهد، منها المعهد العالي للطاقة ومعهد التدريب الصناعي ومعهد التدريب الإنشائي. وأعلنت الهيئة لعامي ٢٠٢٥ و٢٠٢٦ قصر القبول على الكويتيين، بينما تحدد خدمة حكومية قائمة لغير الكويتيين شرط ٧٠ بالمئة في القسم العلمي وتفتح التمريض العام فقط ضمن العلوم الصحية. والأمران متناقضان، فاسأل التسجيل مباشرة."},
     om:{en:"The University of Technology and Applied Sciences has eleven branches from Musandam to Salalah and awards diplomas, advanced diplomas and bachelor's degrees. Seven government vocational colleges operate at Seeb, Saham, Sur, Ibri, Shinas, Al Buraimi and Salalah, plus a marine sciences college at Al Khaburah. The vocational diploma runs a minimum of three years, and there is a separate apprenticeship pathway aimed at under-eighteens and jobseekers.",
         ar:"جامعة التقنية والعلوم التطبيقية لها أحد عشر فرعًا من مسندم إلى صلالة، وتمنح الدبلوم والدبلوم المتقدم والبكالوريوس. وتعمل سبع كليات مهنية حكومية في السيب وصحم وصور وعبري وشناص والبريمي وصلالة، إضافة إلى كلية العلوم البحرية في الخابورة. والدبلوم المهني ثلاث سنوات على الأقل، وهناك مسار تلمذة مهنية منفصل موجّه لمن دون الثامنة عشرة وللباحثين عن عمل."}}},
 
@@ -933,9 +935,9 @@ const ALT = [
  w:{bh:{en:"The Bapco diploma and apprenticeship program runs three years: a foundation year then two years of technical training at the Oil and Gas Academy with practical work at the refinery, in operations, mechanical, electrical or instrumentation. It guarantees employment on successful completion. Entry requirements and pay are not published, so contact them.",
         ar:"برنامج دبلوم وتلمذة بابكو ثلاث سنوات: سنة تأسيسية ثم سنتان تدريب تقني في أكاديمية النفط والغاز مع عمل تطبيقي في المصفاة، في التشغيل أو الميكانيكا أو الكهرباء أو أجهزة القياس. ويضمن التوظيف عند الإتمام بنجاح. أما شروط القبول والأجر فغير منشورة، فتواصل معهم."},
     sa:{en:"The Saudi Aramco Apprenticeship Program is for Saudi nationals, needs a 75 per cent secondary average and 72 on the QIYAS aptitude test, with a maximum age of 24. It pays a monthly stipend with housing, transport and medical care during training, and ends in an entry-level Aramco job with twelve monthly salaries plus a Ramadan salary and a housing allowance.",
-        ar:"برنامج التلمذة في أرامكو السعودية للسعوديين، ويشترط معدل ثانوي 75 بالمئة و72 في اختبار القدرات، بحد أقصى للعمر 24 سنة. ويدفع مكافأة شهرية مع سكن ونقل ورعاية طبية أثناء التدريب، وينتهي بوظيفة مبتدئة في أرامكو باثني عشر راتبًا شهريًا وراتب رمضان وبدل سكن."},
+        ar:"برنامج التلمذة في أرامكو السعودية للسعوديين، ويشترط معدل ثانوي ٧٥ بالمئة و٧٢ في اختبار القدرات، بحد أقصى للعمر ٢٤ سنة. ويدفع مكافأة شهرية مع سكن ونقل ورعاية طبية أثناء التدريب، وينتهي بوظيفة مبتدئة في أرامكو باثني عشر راتبًا شهريًا وراتب رمضان وبدل سكن."},
     ae:{en:"The ADNOC Technical Academy has graduated more than six thousand UAE nationals since 1978, with 403 in 2025 alone. It is a two-year vocational curriculum in electrical maintenance, instrumentation, mechanical maintenance and processing operations, leading into ADNOC Group roles.",
-        ar:"أكاديمية أدنوك التقنية خرّجت أكثر من ستة آلاف إماراتي منذ 1978، منهم 403 في 2025 وحدها. وهي منهج مهني سنتان في الصيانة الكهربائية وأجهزة القياس والصيانة الميكانيكية وعمليات المعالجة، وتقود إلى وظائف في مجموعة أدنوك."},
+        ar:"أكاديمية أدنوك التقنية خرّجت أكثر من ستة آلاف إماراتي منذ ١٩٧٨، منهم ٤٠٣ في ٢٠٢٥ وحدها. وهي منهج مهني سنتان في الصيانة الكهربائية وأجهزة القياس والصيانة الميكانيكية وعمليات المعالجة، وتقود إلى وظائف في مجموعة أدنوك."},
     qa:{en:"QatarEnergy runs technician-level national development programs. We could not retrieve current entry requirements, so apply through their careers portal.",
         ar:"قطر للطاقة تدير برامج تطوير وطنية على مستوى الفنيين. ولم نستطع الحصول على شروط القبول الحالية، فتقدّم عبر بوابة التوظيف لديهم."},
     kw:{en:"We found no published Kuwait Oil Company school-leaver apprenticeship. Check their careers page directly.",
@@ -953,9 +955,9 @@ const ALT = [
     sa:{en:"Saudia Aerospace Engineering Industries and the Saudi Academy of Civil Aviation run technician training. Verify current intakes directly.",
         ar:"الشركة السعودية لهندسة وصناعة الطيران والأكاديمية السعودية للطيران المدني تديران تدريبًا للفنيين. تحقق من الدفعات الحالية مباشرة."},
     ae:{en:"The Emirates Group AMEL scholarship runs five and a half years for Emirati school leavers, fully sponsored, with a stipend that progresses to a full salary, ending in a GCAA certificate and a higher diploma. flydubai runs a four-year apprenticeship for UAE nationals aged 17 to 24.",
-        ar:"منحة رخصة مهندس صيانة الطائرات في مجموعة الإمارات خمس سنوات ونصف لخريجي الثانوية الإماراتيين، ممولة بالكامل بمكافأة تتحول إلى راتب كامل، وتنتهي بشهادة الهيئة العامة للطيران المدني ودبلوم عالٍ. وفلاي دبي تدير تلمذة أربع سنوات للإماراتيين من 17 إلى 24 سنة."},
+        ar:"منحة رخصة مهندس صيانة الطائرات في مجموعة الإمارات خمس سنوات ونصف لخريجي الثانوية الإماراتيين، ممولة بالكامل بمكافأة تتحول إلى راتب كامل، وتنتهي بشهادة الهيئة العامة للطيران المدني ودبلوم عالٍ. وفلاي دبي تدير تلمذة أربع سنوات للإماراتيين من ١٧ إلى ٢٤ سنة."},
     qa:{en:"The Qatar Airways aircraft maintenance engineering scholarship is for Qataris and applicants with a Qatari mother, aged 17 to 24, needing a scientific stream diploma at 70 or 75 per cent and IELTS 5.0 to 5.5. It runs about four and a quarter years, is fully funded, carries a five-year employment commitment, and ends in a Qatar Civil Aviation Authority license.",
-        ar:"منحة هندسة صيانة الطائرات في الخطوط الجوية القطرية للقطريين ولأبناء الأم القطرية، من 17 إلى 24 سنة، وتشترط ثانوية علمية بنسبة 70 أو 75 بالمئة وآيلتس من 5.0 إلى 5.5. ومدتها نحو أربع سنوات وربع، وممولة بالكامل، وفيها التزام بالعمل خمس سنوات، وتنتهي برخصة من الهيئة العامة للطيران المدني القطرية."},
+        ar:"منحة هندسة صيانة الطائرات في الخطوط الجوية القطرية للقطريين ولأبناء الأم القطرية، من ١٧ إلى ٢٤ سنة، وتشترط ثانوية علمية بنسبة ٧٠ أو ٧٥ بالمئة وآيلتس من ٥٫٠ إلى ٥٫٥. ومدتها نحو أربع سنوات وربع، وممولة بالكامل، وفيها التزام بالعمل خمس سنوات، وتنتهي برخصة من الهيئة العامة للطيران المدني القطرية."},
     kw:{en:"We found no published Kuwait Airways school-leaver scheme.", ar:"لم نجد برنامجًا منشورًا للخطوط الجوية الكويتية لخريجي الثانوية."},
     om:{en:"Oman Airports and Oman Air run technical training; check their careers pages.", ar:"مطارات عُمان والطيران العُماني يديران تدريبًا تقنيًا؛ راجع صفحات التوظيف لديهما."}}},
 
@@ -965,7 +967,7 @@ const ALT = [
  t:{en:"Six to twelve months, longer in some tracks.", ar:"من ستة إلى اثني عشر شهرًا، وأطول في بعض المسارات."},
  c:{en:"Free, and you are paid.", ar:"مجانية، وتتقاضى مقابلًا."},
  w:{bh:{en:"The Tamkeen on-the-job training program is open to any Bahraini aged 18 and over who is a jobseeker, whether or not nominated by the Ministry of Labor. It runs six to twelve months and pays a monthly allowance of BHD 200, or BHD 300 on the registered lawyers' track.",
-        ar:"برنامج التدريب على رأس العمل من تمكين مفتوح لأي بحريني من 18 سنة فأكثر باحث عن عمل، سواء رشحته وزارة العمل أو لا. ومدته من ستة إلى اثني عشر شهرًا، ويدفع بدلًا شهريًا 200 دينار، أو 300 دينار في مسار المحامين المسجلين."},
+        ar:"برنامج التدريب على رأس العمل من تمكين مفتوح لأي بحريني من ١٨ سنة فأكثر باحث عن عمل، سواء رشحته وزارة العمل أو لا. ومدته من ستة إلى اثني عشر شهرًا، ويدفع بدلًا شهريًا 200 دينار، أو 300 دينار في مسار المحامين المسجلين."},
     sa:{en:"Technical and Vocational Training Corporation evening programs pay a monthly stipend during training. The Tamheer scheme exists but targets graduates, not school leavers.",
         ar:"البرامج المسائية في المؤسسة العامة للتدريب التقني والمهني تدفع مكافأة شهرية أثناء التدريب. وبرنامج تمهير موجود لكنه يستهدف الخريجين لا خريجي الثانوية."},
     ae:{en:"Nafis supports Emirati employment in the private sector, including training and salary support.",
@@ -975,7 +977,7 @@ const ALT = [
     kw:{en:"Programs run through the Manpower and Government Restructuring Program.",
         ar:"البرامج تُدار عبر برنامج إعادة هيكلة القوى العاملة والجهاز التنفيذي للدولة."},
     om:{en:"The vocational colleges' apprenticeship pathway targets under-eighteens and jobseekers at three competence levels, and Oman's 2025 labor plan targeted 45,000 jobs.",
-        ar:"مسار التلمذة في الكليات المهنية يستهدف من دون الثامنة عشرة والباحثين عن عمل بثلاثة مستويات كفاءة، وخطة عُمان للعمل لعام 2025 استهدفت 45 ألف وظيفة."}}},
+        ar:"مسار التلمذة في الكليات المهنية يستهدف من دون الثامنة عشرة والباحثين عن عمل بثلاثة مستويات كفاءة، وخطة عُمان للعمل لعام ٢٠٢٥ استهدفت ٤٥ ألف وظيفة."}}},
 
 /* ---------------- licensed trades ---------------- */
 {id:"trades", f:"trade", open:"all", n:{en:"Licensed electrical and plumbing trades", ar:"الحرف الكهربائية والسباكة المرخصة"},
@@ -988,15 +990,15 @@ const ALT = [
  w:{bh:{en:"The Electricity and Water Authority issues four classes of electrician license: engineer, technician, wireman and cable jointer. The wireman license costs BHD 20 to register plus BHD 20 for the practical exam, needs a written and a practical test, and is valid five years. There is a parallel plumbers scheme. Applications are processed in about five working days. No degree is required for the technician or wireman routes.",
         ar:"هيئة الكهرباء والماء تصدر أربع فئات لرخصة الكهربائي: مهندس وفني وسلكي ولاحم كابلات. ورخصة السلكي تكلف 20 دينارًا للتسجيل و20 دينارًا للاختبار العملي، وتتطلب اختبارًا كتابيًا وعمليًا، وصلاحيتها خمس سنوات. وهناك برنامج موازٍ للسباكين. وتُنجز الطلبات في نحو خمسة أيام عمل. ولا تشترط شهادة جامعية لمساري الفني والسلكي."},
     sa:{en:"Trade competency is assessed through the Ministry of Human Resources professional examination route, which is designed for roles that do not require a degree, with 127 examination centers inside and outside the Kingdom.",
-        ar:"تُقيَّم كفاءة الحرفة عبر مسار الاختبار المهني في وزارة الموارد البشرية، وهو مصمم للوظائف التي لا تتطلب شهادة جامعية، ويضم 127 مركز اختبار داخل المملكة وخارجها."},
+        ar:"تُقيَّم كفاءة الحرفة عبر مسار الاختبار المهني في وزارة الموارد البشرية، وهو مصمم للوظائف التي لا تتطلب شهادة جامعية، ويضم ١٢٧ مركز اختبار داخل المملكة وخارجها."},
     ae:{en:"Trade licensing runs through the municipalities and utilities, and welding inspection qualifications such as CSWIP 3.1 and AWS Certified Welding Inspector are taught in Abu Dhabi and Dubai by providers including Petronext and Haward Technology.",
         ar:"ترخيص الحرف يمر عبر البلديات وشركات المرافق، وتُدرَّس مؤهلات تفتيش اللحام مثل CSWIP 3.1 وAWS للمفتش المعتمد في أبوظبي ودبي عبر مزودين منهم بترونكست وهاورد تكنولوجي."},
     qa:{en:"Kahramaa has licensed individual electricians and plumbers since October 2023 under Ministerial Resolution 2 of 2022, with theoretical and practical examinations and a QR-coded card that customers can verify. Qatar Civil Defense electrical certification is a separate and widely required credential, with exam preparation providers in Doha.",
-        ar:"كهرماء ترخّص الكهربائيين والسباكين أفرادًا منذ أكتوبر 2023 بموجب القرار الوزاري رقم 2 لسنة 2022، باختبارات نظرية وعملية وبطاقة برمز استجابة سريعة يتحقق منها العملاء. واعتماد الدفاع المدني القطري للكهرباء مؤهل منفصل ومطلوب على نطاق واسع، وله مزودو تحضير في الدوحة."},
+        ar:"كهرماء ترخّص الكهربائيين والسباكين أفرادًا منذ أكتوبر ٢٠٢٣ بموجب القرار الوزاري رقم ٢ لسنة ٢٠٢٢، باختبارات نظرية وعملية وبطاقة برمز استجابة سريعة يتحقق منها العملاء. واعتماد الدفاع المدني القطري للكهرباء مؤهل منفصل ومطلوب على نطاق واسع، وله مزودو تحضير في الدوحة."},
     kw:{en:"Trade work runs through Ministry of Electricity and Water approvals and employer certification.",
         ar:"العمل الحرفي يمر عبر موافقات وزارة الكهرباء والماء واعتماد أصحاب العمل."},
     om:{en:"From September 2025 Oman requires a practice license for 41 oil and gas occupations, including HSE advisers, crane operators, welders, drillers and technicians, as a condition of the work permit. This makes the license more valuable, not less.",
-        ar:"من سبتمبر 2025 تشترط عُمان رخصة مزاولة لـ41 مهنة في النفط والغاز، منها مستشارو الصحة والسلامة ومشغلو الرافعات واللحامون وحفارو الآبار والفنيون، شرطًا لتصريح العمل. وهذا يزيد قيمة الرخصة لا ينقصها."}}},
+        ar:"من سبتمبر ٢٠٢٥ تشترط عُمان رخصة مزاولة لـ٤١ مهنة في النفط والغاز، منها مستشارو الصحة والسلامة ومشغلو الرافعات واللحامون وحفارو الآبار والفنيون، شرطًا لتصريح العمل. وهذا يزيد قيمة الرخصة لا ينقصها."}}},
 
 {id:"offshore", f:"trade", open:"all", n:{en:"Offshore and industrial safety tickets", ar:"شهادات السلامة البحرية والصناعية"},
  d:{en:"Short courses that unlock offshore and industrial work: BOSIET for offshore survival, and welding inspection qualifications such as CSWIP 3.1. Well paid, degree-free, and in constant demand across Gulf engineering contracting.",
@@ -1013,7 +1015,7 @@ const ALT = [
         ar:"تدريب السلامة الصناعية يقدّمه عدة مزودين في الدوحة؛ تحقق من اعتماد OPITO قبل الدفع."},
     kw:{en:"No OPITO approved center verified in Kuwait.", ar:"لم نتحقق من وجود مركز معتمد من OPITO في الكويت."},
     om:{en:"Energy and Minerals Sector Skills Unit licensing now governs 41 oil and gas occupations, and training runs through OPAL accredited providers.",
-        ar:"وحدة مهارات قطاع الطاقة والمعادن تنظّم الآن ترخيص 41 مهنة في النفط والغاز، والتدريب عبر مزودين معتمدين من أوبال."}}}
+        ar:"وحدة مهارات قطاع الطاقة والمعادن تنظّم الآن ترخيص ٤١ مهنة في النفط والغاز، والتدريب عبر مزودين معتمدين من أوبال."}}}
 
 ];
 
@@ -1153,12 +1155,12 @@ ar:{
     ["وإن كنت خريج ثانوية وافدًا في الخليج، فلا يكاد شيء من ذلك متاحًا لك.",
      "كليات التقنية العليا للإماراتيين فقط. والهيئة العامة للتعليم التطبيقي والتدريب أعلنت القبول للكويتيين فقط. وبوليتكنك البحرين يفرض على غير البحرينيين عشرة أضعاف رسوم الساعة. وتمكين ودروب وسماي للمواطنين. وكل برنامج تلمذة كبير في النفط والطيران في هذه الصفحة للمواطنين فقط. والاستثناء الواضح هو AWS re/Start في البحرين، فشرطه الإقامة وشهادة ثانوية لا الجنسية، وهو أكثر مسار مجاني إتاحةً وجدناه."],
     ["ونظام التأشيرات يصنّفك أيضًا بحسب مؤهلك، وهذا ما يغفله أكثر الناس.",
-     "الإمارات تصنّف تصاريح العمل بمستويات مهارة، والمستوى الأول يشترط بكالوريوس مصدّقًا. والسعودية تقسم العمالة الوافدة رسميًا إلى مسار شهادة ومسار اختبار عملي عند مرحلة التأشيرة. وعُمان تغلق مهنًا محددة أمام الوافدين تدريجيًا، ومنها مبرمجو الحاسوب ومهندسو الحاسوب من يناير 2026. والشهادة لن تنقذك من الأخيرة، لكن على الوافد ألا يبني خطته على العمل التقني في عُمان."]
+     "الإمارات تصنّف تصاريح العمل بمستويات مهارة، والمستوى الأول يشترط بكالوريوس مصدّقًا. والسعودية تقسم العمالة الوافدة رسميًا إلى مسار شهادة ومسار اختبار عملي عند مرحلة التأشيرة. وعُمان تغلق مهنًا محددة أمام الوافدين تدريجيًا، ومنها مبرمجو الحاسوب ومهندسو الحاسوب من يناير ٢٠٢٦. والشهادة لن تنقذك من الأخيرة، لكن على الوافد ألا يبني خطته على العمل التقني في عُمان."]
   ],
 
   pickC:"أين أنت؟",
   pickF:"أي نوع من الطرق؟",
-  count:function(n){ return n + " طريقًا"; },
+  count:function(n){ return n === 0 ? "لا توجد طرق" : n === 1 ? "طريق واحد" : n === 2 ? "طريقان" : arNum(n) + " " + (n % 100 >= 3 && n % 100 <= 10 ? "طرق" : "طريقًا"); },
   time:"كم تستغرق",
   cost:"كم تكلف",
   where:"أين تحديدًا",
@@ -1169,7 +1171,7 @@ ar:{
   downS:"الصفحة الصادقة يجب أن تسعّر القرار لا أن تبيعه فقط. وهذه الكلف محددة، وكلها سياسات موثقة لا آراء.",
   downs:[
     ["أرضيات الأجور الحكومية في الخليج مربوطة بشهادتك لا بقدرتك.",
-     "دعم الأجور في تمكين البحرينية يحدد حدودًا دنيا مختلفة للبرنامج نفسه: 350 دينارًا شهريًا لخريج الثانوية، و430 لحامل الدبلوم، و500 لحامل البكالوريوس. أي فجوة 43 بالمئة عند البداية، مكتوبة في السياسة، على الورق فقط. والسعودية تفعل المثل في قواعد توطين المحاسبة، حيث يُحتسب الموظف السعودي ضمن نسبة صاحب العمل عند 6,000 ريال شهريًا بالبكالوريوس و4,500 بالدبلوم."],
+     "دعم الأجور في تمكين البحرينية يحدد حدودًا دنيا مختلفة للبرنامج نفسه: 350 دينارًا شهريًا لخريج الثانوية، و430 لحامل الدبلوم، و500 لحامل البكالوريوس. أي فجوة ٤٣ بالمئة عند البداية، مكتوبة في السياسة، على الورق فقط. والسعودية تفعل المثل في قواعد توطين المحاسبة، حيث يُحتسب الموظف السعودي ضمن نسبة صاحب العمل عند 6,000 ريال شهريًا بالبكالوريوس و4,500 بالدبلوم."],
     ["وبعض الأبواب المهنية تُغلق وتبقى مغلقة.",
      "بدون شهادة جامعية لا يمكنك دخول اختبار CPA الأمريكي إطلاقًا. وCMA تحتاج شهادة أو شهادة مهنية معتمدة أولًا. وCFA تجعلك تنتظر أربعة آلاف ساعة خبرة على ثلاث سنوات. وفي السعودية يبدو أن تسجيل الهيئة السعودية للمراجعين والمحاسبين، وهو مهم لمن يعمل في المحاسبة هناك بجدية، يشترط شهادة جامعية."],
     ["وللوافدين، تصريح العمل نفسه محدود بسقف.",
@@ -1186,7 +1188,7 @@ ar:{
   aibtn:"الذكاء الاصطناعي وتخصصك",
 
   srcT:"المصادر، وما لم نتحقق منه",
-  srcS:"جرى التحقق في أغسطس 2026. والرسوم وشروط القبول في هذا المجال تتغير كثيرًا، فتعامل مع كل رقم على أنه نقطة بداية لمكالمة هاتفية لا وعدًا.",
+  srcS:"جرى التحقق في أغسطس ٢٠٢٦. والرسوم وشروط القبول في هذا المجال تتغير كثيرًا، فتعامل مع كل رقم على أنه نقطة بداية لمكالمة هاتفية لا وعدًا.",
   src:null,
 
   gapsT:"ما لم نستطع التحقق منه",

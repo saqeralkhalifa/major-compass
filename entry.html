@@ -1713,6 +1713,8 @@ function verdict(p){
   return "short";
 }
 
+/* Arabic text uses Arabic-Indic digits, so numbers the page prints in Arabic go through arNum. */
+function arNum(x){ return String(x).replace(/[0-9]/g, function(d){ return "٠١٢٣٤٥٦٧٨٩".charAt(+d); }); }
 function altBlock(p, U){
   if(curr === "nat") return "";
   const f = p[curr];
@@ -1725,7 +1727,7 @@ function card(p, U, v){
   if(curr === "nat" && p.nat && p.nat.min != null){
     const label = p.wt ? (lang === "en" ? "Published minimum weighted score" : "الحد الأدنى المنشور للدرجة الموزونة")
                        : (lang === "en" ? "Published minimum" : "الحد الأدنى المنشور");
-    b += `<div class="minrow"><span>${label}</span><b>${p.nat.min}%</b></div>`;
+    b += `<div class="minrow"><span>${label}</span><b>${lang==="ar" ? arNum(p.nat.min) + "٪" : p.nat.min + "%"}</b></div>`;
   }
   if(curr === "nat" && p.nat && p.nat[lang]) b += `<div class="sec"><h3>${U.hWho}</h3><p>${p.nat[lang]}</p></div>`;
   b += altBlock(p, U);
@@ -1801,7 +1803,7 @@ function render(){
     const arr = buckets[g.k];
     if(!arr || !arr.length) return "";
     return `<section class="grp g-${g.c}">
-      <h2>${U[g.t]}<span class="cnt">${arr.length}</span></h2>
+      <h2>${U[g.t]}<span class="cnt">${lang==="ar" ? arNum(arr.length) : arr.length}</span></h2>
       ${g.s ? `<p class="grp-s">${U[g.s]}</p>` : ""}
       ${arr.map(p => card(p, U, g.c)).join("")}
     </section>`;
@@ -1820,7 +1822,7 @@ function render(){
   const L = LOSE[lang];
   $("loseT").textContent = L.t; $("loseS").textContent = L.s;
   $("lose").innerHTML = L.items.map((it,i) =>
-    `<div class="lose-row"><b>${i+1}. ${it[0]}</b><p>${it[1]}</p></div>`).join("");
+    `<div class="lose-row"><b>${lang==="ar" ? arNum(i+1) : i+1}. ${it[0]}</b><p>${it[1]}</p></div>`).join("");
 
   const C = CAL[lang];
   $("calT").textContent = C.t; $("calS").textContent = C.s;

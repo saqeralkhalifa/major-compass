@@ -268,6 +268,8 @@ ar:{
 }
 };
 function L(){ return T[LANG]; }
+/* Arabic text uses Arabic-Indic digits, so numbers the page prints in Arabic go through arNum. */
+function arNum(x){ return String(x).replace(/[0-9]/g, function(d){ return "٠١٢٣٤٥٦٧٨٩".charAt(+d); }); }
 var $ = function(id){ return document.getElementById(id); };
 var eduN = 0, expN = 0;
 
@@ -277,7 +279,7 @@ function eduRow(v){
   var d = document.createElement("div");
   d.className = "entry"; d.dataset.kind = "edu";
   d.innerHTML =
-    '<div class="top"><b>'+t.secEdu+' '+i+'</b><button class="rm" type="button">'+t.remove+'</button></div>'+
+    '<div class="top"><b>'+t.secEdu+' '+(LANG==="ar"?arNum(i):i)+'</b><button class="rm" type="button">'+t.remove+'</button></div>'+
     '<div class="f"><label>'+t.eInst+'</label><input class="e-inst" value="'+(v.inst||"")+'"></div>'+
     '<div class="two">'+
       '<div class="f"><label>'+t.eQual+'</label><input class="e-qual" value="'+(v.qual||"")+'"></div>'+
@@ -292,7 +294,7 @@ function expRow(v){
   var d = document.createElement("div");
   d.className = "entry"; d.dataset.kind = "exp";
   d.innerHTML =
-    '<div class="top"><b>'+t.secExp+' '+i+'</b><button class="rm" type="button">'+t.remove+'</button></div>'+
+    '<div class="top"><b>'+t.secExp+' '+(LANG==="ar"?arNum(i):i)+'</b><button class="rm" type="button">'+t.remove+'</button></div>'+
     '<div class="two">'+
       '<div class="f"><label>'+t.xOrg+'</label><input class="x-org" value="'+(v.org||"")+'"></div>'+
       '<div class="f"><label>'+t.xRole+'</label><input class="x-role" value="'+(v.role||"")+'"></div>'+

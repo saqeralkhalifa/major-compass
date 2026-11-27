@@ -1028,6 +1028,8 @@ html[lang="ar"] .navbtn{font-size:15px !important}
    against a Bahrain/GCC-grounded database of every major.
    ============================================================ */
 "use strict";
+/* Arabic text uses Arabic-Indic digits, so numbers the page prints in Arabic go through arNum. */
+function arNum(x){ return String(x).replace(/[0-9]/g, function(d){ return "٠١٢٣٤٥٦٧٨٩".charAt(+d); }); }
 
 /* ---------------- UI strings ---------------- */
 const UI = {
@@ -1120,11 +1122,11 @@ const UI = {
     how4: "ما يهمّك في مستقبلك المهني.",
     start: "ابدأ الاختبار",
     note: "نصيحة: أجب بصدق، لا كما “يجب” أن تجيب. تجاهل المال والمكانة الاجتماعية، وتخيّل أن كل المهن براتب واحد. هذا الاختبار أداة إرشادية لاستكشاف الخيارات، وليس حكمًا نهائيًا.",
-    refs: "المنهجية والمصادر: أسئلة الميول تتبع إطار هولاند RIASEC المستخدم في برنامج O*NET التابع لوزارة العمل الأمريكية (قاعدة البيانات 30.3، مايو 2026). والألغاز تتبع الصيغ المعتمدة في اختبارات القدرات (عددية، منطقية، لغوية، مكانية). ومؤشرات الطلب خاصة بكل دولة وتستند إلى استراتيجيتها الحالية وتقارير سوق العمل فيها: قطاعات الأولوية لدى مجلس التنمية الاقتصادية وتقارير مهارات البحرين، ورؤية السعودية 2030 وقرارات التوطين 2025-2026، ورؤية الإمارات 2031 ومشروع 300 مليار، ورؤية قطر الوطنية 2030 واستراتيجيتها الثالثة للتنمية، ورؤية الكويت 2035، ورؤية عُمان 2040 وخارطة اقتصادها الرقمي، إضافة إلى تقرير مستقبل الوظائف 2025 للنظرة العالمية.",
+    refs: "المنهجية والمصادر: أسئلة الميول تتبع إطار هولاند RIASEC المستخدم في برنامج O*NET التابع لوزارة العمل الأمريكية (قاعدة البيانات ٣٠٫٣، مايو ٢٠٢٦). والألغاز تتبع الصيغ المعتمدة في اختبارات القدرات (عددية، منطقية، لغوية، مكانية). ومؤشرات الطلب خاصة بكل دولة وتستند إلى استراتيجيتها الحالية وتقارير سوق العمل فيها: قطاعات الأولوية لدى مجلس التنمية الاقتصادية وتقارير مهارات البحرين، ورؤية السعودية ٢٠٣٠ وقرارات التوطين ٢٠٢٥-٢٠٢٦، ورؤية الإمارات ٢٠٣١ ومشروع ٣٠٠ مليار، ورؤية قطر الوطنية ٢٠٣٠ واستراتيجيتها الثالثة للتنمية، ورؤية الكويت ٢٠٣٥، ورؤية عُمان ٢٠٤٠ وخارطة اقتصادها الرقمي، إضافة إلى تقرير مستقبل الوظائف ٢٠٢٥ للنظرة العالمية.",
     back: "→ رجوع",
     next: "التالي ←",
     whyQ: "لماذا هذا السؤال؟",
-    qOf: (a,b)=>`السؤال ${a} من ${b}`,
+    qOf: (a,b)=>`السؤال ${arNum(a)} من ${arNum(b)}`,
     sections: ["اهتماماتك","دراستك ونقاط قوتك","ألغاز ذهنية","ما يهمّك"],
     likertHint: "ما شعورك تجاه هذا النشاط؟ (تجاهل المال والمكانة؛ المهم هل تستمتع به؟)",
     puzzleHint: "لغز: لهذا السؤال إجابة صحيحة. لا حاجة إلى آلة حاسبة.",
@@ -1146,7 +1148,7 @@ const UI = {
     nextTitle: "الخطوات التالية",
     nextSub: "اعرف من سيدفع تكاليف التخصص، واقرأ ما تتضمنه دراسته قبل أن تلتزم به.",
     sheetBrand: "بوصلة الشباب",
-    sheetClass: function(c){ return "الصف " + c; },
+    sheetClass: function(c){ return "الصف " + (/^[0-9]+$/.test(c) ? arNum(c) : c); },
     sheetNext: "شروط القبول لهذه التخصصات: saqeralkhalifa.github.io/major-compass/entry.html   فرص التدريب في هذا المجال: internships.saqeralkhalifa.com",
     sheetNote: "تستند إلى إطار هولاند RIASEC وبنود O*NET Interest Profiler، والمنهجية والمصادر كاملة في صفحة النتائج. وتعكس هذه الورقة الإجابات المعطاة في التاريخ أعلاه، وهي نقطة بداية لحوار لا توصية، ولم يُرسل أي شيء منها إلى أي جهة.",
     groupWord: {health:"الصحة والطب", tech:"الحاسوب والتقنية", eng:"الهندسة", biz:"الأعمال والمال", soc:"القانون والمجتمع", hum:"العلوم الإنسانية والتعليم", sci:"العلوم"},
@@ -1267,14 +1269,14 @@ const WHY_DEMAND = {
 const COUNTRIES = {
   bh:{n:{en:"Bahrain", ar:"البحرين"},
     src:{en:"Based on Bahrain EDB priority sectors (Annual Report 2024) and Skills Bahrain sector reports (2024-2025).",
-         ar:"استنادًا إلى قطاعات الأولوية لدى مجلس التنمية الاقتصادية (التقرير السنوي 2024) وتقارير مهارات البحرين (2024-2025)."},
+         ar:"استنادًا إلى قطاعات الأولوية لدى مجلس التنمية الاقتصادية (التقرير السنوي ٢٠٢٤) وتقارير مهارات البحرين (٢٠٢٤-٢٠٢٥)."},
     high:{med:"health", pharm:"health", nurs:"nurse", physio:"health", cs:"ict", cyber:"cyber", data:"ai",
           fin:"finhub", fintech:"fintech", math:"shortage", acct:"audit", logi:"logis", avia:"avi", renew:"green",
           insurance:"insur"}},
 
   sa:{n:{en:"Saudi Arabia", ar:"السعودية"},
     src:{en:"Based on Vision 2030 priority sectors, 2025-2026 Saudization decisions, and current market reports.",
-         ar:"استنادًا إلى قطاعات رؤية 2030 وقرارات التوطين 2025-2026 وتقارير سوق العمل الحديثة."},
+         ar:"استنادًا إلى قطاعات رؤية ٢٠٣٠ وقرارات التوطين ٢٠٢٥-٢٠٢٦ وتقارير سوق العمل الحديثة."},
     high:{med:"health", dent:"localised", pharm:"localised", nurs:"health", biomed:"localised", physio:"localised",
           cs:"ict", cyber:"cyber", data:"ai", netw:"ict", mech:"manu", elec:"energy", civil:"constr", chem:"energy",
           indus:"manu", renew:"green", acct:"localised", fin:"finhub", mkt:"localised", logi:"logis",
@@ -1283,35 +1285,35 @@ const COUNTRIES = {
 
   ae:{n:{en:"United Arab Emirates", ar:"الإمارات"},
     src:{en:"Based on We the UAE 2031, Operation 300bn, the National AI Strategy, and 2026 salary and hiring guides.",
-         ar:"استنادًا إلى رؤية الإمارات 2031 ومشروع 300 مليار والاستراتيجية الوطنية للذكاء الاصطناعي وأدلة التوظيف 2026."},
+         ar:"استنادًا إلى رؤية الإمارات ٢٠٣١ ومشروع ٣٠٠ مليار والاستراتيجية الوطنية للذكاء الاصطناعي وأدلة التوظيف ٢٠٢٦."},
     high:{med:"health", nurs:"health", cs:"ict", cyber:"cyber", data:"ai", netw:"ict", elec:"energy",
           civil:"constr", renew:"green", fin:"finhub", fintech:"fintech", edu:"teach",
           arch:"giga", envsci:"netzero", petroleum:"upstream", aero:"aerospace", robotics:"industry4", marineeng:"ports", urbanplan:"giga", hr:"hrloc", mis:"digital", agri:"foodsec", nuclear:"nucprog", quantsurv:"giga"}},
 
   qa:{n:{en:"Qatar", ar:"قطر"},
     src:{en:"Based on Qatar National Vision 2030, the Third National Development Strategy 2024-2030, and current market reporting.",
-         ar:"استنادًا إلى رؤية قطر الوطنية 2030 والاستراتيجية الوطنية الثالثة للتنمية 2024-2030 وتقارير السوق الحديثة."},
+         ar:"استنادًا إلى رؤية قطر الوطنية ٢٠٣٠ والاستراتيجية الوطنية الثالثة للتنمية ٢٠٢٤-٢٠٣٠ وتقارير السوق الحديثة."},
     high:{med:"health", nurs:"nurse", cs:"ict", cyber:"cyber", data:"ai", mech:"energy", elec:"energy",
           civil:"constr", chem:"lng", fin:"finhub", tour:"tourism",
           petroleum:"upstream", sportmgmt:"sportev"}},
 
   kw:{n:{en:"Kuwait", ar:"الكويت"},
     src:{en:"Based on Kuwait Vision 2035, government scholarship priorities for 2026-27, and the national project pipeline.",
-         ar:"استنادًا إلى رؤية الكويت 2035 وأولويات البعثات الحكومية 2026-2027 وخطة المشاريع الوطنية."},
+         ar:"استنادًا إلى رؤية الكويت ٢٠٣٥ وأولويات البعثات الحكومية ٢٠٢٦-٢٠٢٧ وخطة المشاريع الوطنية."},
     high:{med:"health", nurs:"nurse", physio:"health", cs:"ict", cyber:"cyber", data:"ai", mech:"energy",
           elec:"energy", civil:"constr", chem:"energy", fin:"finhub", edu:"localised",
           radiology:"alliedsch", speech:"alliedsch", occtherapy:"alliedsch", resptherapy:"alliedsch", petroleum:"upstream", ems:"ambulance"}},
 
   om:{n:{en:"Oman", ar:"عُمان"},
     src:{en:"Based on Oman Vision 2040, the Digital Economy Roadmap 2026-2030, and current Omanisation decisions.",
-         ar:"استنادًا إلى رؤية عُمان 2040 وخارطة الاقتصاد الرقمي 2026-2030 وقرارات التعمين الحديثة."},
+         ar:"استنادًا إلى رؤية عُمان ٢٠٤٠ وخارطة الاقتصاد الرقمي ٢٠٢٦-٢٠٣٠ وقرارات التعمين الحديثة."},
     high:{med:"health", nurs:"nurse", cs:"localised", cyber:"cyber", data:"ai", netw:"localised", chem:"energy",
           renew:"green", fin:"finhub", logi:"logis", law:"localised",
           geology:"minestrat", marinesci:"fisheries", petroleum:"upstream", marineeng:"ports", agri:"foodsec", mining:"minestrat"}},
 
   xx:{n:{en:"Global outlook", ar:"النظرة العالمية"},
     src:{en:"Based on the World Economic Forum Future of Jobs Report 2025 (global outlook to 2030).",
-         ar:"استنادًا إلى تقرير مستقبل الوظائف 2025 الصادر عن المنتدى الاقتصادي العالمي (النظرة العالمية حتى 2030)."},
+         ar:"استنادًا إلى تقرير مستقبل الوظائف ٢٠٢٥ الصادر عن المنتدى الاقتصادي العالمي (النظرة العالمية حتى ٢٠٣٠)."},
     high:{nurs:"wef", psych:"care", cs:"wef", cyber:"wef", data:"wef", netw:"wef", renew:"wef",
           fintech:"wef", math:"wef", avia:"pilots", edu:"wef"}}
 };
@@ -1426,8 +1428,8 @@ const QUESTIONS = [
   ]},
 
   /* ===== Section 2: Mind puzzles (right answers; +2 to aptitude) ===== */
-  {sec:2, type:"puzzle", apt:"num", t:{en:"A jacket costs 20 dinars. In a sale, its price is reduced by 25%. What is the sale price?", ar:"سترة ثمنها ٢٠ دينارًا. في تخفيضات، انخفض سعرها بنسبة ٢٥٪. كم يصبح سعرها؟"}, opts:[
-    {t:{en:"12 dinars", ar:"١٢ دينارًا"}}, {t:{en:"14 dinars", ar:"١٤ دينارًا"}}, {t:{en:"15 dinars", ar:"١٥ دينارًا"}, correct:true}, {t:{en:"16 dinars", ar:"١٦ دينارًا"}}
+  {sec:2, type:"puzzle", apt:"num", t:{en:"A jacket costs 20 dinars. In a sale, its price is reduced by 25%. What is the sale price?", ar:"سترة ثمنها 20 دينارًا. في تخفيضات، انخفض سعرها بنسبة ٢٥٪. كم يصبح سعرها؟"}, opts:[
+    {t:{en:"12 dinars", ar:"12 دينارًا"}}, {t:{en:"14 dinars", ar:"14 دينارًا"}}, {t:{en:"15 dinars", ar:"15 دينارًا"}, correct:true}, {t:{en:"16 dinars", ar:"16 دينارًا"}}
   ]},
   {sec:2, type:"puzzle", apt:"num", t:{en:"A number increased by 20% equals 60. What was the original number?", ar:"عدد زِيد بنسبة ٢٠٪ فأصبح ٦٠. ما العدد الأصلي؟"}, opts:[
     {t:{en:"40", ar:"٤٠"}}, {t:{en:"48", ar:"٤٨"}}, {t:{en:"50", ar:"٥٠"}, correct:true}, {t:{en:"52", ar:"٥٢"}}
@@ -2026,7 +2028,7 @@ if (typeof document !== "undefined") (function(){
     /* MCSHEET: fill the print only header and footer. Nothing here leaves the browser. */
     $("ph-brand").textContent = U.sheetBrand;
     try{
-      $("ph-date").textContent = new Date().toLocaleDateString(lang==="ar"?"ar-BH":"en-GB",
+      $("ph-date").textContent = new Date().toLocaleDateString(lang==="ar"?"ar-BH-u-nu-arab":"en-GB",
         {day:"numeric", month:"long", year:"numeric"});
     }catch(e){ $("ph-date").textContent = ""; }
     var sh_cls = "";
@@ -2075,7 +2077,7 @@ if (typeof document !== "undefined") (function(){
       row.innerHTML =
         `<span class="plabel">${lang==="en"?DIMS[L].enShort:DIMS[L].arShort}<small>${L}</small></span>` +
         `<div class="ptrack"><div class="pfill" style="width:${Math.round(val*100)}%"></div></div>` +
-        `<span class="pval">${Math.round(val*100)}</span>`;
+        `<span class="pval">${lang==="ar" ? arNum(Math.round(val*100)) : Math.round(val*100)}</span>`;
       rows.appendChild(row);
     });
 
@@ -2125,9 +2127,9 @@ if (typeof document !== "undefined") (function(){
       const card = document.createElement("div");
       card.className = "mcard";
       card.innerHTML =
-        `<div class="mtop"><span class="mrank">${idx+1}</span>` +
+        `<div class="mtop"><span class="mrank">${lang==="ar" ? arNum(idx+1) : idx+1}</span>` +
         `<span class="mname serif">${m.n[lang]}</span>` +
-        `<span class="mpct">${r.pct}% ${U.matchWord}</span></div>` +
+        `<span class="mpct">${lang==="ar" ? arNum(r.pct) + "٪" : r.pct + "%"} ${U.matchWord}</span></div>` +
         `<p class="mwhy"><b>${U.whyLabel}</b> ${buildWhy(m, p, lang)}</p>` +
         `<p class="mcareers"><b>${U.careersLabel}</b> ${m.c[lang].join(" · ")}</p>` +
         badge +

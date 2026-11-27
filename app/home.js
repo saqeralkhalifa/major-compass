@@ -29,6 +29,8 @@
   window.mcAppSetLang = setLang;
   function L() { return document.documentElement.lang === 'ar' ? 'ar' : 'en'; }
   function t(en, ar) { return L() === 'ar' ? ar : en; }
+  /* Arabic text uses Arabic-Indic digits. */
+  function arNum(x) { return String(x).replace(/[0-9]/g, function (d) { return '٠١٢٣٤٥٦٧٨٩'.charAt(+d); }); }
 
   /* ---------- data ---------- */
   var MAJORS = {}, DEADLINES = null;
@@ -76,7 +78,7 @@
     document.getElementById('resumeSub').textContent =
       t('Tap to see all five, and everything you have saved.',
         'اضغط لعرض الخمسة كاملة وكل ما حفظته.') + ' ' +
-      d.toLocaleDateString(L() === 'ar' ? 'ar' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+      d.toLocaleDateString(L() === 'ar' ? 'ar-BH-u-nu-arab' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
   }
 
   /* ---------- next deadline ---------- */
@@ -125,7 +127,7 @@
     document.getElementById('dlWhen').textContent =
       days === 0 ? t('Today', 'اليوم')
       : days === 1 ? t('Tomorrow', 'غدًا')
-      : t('In ' + days + ' days', 'بعد ' + days + ' يومًا');
+      : t('In ' + days + ' days', 'بعد ' + (days === 2 ? 'يومين' : arNum(days) + (days % 100 >= 3 && days % 100 <= 10 ? ' أيام' : ' يومًا')));
   }
 
   /* ---------- country chips ---------- */
@@ -200,7 +202,9 @@
           schedule().then(function (n) {
             paintNotify();
             document.getElementById('notifyNote').textContent =
-              t(n + ' reminders set.', 'تم ضبط ' + n + ' تنبيهًا.');
+              t(n === 1 ? '1 reminder set.' : n + ' reminders set.',
+                n === 0 ? 'لم يُضبط أي تنبيه.' : n === 1 ? 'تم ضبط تنبيه واحد.' : n === 2 ? 'تم ضبط تنبيهين.'
+                : 'تم ضبط ' + arNum(n) + (n % 100 >= 3 && n % 100 <= 10 ? ' تنبيهات.' : ' تنبيهًا.'));
           });
         } else {
           document.getElementById('notifyNote').textContent =
